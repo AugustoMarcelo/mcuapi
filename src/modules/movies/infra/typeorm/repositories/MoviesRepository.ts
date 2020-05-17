@@ -18,6 +18,16 @@ class MoviesRepository implements IMoviesRepository {
 
     return movie;
   }
+
+  public async update(movie: Movie): Promise<Movie> {
+    return this.ormRepository.save(movie);
+  }
+
+  public async findById(id: string): Promise<Movie | undefined> {
+    const findMovie = await this.ormRepository.findOne(id);
+
+    return findMovie;
+  }
 }
 
 export default MoviesRepository;

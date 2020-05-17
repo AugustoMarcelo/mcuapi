@@ -18,6 +18,22 @@ class FakeMoviesRepository implements IMoviesRepository {
 
     return movie;
   }
+
+  public async update(movie: IMovie): Promise<IMovie> {
+    const findIndex = this.movies.findIndex(
+      findMovie => findMovie.id === movie.id,
+    );
+
+    this.movies[findIndex] = movie;
+
+    return movie;
+  }
+
+  public async findById(id: string): Promise<IMovie | undefined> {
+    const findMovie = this.movies.find(movie => movie.id === id);
+
+    return findMovie;
+  }
 }
 
 export default FakeMoviesRepository;
