@@ -2,6 +2,8 @@ import { Repository, getRepository } from 'typeorm';
 
 import IMoviesRepository from '@modules/movies/repositories/IMoviesRepository';
 import ICreateMovieDTO from '@modules/movies/dtos/ICreateMovieDTO';
+import IFindAllMoviesDTO from '@modules/movies/dtos/IFindAllMoviesDTO';
+import IFindAllMoviesResponseDTO from '@modules/movies/dtos/IFindAllMoviesResponseDTO';
 import Movie from '../entities/Movie';
 
 class MoviesRepository implements IMoviesRepository {
@@ -27,6 +29,20 @@ class MoviesRepository implements IMoviesRepository {
     const findMovie = await this.ormRepository.findOne(id);
 
     return findMovie;
+  }
+
+  public async findAll({
+    page,
+    limit,
+  }: IFindAllMoviesDTO): Promise<IFindAllMoviesResponseDTO> {
+    const skip = page && limit && (page - 1) * limit;
+
+    const [movies, total] = await this.ormRepository.findAndCount({
+      take: limit,
+      skip,
+    });
+
+    return { data: movies, total };
   }
 }
 
