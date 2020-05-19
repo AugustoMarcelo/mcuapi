@@ -16,7 +16,7 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "forceConsistentCasingInFileNames": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "exclude": ["jest.config.js", "node_modules", "prettier.config.js", "coverage"]
+  "exclude": ["jest.config.js", "node_modules", "prettier.config.js", "coverage", "covers"]
 }
