@@ -1,4 +1,4 @@
-export default interface IFoundAllMoviesDTO {
+export default interface IFindAllMoviesDTO {
   page?: number;
   limit?: number;
 }
