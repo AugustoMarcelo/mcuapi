@@ -2,4 +2,8 @@ node_modules/
 
 ormconfig.json
 
+# Test folder
 coverage/
+
+# Environment variables
+.env
