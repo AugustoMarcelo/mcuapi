@@ -1,54 +1,111 @@
-# About the project
+## 📖 Index
+ - 📑 [About the project](#-about-the-project)
+ - ➡ [Endpoints](#-endpoints)
+ - ℹ [About the API](#-about-the-api)
+
+___
+
+## 📑 About the project
 
 In development...
 ___
 
-# ➡ Endpoints
+## ➡ Endpoints
 
-## [`GET` /api/v1/movies{?page?limit}]
+### [`GET` /api/v1/movies{?page?limit}]
 > List all movies
 + Parameters
-  | Parameter | Description | Parameter Type     | Default Value  |
-  |-----------|-------------|--------------------|---------------|
-  | page      | Page number request | Query (*optional*) | - |
-  | limit     | Number of items by request | Query (*optional*) | - |
+  <table width="100%">
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Description</th>
+        <th>Parameter Type</th>
+        <th>Default Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>page</td>
+        <td>Page number request</td>
+        <td>Query (<i>optional</i>)</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>limit</td>
+        <td>Number of items by request</td>
+        <td>Query (<i>optional</i>)</td>
+        <td>-</td>
+      </tr>
+    </tbody>
+  </table>
 
 + Response `200` (application/json)
-  + Body
-    ```json
-    {
-      "total": 1,
-      "data": [
-        {
-
-        },
-      ]
-    }
-    ```
-
-## [`GET` /api/v1/movies/{movie_id}]
-> Show one movie
-+ Parameters
-  | Parameter | Description | Parameter Type     | Default Value  |
-  |-----------|-------------|--------------------|---------------|
-  | movie_id  | Movie ID    | Path               | - |
-
-+ Request (application/json)
   ```json
   {
-    "movie_id": "uuid format"
+    "total": 1,
+    "data": [
+      {
+        "id": "2b88bf8b-3d6f-4944-bf96-2278acaca83f",
+        "title": "Iron Man",
+        "release_date": "2008-05-01T03:00:00.000Z",
+        "box_office": 585171547,
+        "duration": 126,
+        "overview": "2008's Iron Man tells the story of Tony Stark, a billionaire industrialist and genius inventor who is kidnapped and forced to build a devastating weapon. Instead, using his intelligence and ingenuity, Tony builds a high-tech suit of armor and escapes captivity. When he uncovers a nefarious plot with global implications, he dons his powerful armor and vows to protect the world as Iron Man.",
+        "cover_url": "https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/iron-man.jpg",
+        "directed_by": "Jon Favreau",
+        "phase": 1,
+        "saga": "Infinity Saga",
+        "chronology": 3,
+        "post_credit_scenes": 1
+      },
+    ]
   }
   ```
+---
+
+### [`GET` /api/v1/movies/{movie_id}]
+> Show one movie
++ Parameters
+  <table width="100%">
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Description</th>
+        <th>Parameter Type</th>
+        <th>Default Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>movie_id</td>
+        <td>Movie ID</td>
+        <td>Path (uuid format)</td>
+        <td>-</td>
+      </tr>
+    </tbody>
+  </table>
 
 + Response `200` (application/json)
   ```json
   {
-
+    "id": "2b88bf8b-3d6f-4944-bf96-2278acaca83f",
+    "title": "Iron Man",
+    "release_date": "2008-05-01T03:00:00.000Z",
+    "box_office": 585171547,
+    "duration": 126,
+    "overview": "2008's Iron Man tells the story of Tony Stark, a billionaire industrialist and genius inventor who is kidnapped and forced to build a devastating weapon. Instead, using his intelligence and ingenuity, Tony builds a high-tech suit of armor and escapes captivity. When he uncovers a nefarious plot with global implications, he dons his powerful armor and vows to protect the world as Iron Man.",
+    "cover_url": "https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/iron-man.jpg",
+    "directed_by": "Jon Favreau",
+    "phase": 1,
+    "saga": "Infinity Saga",
+    "chronology": 3,
+    "post_credit_scenes": 1
   }
   ```
 ___
 
-# About the API
+## ℹ About the API
 
 **Chronological order followed:**
 
