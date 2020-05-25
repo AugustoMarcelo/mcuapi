@@ -7,3 +7,5 @@ coverage/
 
 # Environment variables
 .env
+
+dist/
