@@ -5,8 +5,10 @@
   "license": "MIT",
   "scripts": {
     "dev:server": "ts-node-dev -r tsconfig-paths/register --transpileOnly --inspect --ignore-watch node_modules src/shared/infra/http/server.ts",
-    "start": "ts-node src/shared/infra/http/server.ts",
-    "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "start": "node dist/shared/infra/http/server.js",
+    "build": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./dist",
+    "typeorm:dev": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "typeorm": "node ./node_modules/typeorm/cli.js",
     "test": "jest"
   },
   "engines": {
@@ -45,6 +47,7 @@
     "ts-jest": "^26.0.0",
     "ts-node-dev": "^1.0.0-pre.44",
     "tsconfig-paths": "^3.9.0",
+    "tscpaths": "^0.0.9",
     "typescript": "^3.9.2"
   }
 }
