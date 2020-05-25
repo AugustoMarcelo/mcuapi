@@ -48,7 +48,7 @@ ___
       {
         "id": "2b88bf8b-3d6f-4944-bf96-2278acaca83f",
         "title": "Iron Man",
-        "release_date": "2008-05-01T03:00:00.000Z",
+        "release_date": "2008-05-01",
         "box_office": 585171547,
         "duration": 126,
         "overview": "2008's Iron Man tells the story of Tony Stark, a billionaire industrialist and genius inventor who is kidnapped and forced to build a devastating weapon. Instead, using his intelligence and ingenuity, Tony builds a high-tech suit of armor and escapes captivity. When he uncovers a nefarious plot with global implications, he dons his powerful armor and vows to protect the world as Iron Man.",
@@ -91,7 +91,7 @@ ___
   {
     "id": "2b88bf8b-3d6f-4944-bf96-2278acaca83f",
     "title": "Iron Man",
-    "release_date": "2008-05-01T03:00:00.000Z",
+    "release_date": "2008-05-01",
     "box_office": 585171547,
     "duration": 126,
     "overview": "2008's Iron Man tells the story of Tony Stark, a billionaire industrialist and genius inventor who is kidnapped and forced to build a devastating weapon. Instead, using his intelligence and ingenuity, Tony builds a high-tech suit of armor and escapes captivity. When he uncovers a nefarious plot with global implications, he dons his powerful armor and vows to protect the world as Iron Man.",
