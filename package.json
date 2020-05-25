@@ -9,6 +9,9 @@
     "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
     "test": "jest"
   },
+  "engines": {
+    "node": "12.16.1"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "class-transformer": "^0.2.3",
