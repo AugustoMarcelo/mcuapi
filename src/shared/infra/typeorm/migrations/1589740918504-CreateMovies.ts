@@ -24,7 +24,7 @@ export default class CreateMovies1589740918504 implements MigrationInterface {
           },
           {
             name: 'box_office',
-            type: 'int',
+            type: 'bigint',
             isNullable: true,
           },
           {

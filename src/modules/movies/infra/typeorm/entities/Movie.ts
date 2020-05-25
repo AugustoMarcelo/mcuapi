@@ -9,7 +9,7 @@ class Movie implements IMovie {
   @Column()
   title: string;
 
-  @Column()
+  @Column('date')
   release_date: Date;
 
   @Column()
