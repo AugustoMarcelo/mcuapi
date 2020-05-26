@@ -7,7 +7,7 @@ ___
 
 ## 📑 About the project
 
-A RESTFul API for MCU (Marvel Cinematic Universe)!
+A RESTFul API for MCU (Marvel Cinematic Universe)! Just movies... for now
 ___
 
 ## ➡ Endpoints
