@@ -1,16 +1,18 @@
 ## 📖 Index
  - 📑 [About the project](#-about-the-project)
  - ➡ [Endpoints](#-endpoints)
- - ℹ [About the API](#-about-the-api)
+ - ℹ [API considerations](#-api-considerations)
 
 ___
 
 ## 📑 About the project
 
-In development...
+A RESTFul API for MCU (Marvel Cinematic Universe)!
 ___
 
 ## ➡ Endpoints
+
+> baseURL: https://mcuapi.herokuapp.com
 
 ### [`GET` /api/v1/movies{?page?limit}]
 > List all movies
@@ -105,7 +107,7 @@ ___
   ```
 ___
 
-## ℹ About the API
+## ℹ API considerations
 
 **Chronological order followed:**
 
