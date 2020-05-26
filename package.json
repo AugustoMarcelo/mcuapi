@@ -9,6 +9,8 @@
     "build": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./dist",
     "typeorm:dev": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
     "typeorm": "node ./node_modules/typeorm/cli.js",
+    "seed:run:dev": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm-seeding/dist/cli.js seed",
+    "seed:run": "node ./node_modules/typeorm-seeding/dist/cli.js seed",
     "test": "jest"
   },
   "engines": {
@@ -26,6 +28,7 @@
     "reflect-metadata": "^0.1.13",
     "tsyringe": "^4.2.0",
     "typeorm": "^0.2.24",
+    "typeorm-seeding": "^1.6.1",
     "uuidv4": "^6.0.8"
   },
   "devDependencies": {
