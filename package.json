@@ -10,6 +10,8 @@
     "typeorm:dev": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
     "typeorm": "node ./node_modules/typeorm/cli.js",
     "seed:run:dev": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm-seeding/dist/cli.js seed",
+    "seed:config:dev": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm-seeding/dist/cli.js config",
+    "seed:config": "node ./node_modules/typeorm-seeding/dist/cli.js config",
     "seed:run": "node ./node_modules/typeorm-seeding/dist/cli.js seed",
     "test": "jest"
   },
