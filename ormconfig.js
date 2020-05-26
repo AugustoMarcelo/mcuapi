@@ -1,4 +1,4 @@
-const dev =  {
+const dev = {
   type: "postgres",
   host: process.env.DB_HOST,
   port: 5432,
@@ -11,12 +11,18 @@ const dev =  {
   migrations: [
     "./src/shared/infra/typeorm/migrations/*.ts"
   ],
+  seeds: [
+    "./src/shared/infra/typeorm/seeds/*.ts",
+  ],
+  factories: [
+    "./src/shared/infra/typeorm/factories/*.ts",
+  ],
   cli: {
     "migrationsDir": "./src/shared/infra/typeorm/migrations"
   }
 }
 
-const production =  {
+const production = {
   type: "postgres",
   host: process.env.DB_HOST,
   port: 5432,
@@ -27,10 +33,16 @@ const production =  {
     "./dist/modules/**/infra/typeorm/entities/*.js",
   ],
   migrations: [
-    "./dist/shared/infra/typeorm/migrations/*.js"
+    "./dist/shared/infra/typeorm/migrations/*.js",
+  ],
+  seeds: [
+    "./dist/shared/infra/typeorm/seeds/*.js",
+  ],
+  factories: [
+    "./dist/shared/infra/typeorm/factories/*.js",
   ],
   cli: {
-    "migrationsDir": "./dist/shared/infra/typeorm/migrations"
+    "migrationsDir": "./dist/shared/infra/typeorm/migrations",
   }
 }
 
