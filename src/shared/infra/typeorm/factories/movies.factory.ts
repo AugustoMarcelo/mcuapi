@@ -69,7 +69,7 @@ const movies: Omit<IMovie, 'id'>[] = [
     overview:
       "Marvel's 'Captain America: The First Avenger' focuses on the early days of the Marvel Universe when Steve Rogers volunteers to participate in an experimental program that turns him into the Super Soldier known as Captain America.",
     cover_url:
-      'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/captain-america-the-first-avenger.jpeg',
+      'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/captain-america-the-first-avenger.jpg',
     directed_by: 'Joe Johnston',
     phase: 1,
     saga: 'Infinity Saga',
@@ -345,6 +345,21 @@ const movies: Omit<IMovie, 'id'>[] = [
     saga: 'Infinity Saga',
     chronology: 23,
     post_credit_scenes: 2,
+  },
+  {
+    title: 'Black Widow',
+    release_date: new Date(2020, 10, 6),
+    box_office: 0,
+    duration: 0,
+    overview:
+      "In Marvel Studios' action-packed spy thriller “Black Widow”, Natasha Romanoff aka Black Widow confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises. Pursued by a force that will stop at nothing to bring her down, Natasha must deal with her history as a spy and the broken relationships left in her wake long before she became an Avenger.",
+    cover_url:
+      'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/black-widow.jpg',
+    directed_by: 'Cate Shortland',
+    phase: undefined,
+    saga: 'Infinity Saga',
+    chronology: undefined,
+    post_credit_scenes: 0,
   },
 ];
 
