@@ -13,10 +13,12 @@ class ListAllMoviesService {
   public async execute({
     page,
     limit,
+    columns,
   }: IFindAllMoviesDTO): Promise<IFindAllMoviesResponseDTO> {
     const { data, total } = await this.moviesRepository.findAll({
       page,
       limit,
+      columns,
     });
 
     return { data, total };
