@@ -9,16 +9,18 @@ import ShowMovieService from '@modules/movies/services/ShowMovieService';
 interface IRequestQuery {
   page?: number;
   limit?: number;
+  columns?: string;
 }
 
 export default class MoviesController {
   public async index(request: Request, response: Response): Promise<Response> {
-    const { page, limit }: IRequestQuery = request.query;
+    const { page, limit, columns }: IRequestQuery = request.query;
 
     const listAllMovies = container.resolve(ListAllMoviesService);
     const { data, total } = await listAllMovies.execute({
       page,
       limit,
+      columns,
     });
 
     return response.json({ data, total });

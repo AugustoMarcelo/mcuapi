@@ -34,12 +34,29 @@ class MoviesRepository implements IMoviesRepository {
   public async findAll({
     page,
     limit,
+    columns,
   }: IFindAllMoviesDTO): Promise<IFindAllMoviesResponseDTO> {
     const skip = page && limit && (page - 1) * limit;
+
+    const select = columns?.split(',').map(column => column.trim()) as (
+      | 'id'
+      | 'title'
+      | 'release_date'
+      | 'box_office'
+      | 'duration'
+      | 'overview'
+      | 'cover_url'
+      | 'directed_by'
+      | 'phase'
+      | 'saga'
+      | 'chronology'
+      | 'post_credit_scenes'
+    )[];
 
     const [movies, total] = await this.ormRepository.findAndCount({
       take: limit,
       skip,
+      select: select || undefined,
     });
 
     return { data: movies, total };
