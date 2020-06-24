@@ -14,7 +14,7 @@ ___
 
 > baseURL: https://mcuapi.herokuapp.com
 
-### [`GET` /api/v1/movies{?page?limit}]
+### [`GET` /api/v1/movies{?page?limit?columns}]
 > List all movies
 + Parameters
   <table width="100%">
@@ -23,6 +23,7 @@ ___
         <th>Parameter</th>
         <th>Description</th>
         <th>Parameter Type</th>
+        <th>Usage</th>
         <th>Default Value</th>
       </tr>
     </thead>
@@ -31,13 +32,22 @@ ___
         <td>page</td>
         <td>Page number request</td>
         <td>Query (<i>optional</i>)</td>
+        <td>page=1</td>
         <td>-</td>
       </tr>
       <tr>
         <td>limit</td>
         <td>Number of items by request</td>
         <td>Query (<i>optional</i>)</td>
+        <td>limit=10</td>
         <td>-</td>
+      </tr>
+      <tr>
+        <td>columns</td>
+        <td>Movies attributes</td>
+        <td>Query (<i>optional</i>)</td>
+        <td>columns=title,release_date</td>
+        <td>All attributes will be returned</td>
       </tr>
     </tbody>
   </table>
