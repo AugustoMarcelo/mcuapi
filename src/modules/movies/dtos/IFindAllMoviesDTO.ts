@@ -3,4 +3,5 @@ export default interface IFindAllMoviesDTO {
   limit?: number;
   columns?: string;
   order?: string;
+  filter?: string;
 }

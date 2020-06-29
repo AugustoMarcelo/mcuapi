@@ -36,6 +36,7 @@ class MoviesRepository implements IMoviesRepository {
     limit,
     columns,
     order,
+    filter,
   }: IFindAllMoviesDTO): Promise<IFindAllMoviesResponseDTO> {
     const skip = page && limit && (page - 1) * limit;
 
@@ -54,13 +55,26 @@ class MoviesRepository implements IMoviesRepository {
       | 'post_credit_scenes'
     )[];
 
-    const [column, form = 'ASC'] = order ? order.split(',') : [];
+    const [columnOrder, form = 'ASC'] = order
+      ? order.split(',').map(item => item.trim())
+      : [];
+
+    const [columnWhere, whereValue] = filter
+      ? filter.split('=').map(item => item.trim())
+      : [];
+
+    const where = columnWhere
+      ? {
+          [columnWhere]: whereValue,
+        }
+      : undefined;
 
     const [movies, total] = await this.ormRepository.findAndCount({
       take: limit,
       skip,
       select: select || undefined,
-      order: column ? { [column]: form.toUpperCase() } : undefined,
+      where: where || undefined,
+      order: columnOrder ? { [columnOrder]: form.toUpperCase() } : undefined,
     });
 
     return { data: movies, total };
