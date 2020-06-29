@@ -15,12 +15,14 @@ class ListAllMoviesService {
     limit,
     columns,
     order,
+    filter,
   }: IFindAllMoviesDTO): Promise<IFindAllMoviesResponseDTO> {
     const { data, total } = await this.moviesRepository.findAll({
       page,
       limit,
       columns,
       order,
+      filter,
     });
 
     return { data, total };

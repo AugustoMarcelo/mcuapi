@@ -11,11 +11,18 @@ interface IRequestQuery {
   limit?: number;
   columns?: string;
   order?: string;
+  filter?: string;
 }
 
 export default class MoviesController {
   public async index(request: Request, response: Response): Promise<Response> {
-    const { page, limit, columns, order }: IRequestQuery = request.query;
+    const {
+      page,
+      limit,
+      columns,
+      order,
+      filter,
+    }: IRequestQuery = request.query;
 
     const listAllMovies = container.resolve(ListAllMoviesService);
     const { data, total } = await listAllMovies.execute({
@@ -23,6 +30,7 @@ export default class MoviesController {
       limit,
       columns,
       order,
+      filter,
     });
 
     return response.json({ data, total });

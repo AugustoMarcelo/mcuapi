@@ -14,7 +14,7 @@ ___
 
 > baseURL: https://mcuapi.herokuapp.com
 
-### [`GET` /api/v1/movies{?page?limit?columns?order}]
+### [`GET` /api/v1/movies{?page?limit?columns?order?filter}]
 > List all movies
 + Parameters
   <table width="100%">
@@ -54,6 +54,13 @@ ___
         <td>Ordering by movies column</td>
         <td>Query (<i>optional</i>)</td>
         <td>order=chronology,DESC</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>filter</td>
+        <td>Filtering by movies column</td>
+        <td>Query (<i>optional</i>)</td>
+        <td>filter=phase=1</td>
         <td>-</td>
       </tr>
     </tbody>
