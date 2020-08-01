@@ -43,6 +43,11 @@ export default class CreateMovies1589740918504 implements MigrationInterface {
             isNullable: true,
           },
           {
+            name: 'trailer_url',
+            type: 'varchar',
+            isNullable: true,
+          },
+          {
             name: 'directed_by',
             type: 'varchar',
           },
