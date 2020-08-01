@@ -6,6 +6,7 @@ export default interface IUpdateMovieDTO {
   duration?: number;
   overview?: string;
   cover_url?: string;
+  trailer_url?: string;
   directed_by?: string;
   phase?: number;
   saga?: string;

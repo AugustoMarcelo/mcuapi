@@ -48,6 +48,7 @@ class MoviesRepository implements IMoviesRepository {
       | 'duration'
       | 'overview'
       | 'cover_url'
+      | 'trailer_url'
       | 'directed_by'
       | 'phase'
       | 'saga'
