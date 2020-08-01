@@ -13,6 +13,8 @@ export default interface IMovie {
 
   cover_url?: string;
 
+  trailer_url?: string;
+
   directed_by: string;
 
   phase?: number;

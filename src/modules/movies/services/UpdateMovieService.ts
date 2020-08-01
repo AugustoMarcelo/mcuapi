@@ -18,6 +18,7 @@ class UpdateMovieService {
     box_office,
     chronology,
     cover_url,
+    trailer_url,
     directed_by,
     duration,
     overview,
@@ -36,6 +37,7 @@ class UpdateMovieService {
     movie.box_office = box_office || movie.box_office;
     movie.chronology = chronology || movie.chronology;
     movie.cover_url = cover_url || movie.cover_url;
+    movie.trailer_url = trailer_url || movie.trailer_url;
     movie.directed_by = directed_by || movie.directed_by;
     movie.duration = duration || movie.duration;
     movie.overview = overview || movie.overview;

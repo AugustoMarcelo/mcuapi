@@ -25,6 +25,9 @@ class Movie implements IMovie {
   cover_url: string;
 
   @Column()
+  trailer_url: string;
+
+  @Column()
   directed_by: string;
 
   @Column()
