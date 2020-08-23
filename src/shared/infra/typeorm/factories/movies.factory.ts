@@ -1,7 +1,8 @@
 import IMovie from '@modules/movies/entities/IMovie';
 // Release date with month index
-const movies: Omit<IMovie, 'id'>[] = [
+const movies: IMovie[] = [
   {
+    id: 1,
     title: 'Iron Man',
     release_date: new Date(2008, 4, 2),
     box_office: 585171547,
@@ -19,6 +20,7 @@ const movies: Omit<IMovie, 'id'>[] = [
     post_credit_scenes: 1,
   },
   {
+    id: 2,
     title: 'The Incredible Hulk',
     release_date: new Date(2008, 5, 13),
     box_office: 265573859,
@@ -36,6 +38,7 @@ const movies: Omit<IMovie, 'id'>[] = [
     post_credit_scenes: 1,
   },
   {
+    id: 3,
     title: 'Iron Man 2',
     release_date: new Date(2010, 4, 7),
     box_office: 621156389,
@@ -53,6 +56,7 @@ const movies: Omit<IMovie, 'id'>[] = [
     post_credit_scenes: 1,
   },
   {
+    id: 4,
     title: 'Thor',
     release_date: new Date(2011, 4, 6),
     box_office: 449326618,
@@ -70,6 +74,7 @@ const movies: Omit<IMovie, 'id'>[] = [
     post_credit_scenes: 1,
   },
   {
+    id: 5,
     title: 'Captain America: The First Avenger',
     release_date: new Date(2011, 6, 22),
     box_office: 370569776,
@@ -87,6 +92,7 @@ const movies: Omit<IMovie, 'id'>[] = [
     post_credit_scenes: 1,
   },
   {
+    id: 6,
     title: 'The Avengers',
     release_date: new Date(2012, 4, 4),
     box_office: 1517935897,
@@ -104,6 +110,7 @@ const movies: Omit<IMovie, 'id'>[] = [
     post_credit_scenes: 2,
   },
   {
+    id: 7,
     title: 'Iron Man 3',
     release_date: new Date(2013, 4, 3),
     box_office: 1215392272,
@@ -121,6 +128,7 @@ const movies: Omit<IMovie, 'id'>[] = [
     post_credit_scenes: 1,
   },
   {
+    id: 8,
     title: 'Thor: The Dark World',
     release_date: new Date(2013, 10, 8),
     box_office: 644602516,
@@ -138,6 +146,7 @@ const movies: Omit<IMovie, 'id'>[] = [
     post_credit_scenes: 2,
   },
   {
+    id: 9,
     title: 'Captain America: The Winter Soldier',
     release_date: new Date(2014, 3, 4),
     box_office: 714401889,
@@ -155,6 +164,7 @@ const movies: Omit<IMovie, 'id'>[] = [
     post_credit_scenes: 2,
   },
   {
+    id: 10,
     title: 'Guardians of the Galaxy',
     release_date: new Date(2014, 7, 1),
     box_office: 770867516,
@@ -172,6 +182,7 @@ const movies: Omit<IMovie, 'id'>[] = [
     post_credit_scenes: 2,
   },
   {
+    id: 11,
     title: 'Avengers: Age of Ultron',
     release_date: new Date(2015, 4, 1),
     box_office: 1403013963,
@@ -189,6 +200,7 @@ const movies: Omit<IMovie, 'id'>[] = [
     post_credit_scenes: 1,
   },
   {
+    id: 12,
     title: 'Ant-Man',
     release_date: new Date(2015, 6, 17),
     box_office: 518858449,
@@ -206,6 +218,7 @@ const movies: Omit<IMovie, 'id'>[] = [
     post_credit_scenes: 2,
   },
   {
+    id: 13,
     title: 'Captain America: Civil War',
     release_date: new Date(2016, 4, 6),
     box_office: 1140069413,
@@ -223,6 +236,7 @@ const movies: Omit<IMovie, 'id'>[] = [
     post_credit_scenes: 2,
   },
   {
+    id: 14,
     title: 'Doctor Strange',
     release_date: new Date(2016, 10, 4),
     box_office: 676404566,
@@ -240,6 +254,7 @@ const movies: Omit<IMovie, 'id'>[] = [
     post_credit_scenes: 2,
   },
   {
+    id: 15,
     title: 'Guardians of the Galaxy Vol. 2',
     release_date: new Date(2017, 4, 5),
     box_office: 862316233,
@@ -257,6 +272,7 @@ const movies: Omit<IMovie, 'id'>[] = [
     post_credit_scenes: 5,
   },
   {
+    id: 16,
     title: 'Spider-Man: Homecoming',
     release_date: new Date(2017, 6, 7),
     box_office: 880166350,
@@ -274,6 +290,7 @@ const movies: Omit<IMovie, 'id'>[] = [
     post_credit_scenes: 2,
   },
   {
+    id: 17,
     title: 'Thor: Ragnarok',
     release_date: new Date(2017, 10, 3),
     box_office: 846980024,
@@ -291,6 +308,7 @@ const movies: Omit<IMovie, 'id'>[] = [
     post_credit_scenes: 2,
   },
   {
+    id: 18,
     title: 'Black Panther',
     release_date: new Date(2018, 1, 16),
     box_office: 1348258224,
@@ -308,6 +326,7 @@ const movies: Omit<IMovie, 'id'>[] = [
     post_credit_scenes: 2,
   },
   {
+    id: 19,
     title: 'Avengers: Infinity War',
     release_date: new Date(2018, 3, 27),
     box_office: 2048134200,
@@ -325,6 +344,7 @@ const movies: Omit<IMovie, 'id'>[] = [
     post_credit_scenes: 1,
   },
   {
+    id: 20,
     title: 'Ant-Man and The Wasp',
     release_date: new Date(2018, 6, 6),
     box_office: 623144660,
@@ -342,6 +362,7 @@ const movies: Omit<IMovie, 'id'>[] = [
     post_credit_scenes: 2,
   },
   {
+    id: 21,
     title: 'Captain Marvel',
     release_date: new Date(2019, 2, 8),
     box_office: 1126129839,
@@ -358,6 +379,7 @@ const movies: Omit<IMovie, 'id'>[] = [
     post_credit_scenes: 2,
   },
   {
+    id: 22,
     title: 'Avengers: Endgame',
     release_date: new Date(2019, 3, 26),
     box_office: 2795465685,
@@ -375,6 +397,7 @@ const movies: Omit<IMovie, 'id'>[] = [
     post_credit_scenes: 0,
   },
   {
+    id: 23,
     title: 'Spider-Man: Far From Home',
     release_date: new Date(2019, 6, 2),
     box_office: 1123901180,
@@ -392,6 +415,7 @@ const movies: Omit<IMovie, 'id'>[] = [
     post_credit_scenes: 2,
   },
   {
+    id: 24,
     title: 'Black Widow',
     release_date: new Date(2020, 10, 6),
     box_office: 0,
@@ -408,6 +432,7 @@ const movies: Omit<IMovie, 'id'>[] = [
     post_credit_scenes: 0,
   },
   {
+    id: 25,
     title: 'The Eternals',
     release_date: new Date(2021, 1, 12),
     box_office: 0,
@@ -424,6 +449,7 @@ const movies: Omit<IMovie, 'id'>[] = [
     post_credit_scenes: 0,
   },
   {
+    id: 26,
     title: 'Shang-Chi and the Legend of the Ten Rings',
     release_date: new Date(2021, 4, 7),
     box_office: 0,
@@ -439,6 +465,7 @@ const movies: Omit<IMovie, 'id'>[] = [
     post_credit_scenes: 0,
   },
   {
+    id: 27,
     title: 'Doctor Strange in the Multiverse of Madness',
     release_date: new Date(2022, 2, 25),
     box_office: 0,
@@ -454,6 +481,7 @@ const movies: Omit<IMovie, 'id'>[] = [
     post_credit_scenes: 0,
   },
   {
+    id: 28,
     title: 'Thor: Love and Thunder',
     release_date: new Date(2022, 1, 11),
     box_office: 0,
