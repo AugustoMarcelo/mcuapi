@@ -13,6 +13,7 @@ describe('ShowMovie', () => {
 
   it('Should be able to show a movie', async () => {
     const movie = await fakeMoviesRepository.create({
+      id: 1,
       title: 'Iron Man',
       directed_by: 'Jon Fraveau',
     });
@@ -23,8 +24,8 @@ describe('ShowMovie', () => {
   });
 
   it('Should not be able to show a movie with a non-existing id', async () => {
-    await expect(
-      showMovie.execute({ movie_id: 'non-existing-movie-id' }),
-    ).rejects.toBeInstanceOf(AppError);
+    await expect(showMovie.execute({ movie_id: 100 })).rejects.toBeInstanceOf(
+      AppError,
+    );
   });
 });

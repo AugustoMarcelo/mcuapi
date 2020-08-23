@@ -13,11 +13,13 @@ describe('UpdateMovie', () => {
 
   it('Should be able to update a movie', async () => {
     const movie = await fakeMoviesRepository.create({
-      title: 'Iron Men',
-      directed_by: 'Jonh Fraveu',
+      id: 1,
+      title: 'Iron Man',
+      directed_by: 'Jon Favreau',
     });
 
     const movie2 = await fakeMoviesRepository.create({
+      id: 23,
       title: 'Avengers: Infinity War',
       directed_by: 'Russo Brothers',
     });
@@ -25,7 +27,7 @@ describe('UpdateMovie', () => {
     const updatedMovie = await updateMovie.execute({
       movie_id: movie.id,
       title: 'Iron Man',
-      directed_by: 'Jon Fraveu',
+      directed_by: 'Jon Favreau',
       post_credit_scenes: 1,
     });
 
@@ -34,7 +36,7 @@ describe('UpdateMovie', () => {
     });
 
     expect(updatedMovie.title).toBe('Iron Man');
-    expect(updatedMovie.directed_by).toBe('Jon Fraveu');
+    expect(updatedMovie.directed_by).toBe('Jon Favreau');
     expect(updatedMovie.post_credit_scenes).toBe(1);
     expect(updatedMovie2.title).toBe(updatedMovie2.title);
     expect(updatedMovie2.duration).toBe(updatedMovie2.duration);
@@ -43,9 +45,9 @@ describe('UpdateMovie', () => {
   it('Should not be able to update a movie from non-existing movie', async () => {
     await expect(
       updateMovie.execute({
-        movie_id: 'non-existing movie',
+        movie_id: 100,
         title: 'Iron Man',
-        directed_by: 'Jon Fraveu',
+        directed_by: 'Jon Favreau',
         post_credit_scenes: 1,
       }),
     ).rejects.toBeInstanceOf(AppError);

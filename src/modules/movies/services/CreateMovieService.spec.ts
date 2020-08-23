@@ -12,6 +12,7 @@ describe('CreateMovie', () => {
 
   it('Should be able to create a new movie', async () => {
     const movie = await createMovie.execute({
+      id: 1,
       title: 'Iron Man',
       directed_by: 'Jon Fraveu',
     });
