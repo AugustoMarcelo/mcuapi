@@ -1,10 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryColumn, Column } from 'typeorm';
 import IMovie from '@modules/movies/entities/IMovie';
 
 @Entity('movies')
 class Movie implements IMovie {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+  @PrimaryColumn()
+  id: number;
 
   @Column()
   title: string;

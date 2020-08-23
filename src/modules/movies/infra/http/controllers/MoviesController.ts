@@ -62,7 +62,7 @@ export default class MoviesController {
 
     const showMovie = container.resolve(ShowMovieService);
 
-    const movie = await showMovie.execute({ movie_id });
+    const movie = await showMovie.execute({ movie_id: Number(movie_id) });
 
     return response.json(movie);
   }

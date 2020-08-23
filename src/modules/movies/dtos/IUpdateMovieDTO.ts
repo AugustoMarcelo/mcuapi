@@ -1,5 +1,5 @@
 export default interface IUpdateMovieDTO {
-  movie_id: string;
+  movie_id: number;
   title?: string;
   release_date?: Date;
   box_office?: number;

@@ -1,5 +1,5 @@
 export default interface IMovie {
-  id: string;
+  id: number;
 
   title: string;
 
