@@ -72,7 +72,7 @@ ___
     "total": 1,
     "data": [
       {
-        "id": "2b88bf8b-3d6f-4944-bf96-2278acaca83f",
+        "id": 1,
         "title": "Iron Man",
         "release_date": "2008-05-01",
         "box_office": 585171547,
@@ -107,7 +107,7 @@ ___
       <tr>
         <td>movie_id</td>
         <td>Movie ID</td>
-        <td>Path (uuid format)</td>
+        <td>Path</td>
         <td>-</td>
       </tr>
     </tbody>
@@ -116,7 +116,7 @@ ___
 + Response `200` (application/json)
   ```json
   {
-    "id": "2b88bf8b-3d6f-4944-bf96-2278acaca83f",
+    "id": 1,
     "title": "Iron Man",
     "release_date": "2008-05-01",
     "box_office": 585171547,
