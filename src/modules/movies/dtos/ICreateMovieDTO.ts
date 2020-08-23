@@ -1,4 +1,5 @@
 export default interface ICreateMovieDTO {
+  id: number;
   title: string;
   release_date?: Date;
   box_office?: number;

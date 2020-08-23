@@ -6,6 +6,6 @@ import IFindAllMoviesResponseDTO from '../dtos/IFindAllMoviesResponseDTO';
 export default interface IMoviesRepository {
   create(data: ICreateMovieDTO): Promise<IMovie>;
   update(movie: IMovie): Promise<IMovie>;
-  findById(id: string): Promise<IMovie | undefined>;
+  findById(id: number): Promise<IMovie | undefined>;
   findAll(data: IFindAllMoviesDTO): Promise<IFindAllMoviesResponseDTO>;
 }

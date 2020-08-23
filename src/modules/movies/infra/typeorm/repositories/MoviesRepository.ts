@@ -25,7 +25,7 @@ class MoviesRepository implements IMoviesRepository {
     return this.ormRepository.save(movie);
   }
 
-  public async findById(id: string): Promise<Movie | undefined> {
+  public async findById(id: number): Promise<Movie | undefined> {
     const findMovie = await this.ormRepository.findOne(id);
 
     return findMovie;
@@ -40,21 +40,9 @@ class MoviesRepository implements IMoviesRepository {
   }: IFindAllMoviesDTO): Promise<IFindAllMoviesResponseDTO> {
     const skip = page && limit && (page - 1) * limit;
 
-    const select = columns?.split(',').map(column => column.trim()) as (
-      | 'id'
-      | 'title'
-      | 'release_date'
-      | 'box_office'
-      | 'duration'
-      | 'overview'
-      | 'cover_url'
-      | 'trailer_url'
-      | 'directed_by'
-      | 'phase'
-      | 'saga'
-      | 'chronology'
-      | 'post_credit_scenes'
-    )[];
+    const select = columns
+      ?.split(',')
+      .map(column => column.trim()) as (keyof Movie)[];
 
     const [columnOrder, form = 'ASC'] = order
       ? order.split(',').map(item => item.trim())
