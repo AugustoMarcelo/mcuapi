@@ -4,7 +4,7 @@ import IMoviesRepository from '../repositories/IMoviesRepository';
 import IMovie from '../entities/IMovie';
 
 interface IRequest {
-  movie_id: string;
+  movie_id: number;
 }
 
 @injectable()
