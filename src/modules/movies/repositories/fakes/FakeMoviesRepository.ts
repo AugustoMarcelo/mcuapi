@@ -1,5 +1,3 @@
-import { uuid } from 'uuidv4';
-
 import ICreateMovieDTO from '@modules/movies/dtos/ICreateMovieDTO';
 import IFindAllMoviesDTO from '@modules/movies/dtos/IFindAllMoviesDTO';
 import IFindAllMoviesResponseDTO from '@modules/movies/dtos/IFindAllMoviesResponseDTO';
@@ -14,7 +12,7 @@ class FakeMoviesRepository implements IMoviesRepository {
   public async create(data: ICreateMovieDTO): Promise<IMovie> {
     const movie = new Movie();
 
-    Object.assign(movie, { id: uuid(), data });
+    Object.assign(movie, data);
 
     this.movies.push(movie);
 
@@ -31,7 +29,7 @@ class FakeMoviesRepository implements IMoviesRepository {
     return movie;
   }
 
-  public async findById(id: string): Promise<IMovie | undefined> {
+  public async findById(id: number): Promise<IMovie | undefined> {
     const findMovie = this.movies.find(movie => movie.id === id);
 
     return findMovie;
@@ -44,6 +42,24 @@ class FakeMoviesRepository implements IMoviesRepository {
     const offset = page && limit && (page - 1) * limit;
 
     const filteredMovies = this.movies.slice(offset, limit);
+
+    // if (columns) {
+    //   const columnsArray = columns.split(',');
+    //   let tempArray: IMovie[];
+
+    //   filteredMovies.forEach(movie => {
+    //     const newMovie = Object.keys(movie).reduce((object: IMovie, key) => {
+    //       if (!columnsArray.includes(key)) {
+    //         const newKey = key as keyof IMovie;
+    //         object[newKey] = movie[newKey];
+    //       }
+
+    //       return object;
+    //     }, {} as IMovie);
+
+    //     tempArray.push(newMovie);
+    //   });
+    // }
 
     return { data: filteredMovies, total: this.movies.length };
   }
