@@ -12,16 +12,19 @@ describe('ListAllMovies', () => {
 
   it('Should be able to list movies', async () => {
     fakeMoviesRepository.create({
+      id: 1,
       title: 'Iron Man',
       directed_by: 'Jon Fraveau',
     });
 
     fakeMoviesRepository.create({
+      id: 2,
       title: 'The Incredible Hulk',
       directed_by: 'Louis Leterrier',
     });
 
     fakeMoviesRepository.create({
+      id: 3,
       title: 'Iron Man II',
       directed_by: 'Jon Favreau',
     });
@@ -34,16 +37,19 @@ describe('ListAllMovies', () => {
 
   it('Should be able to list movies sending limit params', async () => {
     fakeMoviesRepository.create({
+      id: 1,
       title: 'Iron Man',
       directed_by: 'Jon Fraveau',
     });
 
     fakeMoviesRepository.create({
+      id: 2,
       title: 'The Incredible Hulk',
       directed_by: 'Louis Leterrier',
     });
 
     fakeMoviesRepository.create({
+      id: 3,
       title: 'Iron Man II',
       directed_by: 'Jon Favreau',
     });
@@ -56,6 +62,7 @@ describe('ListAllMovies', () => {
 
   it('Should be able to list only movies attributes with columns passed by query params', async () => {
     fakeMoviesRepository.create({
+      id: 1,
       title: 'Iron Man',
       release_date: new Date(),
       box_office: 585171547,
