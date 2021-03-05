@@ -9,3 +9,8 @@ coverage/
 .env
 
 dist/
+
+# Helper files
+Helpers.md
+
+characters/
