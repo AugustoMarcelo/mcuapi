@@ -6,6 +6,11 @@ const dev = {
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
   ssl: true,
+  extra: {
+    ssl: {
+      rejectUnauthorized: false,
+    },
+  },
   entities: [
     "./src/modules/**/infra/typeorm/entities/*.ts",
   ],
