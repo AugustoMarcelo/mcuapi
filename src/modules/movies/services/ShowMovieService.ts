@@ -18,7 +18,7 @@ class ListAllMoviesService {
     const movie = await this.moviesRepository.findById(movie_id);
 
     if (!movie) {
-      throw new AppError('Movie not found');
+      throw new AppError('Movie not found', 404);
     }
 
     return movie;
