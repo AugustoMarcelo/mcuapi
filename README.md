@@ -226,8 +226,8 @@ ___
     </thead>
     <tbody>
       <tr>
-        <td>movie_id</td>
-        <td>Movie ID</td>
+        <td>tvshow_id</td>
+        <td>TV Show ID</td>
         <td>Path</td>
         <td>-</td>
       </tr>
