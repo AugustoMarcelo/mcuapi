@@ -5,12 +5,6 @@ const dev = {
   username: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
-  ssl: true,
-  extra: {
-    ssl: {
-      rejectUnauthorized: false,
-    },
-  },
   entities: [
     "./src/modules/**/infra/typeorm/entities/*.ts",
   ],
@@ -35,6 +29,12 @@ const production = {
   username: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
+  ssl: true,
+  extra: {
+    ssl: {
+      rejectUnauthorized: false,
+    },
+  },
   entities: [
     "./dist/modules/**/infra/typeorm/entities/*.js",
   ],
