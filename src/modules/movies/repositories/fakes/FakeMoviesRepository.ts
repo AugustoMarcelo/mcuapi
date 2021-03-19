@@ -38,28 +38,25 @@ class FakeMoviesRepository implements IMoviesRepository {
   public async findAll({
     page,
     limit,
+    columns,
   }: IFindAllMoviesDTO): Promise<IFindAllMoviesResponseDTO> {
     const offset = page && limit && (page - 1) * limit;
 
-    const filteredMovies = this.movies.slice(offset, limit);
+    let filteredMovies = this.movies.slice(offset, limit);
 
-    // if (columns) {
-    //   const columnsArray = columns.split(',');
-    //   let tempArray: IMovie[];
+    if (columns) {
+      const columnsArray = columns.split(',') as (keyof IMovie)[];
 
-    //   filteredMovies.forEach(movie => {
-    //     const newMovie = Object.keys(movie).reduce((object: IMovie, key) => {
-    //       if (!columnsArray.includes(key)) {
-    //         const newKey = key as keyof IMovie;
-    //         object[newKey] = movie[newKey];
-    //       }
+      filteredMovies = filteredMovies.map(movie => {
+        const filterMovie = new Movie();
 
-    //       return object;
-    //     }, {} as IMovie);
+        columnsArray.forEach(item => {
+          Object.assign(filterMovie, { [item]: movie[item] });
+        });
 
-    //     tempArray.push(newMovie);
-    //   });
-    // }
+        return filterMovie;
+      });
+    }
 
     return { data: filteredMovies, total: this.movies.length };
   }
