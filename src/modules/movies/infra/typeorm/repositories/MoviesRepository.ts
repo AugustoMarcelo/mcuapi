@@ -1,4 +1,4 @@
-import { Repository, getRepository } from 'typeorm';
+import { Repository, getRepository, Raw } from 'typeorm';
 
 import IMoviesRepository from '@modules/movies/repositories/IMoviesRepository';
 import ICreateMovieDTO from '@modules/movies/dtos/ICreateMovieDTO';
@@ -44,7 +44,7 @@ class MoviesRepository implements IMoviesRepository {
       ?.split(',')
       .map(column => column.trim()) as (keyof Movie)[];
 
-    const [columnOrder, form = 'ASC'] = order
+    const [columnOrder, sortingOrder = 'ASC'] = order
       ? order.split(',').map(item => item.trim())
       : [];
 
@@ -54,7 +54,7 @@ class MoviesRepository implements IMoviesRepository {
 
     const where = columnWhere
       ? {
-          [columnWhere]: whereValue,
+          [columnWhere]: Raw(alias => `${alias} ILIKE '%${whereValue}%'`),
         }
       : undefined;
 
@@ -63,7 +63,9 @@ class MoviesRepository implements IMoviesRepository {
       skip,
       select: select || undefined,
       where: where || undefined,
-      order: columnOrder ? { [columnOrder]: form.toUpperCase() } : undefined,
+      order: columnOrder
+        ? { [columnOrder]: sortingOrder.toUpperCase() }
+        : undefined,
     });
 
     return { data: movies, total };
