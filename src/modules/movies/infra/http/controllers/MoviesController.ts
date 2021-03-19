@@ -33,7 +33,7 @@ export default class MoviesController {
       filter,
     });
 
-    return response.json({ data, total });
+    return response.status(200).json({ data, total });
   }
 
   public async create(request: Request, response: Response): Promise<Response> {
@@ -64,6 +64,10 @@ export default class MoviesController {
 
     const movie = await showMovie.execute({ movie_id: Number(movie_id) });
 
-    return response.json(movie);
+    if (!movie) {
+      return response.status(404).json({ message: 'Movie not found' });
+    }
+
+    return response.status(200).json(movie);
   }
 }
