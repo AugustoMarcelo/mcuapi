@@ -1,20 +1,24 @@
 ## 📖 Index
  - 📑 [About the project](#-about-the-project)
- - ➡ [Endpoints](#-endpoints)
+ - ➡ [Endpoints](#endpoints)
+    - [List Movies](#list-movies)
+    - [List a Movie](#list-a-movie)
+    - [List TV Shows](#list-tvshows)
+    - [List a TV Show](#list-a-tvshow)
  - ℹ [API considerations](#-api-considerations)
 
 ___
 
 ## 📑 About the project
 
-A RESTFul API for MCU (Marvel Cinematic Universe)! Just movies... for now
+A RESTFul API for MCU (Marvel Cinematic Universe)! Movies and TV Shows. Characters coming soon!
 ___
 
-## ➡ Endpoints
+## ➡ Endpoints <a name="endpoints"></a>
 
-> baseURL: https://mcuapi.herokuapp.com
+> baseURL: https://mcuapi.herokuapp.com/api/v1
 
-### [`GET` /api/v1/movies{?page?limit?columns?order?filter}]
+### [`GET` /movies{?page?limit?columns?order?filter}] <a name="list-movies"></a>
 > List all movies
 + Parameters
   <table width="100%">
@@ -91,7 +95,7 @@ ___
   ```
 ---
 
-### [`GET` /api/v1/movies/{movie_id}]
+### [`GET` /movies/{movie_id}] <a name="list-movies"></a>
 > Show one movie
 + Parameters
   <table width="100%">
@@ -128,6 +132,132 @@ ___
     "saga": "Infinity Saga",
     "chronology": 3,
     "post_credit_scenes": 1
+  }
+  ```
+___
+
+### [`GET` /tvshows{?page?limit?columns?order?filter}] <a name="list-tvshows"></a>
+> List all tv shows
++ Parameters
+  <table width="100%">
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Description</th>
+        <th>Parameter Type</th>
+        <th>Usage</th>
+        <th>Default Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>page</td>
+        <td>Page number request</td>
+        <td>Query (<i>optional</i>)</td>
+        <td>page=1</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>limit</td>
+        <td>Number of items by request</td>
+        <td>Query (<i>optional</i>)</td>
+        <td>limit=10</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>columns</td>
+        <td>TV Show attributes</td>
+        <td>Query (<i>optional</i>)</td>
+        <td>columns=title,release_date</td>
+        <td>All attributes will be returned</td>
+      </tr>
+      <tr>
+        <td>order</td>
+        <td>Ordering by selected column</td>
+        <td>Query (<i>optional</i>)</td>
+        <td>order=release_date,DESC</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>filter</td>
+        <td>Filtering by selected column and value</td>
+        <td>Query (<i>optional</i>)</td>
+        <td>filter=phase=1</td>
+        <td>-</td>
+      </tr>
+    </tbody>
+  </table>
+
++ Response `200` (application/json)
+  ```json
+  {
+    "total": 1,
+    "data": [
+      {
+        "id": 1,
+        "title": "WandaVision",
+        "release_date": "2021-01-15",
+        "last_aired_date": "2021-03-05",
+        "number_seasons": 1,
+        "number_episodes": 9,
+        "overview": "Marvel Studios captivating new series 'WandaVision' which premieres in early 2021 on Disney+. Starring Elizabeth Olsen and Paul Bettany, 'WandaVision' marks the first series from Marvel Studios streaming exclusively on Disney+. The series is a blend of classic television and the Marvel Cinematic Universe in which Wanda Maximoff and Vision—two super-powered beings living idealized suburban lives—begin to suspect that everything is not as it seems",
+        "cover_url": "https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/wandavision.jpg",
+        "trailer_url": "https://players.brightcove.net/5359769168001/BJemW31x6g_default/index.html?videoId=6215509803001",
+        "directed_by": "Matt Shakman",
+        "phase": 4,
+        "saga": null,
+      }
+    ]
+  }
+  ```
+---
+
+### [`GET` /tvshows/{tvshow_id}] <a name="list-a-tvshow"></a>
+> Show one tv show
++ Parameters
+  <table width="100%">
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Description</th>
+        <th>Parameter Type</th>
+        <th>Default Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>movie_id</td>
+        <td>Movie ID</td>
+        <td>Path</td>
+        <td>-</td>
+      </tr>
+    </tbody>
+  </table>
+
++ Response `200` (application/json)
+  ```json
+  {
+    "id": 1,
+    "title": "WandaVision",
+    "release_date": "2021-01-15",
+    "last_aired_date": "2021-03-05",
+    "number_seasons": 1,
+    "number_episodes": 9,
+    "overview": "Marvel Studios captivating new series 'WandaVision' which premieres in early 2021 on Disney+. Starring Elizabeth Olsen and Paul Bettany, 'WandaVision' marks the first series from Marvel Studios streaming exclusively on Disney+. The series is a blend of classic television and the Marvel Cinematic Universe in which Wanda Maximoff and Vision—two super-powered beings living idealized suburban lives—begin to suspect that everything is not as it seems",
+    "cover_url": "https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/wandavision.jpg",
+    "trailer_url": "https://players.brightcove.net/5359769168001/BJemW31x6g_default/index.html?videoId=6215509803001",
+    "directed_by": "Matt Shakman",
+    "phase": 4,
+    "saga": null,
+  }
+  ```
+
+  + Response `404` (application/json)
+  ```json
+  {
+    "status": "Error",
+    "statusCode": 404,
+    "message": "TV Show not found",
   }
   ```
 ___
