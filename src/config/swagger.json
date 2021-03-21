@@ -1,0 +1,402 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "MCUAPI Documentation",
+    "description": "This is an API with informations about MCU TV Shows, series and characters",
+    "version": "2.0.0",
+    "contact": {
+      "name": "Marcelo Augusto",
+      "email": "mrclgst10@gmail.com"
+    }
+  },
+  "paths": {
+    "/api/v1/movies": {
+      "get": {
+        "tags": ["Movies"],
+        "summary": "List all movies",
+        "description": "List all movies",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": "1"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit of items to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": "10"
+            }
+          },
+          {
+            "name": "columns",
+            "in": "query",
+            "description": "Movie properties to be returned",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "title,release_date,phase"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "Order return by column and sorting type (ASC, DESC)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "chronology,DESC"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Filter by a column",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "title=Iron"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Movie"
+                      }
+                    },
+                    "total": {
+                      "type": "integer",
+                      "description": "Total of movies"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/movies/{movie_id}": {
+      "get": {
+        "tags": ["Movies"],
+        "summary": "List a movie",
+        "description": "List a movie by ID",
+        "parameters": [
+          {
+            "name": "movie_id",
+            "in": "path",
+            "description": "Movie ID",
+            "required": true,
+            "type": "integer",
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Movie"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Movie not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": "string",
+                    "statusCode": "integer",
+                    "message": "string"
+                  },
+                  "example": {
+                    "status": "Error",
+                    "statusCode": 404,
+                    "message": "Movie not found"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/tvshows": {
+      "get": {
+        "tags": ["TV Shows"],
+        "summary": "List all tv shows",
+        "description": "List all tv shows",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": "1"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit of items to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": "10"
+            }
+          },
+          {
+            "name": "columns",
+            "in": "query",
+            "description": "TV Show properties to be returned",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "title,release_date,phase"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "Order return by column and sorting type (ASC, DESC)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "release_date,DESC"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Filter by a column",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "title=Wanda"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/TVShow"
+                      }
+                    },
+                    "total": {
+                      "type": "integer",
+                      "description": "Total of tv shows"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/tvshows/{tvshow_id}": {
+      "get": {
+        "tags": ["TV Shows"],
+        "summary": "List a tv show",
+        "description": "List a tv show by ID",
+        "parameters": [
+          {
+            "name": "tvshow_id",
+            "in": "path",
+            "description": "TV Show ID",
+            "required": true,
+            "type": "integer",
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/TVShow"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "TV Show not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": "string",
+                    "statusCode": "integer",
+                    "message": "string"
+                  },
+                  "example": {
+                    "status": "Error",
+                    "statusCode": 404,
+                    "message": "Movie not found"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Movie": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Movie ID"
+          },
+          "title": {
+            "type": "string",
+            "description": "Movie title"
+          },
+          "release_date": {
+            "type": "string",
+            "description": "Movie release date"
+          },
+          "box_office": {
+            "type": "integer",
+            "description": "Movie box office"
+          },
+          "overview": {
+            "type": "string",
+            "description": "Movie description"
+          },
+          "cover_url": {
+            "type": "string",
+            "description": "Movie url image"
+          },
+          "trailer_url": {
+            "type": "string",
+            "description": "Movie url trailer"
+          },
+          "directed_by": {
+            "type": "string",
+            "description": "Name of who directed the movie"
+          },
+          "phase": {
+            "type": "string",
+            "description": "Phase to which the movie belongs"
+          },
+          "saga": {
+            "type": "string",
+            "description": "Saga to which the movie belongs"
+          },
+          "chronology": {
+            "type": "integer",
+            "description": "Position of the movie in chronological order"
+          },
+          "post_credit_scenes": {
+            "type": "integer",
+            "description": "Number of post-credit scenes in the movie"
+          }
+        }
+      },
+      "TVShow": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "TV Show ID"
+          },
+          "title": {
+            "type": "string",
+            "description": "TV Show title"
+          },
+          "release_date": {
+            "type": "string",
+            "description": "TV Show release date"
+          },
+          "last_aired_date": {
+            "type": "string",
+            "description": "TV Show last episode date"
+          },
+          "number_seasons": {
+            "type": "integer",
+            "description": "Number of seasons of the tv show"
+          },
+          "number_episodes": {
+            "type": "integer",
+            "description": "Number of episodes of the tv show"
+          },
+          "overview": {
+            "type": "string",
+            "description": "TV Show description"
+          },
+          "cover_url": {
+            "type": "string",
+            "description": "TV Show url image"
+          },
+          "trailer_url": {
+            "type": "string",
+            "description": "TV Show url trailer"
+          },
+          "directed_by": {
+            "type": "string",
+            "description": "Name of who directed the tv show"
+          },
+          "phase": {
+            "type": "string",
+            "description": "Phase to which the tv show belongs"
+          },
+          "saga": {
+            "type": "string",
+            "description": "Saga to which the tv show belongs"
+          }
+        }
+      }
+    }
+  }
+}
