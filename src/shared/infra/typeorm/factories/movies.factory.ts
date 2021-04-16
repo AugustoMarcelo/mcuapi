@@ -417,7 +417,7 @@ const movies: IMovie[] = [
   {
     id: 24,
     title: 'Black Widow',
-    release_date: new Date(2021, 4, 7),
+    release_date: new Date(2021, 6, 9),
     box_office: 0,
     duration: 133,
     overview:
@@ -451,7 +451,7 @@ const movies: IMovie[] = [
   {
     id: 26,
     title: 'Shang-Chi and the Legend of the Ten Rings',
-    release_date: new Date(2021, 6, 9),
+    release_date: new Date(2021, 8, 3),
     box_office: 0,
     duration: 0,
     overview: undefined,
