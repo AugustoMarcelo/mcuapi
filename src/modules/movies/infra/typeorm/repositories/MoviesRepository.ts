@@ -52,9 +52,23 @@ class MoviesRepository implements IMoviesRepository {
       ? filter.split('=').map(item => item.trim())
       : [];
 
+    const columnsWithNumericValues = [
+      'phase',
+      'chronology',
+      'box_office',
+      'post_credit_scenes',
+      'release_date',
+    ];
+    let formattedColumnValue;
+    formattedColumnValue = Raw(alias => `${alias} ILIKE '%${whereValue}%'`);
+
+    if (columnsWithNumericValues.includes(columnWhere)) {
+      formattedColumnValue = whereValue;
+    }
+
     const where = columnWhere
       ? {
-          [columnWhere]: Raw(alias => `${alias} ILIKE '%${whereValue}%'`),
+          [columnWhere]: formattedColumnValue,
         }
       : undefined;
 
