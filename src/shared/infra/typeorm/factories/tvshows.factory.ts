@@ -30,7 +30,7 @@ const tvshows: ITVShow[] = [
     number_seasons: 1,
     number_episodes: 6,
     release_date: new Date(2021, 2, 19),
-    last_aired_date: undefined,
+    last_aired_date: new Date(2021, 3, 23),
     directed_by: 'Kari Skogland',
     phase: 4,
     saga: undefined,
