@@ -1,6 +1,6 @@
 {
   "name": "mcuapi",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "A RESTFul API for MCU (Marvel Cinematic Universe)",
   "main": "index.js",
   "license": "MIT",
