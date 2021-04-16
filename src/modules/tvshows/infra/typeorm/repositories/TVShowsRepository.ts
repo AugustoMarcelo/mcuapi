@@ -34,9 +34,23 @@ class TVShowsRepository implements ITVShowsRepository {
       ? data?.order.split(',').map(item => item.trim())
       : [];
 
+    const columnsWithNumericValues = [
+      'phase',
+      'number_seasons',
+      'number_episodes',
+      'release_date',
+      'last_aired_date',
+    ];
+    let formattedColumnValue;
+    formattedColumnValue = Raw(alias => `${alias} ILIKE '%${whereValue}%'`);
+
+    if (columnsWithNumericValues.includes(columnWhere)) {
+      formattedColumnValue = whereValue;
+    }
+
     const where = columnWhere
       ? {
-          [columnWhere]: Raw(alias => `${alias} ILIKE '%${whereValue}%'`),
+          [columnWhere]: formattedColumnValue,
         }
       : undefined;
 
