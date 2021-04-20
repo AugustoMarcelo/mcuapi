@@ -454,10 +454,12 @@ const movies: IMovie[] = [
     release_date: new Date(2021, 8, 3),
     box_office: 0,
     duration: 0,
-    overview: undefined,
+    overview:
+      "Marvel Studios' \"Shang-Chi and The Legend of The Ten Rings\" stars Simu Liu as Shang-Chi, who must confront the past he thought he left behind when he is drawn into the web of the mysterious Ten Rings organization. The film also stars Tony Leung as Wenwu, Awkwafina as Shang-Chi's friend Katy and Michelle Yeoh as Jiang Nan, as well as Fala Chen, Meng'er Zhang, Florian Munteanu and Ronny Chieng.",
     cover_url:
       'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/shang-chi-and-the-legend-of-the-ten-rings.jpg',
-    trailer_url: undefined,
+    trailer_url:
+      'http://players.brightcove.net/5359769168001/BJemW31x6g_default/index.html?videoId=6249384204001',
     directed_by: 'Destin Daniel Cretton',
     phase: 4,
     saga: undefined,
