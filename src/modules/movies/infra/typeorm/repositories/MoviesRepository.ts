@@ -73,13 +73,13 @@ class MoviesRepository implements IMoviesRepository {
       : undefined;
 
     const [movies, total] = await this.ormRepository.findAndCount({
-      take: limit,
-      skip,
-      select: select || undefined,
-      where: where || undefined,
-      order: columnOrder
-        ? { [columnOrder]: sortingOrder.toUpperCase() }
-        : undefined,
+      ...(limit && { take: limit }),
+      ...(skip && { skip }),
+      ...(select && { select }),
+      ...(where && { where }),
+      ...(columnOrder && {
+        order: { [columnOrder]: sortingOrder.toUpperCase() },
+      }),
     });
 
     return { data: movies, total };

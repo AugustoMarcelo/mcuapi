@@ -17,7 +17,8 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
     "resolveJsonModule": true
   },
-  "exclude": ["jest.config.js", "node_modules", "prettier.config.js", "ormconfig.js", "coverage", "covers"]
+  "exclude": ["jest.config.js", "node_modules", "prettier.config.js", "ormconfig.ts", "coverage", "covers"]
 }

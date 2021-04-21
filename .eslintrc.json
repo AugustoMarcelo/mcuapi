@@ -1,6 +1,6 @@
 {
   "env": {
-    "es6": true,
+    "es2021": true,
     "node": true,
     "jest": true
   },
@@ -16,7 +16,7 @@
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2018,
+    "ecmaVersion": 12,
     "sourceType": "module"
   },
   "plugins": [
@@ -32,7 +32,6 @@
       "argsIgnorePattern": "_"
     }],
     "no-param-reassign": "off",
-    "@typescript-eslint/interface-name-prefix": ["error", { "prefixWithI": "always" }],
     "import/extensions": [
       "error",
       "ignorePackages",
