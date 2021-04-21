@@ -60,13 +60,13 @@ class TVShowsRepository implements ITVShowsRepository {
     }
 
     const [tvshows, total] = await this.ormRepository.findAndCount({
-      take: data?.limit,
-      skip,
-      select: select || undefined,
-      where: where || undefined,
-      order: columnOrder
-        ? { [columnOrder]: sortingOrder.toUpperCase() }
-        : undefined,
+      ...(data?.limit && { take: data.limit }),
+      ...(skip && { skip }),
+      ...(select && { select }),
+      ...(where && { where }),
+      ...(columnOrder && {
+        order: { [columnOrder]: sortingOrder.toUpperCase() },
+      }),
     });
 
     return { data: tvshows, total };
