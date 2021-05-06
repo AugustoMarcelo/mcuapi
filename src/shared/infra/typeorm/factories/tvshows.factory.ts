@@ -39,14 +39,14 @@ const tvshows: ITVShow[] = [
     id: 3,
     title: 'Loki',
     overview:
-      'In Marvel Studios’ "Loki" the mercurial villain Loki (Tom Hiddleston) resumes his role as the God of Mischief in a new series that takes place after the events of “Avengers: Endgame.” Kate Herron directs and Michael Waldron is head writer. Debuts on Disney+ in June 11, 2021.',
+      'In Marvel Studios’ "Loki" the mercurial villain Loki (Tom Hiddleston) resumes his role as the God of Mischief in a new series that takes place after the events of “Avengers: Endgame.” Kate Herron directs and Michael Waldron is head writer. Debuts on Disney+ in June 9, 2021.',
     cover_url:
       'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/loki.jpg',
     trailer_url:
       'https://players.brightcove.net/5359769168001/BJemW31x6g_default/index.html?videoId=6215507931001',
     number_seasons: 1,
     number_episodes: 6,
-    release_date: new Date(2021, 5, 11),
+    release_date: new Date(2021, 5, 9),
     last_aired_date: undefined,
     directed_by: 'Kate Herron',
     phase: 4,
