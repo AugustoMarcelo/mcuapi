@@ -515,10 +515,12 @@ const movies: IMovie[] = [
   },
   {
     id: 30,
-    title: 'Black Panther 2',
+    title: 'Black Panther: Wakanda Forever',
     release_date: new Date(2022, 6, 8),
     box_office: 0,
     duration: 0,
+    overview:
+      'The sequel to the history-making Black Panther, written and directed by Ryan Coogler, will explore the incomparable world of Wakanda.',
     cover_url:
       'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/black-panther-2.jpg',
     trailer_url: undefined,
@@ -530,7 +532,7 @@ const movies: IMovie[] = [
   },
   {
     id: 31,
-    title: 'Captain Marvel 2',
+    title: 'The Marvels',
     release_date: new Date(2022, 10, 11),
     box_office: 0,
     duration: 0,
@@ -561,7 +563,7 @@ const movies: IMovie[] = [
   {
     id: 33,
     title: 'Ant-Man and The Wasp: Quantumania',
-    release_date: undefined,
+    release_date: new Date(2023, 1, 17),
     box_office: 0,
     duration: 0,
     cover_url:
@@ -583,6 +585,20 @@ const movies: IMovie[] = [
       'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/fantastic-four.jpg',
     trailer_url: undefined,
     directed_by: 'Jon Watts',
+    phase: undefined,
+    saga: undefined,
+    chronology: undefined,
+    post_credit_scenes: 0,
+  },
+  {
+    id: 35,
+    title: 'Guardians of the Galaxy Vol. 3',
+    release_date: new Date(2023, 4, 5),
+    box_office: 0,
+    duration: 0,
+    cover_url: undefined,
+    trailer_url: undefined,
+    directed_by: 'James Gunn',
     phase: undefined,
     saga: undefined,
     chronology: undefined,
