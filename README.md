@@ -1,22 +1,37 @@
 ## 📖 Index
- - 📑 [About the project](#-about-the-project)
- - ➡ [Endpoints](#endpoints)
- - ℹ [API considerations](#-api-considerations)
+ - 📑 [About the project](#about-the-project)
+ - ➡ [Endpoints](#endpoint)
+ - 💥 [Changelogs](#changelogs)
+ - ℹ [API considerations](#api-considerations)
 
 ___
 
-## 📑 About the project
+## 📑 About the project <a name="about-the-project"></a>
 
 A RESTFul API for MCU (Marvel Cinematic Universe)! Movies and TV Shows. Characters coming soon! See [the new documentation](https://mcuapi.herokuapp.com/docs)!
 ___
 
-## ➡ Endpoints <a name="endpoints"></a>
+## ➡ Endpoints <a name="endpoint"></a>
 
 > baseURL: https://mcuapi.herokuapp.com/api/v1
 
 ___
 
-## ℹ API considerations
+## 💥 Changelogs <a name="changelogs"></a>
+
+**2021-05-04: Movies|TV Shows updated**
+
+  - UPDATED
+    - *Captain Marvel 2: updated title*
+    - *Black Panther 2: updated title and overview*
+    - *Ant-Man and The Wasp: Quantumania: updated release_date*
+    - *Loki: updated overview, cover_url and release_date*
+  - ADDED
+    - *Guardians of the Galaxy Vol .3*
+
+---
+
+## ℹ API considerations <a name="api-considerations"></a>
 
 **Chronological order followed:**
 
