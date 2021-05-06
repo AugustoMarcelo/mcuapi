@@ -1,6 +1,6 @@
 ## 📖 Index
  - 📑 [About the project](#about-the-project)
- - ➡ [Endpoints](#endpoint)
+ - ➡ [Endpoint](#endpoint)
  - 💥 [Changelogs](#changelogs)
  - ℹ [API considerations](#api-considerations)
 
