@@ -433,15 +433,15 @@ const movies: IMovie[] = [
   },
   {
     id: 25,
-    title: 'The Eternals',
+    title: 'Eternals',
     release_date: new Date(2021, 10, 5),
     box_office: 0,
     duration: 0,
     overview:
-      "Marvel Studios' The Eternals features an exciting new team of Super Heroes in the Marvel Cinematic Universe, ancient aliens who have been living on Earth in secret for thousands of years. Following the events of Avengers: Endgame, an unexpected tragedy forces them out of the shadows to reunite against mankind's most ancient enemy, The Deviants.",
+      "Marvel Studios' Eternals features an exciting new team of Super Heroes in the Marvel Cinematic Universe, ancient aliens who have been living on Earth in secret for thousands of years. Following the events of Avengers: Endgame, an unexpected tragedy forces them out of the shadows to reunite against mankind's most ancient enemy, The Deviants.",
     cover_url:
       'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/the-eternals.jpg',
-    trailer_url: undefined,
+    trailer_url: 'https://youtu.be/0WVDKZJkGlY',
     directed_by: 'Chloé Zhao',
     phase: 4,
     saga: undefined,
