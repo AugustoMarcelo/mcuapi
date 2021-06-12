@@ -19,11 +19,16 @@ ___
 
 ## 💥 Changelogs <a name="changelogs"></a>
 
+**2021-06-12: Movies updated**
+
+  UPDATED
+    - *The Marvels: updated cover*
+
 **2021-05-24: Movies|TV Shows updated**
 
   - UPDATED
-   - *The Eternals: updated title, overview, cover and trailer_url*
-   - *Loki: updated cover*
+    - *The Eternals: updated title, overview, cover and trailer_url*
+    - *Loki: updated cover*
 
 **2021-05-04: Movies|TV Shows updated**
 
