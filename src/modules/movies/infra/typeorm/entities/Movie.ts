@@ -1,4 +1,4 @@
-import { Entity, PrimaryColumn, Column } from 'typeorm';
+import { Entity, PrimaryColumn, Column, ManyToMany, JoinTable } from 'typeorm';
 import IMovie from '@modules/movies/entities/IMovie';
 
 @Entity('movies')
@@ -41,6 +41,14 @@ class Movie implements IMovie {
 
   @Column({ default: 0 })
   post_credit_scenes: number;
+
+  @ManyToMany(() => Movie)
+  @JoinTable({
+    name: 'related_movies',
+    joinColumns: [{ name: 'movie_id' }],
+    inverseJoinColumns: [{ name: 'related_movie_id' }],
+  })
+  related_movies?: Movie[];
 }
 
 export default Movie;
