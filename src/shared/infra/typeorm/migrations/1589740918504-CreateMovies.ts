@@ -69,6 +69,11 @@ export default class CreateMovies1589740918504 implements MigrationInterface {
             type: 'int',
             default: 0,
           },
+          {
+            name: 'imdb_id',
+            type: 'varchar',
+            isNullable: true,
+          },
         ],
       }),
     );

@@ -14,6 +14,7 @@ const mockTVShow = (): ITVShow => ({
   saga: faker.random.words(),
   release_date: faker.date.past(),
   last_aired_date: faker.date.future(),
+  imdb_id: `tt${faker.random.number()}`,
 });
 
 export default mockTVShow;
