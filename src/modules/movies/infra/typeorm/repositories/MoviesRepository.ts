@@ -26,7 +26,9 @@ class MoviesRepository implements IMoviesRepository {
   }
 
   public async findById(id: number): Promise<Movie | undefined> {
-    const findMovie = await this.ormRepository.findOne(id);
+    const findMovie = await this.ormRepository.findOne(id, {
+      relations: ['related_movies'],
+    });
 
     return findMovie;
   }

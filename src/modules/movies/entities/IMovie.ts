@@ -24,4 +24,6 @@ export default interface IMovie {
   chronology?: number;
 
   post_credit_scenes: number;
+
+  related_movies?: IMovie[];
 }
