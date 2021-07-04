@@ -38,6 +38,9 @@ class TVShow implements ITVShow {
 
   @Column()
   saga: string;
+
+  @Column()
+  imdb_id: string;
 }
 
 export default TVShow;

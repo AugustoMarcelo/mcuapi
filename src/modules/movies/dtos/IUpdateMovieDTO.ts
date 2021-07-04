@@ -12,4 +12,5 @@ export default interface IUpdateMovieDTO {
   saga?: string;
   chronology?: number;
   post_credit_scenes?: number;
+  imdb_id?: string;
 }

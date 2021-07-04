@@ -17,6 +17,7 @@ const tvshows: ITVShow[] = [
     directed_by: 'Matt Shakman',
     phase: 4,
     saga: undefined,
+    imdb_id: 'tt9140560',
   },
   {
     id: 2,
@@ -34,6 +35,7 @@ const tvshows: ITVShow[] = [
     directed_by: 'Kari Skogland',
     phase: 4,
     saga: undefined,
+    imdb_id: 'tt9208876',
   },
   {
     id: 3,
@@ -51,6 +53,7 @@ const tvshows: ITVShow[] = [
     directed_by: 'Kate Herron',
     phase: 4,
     saga: undefined,
+    imdb_id: 'tt9140554',
   },
 ];
 
