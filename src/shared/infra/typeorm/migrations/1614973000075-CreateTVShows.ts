@@ -64,6 +64,11 @@ export default class CreateTVShows1614973000075 implements MigrationInterface {
             type: 'varchar',
             isNullable: true,
           },
+          {
+            name: 'imdb_id',
+            type: 'varchar',
+            isNullable: true,
+          },
         ],
       }),
     );

@@ -42,6 +42,9 @@ class Movie implements IMovie {
   @Column({ default: 0 })
   post_credit_scenes: number;
 
+  @Column()
+  imdb_id: string;
+
   @ManyToMany(() => Movie)
   @JoinTable({
     name: 'related_movies',
