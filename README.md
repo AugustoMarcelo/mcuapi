@@ -19,9 +19,21 @@ ___
 
 ## 💥 Changelogs <a name="changelogs"></a>
 
+**2021-07-14: Movies|TV Shows updated**
+
+  - UPDATED
+    - *Loki: updated last_aired_date*
+    - *Black Widow: update chronology*
+
+**2021-07-04: Movies|TV Shows updated**
+
+  - UPDATED
+    - *All movies and tv shows: added imdb_id property*
+    - *Black Widow: updated cover*
+
 **2021-06-12: Movies updated**
 
-  UPDATED
+  - UPDATED
     - *The Marvels: updated cover*
 
 **2021-05-24: Movies|TV Shows updated**

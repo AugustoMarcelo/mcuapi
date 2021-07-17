@@ -25,5 +25,7 @@ export default interface IMovie {
 
   post_credit_scenes: number;
 
+  imdb_id?: string;
+
   related_movies?: IMovie[];
 }

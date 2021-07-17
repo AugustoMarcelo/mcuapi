@@ -17,6 +17,7 @@ const tvshows: ITVShow[] = [
     directed_by: 'Matt Shakman',
     phase: 4,
     saga: undefined,
+    imdb_id: 'tt9140560',
   },
   {
     id: 2,
@@ -34,6 +35,7 @@ const tvshows: ITVShow[] = [
     directed_by: 'Kari Skogland',
     phase: 4,
     saga: undefined,
+    imdb_id: 'tt9208876',
   },
   {
     id: 3,
@@ -47,10 +49,11 @@ const tvshows: ITVShow[] = [
     number_seasons: 1,
     number_episodes: 6,
     release_date: new Date(2021, 5, 9),
-    last_aired_date: undefined,
+    last_aired_date: new Date(2021, 6, 14),
     directed_by: 'Kate Herron',
     phase: 4,
     saga: undefined,
+    imdb_id: 'tt9140554',
   },
 ];
 
