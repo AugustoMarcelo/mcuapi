@@ -117,8 +117,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "$ref": "#/components/schemas/Movie"
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Movie"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "related_movies": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/Movie"
+                          }
+                        }
+                      }
+                    }
+                  ]
                 }
               }
             }
@@ -327,7 +341,7 @@
             "description": "Name of who directed the movie"
           },
           "phase": {
-            "type": "string",
+            "type": "integer",
             "description": "Phase to which the movie belongs"
           },
           "saga": {
