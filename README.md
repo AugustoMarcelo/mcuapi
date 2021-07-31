@@ -26,7 +26,7 @@ ___
     - *Ant-Man and The Wasp: updated chronology*
     - *Black Widow: updated chronology*
     - *Shang-Chi: updated cover*
-
+    - *Added a property `related_movies` to movies/{id} endpoint that returns all related movies*
 
 **2021-07-14: Movies|TV Shows updated**
 
