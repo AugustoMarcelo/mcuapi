@@ -18,6 +18,25 @@ ___
 
 ## 💥 Changelogs <a name="changelogs"></a>
 
+**2021-08-21: Movies updated**
+
+  - UPDATED
+    - *Shang-Chi: updated cover, title, duration and post_credit_scenes*
+    - *The Avengers: updated box_office*
+    - *Guardians of the Galaxy: updated box_office*
+    - *Guardians of the Galaxy Vol. 2: updated box_office*
+    - *Avengers: Age of Ultron: updated box_office*
+    - *Captain America: Civil War: updated box_office*
+    - *Doctor Strange: updated box_office*
+    - *Thor: Ragnarok: updated box_office*
+    - *Black Panther: updated box_office*
+    - *Avengers: Infinity War: updated box_office*
+    - *Captain Marvel: updated box_office*
+    - *Avengers: Endgame: updated box_office*
+    - *Spider-Man: Far From Home: updated box_office*
+    - *Black Widow: updated box_office*
+    - *Eternals: updated trailer_url*
+
 **2021-07-31: Movies updated**
 
   - UPDATED
