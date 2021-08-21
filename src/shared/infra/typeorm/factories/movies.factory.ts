@@ -1,5 +1,6 @@
 import IMovie from '@modules/movies/entities/IMovie';
 // Release date with month index
+// Box office numbers from https://www.the-numbers.com/movies/franchise/Marvel-Cinematic-Universe
 const movies: IMovie[] = [
   {
     id: 1,
@@ -100,7 +101,7 @@ const movies: IMovie[] = [
     id: 6,
     title: 'The Avengers',
     release_date: new Date(2012, 4, 4),
-    box_office: 1517935897,
+    box_office: 1515100211,
     duration: 143,
     overview:
       'Marvel Studios presents in association with Paramount Pictures "Marvel\'s The Avengers"--the super hero team up of a lifetime, featuring iconic Marvel super heroes Iron Man, the Incredible Hulk, Thor, Captain America, Hawkeye and Black Widow. When an unexpected enemy emerges that threatens global safety and security, Nick Fury, Director of the international peacekeeping agency known as S.H.I.E.L.D., finds himself in need of a team to pull the world back from the brink of disaster. Spanning the globe, a daring recruitment effort begins.',
@@ -176,7 +177,7 @@ const movies: IMovie[] = [
     id: 10,
     title: 'Guardians of the Galaxy',
     release_date: new Date(2014, 7, 1),
-    box_office: 770867516,
+    box_office: 770882395,
     duration: 121,
     overview:
       'An action-packed, epic space adventure, Marvel\'s "Guardians of the Galaxy," expands the Marvel Cinematic Universe into the cosmos, where brash adventurer Peter Quill finds himself the object of an unrelenting bounty hunt after stealing a mysterious orb coveted by Ronan, a powerful villain with ambitions that threaten the entire universe. To evade the ever-persistent Ronan, Quill is forced into an uneasy truce with a quartet of disparate misfits--Rocket, a gun-toting raccoon; Groot, a tree-like humanoid; the deadly and enigmatic Gamora; and the revenge-driven Drax the Destroyer. But when Quill discovers the true power of the orb and the menace it poses to the cosmos, he must do his best to rally his ragtag rivals for a last, desperate stand--with the galaxy\'s fate in the balance.',
@@ -195,7 +196,7 @@ const movies: IMovie[] = [
     id: 11,
     title: 'Avengers: Age of Ultron',
     release_date: new Date(2015, 4, 1),
-    box_office: 1403013963,
+    box_office: 1395316979,
     duration: 141,
     overview:
       "Marvel Studios presents 'Avengers: Age of Ultron', the epic follow-up to the biggest Super Hero movie of all time. When Tony Stark tries to jumpstart a dormant peacekeeping program, things go awry and Earth's Mightiest Heroes, including Iron Man, Captain America, Thor, The Incredible Hulk, Black Widow and Hawkeye, are put to the ultimate test as the fate of the planet hangs in the balance. As the villainous Ultron emerges, it is up to the Avengers to stop him from enacting his terrible plans, and soon uneasy alliances and unexpected action pave the way for an epic and unique global adventure.",
@@ -233,7 +234,7 @@ const movies: IMovie[] = [
     id: 13,
     title: 'Captain America: Civil War',
     release_date: new Date(2016, 4, 6),
-    box_office: 1140069413,
+    box_office: 1151918521,
     duration: 147,
     overview:
       "Marvel's 'Captain America: Civil War' finds Steve Rogers leading the newly formed team of Avengers in their continued efforts to safeguard humanity. But after another incident involving the Avengers results in collateral damage, political pressure mounts to install a system of accountability, headed by a governing body to oversee and direct the team. The new status quo fractures the Avengers, resulting in two campsÔÇöone led by Steve Rogers and his desire for the Avengers to remain free to defend humanity without government interference, and the other following Tony Stark's surprising decision to support government oversight and accountability.",
@@ -252,7 +253,7 @@ const movies: IMovie[] = [
     id: 14,
     title: 'Doctor Strange',
     release_date: new Date(2016, 10, 4),
-    box_office: 676404566,
+    box_office: 676354481,
     duration: 115,
     overview:
       'From Marvel Studios comes "Doctor Strange", the story of world-famous neurosurgeon Dr. Stephen Strange whose life changes forever after a horrific car accident robs him of the use of his hands. When traditional medicine fails him, he is forced to look for healing, and hope, in an unlikely place - mysterious enclave known as Kamar-Taj. He quickly learns that this is not just a center for healing but also the front line of a battle against unseen dark forces bent on destroying our reality. Before long StrangeÔÇöarmed with newly acquired magical powers - is forced to choose whether to return to his life of fortune and status or leave it all behind to defend the world as the most powerful sorcerer in existence.',
@@ -271,7 +272,7 @@ const movies: IMovie[] = [
     id: 15,
     title: 'Guardians of the Galaxy Vol. 2',
     release_date: new Date(2017, 4, 5),
-    box_office: 862316233,
+    box_office: 869113101,
     duration: 136,
     overview:
       "Set to the backdrop of 'Awesome Mixtape #2,' Marvel's Guardians of the Galaxy Vol. 2 continues the team's adventures as they traverse the outer reaches of the cosmos. The Guardians must fight to keep their newfound family together as they unravel the mysteries of Peter Quill's true parentage. Old foes become new allies and fan-favorite characters from the classic comics will come to our heroes' aid as the Marvel cinematic universe continues to expand.",
@@ -309,7 +310,7 @@ const movies: IMovie[] = [
     id: 17,
     title: 'Thor: Ragnarok',
     release_date: new Date(2017, 10, 3),
-    box_office: 846980024,
+    box_office: 850482778,
     duration: 130,
     overview:
       'Thor is imprisoned on the other side of the universe without his mighty hammer and finds himself in a race against time to get back to Asgard to stop Ragnarok - the destruction of his homeworld and the end of Asgardian civilization - at the hands of an all-powerful new threat, the ruthless Hela. But first he must survive a deadly gladiatorial contest that pits him against his former ally and fellow Avenger - the Incredible Hulk!',
@@ -328,7 +329,7 @@ const movies: IMovie[] = [
     id: 18,
     title: 'Black Panther',
     release_date: new Date(2018, 1, 16),
-    box_office: 1348258224,
+    box_office: 1336494321,
     duration: 134,
     overview:
       "Marvel Studios' \"Black Panther\" follows T'Challa who, after the death of his father, the King of Wakanda, returns home to the isolated, technologically advanced African nation to succeed to the throne and take his rightful place as king. But when a powerful old enemy reappears, T'Challa's mettle as king - and Black Panther - is tested when he is drawn into a formidable conflict that puts the fate of Wakanda and the entire world at risk. Faced with treachery and danger, the young king must rally his allies and release the full power of Black Panther to defeat his foes and secure the safety of his people and their way of life.",
@@ -347,7 +348,7 @@ const movies: IMovie[] = [
     id: 19,
     title: 'Avengers: Infinity War',
     release_date: new Date(2018, 3, 27),
-    box_office: 2048134200,
+    box_office: 2044540523,
     duration: 149,
     overview:
       'An unprecedented cinematic journey ten years in the making and spanning the entire Marvel Cinematic Universe, Marvel Studios\' "Avengers: Infinity War" brings to the screen the ultimate, deadliest showdown of all time. As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.',
@@ -385,7 +386,7 @@ const movies: IMovie[] = [
     id: 21,
     title: 'Captain Marvel',
     release_date: new Date(2019, 2, 8),
-    box_office: 1126129839,
+    box_office: 1129727388,
     duration: 125,
     overview:
       'Set in the 1990s, Marvel Studios\' "Captain Marvel" is an all-new adventure from a previously unseen period in the history of the Marvel Cinematic Universe that follows the journey of Carol Danvers as she becomes one of the universe\'s most powerful heroes. While a galactic war between two alien races reaches Earth, Danvers finds herself and a small cadre of allies at the center of the maelstrom.',
@@ -403,7 +404,7 @@ const movies: IMovie[] = [
     id: 22,
     title: 'Avengers: Endgame',
     release_date: new Date(2019, 3, 26),
-    box_office: 2795465685,
+    box_office: 2797800564,
     duration: 182,
     overview:
       'The grave course of events set in motion by Thanos that wiped out half the universe and fractured the Avengers ranks compels the remaining Avengers to take one final stand in Marvel Studios\' grand conclusion to twenty-two films, "Avengers: Endgame."',
@@ -422,7 +423,7 @@ const movies: IMovie[] = [
     id: 23,
     title: 'Spider-Man: Far From Home',
     release_date: new Date(2019, 6, 2),
-    box_office: 1123901180,
+    box_office: 1131113066,
     duration: 129,
     overview:
       'Following the events of Avengers: Endgame, Spider-Man must step up to take on new threats in a world that has changed forever.',
@@ -441,7 +442,7 @@ const movies: IMovie[] = [
     id: 24,
     title: 'Black Widow',
     release_date: new Date(2021, 6, 9),
-    box_office: 0,
+    box_office: 368977043,
     duration: 135,
     overview:
       "In Marvel Studios' action-packed spy thriller “Black Widow”, Natasha Romanoff aka Black Widow confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises. Pursued by a force that will stop at nothing to bring her down, Natasha must deal with her history as a spy and the broken relationships left in her wake long before she became an Avenger.",
@@ -457,10 +458,10 @@ const movies: IMovie[] = [
   },
   {
     id: 25,
-    title: 'Shang-Chi and the Legend of the Ten Rings',
+    title: 'Shang-Chi and The Legend of The Ten Rings',
     release_date: new Date(2021, 8, 3),
     box_office: 0,
-    duration: 0,
+    duration: 132,
     overview:
       "Marvel Studios' \"Shang-Chi and The Legend of The Ten Rings\" stars Simu Liu as Shang-Chi, who must confront the past he thought he left behind when he is drawn into the web of the mysterious Ten Rings organization. The film also stars Tony Leung as Wenwu, Awkwafina as Shang-Chi's friend Katy and Michelle Yeoh as Jiang Nan, as well as Fala Chen, Meng'er Zhang, Florian Munteanu and Ronny Chieng.",
     cover_url:
@@ -471,7 +472,7 @@ const movies: IMovie[] = [
     phase: 4,
     saga: undefined,
     chronology: undefined,
-    post_credit_scenes: 0,
+    post_credit_scenes: 2,
     imdb_id: 'tt9376612',
   },
   {
@@ -484,7 +485,7 @@ const movies: IMovie[] = [
       "Marvel Studios' Eternals features an exciting new team of Super Heroes in the Marvel Cinematic Universe, ancient aliens who have been living on Earth in secret for thousands of years. Following the events of Avengers: Endgame, an unexpected tragedy forces them out of the shadows to reunite against mankind's most ancient enemy, The Deviants.",
     cover_url:
       'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/the-eternals.jpg',
-    trailer_url: 'https://youtu.be/0WVDKZJkGlY',
+    trailer_url: 'https://youtu.be/x_me3xsvDgk',
     directed_by: 'Chloé Zhao',
     phase: 4,
     saga: undefined,
