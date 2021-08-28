@@ -18,6 +18,11 @@ ___
 
 ## 💥 Changelogs <a name="changelogs"></a>
 
+**2021-08-28: Movies updated**
+
+  - UPDATED
+    - *Spider-Man: No Way Home: updated overview, trailer url and related_movies*
+
 **2021-08-21: Movies updated**
 
   - UPDATED
