@@ -499,9 +499,11 @@ const movies: IMovie[] = [
     release_date: new Date(2021, 11, 17),
     box_office: 0,
     duration: 0,
+    overview:
+      'For the first time in the cinematic history of Spider-Man, our friendly neighborhood hero is unmasked and no longer able to separate his normal life from the high-stakes of being a Super Hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.',
     cover_url:
       'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/spider-man-no-way-home.jpg',
-    trailer_url: undefined,
+    trailer_url: 'https://youtu.be/WgU7P6o-GkM',
     directed_by: 'Jon Watts',
     phase: 4,
     saga: undefined,
