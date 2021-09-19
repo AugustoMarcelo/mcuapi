@@ -55,6 +55,41 @@ const tvshows: ITVShow[] = [
     saga: undefined,
     imdb_id: 'tt9140554',
   },
+  {
+    id: 4,
+    title: 'What If...?',
+    overview:
+      '"What If…?" flips the script on the MCU, reimagining famous events from the films in unexpected ways. Marvel Studios’ first animated series focuses on different heroes from the MCU, featuring a voice cast that includes a host of stars who reprise their roles. Directed by Bryan Andrews with AC Bradley as head writer, “What If…?" launches exclusively on Disney+ on August 11, 2021.',
+    cover_url:
+      'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/what_if.jpg',
+    trailer_url:
+      'https://assets.espn.go.com/players/web-player-bundle/next/embed/share.html#id=6262751537001&brand=marvel',
+    number_seasons: 1,
+    number_episodes: 9,
+    release_date: new Date(2021, 7, 11),
+    last_aired_date: new Date(2021, 9, 6),
+    directed_by: 'Bryan Andrew',
+    phase: 4,
+    saga: undefined,
+    imdb_id: 'tt10168312',
+  },
+  {
+    id: 5,
+    title: 'Hawkeye',
+    overview:
+      'Marvel Studios’ "Hawkeye" stars Jeremy Renner as Hawkeye, who teams up with another well-known archer from the Marvel comics, Kate Bishop, played by Hailee Steinfeld. The cast also includes Vera Farmiga, Fra Fee, Tony Dalton, Zahn McClarnon, Brian d’Arcy James and newcomer Alaqua Cox as Maya Lopez. “Hawkeye” is helmed by Rhys Thomas and directing duo Bert and Bertie.',
+    cover_url:
+      'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/hawkeye.jpg',
+    trailer_url: 'https://youtu.be/5VYb3B1ETlk',
+    number_seasons: 1,
+    number_episodes: 6,
+    release_date: new Date(2021, 10, 24),
+    last_aired_date: new Date(2021, 11, 29),
+    directed_by: 'Rhys Thomas, Bert and Bertie',
+    phase: 4,
+    saga: undefined,
+    imdb_id: 'tt10160804',
+  },
 ];
 
 export default tvshows;
