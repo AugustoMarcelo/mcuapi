@@ -18,6 +18,12 @@ ___
 
 ## 💥 Changelogs <a name="changelogs"></a>
 
+**2021-09-19: TV Shows updated**
+
+  - ADDED
+    - *What If...?*
+    - *Hawkeye*
+
 **2021-08-28: Movies updated**
 
   - UPDATED
