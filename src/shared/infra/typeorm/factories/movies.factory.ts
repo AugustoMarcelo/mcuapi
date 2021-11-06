@@ -480,7 +480,7 @@ const movies: IMovie[] = [
     title: 'Eternals',
     release_date: new Date(2021, 10, 5),
     box_office: 0,
-    duration: 0,
+    duration: 157,
     overview:
       "Marvel Studios' Eternals features an exciting new team of Super Heroes in the Marvel Cinematic Universe, ancient aliens who have been living on Earth in secret for thousands of years. Following the events of Avengers: Endgame, an unexpected tragedy forces them out of the shadows to reunite against mankind's most ancient enemy, The Deviants.",
     cover_url:
@@ -490,7 +490,7 @@ const movies: IMovie[] = [
     phase: 4,
     saga: undefined,
     chronology: undefined,
-    post_credit_scenes: 0,
+    post_credit_scenes: 2,
     imdb_id: 'tt9032400',
   },
   {
@@ -514,7 +514,7 @@ const movies: IMovie[] = [
   {
     id: 28,
     title: 'Doctor Strange in the Multiverse of Madness',
-    release_date: new Date(2022, 2, 25),
+    release_date: new Date(2022, 4, 6),
     box_office: 0,
     duration: 0,
     overview: undefined,
@@ -531,7 +531,7 @@ const movies: IMovie[] = [
   {
     id: 29,
     title: 'Thor: Love and Thunder',
-    release_date: new Date(2022, 4, 6),
+    release_date: new Date(2022, 6, 8),
     box_office: 0,
     duration: 0,
     overview: undefined,
@@ -548,7 +548,7 @@ const movies: IMovie[] = [
   {
     id: 30,
     title: 'Black Panther: Wakanda Forever',
-    release_date: new Date(2022, 6, 8),
+    release_date: new Date(2022, 10, 11),
     box_office: 0,
     duration: 0,
     overview:
@@ -566,7 +566,7 @@ const movies: IMovie[] = [
   {
     id: 31,
     title: 'The Marvels',
-    release_date: new Date(2022, 10, 11),
+    release_date: new Date(2023, 1, 17),
     box_office: 0,
     duration: 0,
     cover_url:
@@ -598,7 +598,7 @@ const movies: IMovie[] = [
   {
     id: 33,
     title: 'Ant-Man and The Wasp: Quantumania',
-    release_date: new Date(2023, 1, 17),
+    release_date: new Date(2023, 6, 28),
     box_office: 0,
     duration: 0,
     cover_url:
