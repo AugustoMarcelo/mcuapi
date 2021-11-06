@@ -17,19 +17,35 @@ ___
 ___
 
 ## 💥 Changelogs <a name="changelogs"></a>
+<details>
+  <summary>2021-11-06: Movies updated</summary>
 
-**2021-09-19: TV Shows updated**
+  - UPDATED
+    - *Eternals: updated duration and post_credit_scenes*
+    - *Doctor Strange in the Multiverse of Madness: update release_date*
+    - *Thor: Love and Thunder: update release_date*
+    - *Black Panther: Wakanda Forever: update release_date*
+    - *The Marvels: update release_date*
+    - *Ant-Man and The Wasp: Quantumania: update release_date*
+</details>
+
+<details>
+  <summary>2021-09-19: TV Shows updated</summary>
 
   - ADDED
     - *What If...?*
     - *Hawkeye*
+</details>
 
-**2021-08-28: Movies updated**
+<details>
+  <summary>2021-08-28: Movies updated</summary>
 
   - UPDATED
     - *Spider-Man: No Way Home: updated overview, trailer url and related_movies*
+</details>
 
-**2021-08-21: Movies updated**
+<details>
+  <summary>2021-08-21: Movies updated</summary>
 
   - UPDATED
     - *Shang-Chi: updated cover, title, duration and post_credit_scenes*
@@ -47,41 +63,53 @@ ___
     - *Spider-Man: Far From Home: updated box_office*
     - *Black Widow: updated box_office*
     - *Eternals: updated trailer_url*
+</details>
 
-**2021-07-31: Movies updated**
+<details>
+  <summary>2021-07-31: Movies updated</summary>
 
-  - UPDATED
+   - UPDATED
     - *Black Panther: updated chronology*
     - *Avengers: Infinity War: updated chronology*
     - *Ant-Man and The Wasp: updated chronology*
     - *Black Widow: updated chronology*
     - *Shang-Chi: updated cover*
     - *Added a property `related_movies` to movies/{id} endpoint that returns all related movies*
+</details>
 
-**2021-07-14: Movies|TV Shows updated**
+<details>
+  <summary>2021-07-14: Movies|TV Shows updated</summary>
 
   - UPDATED
     - *Loki: updated last_aired_date*
     - *Black Widow: updated chronology*
+</details>
 
-**2021-07-04: Movies|TV Shows updated**
+<details>
+  <summary>2021-07-04: Movies|TV Shows updated</summary>
 
   - UPDATED
     - *All movies and tv shows: added imdb_id property*
     - *Black Widow: updated cover*
+</details>
 
-**2021-06-12: Movies updated**
+<details>
+  <summary>2021-06-12: Movies updated</summary>
 
   - UPDATED
     - *The Marvels: updated cover*
+</details>
 
-**2021-05-24: Movies|TV Shows updated**
+<details>
+  <summary>2021-05-24: Movies|TV Shows updated</summary>
 
   - UPDATED
     - *The Eternals: updated title, overview, cover and trailer_url*
     - *Loki: updated cover*
+</details>
 
-**2021-05-04: Movies|TV Shows updated**
+<details>
+  <summary>2021-05-04: Movies|TV Shows updated</summary>
 
   - UPDATED
     - *Captain Marvel 2: updated title*
@@ -90,3 +118,4 @@ ___
     - *Loki: updated overview, cover_url and release_date*
   - ADDED
     - *Guardians of the Galaxy Vol .3*
+</details>
