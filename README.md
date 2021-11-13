@@ -20,6 +20,13 @@ ___
 
 ## 💥 Changelogs <a name="changelogs"></a>
 <details>
+  <summary>2021-11-13: Movies updated</summary>
+
+  - UPDATED
+    - *Spider-Man: No Way Home: updated cover*
+</details>
+
+<details>
   <summary>2021-11-06: Movies updated</summary>
 
   - UPDATED
