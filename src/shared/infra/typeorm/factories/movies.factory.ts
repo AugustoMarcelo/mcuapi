@@ -423,7 +423,7 @@ const movies: IMovie[] = [
     id: 23,
     title: 'Spider-Man: Far From Home',
     release_date: new Date(2019, 6, 2),
-    box_office: 1131113066,
+    box_office: 1132532832,
     duration: 129,
     overview:
       'Following the events of Avengers: Endgame, Spider-Man must step up to take on new threats in a world that has changed forever.',
@@ -442,7 +442,7 @@ const movies: IMovie[] = [
     id: 24,
     title: 'Black Widow',
     release_date: new Date(2021, 6, 9),
-    box_office: 368977043,
+    box_office: 375474179,
     duration: 135,
     overview:
       "In Marvel Studios' action-packed spy thriller “Black Widow”, Natasha Romanoff aka Black Widow confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises. Pursued by a force that will stop at nothing to bring her down, Natasha must deal with her history as a spy and the broken relationships left in her wake long before she became an Avenger.",
@@ -460,7 +460,7 @@ const movies: IMovie[] = [
     id: 25,
     title: 'Shang-Chi and The Legend of The Ten Rings',
     release_date: new Date(2021, 8, 3),
-    box_office: 0,
+    box_office: 417952233,
     duration: 132,
     overview:
       "Marvel Studios' \"Shang-Chi and The Legend of The Ten Rings\" stars Simu Liu as Shang-Chi, who must confront the past he thought he left behind when he is drawn into the web of the mysterious Ten Rings organization. The film also stars Tony Leung as Wenwu, Awkwafina as Shang-Chi's friend Katy and Michelle Yeoh as Jiang Nan, as well as Fala Chen, Meng'er Zhang, Florian Munteanu and Ronny Chieng.",
@@ -479,7 +479,7 @@ const movies: IMovie[] = [
     id: 26,
     title: 'Eternals',
     release_date: new Date(2021, 10, 5),
-    box_office: 0,
+    box_office: 399652975,
     duration: 157,
     overview:
       "Marvel Studios' Eternals features an exciting new team of Super Heroes in the Marvel Cinematic Universe, ancient aliens who have been living on Earth in secret for thousands of years. Following the events of Avengers: Endgame, an unexpected tragedy forces them out of the shadows to reunite against mankind's most ancient enemy, The Deviants.",
@@ -497,18 +497,18 @@ const movies: IMovie[] = [
     id: 27,
     title: 'Spider-Man: No Way Home',
     release_date: new Date(2021, 11, 17),
-    box_office: 0,
-    duration: 0,
+    box_office: 1082231855,
+    duration: 148,
     overview:
       'For the first time in the cinematic history of Spider-Man, our friendly neighborhood hero is unmasked and no longer able to separate his normal life from the high-stakes of being a Super Hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.',
     cover_url:
       'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/spider-man-no-way-home.jpg',
-    trailer_url: 'https://youtu.be/WgU7P6o-GkM',
+    trailer_url: 'https://youtu.be/ZYzbalQ6Lg8',
     directed_by: 'Jon Watts',
     phase: 4,
     saga: undefined,
     chronology: undefined,
-    post_credit_scenes: 0,
+    post_credit_scenes: 2,
     imdb_id: 'tt10872600',
   },
   {
@@ -520,7 +520,7 @@ const movies: IMovie[] = [
     overview: undefined,
     cover_url:
       'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/doctor-strange-in-the-multiverse-of-madness.jpg',
-    trailer_url: undefined,
+    trailer_url: 'https://youtu.be/Rt_UqUm38BI',
     directed_by: 'Sam Raimi',
     phase: 4,
     saga: undefined,

@@ -84,7 +84,7 @@ const tvshows: ITVShow[] = [
     number_seasons: 1,
     number_episodes: 6,
     release_date: new Date(2021, 10, 24),
-    last_aired_date: new Date(2021, 11, 29),
+    last_aired_date: new Date(2021, 11, 22),
     directed_by: 'Rhys Thomas, Bert and Bertie',
     phase: 4,
     saga: undefined,
