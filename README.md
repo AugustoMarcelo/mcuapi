@@ -20,6 +20,19 @@ ___
 
 ## 💥 Changelogs <a name="changelogs"></a>
 <details>
+  <summary>2021-12-28: Movies|TV Shows updated</summary>
+
+  - UPDATED
+    - *Spider-Man: No Way Home: updated box_office, duration, cover, trailer_url and post_credit_scenes*
+    - *Eternals: updated box_office*
+    - *Shang-Chi: updated box_office*
+    - *Black Widow: updated box_office*
+    - *Spider-Man: Far From Home: updated box_office*
+    - *Doctor Strange in the Multiverse of Madness: updated trailer_url*
+    - *Hawkeye: updated cover and last_aired_episode*
+</details>
+
+<details>
   <summary>2021-11-13: Movies updated</summary>
 
   - UPDATED
