@@ -517,7 +517,8 @@ const movies: IMovie[] = [
     release_date: new Date(2022, 4, 6),
     box_office: 0,
     duration: 0,
-    overview: undefined,
+    overview:
+      "Marvel Studios' 'Doctor Strange in the Multiverse of Madness'—a thrilling ride through the Multiverse with Doctor Strange, his trusted friend Wong and Wanda Maximoff, aka Scarlet Witch. 'Doctor Strange in the Multiverse of Madness' opens in U.S. theaters on May 6, 2022",
     cover_url:
       'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/doctor-strange-in-the-multiverse-of-madness.jpg',
     trailer_url: 'https://youtu.be/Rt_UqUm38BI',
