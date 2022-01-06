@@ -20,6 +20,15 @@ ___
 
 ## 💥 Changelogs <a name="changelogs"></a>
 <details>
+  <summary>2022-01-06: Movies|TV Shows updated</summary>
+
+  - UPDATED
+    - *Black Panther: Wakanda Forever: updated cover*
+    - *Doctor Strange in the Multiverse of Madness: updated cover*
+    - *Hawkeye: updated cover*
+</details>
+
+<details>
   <summary>2021-12-28: Movies|TV Shows updated</summary>
 
   - UPDATED
