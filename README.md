@@ -20,6 +20,18 @@ ___
 
 ## 💥 Changelogs <a name="changelogs"></a>
 <details>
+  <summary>2022-01-22: Movies|TV Shows added/updated</summary>
+
+  - ADDED
+    - *Moon Knight*
+
+  - UPDATED
+    - *Eternals: updated cover and box_office*
+    - *Spider-Man: No Way Home: updated box_office*
+    - *Shang-Chi: updated box_office*
+</details>
+
+<details>
   <summary>2022-01-06: Movies|TV Shows updated</summary>
 
   - UPDATED
