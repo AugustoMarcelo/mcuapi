@@ -90,6 +90,23 @@ const tvshows: ITVShow[] = [
     saga: undefined,
     imdb_id: 'tt10160804',
   },
+  {
+    id: 6,
+    title: 'Moon Knight',
+    overview:
+      "Moon Knight follows Steven Grant, a mild-mannered gift-shop employee, who becomes plagued with blackouts and memories of another life. Steven discovers he has dissociative identity disorder and shares a body with mercenary Marc Spector. As Steven/Marc's enemies converge upon them, they must navigate their complex identities while thrust into a deadly mystery among the powerful gods of Egypt.",
+    cover_url:
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1642867845/mcuapi/gallery/TV%20Shows/Moon%20Knight/Posters/1.jpg',
+    trailer_url: 'https://youtu.be/x7Krla_UxRg',
+    number_seasons: 1,
+    number_episodes: 0,
+    release_date: new Date(2022, 2, 30),
+    last_aired_date: undefined,
+    directed_by: 'Mohamed Diab',
+    phase: 4,
+    saga: undefined,
+    imdb_id: 'tt10234724',
+  },
 ];
 
 export default tvshows;
