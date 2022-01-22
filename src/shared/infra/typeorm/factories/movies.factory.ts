@@ -460,7 +460,7 @@ const movies: IMovie[] = [
     id: 25,
     title: 'Shang-Chi and The Legend of The Ten Rings',
     release_date: new Date(2021, 8, 3),
-    box_office: 417952233,
+    box_office: 417919868,
     duration: 132,
     overview:
       "Marvel Studios' \"Shang-Chi and The Legend of The Ten Rings\" stars Simu Liu as Shang-Chi, who must confront the past he thought he left behind when he is drawn into the web of the mysterious Ten Rings organization. The film also stars Tony Leung as Wenwu, Awkwafina as Shang-Chi's friend Katy and Michelle Yeoh as Jiang Nan, as well as Fala Chen, Meng'er Zhang, Florian Munteanu and Ronny Chieng.",
@@ -479,7 +479,7 @@ const movies: IMovie[] = [
     id: 26,
     title: 'Eternals',
     release_date: new Date(2021, 10, 5),
-    box_office: 399652975,
+    box_office: 399000233,
     duration: 157,
     overview:
       "Marvel Studios' Eternals features an exciting new team of Super Heroes in the Marvel Cinematic Universe, ancient aliens who have been living on Earth in secret for thousands of years. Following the events of Avengers: Endgame, an unexpected tragedy forces them out of the shadows to reunite against mankind's most ancient enemy, The Deviants.",
@@ -497,7 +497,7 @@ const movies: IMovie[] = [
     id: 27,
     title: 'Spider-Man: No Way Home',
     release_date: new Date(2021, 11, 17),
-    box_office: 1082231855,
+    box_office: 1636437161,
     duration: 148,
     overview:
       'For the first time in the cinematic history of Spider-Man, our friendly neighborhood hero is unmasked and no longer able to separate his normal life from the high-stakes of being a Super Hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.',
