@@ -20,6 +20,14 @@ ___
 
 ## 💥 Changelogs <a name="changelogs"></a>
 <details>
+  <summary>2022-02-20: Movies|TV Shows added/updated</summary>
+
+  - UPDATED
+    - *Doctor Strange in the Multiverse of Madness: updated cover and trailer_url*
+    - *Spider-Man: No Way Home: updated box_office*
+</details>
+
+<details>
   <summary>2022-01-22: Movies|TV Shows added/updated</summary>
 
   - ADDED
