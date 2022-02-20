@@ -497,7 +497,7 @@ const movies: IMovie[] = [
     id: 27,
     title: 'Spider-Man: No Way Home',
     release_date: new Date(2021, 11, 17),
-    box_office: 1636437161,
+    box_office: 1809655686,
     duration: 148,
     overview:
       'For the first time in the cinematic history of Spider-Man, our friendly neighborhood hero is unmasked and no longer able to separate his normal life from the high-stakes of being a Super Hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.',
@@ -520,8 +520,8 @@ const movies: IMovie[] = [
     overview:
       "Marvel Studios' 'Doctor Strange in the Multiverse of Madness'—a thrilling ride through the Multiverse with Doctor Strange, his trusted friend Wong and Wanda Maximoff, aka Scarlet Witch. 'Doctor Strange in the Multiverse of Madness' opens in U.S. theaters on May 6, 2022",
     cover_url:
-      'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/doctor-strange-in-the-multiverse-of-madness.jpg',
-    trailer_url: 'https://youtu.be/Rt_UqUm38BI',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1645360185/mcuapi/gallery/Doctor%20Strange%20in%20the%20Multiverse%20of%20Madness/Posters/2.jpg',
+    trailer_url: 'https://youtu.be/aWzlQ2N6qqg',
     directed_by: 'Sam Raimi',
     phase: 4,
     saga: undefined,
