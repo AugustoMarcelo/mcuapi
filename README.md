@@ -20,6 +20,16 @@ ___
 
 ## 💥 Changelogs <a name="changelogs"></a>
 <details>
+  <summary>2022-03-16: TV Shows added/updated</summary>
+
+  - ADDED
+    - *Ms. Marvel*
+
+  - UPDATED
+    - *Moon Knight: updated cover_url*
+</details>
+
+<details>
   <summary>2022-02-20: Movies|TV Shows added/updated</summary>
 
   - UPDATED
