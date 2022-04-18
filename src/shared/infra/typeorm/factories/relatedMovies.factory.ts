@@ -81,6 +81,9 @@ const spiderMan2 = generateRelatedMovies(23, [13, 16, 19, 22]);
 const blackWidow = generateRelatedMovies(24, [3, 6, 9, 11, 13, 19, 22]);
 const spiderMan3 = generateRelatedMovies(27, [16, 23]);
 
+const doctorStrange2 = generateRelatedMovies(28, [14, 17, 19, 22, 27]);
+const thor4 = generateRelatedMovies(29, [4, 8, 17]);
+
 const relatedMovies = [
   ...ironMan,
   ...hulk,
@@ -107,6 +110,8 @@ const relatedMovies = [
   ...spiderMan2,
   ...blackWidow,
   ...spiderMan3,
+  ...doctorStrange2,
+  ...thor4,
 ];
 
 export default relatedMovies;
