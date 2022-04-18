@@ -20,6 +20,15 @@ ___
 
 ## 💥 Changelogs <a name="changelogs"></a>
 <details>
+  <summary>2022-04-18: Movies updated</summary>
+
+  - UPDATED
+    - *Spider-Man: No Way Home: updated box_office, chronology and related movies*
+    - *Doctor Strange in the Multiverse of Madness: updated duration, chronology and related movies*
+    - *Thor: Love and Thunder: updated cover, trailer_url, chronology and related movies*
+</details>
+
+<details>
   <summary>2022-03-16: TV Shows added/updated</summary>
 
   - ADDED
