@@ -23,6 +23,15 @@ ___
   <summary>2022-04-18: Movies updated</summary>
 
   - UPDATED
+    - *The Marvels: updated release_date*
+    - *Ant-Man and The Wasp: Quantumania: update release_date*
+    - *Thor: Love and Thunder: added overview*
+</details>
+
+<details>
+  <summary>2022-04-18: Movies updated</summary>
+
+  - UPDATED
     - *Spider-Man: No Way Home: updated box_office, chronology and related movies*
     - *Doctor Strange in the Multiverse of Madness: updated duration, chronology and related movies*
     - *Thor: Love and Thunder: updated cover, trailer_url, chronology and related movies*
