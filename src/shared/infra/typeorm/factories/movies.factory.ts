@@ -442,7 +442,7 @@ const movies: IMovie[] = [
     id: 24,
     title: 'Black Widow',
     release_date: new Date(2021, 6, 9),
-    box_office: 375474179,
+    box_office: 379751655,
     duration: 135,
     overview:
       "In Marvel Studios' action-packed spy thriller “Black Widow”, Natasha Romanoff aka Black Widow confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises. Pursued by a force that will stop at nothing to bring her down, Natasha must deal with her history as a spy and the broken relationships left in her wake long before she became an Avenger.",
@@ -460,7 +460,7 @@ const movies: IMovie[] = [
     id: 25,
     title: 'Shang-Chi and The Legend of The Ten Rings',
     release_date: new Date(2021, 8, 3),
-    box_office: 417919868,
+    box_office: 402064929,
     duration: 132,
     overview:
       "Marvel Studios' \"Shang-Chi and The Legend of The Ten Rings\" stars Simu Liu as Shang-Chi, who must confront the past he thought he left behind when he is drawn into the web of the mysterious Ten Rings organization. The film also stars Tony Leung as Wenwu, Awkwafina as Shang-Chi's friend Katy and Michelle Yeoh as Jiang Nan, as well as Fala Chen, Meng'er Zhang, Florian Munteanu and Ronny Chieng.",
@@ -479,7 +479,7 @@ const movies: IMovie[] = [
     id: 26,
     title: 'Eternals',
     release_date: new Date(2021, 10, 5),
-    box_office: 399000233,
+    box_office: 402064929,
     duration: 157,
     overview:
       "Marvel Studios' Eternals features an exciting new team of Super Heroes in the Marvel Cinematic Universe, ancient aliens who have been living on Earth in secret for thousands of years. Following the events of Avengers: Endgame, an unexpected tragedy forces them out of the shadows to reunite against mankind's most ancient enemy, The Deviants.",
@@ -497,7 +497,7 @@ const movies: IMovie[] = [
     id: 27,
     title: 'Spider-Man: No Way Home',
     release_date: new Date(2021, 11, 17),
-    box_office: 1891101003,
+    box_office: 1889902301,
     duration: 148,
     overview:
       'For the first time in the cinematic history of Spider-Man, our friendly neighborhood hero is unmasked and no longer able to separate his normal life from the high-stakes of being a Super Hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.',
@@ -535,7 +535,8 @@ const movies: IMovie[] = [
     release_date: new Date(2022, 6, 8),
     box_office: 0,
     duration: 0,
-    overview: undefined,
+    overview:
+      "The film finds Thor on a journey unlike anything he's ever faced — a quest for inner peace. But his retirement is interrupted by a galactic killer known as Gorr the God Butcher, who seeks the extinction of the gods. To combat the threat, Thor enlists the help of King Valkyrie, Korg, and ex-girlfriend Jane Foster, who — to Thor's surprise — inexplicably wields his magical hammer, Mjolnir, as the Mighty Thor.",
     cover_url:
       'https://res.cloudinary.com/augustomarcelo/image/upload/v1650300150/mcuapi/gallery/Thor:%20Love%20and%20Thunder/Posters/2.jpg',
     trailer_url: 'https://youtu.be/tgB1wUcmbbw',
@@ -567,7 +568,7 @@ const movies: IMovie[] = [
   {
     id: 31,
     title: 'The Marvels',
-    release_date: new Date(2023, 1, 17),
+    release_date: new Date(2023, 6, 28),
     box_office: 0,
     duration: 0,
     cover_url:
@@ -599,7 +600,7 @@ const movies: IMovie[] = [
   {
     id: 33,
     title: 'Ant-Man and The Wasp: Quantumania',
-    release_date: new Date(2023, 6, 28),
+    release_date: new Date(2023, 1, 17),
     box_office: 0,
     duration: 0,
     cover_url:
