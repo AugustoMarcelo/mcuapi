@@ -526,7 +526,7 @@ const movies: IMovie[] = [
     phase: 4,
     saga: undefined,
     chronology: 28,
-    post_credit_scenes: 0,
+    post_credit_scenes: 2,
     imdb_id: 'tt9419884',
   },
   {
