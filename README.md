@@ -7,7 +7,7 @@ ___
 
 ## 📑 About the project <a name="about-the-project"></a>
 
-A RESTFul API for MCU (Marvel Cinematic Universe)! Movies and TV Shows. Characters coming soon! See [the new documentation](https://mcuapi.herokuapp.com/docs)!
+A RESTFul API for MCU (Marvel Cinematic Universe)! Movies and TV Shows. Characters coming soon! See [the new documentation](https://mcuapi.herokuapp.com/docs)! If you have any suggestion, please open an issue!
 ___
 
 ## ➡ Endpoints <a name="endpoint"></a>
@@ -20,7 +20,16 @@ ___
 
 ## 💥 Changelogs <a name="changelogs"></a>
 <details>
-  <summary>2022-04-18: Movies updated</summary>
+  <summary>2022-05-04: Movies|TV Shows updated</summary>
+
+  - UPDATED
+    - *Ms. Marvel: updated overview and release_date*
+    - *Moon Knight: updated last_aired_date and number_episodes*
+    - *Doctor Strange in the Multiverse of Madness: updated post_credit_scenes*
+</details>
+
+<details>
+  <summary>2022-05-01: Movies updated</summary>
 
   - UPDATED
     - *The Marvels: updated release_date*
