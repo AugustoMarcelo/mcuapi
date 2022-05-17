@@ -20,6 +20,17 @@ ___
 
 ## 💥 Changelogs <a name="changelogs"></a>
 <details>
+  <summary>2022-05-17: Movies|TV Shows added/updated</summary>
+
+  - ADDED
+    - *She-Hulk: Attorney at Law*
+
+  - UPDATED
+    - *Doctor Strange in the Multiverse of Madness: updated box_office*
+    - *Ms. Marvel: updated overview and last_aired_date*
+</details>
+
+<details>
   <summary>2022-05-04: Movies|TV Shows updated</summary>
 
   - UPDATED
