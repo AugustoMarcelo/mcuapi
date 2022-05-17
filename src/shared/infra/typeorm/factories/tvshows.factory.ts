@@ -110,19 +110,37 @@ const tvshows: ITVShow[] = [
   {
     id: 7,
     title: 'Ms. Marvel',
-    overview: '',
+    overview:
+      'Ms. Marvel is a new, original series that introduces Kamala Khan, a Muslim American teenager growing up in Jersey City. An avid gamer and a voracious fan-fiction scribe, Kamala is a Super Hero mega-fan with an oversized imagination—particularly when it comes to Captain Marvel. Yet Kamala feels invisible both at home and at school—that is, until she gets super powers like the heroes she’s always looked up to. Life gets better with super powers, right?',
     cover_url:
       'https://res.cloudinary.com/augustomarcelo/image/upload/v1647388519/mcuapi/gallery/TV%20Shows/Ms.%20Marvel/Posters/1.jpg',
     trailer_url: 'https://youtu.be/m9EX0f6V11Y',
     number_seasons: 1,
     number_episodes: 6,
     release_date: new Date(2022, 5, 8),
-    last_aired_date: undefined,
+    last_aired_date: new Date(2022, 6, 13),
     directed_by:
       'Adil El Arbi & Bilall Fallah, Meera Menon, Sharmeen Obaid-Chinoy',
     phase: 4,
     saga: undefined,
     imdb_id: 'tt10857164',
+  },
+  {
+    id: 8,
+    title: 'She Hulk',
+    overview:
+      'She-Hulk: Attorney at Law follows Jennifer Walters as she navigates the complicated life of a single, 30-something attorney who also happens to be a green 6-foot-7-inch superpowered hulk. The nine-episode series welcomes a host of MCU vets, including Mark Ruffalo as Smart Hulk, Tim Roth as Emil Blonsky/the Abomination, and Benedict Wong as Wong.',
+    cover_url:
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1652825788/mcuapi/gallery/TV%20Shows/She%20Hulk/Posters/1.jpg',
+    trailer_url: 'https://youtu.be/gim2kprjL50',
+    number_seasons: 1,
+    number_episodes: 9,
+    release_date: new Date(2022, 6, 17),
+    last_aired_date: undefined,
+    directed_by: 'Kat Coiro and Anu Valia',
+    phase: 4,
+    saga: undefined,
+    imdb_id: 'tt10857160',
   },
 ];
 
