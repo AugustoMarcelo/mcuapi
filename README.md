@@ -1,13 +1,14 @@
 ## 📖 Index
  - 📑 [About the project](#about-the-project)
  - ➡ [Endpoint](#endpoint)
+ - 🆕 [Next features](#next-features)
  - 💥 [Changelogs](#changelogs)
 
 ___
 
 ## 📑 About the project <a name="about-the-project"></a>
 
-A RESTFul API for MCU (Marvel Cinematic Universe)! Movies and TV Shows. Characters coming soon! See [the new documentation](https://mcuapi.herokuapp.com/docs)! If you have any suggestion, please open an issue!
+A RESTFul API for MCU (Marvel Cinematic Universe)! Movies and TV Shows. Characters coming soon! See [the new documentation](https://mcuapi.herokuapp.com/docs)! If you have any suggestions, please open an issue!
 ___
 
 ## ➡ Endpoints <a name="endpoint"></a>
@@ -15,6 +16,15 @@ ___
 > baseURL: https://mcuapi.herokuapp.com/api/v1
 
 > docs: https://mcuapi.herokuapp.com/docs
+---
+
+## 🆕 Next features <a name="next-features"></a>
+
+  - 🔜 Characters information (you can see more details on [this issue](https://github.com/AugustoMarcelo/mcuapi/issues/13));
+  - ⏳ An edit page where anyone can register, create/update the movies/tv-shows/characters data and submit for final approval (**if you have experience with interface designs, feel free to suggest a design for this**);
+  - ⏳ A change in `cover_url` and `trailer_url` to get them as an array of covers and trailers;
+  - ⏳ A new field for movies/tv-shows indicating the last time the information has been updated (you can see more details on [this issue](https://github.com/AugustoMarcelo/mcuapi/issues/14));
+  - ⏳ A new field for movies/tv-shows indicating the streamings where they can be found (you can see more details on [this issue](https://github.com/AugustoMarcelo/mcuapi/issues/15)).
 
 ___
 
