@@ -1,7 +1,7 @@
 ---
 name: Suggestions/Requests
 about: Suggest an idea for this project
-title: ''
+title: 'Suggestion: '
 labels: enhancement
 assignees: AugustoMarcelo
 
