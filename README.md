@@ -21,7 +21,7 @@ ___
 ## 🆕 Next features <a name="next-features"></a>
 
   - 🔜 Characters information (you can see more details on [this issue](https://github.com/AugustoMarcelo/mcuapi/issues/13));
-  - ⏳ An edit page where anyone can register, create/update the movies/tv-shows/characters data and submit for final approval (**if you have experience with interface designs, feel free to suggest a design for this**);
+  - ⏳ An edit page where anyone can register, create/update the movies/tv-shows/characters' data and submit for final approval;
   - ⏳ A change in `cover_url` and `trailer_url` to get them as an array of covers and trailers;
   - ⏳ A new field for movies/tv-shows indicating the last time the information has been updated (you can see more details on [this issue](https://github.com/AugustoMarcelo/mcuapi/issues/14));
   - ⏳ A new field for movies/tv-shows indicating the streamings where they can be found (you can see more details on [this issue](https://github.com/AugustoMarcelo/mcuapi/issues/15)).
@@ -29,6 +29,14 @@ ___
 ___
 
 ## 💥 Changelogs <a name="changelogs"></a>
+<details>
+  <summary>2022-05-17: Movies updated</summary>
+
+  - UPDATED
+    - *Doctor Strange in the Multiverse of Madness: updated box_office*
+    - *Thor: Love and Thunder: updated trailer_url and cover_url*
+</details>
+
 <details>
   <summary>2022-05-17: Movies|TV Shows added/updated</summary>
 
