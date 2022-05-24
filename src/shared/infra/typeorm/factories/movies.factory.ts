@@ -515,7 +515,7 @@ const movies: IMovie[] = [
     id: 28,
     title: 'Doctor Strange in the Multiverse of Madness',
     release_date: new Date(2022, 4, 6),
-    box_office: 703828080,
+    box_office: 803872932,
     duration: 126,
     overview:
       "Marvel Studios' 'Doctor Strange in the Multiverse of Madness'—a thrilling ride through the Multiverse with Doctor Strange, his trusted friend Wong and Wanda Maximoff, aka Scarlet Witch. 'Doctor Strange in the Multiverse of Madness' opens in U.S. theaters on May 6, 2022",
@@ -538,8 +538,8 @@ const movies: IMovie[] = [
     overview:
       "The film finds Thor on a journey unlike anything he's ever faced — a quest for inner peace. But his retirement is interrupted by a galactic killer known as Gorr the God Butcher, who seeks the extinction of the gods. To combat the threat, Thor enlists the help of King Valkyrie, Korg, and ex-girlfriend Jane Foster, who — to Thor's surprise — inexplicably wields his magical hammer, Mjolnir, as the Mighty Thor.",
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1650300150/mcuapi/gallery/Thor:%20Love%20and%20Thunder/Posters/2.jpg',
-    trailer_url: 'https://youtu.be/tgB1wUcmbbw',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1653410371/mcuapi/gallery/Thor:%20Love%20and%20Thunder/Posters/3.jpg',
+    trailer_url: 'https://youtu.be/Go8nTmfrQd8',
     directed_by: 'Taika Waititi',
     phase: 4,
     saga: undefined,
