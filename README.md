@@ -30,6 +30,16 @@ ___
 
 ## 💥 Changelogs <a name="changelogs"></a>
 <details>
+  <summary>2022-06-19: Movies updated</summary>
+
+  - UPDATED
+    - *Doctor Strange in the Multiverse of Madness: updated box_office*
+    - *Shang-Chi: updated box_office*
+    - *Spider-Man: No Way Home: updated box_office*
+    - *Thor: Love and Thunder: updated duration*
+</details>
+
+<details>
   <summary>2022-05-17: Movies updated</summary>
 
   - UPDATED
