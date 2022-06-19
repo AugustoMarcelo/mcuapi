@@ -13,7 +13,7 @@ const movies: IMovie[] = [
     cover_url:
       'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/iron-man.jpg',
     trailer_url:
-      'http://players.brightcove.net/5359769168001/BJemW31x6g_default/index.html?videoId=5786306590001',
+      'https://players.brightcove.net/5359769168001/BJemW31x6g_default/index.html?videoId=5786306590001',
     directed_by: 'Jon Favreau',
     phase: 1,
     saga: 'Infinity Saga',
@@ -32,7 +32,7 @@ const movies: IMovie[] = [
     cover_url:
       'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/hulk.jpg',
     trailer_url:
-      'http://players.brightcove.net/5359769168001/rkg9u15t7b_default/index.html?videoId=5786823800001',
+      'https://players.brightcove.net/5359769168001/rkg9u15t7b_default/index.html?videoId=5786823800001',
     directed_by: 'Louis Leterrier',
     phase: 1,
     saga: 'Infinity Saga',
@@ -51,7 +51,7 @@ const movies: IMovie[] = [
     cover_url:
       'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/iron-man-2.jpg',
     trailer_url:
-      'http://players.brightcove.net/5359769168001/BJemW31x6g_default/index.html?videoId=5786616628001',
+      'https://players.brightcove.net/5359769168001/BJemW31x6g_default/index.html?videoId=5786616628001',
     directed_by: 'Jon Favreau',
     phase: 1,
     saga: 'Infinity Saga',
@@ -70,7 +70,7 @@ const movies: IMovie[] = [
     cover_url:
       'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/thor.jpg',
     trailer_url:
-      'http://players.brightcove.net/5359769168001/rkg9u15t7b_default/index.html?videoId=5806335470001',
+      'https://players.brightcove.net/5359769168001/rkg9u15t7b_default/index.html?videoId=5806335470001',
     directed_by: 'Kenneth Branagh',
     phase: 1,
     saga: 'Infinity Saga',
@@ -460,14 +460,14 @@ const movies: IMovie[] = [
     id: 25,
     title: 'Shang-Chi and The Legend of The Ten Rings',
     release_date: new Date(2021, 8, 3),
-    box_office: 402064929,
+    box_office: 432243292,
     duration: 132,
     overview:
       "Marvel Studios' \"Shang-Chi and The Legend of The Ten Rings\" stars Simu Liu as Shang-Chi, who must confront the past he thought he left behind when he is drawn into the web of the mysterious Ten Rings organization. The film also stars Tony Leung as Wenwu, Awkwafina as Shang-Chi's friend Katy and Michelle Yeoh as Jiang Nan, as well as Fala Chen, Meng'er Zhang, Florian Munteanu and Ronny Chieng.",
     cover_url:
       'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/shang-chi-and-the-legend-of-the-ten-rings.jpg',
     trailer_url:
-      'http://players.brightcove.net/5359769168001/BJemW31x6g_default/index.html?videoId=6249384204001',
+      'https://players.brightcove.net/5359769168001/BJemW31x6g_default/index.html?videoId=6249384204001',
     directed_by: 'Destin Daniel Cretton',
     phase: 4,
     saga: undefined,
@@ -497,7 +497,7 @@ const movies: IMovie[] = [
     id: 27,
     title: 'Spider-Man: No Way Home',
     release_date: new Date(2021, 11, 17),
-    box_office: 1889902301,
+    box_office: 1886306016,
     duration: 148,
     overview:
       'For the first time in the cinematic history of Spider-Man, our friendly neighborhood hero is unmasked and no longer able to separate his normal life from the high-stakes of being a Super Hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.',
@@ -515,7 +515,7 @@ const movies: IMovie[] = [
     id: 28,
     title: 'Doctor Strange in the Multiverse of Madness',
     release_date: new Date(2022, 4, 6),
-    box_office: 803872932,
+    box_office: 936967584,
     duration: 126,
     overview:
       "Marvel Studios' 'Doctor Strange in the Multiverse of Madness'—a thrilling ride through the Multiverse with Doctor Strange, his trusted friend Wong and Wanda Maximoff, aka Scarlet Witch. 'Doctor Strange in the Multiverse of Madness' opens in U.S. theaters on May 6, 2022",
@@ -534,7 +534,7 @@ const movies: IMovie[] = [
     title: 'Thor: Love and Thunder',
     release_date: new Date(2022, 6, 8),
     box_office: 0,
-    duration: 0,
+    duration: 119,
     overview:
       "The film finds Thor on a journey unlike anything he's ever faced — a quest for inner peace. But his retirement is interrupted by a galactic killer known as Gorr the God Butcher, who seeks the extinction of the gods. To combat the threat, Thor enlists the help of King Valkyrie, Korg, and ex-girlfriend Jane Foster, who — to Thor's surprise — inexplicably wields his magical hammer, Mjolnir, as the Mighty Thor.",
     cover_url:
