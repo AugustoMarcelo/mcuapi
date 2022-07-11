@@ -53,6 +53,7 @@ export default class CreateTVShows1614973000075 implements MigrationInterface {
           {
             name: 'directed_by',
             type: 'varchar',
+            isNullable: true,
           },
           {
             name: 'phase',
