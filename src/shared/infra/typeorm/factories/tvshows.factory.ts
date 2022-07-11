@@ -127,6 +127,21 @@ const tvshows: ITVShow[] = [
   },
   {
     id: 8,
+    title: 'I Am Groot',
+    overview:
+      'A series of shorts featuring the seedling Groot along with several new and unusual characters.',
+    cover_url:
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1657229985/mcuapi/gallery/TV%20Shows/I%20Am%20Groot/Posters/1.jpg',
+    number_seasons: 1,
+    number_episodes: 10,
+    release_date: new Date(2022, 7, 10),
+    directed_by: '',
+    phase: 4,
+    saga: undefined,
+    imdb_id: 'tt13623148',
+  },
+  {
+    id: 9,
     title: 'She Hulk',
     overview:
       'She-Hulk: Attorney at Law follows Jennifer Walters as she navigates the complicated life of a single, 30-something attorney who also happens to be a green 6-foot-7-inch superpowered hulk. The nine-episode series welcomes a host of MCU vets, including Mark Ruffalo as Smart Hulk, Tim Roth as Emil Blonsky/the Abomination, and Benedict Wong as Wong.',
@@ -135,12 +150,81 @@ const tvshows: ITVShow[] = [
     trailer_url: 'https://youtu.be/gim2kprjL50',
     number_seasons: 1,
     number_episodes: 9,
-    release_date: new Date(2022, 6, 17),
+    release_date: new Date(2022, 7, 17),
     last_aired_date: undefined,
     directed_by: 'Kat Coiro and Anu Valia',
     phase: 4,
     saga: undefined,
     imdb_id: 'tt10857160',
+  },
+  {
+    id: 10,
+    title: 'Secret Invasion',
+    overview:
+      'Fury and Talos try to stop the Skrulls who have infiltrated the highest spheres of the Marvel Universe.',
+    cover_url:
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1657230406/mcuapi/gallery/TV%20Shows/Secret%20Invasion/Posters/1.jpg',
+    number_seasons: 1,
+    number_episodes: 6,
+    phase: 4,
+    directed_by: 'Thomas Bezucha and Ali Selim',
+    imdb_id: 'tt13157618',
+  },
+  {
+    id: 11,
+    title: 'Ironheart',
+    cover_url:
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1657230537/mcuapi/gallery/TV%20Shows/Ironheart/Posters/1.jpg',
+    number_seasons: 1,
+    number_episodes: 6,
+    phase: 4,
+    directed_by: 'Sam Bailey and Angela Barnes',
+    imdb_id: 'tt13623126',
+  },
+  {
+    id: 12,
+    title: 'Armor Wars',
+    cover_url:
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1657230603/mcuapi/gallery/TV%20Shows/Armor%20Wars/Posters/1.jpg',
+    number_seasons: 1,
+    number_episodes: 0,
+    phase: 4,
+    imdb_id: 'tt13623128',
+  },
+  {
+    id: 13,
+    title: 'The Guardians of the Galaxy Holiday Special',
+    overview:
+      'Star-Lord, Drax, Rocket, Mantis, and Groot engage in some spirited shenanigans in an all-new original special created for Disney+.',
+    cover_url:
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1657230691/mcuapi/gallery/TV%20Shows/The%20Guardians%20of%20the%20Galaxy%20Holiday%20Special/Posters/1.jpg',
+    number_seasons: 1,
+    number_episodes: 0,
+    phase: 4,
+    directed_by: 'James Gunn',
+    imdb_id: 'tt13623136',
+  },
+  {
+    id: 14,
+    title: 'Echo',
+    overview:
+      'Streaming exclusively on Disney, the origin story of Echo revisits Maya Lopez, whose ruthless behavior in New York City catches up with her in her hometown. She must face her past, reconnect with her Native American roots and embrace the meaning of family and community if she ever hopes to move forward.',
+    cover_url:
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1657230760/mcuapi/gallery/TV%20Shows/Echo/Posters/1.jpg',
+    number_seasons: 1,
+    number_episodes: 0,
+    directed_by: 'Sydney Freeland and Catriona McKenzie',
+    imdb_id: 'tt13966962',
+  },
+  {
+    id: 15,
+    title: 'Agatha: House of Harkness',
+    cover_url:
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1657230853/mcuapi/gallery/TV%20Shows/Agatha:%20House%20of%20Harkness/Posters/1.jpg',
+    number_seasons: 1,
+    number_episodes: 0,
+    phase: 4,
+    imdb_id: 'tt15571732',
   },
 ];
 
