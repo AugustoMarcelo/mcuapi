@@ -30,6 +30,24 @@ ___
 
 ## 💥 Changelogs <a name="changelogs"></a>
 <details>
+  <summary>2022-07-11: Movies | TV Shows added/updated</summary>
+
+  - ADDED
+    - *I Am Groot*
+    - *Secret Invasion*
+    - *Ironheart*
+    - *Armor Wars*
+    - *The Guardians of the Galaxy Holiday Special*
+    - *Echo*
+    - *Agatha: House of Harkness*
+
+  - UPDATED
+    - *She-Hulk: Attorney at Law: release_date*
+    - *Doctor Strange in the Multiverse of Madness: updated box_office*
+    - *Thor: Love and Thunder: updated duration, box_office and post_credit_scenes*
+</details>
+
+<details>
   <summary>2022-06-19: Movies updated</summary>
 
   - UPDATED
