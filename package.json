@@ -17,7 +17,7 @@
     "test": "jest"
   },
   "engines": {
-    "node": "14.15.5"
+    "node": "16.15.0"
   },
   "dependencies": {
     "class-transformer": "^0.3.1",
