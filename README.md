@@ -30,6 +30,43 @@ ___
 
 ## 💥 Changelogs <a name="changelogs"></a>
 <details>
+  <summary>2022-07-25: Movies | TV Shows added/updated</summary>
+
+  - ADDED
+    - *Captain America: New World Order*
+    - *Thunderbolts*
+    - *Avengers: The Kang Dynasty*
+    - *Avengers: Secret Wars*
+    - *Daredevil: Born Again*
+
+  - UPDATED
+    - *Shang-Chi and The Legend of The Ten Rings: saga*
+    - *Eternals: saga*
+    - *Spider-Man: No Way Home: saga*
+    - *Doctor Strange in the Multiverse of Madness: saga, box_office*
+    - *Thor: Love and Thunder: saga, box_office*
+    - *Black Panther: Wakanda Forever: overview, cover_url, trailer_url, saga, chronology*
+    - *Ant-Man and The Wasp: Quantumania: overview, phase, saga, chronology*
+    - *Guardians of the Galaxy Vol. 3: overview, phase, saga, chronology*
+    - *The Marvels: phase, saga, chronology*
+    - *Blade: release_date, phase, saga, chronology*
+    - *Fantastic Four: release_date, phase, saga, chronology, directed_by*
+    - *WandaVision: saga*
+    - *The Falcon and The Winter Soldier: saga*
+    - *Loki: saga*
+    - *What If...?: saga*
+    - *Hawkeye: saga*
+    - *Moon Knight: saga*
+    - *Ms. Marvel: saga*
+    - *I Am Groot: overview, number_episodes, last_aired_date, saga*
+    - *She-Hulk: title, trailer_url, saga*
+    - *Secret Invasion: overview, phase, saga*
+    - *Echo: phase, saga*
+    - *Ironheart: phase, saga*
+    - *Agatha: House of Harkness: title, phase, saga*
+</details>
+
+<details>
   <summary>2022-07-11: Movies | TV Shows added/updated</summary>
 
   - ADDED
@@ -186,7 +223,7 @@ ___
   <summary>2021-08-28: Movies updated</summary>
 
   - UPDATED
-    - *Spider-Man: No Way Home: updated overview, trailer url and related_movies*
+    - *Spider-Man: No Way Home: updated overview, trailer_url and related_movies*
 </details>
 
 <details>
