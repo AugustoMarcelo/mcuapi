@@ -30,6 +30,16 @@ ___
 
 ## 💥 Changelogs <a name="changelogs"></a>
 <details>
+  <summary>2022-08-17: Movies | TV Shows updated</summary>
+
+  - UPDATED
+    - *Doctor Strange in the Multiverse of Madness: box_office*
+    - *Thor: Love and Thunder: box_office*
+    - *I Am Groot: cover_url, directed_by, saga*
+    - *She-Hulk: Attorney at Law: cover_url, release_date*
+</details>
+
+<details>
   <summary>2022-07-25: Movies | TV Shows added/updated</summary>
 
   - ADDED
