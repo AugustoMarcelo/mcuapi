@@ -132,14 +132,14 @@ const tvshows: ITVShow[] = [
       'There’s no guarding the galaxy from this mischievous toddler! So get ready as Baby Groot takes center stage in his very own collection of shorts, exploring his glory days growing up — and getting into trouble — among the stars. I Am Groot, five original shorts featuring several new and unusual characters, stars everyone’s favorite little tree, Baby Groot, voiced by Vin Diesel, who voices Groot in the Guardians of the Galaxy franchise.',
     trailer_url: 'https://youtu.be/D7eFpRf4tac',
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1657229985/mcuapi/gallery/TV%20Shows/I%20Am%20Groot/Posters/1.jpg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1659355874/mcuapi/gallery/TV%20Shows/I%20Am%20Groot/Posters/2.jpg',
     number_seasons: 1,
     number_episodes: 5,
     release_date: new Date(2022, 7, 10),
     last_aired_date: new Date(2022, 7, 10),
-    directed_by: '',
+    directed_by: 'Kirsten Lepore',
     phase: 4,
-    saga: 'Multiverse Saga',
+    saga: 'Infinity Saga',
     imdb_id: 'tt13623148',
   },
   {
@@ -148,11 +148,11 @@ const tvshows: ITVShow[] = [
     overview:
       'She-Hulk: Attorney at Law follows Jennifer Walters as she navigates the complicated life of a single, 30-something attorney who also happens to be a green 6-foot-7-inch superpowered hulk. The nine-episode series welcomes a host of MCU vets, including Mark Ruffalo as Smart Hulk, Tim Roth as Emil Blonsky/the Abomination, and Benedict Wong as Wong.',
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1652825788/mcuapi/gallery/TV%20Shows/She%20Hulk/Posters/1.jpg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1652825788/mcuapi/gallery/TV%20Shows/She%20Hulk/Posters/2.jpg',
     trailer_url: 'https://youtu.be/u7JsKhI2An0',
     number_seasons: 1,
     number_episodes: 9,
-    release_date: new Date(2022, 7, 17),
+    release_date: new Date(2022, 7, 18),
     last_aired_date: undefined,
     directed_by: 'Kat Coiro and Anu Valia',
     phase: 4,
