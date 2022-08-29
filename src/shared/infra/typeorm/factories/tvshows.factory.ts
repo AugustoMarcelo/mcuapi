@@ -153,7 +153,7 @@ const tvshows: ITVShow[] = [
     number_seasons: 1,
     number_episodes: 9,
     release_date: new Date(2022, 7, 18),
-    last_aired_date: undefined,
+    last_aired_date: new Date(2022, 9, 13),
     directed_by: 'Kat Coiro and Anu Valia',
     phase: 4,
     saga: 'Multiverse Saga',

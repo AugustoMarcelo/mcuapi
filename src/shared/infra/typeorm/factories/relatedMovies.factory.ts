@@ -29,7 +29,7 @@ const captainAmerica3 = generateRelatedMovies(13, [
 ]);
 const doctorStrange = generateRelatedMovies(14, [17, 19, 22, 28]);
 const guardiansOfTheGalaxy2 = generateRelatedMovies(15, [10, 19]);
-const spiderMan = generateRelatedMovies(16, [13, 19, 23]);
+const spiderMan = generateRelatedMovies(16, [13, 19, 23, 27]);
 const thor3 = generateRelatedMovies(17, [4, 6, 8, 11, 19]);
 const blackPanther = generateRelatedMovies(18, [13, 19, 22]);
 const avengers3 = generateRelatedMovies(19, [
@@ -77,7 +77,7 @@ const avengers4 = generateRelatedMovies(22, [
   21,
   23,
 ]);
-const spiderMan2 = generateRelatedMovies(23, [13, 16, 19, 22]);
+const spiderMan2 = generateRelatedMovies(23, [13, 16, 19, 22, 27, 27]);
 const blackWidow = generateRelatedMovies(24, [3, 6, 9, 11, 13, 19, 22]);
 const spiderMan3 = generateRelatedMovies(27, [16, 23]);
 
