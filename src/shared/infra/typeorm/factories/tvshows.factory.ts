@@ -161,6 +161,23 @@ const tvshows: ITVShow[] = [
   },
   {
     id: 10,
+    title: 'Werewolf By Night',
+    overview:
+      'Follows a lycanthrope superhero who fights evil using the abilities given to him by a curse brought on by his bloodline.',
+    cover_url:
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1665237805/mcuapi/gallery/TV%20Shows/werewolf_by_night/posters/1.jpg',
+    trailer_url: 'https://youtu.be/bLEFqhS5WmI',
+    number_seasons: 1,
+    number_episodes: 1,
+    release_date: new Date(2022, 9, 7),
+    last_aired_date: new Date(2022, 9, 7),
+    directed_by: 'Michael Giacchino',
+    phase: 4,
+    saga: 'Multiverse Saga',
+    imdb_id: 'tt15318872',
+  },
+  {
+    id: 11,
     title: 'The Guardians of the Galaxy Holiday Special',
     overview:
       'Star-Lord, Drax, Rocket, Mantis, and Groot engage in some spirited shenanigans in an all-new original special created for Disney+.',
@@ -173,12 +190,13 @@ const tvshows: ITVShow[] = [
     imdb_id: 'tt13623136',
   },
   {
-    id: 11,
+    id: 12,
     title: 'Secret Invasion',
     overview:
-      'Secret Invasion stars Samuel L. Jackson as Nick Fury and Ben Mendelsohn as the Skrull Talos—characters who first met in Captain Marvel. They are joined by Kingsley Ben-Adir, Emilia Clarke, and Olivia Colman. The crossover event series showcases a faction of shapeshifting Skrulls who have been infiltrating Earth for year',
+      'Secret Invasion stars Samuel L. Jackson as Nick Fury and Ben Mendelsohn as the Skrull Talos—characters who first met in Captain Marvel. They are joined by Kingsley Ben-Adir, Emilia Clarke, and Olivia Colman. The crossover event series showcases a faction of shapeshifting Skrulls who have been infiltrating Earth for years.',
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1657230406/mcuapi/gallery/TV%20Shows/Secret%20Invasion/Posters/1.jpg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1665238149/mcuapi/gallery/TV%20Shows/Secret%20Invasion/Posters/2.jpg',
+    trailer_url: 'https://youtu.be/qZVTkn2NjS0',
     number_seasons: 1,
     number_episodes: 6,
     phase: 5,
@@ -187,7 +205,7 @@ const tvshows: ITVShow[] = [
     imdb_id: 'tt13157618',
   },
   {
-    id: 12,
+    id: 13,
     title: 'Echo',
     overview:
       'Streaming exclusively on Disney, the origin story of Echo revisits Maya Lopez, whose ruthless behavior in New York City catches up with her in her hometown. She must face her past, reconnect with her Native American roots and embrace the meaning of family and community if she ever hopes to move forward.',
@@ -201,7 +219,7 @@ const tvshows: ITVShow[] = [
     imdb_id: 'tt13966962',
   },
   // {
-  //   id: 13,
+  //   id: 14,
   //   title: 'Loki',
   //   overview:
   //     'In Marvel Studios’ "Loki" the mercurial villain Loki (Tom Hiddleston) resumes his role as the God of Mischief in a new series that takes place after the events of “Avengers: Endgame.” Kate Herron directs and Michael Waldron is head writer. Debuts on Disney+ in June 9, 2021.',
@@ -219,7 +237,7 @@ const tvshows: ITVShow[] = [
   //   imdb_id: 'tt9140554',
   // },
   {
-    id: 14,
+    id: 15,
     title: 'Ironheart',
     cover_url:
       'https://res.cloudinary.com/augustomarcelo/image/upload/v1657230537/mcuapi/gallery/TV%20Shows/Ironheart/Posters/1.jpg',
@@ -231,7 +249,7 @@ const tvshows: ITVShow[] = [
     imdb_id: 'tt13623126',
   },
   {
-    id: 15,
+    id: 16,
     title: 'Agatha: Coven of Chaos',
     cover_url:
       'https://res.cloudinary.com/augustomarcelo/image/upload/v1658749561/mcuapi/gallery/TV%20Shows/agatha_coven_of_chaos/posters/1.jpg',
@@ -242,7 +260,7 @@ const tvshows: ITVShow[] = [
     imdb_id: 'tt15571732',
   },
   {
-    id: 16,
+    id: 17,
     title: 'Daredevil: Born Again',
     cover_url:
       'https://res.cloudinary.com/augustomarcelo/image/upload/v1658749734/mcuapi/gallery/TV%20Shows/daredevil_born_again/posters/1.jpg',
@@ -253,10 +271,10 @@ const tvshows: ITVShow[] = [
     imdb_id: 'tt20411934',
   },
   {
-    id: 17,
+    id: 18,
     title: 'Armor Wars',
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1657230603/mcuapi/gallery/TV%20Shows/Armor%20Wars/Posters/1.jpg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1665238311/mcuapi/gallery/TV%20Shows/Armor%20Wars/Posters/2.jpg',
     number_seasons: 1,
     number_episodes: 0,
     phase: 4,
