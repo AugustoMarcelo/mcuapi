@@ -10,7 +10,7 @@ const tvshows: ITVShow[] = [
       'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/wandavision.jpg',
     trailer_url:
       'https://players.brightcove.net/5359769168001/BJemW31x6g_default/index.html?videoId=6215509803001',
-    number_seasons: 1,
+    season: 1,
     number_episodes: 9,
     release_date: new Date(2021, 0, 15),
     last_aired_date: new Date(2021, 2, 5),
@@ -28,7 +28,7 @@ const tvshows: ITVShow[] = [
       'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/the-falcon-and-the-winter-soldier.jpg',
     trailer_url:
       'https://players.brightcove.net/5359769168001/BJemW31x6g_default/index.html?videoId=6215508715001',
-    number_seasons: 1,
+    season: 1,
     number_episodes: 6,
     release_date: new Date(2021, 2, 19),
     last_aired_date: new Date(2021, 3, 23),
@@ -46,7 +46,7 @@ const tvshows: ITVShow[] = [
       'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/loki.jpg',
     trailer_url:
       'https://players.brightcove.net/5359769168001/BJemW31x6g_default/index.html?videoId=6215507931001',
-    number_seasons: 1,
+    season: 1,
     number_episodes: 6,
     release_date: new Date(2021, 5, 9),
     last_aired_date: new Date(2021, 6, 14),
@@ -64,7 +64,7 @@ const tvshows: ITVShow[] = [
       'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/what_if.jpg',
     trailer_url:
       'https://assets.espn.go.com/players/web-player-bundle/next/embed/share.html#id=6262751537001&brand=marvel',
-    number_seasons: 1,
+    season: 1,
     number_episodes: 9,
     release_date: new Date(2021, 7, 11),
     last_aired_date: new Date(2021, 9, 6),
@@ -81,7 +81,7 @@ const tvshows: ITVShow[] = [
     cover_url:
       'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/hawkeye.jpg',
     trailer_url: 'https://youtu.be/5VYb3B1ETlk',
-    number_seasons: 1,
+    season: 1,
     number_episodes: 6,
     release_date: new Date(2021, 10, 24),
     last_aired_date: new Date(2021, 11, 22),
@@ -98,7 +98,7 @@ const tvshows: ITVShow[] = [
     cover_url:
       'https://res.cloudinary.com/augustomarcelo/image/upload/v1647469845/mcuapi/gallery/TV%20Shows/Moon%20Knight/Posters/3.jpg',
     trailer_url: 'https://youtu.be/x7Krla_UxRg',
-    number_seasons: 1,
+    season: 1,
     number_episodes: 6,
     release_date: new Date(2022, 2, 30),
     last_aired_date: new Date(2022, 4, 4),
@@ -115,7 +115,7 @@ const tvshows: ITVShow[] = [
     cover_url:
       'https://res.cloudinary.com/augustomarcelo/image/upload/v1647388519/mcuapi/gallery/TV%20Shows/Ms.%20Marvel/Posters/1.jpg',
     trailer_url: 'https://youtu.be/m9EX0f6V11Y',
-    number_seasons: 1,
+    season: 1,
     number_episodes: 6,
     release_date: new Date(2022, 5, 8),
     last_aired_date: new Date(2022, 6, 13),
@@ -133,7 +133,7 @@ const tvshows: ITVShow[] = [
     trailer_url: 'https://youtu.be/D7eFpRf4tac',
     cover_url:
       'https://res.cloudinary.com/augustomarcelo/image/upload/v1659355874/mcuapi/gallery/TV%20Shows/I%20Am%20Groot/Posters/2.jpg',
-    number_seasons: 1,
+    season: 1,
     number_episodes: 5,
     release_date: new Date(2022, 7, 10),
     last_aired_date: new Date(2022, 7, 10),
@@ -150,7 +150,7 @@ const tvshows: ITVShow[] = [
     cover_url:
       'https://res.cloudinary.com/augustomarcelo/image/upload/v1652825788/mcuapi/gallery/TV%20Shows/She%20Hulk/Posters/2.jpg',
     trailer_url: 'https://youtu.be/u7JsKhI2An0',
-    number_seasons: 1,
+    season: 1,
     number_episodes: 9,
     release_date: new Date(2022, 7, 18),
     last_aired_date: new Date(2022, 9, 13),
@@ -167,7 +167,7 @@ const tvshows: ITVShow[] = [
     cover_url:
       'https://res.cloudinary.com/augustomarcelo/image/upload/v1665237805/mcuapi/gallery/TV%20Shows/werewolf_by_night/posters/1.jpg',
     trailer_url: 'https://youtu.be/bLEFqhS5WmI',
-    number_seasons: 1,
+    season: 1,
     number_episodes: 1,
     release_date: new Date(2022, 9, 7),
     last_aired_date: new Date(2022, 9, 7),
@@ -183,7 +183,7 @@ const tvshows: ITVShow[] = [
       'Star-Lord, Drax, Rocket, Mantis, and Groot engage in some spirited shenanigans in an all-new original special created for Disney+.',
     cover_url:
       'https://res.cloudinary.com/augustomarcelo/image/upload/v1657230691/mcuapi/gallery/TV%20Shows/The%20Guardians%20of%20the%20Galaxy%20Holiday%20Special/Posters/1.jpg',
-    number_seasons: 1,
+    season: 1,
     number_episodes: 0,
     phase: 4,
     directed_by: 'James Gunn',
@@ -197,7 +197,7 @@ const tvshows: ITVShow[] = [
     cover_url:
       'https://res.cloudinary.com/augustomarcelo/image/upload/v1665238149/mcuapi/gallery/TV%20Shows/Secret%20Invasion/Posters/2.jpg',
     trailer_url: 'https://youtu.be/qZVTkn2NjS0',
-    number_seasons: 1,
+    season: 1,
     number_episodes: 6,
     phase: 5,
     saga: 'Multiverse Saga',
@@ -211,37 +211,36 @@ const tvshows: ITVShow[] = [
       'Streaming exclusively on Disney, the origin story of Echo revisits Maya Lopez, whose ruthless behavior in New York City catches up with her in her hometown. She must face her past, reconnect with her Native American roots and embrace the meaning of family and community if she ever hopes to move forward.',
     cover_url:
       'https://res.cloudinary.com/augustomarcelo/image/upload/v1657230760/mcuapi/gallery/TV%20Shows/Echo/Posters/1.jpg',
-    number_seasons: 1,
+    season: 1,
     number_episodes: 0,
     phase: 5,
     saga: 'Multiverse Saga',
     directed_by: 'Sydney Freeland and Catriona McKenzie',
     imdb_id: 'tt13966962',
   },
-  // {
-  //   id: 14,
-  //   title: 'Loki',
-  //   overview:
-  //     'In Marvel Studios’ "Loki" the mercurial villain Loki (Tom Hiddleston) resumes his role as the God of Mischief in a new series that takes place after the events of “Avengers: Endgame.” Kate Herron directs and Michael Waldron is head writer. Debuts on Disney+ in June 9, 2021.',
-  //   cover_url:
-  //     'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/loki.jpg',
-  //   trailer_url:
-  //     'https://players.brightcove.net/5359769168001/BJemW31x6g_default/index.html?videoId=6215507931001',
-  //   number_seasons: 1,
-  //   number_episodes: 6,
-  //   release_date: new Date(2021, 5, 9),
-  //   last_aired_date: new Date(2021, 6, 14),
-  //   directed_by: 'Kate Herron',
-  //   phase: 4,
-  //   saga: 'Multiverse Saga',
-  //   imdb_id: 'tt9140554',
-  // },
+  {
+    id: 14,
+    title: 'Loki',
+    overview:
+      'In Marvel Studios’ "Loki" the mercurial villain Loki (Tom Hiddleston) resumes his role as the God of Mischief in a new series that takes place after the events of “Avengers: Endgame.” Kate Herron directs and Michael Waldron is head writer. Debuts on Disney+ in June 9, 2021.',
+    cover_url:
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1665582321/mcuapi/gallery/TV%20Shows/loki/posters/season_2/1.jpg',
+    trailer_url: undefined,
+    season: 2,
+    number_episodes: 6,
+    release_date: undefined,
+    last_aired_date: undefined,
+    directed_by: 'Kate Herron',
+    phase: 5,
+    saga: 'Multiverse Saga',
+    imdb_id: 'tt9140554',
+  },
   {
     id: 15,
     title: 'Ironheart',
     cover_url:
       'https://res.cloudinary.com/augustomarcelo/image/upload/v1657230537/mcuapi/gallery/TV%20Shows/Ironheart/Posters/1.jpg',
-    number_seasons: 1,
+    season: 1,
     number_episodes: 6,
     phase: 5,
     saga: 'Multiverse Saga',
@@ -253,7 +252,7 @@ const tvshows: ITVShow[] = [
     title: 'Agatha: Coven of Chaos',
     cover_url:
       'https://res.cloudinary.com/augustomarcelo/image/upload/v1658749561/mcuapi/gallery/TV%20Shows/agatha_coven_of_chaos/posters/1.jpg',
-    number_seasons: 1,
+    season: 1,
     number_episodes: 0,
     phase: 5,
     saga: 'Multiverse Saga',
@@ -264,7 +263,7 @@ const tvshows: ITVShow[] = [
     title: 'Daredevil: Born Again',
     cover_url:
       'https://res.cloudinary.com/augustomarcelo/image/upload/v1658749734/mcuapi/gallery/TV%20Shows/daredevil_born_again/posters/1.jpg',
-    number_seasons: 1,
+    season: 1,
     number_episodes: 18,
     phase: 5,
     saga: 'Multiverse Saga',
@@ -275,7 +274,7 @@ const tvshows: ITVShow[] = [
     title: 'Armor Wars',
     cover_url:
       'https://res.cloudinary.com/augustomarcelo/image/upload/v1665238311/mcuapi/gallery/TV%20Shows/Armor%20Wars/Posters/2.jpg',
-    number_seasons: 1,
+    season: 1,
     number_episodes: 0,
     phase: 4,
     imdb_id: 'tt13623128',
