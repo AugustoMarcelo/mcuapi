@@ -4,7 +4,7 @@ export default interface ITVShow {
   overview?: string;
   cover_url?: string;
   trailer_url?: string;
-  number_seasons: number;
+  season: number;
   number_episodes: number;
   release_date?: Date;
   last_aired_date?: Date;

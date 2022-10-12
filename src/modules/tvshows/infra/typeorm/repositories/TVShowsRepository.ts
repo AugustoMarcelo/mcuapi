@@ -1,9 +1,9 @@
-import { getRepository, Raw, Repository } from 'typeorm';
 import IFindAllTVShowsDTO from '@modules/tvshows/dtos/IFindAllTVShowsDTO';
 import IFindAllTVShowsResponseDTO from '@modules/tvshows/dtos/IFindAllTVShowsResponseDTO';
 import ITVShow from '@modules/tvshows/entities/ITVShow';
 import TVShow from '@modules/tvshows/infra/typeorm/entities/TVShow';
 import ITVShowsRepository from '@modules/tvshows/repositories/ITVShowsRepository';
+import { getRepository, Raw, Repository } from 'typeorm';
 
 class TVShowsRepository implements ITVShowsRepository {
   private ormRepository: Repository<ITVShow>;
@@ -36,7 +36,7 @@ class TVShowsRepository implements ITVShowsRepository {
 
     const columnsWithNumericValues = [
       'phase',
-      'number_seasons',
+      'season',
       'number_episodes',
       'release_date',
       'last_aired_date',

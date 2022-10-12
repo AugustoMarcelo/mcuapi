@@ -8,7 +8,7 @@ const mockTVShow = (): ITVShow => ({
   cover_url: faker.internet.url(),
   trailer_url: faker.internet.url(),
   number_episodes: faker.random.number(),
-  number_seasons: faker.random.number(),
+  season: faker.random.number(),
   directed_by: faker.name.findName(),
   phase: faker.random.number(),
   saga: faker.random.words(),

@@ -41,7 +41,7 @@ export default class CreateTVShows1614973000075 implements MigrationInterface {
             isNullable: true,
           },
           {
-            name: 'number_seasons',
+            name: 'season',
             type: 'int',
             default: 0,
           },

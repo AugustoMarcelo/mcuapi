@@ -381,9 +381,9 @@
             "type": "string",
             "description": "TV Show last episode date"
           },
-          "number_seasons": {
+          "season": {
             "type": "integer",
-            "description": "Number of seasons of the tv show"
+            "description": "TV Show's season number"
           },
           "number_episodes": {
             "type": "integer",

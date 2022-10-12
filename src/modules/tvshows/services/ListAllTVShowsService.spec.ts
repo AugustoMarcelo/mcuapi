@@ -1,7 +1,7 @@
-import faker from 'faker';
 import ITVShow from '@modules/tvshows/entities/ITVShow';
 import FakeTVShowsRepository from '@modules/tvshows/repositories/fakes/FakeTVShowsRepository';
 import ListTVShowsService from '@modules/tvshows/services/ListTVShowsService';
+import faker from 'faker';
 
 const mockTVShow = (): ITVShow => ({
   id: faker.random.number(),
@@ -10,7 +10,7 @@ const mockTVShow = (): ITVShow => ({
   cover_url: faker.internet.url(),
   trailer_url: faker.internet.url(),
   number_episodes: faker.random.number(),
-  number_seasons: faker.random.number(),
+  season: faker.random.number(),
   directed_by: faker.name.findName(),
   phase: faker.random.number(),
   saga: faker.random.words(),
@@ -36,7 +36,7 @@ describe.only('ListAllTVShowsService', () => {
     const fakeTVShowsRepository = new FakeTVShowsRepository(initialData);
     const listTVShows = new ListTVShowsService(fakeTVShowsRepository);
     const { data, total } = await listTVShows.execute({
-      columns: 'title,release_date,number_seasons',
+      columns: 'title,release_date,season',
     });
 
     expect(total).toBe(1);

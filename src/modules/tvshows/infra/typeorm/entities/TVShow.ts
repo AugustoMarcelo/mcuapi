@@ -1,5 +1,5 @@
-import { Entity, PrimaryColumn, Column } from 'typeorm';
 import ITVShow from '@modules/tvshows/entities/ITVShow';
+import { Column, Entity, PrimaryColumn } from 'typeorm';
 
 @Entity('tvshows')
 class TVShow implements ITVShow {
@@ -16,7 +16,7 @@ class TVShow implements ITVShow {
   last_aired_date: Date;
 
   @Column()
-  number_seasons: number;
+  season: number;
 
   @Column()
   number_episodes: number;
