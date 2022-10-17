@@ -2,6 +2,7 @@
  - 📑 [About the project](#about-the-project)
  - ➡ [Endpoint](#endpoint)
  - 🆕 [Next features](#next-features)
+ - ❓ [How to run](#how-to-run)
  - 💥 [Changelogs](#changelogs)
 
 ___
@@ -24,9 +25,55 @@ ___
   - ⏳ An edit page where anyone can register, create/update the movies/tv-shows/characters' data and submit for final approval;
   - ⏳ A change in `cover_url` and `trailer_url` to get them as an array of covers and trailers;
   - ⏳ A new field for movies/tv-shows indicating the last time the information has been updated (you can see more details on [this issue](https://github.com/AugustoMarcelo/mcuapi/issues/14));
-  - ⏳ A new field for movies/tv-shows indicating the streamings where they can be found (you can see more details on [this issue](https://github.com/AugustoMarcelo/mcuapi/issues/15)).
+  - 🔜 A new field for movies/tv-shows indicating the streamings where they can be found (you can see more details on [this issue](https://github.com/AugustoMarcelo/mcuapi/issues/15)).
 
 ___
+
+## ❓ How to run <a name="how-to-run"></a>
+
+ - clone the project to your local:
+ ```bash
+  git clone https://github.com/AugustoMarcelo/mcuapi
+ ```
+
+> Running the project in development mode
+
+  - create a `.env` file and put database and environment information. You can use the `.env.example` from the project;
+  - inside the `.env` the *NODE_ENV* variable should be **development**. This tells the ormconfig where the files are located;
+  - to configure the database structure and seeds, you should run the following commands:
+
+  ```bash
+    # creating tables
+    yarn typeorm:dev migration:run
+
+    # inserting data
+    yarn seed:run:dev
+  ```
+
+  - run `yarn dev:server` to start the project and access it in the default 3333 port. You can also configure the port in the `.env` file.
+
+
+---
+
+> Running the project in production mode
+
+  - create a `.env` file and put database and environment information. You can use the `.env.example` from the project;
+  - inside the `.env` the *NODE_ENV* variable should be **production**. This tells the ormconfig where the built files are located;
+  - to configure the database structure and seeds, you should run the following commands:
+
+  ```bash
+    # creating tables
+    yarn typeorm migration:run
+
+    # inserting data
+    yarn seed:run
+  ```
+
+  - run `yarn build` or `npm run build` to generate the **./dist** folder. The ormconfig will point to this folder;
+  - run `yarn start` or `npm run start` to start the project in the default 3333 port. You can also configure the port in the `.env` file.
+
+
+---
 
 ## 💥 Changelogs <a name="changelogs"></a>
 <details>
