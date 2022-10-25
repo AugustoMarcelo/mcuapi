@@ -183,10 +183,14 @@ const tvshows: ITVShow[] = [
       'Star-Lord, Drax, Rocket, Mantis, and Groot engage in some spirited shenanigans in an all-new original special created for Disney+.',
     cover_url:
       'https://res.cloudinary.com/augustomarcelo/image/upload/v1657230691/mcuapi/gallery/TV%20Shows/The%20Guardians%20of%20the%20Galaxy%20Holiday%20Special/Posters/1.jpg',
+    trailer_url: 'https://youtu.be/OYhFFQl4fLs',
     season: 1,
-    number_episodes: 0,
+    number_episodes: 1,
+    release_date: new Date(2022, 10, 25),
+    last_aired_date: new Date(2022, 10, 25),
     phase: 4,
     directed_by: 'James Gunn',
+    saga: 'Multiverse Saga',
     imdb_id: 'tt13623136',
   },
   {
