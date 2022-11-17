@@ -1,4 +1,5 @@
 import IMovieStreaming from '@modules/streamings/entities/IMovieStreaming';
+import ITVShowStreaming from '@modules/streamings/entities/ITVShowStreaming';
 
 enum streamings {
   DISNEYPLUS = 'Disney+',
@@ -160,4 +161,57 @@ const movieStreamings: IMovieStreaming[] = [
   },
 ];
 
-export { movieStreamings };
+const tvshowStreamings: ITVShowStreaming[] = [
+  {
+    tvshow_id: 1,
+    platform: streamings.DISNEYPLUS,
+    url: 'https://www.disneyplus.com/series/wandavision/4SrN28ZjDLwH',
+  },
+  {
+    tvshow_id: 2,
+    platform: streamings.DISNEYPLUS,
+    url: 'https://www.disneyplus.com/series/the-falcon-and-the-winter-soldier/4gglDBMx8icA',
+  },
+  {
+    tvshow_id: 3,
+    platform: streamings.DISNEYPLUS,
+    url: 'https://www.disneyplus.com/series/loki/6pARMvILBGzF',
+  },
+  {
+    tvshow_id: 4,
+    platform: streamings.DISNEYPLUS,
+    url: 'https://www.disneyplus.com/series/what-if/7672ZVj1ZxU9',
+  },
+  {
+    tvshow_id: 5,
+    platform: streamings.DISNEYPLUS,
+    url: 'https://www.disneyplus.com/series/hawkeye/11Zy8m9Dkj5l',
+  },
+  {
+    tvshow_id: 6,
+    platform: streamings.DISNEYPLUS,
+    url: 'https://www.disneyplus.com/series/moon-knight/4S3oOF1knocS',
+  },
+  {
+    tvshow_id: 7,
+    platform: streamings.DISNEYPLUS,
+    url: 'https://www.disneyplus.com/series/ms-marvel/45BsikoMcOOo',
+  },
+  {
+    tvshow_id: 8,
+    platform: streamings.DISNEYPLUS,
+    url: 'https://www.disneyplus.com/movies/groots-first-steps/4YcuPHl87ZEw',
+  },
+  {
+    tvshow_id: 9,
+    platform: streamings.DISNEYPLUS,
+    url: 'https://www.disneyplus.com/series/she-hulk-attorney-at-law/gPwaYusKqRQh',
+  },
+  {
+    tvshow_id: 10,
+    platform: streamings.DISNEYPLUS,
+    url: 'https://www.disneyplus.com/movies/werewolf-by-night/J1sCDfT3MaDl',
+  },
+];
+
+export { movieStreamings, tvshowStreamings };

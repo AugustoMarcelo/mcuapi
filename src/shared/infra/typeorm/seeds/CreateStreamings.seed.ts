@@ -1,5 +1,9 @@
 import MovieStreaming from '@modules/streamings/infra/typeorm/entities/MovieStreaming';
-import { movieStreamings } from '@shared/infra/typeorm/factories/streamings.factory';
+import TVShowStreaming from '@modules/streamings/infra/typeorm/entities/TVShowStreaming';
+import {
+  movieStreamings,
+  tvshowStreamings,
+} from '@shared/infra/typeorm/factories/streamings.factory';
 import { Connection } from 'typeorm';
 import { Factory, Seeder } from 'typeorm-seeding';
 
@@ -10,6 +14,13 @@ export default class CreateStreamings implements Seeder {
       .insert()
       .into(MovieStreaming)
       .values(movieStreamings)
+      .execute();
+
+    await connection
+      .createQueryBuilder()
+      .insert()
+      .into(TVShowStreaming)
+      .values(tvshowStreamings)
       .execute();
   }
 }
