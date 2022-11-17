@@ -1,3 +1,5 @@
+import ITVShowStreaming from '@modules/streamings/entities/ITVShowStreaming';
+
 export default interface ITVShow {
   id: number;
   title: string;
@@ -12,4 +14,5 @@ export default interface ITVShow {
   phase?: number;
   saga?: string;
   imdb_id?: string;
+  streamings?: ITVShowStreaming[];
 }

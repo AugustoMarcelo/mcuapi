@@ -1,5 +1,6 @@
+import TVShowStreaming from '@modules/streamings/infra/typeorm/entities/TVShowStreaming';
 import ITVShow from '@modules/tvshows/entities/ITVShow';
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
 
 @Entity('tvshows')
 class TVShow implements ITVShow {
@@ -41,6 +42,9 @@ class TVShow implements ITVShow {
 
   @Column()
   imdb_id: string;
+
+  @OneToMany(() => TVShowStreaming, streaming => streaming.tvshow)
+  streamings?: TVShowStreaming[];
 }
 
 export default TVShow;
