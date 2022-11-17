@@ -6,14 +6,16 @@ import ITVShowsRepository from '@modules/tvshows/repositories/ITVShowsRepository
 import { getRepository, Raw, Repository } from 'typeorm';
 
 class TVShowsRepository implements ITVShowsRepository {
-  private ormRepository: Repository<ITVShow>;
+  private ormRepository: Repository<TVShow>;
 
   constructor() {
     this.ormRepository = getRepository(TVShow);
   }
 
   public async findById(id: number): Promise<ITVShow | undefined> {
-    const tvshow = await this.ormRepository.findOne(id);
+    const tvshow = await this.ormRepository.findOne(id, {
+      relations: ['streamings'],
+    });
 
     return tvshow;
   }
