@@ -2,9 +2,10 @@ import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
 import CreateMovieService from '@modules/movies/services/CreateMovieService';
-import UpdateMovieService from '@modules/movies/services/UpdateMovieService';
 import ListAllMoviesService from '@modules/movies/services/ListAllMoviesService';
 import ShowMovieService from '@modules/movies/services/ShowMovieService';
+import UpdateMovieService from '@modules/movies/services/UpdateMovieService';
+import { mapView } from '@modules/movies/utils/mapView';
 
 interface IRequestQuery {
   page?: number;
@@ -16,13 +17,8 @@ interface IRequestQuery {
 
 export default class MoviesController {
   public async index(request: Request, response: Response): Promise<Response> {
-    const {
-      page,
-      limit,
-      columns,
-      order,
-      filter,
-    }: IRequestQuery = request.query;
+    const { page, limit, columns, order, filter }: IRequestQuery =
+      request.query;
 
     const listAllMovies = container.resolve(ListAllMoviesService);
     const { data, total } = await listAllMovies.execute({
@@ -68,6 +64,6 @@ export default class MoviesController {
       return response.status(404).json({ message: 'Movie not found' });
     }
 
-    return response.status(200).json(movie);
+    return response.status(200).json(mapView(movie));
   }
 }

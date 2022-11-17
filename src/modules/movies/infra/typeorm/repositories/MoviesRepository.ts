@@ -1,9 +1,9 @@
-import { Repository, getRepository, Raw } from 'typeorm';
+import { getRepository, Raw, Repository } from 'typeorm';
 
-import IMoviesRepository from '@modules/movies/repositories/IMoviesRepository';
 import ICreateMovieDTO from '@modules/movies/dtos/ICreateMovieDTO';
 import IFindAllMoviesDTO from '@modules/movies/dtos/IFindAllMoviesDTO';
 import IFindAllMoviesResponseDTO from '@modules/movies/dtos/IFindAllMoviesResponseDTO';
+import IMoviesRepository from '@modules/movies/repositories/IMoviesRepository';
 import Movie from '../entities/Movie';
 
 class MoviesRepository implements IMoviesRepository {
@@ -27,7 +27,7 @@ class MoviesRepository implements IMoviesRepository {
 
   public async findById(id: number): Promise<Movie | undefined> {
     const findMovie = await this.ormRepository.findOne(id, {
-      relations: ['related_movies'],
+      relations: ['related_movies', 'streamings'],
     });
 
     return findMovie;
