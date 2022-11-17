@@ -1,7 +1,8 @@
-import { container } from 'tsyringe';
-import { Request, Response } from 'express';
 import ListTVShowsService from '@modules/tvshows/services/ListTVShowsService';
 import ShowTVShowService from '@modules/tvshows/services/ShowTVShowService';
+import { mapView } from '@modules/tvshows/utils/mapView';
+import { Request, Response } from 'express';
+import { container } from 'tsyringe';
 
 interface IRequestQuery {
   page?: number;
@@ -13,13 +14,8 @@ interface IRequestQuery {
 
 export default class TVShowsController {
   public async index(request: Request, response: Response): Promise<Response> {
-    const {
-      page,
-      limit,
-      columns,
-      order,
-      filter,
-    }: IRequestQuery = request.query;
+    const { page, limit, columns, order, filter }: IRequestQuery =
+      request.query;
 
     const listAllTVShows = container.resolve(ListTVShowsService);
     const { data, total } = await listAllTVShows.execute({
@@ -42,6 +38,6 @@ export default class TVShowsController {
       return response.status(404).json({ message: 'TV Show not found' });
     }
 
-    return response.status(200).json(tvshow);
+    return response.status(200).json(mapView(tvshow));
   }
 }
