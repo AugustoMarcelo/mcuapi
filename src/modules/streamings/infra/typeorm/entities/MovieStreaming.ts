@@ -13,7 +13,7 @@ class MovieStreaming implements IMovieStreaming {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ select: false })
   movie_id: number;
 
   @ManyToOne(() => Movie, movie => movie.streamings)
