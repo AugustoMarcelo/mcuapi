@@ -1,3 +1,5 @@
+import IMovieStreaming from '@modules/streamings/entities/IMovieStreaming';
+
 export default interface IMovie {
   id: number;
 
@@ -28,4 +30,6 @@ export default interface IMovie {
   imdb_id?: string;
 
   related_movies?: IMovie[];
+
+  streamings?: IMovieStreaming[];
 }

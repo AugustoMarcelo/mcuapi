@@ -1,5 +1,13 @@
-import { Entity, PrimaryColumn, Column, ManyToMany, JoinTable } from 'typeorm';
 import IMovie from '@modules/movies/entities/IMovie';
+import MovieStreaming from '@modules/streamings/infra/typeorm/entities/MovieStreaming';
+import {
+  Column,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  OneToMany,
+  PrimaryColumn,
+} from 'typeorm';
 
 @Entity('movies')
 class Movie implements IMovie {
@@ -52,6 +60,9 @@ class Movie implements IMovie {
     inverseJoinColumns: [{ name: 'related_movie_id' }],
   })
   related_movies?: Movie[];
+
+  @OneToMany(() => MovieStreaming, streaming => streaming.movie)
+  streamings?: MovieStreaming[];
 }
 
 export default Movie;
