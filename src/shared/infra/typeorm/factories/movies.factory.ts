@@ -497,7 +497,7 @@ const movies: IMovie[] = [
     id: 27,
     title: 'Spider-Man: No Way Home',
     release_date: new Date(2021, 11, 17),
-    box_office: 1912917887,
+    box_office: 1910041582,
     duration: 148,
     overview:
       'For the first time in the cinematic history of Spider-Man, our friendly neighborhood hero is unmasked and no longer able to separate his normal life from the high-stakes of being a Super Hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.',
@@ -551,7 +551,7 @@ const movies: IMovie[] = [
     id: 30,
     title: 'Black Panther: Wakanda Forever',
     release_date: new Date(2022, 10, 11),
-    box_office: 330000000,
+    box_office: 767810778,
     duration: 161,
     overview:
       "Queen Ramonda (Angela Bassett), Shuri (Letitia Wright), M'Baku (Winston Duke), Okoye (Danai Gurira) and the Dora Milaje (including Florence Kasumba), fight to protect their nation from intervening world powers in the wake of King T'Challa's death. As the Wakandans strive to embrace their next chapter, the heroes must band together with the help of War Dog Nakia (Lupita Nyong'o) and Everett Ross (Martin Freeman) and forge a new path for the kingdom of Wakanda.",
@@ -592,8 +592,8 @@ const movies: IMovie[] = [
     overview:
       'In Marvel Studios "Guardians of the Galaxy Vol. 3" our beloved band of misfits are looking a bit different these days. Peter Quill, still reeling from the loss of Gamora, must rally his team around him to defend the universe along with protecting one of their own. A mission that, if not completed successfully, could quite possibly lead to the end of the Guardians as we know them.',
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1658745886/mcuapi/gallery/Movies/guardians_of_the_galaxy_vol_3/posters/1.jpg',
-    trailer_url: undefined,
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1670932392/mcuapi/gallery/Movies/guardians_of_the_galaxy_vol_3/posters/2.jpg',
+    trailer_url: 'https://youtu.be/u3V5KDHRQvk',
     directed_by: 'James Gunn',
     phase: 5,
     saga: 'Multiverse Saga',
