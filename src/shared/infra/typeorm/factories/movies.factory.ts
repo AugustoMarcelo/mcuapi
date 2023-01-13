@@ -497,7 +497,7 @@ const movies: IMovie[] = [
     id: 27,
     title: 'Spider-Man: No Way Home',
     release_date: new Date(2021, 11, 17),
-    box_office: 1910041582,
+    box_office: 1910048582,
     duration: 148,
     overview:
       'For the first time in the cinematic history of Spider-Man, our friendly neighborhood hero is unmasked and no longer able to separate his normal life from the high-stakes of being a Super Hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.',
@@ -533,7 +533,7 @@ const movies: IMovie[] = [
     id: 29,
     title: 'Thor: Love and Thunder',
     release_date: new Date(2022, 6, 8),
-    box_office: 745246850,
+    box_office: 760928081,
     duration: 119,
     overview:
       "The film finds Thor on a journey unlike anything he's ever faced — a quest for inner peace. But his retirement is interrupted by a galactic killer known as Gorr the God Butcher, who seeks the extinction of the gods. To combat the threat, Thor enlists the help of King Valkyrie, Korg, and ex-girlfriend Jane Foster, who — to Thor's surprise — inexplicably wields his magical hammer, Mjolnir, as the Mighty Thor.",
@@ -551,12 +551,12 @@ const movies: IMovie[] = [
     id: 30,
     title: 'Black Panther: Wakanda Forever',
     release_date: new Date(2022, 10, 11),
-    box_office: 767810778,
+    box_office: 827053560,
     duration: 161,
     overview:
       "Queen Ramonda (Angela Bassett), Shuri (Letitia Wright), M'Baku (Winston Duke), Okoye (Danai Gurira) and the Dora Milaje (including Florence Kasumba), fight to protect their nation from intervening world powers in the wake of King T'Challa's death. As the Wakandans strive to embrace their next chapter, the heroes must band together with the help of War Dog Nakia (Lupita Nyong'o) and Everett Ross (Martin Freeman) and forge a new path for the kingdom of Wakanda.",
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1665238515/mcuapi/gallery/Movies/black_panther_wakanda_forever/posters/2.jpg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1665238515/mcuapi/gallery/Movies/black_panther_wakanda_forever/posters/3.jpg',
     trailer_url: 'https://youtu.be/_Z3QKkl1WyM',
     directed_by: 'Ryan Coogler',
     phase: 4,
@@ -572,10 +572,10 @@ const movies: IMovie[] = [
     box_office: 0,
     duration: 0,
     overview:
-      "Super Hero partners Scott Lang (Paul Rudd) and Hope Van Dyne (Evangeline Lilly) return to continue their adventures as Ant-Man and The Wasp. Together, with Hope's parents Hank Pym (Michael Douglas) and Janet Van Dyne (Michelle Pfeiffer), the family finds themselves exploring the Quantum Realm, interacting with strange new creatures, and embarking on an adventure that will push them beyond the limits of what they thought was possible.",
+      "In the film, which officially kicks off phase 5 of the Marvel Cinematic Universe, Super-Hero partners Scott Lang and Hope Van Dyne return to continue their adventures as Ant-Man and the Wasp. Together, with Hope's parents Hank Pym and Janet Van Dyne, the family finds themselves exploring the Quantum Realm, interacting with strange new creatures and embarking on an adventure that will push them beyond the limits of what they thought was possible. Jonathan Majors joins the adventure as Kang.",
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1666736814/mcuapi/gallery/Movies/ant-man_and_the_wasp_quantumania/posters/1.jpg',
-    trailer_url: 'https://youtu.be/ZlNFpri-Y40',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1666736814/mcuapi/gallery/Movies/ant-man_and_the_wasp_quantumania/posters/2.jpg',
+    trailer_url: 'https://youtu.be/5WfTEZJnv_8',
     directed_by: 'Peyton Reed',
     phase: 5,
     saga: 'Multiverse Saga',
