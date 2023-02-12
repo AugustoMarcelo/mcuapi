@@ -7,7 +7,7 @@ const tvshows: ITVShow[] = [
     overview:
       'Marvel Studios captivating new series "WandaVision" which premieres in early 2021 on Disney+. Starring Elizabeth Olsen and Paul Bettany, "WandaVision" marks the first series from Marvel Studios streaming exclusively on Disney+. The series is a blend of classic television and the Marvel Cinematic Universe in which Wanda Maximoff and Vision—two super-powered beings living idealized suburban lives—begin to suspect that everything is not as it seems',
     cover_url:
-      'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/wandavision.jpg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1676219587/mcuapi/gallery/tv_shows/wandavision/posters/1.jpg',
     trailer_url:
       'https://players.brightcove.net/5359769168001/BJemW31x6g_default/index.html?videoId=6215509803001',
     season: 1,
@@ -25,7 +25,7 @@ const tvshows: ITVShow[] = [
     overview:
       'Following the events of "Avengers: Endgame" Sam Wilson/Falcon (Anthony Mackie) and Bucky Barnes/Winter Soldier (Sebastian Stan) team up in a global adventure that tests their abilities—and their patience—in Marvel Studios’ “The Falcon and The Winter Soldier.” The all-new series is directed by Kari Skogland; Malcolm Spellman is the head writer. Streaming exclusively on Disney+.',
     cover_url:
-      'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/the-falcon-and-the-winter-soldier.jpg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1676219753/mcuapi/gallery/tv_shows/the_falcon_and_the_winter_soldier/posters/1.jpg',
     trailer_url:
       'https://players.brightcove.net/5359769168001/BJemW31x6g_default/index.html?videoId=6215508715001',
     season: 1,
@@ -43,7 +43,7 @@ const tvshows: ITVShow[] = [
     overview:
       'In Marvel Studios’ "Loki" the mercurial villain Loki (Tom Hiddleston) resumes his role as the God of Mischief in a new series that takes place after the events of “Avengers: Endgame.” Kate Herron directs and Michael Waldron is head writer. Debuts on Disney+ in June 9, 2021.',
     cover_url:
-      'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/loki.jpg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1676219908/mcuapi/gallery/tv_shows/loki/season_1/posters/1.jpg',
     trailer_url:
       'https://players.brightcove.net/5359769168001/BJemW31x6g_default/index.html?videoId=6215507931001',
     season: 1,
@@ -61,7 +61,7 @@ const tvshows: ITVShow[] = [
     overview:
       '"What If…?" flips the script on the MCU, reimagining famous events from the films in unexpected ways. Marvel Studios’ first animated series focuses on different heroes from the MCU, featuring a voice cast that includes a host of stars who reprise their roles. Directed by Bryan Andrews with AC Bradley as head writer, “What If…?" launches exclusively on Disney+ on August 11, 2021.',
     cover_url:
-      'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/what_if.jpg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1676220025/mcuapi/gallery/tv_shows/what_if/season_1/posters/1.jpg',
     trailer_url:
       'https://assets.espn.go.com/players/web-player-bundle/next/embed/share.html#id=6262751537001&brand=marvel',
     season: 1,
@@ -79,7 +79,7 @@ const tvshows: ITVShow[] = [
     overview:
       'Marvel Studios’ "Hawkeye" stars Jeremy Renner as Hawkeye, who teams up with another well-known archer from the Marvel comics, Kate Bishop, played by Hailee Steinfeld. The cast also includes Vera Farmiga, Fra Fee, Tony Dalton, Zahn McClarnon, Brian d’Arcy James and newcomer Alaqua Cox as Maya Lopez. “Hawkeye” is helmed by Rhys Thomas and directing duo Bert and Bertie.',
     cover_url:
-      'https://raw.githubusercontent.com/AugustoMarcelo/mcuapi/master/covers/hawkeye.jpg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1676220173/mcuapi/gallery/tv_shows/hawkeye/1.jpg',
     trailer_url: 'https://youtu.be/5VYb3B1ETlk',
     season: 1,
     number_episodes: 6,
