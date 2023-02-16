@@ -49,7 +49,7 @@ const movies: IMovie[] = [
     overview:
       'With the world now aware that he is Iron Man, billionaire inventor Tony Stark faces pressure from all sides to share his technology with the military. He is reluctant to divulge the secrets of his armored suit, fearing the information will fall into the wrong hands. With Pepper Potts and "Rhodey" Rhodes by his side, Tony must forge new alliances and confront a powerful new enemy.',
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1675206796/mcuapi/gallery/Movies/iron_man_2/posters/1.jpgg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1675206796/mcuapi/gallery/Movies/iron_man_2/posters/1.jpg',
     trailer_url:
       'https://players.brightcove.net/5359769168001/BJemW31x6g_default/index.html?videoId=5786616628001',
     directed_by: 'Jon Favreau',
@@ -520,7 +520,7 @@ const movies: IMovie[] = [
     overview:
       "Marvel Studios' 'Doctor Strange in the Multiverse of Madness'—a thrilling ride through the Multiverse with Doctor Strange, his trusted friend Wong and Wanda Maximoff, aka Scarlet Witch. 'Doctor Strange in the Multiverse of Madness' opens in U.S. theaters on May 6, 2022",
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1675212381/mcuapi/gallery/Movies/doctor_strange_in_the_multiverse_of_madness/posters/1.jpg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1675212381/mcuapi/gallery/Movies/doctor_strange_in_the_multiverse_of_madness/posters/2.jpg',
     trailer_url: 'https://youtu.be/aWzlQ2N6qqg',
     directed_by: 'Sam Raimi',
     phase: 4,
@@ -551,7 +551,7 @@ const movies: IMovie[] = [
     id: 30,
     title: 'Black Panther: Wakanda Forever',
     release_date: new Date(2022, 10, 11),
-    box_office: 827053560,
+    box_office: 855055046,
     duration: 161,
     overview:
       "Queen Ramonda (Angela Bassett), Shuri (Letitia Wright), M'Baku (Winston Duke), Okoye (Danai Gurira) and the Dora Milaje (including Florence Kasumba), fight to protect their nation from intervening world powers in the wake of King T'Challa's death. As the Wakandans strive to embrace their next chapter, the heroes must band together with the help of War Dog Nakia (Lupita Nyong'o) and Everett Ross (Martin Freeman) and forge a new path for the kingdom of Wakanda.",
@@ -570,7 +570,7 @@ const movies: IMovie[] = [
     title: 'Ant-Man and The Wasp: Quantumania',
     release_date: new Date(2023, 1, 17),
     box_office: 0,
-    duration: 0,
+    duration: 124,
     overview:
       "In the film, which officially kicks off phase 5 of the Marvel Cinematic Universe, Super-Hero partners Scott Lang and Hope Van Dyne return to continue their adventures as Ant-Man and the Wasp. Together, with Hope's parents Hank Pym and Janet Van Dyne, the family finds themselves exploring the Quantum Realm, interacting with strange new creatures and embarking on an adventure that will push them beyond the limits of what they thought was possible. Jonathan Majors joins the adventure as Kang.",
     cover_url:
@@ -580,7 +580,7 @@ const movies: IMovie[] = [
     phase: 5,
     saga: 'Multiverse Saga',
     chronology: 31,
-    post_credit_scenes: 0,
+    post_credit_scenes: 2,
     imdb_id: 'tt10954600',
   },
   {
@@ -592,8 +592,8 @@ const movies: IMovie[] = [
     overview:
       'In Marvel Studios "Guardians of the Galaxy Vol. 3" our beloved band of misfits are looking a bit different these days. Peter Quill, still reeling from the loss of Gamora, must rally his team around him to defend the universe along with protecting one of their own. A mission that, if not completed successfully, could quite possibly lead to the end of the Guardians as we know them.',
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1670932392/mcuapi/gallery/Movies/guardians_of_the_galaxy_vol_3/posters/2.jpg',
-    trailer_url: 'https://youtu.be/u3V5KDHRQvk',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1676543203/mcuapi/gallery/Movies/guardians_of_the_galaxy_vol_3/posters/3.jpg',
+    trailer_url: 'https://youtu.be/JqcncLPi9zw',
     directed_by: 'James Gunn',
     phase: 5,
     saga: 'Multiverse Saga',
