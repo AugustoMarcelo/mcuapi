@@ -96,7 +96,7 @@ const tvshows: ITVShow[] = [
     overview:
       "Moon Knight follows Steven Grant, a mild-mannered gift-shop employee, who becomes plagued with blackouts and memories of another life. Steven discovers he has dissociative identity disorder and shares a body with mercenary Marc Spector. As Steven/Marc's enemies converge upon them, they must navigate their complex identities while thrust into a deadly mystery among the powerful gods of Egypt.",
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1647469845/mcuapi/gallery/TV%20Shows/Moon%20Knight/Posters/3.jpg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1677417882/mcuapi/gallery/tv_shows/moon_knight/posters/3.jpg',
     trailer_url: 'https://youtu.be/x7Krla_UxRg',
     season: 1,
     number_episodes: 6,
@@ -113,7 +113,7 @@ const tvshows: ITVShow[] = [
     overview:
       'Ms. Marvel is a new, original series that introduces Kamala Khan, a Muslim American teenager growing up in Jersey City. An avid gamer and a voracious fan-fiction scribe, Kamala is a Super Hero mega-fan with an oversized imagination—particularly when it comes to Captain Marvel. Yet Kamala feels invisible both at home and at school—that is, until she gets super powers like the heroes she’s always looked up to. Life gets better with super powers, right?',
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1647388519/mcuapi/gallery/TV%20Shows/Ms.%20Marvel/Posters/1.jpg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1677418034/mcuapi/gallery/tv_shows/ms_marvel/posters/1.jpg',
     trailer_url: 'https://youtu.be/m9EX0f6V11Y',
     season: 1,
     number_episodes: 6,
@@ -132,7 +132,7 @@ const tvshows: ITVShow[] = [
       'There’s no guarding the galaxy from this mischievous toddler! So get ready as Baby Groot takes center stage in his very own collection of shorts, exploring his glory days growing up — and getting into trouble — among the stars. I Am Groot, five original shorts featuring several new and unusual characters, stars everyone’s favorite little tree, Baby Groot, voiced by Vin Diesel, who voices Groot in the Guardians of the Galaxy franchise.',
     trailer_url: 'https://youtu.be/D7eFpRf4tac',
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1659355874/mcuapi/gallery/TV%20Shows/I%20Am%20Groot/Posters/2.jpg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1677418157/mcuapi/gallery/tv_shows/i_am_groot/posters/2.jpg',
     season: 1,
     number_episodes: 5,
     release_date: new Date(2022, 7, 10),
@@ -148,7 +148,7 @@ const tvshows: ITVShow[] = [
     overview:
       'She-Hulk: Attorney at Law follows Jennifer Walters as she navigates the complicated life of a single, 30-something attorney who also happens to be a green 6-foot-7-inch superpowered hulk. The nine-episode series welcomes a host of MCU vets, including Mark Ruffalo as Smart Hulk, Tim Roth as Emil Blonsky/the Abomination, and Benedict Wong as Wong.',
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1652825788/mcuapi/gallery/TV%20Shows/She%20Hulk/Posters/2.jpg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1677418342/mcuapi/gallery/tv_shows/she_hulk_attorney_at_law/posters/2.jpg',
     trailer_url: 'https://youtu.be/u7JsKhI2An0',
     season: 1,
     number_episodes: 9,
@@ -165,7 +165,7 @@ const tvshows: ITVShow[] = [
     overview:
       'Follows a lycanthrope superhero who fights evil using the abilities given to him by a curse brought on by his bloodline.',
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1665237805/mcuapi/gallery/TV%20Shows/werewolf_by_night/posters/1.jpg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1677418444/mcuapi/gallery/tv_shows/werewolf_by_night/posters/1.jpg',
     trailer_url: 'https://youtu.be/bLEFqhS5WmI',
     season: 1,
     number_episodes: 1,
@@ -182,7 +182,7 @@ const tvshows: ITVShow[] = [
     overview:
       'In the The Guardians of the Galaxy Holiday Special, the Guardians, who are on a mission to make Christmas unforgettable for Quill, head to Earth in search of the perfect present. The Marvel Studios’ Special Presentation stars Chris Pratt, Dave Bautista, Karen Gillan, and Pom Klementieff, featuring Vin Diesel as Groot and Bradley Cooper as Rocket, Sean Gunn and The Old 97’s with Michael Rooker and Kevin Bacon',
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1668423952/mcuapi/gallery/TV%20Shows/the_guardian_of_the_galaxy_holiday_special/posters/2.jpg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1677418587/mcuapi/gallery/tv_shows/the_guardians_of_the_galaxy_holiday_special/posters/1.jpg',
     trailer_url: 'https://youtu.be/OYhFFQl4fLs',
     season: 1,
     number_episodes: 1,
@@ -199,7 +199,7 @@ const tvshows: ITVShow[] = [
     overview:
       'Secret Invasion stars Samuel L. Jackson as Nick Fury and Ben Mendelsohn as the Skrull Talos—characters who first met in Captain Marvel. They are joined by Kingsley Ben-Adir, Emilia Clarke, and Olivia Colman. The crossover event series showcases a faction of shapeshifting Skrulls who have been infiltrating Earth for years.',
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1665238149/mcuapi/gallery/TV%20Shows/Secret%20Invasion/Posters/2.jpg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1677418824/mcuapi/gallery/tv_shows/secret_invasion/posters/1.jpg',
     trailer_url: 'https://youtu.be/qZVTkn2NjS0',
     season: 1,
     number_episodes: 6,
@@ -214,7 +214,7 @@ const tvshows: ITVShow[] = [
     overview:
       'Streaming exclusively on Disney, the origin story of Echo revisits Maya Lopez, whose ruthless behavior in New York City catches up with her in her hometown. She must face her past, reconnect with her Native American roots and embrace the meaning of family and community if she ever hopes to move forward.',
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1657230760/mcuapi/gallery/TV%20Shows/Echo/Posters/1.jpg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1677418904/mcuapi/gallery/tv_shows/echo/posters/1.jpg',
     season: 1,
     number_episodes: 0,
     phase: 5,
@@ -228,7 +228,7 @@ const tvshows: ITVShow[] = [
     overview:
       'In Marvel Studios’ "Loki" the mercurial villain Loki (Tom Hiddleston) resumes his role as the God of Mischief in a new series that takes place after the events of “Avengers: Endgame.” Kate Herron directs and Michael Waldron is head writer. Debuts on Disney+ in June 9, 2021.',
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1665582321/mcuapi/gallery/TV%20Shows/loki/posters/season_2/1.jpg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1677419199/mcuapi/gallery/tv_shows/loki/season_2/1.jpg',
     trailer_url: undefined,
     season: 2,
     number_episodes: 6,
@@ -243,7 +243,7 @@ const tvshows: ITVShow[] = [
     id: 15,
     title: 'Ironheart',
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1657230537/mcuapi/gallery/TV%20Shows/Ironheart/Posters/1.jpg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1677419261/mcuapi/gallery/tv_shows/ironheart/posters/1.jpg',
     season: 1,
     number_episodes: 6,
     phase: 5,
@@ -255,7 +255,7 @@ const tvshows: ITVShow[] = [
     id: 16,
     title: 'Agatha: Coven of Chaos',
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1658749561/mcuapi/gallery/TV%20Shows/agatha_coven_of_chaos/posters/1.jpg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1677419317/mcuapi/gallery/tv_shows/agatha_coven_of_caos/posters/1.jpg',
     season: 1,
     number_episodes: 0,
     phase: 5,
@@ -266,22 +266,12 @@ const tvshows: ITVShow[] = [
     id: 17,
     title: 'Daredevil: Born Again',
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1658749734/mcuapi/gallery/TV%20Shows/daredevil_born_again/posters/1.jpg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1677419390/mcuapi/gallery/tv_shows/daredevil_born_again/posters/1.jpg',
     season: 1,
     number_episodes: 18,
     phase: 5,
     saga: 'Multiverse Saga',
     imdb_id: 'tt20411934',
-  },
-  {
-    id: 18,
-    title: 'Armor Wars',
-    cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1665238311/mcuapi/gallery/TV%20Shows/Armor%20Wars/Posters/2.jpg',
-    season: 1,
-    number_episodes: 0,
-    phase: 4,
-    imdb_id: 'tt13623128',
   },
 ];
 
