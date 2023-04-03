@@ -551,7 +551,7 @@ const movies: IMovie[] = [
     id: 30,
     title: 'Black Panther: Wakanda Forever',
     release_date: new Date(2022, 10, 11),
-    box_office: 854881116,
+    box_office: 854041058,
     duration: 161,
     overview:
       "Queen Ramonda (Angela Bassett), Shuri (Letitia Wright), M'Baku (Winston Duke), Okoye (Danai Gurira) and the Dora Milaje (including Florence Kasumba), fight to protect their nation from intervening world powers in the wake of King T'Challa's death. As the Wakandans strive to embrace their next chapter, the heroes must band together with the help of War Dog Nakia (Lupita Nyong'o) and Everett Ross (Martin Freeman) and forge a new path for the kingdom of Wakanda.",
@@ -569,7 +569,7 @@ const movies: IMovie[] = [
     id: 31,
     title: 'Ant-Man and The Wasp: Quantumania',
     release_date: new Date(2023, 1, 17),
-    box_office: 303606610,
+    box_office: 466891956,
     duration: 124,
     overview:
       "In the film, which officially kicks off phase 5 of the Marvel Cinematic Universe, Super-Hero partners Scott Lang and Hope Van Dyne return to continue their adventures as Ant-Man and the Wasp. Together, with Hope's parents Hank Pym and Janet Van Dyne, the family finds themselves exploring the Quantum Realm, interacting with strange new creatures and embarking on an adventure that will push them beyond the limits of what they thought was possible. Jonathan Majors joins the adventure as Kang.",
@@ -604,11 +604,11 @@ const movies: IMovie[] = [
   {
     id: 33,
     title: 'The Marvels',
-    release_date: new Date(2023, 6, 28),
+    release_date: new Date(2023, 10, 10),
     box_office: 0,
     duration: 0,
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1675212851/mcuapi/gallery/Movies/the_marvels/posters/1.jpg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1679777423/mcuapi/gallery/Movies/the_marvels/posters/2.jpg',
     trailer_url: undefined,
     directed_by: 'Nia DaCosta',
     phase: 5,
