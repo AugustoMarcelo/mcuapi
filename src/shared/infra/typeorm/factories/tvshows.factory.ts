@@ -196,11 +196,13 @@ const tvshows: ITVShow[] = [
   {
     id: 12,
     title: 'Secret Invasion',
+    release_date: new Date(2023, 5, 21),
+    last_aired_date: new Date(2023, 6, 26),
     overview:
-      'Secret Invasion stars Samuel L. Jackson as Nick Fury and Ben Mendelsohn as the Skrull Talos—characters who first met in Captain Marvel. They are joined by Kingsley Ben-Adir, Emilia Clarke, and Olivia Colman. The crossover event series showcases a faction of shapeshifting Skrulls who have been infiltrating Earth for years.',
+      'In Secret Invasion, set in the present-day MCU, Fury learns of a clandestine invasion of Earth by a faction of shapeshifting Skrulls. Fury joins his allies, including Everett Ross, Maria Hill, and the Skrull Talos, who has made a life for himself on Earth. Together they race against time to thwart an imminent Skrull invasion and save humanity.',
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1677418824/mcuapi/gallery/tv_shows/secret_invasion/posters/1.jpg',
-    trailer_url: 'https://youtu.be/qZVTkn2NjS0',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1680562454/mcuapi/gallery/tv_shows/secret_invasion/posters/2.jpg',
+    trailer_url: 'https://youtu.be/Tp_YZNqNBhw',
     season: 1,
     number_episodes: 6,
     phase: 5,
