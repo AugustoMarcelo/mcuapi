@@ -322,7 +322,11 @@
           },
           "box_office": {
             "type": "integer",
-            "description": "Movie box office"
+            "description": "Movie box office as a decimal"
+          },
+          "duration": {
+            "type": "integer",
+            "description": "Movie duration in minutes"
           },
           "overview": {
             "type": "string",
@@ -334,7 +338,7 @@
           },
           "trailer_url": {
             "type": "string",
-            "description": "Movie url trailer"
+            "description": "YouTube movie trailer URL"
           },
           "directed_by": {
             "type": "string",
