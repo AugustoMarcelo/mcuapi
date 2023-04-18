@@ -569,7 +569,7 @@ const movies: IMovie[] = [
     id: 31,
     title: 'Ant-Man and The Wasp: Quantumania',
     release_date: new Date(2023, 1, 17),
-    box_office: 466891956,
+    box_office: 466161302,
     duration: 124,
     overview:
       "In the film, which officially kicks off phase 5 of the Marvel Cinematic Universe, Super-Hero partners Scott Lang and Hope Van Dyne return to continue their adventures as Ant-Man and the Wasp. Together, with Hope's parents Hank Pym and Janet Van Dyne, the family finds themselves exploring the Quantum Realm, interacting with strange new creatures and embarking on an adventure that will push them beyond the limits of what they thought was possible. Jonathan Majors joins the adventure as Kang.",
@@ -607,9 +607,11 @@ const movies: IMovie[] = [
     release_date: new Date(2023, 10, 10),
     box_office: 0,
     duration: 0,
+    overview:
+      "Carol Danvers AKA Captain Marvel has reclaimed her identity from the tyrannical Kree and taken revenge on the Supreme Intelligence. But unintended consequences see Carol shouldering the burden of a destabilized universe. When her duties send her to an anomalous wormhole linked to a Kree revolutionary, her powers become entangled with that of Jersey City super-fan Kamala Khan, aka Ms. Marvel, and Carol's estranged niece, now S.A.B.E.R. astronaut Captain Monica Rambeau.",
     cover_url:
       'https://res.cloudinary.com/augustomarcelo/image/upload/v1679777423/mcuapi/gallery/Movies/the_marvels/posters/2.jpg',
-    trailer_url: undefined,
+    trailer_url: 'https://youtu.be/iuk77TjvfmE',
     directed_by: 'Nia DaCosta',
     phase: 5,
     saga: 'Multiverse Saga',
