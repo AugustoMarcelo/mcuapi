@@ -213,12 +213,14 @@ const tvshows: ITVShow[] = [
   {
     id: 13,
     title: 'Echo',
+    release_date: new Date(2023, 10, 29),
+    last_aired_date: new Date(2023, 10, 29),
     overview:
       'Streaming exclusively on Disney, the origin story of Echo revisits Maya Lopez, whose ruthless behavior in New York City catches up with her in her hometown. She must face her past, reconnect with her Native American roots and embrace the meaning of family and community if she ever hopes to move forward.',
     cover_url:
       'https://res.cloudinary.com/augustomarcelo/image/upload/v1677418904/mcuapi/gallery/tv_shows/echo/posters/1.jpg',
     season: 1,
-    number_episodes: 0,
+    number_episodes: 6,
     phase: 5,
     saga: 'Multiverse Saga',
     directed_by: 'Sydney Freeland and Catriona McKenzie',
