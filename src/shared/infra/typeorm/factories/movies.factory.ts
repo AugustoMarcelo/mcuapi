@@ -670,7 +670,7 @@ const movies: IMovie[] = [
   {
     id: 37,
     title: 'Untitled Deadpool Movie',
-    release_date: new Date(2024, 10, 8),
+    release_date: new Date(2024, 2, 3),
     box_office: 0,
     duration: 0,
     cover_url:
