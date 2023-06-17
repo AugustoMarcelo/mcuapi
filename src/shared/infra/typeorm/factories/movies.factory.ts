@@ -621,12 +621,12 @@ const movies: IMovie[] = [
   },
   {
     id: 34,
-    title: 'Captain America: New World Order',
-    release_date: new Date(2024, 4, 3),
+    title: 'Captain America: Brave New Order',
+    release_date: new Date(2024, 6, 26),
     box_office: 0,
     duration: 0,
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1658746479/mcuapi/gallery/Movies/captain_america_new_world_order/posters/1.jpg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1687027732/mcuapi/gallery/Movies/captain_america_brave_new_order/1.jpg',
     trailer_url: undefined,
     directed_by: 'Julius Onah',
     phase: 5,
