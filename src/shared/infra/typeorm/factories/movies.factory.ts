@@ -569,7 +569,7 @@ const movies: IMovie[] = [
     id: 31,
     title: 'Ant-Man and The Wasp: Quantumania',
     release_date: new Date(2023, 1, 17),
-    box_office: 466161302,
+    box_office: 463_635_303,
     duration: 124,
     overview:
       "In the film, which officially kicks off phase 5 of the Marvel Cinematic Universe, Super-Hero partners Scott Lang and Hope Van Dyne return to continue their adventures as Ant-Man and the Wasp. Together, with Hope's parents Hank Pym and Janet Van Dyne, the family finds themselves exploring the Quantum Realm, interacting with strange new creatures and embarking on an adventure that will push them beyond the limits of what they thought was possible. Jonathan Majors joins the adventure as Kang.",
