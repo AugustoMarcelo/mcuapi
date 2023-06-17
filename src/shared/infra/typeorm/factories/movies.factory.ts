@@ -702,7 +702,7 @@ const movies: IMovie[] = [
   {
     id: 39,
     title: 'Avengers: The Kang Dynasty',
-    release_date: new Date(2025, 4, 2),
+    release_date: new Date(2026, 4, 1),
     box_office: 0,
     duration: 0,
     cover_url:
