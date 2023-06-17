@@ -638,7 +638,7 @@ const movies: IMovie[] = [
   {
     id: 35,
     title: 'Thunderbolts',
-    release_date: new Date(2024, 6, 26),
+    release_date: new Date(2024, 11, 20),
     box_office: 0,
     duration: 0,
     cover_url:
