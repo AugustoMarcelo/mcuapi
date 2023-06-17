@@ -587,8 +587,8 @@ const movies: IMovie[] = [
     id: 32,
     title: 'Guardians of the Galaxy Vol. 3',
     release_date: new Date(2023, 4, 5),
-    box_office: 0,
-    duration: 0,
+    box_office: 811_036_196,
+    duration: 149,
     overview:
       'In Marvel Studios "Guardians of the Galaxy Vol. 3" our beloved band of misfits are looking a bit different these days. Peter Quill, still reeling from the loss of Gamora, must rally his team around him to defend the universe along with protecting one of their own. A mission that, if not completed successfully, could quite possibly lead to the end of the Guardians as we know them.',
     cover_url:
@@ -598,7 +598,7 @@ const movies: IMovie[] = [
     phase: 5,
     saga: 'Multiverse Saga',
     chronology: 32,
-    post_credit_scenes: 0,
+    post_credit_scenes: 2,
     imdb_id: 'tt6791350',
   },
   {
