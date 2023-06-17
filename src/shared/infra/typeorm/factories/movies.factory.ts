@@ -654,7 +654,7 @@ const movies: IMovie[] = [
   {
     id: 36,
     title: 'Blade',
-    release_date: new Date(2024, 8, 6),
+    release_date: new Date(2025, 1, 14),
     box_office: 0,
     duration: 0,
     cover_url:
