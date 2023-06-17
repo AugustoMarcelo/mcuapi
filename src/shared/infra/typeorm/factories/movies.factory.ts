@@ -551,7 +551,7 @@ const movies: IMovie[] = [
     id: 30,
     title: 'Black Panther: Wakanda Forever',
     release_date: new Date(2022, 10, 11),
-    box_office: 854041058,
+    box_office: 853_985_546,
     duration: 161,
     overview:
       "Queen Ramonda (Angela Bassett), Shuri (Letitia Wright), M'Baku (Winston Duke), Okoye (Danai Gurira) and the Dora Milaje (including Florence Kasumba), fight to protect their nation from intervening world powers in the wake of King T'Challa's death. As the Wakandans strive to embrace their next chapter, the heroes must band together with the help of War Dog Nakia (Lupita Nyong'o) and Everett Ross (Martin Freeman) and forge a new path for the kingdom of Wakanda.",
