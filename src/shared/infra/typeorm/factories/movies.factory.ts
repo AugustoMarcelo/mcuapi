@@ -686,7 +686,7 @@ const movies: IMovie[] = [
   {
     id: 38,
     title: 'Fantastic Four',
-    release_date: new Date(2025, 1, 14),
+    release_date: new Date(2025, 2, 2),
     box_office: 0,
     duration: 0,
     cover_url:
