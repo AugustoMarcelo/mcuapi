@@ -20,6 +20,7 @@ const movies: IMovie[] = [
     chronology: 3,
     post_credit_scenes: 1,
     imdb_id: 'tt0371746',
+    updated_at: new Date(2022, 5, 19, 11, 11, 0),
   },
   {
     id: 2,
@@ -39,6 +40,7 @@ const movies: IMovie[] = [
     chronology: 5,
     post_credit_scenes: 1,
     imdb_id: 'tt0800080',
+    updated_at: new Date(2022, 5, 19, 11, 11, 0),
   },
   {
     id: 3,
@@ -58,6 +60,7 @@ const movies: IMovie[] = [
     chronology: 4,
     post_credit_scenes: 1,
     imdb_id: 'tt1228705',
+    updated_at: new Date(2022, 5, 19, 11, 11, 0),
   },
   {
     id: 4,
@@ -77,6 +80,7 @@ const movies: IMovie[] = [
     chronology: 6,
     post_credit_scenes: 1,
     imdb_id: 'tt0800369',
+    updated_at: new Date(2021, 6, 4, 9, 54),
   },
   {
     id: 5,
@@ -96,6 +100,7 @@ const movies: IMovie[] = [
     chronology: 1,
     post_credit_scenes: 1,
     imdb_id: 'tt0458339',
+    updated_at: new Date(2021, 6, 4, 9, 54),
   },
   {
     id: 6,
@@ -115,6 +120,7 @@ const movies: IMovie[] = [
     chronology: 7,
     post_credit_scenes: 2,
     imdb_id: 'tt0848228',
+    updated_at: new Date(2021, 7, 21, 15, 28),
   },
   {
     id: 7,
@@ -134,6 +140,7 @@ const movies: IMovie[] = [
     chronology: 8,
     post_credit_scenes: 1,
     imdb_id: 'tt1300854',
+    updated_at: new Date(2021, 6, 4, 9, 54),
   },
   {
     id: 8,
@@ -153,6 +160,7 @@ const movies: IMovie[] = [
     chronology: 9,
     post_credit_scenes: 2,
     imdb_id: 'tt1981115',
+    updated_at: new Date(2021, 6, 4, 9, 54),
   },
   {
     id: 9,
@@ -172,6 +180,7 @@ const movies: IMovie[] = [
     chronology: 10,
     post_credit_scenes: 2,
     imdb_id: 'tt1843866',
+    updated_at: new Date(2021, 6, 4, 9, 54),
   },
   {
     id: 10,
@@ -191,6 +200,7 @@ const movies: IMovie[] = [
     chronology: 11,
     post_credit_scenes: 2,
     imdb_id: 'tt2015381',
+    updated_at: new Date(2021, 7, 21, 15, 28),
   },
   {
     id: 11,
@@ -210,6 +220,7 @@ const movies: IMovie[] = [
     chronology: 13,
     post_credit_scenes: 1,
     imdb_id: 'tt2395427',
+    updated_at: new Date(2021, 7, 21, 15, 28),
   },
   {
     id: 12,
@@ -229,6 +240,7 @@ const movies: IMovie[] = [
     chronology: 14,
     post_credit_scenes: 2,
     imdb_id: 'tt0478970',
+    updated_at: new Date(2021, 6, 4, 9, 24),
   },
   {
     id: 13,
@@ -248,6 +260,7 @@ const movies: IMovie[] = [
     chronology: 15,
     post_credit_scenes: 2,
     imdb_id: 'tt3498820',
+    updated_at: new Date(2021, 7, 21, 15, 28),
   },
   {
     id: 14,
@@ -267,6 +280,7 @@ const movies: IMovie[] = [
     chronology: 19,
     post_credit_scenes: 2,
     imdb_id: 'tt1211837',
+    updated_at: new Date(2021, 7, 21, 15, 28),
   },
   {
     id: 15,
@@ -286,6 +300,7 @@ const movies: IMovie[] = [
     chronology: 12,
     post_credit_scenes: 5,
     imdb_id: 'tt3896198',
+    updated_at: new Date(2021, 7, 21, 15, 28),
   },
   {
     id: 16,
@@ -305,6 +320,7 @@ const movies: IMovie[] = [
     chronology: 17,
     post_credit_scenes: 2,
     imdb_id: 'tt2250912',
+    updated_at: new Date(2021, 6, 4, 9, 54),
   },
   {
     id: 17,
@@ -324,6 +340,7 @@ const movies: IMovie[] = [
     chronology: 20,
     post_credit_scenes: 2,
     imdb_id: 'tt3501632',
+    updated_at: new Date(2021, 7, 21, 15, 28),
   },
   {
     id: 18,
@@ -343,6 +360,7 @@ const movies: IMovie[] = [
     chronology: 18,
     post_credit_scenes: 2,
     imdb_id: 'tt1825683',
+    updated_at: new Date(2021, 7, 21, 15, 28),
   },
   {
     id: 19,
@@ -362,6 +380,7 @@ const movies: IMovie[] = [
     chronology: 22,
     post_credit_scenes: 1,
     imdb_id: 'tt4154756',
+    updated_at: new Date(2021, 7, 21, 15, 28),
   },
   {
     id: 20,
@@ -381,6 +400,7 @@ const movies: IMovie[] = [
     chronology: 21,
     post_credit_scenes: 2,
     imdb_id: 'tt5095030',
+    updated_at: new Date(2021, 6, 31, 9, 20),
   },
   {
     id: 21,
@@ -399,6 +419,7 @@ const movies: IMovie[] = [
     chronology: 2,
     post_credit_scenes: 2,
     imdb_id: 'tt4154664',
+    updated_at: new Date(2021, 7, 21, 15, 28),
   },
   {
     id: 22,
@@ -418,6 +439,7 @@ const movies: IMovie[] = [
     chronology: 23,
     post_credit_scenes: 0,
     imdb_id: 'tt4154796',
+    updated_at: new Date(2021, 7, 21, 15, 28),
   },
   {
     id: 23,
@@ -437,6 +459,7 @@ const movies: IMovie[] = [
     chronology: 24,
     post_credit_scenes: 2,
     imdb_id: 'tt6320628',
+    updated_at: new Date(2021, 11, 28, 20, 20),
   },
   {
     id: 24,
@@ -455,6 +478,7 @@ const movies: IMovie[] = [
     chronology: 16,
     post_credit_scenes: 1,
     imdb_id: 'tt3480822',
+    updated_at: new Date(2022, 4, 1, 15, 40),
   },
   {
     id: 25,
@@ -474,6 +498,7 @@ const movies: IMovie[] = [
     chronology: 25,
     post_credit_scenes: 2,
     imdb_id: 'tt9376612',
+    updated_at: new Date(2022, 5, 19, 11, 11),
   },
   {
     id: 26,
@@ -492,6 +517,7 @@ const movies: IMovie[] = [
     chronology: 26,
     post_credit_scenes: 2,
     imdb_id: 'tt9032400',
+    updated_at: new Date(2022, 4, 1, 13, 40),
   },
   {
     id: 27,
@@ -510,6 +536,7 @@ const movies: IMovie[] = [
     chronology: 27,
     post_credit_scenes: 2,
     imdb_id: 'tt10872600',
+    updated_at: new Date(2023, 0, 13, 9, 12),
   },
   {
     id: 28,
@@ -528,6 +555,7 @@ const movies: IMovie[] = [
     chronology: 28,
     post_credit_scenes: 2,
     imdb_id: 'tt9419884',
+    updated_at: new Date(2022, 9, 8, 11, 25),
   },
   {
     id: 29,
@@ -546,6 +574,7 @@ const movies: IMovie[] = [
     chronology: 29,
     post_credit_scenes: 2,
     imdb_id: 'tt10648342',
+    updated_at: new Date(2023, 0, 13, 9, 12),
   },
   {
     id: 30,
@@ -564,6 +593,7 @@ const movies: IMovie[] = [
     chronology: 30,
     post_credit_scenes: 1,
     imdb_id: 'tt9114286',
+    updated_at: new Date(2023, 5, 17, 16, 3),
   },
   {
     id: 31,
@@ -582,12 +612,13 @@ const movies: IMovie[] = [
     chronology: 31,
     post_credit_scenes: 2,
     imdb_id: 'tt10954600',
+    updated_at: new Date(2023, 5, 17, 16, 3),
   },
   {
     id: 32,
     title: 'Guardians of the Galaxy Vol. 3',
     release_date: new Date(2023, 4, 5),
-    box_office: 811_036_196,
+    box_office: 837_312_951,
     duration: 149,
     overview:
       'In Marvel Studios "Guardians of the Galaxy Vol. 3" our beloved band of misfits are looking a bit different these days. Peter Quill, still reeling from the loss of Gamora, must rally his team around him to defend the universe along with protecting one of their own. A mission that, if not completed successfully, could quite possibly lead to the end of the Guardians as we know them.',
@@ -600,6 +631,7 @@ const movies: IMovie[] = [
     chronology: 32,
     post_credit_scenes: 2,
     imdb_id: 'tt6791350',
+    updated_at: new Date(2023, 7, 1, 13, 35),
   },
   {
     id: 33,
@@ -610,14 +642,15 @@ const movies: IMovie[] = [
     overview:
       "Carol Danvers AKA Captain Marvel has reclaimed her identity from the tyrannical Kree and taken revenge on the Supreme Intelligence. But unintended consequences see Carol shouldering the burden of a destabilized universe. When her duties send her to an anomalous wormhole linked to a Kree revolutionary, her powers become entangled with that of Jersey City super-fan Kamala Khan, aka Ms. Marvel, and Carol's estranged niece, now S.A.B.E.R. astronaut Captain Monica Rambeau.",
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1679777423/mcuapi/gallery/Movies/the_marvels/posters/2.jpg',
-    trailer_url: 'https://youtu.be/iuk77TjvfmE',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1679777423/mcuapi/gallery/Movies/the_marvels/posters/3.jpg',
+    trailer_url: 'https://youtu.be/wS_qbDztgVY',
     directed_by: 'Nia DaCosta',
     phase: 5,
     saga: 'Multiverse Saga',
     chronology: 33,
     post_credit_scenes: 0,
     imdb_id: 'tt10676048',
+    updated_at: new Date(2023, 7, 1, 13, 35),
   },
   {
     id: 34,
@@ -634,6 +667,7 @@ const movies: IMovie[] = [
     chronology: 34,
     post_credit_scenes: 0,
     imdb_id: 'tt14513804',
+    updated_at: new Date(2023, 5, 17, 16, 9),
   },
   {
     id: 35,
@@ -650,6 +684,7 @@ const movies: IMovie[] = [
     chronology: 35,
     post_credit_scenes: 0,
     imdb_id: 'tt20969586',
+    updated_at: new Date(2023, 5, 17, 16, 11),
   },
   {
     id: 36,
@@ -666,6 +701,7 @@ const movies: IMovie[] = [
     chronology: 36,
     post_credit_scenes: 0,
     imdb_id: 'tt10671440',
+    updated_at: new Date(2023, 5, 17, 16, 12),
   },
   {
     id: 37,
@@ -682,6 +718,7 @@ const movies: IMovie[] = [
     chronology: 37,
     post_credit_scenes: 0,
     imdb_id: 'tt6263850',
+    updated_at: new Date(2023, 5, 17, 16, 13),
   },
   {
     id: 38,
@@ -698,6 +735,7 @@ const movies: IMovie[] = [
     chronology: 38,
     post_credit_scenes: 0,
     imdb_id: 'tt10676052',
+    updated_at: new Date(2023, 5, 17, 16, 14),
   },
   {
     id: 39,
@@ -714,6 +752,7 @@ const movies: IMovie[] = [
     directed_by: '',
     post_credit_scenes: 0,
     imdb_id: 'tt21361438',
+    updated_at: new Date(2023, 5, 17, 16, 16),
   },
   {
     id: 40,
@@ -730,6 +769,7 @@ const movies: IMovie[] = [
     directed_by: '',
     post_credit_scenes: 0,
     imdb_id: 'tt21361444',
+    updated_at: new Date(2023, 5, 17, 16, 23),
   },
 ];
 

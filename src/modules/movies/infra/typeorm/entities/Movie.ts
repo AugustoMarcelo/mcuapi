@@ -1,5 +1,12 @@
-import { Entity, PrimaryColumn, Column, ManyToMany, JoinTable } from 'typeorm';
 import IMovie from '@modules/movies/entities/IMovie';
+import {
+  Column,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  PrimaryColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity('movies')
 class Movie implements IMovie {
@@ -52,6 +59,13 @@ class Movie implements IMovie {
     inverseJoinColumns: [{ name: 'related_movie_id' }],
   })
   related_movies?: Movie[];
+
+  @UpdateDateColumn({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP(6)',
+    onUpdate: 'CURRENT_TIMESTAMP(6)',
+  })
+  updated_at: Date;
 }
 
 export default Movie;
