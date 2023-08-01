@@ -28,4 +28,6 @@ export default interface IMovie {
   imdb_id?: string;
 
   related_movies?: IMovie[];
+
+  updated_at?: Date;
 }

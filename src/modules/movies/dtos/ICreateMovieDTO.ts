@@ -13,4 +13,5 @@ export default interface ICreateMovieDTO {
   chronology?: number;
   post_credit_scenes?: number;
   imdb_id?: string;
+  updated_at?: Date;
 }
