@@ -618,7 +618,7 @@ const movies: IMovie[] = [
     id: 32,
     title: 'Guardians of the Galaxy Vol. 3',
     release_date: new Date(2023, 4, 5),
-    box_office: 837_312_951,
+    box_office: 845_468_744,
     duration: 149,
     overview:
       'In Marvel Studios "Guardians of the Galaxy Vol. 3" our beloved band of misfits are looking a bit different these days. Peter Quill, still reeling from the loss of Gamora, must rally his team around him to defend the universe along with protecting one of their own. A mission that, if not completed successfully, could quite possibly lead to the end of the Guardians as we know them.',
@@ -637,8 +637,8 @@ const movies: IMovie[] = [
     id: 33,
     title: 'The Marvels',
     release_date: new Date(2023, 10, 10),
-    box_office: 0,
-    duration: 0,
+    box_office: 120_512_080,
+    duration: 105,
     overview:
       "Carol Danvers AKA Captain Marvel has reclaimed her identity from the tyrannical Kree and taken revenge on the Supreme Intelligence. But unintended consequences see Carol shouldering the burden of a destabilized universe. When her duties send her to an anomalous wormhole linked to a Kree revolutionary, her powers become entangled with that of Jersey City super-fan Kamala Khan, aka Ms. Marvel, and Carol's estranged niece, now S.A.B.E.R. astronaut Captain Monica Rambeau.",
     cover_url:
@@ -648,14 +648,14 @@ const movies: IMovie[] = [
     phase: 5,
     saga: 'Multiverse Saga',
     chronology: 33,
-    post_credit_scenes: 0,
+    post_credit_scenes: 1,
     imdb_id: 'tt10676048',
     updated_at: new Date(2023, 7, 1, 13, 35),
   },
   {
     id: 34,
     title: 'Captain America: Brave New Order',
-    release_date: new Date(2024, 6, 26),
+    release_date: new Date(2025, 1, 14),
     box_office: 0,
     duration: 0,
     cover_url:
@@ -672,7 +672,7 @@ const movies: IMovie[] = [
   {
     id: 35,
     title: 'Thunderbolts',
-    release_date: new Date(2024, 11, 20),
+    release_date: new Date(2025, 6, 25),
     box_office: 0,
     duration: 0,
     cover_url:
@@ -689,7 +689,7 @@ const movies: IMovie[] = [
   {
     id: 36,
     title: 'Blade',
-    release_date: new Date(2025, 1, 14),
+    release_date: new Date(2025, 10, 7),
     box_office: 0,
     duration: 0,
     cover_url:
@@ -706,7 +706,7 @@ const movies: IMovie[] = [
   {
     id: 37,
     title: 'Untitled Deadpool Movie',
-    release_date: new Date(2024, 2, 3),
+    release_date: new Date(2024, 6, 26),
     box_office: 0,
     duration: 0,
     cover_url:
@@ -723,7 +723,7 @@ const movies: IMovie[] = [
   {
     id: 38,
     title: 'Fantastic Four',
-    release_date: new Date(2025, 2, 2),
+    release_date: new Date(2025, 4, 2),
     box_office: 0,
     duration: 0,
     cover_url:
