@@ -213,16 +213,17 @@ const tvshows: ITVShow[] = [
   {
     id: 13,
     title: 'Echo',
-    release_date: new Date(2023, 10, 29),
-    last_aired_date: new Date(2023, 10, 29),
+    release_date: new Date(2024, 0, 10),
+    last_aired_date: new Date(2024, 0, 10),
     overview:
       'Streaming exclusively on Disney, the origin story of Echo revisits Maya Lopez, whose ruthless behavior in New York City catches up with her in her hometown. She must face her past, reconnect with her Native American roots and embrace the meaning of family and community if she ever hopes to move forward.',
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1677418904/mcuapi/gallery/tv_shows/echo/posters/1.jpg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1677418904/mcuapi/gallery/tv_shows/echo/posters/2.jpg',
+    trailer_url: 'https://youtu.be/AFUKnherhuw',
     season: 1,
-    number_episodes: 6,
+    number_episodes: 5,
     phase: 5,
-    saga: 'Multiverse Saga',
+    saga: 'Spotlight',
     directed_by: 'Sydney Freeland and Catriona McKenzie',
     imdb_id: 'tt13966962',
   },
@@ -232,12 +233,12 @@ const tvshows: ITVShow[] = [
     overview:
       'Loki Season 2 picks up in the aftermath of the shocking season finale when Loki finds himself in a battle for the soul of the Time Variance Authority. Along with Mobius, Hunter B-15, and a team of new and returning characters, Loki navigates an ever-expanding and increasingly dangerous Multiverse in search of Sylvie, Judge Renslayer, Miss Minutes, and the truth of what it means to possess free will and glorious purpose.',
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1690908024/mcuapi/gallery/tv_shows/loki/season_2/2.jpg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1698754888/mcuapi/gallery/tv_shows/loki/season_2/3.jpg',
     trailer_url: 'https://youtu.be/dug56u8NN7g',
     season: 2,
     number_episodes: 6,
-    release_date: new Date(2023, 9, 6),
-    last_aired_date: new Date(2023, 10, 10),
+    release_date: new Date(2023, 9, 5),
+    last_aired_date: new Date(2023, 10, 9),
     directed_by: 'Kate Herron',
     phase: 5,
     saga: 'Multiverse Saga',
@@ -276,6 +277,40 @@ const tvshows: ITVShow[] = [
     phase: 5,
     saga: 'Multiverse Saga',
     imdb_id: 'tt20411934',
+  },
+  {
+    id: 18,
+    title: 'I Am Groot',
+    overview:
+      'The troublemaking twig returns to mischief in the second season of “I Am Groot.” This time, Baby Groot finds himself exploring the universe and beyond aboard the Guardians’ spaceships, coming face-to-face—or nose-to-nose—with new and colorful creatures and environments',
+    trailer_url: 'https://youtu.be/1k8H2CywVqg',
+    cover_url:
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1698756081/mcuapi/gallery/tv_shows/i_am_groot/posters/season_2/1.jpg',
+    season: 2,
+    number_episodes: 5,
+    release_date: new Date(2023, 10, 6),
+    last_aired_date: new Date(2023, 10, 6),
+    directed_by: 'Kirsten Lepore',
+    phase: 4,
+    saga: 'Infinity Saga',
+    imdb_id: 'tt13623148',
+  },
+  {
+    id: 19,
+    title: 'What If...?',
+    overview:
+      'Season 2 of “What If…?” continues the journey as The Watcher guides viewers through the vast multiverse, introducing brand new and familiar faces throughout the MCU. The series questions, revisits and twists classic Marvel Cinematic moments with an incredible voice cast that includes a host of stars who reprise their iconic roles.',
+    cover_url:
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1700413035/mcuapi/gallery/tv_shows/what_if/season_2/posters/1.jpg',
+    trailer_url: 'https://youtu.be/TiEVqZ2Bc_c',
+    season: 2,
+    number_episodes: 9,
+    release_date: new Date(2023, 11, 22),
+    last_aired_date: new Date(2023, 11, 30),
+    directed_by: 'Bryan Andrews',
+    phase: 5,
+    saga: 'Multiverse Saga',
+    imdb_id: 'tt10168312',
   },
 ];
 
