@@ -213,8 +213,8 @@ const tvshows: ITVShow[] = [
   {
     id: 13,
     title: 'Echo',
-    release_date: new Date(2024, 0, 10),
-    last_aired_date: new Date(2024, 0, 10),
+    release_date: new Date(2024, 0, 9),
+    last_aired_date: new Date(2024, 0, 9),
     overview:
       'Streaming exclusively on Disney, the origin story of Echo revisits Maya Lopez, whose ruthless behavior in New York City catches up with her in her hometown. She must face her past, reconnect with her Native American roots and embrace the meaning of family and community if she ever hopes to move forward.',
     cover_url:
