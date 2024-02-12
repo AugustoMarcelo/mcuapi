@@ -637,7 +637,7 @@ const movies: IMovie[] = [
     id: 33,
     title: 'The Marvels',
     release_date: new Date(2023, 10, 10),
-    box_office: 120_512_080,
+    box_office: 199_706_250,
     duration: 105,
     overview:
       "Carol Danvers AKA Captain Marvel has reclaimed her identity from the tyrannical Kree and taken revenge on the Supreme Intelligence. But unintended consequences see Carol shouldering the burden of a destabilized universe. When her duties send her to an anomalous wormhole linked to a Kree revolutionary, her powers become entangled with that of Jersey City super-fan Kamala Khan, aka Ms. Marvel, and Carol's estranged niece, now S.A.B.E.R. astronaut Captain Monica Rambeau.",
@@ -705,13 +705,13 @@ const movies: IMovie[] = [
   },
   {
     id: 37,
-    title: 'Untitled Deadpool Movie',
+    title: 'Deadpool & Wolverine',
     release_date: new Date(2024, 6, 26),
     box_office: 0,
     duration: 0,
     cover_url:
       'https://res.cloudinary.com/augustomarcelo/image/upload/v1666025987/mcuapi/gallery/Movies/deadpool_3/1.jpg',
-    trailer_url: undefined,
+    trailer_url: 'https://youtu.be/uJMCNJP2ipI',
     directed_by: 'Shawn Levy',
     phase: 6,
     saga: 'Multiverse Saga',
