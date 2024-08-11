@@ -258,11 +258,17 @@ const tvshows: ITVShow[] = [
   },
   {
     id: 16,
-    title: 'Agatha: Coven of Chaos',
+    title: 'Agatha All Along',
+    overview:
+      'In Agatha All Along, the infamous Agatha Harkness finds herself down and out of power after a suspicious goth Teen helps break her free from a distorted spell. Her interest is piqued when he begs her to take him on the legendary Witches’ Road, a magical gauntlet of trials that, if survived, rewards a witch with what they’re missing. Together, Agatha and this mysterious Teen pull together a desperate coven, and set off down, down, down The Road…',
     cover_url:
-      'https://res.cloudinary.com/augustomarcelo/image/upload/v1677419317/mcuapi/gallery/tv_shows/agatha_coven_of_caos/posters/1.jpg',
+      'https://res.cloudinary.com/augustomarcelo/image/upload/v1721064409/mcuapi/gallery/tv_shows/agatha_all_along/posters/2.jpg',
+    trailer_url: 'https://youtu.be/R9pXbNz6Vbw',
     season: 1,
-    number_episodes: 0,
+    number_episodes: 9,
+    release_date: new Date(2024, 8, 18),
+    last_aired_date: new Date(2024, 10, 6),
+    directed_by: 'Jac Schaeffer, Rachel Goldberg and Gandja Montiero',
     phase: 5,
     saga: 'Multiverse Saga',
     imdb_id: 'tt15571732',
