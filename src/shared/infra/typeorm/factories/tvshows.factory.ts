@@ -280,6 +280,7 @@ const tvshows: ITVShow[] = [
       'https://res.cloudinary.com/augustomarcelo/image/upload/v1677419390/mcuapi/gallery/tv_shows/daredevil_born_again/posters/1.jpg',
     season: 1,
     number_episodes: 18,
+    release_date: new Date(2025, 2, 4),
     phase: 5,
     saga: 'Multiverse Saga',
     imdb_id: 'tt20411934',
