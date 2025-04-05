@@ -1,7 +1,7 @@
 import ITVShow from '@modules/tvshows/entities/ITVShow';
 import { Column, Entity, PrimaryColumn } from 'typeorm';
 
-@Entity('tvshows')
+@Entity({ name: 'tvshows', schema: 'public' })
 class TVShow implements ITVShow {
   @PrimaryColumn()
   id: number;

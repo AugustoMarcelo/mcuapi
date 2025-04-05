@@ -8,7 +8,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-@Entity('movies')
+@Entity({ name: 'movies', schema: 'public' })
 class Movie implements IMovie {
   @PrimaryColumn()
   id: number;
