@@ -618,7 +618,7 @@ const movies: IMovie[] = [
     id: 32,
     title: 'Guardians of the Galaxy Vol. 3',
     release_date: new Date(2023, 4, 5),
-    box_office: 845_468_744,
+    box_office: 845_163_792,
     duration: 149,
     overview:
       'In Marvel Studios "Guardians of the Galaxy Vol. 3" our beloved band of misfits are looking a bit different these days. Peter Quill, still reeling from the loss of Gamora, must rally his team around him to defend the universe along with protecting one of their own. A mission that, if not completed successfully, could quite possibly lead to the end of the Guardians as we know them.',
@@ -709,7 +709,7 @@ const movies: IMovie[] = [
     id: 37,
     title: 'Deadpool & Wolverine',
     release_date: new Date(2024, 6, 26),
-    box_office: 1333954262,
+    box_office: 1_338_071_348,
     duration: 127,
     overview:
       "Deadpool's peaceful existence comes crashing down when the Time Variance Authority recruits him to help safeguard the multiverse. He soon unites with his would-be pal, Wolverine, to complete the mission and save his world from an existential threat",
