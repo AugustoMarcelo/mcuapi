@@ -9,14 +9,14 @@ ___
 
 ## 📑 About the project <a name="about-the-project"></a>
 
-A RESTFul API for MCU (Marvel Cinematic Universe)! Movies and TV Shows. Characters coming soon! See [the new documentation](https://mcuapi.herokuapp.com/docs)! If you have any suggestions, please open an issue!
+A RESTFul API for MCU (Marvel Cinematic Universe)! Movies and TV Shows. Characters coming soon! See [the new documentation](https://mcuapi.up.railway.app/docs)! If you have any suggestions, please open an issue!
 ___
 
 ## ➡ Endpoints <a name="endpoint"></a>
 
-> baseURL: https://mcuapi.herokuapp.com/api/v1
+> baseURL: https://mcuapi.up.railway.app/api/v1
 
-> docs: https://mcuapi.herokuapp.com/docs
+> docs: https://mcuapi.up.railway.app/docs
 ---
 
 ## 🆕 Next features <a name="next-features"></a>
