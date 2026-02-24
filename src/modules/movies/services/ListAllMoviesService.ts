@@ -16,6 +16,10 @@ class ListAllMoviesService {
     columns,
     order,
     filter,
+    studio,
+    continuity,
+    multiverse_designation,
+    is_mcu,
   }: IFindAllMoviesDTO): Promise<IFindAllMoviesResponseDTO> {
     const { data, total } = await this.moviesRepository.findAll({
       page,
@@ -23,6 +27,10 @@ class ListAllMoviesService {
       columns,
       order,
       filter,
+      studio,
+      continuity,
+      multiverse_designation,
+      is_mcu,
     });
 
     return { data, total };
