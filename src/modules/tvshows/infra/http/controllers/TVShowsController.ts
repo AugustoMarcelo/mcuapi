@@ -9,6 +9,10 @@ interface IRequestQuery {
   columns?: string;
   order?: string;
   filter?: string;
+  studio?: string;
+  continuity?: string;
+  multiverse_designation?: string;
+  is_mcu?: string;
 }
 
 export default class TVShowsController {
@@ -19,6 +23,10 @@ export default class TVShowsController {
       columns,
       order,
       filter,
+      studio,
+      continuity,
+      multiverse_designation,
+      is_mcu,
     }: IRequestQuery = request.query;
 
     const listAllTVShows = container.resolve(ListTVShowsService);
@@ -28,6 +36,10 @@ export default class TVShowsController {
       columns,
       order,
       filter,
+      studio,
+      continuity,
+      multiverse_designation,
+      is_mcu: is_mcu === 'true' ? true : is_mcu === 'false' ? false : undefined,
     });
 
     return response.status(200).json({ data, total });
