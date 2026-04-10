@@ -3,6 +3,7 @@ import ITVShow from '@modules/tvshows/entities/ITVShow';
 const tvshows: ITVShow[] = [
   {
     id: 1,
+    chronology: 41,
     title: 'WandaVision',
     overview:
       'Marvel Studios captivating new series "WandaVision" which premieres in early 2021 on Disney+. Starring Elizabeth Olsen and Paul Bettany, "WandaVision" marks the first series from Marvel Studios streaming exclusively on Disney+. The series is a blend of classic television and the Marvel Cinematic Universe in which Wanda Maximoff and Vision—two super-powered beings living idealized suburban lives—begin to suspect that everything is not as it seems',
@@ -21,6 +22,7 @@ const tvshows: ITVShow[] = [
   },
   {
     id: 2,
+    chronology: 42,
     title: 'The Falcon and The Winter Soldier',
     overview:
       'Following the events of "Avengers: Endgame" Sam Wilson/Falcon (Anthony Mackie) and Bucky Barnes/Winter Soldier (Sebastian Stan) team up in a global adventure that tests their abilities—and their patience—in Marvel Studios’ “The Falcon and The Winter Soldier.” The all-new series is directed by Kari Skogland; Malcolm Spellman is the head writer. Streaming exclusively on Disney+.',
@@ -39,6 +41,7 @@ const tvshows: ITVShow[] = [
   },
   {
     id: 3,
+    chronology: 43,
     title: 'Loki',
     overview:
       'In Marvel Studios’ "Loki" the mercurial villain Loki (Tom Hiddleston) resumes his role as the God of Mischief in a new series that takes place after the events of “Avengers: Endgame.” Kate Herron directs and Michael Waldron is head writer. Debuts on Disney+ in June 9, 2021.',
@@ -57,6 +60,7 @@ const tvshows: ITVShow[] = [
   },
   {
     id: 4,
+    chronology: 44,
     title: 'What If...?',
     overview:
       '"What If…?" flips the script on the MCU, reimagining famous events from the films in unexpected ways. Marvel Studios’ first animated series focuses on different heroes from the MCU, featuring a voice cast that includes a host of stars who reprise their roles. Directed by Bryan Andrews with AC Bradley as head writer, “What If…?" launches exclusively on Disney+ on August 11, 2021.',
@@ -75,6 +79,7 @@ const tvshows: ITVShow[] = [
   },
   {
     id: 5,
+    chronology: 45,
     title: 'Hawkeye',
     overview:
       'Marvel Studios’ "Hawkeye" stars Jeremy Renner as Hawkeye, who teams up with another well-known archer from the Marvel comics, Kate Bishop, played by Hailee Steinfeld. The cast also includes Vera Farmiga, Fra Fee, Tony Dalton, Zahn McClarnon, Brian d’Arcy James and newcomer Alaqua Cox as Maya Lopez. “Hawkeye” is helmed by Rhys Thomas and directing duo Bert and Bertie.',
@@ -92,6 +97,7 @@ const tvshows: ITVShow[] = [
   },
   {
     id: 6,
+    chronology: 46,
     title: 'Moon Knight',
     overview:
       "Moon Knight follows Steven Grant, a mild-mannered gift-shop employee, who becomes plagued with blackouts and memories of another life. Steven discovers he has dissociative identity disorder and shares a body with mercenary Marc Spector. As Steven/Marc's enemies converge upon them, they must navigate their complex identities while thrust into a deadly mystery among the powerful gods of Egypt.",
@@ -109,6 +115,7 @@ const tvshows: ITVShow[] = [
   },
   {
     id: 7,
+    chronology: 47,
     title: 'Ms. Marvel',
     overview:
       'Ms. Marvel is a new, original series that introduces Kamala Khan, a Muslim American teenager growing up in Jersey City. An avid gamer and a voracious fan-fiction scribe, Kamala is a Super Hero mega-fan with an oversized imagination—particularly when it comes to Captain Marvel. Yet Kamala feels invisible both at home and at school—that is, until she gets super powers like the heroes she’s always looked up to. Life gets better with super powers, right?',
@@ -127,6 +134,7 @@ const tvshows: ITVShow[] = [
   },
   {
     id: 8,
+    chronology: 48,
     title: 'I Am Groot',
     overview:
       'There’s no guarding the galaxy from this mischievous toddler! So get ready as Baby Groot takes center stage in his very own collection of shorts, exploring his glory days growing up — and getting into trouble — among the stars. I Am Groot, five original shorts featuring several new and unusual characters, stars everyone’s favorite little tree, Baby Groot, voiced by Vin Diesel, who voices Groot in the Guardians of the Galaxy franchise.',
@@ -144,6 +152,7 @@ const tvshows: ITVShow[] = [
   },
   {
     id: 9,
+    chronology: 49,
     title: 'She Hulk: Attorney at Law',
     overview:
       'She-Hulk: Attorney at Law follows Jennifer Walters as she navigates the complicated life of a single, 30-something attorney who also happens to be a green 6-foot-7-inch superpowered hulk. The nine-episode series welcomes a host of MCU vets, including Mark Ruffalo as Smart Hulk, Tim Roth as Emil Blonsky/the Abomination, and Benedict Wong as Wong.',
@@ -161,6 +170,7 @@ const tvshows: ITVShow[] = [
   },
   {
     id: 10,
+    chronology: 50,
     title: 'Werewolf By Night',
     overview:
       'Follows a lycanthrope superhero who fights evil using the abilities given to him by a curse brought on by his bloodline.',
@@ -178,6 +188,7 @@ const tvshows: ITVShow[] = [
   },
   {
     id: 11,
+    chronology: 51,
     title: 'The Guardians of the Galaxy Holiday Special',
     overview:
       'In the The Guardians of the Galaxy Holiday Special, the Guardians, who are on a mission to make Christmas unforgettable for Quill, head to Earth in search of the perfect present. The Marvel Studios’ Special Presentation stars Chris Pratt, Dave Bautista, Karen Gillan, and Pom Klementieff, featuring Vin Diesel as Groot and Bradley Cooper as Rocket, Sean Gunn and The Old 97’s with Michael Rooker and Kevin Bacon',
@@ -195,6 +206,7 @@ const tvshows: ITVShow[] = [
   },
   {
     id: 12,
+    chronology: 52,
     title: 'Secret Invasion',
     release_date: new Date(2023, 5, 21),
     last_aired_date: new Date(2023, 6, 26),
@@ -212,6 +224,7 @@ const tvshows: ITVShow[] = [
   },
   {
     id: 13,
+    chronology: 53,
     title: 'Echo',
     release_date: new Date(2024, 0, 9),
     last_aired_date: new Date(2024, 0, 9),
@@ -229,6 +242,7 @@ const tvshows: ITVShow[] = [
   },
   {
     id: 14,
+    chronology: 54,
     title: 'Loki',
     overview:
       'Loki Season 2 picks up in the aftermath of the shocking season finale when Loki finds himself in a battle for the soul of the Time Variance Authority. Along with Mobius, Hunter B-15, and a team of new and returning characters, Loki navigates an ever-expanding and increasingly dangerous Multiverse in search of Sylvie, Judge Renslayer, Miss Minutes, and the truth of what it means to possess free will and glorious purpose.',
@@ -246,6 +260,7 @@ const tvshows: ITVShow[] = [
   },
   {
     id: 15,
+    chronology: 55,
     title: 'Ironheart',
     cover_url:
       'https://res.cloudinary.com/augustomarcelo/image/upload/v1677419261/mcuapi/gallery/tv_shows/ironheart/posters/1.jpg',
@@ -258,6 +273,7 @@ const tvshows: ITVShow[] = [
   },
   {
     id: 16,
+    chronology: 56,
     title: 'Agatha All Along',
     overview:
       'In Agatha All Along, the infamous Agatha Harkness finds herself down and out of power after a suspicious goth Teen helps break her free from a distorted spell. Her interest is piqued when he begs her to take him on the legendary Witches’ Road, a magical gauntlet of trials that, if survived, rewards a witch with what they’re missing. Together, Agatha and this mysterious Teen pull together a desperate coven, and set off down, down, down The Road…',
@@ -275,6 +291,7 @@ const tvshows: ITVShow[] = [
   },
   {
     id: 17,
+    chronology: 57,
     title: 'Daredevil: Born Again',
     cover_url:
       'https://res.cloudinary.com/augustomarcelo/image/upload/v1677419390/mcuapi/gallery/tv_shows/daredevil_born_again/posters/1.jpg',
@@ -287,6 +304,7 @@ const tvshows: ITVShow[] = [
   },
   {
     id: 18,
+    chronology: 58,
     title: 'I Am Groot',
     overview:
       'The troublemaking twig returns to mischief in the second season of “I Am Groot.” This time, Baby Groot finds himself exploring the universe and beyond aboard the Guardians’ spaceships, coming face-to-face—or nose-to-nose—with new and colorful creatures and environments',
@@ -304,6 +322,7 @@ const tvshows: ITVShow[] = [
   },
   {
     id: 19,
+    chronology: 59,
     title: 'What If...?',
     overview:
       'Season 2 of “What If…?” continues the journey as The Watcher guides viewers through the vast multiverse, introducing brand new and familiar faces throughout the MCU. The series questions, revisits and twists classic Marvel Cinematic moments with an incredible voice cast that includes a host of stars who reprise their iconic roles.',

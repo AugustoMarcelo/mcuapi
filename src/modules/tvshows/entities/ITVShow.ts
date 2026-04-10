@@ -11,5 +11,6 @@ export default interface ITVShow {
   directed_by?: string;
   phase?: number;
   saga?: string;
+  chronology?: number;
   imdb_id?: string;
 }

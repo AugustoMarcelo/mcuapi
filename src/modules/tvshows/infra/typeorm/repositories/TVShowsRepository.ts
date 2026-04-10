@@ -40,6 +40,7 @@ class TVShowsRepository implements ITVShowsRepository {
       'number_episodes',
       'release_date',
       'last_aired_date',
+      'chronology',
     ];
     let formattedColumnValue;
     formattedColumnValue = Raw(alias => `${alias} ILIKE '%${whereValue}%'`);
