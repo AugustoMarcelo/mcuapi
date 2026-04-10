@@ -15,6 +15,7 @@ describe('ShowTVShowService', () => {
     const tvshowFound = await showTVShow.execute({ tvshow_id: fakeTVShow.id });
 
     expect(tvshowFound.id).toEqual(fakeTVShow.id);
+    expect(tvshowFound).toHaveProperty('updated_at');
   });
 
   it('Should not be able to show a tv show with a non-existing id', async () => {

@@ -24,7 +24,7 @@ ___
   - 🔜 Characters information (you can see more details on [this issue](https://github.com/AugustoMarcelo/mcuapi/issues/13));
   - ⏳ An edit page where anyone can register, create/update the movies/tv-shows/characters' data and submit for final approval;
   - ⏳ A change in `cover_url` and `trailer_url` to get them as an array of covers and trailers;
-  - ⏳ A new field for movies/tv-shows indicating the last time the information has been updated (you can see more details on [this issue](https://github.com/AugustoMarcelo/mcuapi/issues/14));
+  - ✅ A new field for movies/tv-shows indicating the last time the information has been updated (you can see more details on [this issue](https://github.com/AugustoMarcelo/mcuapi/issues/14));
   - 🔜 A new field for movies/tv-shows indicating the streamings where they can be found (you can see more details on [this issue](https://github.com/AugustoMarcelo/mcuapi/issues/15)).
 
 ___
@@ -76,6 +76,15 @@ ___
 ---
 
 ## 💥 Changelogs <a name="changelogs"></a>
+<details>
+  <summary>2026-04-10: Movies | TV Shows — added updated_at field</summary>
+
+  - ADDED
+    - *`updated_at` field to TV Shows, exposing the last time each record was updated (closes [#14](https://github.com/AugustoMarcelo/mcuapi/issues/14))*
+    - *Movies already had this field; Swagger documentation now reflects it for both resources*
+    - *`chronology` field added to TV Show Swagger schema (was missing from docs)*
+</details>
+
 <details>
   <summary>2022-08-17: Movies | TV Shows updated</summary>
 
