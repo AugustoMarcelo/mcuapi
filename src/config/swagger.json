@@ -363,6 +363,11 @@
           "imdb_id": {
             "type": "string",
             "description": "IMDB ID"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp of the last update to the movie record"
           }
         }
       },
@@ -410,16 +415,25 @@
             "description": "Name of who directed the tv show"
           },
           "phase": {
-            "type": "string",
+            "type": "integer",
             "description": "Phase to which the tv show belongs"
           },
           "saga": {
             "type": "string",
             "description": "Saga to which the tv show belongs"
           },
+          "chronology": {
+            "type": "integer",
+            "description": "Position of the tv show in chronological order"
+          },
           "imdb_id": {
             "type": "string",
             "description": "IMDB ID"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp of the last update to the tv show record"
           }
         }
       }

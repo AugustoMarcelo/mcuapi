@@ -1,5 +1,5 @@
 import ITVShow from '@modules/tvshows/entities/ITVShow';
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { Column, Entity, PrimaryColumn, UpdateDateColumn } from 'typeorm';
 
 @Entity({ name: 'tvshows', schema: 'public' })
 class TVShow implements ITVShow {
@@ -44,6 +44,13 @@ class TVShow implements ITVShow {
 
   @Column()
   imdb_id: string;
+
+  @UpdateDateColumn({
+    type: 'timestamptz',
+    default: () => 'CURRENT_TIMESTAMP(6)',
+    onUpdate: 'CURRENT_TIMESTAMP(6)',
+  })
+  updated_at: Date;
 }
 
 export default TVShow;
