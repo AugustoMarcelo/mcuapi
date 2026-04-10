@@ -14,6 +14,7 @@ const mockTVShow = (): ITVShow => ({
   directed_by: faker.name.findName(),
   phase: faker.random.number(),
   saga: faker.random.words(),
+  chronology: faker.random.number(),
   release_date: faker.date.past(),
   last_aired_date: faker.date.future(),
 });
@@ -47,6 +48,7 @@ describe.only('ListAllTVShowsService', () => {
     expect(data[0]).not.toHaveProperty('number_episodes');
     expect(data[0]).not.toHaveProperty('phase');
     expect(data[0]).not.toHaveProperty('saga');
+    expect(data[0]).not.toHaveProperty('chronology');
     expect(data[0]).not.toHaveProperty('last_aired_date');
   });
 

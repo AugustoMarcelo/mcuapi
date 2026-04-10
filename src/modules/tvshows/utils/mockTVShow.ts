@@ -12,6 +12,7 @@ const mockTVShow = (): ITVShow => ({
   directed_by: faker.name.findName(),
   phase: faker.random.number(),
   saga: faker.random.words(),
+  chronology: faker.random.number(),
   release_date: faker.date.past(),
   last_aired_date: faker.date.future(),
   imdb_id: `tt${faker.random.number()}`,
