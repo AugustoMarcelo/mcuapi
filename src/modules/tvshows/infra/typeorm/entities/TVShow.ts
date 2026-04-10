@@ -40,6 +40,9 @@ class TVShow implements ITVShow {
   saga: string;
 
   @Column()
+  chronology: number;
+
+  @Column()
   imdb_id: string;
 }
 
