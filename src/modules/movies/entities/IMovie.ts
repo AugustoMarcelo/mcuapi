@@ -27,6 +27,19 @@ export default interface IMovie {
 
   imdb_id?: string;
 
+  // Multiverse fields
+  studio?: string;
+  continuity?: string;
+  multiverse_designation?: string;
+  is_mcu?: boolean;
+  type?: string;
+
+  // Timeline fields
+  timeline_universe?: string;
+  timeline_chronology_order?: number;
+  timeline_starts_at?: string;
+  timeline_ends_at?: string;
+
   related_movies?: IMovie[];
 
   updated_at?: Date;

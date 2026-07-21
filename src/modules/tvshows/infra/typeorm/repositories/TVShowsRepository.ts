@@ -41,19 +41,38 @@ class TVShowsRepository implements ITVShowsRepository {
       'release_date',
       'last_aired_date',
       'chronology',
+      'timeline_chronology_order',
     ];
     let formattedColumnValue;
-    formattedColumnValue = Raw(alias => `${alias} ILIKE '%${whereValue}%'`);
+    formattedColumnValue = Raw(alias => `${alias} ILIKE :value`, { value: `%${whereValue}%` });
 
     if (columnsWithNumericValues.includes(columnWhere)) {
       formattedColumnValue = whereValue;
     }
 
-    const where = columnWhere
-      ? {
-          [columnWhere]: formattedColumnValue,
-        }
-      : undefined;
+    const whereConditions: any = {};
+
+    if (columnWhere) {
+      whereConditions[columnWhere] = formattedColumnValue;
+    }
+
+    if (data?.studio) {
+      whereConditions.studio = data.studio;
+    }
+
+    if (data?.continuity) {
+      whereConditions.continuity = data.continuity;
+    }
+
+    if (data?.multiverse_designation) {
+      whereConditions.multiverse_designation = data.multiverse_designation;
+    }
+
+    if (data?.is_mcu !== undefined) {
+      whereConditions.is_mcu = data.is_mcu;
+    }
+
+    const where = Object.keys(whereConditions).length > 0 ? whereConditions : undefined;
 
     if (data?.page && data.limit) {
       const { page, limit } = data;

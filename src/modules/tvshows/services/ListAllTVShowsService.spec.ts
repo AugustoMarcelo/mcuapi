@@ -19,7 +19,7 @@ const mockTVShow = (): ITVShow => ({
   last_aired_date: faker.date.future(),
 });
 
-describe.only('ListAllTVShowsService', () => {
+describe('ListAllTVShowsService', () => {
   it('Should be able to list tv shows with limit params', async () => {
     const initialData = Array.from({ length: 5 }).map(() => mockTVShow());
     const fakeTVShowsRepository = new FakeTVShowsRepository(initialData);
