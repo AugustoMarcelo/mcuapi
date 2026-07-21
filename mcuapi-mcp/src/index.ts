@@ -211,10 +211,11 @@ server.registerTool(
     const values = fields.map(k => data[k]);
     const placeholders = fields.map((_, i) => `$${i + 1}`);
 
+    // movies.id has no sequence (ids are assigned manually in seeds)
     const [movie] = await query<{ id: number; title: string }>(
-      `INSERT INTO movies (${fields.join(
+      `INSERT INTO movies (id, ${fields.join(
         ', ',
-      )}, updated_at) VALUES (${placeholders.join(
+      )}, updated_at) VALUES ((SELECT COALESCE(MAX(id), 0) + 1 FROM movies), ${placeholders.join(
         ', ',
       )}, NOW()) RETURNING id, title`,
       values,
@@ -329,8 +330,11 @@ server.registerTool(
     const values = fields.map(k => data[k]);
     const placeholders = fields.map((_, i) => `$${i + 1}`);
 
+    // tvshows.id has no sequence (ids are assigned manually in seeds)
     const [show] = await query<{ id: number; title: string }>(
-      `INSERT INTO tvshows (${fields.join(', ')}) VALUES (${placeholders.join(
+      `INSERT INTO tvshows (id, ${fields.join(
+        ', ',
+      )}) VALUES ((SELECT COALESCE(MAX(id), 0) + 1 FROM tvshows), ${placeholders.join(
         ', ',
       )}) RETURNING id, title`,
       values,
