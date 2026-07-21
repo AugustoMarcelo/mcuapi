@@ -4,6 +4,7 @@ export default interface ICharacter {
   alias?: string;
   description?: string;
   image_url?: string;
+  played_by?: string;
   continuity?: string;
   multiverse_designation?: string;
   variant_of?: number;
