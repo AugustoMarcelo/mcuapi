@@ -19,6 +19,7 @@ const tvshowsBase: Omit<ITVShow, 'studio' | 'continuity' | 'multiverse_designati
     phase: 4,
     saga: 'Multiverse Saga',
     imdb_id: 'tt9140560',
+    updated_at: new Date(2022, 5, 19),
   },
   {
     id: 2,
@@ -38,6 +39,7 @@ const tvshowsBase: Omit<ITVShow, 'studio' | 'continuity' | 'multiverse_designati
     phase: 4,
     saga: 'Multiverse Saga',
     imdb_id: 'tt9208876',
+    updated_at: new Date(2022, 5, 19),
   },
   {
     id: 3,
@@ -57,6 +59,7 @@ const tvshowsBase: Omit<ITVShow, 'studio' | 'continuity' | 'multiverse_designati
     phase: 4,
     saga: 'Multiverse Saga',
     imdb_id: 'tt9140554',
+    updated_at: new Date(2022, 5, 19),
   },
   {
     id: 4,
@@ -76,6 +79,7 @@ const tvshowsBase: Omit<ITVShow, 'studio' | 'continuity' | 'multiverse_designati
     phase: 4,
     saga: 'Multiverse Saga',
     imdb_id: 'tt10168312',
+    updated_at: new Date(2022, 5, 19),
   },
   {
     id: 5,
@@ -94,6 +98,7 @@ const tvshowsBase: Omit<ITVShow, 'studio' | 'continuity' | 'multiverse_designati
     phase: 4,
     saga: 'Multiverse Saga',
     imdb_id: 'tt10160804',
+    updated_at: new Date(2022, 5, 19),
   },
   {
     id: 6,
@@ -112,6 +117,7 @@ const tvshowsBase: Omit<ITVShow, 'studio' | 'continuity' | 'multiverse_designati
     phase: 4,
     saga: 'Multiverse Saga',
     imdb_id: 'tt10234724',
+    updated_at: new Date(2022, 5, 19),
   },
   {
     id: 7,
@@ -131,6 +137,7 @@ const tvshowsBase: Omit<ITVShow, 'studio' | 'continuity' | 'multiverse_designati
     phase: 4,
     saga: 'Multiverse Saga',
     imdb_id: 'tt10857164',
+    updated_at: new Date(2022, 5, 19),
   },
   {
     id: 8,
@@ -149,6 +156,7 @@ const tvshowsBase: Omit<ITVShow, 'studio' | 'continuity' | 'multiverse_designati
     phase: 4,
     saga: 'Infinity Saga',
     imdb_id: 'tt13623148',
+    updated_at: new Date(2022, 5, 19),
   },
   {
     id: 9,
@@ -167,6 +175,7 @@ const tvshowsBase: Omit<ITVShow, 'studio' | 'continuity' | 'multiverse_designati
     phase: 4,
     saga: 'Multiverse Saga',
     imdb_id: 'tt10857160',
+    updated_at: new Date(2022, 5, 19),
   },
   {
     id: 10,
@@ -185,6 +194,7 @@ const tvshowsBase: Omit<ITVShow, 'studio' | 'continuity' | 'multiverse_designati
     phase: 4,
     saga: 'Multiverse Saga',
     imdb_id: 'tt15318872',
+    updated_at: new Date(2022, 5, 19),
   },
   {
     id: 11,
@@ -203,6 +213,7 @@ const tvshowsBase: Omit<ITVShow, 'studio' | 'continuity' | 'multiverse_designati
     directed_by: 'James Gunn',
     saga: 'Multiverse Saga',
     imdb_id: 'tt13623136',
+    updated_at: new Date(2022, 5, 19),
   },
   {
     id: 12,
@@ -221,6 +232,7 @@ const tvshowsBase: Omit<ITVShow, 'studio' | 'continuity' | 'multiverse_designati
     saga: 'Multiverse Saga',
     directed_by: 'Thomas Bezucha and Ali Selim',
     imdb_id: 'tt13157618',
+    updated_at: new Date(2023, 6, 26),
   },
   {
     id: 13,
@@ -239,6 +251,7 @@ const tvshowsBase: Omit<ITVShow, 'studio' | 'continuity' | 'multiverse_designati
     saga: 'Spotlight',
     directed_by: 'Sydney Freeland and Catriona McKenzie',
     imdb_id: 'tt13966962',
+    updated_at: new Date(2024, 0, 9),
   },
   {
     id: 14,
@@ -257,6 +270,7 @@ const tvshowsBase: Omit<ITVShow, 'studio' | 'continuity' | 'multiverse_designati
     phase: 5,
     saga: 'Multiverse Saga',
     imdb_id: 'tt9140554',
+    updated_at: new Date(2023, 10, 9),
   },
   {
     id: 15,
@@ -270,6 +284,7 @@ const tvshowsBase: Omit<ITVShow, 'studio' | 'continuity' | 'multiverse_designati
     saga: 'Multiverse Saga',
     directed_by: 'Sam Bailey and Angela Barnes',
     imdb_id: 'tt13623126',
+    updated_at: new Date(2024, 0, 1),
   },
   {
     id: 16,
@@ -288,6 +303,7 @@ const tvshowsBase: Omit<ITVShow, 'studio' | 'continuity' | 'multiverse_designati
     phase: 5,
     saga: 'Multiverse Saga',
     imdb_id: 'tt15571732',
+    updated_at: new Date(2024, 10, 6),
   },
   {
     id: 17,
@@ -301,6 +317,7 @@ const tvshowsBase: Omit<ITVShow, 'studio' | 'continuity' | 'multiverse_designati
     phase: 5,
     saga: 'Multiverse Saga',
     imdb_id: 'tt20411934',
+    updated_at: new Date(2025, 2, 4),
   },
   {
     id: 18,
@@ -319,6 +336,7 @@ const tvshowsBase: Omit<ITVShow, 'studio' | 'continuity' | 'multiverse_designati
     phase: 4,
     saga: 'Infinity Saga',
     imdb_id: 'tt13623148',
+    updated_at: new Date(2023, 10, 6),
   },
   {
     id: 19,
@@ -337,6 +355,7 @@ const tvshowsBase: Omit<ITVShow, 'studio' | 'continuity' | 'multiverse_designati
     phase: 5,
     saga: 'Multiverse Saga',
     imdb_id: 'tt10168312',
+    updated_at: new Date(2023, 11, 30),
   },
 ];
 

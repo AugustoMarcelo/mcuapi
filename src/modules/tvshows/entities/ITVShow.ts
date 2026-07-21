@@ -13,6 +13,7 @@ export default interface ITVShow {
   saga?: string;
   chronology?: number;
   imdb_id?: string;
+  updated_at?: Date;
 
   // Multiverse fields
   studio?: string;
