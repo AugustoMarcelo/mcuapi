@@ -17,7 +17,7 @@ describe('ShowCharacter', () => {
       alias: 'Iron Man',
       description: 'Genius billionaire playboy philanthropist',
       continuity: 'MCU',
-      multiverse_designation: 'Earth-199999',
+      multiverse_designation: 'Earth-616',
     });
 
     const character = await showCharacter.execute({ character_id: createdCharacter.id });
@@ -27,12 +27,13 @@ describe('ShowCharacter', () => {
     expect(character!.name).toBe('Tony Stark');
     expect(character!.alias).toBe('Iron Man');
     expect(character!.continuity).toBe('MCU');
-    expect(character!.multiverse_designation).toBe('Earth-199999');
+    expect(character!.multiverse_designation).toBe('Earth-616');
   });
 
-  it('Should return undefined when character is not found', async () => {
-    const character = await showCharacter.execute({ character_id: 999 });
-    expect(character).toBeUndefined();
+  it('Should throw AppError when character is not found', async () => {
+    await expect(
+      showCharacter.execute({ character_id: 999 }),
+    ).rejects.toBeInstanceOf(AppError);
   });
 
   it('Should be able to show a character with variant information', async () => {
@@ -41,7 +42,7 @@ describe('ShowCharacter', () => {
       name: 'Peter Parker',
       alias: 'Spider-Man',
       continuity: 'MCU',
-      multiverse_designation: 'Earth-199999',
+      multiverse_designation: 'Earth-616',
     });
 
     // Create variant

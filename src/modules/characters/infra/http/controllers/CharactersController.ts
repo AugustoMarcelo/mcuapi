@@ -7,6 +7,7 @@ import ListAllCharactersService from '@modules/characters/services/ListAllCharac
 import ShowCharacterService from '@modules/characters/services/ShowCharacterService';
 import GetCharactersByMovieService from '@modules/characters/services/GetCharactersByMovieService';
 import GetCharactersByTVShowService from '@modules/characters/services/GetCharactersByTVShowService';
+import DeleteCharacterService from '@modules/characters/services/DeleteCharacterService';
 
 interface IRequestQuery {
   page?: number;
@@ -72,10 +73,6 @@ export default class CharactersController {
 
     const character = await showCharacter.execute({ character_id: Number(character_id) });
 
-    if (!character) {
-      return response.status(404).json({ message: 'Character not found' });
-    }
-
     return response.status(200).json(character);
   }
 
@@ -95,5 +92,14 @@ export default class CharactersController {
     const characters = await getCharactersByTVShow.execute(Number(tvshow_id));
 
     return response.status(200).json(characters);
+  }
+
+  public async delete(request: Request, response: Response): Promise<Response> {
+    const { character_id } = request.params;
+
+    const deleteCharacter = container.resolve(DeleteCharacterService);
+    await deleteCharacter.execute(Number(character_id));
+
+    return response.status(204).send();
   }
 } 

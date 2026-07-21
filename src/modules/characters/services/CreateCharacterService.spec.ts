@@ -16,14 +16,14 @@ describe('CreateCharacter', () => {
       alias: 'Iron Man',
       description: 'Genius billionaire playboy philanthropist',
       continuity: 'MCU',
-      multiverse_designation: 'Earth-199999',
+      multiverse_designation: 'Earth-616',
     });
 
     expect(character).toHaveProperty('id');
     expect(character.name).toBe('Tony Stark');
     expect(character.alias).toBe('Iron Man');
     expect(character.continuity).toBe('MCU');
-    expect(character.multiverse_designation).toBe('Earth-199999');
+    expect(character.multiverse_designation).toBe('Earth-616');
   });
 
   it('Should be able to create a character variant', async () => {
@@ -32,7 +32,7 @@ describe('CreateCharacter', () => {
       name: 'Peter Parker',
       alias: 'Spider-Man',
       continuity: 'MCU',
-      multiverse_designation: 'Earth-199999',
+      multiverse_designation: 'Earth-616',
     });
 
     // Create variant

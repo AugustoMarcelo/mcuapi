@@ -67,7 +67,7 @@ class MoviesRepository implements IMoviesRepository {
       'timeline_chronology_order',
     ];
     let formattedColumnValue;
-    formattedColumnValue = Raw(alias => `${alias} ILIKE '%${whereValue}%'`);
+    formattedColumnValue = Raw(alias => `${alias} ILIKE :value`, { value: `%${whereValue}%` });
 
     if (columnsWithNumericValues.includes(columnWhere)) {
       formattedColumnValue = whereValue;

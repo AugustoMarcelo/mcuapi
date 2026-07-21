@@ -9,7 +9,7 @@ const characters: ICharacter[] = [
     description: 'Genius billionaire playboy philanthropist who created the Iron Man suit.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 1, // Iron Man
     first_appearance_tvshow_id: undefined,
@@ -21,7 +21,7 @@ const characters: ICharacter[] = [
     description: 'Super soldier from World War II who represents the best of American values.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 5, // Captain America: The First Avenger
     first_appearance_tvshow_id: undefined,
@@ -33,7 +33,7 @@ const characters: ICharacter[] = [
     description: 'God of Thunder from Asgard, wielder of Mjolnir.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 4, // Thor
     first_appearance_tvshow_id: undefined,
@@ -45,7 +45,7 @@ const characters: ICharacter[] = [
     description: 'Scientist who transforms into the Hulk when angry.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 2, // The Incredible Hulk
     first_appearance_tvshow_id: undefined,
@@ -57,7 +57,7 @@ const characters: ICharacter[] = [
     description: 'Former Russian spy and master assassin turned Avenger.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 3, // Iron Man 2
     first_appearance_tvshow_id: undefined,
@@ -69,7 +69,7 @@ const characters: ICharacter[] = [
     description: 'Master archer and former S.H.I.E.L.D. agent.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 4, // Thor (cameo)
     first_appearance_tvshow_id: undefined,
@@ -81,7 +81,7 @@ const characters: ICharacter[] = [
     description: 'Director of S.H.I.E.L.D. and master strategist.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 1, // Iron Man (post-credits)
     first_appearance_tvshow_id: undefined,
@@ -93,7 +93,7 @@ const characters: ICharacter[] = [
     description: 'Tony Stark\'s best friend and military liaison.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 1, // Iron Man
     first_appearance_tvshow_id: undefined,
@@ -105,7 +105,7 @@ const characters: ICharacter[] = [
     description: 'CEO of Stark Industries and Tony Stark\'s love interest.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 1, // Iron Man
     first_appearance_tvshow_id: undefined,
@@ -117,7 +117,7 @@ const characters: ICharacter[] = [
     description: 'Tony Stark\'s bodyguard and head of security.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 1, // Iron Man
     first_appearance_tvshow_id: undefined,
@@ -129,7 +129,7 @@ const characters: ICharacter[] = [
     description: 'S.H.I.E.L.D. agent and fan of Captain America.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 1, // Iron Man
     first_appearance_tvshow_id: undefined,
@@ -141,7 +141,7 @@ const characters: ICharacter[] = [
     description: 'Deputy Director of S.H.I.E.L.D. and Nick Fury\'s right hand.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 6, // The Avengers
     first_appearance_tvshow_id: undefined,
@@ -153,7 +153,7 @@ const characters: ICharacter[] = [
     description: 'Teenage superhero with spider-like abilities.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 8, // Captain America: Civil War
     first_appearance_tvshow_id: undefined,
@@ -189,7 +189,7 @@ const characters: ICharacter[] = [
     description: 'Peter Parker\'s love interest and classmate.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 9, // Spider-Man: Homecoming
     first_appearance_tvshow_id: undefined,
@@ -201,7 +201,7 @@ const characters: ICharacter[] = [
     description: 'Peter Parker\'s best friend and "guy in the chair".',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 9, // Spider-Man: Homecoming
     first_appearance_tvshow_id: undefined,
@@ -273,7 +273,7 @@ const characters: ICharacter[] = [
     description: 'Former Stark Industries employee turned illusionist villain.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 11, // Spider-Man: Far From Home
     first_appearance_tvshow_id: undefined,
@@ -285,7 +285,7 @@ const characters: ICharacter[] = [
     description: 'Leader of the Guardians of the Galaxy and half-human, half-Celestial.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 12, // Guardians of the Galaxy
     first_appearance_tvshow_id: undefined,
@@ -297,7 +297,7 @@ const characters: ICharacter[] = [
     description: 'Daughter of Thanos and deadliest woman in the galaxy.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 12, // Guardians of the Galaxy
     first_appearance_tvshow_id: undefined,
@@ -309,7 +309,7 @@ const characters: ICharacter[] = [
     description: 'Warrior seeking revenge against Thanos.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 12, // Guardians of the Galaxy
     first_appearance_tvshow_id: undefined,
@@ -321,7 +321,7 @@ const characters: ICharacter[] = [
     description: 'Genetically modified raccoon and master tactician.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 12, // Guardians of the Galaxy
     first_appearance_tvshow_id: undefined,
@@ -333,7 +333,7 @@ const characters: ICharacter[] = [
     description: 'Tree-like being and member of the Guardians of the Galaxy.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 12, // Guardians of the Galaxy
     first_appearance_tvshow_id: undefined,
@@ -345,7 +345,7 @@ const characters: ICharacter[] = [
     description: 'Daughter of Thanos and Gamora\'s adoptive sister.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 12, // Guardians of the Galaxy
     first_appearance_tvshow_id: undefined,
@@ -357,7 +357,7 @@ const characters: ICharacter[] = [
     description: 'Former neurosurgeon turned Master of the Mystic Arts.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 13, // Doctor Strange
     first_appearance_tvshow_id: undefined,
@@ -369,7 +369,7 @@ const characters: ICharacter[] = [
     description: 'Master of the Mystic Arts and librarian of Kamar-Taj.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 13, // Doctor Strange
     first_appearance_tvshow_id: undefined,
@@ -381,7 +381,7 @@ const characters: ICharacter[] = [
     description: 'Doctor and Stephen Strange\'s former colleague.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 13, // Doctor Strange
     first_appearance_tvshow_id: undefined,
@@ -393,7 +393,7 @@ const characters: ICharacter[] = [
     description: 'Master of the Mystic Arts and former ally of Doctor Strange.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 13, // Doctor Strange
     first_appearance_tvshow_id: undefined,
@@ -405,7 +405,7 @@ const characters: ICharacter[] = [
     description: 'Teenager with the ability to travel between universes.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 16, // Doctor Strange in the Multiverse of Madness
     first_appearance_tvshow_id: undefined,
@@ -417,7 +417,7 @@ const characters: ICharacter[] = [
     description: 'King of Wakanda and protector of his people.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 8, // Captain America: Civil War
     first_appearance_tvshow_id: undefined,
@@ -429,7 +429,7 @@ const characters: ICharacter[] = [
     description: 'Princess of Wakanda and brilliant scientist.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 14, // Black Panther
     first_appearance_tvshow_id: undefined,
@@ -441,7 +441,7 @@ const characters: ICharacter[] = [
     description: 'General of the Dora Milaje and protector of Wakanda.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 14, // Black Panther
     first_appearance_tvshow_id: undefined,
@@ -453,7 +453,7 @@ const characters: ICharacter[] = [
     description: 'T\'Challa\'s cousin and challenger to the throne of Wakanda.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 14, // Black Panther
     first_appearance_tvshow_id: undefined,
@@ -465,7 +465,7 @@ const characters: ICharacter[] = [
     description: 'Former Air Force pilot turned cosmic superhero.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 15, // Captain Marvel
     first_appearance_tvshow_id: undefined,
@@ -477,7 +477,7 @@ const characters: ICharacter[] = [
     description: 'Maria Rambeau\'s daughter and former S.W.O.R.D. agent.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 15, // Captain Marvel
     first_appearance_tvshow_id: undefined,
@@ -489,7 +489,7 @@ const characters: ICharacter[] = [
     description: 'Teenage superhero with polymorphic abilities.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: undefined,
     first_appearance_tvshow_id: 1, // Ms. Marvel
@@ -501,7 +501,7 @@ const characters: ICharacter[] = [
     description: 'Former thief who can shrink and communicate with ants.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 17, // Ant-Man
     first_appearance_tvshow_id: undefined,
@@ -513,7 +513,7 @@ const characters: ICharacter[] = [
     description: 'Daughter of Hank Pym and Janet van Dyne.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 17, // Ant-Man
     first_appearance_tvshow_id: undefined,
@@ -525,7 +525,7 @@ const characters: ICharacter[] = [
     description: 'Scientist who discovered the Pym Particle.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 17, // Ant-Man
     first_appearance_tvshow_id: undefined,
@@ -537,7 +537,7 @@ const characters: ICharacter[] = [
     description: 'Original Wasp and wife of Hank Pym.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 18, // Ant-Man and the Wasp
     first_appearance_tvshow_id: undefined,
@@ -549,7 +549,7 @@ const characters: ICharacter[] = [
     description: 'God of Mischief and Thor\'s adoptive brother.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 4, // Thor
     first_appearance_tvshow_id: undefined,
@@ -561,7 +561,7 @@ const characters: ICharacter[] = [
     description: 'Reality-warping witch and former Avenger.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 7, // Captain America: The Winter Soldier (post-credits)
     first_appearance_tvshow_id: undefined,
@@ -573,7 +573,7 @@ const characters: ICharacter[] = [
     description: 'Android created by Ultron and powered by the Mind Stone.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 10, // Avengers: Age of Ultron
     first_appearance_tvshow_id: undefined,
@@ -585,7 +585,7 @@ const characters: ICharacter[] = [
     description: 'Powerful witch and former resident of Westview.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: undefined,
     first_appearance_tvshow_id: 2, // WandaVision
@@ -597,7 +597,7 @@ const characters: ICharacter[] = [
     description: 'Master of martial arts and wielder of the Ten Rings.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 19, // Shang-Chi and the Legend of the Ten Rings
     first_appearance_tvshow_id: undefined,
@@ -609,7 +609,7 @@ const characters: ICharacter[] = [
     description: 'Shang-Chi\'s best friend and ally.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 19, // Shang-Chi and the Legend of the Ten Rings
     first_appearance_tvshow_id: undefined,
@@ -621,7 +621,7 @@ const characters: ICharacter[] = [
     description: 'Shang-Chi\'s father and leader of the Ten Rings organization.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 19, // Shang-Chi and the Legend of the Ten Rings
     first_appearance_tvshow_id: undefined,
@@ -633,7 +633,7 @@ const characters: ICharacter[] = [
     description: 'Eternal with the power to manipulate matter.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 20, // Eternals
     first_appearance_tvshow_id: undefined,
@@ -645,7 +645,7 @@ const characters: ICharacter[] = [
     description: 'Eternal with the power of flight and energy projection.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 20, // Eternals
     first_appearance_tvshow_id: undefined,
@@ -657,7 +657,7 @@ const characters: ICharacter[] = [
     description: 'Eternal warrior with enhanced combat abilities.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 20, // Eternals
     first_appearance_tvshow_id: undefined,
@@ -669,7 +669,7 @@ const characters: ICharacter[] = [
     description: 'Former Valkyrie and current King of New Asgard.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 16, // Thor: Ragnarok
     first_appearance_tvshow_id: undefined,
@@ -681,7 +681,7 @@ const characters: ICharacter[] = [
     description: 'Kronan warrior and ally of Thor.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 16, // Thor: Ragnarok
     first_appearance_tvshow_id: undefined,
@@ -693,7 +693,7 @@ const characters: ICharacter[] = [
     description: 'Goddess of Death and Odin\'s firstborn.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 16, // Thor: Ragnarok
     first_appearance_tvshow_id: undefined,
@@ -705,7 +705,7 @@ const characters: ICharacter[] = [
     description: 'Former Winter Soldier and Steve Rogers\' best friend.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 5, // Captain America: The First Avenger
     first_appearance_tvshow_id: undefined,
@@ -717,7 +717,7 @@ const characters: ICharacter[] = [
     description: 'S.H.I.E.L.D. founder and Steve Rogers\' love interest.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 5, // Captain America: The First Avenger
     first_appearance_tvshow_id: undefined,
@@ -729,7 +729,7 @@ const characters: ICharacter[] = [
     description: 'Former Air Force pararescue and Steve Rogers\' ally.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 7, // Captain America: The Winter Soldier
     first_appearance_tvshow_id: undefined,
@@ -741,7 +741,7 @@ const characters: ICharacter[] = [
     description: 'Mad Titan seeking to balance the universe.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 6, // The Avengers (post-credits)
     first_appearance_tvshow_id: undefined,
@@ -753,7 +753,7 @@ const characters: ICharacter[] = [
     description: 'AI created by Tony Stark and Bruce Banner.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 10, // Avengers: Age of Ultron
     first_appearance_tvshow_id: undefined,
@@ -765,7 +765,7 @@ const characters: ICharacter[] = [
     description: 'Time-traveling conqueror and variant of He Who Remains.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 21, // Ant-Man and the Wasp: Quantumania
     first_appearance_tvshow_id: undefined,
@@ -777,7 +777,7 @@ const characters: ICharacter[] = [
     description: 'Ruler of Latveria and Reed Richards\' arch-nemesis.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: undefined, // Future movie
     first_appearance_tvshow_id: undefined,
@@ -789,7 +789,7 @@ const characters: ICharacter[] = [
     description: 'Former soldier transformed into a gamma-powered monster.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 2, // The Incredible Hulk
     first_appearance_tvshow_id: undefined,
@@ -801,7 +801,7 @@ const characters: ICharacter[] = [
     description: 'Blind lawyer by day, vigilante by night.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 12, // Spider-Man: No Way Home
     first_appearance_tvshow_id: undefined,
@@ -813,7 +813,7 @@ const characters: ICharacter[] = [
     description: 'Crime lord of New York City.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: undefined,
     first_appearance_tvshow_id: 3, // Daredevil
@@ -825,7 +825,7 @@ const characters: ICharacter[] = [
     description: 'Private investigator with superhuman strength.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: undefined,
     first_appearance_tvshow_id: 4, // Jessica Jones
@@ -837,7 +837,7 @@ const characters: ICharacter[] = [
     description: 'Hero for hire with unbreakable skin.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: undefined,
     first_appearance_tvshow_id: 5, // Luke Cage
@@ -849,7 +849,7 @@ const characters: ICharacter[] = [
     description: 'Living weapon and protector of K\'un-Lun.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: undefined,
     first_appearance_tvshow_id: 6, // Iron Fist
@@ -861,7 +861,7 @@ const characters: ICharacter[] = [
     description: 'Vigilante seeking revenge for his family\'s murder.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: undefined,
     first_appearance_tvshow_id: 7, // The Punisher
@@ -873,7 +873,7 @@ const characters: ICharacter[] = [
     description: 'Young archer and protégé of Clint Barton.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: undefined,
     first_appearance_tvshow_id: 8, // Hawkeye
@@ -885,7 +885,7 @@ const characters: ICharacter[] = [
     description: 'Natasha Romanoff\'s adoptive sister and fellow Black Widow.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 22, // Black Widow
     first_appearance_tvshow_id: undefined,
@@ -897,7 +897,7 @@ const characters: ICharacter[] = [
     description: 'Deaf Native American warrior and former Kingpin associate.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: undefined,
     first_appearance_tvshow_id: 8, // Hawkeye
@@ -909,7 +909,7 @@ const characters: ICharacter[] = [
     description: 'Lawyer who gains Hulk-like powers.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: undefined,
     first_appearance_tvshow_id: 9, // She-Hulk: Attorney at Law
@@ -921,7 +921,7 @@ const characters: ICharacter[] = [
     description: 'Mercenary with dissociative identity disorder.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: undefined,
     first_appearance_tvshow_id: 10, // Moon Knight
@@ -933,7 +933,7 @@ const characters: ICharacter[] = [
     description: 'Archaeologist and wife of Marc Spector.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: undefined,
     first_appearance_tvshow_id: 10, // Moon Knight
@@ -945,7 +945,7 @@ const characters: ICharacter[] = [
     description: 'Mysterious government official recruiting anti-heroes.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 22, // Black Widow
     first_appearance_tvshow_id: undefined,
@@ -957,7 +957,7 @@ const characters: ICharacter[] = [
     description: 'CIA agent and ally of T\'Challa.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 8, // Captain America: Civil War
     first_appearance_tvshow_id: undefined,
@@ -969,7 +969,7 @@ const characters: ICharacter[] = [
     description: 'Skrull general and ally of Carol Danvers.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: 15, // Captain Marvel
     first_appearance_tvshow_id: undefined,
@@ -981,7 +981,7 @@ const characters: ICharacter[] = [
     description: 'Vampire hunter and Daywalker.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: undefined, // Future movie
     first_appearance_tvshow_id: undefined,
@@ -1005,7 +1005,7 @@ const characters: ICharacter[] = [
     description: 'Mercenary with healing factor and fourth-wall breaking abilities.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: undefined, // Future movie
     first_appearance_tvshow_id: undefined,
@@ -1053,7 +1053,7 @@ const characters: ICharacter[] = [
     description: 'Leader of the Fantastic Four with elastic powers.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: undefined, // Future movie
     first_appearance_tvshow_id: undefined,
@@ -1065,7 +1065,7 @@ const characters: ICharacter[] = [
     description: 'Member of the Fantastic Four with invisibility powers.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: undefined, // Future movie
     first_appearance_tvshow_id: undefined,
@@ -1077,7 +1077,7 @@ const characters: ICharacter[] = [
     description: 'Member of the Fantastic Four with fire powers.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: undefined, // Future movie
     first_appearance_tvshow_id: undefined,
@@ -1089,7 +1089,7 @@ const characters: ICharacter[] = [
     description: 'Member of the Fantastic Four with rock-like skin.',
     image_url: undefined,
     continuity: 'MCU',
-    multiverse_designation: 'Earth-199999',
+    multiverse_designation: 'Earth-616',
     variant_of: undefined,
     first_appearance_movie_id: undefined, // Future movie
     first_appearance_tvshow_id: undefined,

@@ -28,7 +28,7 @@ describe('GetTimelineService', () => {
         id: 1,
         title: 'Iron Man',
         continuity: 'MCU',
-        multiverse_designation: 'Earth-199999',
+        multiverse_designation: 'Earth-616',
         timeline_chronology_order: 1,
         type: 'movie',
       },
@@ -36,7 +36,7 @@ describe('GetTimelineService', () => {
         id: 2,
         title: 'The Avengers',
         continuity: 'MCU',
-        multiverse_designation: 'Earth-199999',
+        multiverse_designation: 'Earth-616',
         timeline_chronology_order: 6,
         type: 'movie',
       },
@@ -55,7 +55,7 @@ describe('GetTimelineService', () => {
         id: 1,
         title: 'WandaVision',
         continuity: 'MCU',
-        multiverse_designation: 'Earth-199999',
+        multiverse_designation: 'Earth-616',
         timeline_chronology_order: 25,
         type: 'tvshow',
       },
@@ -71,7 +71,7 @@ describe('GetTimelineService', () => {
     // Check MCU timeline
     const mcuTimeline = result.find(t => t.continuity === 'MCU');
     expect(mcuTimeline).toBeDefined();
-    expect(mcuTimeline!.multiverse_designation).toBe('Earth-199999');
+    expect(mcuTimeline!.multiverse_designation).toBe('Earth-616');
     expect(mcuTimeline!.entries).toHaveLength(3);
     
     // Check Sony timeline
@@ -87,7 +87,7 @@ describe('GetTimelineService', () => {
         id: 1,
         title: 'Iron Man',
         continuity: 'MCU',
-        multiverse_designation: 'Earth-199999',
+        multiverse_designation: 'Earth-616',
         timeline_chronology_order: 1,
         type: 'movie',
       },
@@ -98,7 +98,7 @@ describe('GetTimelineService', () => {
         id: 1,
         title: 'WandaVision',
         continuity: 'MCU',
-        multiverse_designation: 'Earth-199999',
+        multiverse_designation: 'Earth-616',
         timeline_chronology_order: 25,
         type: 'tvshow',
       },
@@ -107,10 +107,10 @@ describe('GetTimelineService', () => {
     mockMoviesRepository.findAll.mockResolvedValue({ data: mockMovies, total: 1 });
     mockTVShowsRepository.findAll.mockResolvedValue({ data: mockTVShows, total: 1 });
 
-    const result = await getTimelineService.execute('Earth-199999');
+    const result = await getTimelineService.execute('Earth-616');
 
     expect(result).toHaveLength(1);
-    expect(result[0].multiverse_designation).toBe('Earth-199999');
+    expect(result[0].multiverse_designation).toBe('Earth-616');
     expect(result[0].entries).toHaveLength(2);
   });
 
@@ -120,7 +120,7 @@ describe('GetTimelineService', () => {
         id: 2,
         title: 'The Avengers',
         continuity: 'MCU',
-        multiverse_designation: 'Earth-199999',
+        multiverse_designation: 'Earth-616',
         timeline_chronology_order: 6,
         type: 'movie',
       },
@@ -128,7 +128,7 @@ describe('GetTimelineService', () => {
         id: 1,
         title: 'Iron Man',
         continuity: 'MCU',
-        multiverse_designation: 'Earth-199999',
+        multiverse_designation: 'Earth-616',
         timeline_chronology_order: 1,
         type: 'movie',
       },
