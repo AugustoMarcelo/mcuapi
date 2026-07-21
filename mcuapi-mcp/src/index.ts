@@ -358,6 +358,10 @@ server.registerTool(
       alias: z.string().optional().describe('Superhero alias'),
       description: z.string().optional(),
       image_url: z.string().optional(),
+      played_by: z
+        .string()
+        .optional()
+        .describe('Actor name(s), comma-separated for recasts'),
       continuity: z.string().optional().default('MCU'),
       multiverse_designation: z.string().optional().default('Earth-616'),
       variant_of: z
@@ -429,6 +433,7 @@ server.registerTool(
       alias: z.string().optional(),
       description: z.string().optional(),
       image_url: z.string().optional(),
+      played_by: z.string().optional(),
       continuity: z.string().optional(),
       multiverse_designation: z.string().optional(),
       variant_of: z.number().int().optional(),
@@ -642,6 +647,7 @@ server.registerTool(
             alias: z.string().optional(),
             description: z.string().optional(),
             image_url: z.string().optional(),
+            played_by: z.string().optional(),
             continuity: z.string().optional(),
             multiverse_designation: z.string().optional(),
             variant_of: z.number().int().optional(),

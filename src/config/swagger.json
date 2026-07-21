@@ -945,6 +945,11 @@
             "type": "string",
             "description": "Character image URL"
           },
+          "played_by": {
+            "type": "string",
+            "description": "Actor name(s); recast characters list all, comma-separated",
+            "example": "Edward Norton, Mark Ruffalo"
+          },
           "continuity": {
             "type": "string",
             "description": "Story/branding group (e.g., MCU, FOX X-Men Universe)",

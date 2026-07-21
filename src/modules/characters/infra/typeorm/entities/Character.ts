@@ -28,6 +28,9 @@ class Character implements ICharacter {
   @Column('varchar', { nullable: true })
   image_url: string;
 
+  @Column('varchar', { nullable: true })
+  played_by: string;
+
   @Column('varchar', { nullable: true, default: 'MCU' })
   continuity: string;
 
