@@ -16,14 +16,14 @@ describe('ListAllCharacters', () => {
       name: 'Tony Stark',
       alias: 'Iron Man',
       continuity: 'MCU',
-      multiverse_designation: 'Earth-199999',
+      multiverse_designation: 'Earth-616',
     });
 
     await fakeCharactersRepository.create({
       name: 'Steve Rogers',
       alias: 'Captain America',
       continuity: 'MCU',
-      multiverse_designation: 'Earth-199999',
+      multiverse_designation: 'Earth-616',
     });
 
     await fakeCharactersRepository.create({
@@ -48,7 +48,7 @@ describe('ListAllCharacters', () => {
       name: 'Tony Stark',
       alias: 'Iron Man',
       continuity: 'MCU',
-      multiverse_designation: 'Earth-199999',
+      multiverse_designation: 'Earth-616',
     });
 
     await fakeCharactersRepository.create({
@@ -73,7 +73,7 @@ describe('ListAllCharacters', () => {
       name: 'Tony Stark',
       alias: 'Iron Man',
       continuity: 'MCU',
-      multiverse_designation: 'Earth-199999',
+      multiverse_designation: 'Earth-616',
     });
 
     await fakeCharactersRepository.create({

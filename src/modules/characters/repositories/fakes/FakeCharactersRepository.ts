@@ -33,11 +33,6 @@ class FakeCharactersRepository implements ICharactersRepository {
     return character;
   }
 
-  public async findByName(name: string): Promise<ICharacter | undefined> {
-    const character = this.characters.find(char => char.name === name);
-    return character;
-  }
-
   public async findAll(data: IFindAllCharactersDTO): Promise<IFindAllCharactersResponseDTO> {
     const { page = 1, limit = 10, continuity, multiverse_designation, filter } = data;
     let filteredCharacters = [...this.characters];
@@ -94,6 +89,13 @@ class FakeCharactersRepository implements ICharactersRepository {
       .map(character => ({ ...character, role_type: 'main' }));
   }
 
+  public async delete(id: number): Promise<void> {
+    const index = this.characters.findIndex(char => char.id === id);
+    if (index !== -1) {
+      this.characters.splice(index, 1);
+    }
+  }
+
   public async findByTVShowId(
     tvshow_id: number,
   ): Promise<Array<ICharacter & { role_type?: string }>> {
@@ -102,12 +104,6 @@ class FakeCharactersRepository implements ICharactersRepository {
       .map(character => ({ ...character, role_type: 'main' }));
   }
 
-  public async delete(id: number): Promise<void> {
-    const characterIndex = this.characters.findIndex(char => char.id === id);
-    if (characterIndex !== -1) {
-      this.characters.splice(characterIndex, 1);
-    }
-  }
 }
 
 export default FakeCharactersRepository; 

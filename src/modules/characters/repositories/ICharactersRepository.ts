@@ -10,4 +10,5 @@ export default interface ICharactersRepository {
   findAll(data: IFindAllCharactersDTO): Promise<IFindAllCharactersResponseDTO>;
   findByMovieId(movie_id: number): Promise<Array<ICharacter & { role_type?: string }>>;
   findByTVShowId(tvshow_id: number): Promise<Array<ICharacter & { role_type?: string }>>;
+  delete(id: number): Promise<void>;
 }

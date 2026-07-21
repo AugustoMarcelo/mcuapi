@@ -59,7 +59,7 @@ class CharactersRepository implements ICharactersRepository {
 
     const columnsWithNumericValues = ['id', 'variant_of', 'first_appearance_movie_id', 'first_appearance_tvshow_id'];
     let formattedColumnValue;
-    formattedColumnValue = Raw(alias => `${alias} ILIKE '%${whereValue}%'`);
+    formattedColumnValue = Raw(alias => `${alias} ILIKE :value`, { value: `%${whereValue}%` });
 
     if (columnsWithNumericValues.includes(columnWhere)) {
       formattedColumnValue = whereValue;
@@ -106,6 +106,10 @@ class CharactersRepository implements ICharactersRepository {
       ...appearance.character,
       role_type: appearance.role_type,
     }));
+  }
+
+  public async delete(id: number): Promise<void> {
+    await this.ormRepository.delete(id);
   }
 
   public async findByTVShowId(tvshow_id: number): Promise<Array<Character & { role_type?: string }>> {
