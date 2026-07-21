@@ -12,7 +12,9 @@
   "paths": {
     "/api/v1/movies": {
       "get": {
-        "tags": ["Movies"],
+        "tags": [
+          "Movies"
+        ],
         "summary": "List all movies",
         "description": "List all movies",
         "parameters": [
@@ -138,7 +140,9 @@
     },
     "/api/v1/movies/{movie_id}": {
       "get": {
-        "tags": ["Movies"],
+        "tags": [
+          "Movies"
+        ],
         "summary": "List a movie",
         "description": "List a movie by ID",
         "parameters": [
@@ -205,7 +209,9 @@
     },
     "/api/v1/tvshows": {
       "get": {
-        "tags": ["TV Shows"],
+        "tags": [
+          "TV Shows"
+        ],
         "summary": "List all tv shows",
         "description": "List all tv shows",
         "parameters": [
@@ -331,7 +337,9 @@
     },
     "/api/v1/tvshows/{tvshow_id}": {
       "get": {
-        "tags": ["TV Shows"],
+        "tags": [
+          "TV Shows"
+        ],
         "summary": "List a tv show",
         "description": "List a tv show by ID",
         "parameters": [
@@ -384,7 +392,9 @@
     },
     "/api/v1/characters": {
       "get": {
-        "tags": ["Characters"],
+        "tags": [
+          "Characters"
+        ],
         "summary": "List all characters",
         "description": "List all characters across the multiverse",
         "parameters": [
@@ -486,44 +496,13 @@
             "description": "Internal Server Error"
           }
         }
-      },
-      "post": {
-        "tags": ["Characters"],
-        "summary": "Create a new character",
-        "description": "Create a new character in the multiverse",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCharacter"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Character created successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Character"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
       }
     },
     "/api/v1/characters/{character_id}": {
       "get": {
-        "tags": ["Characters"],
+        "tags": [
+          "Characters"
+        ],
         "summary": "Get a character",
         "description": "Get a character by ID",
         "parameters": [
@@ -569,56 +548,13 @@
             "description": "Internal Server Error"
           }
         }
-      },
-      "put": {
-        "tags": ["Characters"],
-        "summary": "Update a character",
-        "description": "Update a character by ID",
-        "parameters": [
-          {
-            "name": "character_id",
-            "in": "path",
-            "description": "Character ID",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "example": 1
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateCharacter"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Character updated successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Character"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Character not found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
       }
     },
     "/api/v1/characters/movie/{movie_id}": {
       "get": {
-        "tags": ["Characters"],
+        "tags": [
+          "Characters"
+        ],
         "summary": "Get characters in a movie",
         "description": "Get all characters that appear in a specific movie",
         "parameters": [
@@ -669,7 +605,9 @@
     },
     "/api/v1/characters/tvshow/{tvshow_id}": {
       "get": {
-        "tags": ["Characters"],
+        "tags": [
+          "Characters"
+        ],
         "summary": "Get characters in a TV show",
         "description": "Get all characters that appear in a specific TV show",
         "parameters": [
@@ -720,7 +658,9 @@
     },
     "/api/v1/timeline": {
       "get": {
-        "tags": ["Timeline"],
+        "tags": [
+          "Timeline"
+        ],
         "summary": "Get timeline across universes",
         "description": "Get chronological timeline of movies and TV shows across different universes",
         "parameters": [
@@ -1028,7 +968,9 @@
       },
       "CreateCharacter": {
         "type": "object",
-        "required": ["name"],
+        "required": [
+          "name"
+        ],
         "properties": {
           "name": {
             "type": "string",
