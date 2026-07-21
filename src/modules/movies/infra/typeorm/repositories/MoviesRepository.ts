@@ -39,6 +39,10 @@ class MoviesRepository implements IMoviesRepository {
     columns,
     order,
     filter,
+    studio,
+    continuity,
+    multiverse_designation,
+    is_mcu,
   }: IFindAllMoviesDTO): Promise<IFindAllMoviesResponseDTO> {
     const skip = page && limit && (page - 1) * limit;
 
@@ -60,19 +64,38 @@ class MoviesRepository implements IMoviesRepository {
       'box_office',
       'post_credit_scenes',
       'release_date',
+      'timeline_chronology_order',
     ];
     let formattedColumnValue;
-    formattedColumnValue = Raw(alias => `${alias} ILIKE '%${whereValue}%'`);
+    formattedColumnValue = Raw(alias => `${alias} ILIKE :value`, { value: `%${whereValue}%` });
 
     if (columnsWithNumericValues.includes(columnWhere)) {
       formattedColumnValue = whereValue;
     }
 
-    const where = columnWhere
-      ? {
-          [columnWhere]: formattedColumnValue,
-        }
-      : undefined;
+    const whereConditions: any = {};
+
+    if (columnWhere) {
+      whereConditions[columnWhere] = formattedColumnValue;
+    }
+
+    if (studio) {
+      whereConditions.studio = studio;
+    }
+
+    if (continuity) {
+      whereConditions.continuity = continuity;
+    }
+
+    if (multiverse_designation) {
+      whereConditions.multiverse_designation = multiverse_designation;
+    }
+
+    if (is_mcu !== undefined) {
+      whereConditions.is_mcu = is_mcu;
+    }
+
+    const where = Object.keys(whereConditions).length > 0 ? whereConditions : undefined;
 
     const [movies, total] = await this.ormRepository.findAndCount({
       ...(limit && { take: limit }),

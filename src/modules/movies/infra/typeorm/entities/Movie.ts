@@ -10,47 +10,76 @@ import {
 
 @Entity({ name: 'movies', schema: 'public' })
 class Movie implements IMovie {
-  @PrimaryColumn()
+  @PrimaryColumn('int')
   id: number;
 
-  @Column()
+  @Column('varchar')
   title: string;
 
   @Column('date')
   release_date: Date;
 
-  @Column()
+  @Column('int')
   box_office: number;
 
-  @Column()
+  @Column('int')
   duration: number;
 
-  @Column()
+  @Column('text')
   overview: string;
 
-  @Column()
+  @Column('varchar')
   cover_url: string;
 
-  @Column()
+  @Column('varchar')
   trailer_url: string;
 
-  @Column()
+  @Column('varchar')
   directed_by: string;
 
-  @Column()
+  @Column('int')
   phase: number;
 
-  @Column()
+  @Column('varchar')
   saga: string;
 
-  @Column()
+  @Column('int')
   chronology: number;
 
-  @Column({ default: 0 })
+  @Column('int', { default: 0 })
   post_credit_scenes: number;
 
-  @Column()
+  @Column('varchar')
   imdb_id: string;
+
+  // Multiverse fields
+  @Column('varchar', { nullable: true })
+  studio: string;
+
+  @Column('varchar', { nullable: true, default: 'MCU' })
+  continuity: string;
+
+  @Column('varchar', { nullable: true })
+  multiverse_designation: string;
+
+  @Column('boolean', { default: true })
+  is_mcu: boolean;
+
+  @Column('varchar', { default: 'movie' })
+  type: string;
+
+  // Timeline fields
+  @Column('varchar', { nullable: true })
+  timeline_universe: string;
+
+  @Column('int', { nullable: true })
+  timeline_chronology_order: number;
+
+  @Column('varchar', { nullable: true })
+  timeline_starts_at: string;
+
+  @Column('varchar', { nullable: true })
+  timeline_ends_at: string;
 
   @ManyToMany(() => Movie)
   @JoinTable({

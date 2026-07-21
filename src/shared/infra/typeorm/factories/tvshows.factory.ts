@@ -1,6 +1,6 @@
 import ITVShow from '@modules/tvshows/entities/ITVShow';
 
-const tvshows: ITVShow[] = [
+const tvshowsBase: Omit<ITVShow, 'studio' | 'continuity' | 'multiverse_designation' | 'is_mcu' | 'type'>[] = [
   {
     id: 1,
     chronology: 41,
@@ -339,5 +339,14 @@ const tvshows: ITVShow[] = [
     imdb_id: 'tt10168312',
   },
 ];
+
+const tvshows: ITVShow[] = tvshowsBase.map(tvshow => ({
+  ...tvshow,
+  studio: 'Marvel Studios',
+  continuity: 'MCU',
+  multiverse_designation: 'Earth-616',
+  is_mcu: true,
+  type: 'tvshow',
+}));
 
 export default tvshows;

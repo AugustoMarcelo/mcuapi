@@ -1,7 +1,7 @@
 import IMovie from '@modules/movies/entities/IMovie';
 // Release date with month index
 // Box office numbers from https://www.the-numbers.com/movies/franchise/Marvel-Cinematic-Universe
-const movies: IMovie[] = [
+const moviesBase: Omit<IMovie, 'studio' | 'continuity' | 'multiverse_designation' | 'is_mcu' | 'type'>[] = [
   {
     id: 1,
     title: 'Iron Man',
@@ -776,5 +776,14 @@ const movies: IMovie[] = [
     updated_at: new Date(2023, 5, 17, 16, 23),
   },
 ];
+
+const movies: IMovie[] = moviesBase.map(movie => ({
+  ...movie,
+  studio: 'Marvel Studios',
+  continuity: 'MCU',
+  multiverse_designation: 'Earth-616',
+  is_mcu: true,
+  type: 'movie',
+}));
 
 export default movies;

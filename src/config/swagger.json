@@ -2,8 +2,8 @@
   "openapi": "3.0.0",
   "info": {
     "title": "MCUAPI Documentation",
-    "description": "This is an API with informations about MCU Movies, TV Shows and Characters (under development)",
-    "version": "2.1.0",
+    "description": "This is an API with information about MCU Movies, TV Shows, Characters, and Timeline across the Marvel Multiverse. Supports content from Marvel Studios, FOX X-Men Universe, Sony, and other Marvel properties.",
+    "version": "3.0.0",
     "contact": {
       "name": "Marcelo Augusto",
       "email": "mrclgst10@gmail.com"
@@ -64,6 +64,46 @@
             "schema": {
               "type": "string",
               "example": "title=Iron"
+            }
+          },
+          {
+            "name": "studio",
+            "in": "query",
+            "description": "Filter by production studio (e.g., Marvel Studios, FOX, Sony)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "FOX"
+            }
+          },
+          {
+            "name": "continuity",
+            "in": "query",
+            "description": "Filter by continuity/universe (e.g., MCU, FOX X-Men Universe)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "MCU"
+            }
+          },
+          {
+            "name": "multiverse_designation",
+            "in": "query",
+            "description": "Filter by multiverse Earth designation (e.g., Earth-616, Earth-838)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "Earth-616"
+            }
+          },
+          {
+            "name": "is_mcu",
+            "in": "query",
+            "description": "Filter for MCU content only",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "example": true
             }
           }
         ],
@@ -218,6 +258,46 @@
               "type": "string",
               "example": "title=Wanda"
             }
+          },
+          {
+            "name": "studio",
+            "in": "query",
+            "description": "Filter by production studio (e.g., Marvel Studios, FOX, Sony)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "Marvel Studios"
+            }
+          },
+          {
+            "name": "continuity",
+            "in": "query",
+            "description": "Filter by continuity/universe (e.g., MCU, FOX X-Men Universe)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "MCU"
+            }
+          },
+          {
+            "name": "multiverse_designation",
+            "in": "query",
+            "description": "Filter by multiverse Earth designation (e.g., Earth-616, Earth-838)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "Earth-616"
+            }
+          },
+          {
+            "name": "is_mcu",
+            "in": "query",
+            "description": "Filter for MCU content only",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
           }
         ],
         "responses": {
@@ -301,6 +381,379 @@
           }
         }
       }
+    },
+    "/api/v1/characters": {
+      "get": {
+        "tags": ["Characters"],
+        "summary": "List all characters",
+        "description": "List all characters across the multiverse",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": "1"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit of items to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": "10"
+            }
+          },
+          {
+            "name": "columns",
+            "in": "query",
+            "description": "Character properties to be returned",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "name,alias,continuity"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "Order return by column and sorting type (ASC, DESC)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "name,ASC"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Filter by a column",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "name=Iron Man"
+            }
+          },
+          {
+            "name": "continuity",
+            "in": "query",
+            "description": "Filter by continuity/universe (e.g., MCU, FOX X-Men Universe)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "MCU"
+            }
+          },
+          {
+            "name": "multiverse_designation",
+            "in": "query",
+            "description": "Filter by multiverse Earth designation (e.g., Earth-616, Earth-838)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "Earth-616"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Character"
+                      }
+                    },
+                    "total": {
+                      "type": "integer",
+                      "description": "Total of characters"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Characters"],
+        "summary": "Create a new character",
+        "description": "Create a new character in the multiverse",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCharacter"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Character created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Character"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/characters/{character_id}": {
+      "get": {
+        "tags": ["Characters"],
+        "summary": "Get a character",
+        "description": "Get a character by ID",
+        "parameters": [
+          {
+            "name": "character_id",
+            "in": "path",
+            "description": "Character ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Character"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Character not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Character not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Characters"],
+        "summary": "Update a character",
+        "description": "Update a character by ID",
+        "parameters": [
+          {
+            "name": "character_id",
+            "in": "path",
+            "description": "Character ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCharacter"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Character updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Character"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Character not found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/characters/movie/{movie_id}": {
+      "get": {
+        "tags": ["Characters"],
+        "summary": "Get characters in a movie",
+        "description": "Get all characters that appear in a specific movie",
+        "parameters": [
+          {
+            "name": "movie_id",
+            "in": "path",
+            "description": "Movie ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Character"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "role_type": {
+                            "type": "string",
+                            "description": "Character's role in the movie (main, supporting, cameo)",
+                            "example": "main"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/characters/tvshow/{tvshow_id}": {
+      "get": {
+        "tags": ["Characters"],
+        "summary": "Get characters in a TV show",
+        "description": "Get all characters that appear in a specific TV show",
+        "parameters": [
+          {
+            "name": "tvshow_id",
+            "in": "path",
+            "description": "TV Show ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Character"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "role_type": {
+                            "type": "string",
+                            "description": "Character's role in the TV show (main, supporting, cameo)",
+                            "example": "main"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/timeline": {
+      "get": {
+        "tags": ["Timeline"],
+        "summary": "Get timeline across universes",
+        "description": "Get chronological timeline of movies and TV shows across different universes",
+        "parameters": [
+          {
+            "name": "multiverse",
+            "in": "query",
+            "description": "Filter by specific multiverse designation (e.g., Earth-616, Earth-838)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "Earth-616"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TimelineContinuity"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -363,6 +816,51 @@
           "imdb_id": {
             "type": "string",
             "description": "IMDB ID"
+          },
+          "studio": {
+            "type": "string",
+            "description": "Production studio (e.g., Marvel Studios, FOX, Sony)",
+            "example": "Marvel Studios"
+          },
+          "continuity": {
+            "type": "string",
+            "description": "Story/branding group (e.g., MCU, FOX X-Men Universe)",
+            "example": "MCU"
+          },
+          "multiverse_designation": {
+            "type": "string",
+            "description": "Multiverse Earth designation (e.g., Earth-616, Earth-838)",
+            "example": "Earth-616"
+          },
+          "is_mcu": {
+            "type": "boolean",
+            "description": "Whether the movie is part of the official MCU",
+            "example": true
+          },
+          "type": {
+            "type": "string",
+            "description": "Content type",
+            "example": "movie"
+          },
+          "timeline_universe": {
+            "type": "string",
+            "description": "Universe designation for timeline purposes",
+            "example": "Earth-616"
+          },
+          "timeline_chronology_order": {
+            "type": "integer",
+            "description": "Chronological order within the universe",
+            "example": 1
+          },
+          "timeline_starts_at": {
+            "type": "string",
+            "description": "When the story starts (year)",
+            "example": "2008"
+          },
+          "timeline_ends_at": {
+            "type": "string",
+            "description": "When the story ends (year)",
+            "example": "2008"
           }
         }
       },
@@ -420,6 +918,248 @@
           "imdb_id": {
             "type": "string",
             "description": "IMDB ID"
+          },
+          "studio": {
+            "type": "string",
+            "description": "Production studio (e.g., Marvel Studios, FOX, Sony)",
+            "example": "Marvel Studios"
+          },
+          "continuity": {
+            "type": "string",
+            "description": "Story/branding group (e.g., MCU, FOX X-Men Universe)",
+            "example": "MCU"
+          },
+          "multiverse_designation": {
+            "type": "string",
+            "description": "Multiverse Earth designation (e.g., Earth-616, Earth-838)",
+            "example": "Earth-616"
+          },
+          "is_mcu": {
+            "type": "boolean",
+            "description": "Whether the TV show is part of the official MCU",
+            "example": true
+          },
+          "type": {
+            "type": "string",
+            "description": "Content type",
+            "example": "tvshow"
+          },
+          "timeline_universe": {
+            "type": "string",
+            "description": "Universe designation for timeline purposes",
+            "example": "Earth-616"
+          },
+          "timeline_chronology_order": {
+            "type": "integer",
+            "description": "Chronological order within the universe",
+            "example": 25
+          },
+          "timeline_starts_at": {
+            "type": "string",
+            "description": "When the story starts (year)",
+            "example": "2023"
+          },
+          "timeline_ends_at": {
+            "type": "string",
+            "description": "When the story ends (year)",
+            "example": "2023"
+          }
+        }
+      },
+      "Character": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Character ID"
+          },
+          "name": {
+            "type": "string",
+            "description": "Character's real name",
+            "example": "Tony Stark"
+          },
+          "alias": {
+            "type": "string",
+            "description": "Character's superhero/villain alias",
+            "example": "Iron Man"
+          },
+          "description": {
+            "type": "string",
+            "description": "Character description"
+          },
+          "image_url": {
+            "type": "string",
+            "description": "Character image URL"
+          },
+          "continuity": {
+            "type": "string",
+            "description": "Story/branding group (e.g., MCU, FOX X-Men Universe)",
+            "example": "MCU"
+          },
+          "multiverse_designation": {
+            "type": "string",
+            "description": "Multiverse Earth designation (e.g., Earth-616, Earth-838)",
+            "example": "Earth-616"
+          },
+          "variant_of": {
+            "type": "integer",
+            "description": "ID of the character this is a variant of",
+            "example": 1
+          },
+          "first_appearance_movie_id": {
+            "type": "integer",
+            "description": "ID of the movie where the character first appears"
+          },
+          "first_appearance_tvshow_id": {
+            "type": "integer",
+            "description": "ID of the TV show where the character first appears"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the character was created in the database"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the character was last updated"
+          }
+        }
+      },
+      "CreateCharacter": {
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Character's real name",
+            "example": "Tony Stark"
+          },
+          "alias": {
+            "type": "string",
+            "description": "Character's superhero/villain alias",
+            "example": "Iron Man"
+          },
+          "description": {
+            "type": "string",
+            "description": "Character description"
+          },
+          "image_url": {
+            "type": "string",
+            "description": "Character image URL"
+          },
+          "continuity": {
+            "type": "string",
+            "description": "Story/branding group (e.g., MCU, FOX X-Men Universe)",
+            "example": "MCU"
+          },
+          "multiverse_designation": {
+            "type": "string",
+            "description": "Multiverse Earth designation (e.g., Earth-616, Earth-838)",
+            "example": "Earth-616"
+          },
+          "variant_of": {
+            "type": "integer",
+            "description": "ID of the character this is a variant of"
+          },
+          "first_appearance_movie_id": {
+            "type": "integer",
+            "description": "ID of the movie where the character first appears"
+          },
+          "first_appearance_tvshow_id": {
+            "type": "integer",
+            "description": "ID of the TV show where the character first appears"
+          }
+        }
+      },
+      "UpdateCharacter": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Character's real name",
+            "example": "Tony Stark"
+          },
+          "alias": {
+            "type": "string",
+            "description": "Character's superhero/villain alias",
+            "example": "Iron Man"
+          },
+          "description": {
+            "type": "string",
+            "description": "Character description"
+          },
+          "image_url": {
+            "type": "string",
+            "description": "Character image URL"
+          },
+          "continuity": {
+            "type": "string",
+            "description": "Story/branding group (e.g., MCU, FOX X-Men Universe)",
+            "example": "MCU"
+          },
+          "multiverse_designation": {
+            "type": "string",
+            "description": "Multiverse Earth designation (e.g., Earth-616, Earth-838)",
+            "example": "Earth-616"
+          },
+          "variant_of": {
+            "type": "integer",
+            "description": "ID of the character this is a variant of"
+          },
+          "first_appearance_movie_id": {
+            "type": "integer",
+            "description": "ID of the movie where the character first appears"
+          },
+          "first_appearance_tvshow_id": {
+            "type": "integer",
+            "description": "ID of the TV show where the character first appears"
+          }
+        }
+      },
+      "TimelineContinuity": {
+        "type": "object",
+        "properties": {
+          "continuity": {
+            "type": "string",
+            "description": "Story/branding group (e.g., MCU, FOX X-Men Universe)",
+            "example": "MCU"
+          },
+          "multiverse_designation": {
+            "type": "string",
+            "description": "Multiverse Earth designation (e.g., Earth-616, Earth-838)",
+            "example": "Earth-616"
+          },
+          "entries": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TimelineEntry"
+            },
+            "description": "Chronologically ordered list of movies and TV shows"
+          }
+        }
+      },
+      "TimelineEntry": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Movie or TV show ID"
+          },
+          "title": {
+            "type": "string",
+            "description": "Movie or TV show title",
+            "example": "Iron Man"
+          },
+          "chronology_order": {
+            "type": "integer",
+            "description": "Chronological order within the universe",
+            "example": 1
+          },
+          "type": {
+            "type": "string",
+            "description": "Content type (movie or tvshow)",
+            "example": "movie"
           }
         }
       }
