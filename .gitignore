@@ -7,6 +7,8 @@ coverage/
 
 # Environment variables
 .env
+.env.production
+
 
 dist/
 
@@ -14,3 +16,8 @@ dist/
 Helpers.md
 
 characters/
+
+# Local data dumps and working files
+*.bak
+mcu_characters.json
+/package-lock.json
