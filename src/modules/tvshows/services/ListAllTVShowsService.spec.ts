@@ -17,6 +17,7 @@ const mockTVShow = (): ITVShow => ({
   chronology: faker.random.number(),
   release_date: faker.date.past(),
   last_aired_date: faker.date.future(),
+  updated_at: faker.date.recent(),
 });
 
 describe('ListAllTVShowsService', () => {
@@ -50,6 +51,7 @@ describe('ListAllTVShowsService', () => {
     expect(data[0]).not.toHaveProperty('saga');
     expect(data[0]).not.toHaveProperty('chronology');
     expect(data[0]).not.toHaveProperty('last_aired_date');
+    expect(data[0]).not.toHaveProperty('updated_at');
   });
 
   it('Should be able to return filter data by filter param', async () => {
@@ -67,5 +69,16 @@ describe('ListAllTVShowsService', () => {
 
     expect(data[0]).toEqual(searchedTVShow);
     expect(total).toBe(1);
+  });
+
+  it('Should return updated_at field in tv show listings', async () => {
+    const initialData = [mockTVShow()];
+    const fakeTVShowsRepository = new FakeTVShowsRepository(initialData);
+    const listTVShows = new ListTVShowsService(fakeTVShowsRepository);
+
+    const { data } = await listTVShows.execute({});
+
+    expect(data[0]).toHaveProperty('updated_at');
+    expect(data[0].updated_at).toBeInstanceOf(Date);
   });
 });

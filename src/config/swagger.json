@@ -801,6 +801,11 @@
             "type": "string",
             "description": "When the story ends (year)",
             "example": "2008"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp of the last update to the movie record"
           }
         }
       },
@@ -848,12 +853,16 @@
             "description": "Name of who directed the tv show"
           },
           "phase": {
-            "type": "string",
+            "type": "integer",
             "description": "Phase to which the tv show belongs"
           },
           "saga": {
             "type": "string",
             "description": "Saga to which the tv show belongs"
+          },
+          "chronology": {
+            "type": "integer",
+            "description": "Position of the tv show in chronological order"
           },
           "imdb_id": {
             "type": "string",
@@ -903,6 +912,11 @@
             "type": "string",
             "description": "When the story ends (year)",
             "example": "2023"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp of the last update to the tv show record"
           }
         }
       },
@@ -963,99 +977,6 @@
             "type": "string",
             "format": "date-time",
             "description": "When the character was last updated"
-          }
-        }
-      },
-      "CreateCharacter": {
-        "type": "object",
-        "required": [
-          "name"
-        ],
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "Character's real name",
-            "example": "Tony Stark"
-          },
-          "alias": {
-            "type": "string",
-            "description": "Character's superhero/villain alias",
-            "example": "Iron Man"
-          },
-          "description": {
-            "type": "string",
-            "description": "Character description"
-          },
-          "image_url": {
-            "type": "string",
-            "description": "Character image URL"
-          },
-          "continuity": {
-            "type": "string",
-            "description": "Story/branding group (e.g., MCU, FOX X-Men Universe)",
-            "example": "MCU"
-          },
-          "multiverse_designation": {
-            "type": "string",
-            "description": "Multiverse Earth designation (e.g., Earth-616, Earth-838)",
-            "example": "Earth-616"
-          },
-          "variant_of": {
-            "type": "integer",
-            "description": "ID of the character this is a variant of"
-          },
-          "first_appearance_movie_id": {
-            "type": "integer",
-            "description": "ID of the movie where the character first appears"
-          },
-          "first_appearance_tvshow_id": {
-            "type": "integer",
-            "description": "ID of the TV show where the character first appears"
-          }
-        }
-      },
-      "UpdateCharacter": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "Character's real name",
-            "example": "Tony Stark"
-          },
-          "alias": {
-            "type": "string",
-            "description": "Character's superhero/villain alias",
-            "example": "Iron Man"
-          },
-          "description": {
-            "type": "string",
-            "description": "Character description"
-          },
-          "image_url": {
-            "type": "string",
-            "description": "Character image URL"
-          },
-          "continuity": {
-            "type": "string",
-            "description": "Story/branding group (e.g., MCU, FOX X-Men Universe)",
-            "example": "MCU"
-          },
-          "multiverse_designation": {
-            "type": "string",
-            "description": "Multiverse Earth designation (e.g., Earth-616, Earth-838)",
-            "example": "Earth-616"
-          },
-          "variant_of": {
-            "type": "integer",
-            "description": "ID of the character this is a variant of"
-          },
-          "first_appearance_movie_id": {
-            "type": "integer",
-            "description": "ID of the movie where the character first appears"
-          },
-          "first_appearance_tvshow_id": {
-            "type": "integer",
-            "description": "ID of the TV show where the character first appears"
           }
         }
       },
