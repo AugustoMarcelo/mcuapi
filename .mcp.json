@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "mcuapi": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["mcuapi-mcp/dist/index.js"]
+    }
+  }
+}
