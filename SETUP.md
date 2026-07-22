@@ -27,6 +27,8 @@ DB_PASS=postgres
 DB_NAME=mcuapi
 ```
 
+Optional: set `APP_URL` (e.g. `APP_URL=https://mcuapi.up.railway.app`) to force the base URL used in the `_links` hypermedia fields; when unset, links are built from the request host.
+
 ---
 
 ## 2. API Backend (mcuapi)

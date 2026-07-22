@@ -1,3 +1,5 @@
+import IMovie from '@modules/movies/entities/IMovie';
+import ITVShow from '@modules/tvshows/entities/ITVShow';
 import ICharacter from '../entities/ICharacter';
 import ICreateCharacterDTO from '../dtos/ICreateCharacterDTO';
 import IFindAllCharactersDTO from '../dtos/IFindAllCharactersDTO';
@@ -10,5 +12,7 @@ export default interface ICharactersRepository {
   findAll(data: IFindAllCharactersDTO): Promise<IFindAllCharactersResponseDTO>;
   findByMovieId(movie_id: number): Promise<Array<ICharacter & { role_type?: string }>>;
   findByTVShowId(tvshow_id: number): Promise<Array<ICharacter & { role_type?: string }>>;
+  findMoviesByCharacterId(character_id: number): Promise<Array<IMovie & { role_type?: string }>>;
+  findTVShowsByCharacterId(character_id: number): Promise<Array<ITVShow & { role_type?: string }>>;
   delete(id: number): Promise<void>;
 }
