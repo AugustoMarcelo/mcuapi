@@ -126,6 +126,24 @@
                     "total": {
                       "type": "integer",
                       "description": "Total of movies"
+                    },
+                    "page": {
+                      "type": "integer",
+                      "description": "Current page (1 when not paginated)",
+                      "example": 1
+                    },
+                    "limit": {
+                      "type": "integer",
+                      "description": "Items per page (present only when the limit query param is used)",
+                      "example": 10
+                    },
+                    "_links": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/ResourceLinks"
+                        }
+                      ],
+                      "description": "Collection links: self, first, last, and prev/next when applicable. All original query params are preserved."
                     }
                   }
                 }
@@ -323,6 +341,24 @@
                     "total": {
                       "type": "integer",
                       "description": "Total of tv shows"
+                    },
+                    "page": {
+                      "type": "integer",
+                      "description": "Current page (1 when not paginated)",
+                      "example": 1
+                    },
+                    "limit": {
+                      "type": "integer",
+                      "description": "Items per page (present only when the limit query param is used)",
+                      "example": 10
+                    },
+                    "_links": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/ResourceLinks"
+                        }
+                      ],
+                      "description": "Collection links: self, first, last, and prev/next when applicable. All original query params are preserved."
                     }
                   }
                 }
@@ -486,6 +522,24 @@
                     "total": {
                       "type": "integer",
                       "description": "Total of characters"
+                    },
+                    "page": {
+                      "type": "integer",
+                      "description": "Current page (1 when not paginated)",
+                      "example": 1
+                    },
+                    "limit": {
+                      "type": "integer",
+                      "description": "Items per page (present only when the limit query param is used)",
+                      "example": 10
+                    },
+                    "_links": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/ResourceLinks"
+                        }
+                      ],
+                      "description": "Collection links: self, first, last, and prev/next when applicable. All original query params are preserved."
                     }
                   }
                 }
@@ -694,6 +748,164 @@
           }
         }
       }
+    },
+    "/api/v1/characters/{character_id}/movies": {
+      "get": {
+        "tags": [
+          "Characters"
+        ],
+        "summary": "Get movies a character appears in",
+        "description": "Get all movies a specific character appears in, with the role type of each appearance",
+        "parameters": [
+          {
+            "name": "character_id",
+            "in": "path",
+            "description": "Character ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Movie"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "role_type": {
+                            "type": "string",
+                            "description": "Character's role in the movie (main, supporting, cameo)",
+                            "example": "main"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Character not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "status": "Error",
+                    "statusCode": 404,
+                    "message": "Character not found"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/characters/{character_id}/tvshows": {
+      "get": {
+        "tags": [
+          "Characters"
+        ],
+        "summary": "Get TV shows a character appears in",
+        "description": "Get all TV shows a specific character appears in, with the role type of each appearance",
+        "parameters": [
+          {
+            "name": "character_id",
+            "in": "path",
+            "description": "Character ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/TVShow"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "role_type": {
+                            "type": "string",
+                            "description": "Character's role in the tv show (main, supporting, cameo)",
+                            "example": "main"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Character not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "status": "Error",
+                    "statusCode": 404,
+                    "message": "Character not found"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -806,6 +1018,9 @@
             "type": "string",
             "format": "date-time",
             "description": "Timestamp of the last update to the movie record"
+          },
+          "_links": {
+            "$ref": "#/components/schemas/ResourceLinks"
           }
         }
       },
@@ -917,6 +1132,9 @@
             "type": "string",
             "format": "date-time",
             "description": "Timestamp of the last update to the tv show record"
+          },
+          "_links": {
+            "$ref": "#/components/schemas/ResourceLinks"
           }
         }
       },
@@ -982,6 +1200,9 @@
             "type": "string",
             "format": "date-time",
             "description": "When the character was last updated"
+          },
+          "_links": {
+            "$ref": "#/components/schemas/ResourceLinks"
           }
         }
       },
@@ -1028,6 +1249,43 @@
             "type": "string",
             "description": "Content type (movie or tvshow)",
             "example": "movie"
+          },
+          "_links": {
+            "$ref": "#/components/schemas/ResourceLinks"
+          }
+        }
+      },
+      "Link": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "example": "https://mcuapi.example.com/api/v1/movies/1"
+          }
+        }
+      },
+      "ResourceLinks": {
+        "type": "object",
+        "description": "HAL-style hypermedia links. Each relation maps to a Link or an array of Links.",
+        "additionalProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/Link"
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Link"
+              }
+            }
+          ]
+        },
+        "example": {
+          "self": {
+            "href": "https://mcuapi.example.com/api/v1/movies/1"
+          },
+          "characters": {
+            "href": "https://mcuapi.example.com/api/v1/characters/movie/1"
           }
         }
       }
