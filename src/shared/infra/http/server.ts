@@ -13,6 +13,8 @@ import '@shared/container';
 
 const app = express();
 
+app.set('trust proxy', 1);
+
 app.use(cors());
 app.use(express.json() as express.RequestHandler);
 app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerFile));

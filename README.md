@@ -17,6 +17,27 @@ ___
 > baseURL: https://mcuapi.up.railway.app/api/v1
 
 > docs: https://mcuapi.up.railway.app/docs
+
+### 🔗 Hypermedia (HATEOAS)
+
+Every resource includes a HAL-style `_links` object with navigable relations:
+
+```json
+{
+  "id": 1,
+  "title": "Iron Man",
+  "_links": {
+    "self": { "href": "https://mcuapi.up.railway.app/api/v1/movies/1" },
+    "characters": { "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/1" }
+  }
+}
+```
+
+List endpoints (`/movies`, `/tvshows`, `/characters`) also return `page`, `limit` and collection `_links` (`self`, `first`, `last`, plus `prev`/`next` when paginating with the `limit` query param), preserving all other query params.
+
+Characters are fully navigable via `GET /characters/{id}/movies` and `GET /characters/{id}/tvshows`, which list every movie/TV show a character appears in (with `role_type`).
+
+> Links are built from the request host by default. Set the optional `APP_URL` environment variable (e.g. `APP_URL=https://mcuapi.up.railway.app`) to force the base URL behind a proxy.
 ---
 
 ## 🆕 Next features <a name="next-features"></a>
