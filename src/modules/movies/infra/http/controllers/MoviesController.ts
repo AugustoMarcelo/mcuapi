@@ -5,6 +5,11 @@ import CreateMovieService from '@modules/movies/services/CreateMovieService';
 import UpdateMovieService from '@modules/movies/services/UpdateMovieService';
 import ListAllMoviesService from '@modules/movies/services/ListAllMoviesService';
 import ShowMovieService from '@modules/movies/services/ShowMovieService';
+import {
+  presentMovie,
+  presentMovieCollection,
+} from '@modules/movies/infra/http/presenters/MoviePresenter';
+import { getBaseUrl } from '@shared/infra/http/hateoas';
 
 interface IRequestQuery {
   page?: number;
@@ -45,7 +50,17 @@ export default class MoviesController {
       is_mcu: is_mcu === 'true' ? true : is_mcu === 'false' ? false : undefined,
     });
 
-    return response.status(200).json({ data, total });
+    return response.status(200).json(
+      presentMovieCollection({
+        data,
+        total,
+        page,
+        limit,
+        baseUrl: getBaseUrl(request),
+        path: request.baseUrl + request.path,
+        query: request.query,
+      }),
+    );
   }
 
   public async create(request: Request, response: Response): Promise<Response> {
@@ -80,6 +95,6 @@ export default class MoviesController {
       return response.status(404).json({ message: 'Movie not found' });
     }
 
-    return response.status(200).json(movie);
+    return response.status(200).json(presentMovie(movie, getBaseUrl(request)));
   }
 }

@@ -3,9 +3,24 @@ import ICharactersRepository from '@modules/characters/repositories/ICharactersR
 import ICreateCharacterDTO from '@modules/characters/dtos/ICreateCharacterDTO';
 import IFindAllCharactersDTO from '@modules/characters/dtos/IFindAllCharactersDTO';
 import IFindAllCharactersResponseDTO from '@modules/characters/dtos/IFindAllCharactersResponseDTO';
+import IMovie from '@modules/movies/entities/IMovie';
+import ITVShow from '@modules/tvshows/entities/ITVShow';
+
+interface IFakeAppearance {
+  character_id: number;
+  movie?: IMovie;
+  tvshow?: ITVShow;
+  role_type?: string;
+}
 
 class FakeCharactersRepository implements ICharactersRepository {
   private characters: ICharacter[] = [];
+
+  private appearances: IFakeAppearance[] = [];
+
+  public seedAppearance(appearance: IFakeAppearance): void {
+    this.appearances.push(appearance);
+  }
 
   public async create(data: ICreateCharacterDTO): Promise<ICharacter> {
     const character: ICharacter = {
@@ -102,6 +117,22 @@ class FakeCharactersRepository implements ICharactersRepository {
     return this.characters
       .filter(character => character.first_appearance_tvshow_id === tvshow_id)
       .map(character => ({ ...character, role_type: 'main' }));
+  }
+
+  public async findMoviesByCharacterId(
+    character_id: number,
+  ): Promise<Array<IMovie & { role_type?: string }>> {
+    return this.appearances
+      .filter(appearance => appearance.character_id === character_id && appearance.movie)
+      .map(appearance => ({ ...(appearance.movie as IMovie), role_type: appearance.role_type }));
+  }
+
+  public async findTVShowsByCharacterId(
+    character_id: number,
+  ): Promise<Array<ITVShow & { role_type?: string }>> {
+    return this.appearances
+      .filter(appearance => appearance.character_id === character_id && appearance.tvshow)
+      .map(appearance => ({ ...(appearance.tvshow as ITVShow), role_type: appearance.role_type }));
   }
 
 }

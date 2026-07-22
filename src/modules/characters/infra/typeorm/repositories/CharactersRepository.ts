@@ -1,5 +1,7 @@
-import { Repository, getRepository, Raw } from 'typeorm';
+import { Repository, getRepository, Raw, Not, IsNull } from 'typeorm';
 
+import IMovie from '@modules/movies/entities/IMovie';
+import ITVShow from '@modules/tvshows/entities/ITVShow';
 import ICharactersRepository from '@modules/characters/repositories/ICharactersRepository';
 import ICreateCharacterDTO from '@modules/characters/dtos/ICreateCharacterDTO';
 import IFindAllCharactersDTO from '@modules/characters/dtos/IFindAllCharactersDTO';
@@ -121,6 +123,36 @@ class CharactersRepository implements ICharactersRepository {
 
     return appearances.map(appearance => ({
       ...appearance.character,
+      role_type: appearance.role_type,
+    }));
+  }
+
+  public async findMoviesByCharacterId(
+    character_id: number,
+  ): Promise<Array<IMovie & { role_type?: string }>> {
+    const characterAppearancesRepository = getRepository(CharacterAppearance);
+    const appearances = await characterAppearancesRepository.find({
+      where: { character_id, movie_id: Not(IsNull()) },
+      relations: ['movie'],
+    });
+
+    return appearances.map(appearance => ({
+      ...appearance.movie,
+      role_type: appearance.role_type,
+    }));
+  }
+
+  public async findTVShowsByCharacterId(
+    character_id: number,
+  ): Promise<Array<ITVShow & { role_type?: string }>> {
+    const characterAppearancesRepository = getRepository(CharacterAppearance);
+    const appearances = await characterAppearancesRepository.find({
+      where: { character_id, tvshow_id: Not(IsNull()) },
+      relations: ['tvshow'],
+    });
+
+    return appearances.map(appearance => ({
+      ...appearance.tvshow,
       role_type: appearance.role_type,
     }));
   }

@@ -2,6 +2,11 @@ import { container } from 'tsyringe';
 import { Request, Response } from 'express';
 import ListTVShowsService from '@modules/tvshows/services/ListTVShowsService';
 import ShowTVShowService from '@modules/tvshows/services/ShowTVShowService';
+import {
+  presentTVShow,
+  presentTVShowCollection,
+} from '@modules/tvshows/infra/http/presenters/TVShowPresenter';
+import { getBaseUrl } from '@shared/infra/http/hateoas';
 
 interface IRequestQuery {
   page?: number;
@@ -42,7 +47,17 @@ export default class TVShowsController {
       is_mcu: is_mcu === 'true' ? true : is_mcu === 'false' ? false : undefined,
     });
 
-    return response.status(200).json({ data, total });
+    return response.status(200).json(
+      presentTVShowCollection({
+        data,
+        total,
+        page,
+        limit,
+        baseUrl: getBaseUrl(request),
+        path: request.baseUrl + request.path,
+        query: request.query,
+      }),
+    );
   }
 
   public async show(request: Request, response: Response): Promise<Response> {
@@ -54,6 +69,6 @@ export default class TVShowsController {
       return response.status(404).json({ message: 'TV Show not found' });
     }
 
-    return response.status(200).json(tvshow);
+    return response.status(200).json(presentTVShow(tvshow, getBaseUrl(request)));
   }
 }
