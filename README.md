@@ -98,6 +98,15 @@ ___
 
 ## 💥 Changelogs <a name="changelogs"></a>
 <details>
+  <summary>2026-07-23: Movies | Characters — HATEOAS relations are now links-only (breaking)</summary>
+
+  - CHANGED
+    - *`GET /movies/{id}` no longer embeds full `related_movies` objects — only `_links.related_movies` hrefs are returned*
+    - *`GET /characters/{id}` no longer embeds `variant_character`, `first_appearance_movie` or `first_appearance_tvshow` objects — only their `_links` hrefs (`variant_of`, `first_appearance_movie`, `first_appearance_tvshow`) are returned*
+    - *This is a breaking change to the response shape, made to keep the API consistently HATEOAS/HAL-style (links only, no embedded resource bodies)*
+</details>
+
+<details>
   <summary>2026-04-10: Movies | TV Shows — added updated_at field</summary>
 
   - ADDED

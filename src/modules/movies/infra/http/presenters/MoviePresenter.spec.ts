@@ -25,15 +25,12 @@ describe('MoviePresenter', () => {
     expect(presented._links.related_movies).toBeUndefined();
   });
 
-  it('Should link related_movies and add self links to embedded items when loaded', () => {
+  it('Should link related_movies without embedding the full related movie data', () => {
     const related = { id: 2, title: 'Iron Man 2' } as IMovie;
     const presented = presentMovie({ ...movie, related_movies: [related] }, baseUrl);
 
     expect(presented._links.related_movies).toEqual([{ href: `${baseUrl}/api/v1/movies/2` }]);
-    expect(presented.related_movies?.[0]).toMatchObject({
-      id: 2,
-      _links: { self: { href: `${baseUrl}/api/v1/movies/2` } },
-    });
+    expect(presented.related_movies).toBeUndefined();
   });
 
   it('Should skip id-dependent links when id is missing (columns selection)', () => {

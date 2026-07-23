@@ -1,6 +1,4 @@
 import ICharacter from '@modules/characters/entities/ICharacter';
-import IMovie from '@modules/movies/entities/IMovie';
-import ITVShow from '@modules/tvshows/entities/ITVShow';
 import {
   IResourceLinks,
   WithLinks,
@@ -8,10 +6,10 @@ import {
 } from '@shared/infra/http/hateoas';
 
 type ICharacterWithRelations = ICharacter & {
-  variant_character?: ICharacter;
-  first_appearance_movie?: IMovie;
-  first_appearance_tvshow?: ITVShow;
   role_type?: string;
+  variant_character?: unknown;
+  first_appearance_movie?: unknown;
+  first_appearance_tvshow?: unknown;
 };
 
 interface IPresentCharacterCollectionParams {
@@ -22,18 +20,6 @@ interface IPresentCharacterCollectionParams {
   baseUrl: string;
   path: string;
   query: Record<string, unknown>;
-}
-
-function withSelfLink<T extends { id?: number }>(
-  entity: T | undefined,
-  selfHref: (id: number) => string,
-): (T & { _links: IResourceLinks }) | undefined {
-  if (!entity) return undefined;
-
-  return {
-    ...entity,
-    _links: entity.id != null ? { self: { href: selfHref(entity.id) } } : {},
-  };
 }
 
 export function presentCharacter(
@@ -64,24 +50,13 @@ export function presentCharacter(
     };
   }
 
-  const variant_character = withSelfLink(
-    character.variant_character,
-    id => `${baseUrl}/api/v1/characters/${id}`,
-  );
-  const first_appearance_movie = withSelfLink(
-    character.first_appearance_movie,
-    id => `${baseUrl}/api/v1/movies/${id}`,
-  );
-  const first_appearance_tvshow = withSelfLink(
-    character.first_appearance_tvshow,
-    id => `${baseUrl}/api/v1/tvshows/${id}`,
-  );
+  const characterWithoutEmbeddedRelations: ICharacterWithRelations = { ...character };
+  delete characterWithoutEmbeddedRelations.variant_character;
+  delete characterWithoutEmbeddedRelations.first_appearance_movie;
+  delete characterWithoutEmbeddedRelations.first_appearance_tvshow;
 
   return {
-    ...character,
-    ...(variant_character && { variant_character }),
-    ...(first_appearance_movie && { first_appearance_movie }),
-    ...(first_appearance_tvshow && { first_appearance_tvshow }),
+    ...characterWithoutEmbeddedRelations,
     _links,
   };
 }
