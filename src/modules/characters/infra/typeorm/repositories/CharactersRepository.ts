@@ -29,9 +29,7 @@ class CharactersRepository implements ICharactersRepository {
   }
 
   public async findById(id: number): Promise<Character | undefined> {
-    const findCharacter = await this.ormRepository.findOne(id, {
-      relations: ['variant_character', 'first_appearance_movie', 'first_appearance_tvshow'],
-    });
+    const findCharacter = await this.ormRepository.findOne(id);
 
     return findCharacter;
   }
@@ -91,7 +89,6 @@ class CharactersRepository implements ICharactersRepository {
       ...(columnOrder && {
         order: { [columnOrder]: sortingOrder.toUpperCase() },
       }),
-      relations: ['variant_character', 'first_appearance_movie', 'first_appearance_tvshow'],
     });
 
     return { data: characters, total };

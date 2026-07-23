@@ -179,22 +179,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "allOf": [
-                    {
-                      "$ref": "#/components/schemas/Movie"
-                    },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "related_movies": {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/components/schemas/Movie"
-                          }
-                        }
-                      }
-                    }
-                  ]
+                  "$ref": "#/components/schemas/Movie"
                 }
               }
             }
