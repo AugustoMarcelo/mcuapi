@@ -3,7 +3,6 @@ import Movie from '@modules/movies/infra/typeorm/entities/Movie';
 import {
   Column,
   Entity,
-  JoinTable,
   ManyToMany,
   PrimaryColumn,
   UpdateDateColumn,
@@ -89,12 +88,7 @@ class TVShow implements ITVShow {
   @Column('varchar', { nullable: true })
   timeline_ends_at: string;
 
-  @ManyToMany(() => Movie)
-  @JoinTable({
-    name: 'related_content',
-    joinColumns: [{ name: 'tvshow_id' }],
-    inverseJoinColumns: [{ name: 'movie_id' }],
-  })
+  @ManyToMany(() => Movie, movie => movie.related_tvshows)
   related_movies?: Movie[];
 }
 
