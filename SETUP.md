@@ -126,6 +126,7 @@ Restart Claude Code — the MCP server activates automatically when you open thi
 | `update_character` | Update a character by ID |
 | `delete_character` | Delete a character by ID |
 | `link_appearance` | Link a character to a movie or TV show |
+| `link_related_content` | Link a movie to a TV show as related content |
 | `bulk_import_characters` | Import multiple characters from a JSON array |
 | `get_timeline` | View the chronological timeline, optionally filtered by Earth |
 

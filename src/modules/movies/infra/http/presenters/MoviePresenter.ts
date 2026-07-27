@@ -24,7 +24,11 @@ export function presentMovie(movie: IMovie, baseUrl: string): WithLinks<IMovie> 
     _links.characters = { href: `${baseUrl}/api/v1/characters/movie/${movie.id}` };
   }
 
-  const { related_movies, ...movieWithoutRelatedMovies } = movie;
+  const {
+    related_movies,
+    related_tvshows,
+    ...movieWithoutRelations
+  } = movie;
 
   if (Array.isArray(related_movies)) {
     _links.related_movies = related_movies
@@ -32,7 +36,13 @@ export function presentMovie(movie: IMovie, baseUrl: string): WithLinks<IMovie> 
       .map<ILink>(related => ({ href: `${baseUrl}/api/v1/movies/${related.id}` }));
   }
 
-  return { ...movieWithoutRelatedMovies, _links };
+  if (Array.isArray(related_tvshows)) {
+    _links.related_tvshows = related_tvshows
+      .filter(related => related.id != null)
+      .map<ILink>(related => ({ href: `${baseUrl}/api/v1/tvshows/${related.id}` }));
+  }
+
+  return { ...movieWithoutRelations, _links };
 }
 
 export function presentMovieCollection({
