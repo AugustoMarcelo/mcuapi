@@ -1,4 +1,5 @@
 import IMovie from '@modules/movies/entities/IMovie';
+import ITVShow from '@modules/tvshows/entities/ITVShow';
 import { presentMovie, presentMovieCollection } from './MoviePresenter';
 
 const baseUrl = 'http://localhost:3333';
@@ -31,6 +32,20 @@ describe('MoviePresenter', () => {
 
     expect(presented._links.related_movies).toEqual([{ href: `${baseUrl}/api/v1/movies/2` }]);
     expect(presented.related_movies).toBeUndefined();
+  });
+
+  it('Should omit related_tvshows link when the relation is not loaded', () => {
+    const presented = presentMovie(movie, baseUrl);
+
+    expect(presented._links.related_tvshows).toBeUndefined();
+  });
+
+  it('Should link related_tvshows without embedding the full related tvshow data', () => {
+    const related = { id: 3, title: 'Loki' } as ITVShow;
+    const presented = presentMovie({ ...movie, related_tvshows: [related] }, baseUrl);
+
+    expect(presented._links.related_tvshows).toEqual([{ href: `${baseUrl}/api/v1/tvshows/3` }]);
+    expect(presented.related_tvshows).toBeUndefined();
   });
 
   it('Should skip id-dependent links when id is missing (columns selection)', () => {

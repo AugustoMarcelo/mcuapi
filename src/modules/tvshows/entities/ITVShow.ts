@@ -1,3 +1,5 @@
+import IMovie from '@modules/movies/entities/IMovie';
+
 export default interface ITVShow {
   id: number;
   title: string;
@@ -27,4 +29,6 @@ export default interface ITVShow {
   timeline_chronology_order?: number;
   timeline_starts_at?: string;
   timeline_ends_at?: string;
+
+  related_movies?: IMovie[];
 }

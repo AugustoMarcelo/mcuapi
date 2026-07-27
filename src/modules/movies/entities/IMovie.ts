@@ -1,3 +1,5 @@
+import ITVShow from '@modules/tvshows/entities/ITVShow';
+
 export default interface IMovie {
   id: number;
 
@@ -41,6 +43,8 @@ export default interface IMovie {
   timeline_ends_at?: string;
 
   related_movies?: IMovie[];
+
+  related_tvshows?: ITVShow[];
 
   updated_at?: Date;
 }

@@ -1,4 +1,5 @@
 import IMovie from '@modules/movies/entities/IMovie';
+import TVShow from '@modules/tvshows/infra/typeorm/entities/TVShow';
 import {
   Column,
   Entity,
@@ -88,6 +89,14 @@ class Movie implements IMovie {
     inverseJoinColumns: [{ name: 'related_movie_id' }],
   })
   related_movies?: Movie[];
+
+  @ManyToMany(() => TVShow)
+  @JoinTable({
+    name: 'related_content',
+    joinColumns: [{ name: 'movie_id' }],
+    inverseJoinColumns: [{ name: 'tvshow_id' }],
+  })
+  related_tvshows?: TVShow[];
 
   @UpdateDateColumn({
     type: 'timestamp',
