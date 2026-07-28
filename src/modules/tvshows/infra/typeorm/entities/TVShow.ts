@@ -1,5 +1,12 @@
 import ITVShow from '@modules/tvshows/entities/ITVShow';
-import { Column, Entity, PrimaryColumn, UpdateDateColumn } from 'typeorm';
+import Movie from '@modules/movies/infra/typeorm/entities/Movie';
+import {
+  Column,
+  Entity,
+  ManyToMany,
+  PrimaryColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity({ name: 'tvshows', schema: 'public' })
 class TVShow implements ITVShow {
@@ -80,6 +87,9 @@ class TVShow implements ITVShow {
 
   @Column('varchar', { nullable: true })
   timeline_ends_at: string;
+
+  @ManyToMany(() => Movie, movie => movie.related_tvshows)
+  related_movies?: Movie[];
 }
 
 export default TVShow;
