@@ -636,6 +636,71 @@ server.registerTool(
   },
 );
 
+server.registerTool(
+  'link_related_content',
+  {
+    description: 'Link a movie to a TV show as related/tie-in content (bidirectional).',
+    inputSchema: {
+      movie_id: z.number().int(),
+      tvshow_id: z.number().int(),
+    },
+  },
+  async ({ movie_id, tvshow_id }) => {
+    const [movie] = await query<{ id: number; title: string }>(
+      'SELECT id, title FROM movies WHERE id = $1',
+      [movie_id],
+    );
+    if (!movie) {
+      return {
+        content: [
+          { type: 'text', text: `❌ Movie [${movie_id}] not found.` },
+        ],
+      };
+    }
+
+    const [show] = await query<{ id: number; title: string }>(
+      'SELECT id, title FROM tvshows WHERE id = $1',
+      [tvshow_id],
+    );
+    if (!show) {
+      return {
+        content: [
+          { type: 'text', text: `❌ TV Show [${tvshow_id}] not found.` },
+        ],
+      };
+    }
+
+    const [existing] = await query<{ movie_id: number }>(
+      'SELECT movie_id FROM related_content WHERE movie_id = $1 AND tvshow_id = $2',
+      [movie_id, tvshow_id],
+    );
+    if (existing) {
+      return {
+        content: [
+          {
+            type: 'text',
+            text: `⚠️ "${movie.title}" is already linked to "${show.title}".`,
+          },
+        ],
+      };
+    }
+
+    await query(
+      'INSERT INTO related_content (movie_id, tvshow_id) VALUES ($1, $2)',
+      [movie_id, tvshow_id],
+    );
+
+    return {
+      content: [
+        {
+          type: 'text',
+          text: `✅ Linked: "${movie.title}" ↔ "${show.title}"`,
+        },
+      ],
+    };
+  },
+);
+
 // ─── BULK IMPORT ───────────────────────────────────────────────────────────────
 
 server.registerTool(
