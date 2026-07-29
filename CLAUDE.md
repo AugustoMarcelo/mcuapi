@@ -83,3 +83,10 @@ DB_HOST, DB_USER, DB_PASS, DB_NAME, NODE_ENV
 ## Current Branch: feat/multiverse
 
 The active branch adds multiverse/timeline support: new fields on `Movie` and `TVShow` entities (`studio`, `continuity`, `multiverse_designation`, `is_mcu`, `timeline_*`), a `Character` entity, and a `/timeline` endpoint.
+
+## Data Sourcing Rules
+
+- `marvel.com` is the source of truth for most movie/TV show information and images (see also `box_office` → the-numbers.com, `trailer_url` → marvel.com/movies YouTube link).
+- Characters (name, bio, `played_by`, `image_url`) are sourced from TMDB (`image.tmdb.org` for images).
+- **Recast characters**: `played_by` lists every actor who has played the role, comma-separated in chronological order (e.g. `"Edward Norton, Mark Ruffalo"`), but `image_url` always reflects the *current/most recent* actor — update it when a character is recast rather than leaving the original actor's photo.
+- **Animated show characters**: do not add a character from an animated series/movie unless there is a confirmed live-action actor behind the voice (i.e., an actor also appearing in live-action MCU content). Purely voice-only animated characters with no live-action counterpart are skipped.

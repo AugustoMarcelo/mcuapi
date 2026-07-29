@@ -3,7 +3,10 @@
     "mcuapi": {
       "type": "stdio",
       "command": "node",
-      "args": ["mcuapi-mcp/dist/index.js"]
+      "args": ["mcuapi-mcp/dist/index.js"],
+      "env": {
+        "MCP_ENV_FILE": "../../.env.production"
+      }
     }
   }
 }

@@ -2,8 +2,11 @@ import * as dotenv from 'dotenv';
 import * as path from 'path';
 import { Pool } from 'pg';
 
-// Load .env from parent project
-dotenv.config({ path: path.resolve(__dirname, '../../.env') });
+// Load env file from parent project (defaults to .env; override via MCP_ENV_FILE,
+// e.g. '../../.env.production' to target Neon instead of local Postgres)
+dotenv.config({
+  path: path.resolve(__dirname, process.env.MCP_ENV_FILE || '../../.env'),
+});
 
 export const pool = new Pool({
   host: process.env.DB_HOST || 'localhost',

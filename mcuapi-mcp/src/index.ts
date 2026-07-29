@@ -351,6 +351,75 @@ server.registerTool(
   },
 );
 
+server.registerTool(
+  'update_tvshow',
+  {
+    description:
+      'Update an existing TV show by ID. Only provided fields are updated.',
+    inputSchema: {
+      id: z.number().int().describe('TV Show ID'),
+      title: z.string().optional(),
+      release_date: z.string().optional().describe('YYYY-MM-DD'),
+      last_aired_date: z.string().optional().describe('YYYY-MM-DD'),
+      season: z.number().int().optional(),
+      number_episodes: z.number().int().optional(),
+      phase: z.number().int().optional(),
+      saga: z.string().optional(),
+      overview: z.string().optional(),
+      cover_url: z.string().optional(),
+      trailer_url: z.string().optional(),
+      directed_by: z.string().optional(),
+      imdb_id: z.string().optional(),
+      studio: z.string().optional(),
+      continuity: z.string().optional(),
+      multiverse_designation: z.string().optional(),
+      is_mcu: z.boolean().optional(),
+      timeline_universe: z.string().optional(),
+      timeline_chronology_order: z.number().int().optional(),
+      timeline_starts_at: z.string().optional(),
+      timeline_ends_at: z.string().optional(),
+    },
+  },
+  async ({ id, ...updates }) => {
+    const fields = Object.keys(updates).filter(
+      k => (updates as Record<string, unknown>)[k] !== undefined,
+    );
+    if (fields.length === 0) {
+      return { content: [{ type: 'text', text: '⚠️ No fields to update.' }] };
+    }
+
+    const setClause = fields.map((f, i) => `${f} = $${i + 1}`).join(', ');
+    const values = [
+      ...fields.map(f => (updates as Record<string, unknown>)[f]),
+      id,
+    ];
+
+    const [show] = await query<{ id: number }>(
+      'SELECT id FROM tvshows WHERE id = $1',
+      [id],
+    );
+    if (!show) {
+      return {
+        content: [{ type: 'text', text: `❌ TV Show [${id}] not found.` }],
+      };
+    }
+
+    await query(
+      `UPDATE tvshows SET ${setClause} WHERE id = $${fields.length + 1}`,
+      values,
+    );
+
+    return {
+      content: [
+        {
+          type: 'text',
+          text: `✅ TV Show [${id}] updated: ${fields.join(', ')}`,
+        },
+      ],
+    };
+  },
+);
+
 // ─── CHARACTERS ────────────────────────────────────────────────────────────────
 
 server.registerTool(
