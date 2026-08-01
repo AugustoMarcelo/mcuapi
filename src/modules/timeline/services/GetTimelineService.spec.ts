@@ -148,6 +148,81 @@ describe('GetTimelineService', () => {
     expect(result[0].entries[1].chronology_order).toBe(6);
   });
 
+  it('Should sort entries by release_date when chronology_order is missing or zero', async () => {
+    const mockMovies = [
+      {
+        id: 1,
+        title: 'Iron Man',
+        continuity: 'MCU',
+        multiverse_designation: 'Earth-616',
+        timeline_chronology_order: 0,
+        release_date: new Date('2008-05-02'),
+        type: 'movie',
+      },
+      {
+        id: 2,
+        title: 'The Avengers',
+        continuity: 'MCU',
+        multiverse_designation: 'Earth-616',
+        timeline_chronology_order: 0,
+        release_date: new Date('2012-05-04'),
+        type: 'movie',
+      },
+      {
+        id: 3,
+        title: 'Captain America: The First Avenger',
+        continuity: 'MCU',
+        multiverse_designation: 'Earth-616',
+        timeline_chronology_order: 0,
+        release_date: new Date('2011-07-22'),
+        type: 'movie',
+      },
+    ];
+
+    mockMoviesRepository.findAll.mockResolvedValue({ data: mockMovies, total: 3 });
+    mockTVShowsRepository.findAll.mockResolvedValue({ data: [], total: 0 });
+
+    const result = await getTimelineService.execute();
+
+    expect(result[0].entries.map(e => e.title)).toEqual([
+      'Iron Man',
+      'Captain America: The First Avenger',
+      'The Avengers',
+    ]);
+  });
+
+  it('Should place entries with a real chronology_order before date-ordered entries', async () => {
+    const mockMovies = [
+      {
+        id: 1,
+        title: 'Iron Man',
+        continuity: 'MCU',
+        multiverse_designation: 'Earth-616',
+        timeline_chronology_order: 0,
+        release_date: new Date('1943-01-01'),
+        type: 'movie',
+      },
+      {
+        id: 2,
+        title: 'The Avengers',
+        continuity: 'MCU',
+        multiverse_designation: 'Earth-616',
+        timeline_chronology_order: 6,
+        release_date: new Date('2012-05-04'),
+        type: 'movie',
+      },
+    ];
+
+    mockMoviesRepository.findAll.mockResolvedValue({ data: mockMovies, total: 2 });
+    mockTVShowsRepository.findAll.mockResolvedValue({ data: [], total: 0 });
+
+    const result = await getTimelineService.execute();
+
+    // "The Avengers" has a real chronology_order, so it sorts first even
+    // though "Iron Man" has an earlier release_date fallback.
+    expect(result[0].entries.map(e => e.title)).toEqual(['The Avengers', 'Iron Man']);
+  });
+
   it('Should handle empty results', async () => {
     mockMoviesRepository.findAll.mockResolvedValue({ data: [], total: 0 });
     mockTVShowsRepository.findAll.mockResolvedValue({ data: [], total: 0 });
