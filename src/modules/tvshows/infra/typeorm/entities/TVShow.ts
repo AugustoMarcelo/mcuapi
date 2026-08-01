@@ -46,7 +46,7 @@ class TVShow implements ITVShow {
   @Column('varchar')
   saga: string;
 
-  @Column()
+  @Column('int')
   chronology: number;
 
   @Column('varchar')
