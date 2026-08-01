@@ -706,6 +706,122 @@ server.registerTool(
 );
 
 server.registerTool(
+  'update_appearance',
+  {
+    description:
+      'Update the role_type of an existing character appearance (movie or TV show link). Use this instead of link_appearance when the link already exists but its role_type is wrong.',
+    inputSchema: {
+      character_id: z.number().int(),
+      movie_id: z.number().int().optional(),
+      tvshow_id: z.number().int().optional(),
+      role_type: z.enum(['main', 'supporting', 'cameo']),
+    },
+  },
+  async ({ character_id, movie_id, tvshow_id, role_type }) => {
+    if (!movie_id && !tvshow_id) {
+      return {
+        content: [
+          { type: 'text', text: '❌ Provide either movie_id or tvshow_id.' },
+        ],
+      };
+    }
+
+    const column = movie_id ? 'movie_id' : 'tvshow_id';
+    const titleId = movie_id ?? tvshow_id;
+
+    const [existing] = await query<{ id: number }>(
+      `SELECT id FROM character_appearances WHERE character_id = $1 AND ${column} = $2`,
+      [character_id, titleId],
+    );
+
+    if (!existing) {
+      return {
+        content: [
+          {
+            type: 'text',
+            text: `❌ No existing appearance found for character [${character_id}] on ${column} [${titleId}]. Use link_appearance to create it.`,
+          },
+        ],
+      };
+    }
+
+    await query('UPDATE character_appearances SET role_type = $1 WHERE id = $2', [
+      role_type,
+      existing.id,
+    ]);
+
+    return {
+      content: [
+        {
+          type: 'text',
+          text: `✅ Appearance [${existing.id}] updated: role_type = ${role_type}`,
+        },
+      ],
+    };
+  },
+);
+
+server.registerTool(
+  'delete_appearance',
+  {
+    description:
+      'Delete a spurious character appearance link (a character wrongly linked to a movie or TV show they never appeared in).',
+    inputSchema: {
+      character_id: z.number().int(),
+      movie_id: z.number().int().optional(),
+      tvshow_id: z.number().int().optional(),
+      confirm: z.boolean().describe('Must be true to confirm deletion'),
+    },
+  },
+  async ({ character_id, movie_id, tvshow_id, confirm }) => {
+    if (!movie_id && !tvshow_id) {
+      return {
+        content: [
+          { type: 'text', text: '❌ Provide either movie_id or tvshow_id.' },
+        ],
+      };
+    }
+    if (!confirm) {
+      return {
+        content: [
+          { type: 'text', text: '⚠️ Set confirm=true to delete the appearance.' },
+        ],
+      };
+    }
+
+    const column = movie_id ? 'movie_id' : 'tvshow_id';
+    const titleId = movie_id ?? tvshow_id;
+
+    const [existing] = await query<{ id: number }>(
+      `SELECT id FROM character_appearances WHERE character_id = $1 AND ${column} = $2`,
+      [character_id, titleId],
+    );
+
+    if (!existing) {
+      return {
+        content: [
+          {
+            type: 'text',
+            text: `❌ No existing appearance found for character [${character_id}] on ${column} [${titleId}].`,
+          },
+        ],
+      };
+    }
+
+    await query('DELETE FROM character_appearances WHERE id = $1', [existing.id]);
+
+    return {
+      content: [
+        {
+          type: 'text',
+          text: `✅ Appearance [${existing.id}] deleted (character [${character_id}], ${column} [${titleId}]).`,
+        },
+      ],
+    };
+  },
+);
+
+server.registerTool(
   'link_related_content',
   {
     description: 'Link a movie to a TV show as related/tie-in content (bidirectional).',
