@@ -223,6 +223,63 @@ describe('GetTimelineService', () => {
     expect(result[0].entries.map(e => e.title)).toEqual(['The Avengers', 'Iron Man']);
   });
 
+  it('Should place entries without chronology_order and without release_date last, preserving their original order', async () => {
+    const mockMovies = [
+      {
+        id: 1,
+        title: 'Movie With Release Date 1',
+        continuity: 'MCU',
+        multiverse_designation: 'Earth-616',
+        timeline_chronology_order: 0,
+        release_date: new Date('2008-05-02'),
+        type: 'movie',
+      },
+      {
+        id: 2,
+        title: 'Movie Without Chronology Or Date 1',
+        continuity: 'MCU',
+        multiverse_designation: 'Earth-616',
+        timeline_chronology_order: 0,
+        type: 'movie',
+      },
+      {
+        id: 3,
+        title: 'Movie With Release Date 2',
+        continuity: 'MCU',
+        multiverse_designation: 'Earth-616',
+        timeline_chronology_order: 0,
+        release_date: new Date('2012-05-04'),
+        type: 'movie',
+      },
+      {
+        id: 4,
+        title: 'Movie Without Chronology Or Date 2',
+        continuity: 'MCU',
+        multiverse_designation: 'Earth-616',
+        timeline_chronology_order: 0,
+        type: 'movie',
+      },
+    ];
+
+    mockMoviesRepository.findAll.mockResolvedValue({ data: mockMovies, total: 4 });
+    mockTVShowsRepository.findAll.mockResolvedValue({ data: [], total: 0 });
+
+    const result = await getTimelineService.execute();
+
+    // Date-ordered entries (bucket 2) sort first, by release_date. Entries
+    // with neither a real chronology_order nor a release_date (bucket 3)
+    // sort after them, retaining their original relative order (relying on
+    // Array.prototype.sort's stability guarantee for the comparator's
+    // `return 0` tie case) rather than being interleaved with, or placed
+    // before, the date-ordered entries.
+    expect(result[0].entries.map(e => e.title)).toEqual([
+      'Movie With Release Date 1',
+      'Movie With Release Date 2',
+      'Movie Without Chronology Or Date 1',
+      'Movie Without Chronology Or Date 2',
+    ]);
+  });
+
   it('Should handle empty results', async () => {
     mockMoviesRepository.findAll.mockResolvedValue({ data: [], total: 0 });
     mockTVShowsRepository.findAll.mockResolvedValue({ data: [], total: 0 });
