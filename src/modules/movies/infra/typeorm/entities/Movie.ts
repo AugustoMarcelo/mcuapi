@@ -90,7 +90,7 @@ class Movie implements IMovie {
   })
   related_movies?: Movie[];
 
-  @ManyToMany(() => TVShow)
+  @ManyToMany(() => TVShow, tvshow => tvshow.related_movies)
   @JoinTable({
     name: 'related_content',
     joinColumns: [{ name: 'movie_id' }],
