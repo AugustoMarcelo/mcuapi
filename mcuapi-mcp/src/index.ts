@@ -886,6 +886,84 @@ server.registerTool(
   },
 );
 
+server.registerTool(
+  'link_related_movies',
+  {
+    description: 'Link two movies as related content (bidirectional).',
+    inputSchema: {
+      movie_id: z.number().int(),
+      related_movie_id: z.number().int(),
+    },
+  },
+  async ({ movie_id, related_movie_id }) => {
+    const [movie] = await query<{ id: number; title: string }>(
+      'SELECT id, title FROM movies WHERE id = $1',
+      [movie_id],
+    );
+    if (!movie) {
+      return {
+        content: [
+          { type: 'text', text: `❌ Movie [${movie_id}] not found.` },
+        ],
+      };
+    }
+
+    const [related] = await query<{ id: number; title: string }>(
+      'SELECT id, title FROM movies WHERE id = $1',
+      [related_movie_id],
+    );
+    if (!related) {
+      return {
+        content: [
+          { type: 'text', text: `❌ Movie [${related_movie_id}] not found.` },
+        ],
+      };
+    }
+
+    const [forward] = await query<{ movie_id: number }>(
+      'SELECT movie_id FROM related_movies WHERE movie_id = $1 AND related_movie_id = $2',
+      [movie_id, related_movie_id],
+    );
+    if (!forward) {
+      await query(
+        'INSERT INTO related_movies (movie_id, related_movie_id) VALUES ($1, $2)',
+        [movie_id, related_movie_id],
+      );
+    }
+
+    const [backward] = await query<{ movie_id: number }>(
+      'SELECT movie_id FROM related_movies WHERE movie_id = $1 AND related_movie_id = $2',
+      [related_movie_id, movie_id],
+    );
+    if (!backward) {
+      await query(
+        'INSERT INTO related_movies (movie_id, related_movie_id) VALUES ($1, $2)',
+        [related_movie_id, movie_id],
+      );
+    }
+
+    if (forward && backward) {
+      return {
+        content: [
+          {
+            type: 'text',
+            text: `⚠️ "${movie.title}" is already linked to "${related.title}".`,
+          },
+        ],
+      };
+    }
+
+    return {
+      content: [
+        {
+          type: 'text',
+          text: `✅ Linked: "${movie.title}" ↔ "${related.title}"`,
+        },
+      ],
+    };
+  },
+);
+
 // ─── BULK IMPORT ───────────────────────────────────────────────────────────────
 
 server.registerTool(
