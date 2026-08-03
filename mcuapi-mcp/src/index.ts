@@ -194,10 +194,7 @@ server.registerTool(
         .optional()
         .describe('e.g. "Earth-616", "Earth-10005"'),
       is_mcu: z.boolean().optional(),
-      timeline_universe: z.string().optional(),
       timeline_chronology_order: z.number().int().optional(),
-      timeline_starts_at: z.string().optional(),
-      timeline_ends_at: z.string().optional(),
     },
   },
   async input => {
@@ -255,10 +252,7 @@ server.registerTool(
       continuity: z.string().optional(),
       multiverse_designation: z.string().optional(),
       is_mcu: z.boolean().optional(),
-      timeline_universe: z.string().optional(),
       timeline_chronology_order: z.number().int().optional(),
-      timeline_starts_at: z.string().optional(),
-      timeline_ends_at: z.string().optional(),
     },
   },
   async ({ id, ...updates }) => {
@@ -317,10 +311,7 @@ server.registerTool(
       continuity: z.string().optional(),
       multiverse_designation: z.string().optional(),
       is_mcu: z.boolean().optional(),
-      timeline_universe: z.string().optional(),
       timeline_chronology_order: z.number().int().optional(),
-      timeline_starts_at: z.string().optional(),
-      timeline_ends_at: z.string().optional(),
     },
   },
   async input => {
@@ -374,10 +365,7 @@ server.registerTool(
       continuity: z.string().optional(),
       multiverse_designation: z.string().optional(),
       is_mcu: z.boolean().optional(),
-      timeline_universe: z.string().optional(),
       timeline_chronology_order: z.number().int().optional(),
-      timeline_starts_at: z.string().optional(),
-      timeline_ends_at: z.string().optional(),
     },
   },
   async ({ id, ...updates }) => {
@@ -1056,13 +1044,12 @@ server.registerTool(
       continuity: string;
       multiverse_designation: string;
       timeline_chronology_order: number;
-      timeline_starts_at: string;
     }>(
-      `SELECT id, title, type, continuity, multiverse_designation, timeline_chronology_order, timeline_starts_at
+      `SELECT id, title, type, continuity, multiverse_designation, timeline_chronology_order
        FROM (
-         SELECT id, title, type, continuity, multiverse_designation, timeline_chronology_order, timeline_starts_at FROM movies ${movieWhere}
+         SELECT id, title, type, continuity, multiverse_designation, timeline_chronology_order FROM movies ${movieWhere}
          UNION ALL
-         SELECT id, title, type, continuity, multiverse_designation, timeline_chronology_order, timeline_starts_at FROM tvshows ${showWhere}
+         SELECT id, title, type, continuity, multiverse_designation, timeline_chronology_order FROM tvshows ${showWhere}
        ) combined
        WHERE timeline_chronology_order IS NOT NULL
        ORDER BY multiverse_designation, timeline_chronology_order
@@ -1088,11 +1075,7 @@ server.registerTool(
     for (const [universe, items] of groups) {
       lines.push(`**${universe}**`);
       items.forEach(e =>
-        lines.push(
-          `  ${e.timeline_chronology_order}. [${e.type}] ${e.title}${
-            e.timeline_starts_at ? ` (${e.timeline_starts_at})` : ''
-          }`,
-        ),
+        lines.push(`  ${e.timeline_chronology_order}. [${e.type}] ${e.title}`),
       );
       lines.push('');
     }

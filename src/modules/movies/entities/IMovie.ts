@@ -37,10 +37,7 @@ export default interface IMovie {
   type?: string;
 
   // Timeline fields
-  timeline_universe?: string;
   timeline_chronology_order?: number;
-  timeline_starts_at?: string;
-  timeline_ends_at?: string;
 
   related_movies?: IMovie[];
 

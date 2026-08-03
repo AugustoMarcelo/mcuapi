@@ -979,25 +979,10 @@
             "description": "Content type",
             "example": "movie"
           },
-          "timeline_universe": {
-            "type": "string",
-            "description": "Universe designation for timeline purposes",
-            "example": "Earth-616"
-          },
           "timeline_chronology_order": {
             "type": "integer",
             "description": "Chronological order within the universe",
             "example": 1
-          },
-          "timeline_starts_at": {
-            "type": "string",
-            "description": "When the story starts (year)",
-            "example": "2008"
-          },
-          "timeline_ends_at": {
-            "type": "string",
-            "description": "When the story ends (year)",
-            "example": "2008"
           },
           "updated_at": {
             "type": "string",
@@ -1093,25 +1078,10 @@
             "description": "Content type",
             "example": "tvshow"
           },
-          "timeline_universe": {
-            "type": "string",
-            "description": "Universe designation for timeline purposes",
-            "example": "Earth-616"
-          },
           "timeline_chronology_order": {
             "type": "integer",
             "description": "Chronological order within the universe",
             "example": 25
-          },
-          "timeline_starts_at": {
-            "type": "string",
-            "description": "When the story starts (year)",
-            "example": "2023"
-          },
-          "timeline_ends_at": {
-            "type": "string",
-            "description": "When the story ends (year)",
-            "example": "2023"
           },
           "updated_at": {
             "type": "string",

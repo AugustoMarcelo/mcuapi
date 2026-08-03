@@ -70,17 +70,8 @@ class Movie implements IMovie {
   type: string;
 
   // Timeline fields
-  @Column('varchar', { nullable: true })
-  timeline_universe: string;
-
   @Column('int', { nullable: true })
   timeline_chronology_order: number;
-
-  @Column('varchar', { nullable: true })
-  timeline_starts_at: string;
-
-  @Column('varchar', { nullable: true })
-  timeline_ends_at: string;
 
   @ManyToMany(() => Movie)
   @JoinTable({

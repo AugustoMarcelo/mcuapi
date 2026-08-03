@@ -16,12 +16,9 @@ Both movies and TV shows now include the following new fields:
 
 ### 2. Timeline Fields
 
-Both movies and TV shows now include timeline fields for chronological ordering:
+Both movies and TV shows now include a timeline field for chronological ordering:
 
-- `timeline_universe`: The universe designation for timeline purposes
 - `timeline_chronology_order`: The chronological order within that universe
-- `timeline_starts_at`: When the story starts (year)
-- `timeline_ends_at`: When the story ends (year)
 
 ### 3. Characters Module
 
