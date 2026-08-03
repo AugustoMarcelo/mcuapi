@@ -952,6 +952,84 @@ server.registerTool(
   },
 );
 
+server.registerTool(
+  'link_related_tvshows',
+  {
+    description: 'Link two TV shows as related content (bidirectional).',
+    inputSchema: {
+      tvshow_id: z.number().int(),
+      related_tvshow_id: z.number().int(),
+    },
+  },
+  async ({ tvshow_id, related_tvshow_id }) => {
+    const [tvshow] = await query<{ id: number; title: string }>(
+      'SELECT id, title FROM tvshows WHERE id = $1',
+      [tvshow_id],
+    );
+    if (!tvshow) {
+      return {
+        content: [
+          { type: 'text', text: `❌ TV Show [${tvshow_id}] not found.` },
+        ],
+      };
+    }
+
+    const [related] = await query<{ id: number; title: string }>(
+      'SELECT id, title FROM tvshows WHERE id = $1',
+      [related_tvshow_id],
+    );
+    if (!related) {
+      return {
+        content: [
+          { type: 'text', text: `❌ TV Show [${related_tvshow_id}] not found.` },
+        ],
+      };
+    }
+
+    const [forward] = await query<{ tvshow_id: number }>(
+      'SELECT tvshow_id FROM related_tvshows WHERE tvshow_id = $1 AND related_tvshow_id = $2',
+      [tvshow_id, related_tvshow_id],
+    );
+    if (!forward) {
+      await query(
+        'INSERT INTO related_tvshows (tvshow_id, related_tvshow_id) VALUES ($1, $2)',
+        [tvshow_id, related_tvshow_id],
+      );
+    }
+
+    const [backward] = await query<{ tvshow_id: number }>(
+      'SELECT tvshow_id FROM related_tvshows WHERE tvshow_id = $1 AND related_tvshow_id = $2',
+      [related_tvshow_id, tvshow_id],
+    );
+    if (!backward) {
+      await query(
+        'INSERT INTO related_tvshows (tvshow_id, related_tvshow_id) VALUES ($1, $2)',
+        [related_tvshow_id, tvshow_id],
+      );
+    }
+
+    if (forward && backward) {
+      return {
+        content: [
+          {
+            type: 'text',
+            text: `⚠️ "${tvshow.title}" is already linked to "${related.title}".`,
+          },
+        ],
+      };
+    }
+
+    return {
+      content: [
+        {
+          type: 'text',
+          text: `✅ Linked: "${tvshow.title}" ↔ "${related.title}"`,
+        },
+      ],
+    };
+  },
+);
+
 // ─── BULK IMPORT ───────────────────────────────────────────────────────────────
 
 server.registerTool(

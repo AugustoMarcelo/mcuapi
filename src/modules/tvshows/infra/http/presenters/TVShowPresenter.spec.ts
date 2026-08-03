@@ -40,6 +40,20 @@ describe('TVShowPresenter', () => {
     expect(presented.related_movies).toBeUndefined();
   });
 
+  it('Should omit related_tvshows link when the relation is not loaded', () => {
+    const presented = presentTVShow(tvshow, baseUrl);
+
+    expect(presented._links.related_tvshows).toBeUndefined();
+  });
+
+  it('Should link related_tvshows without embedding the full related tvshow data', () => {
+    const related = { id: 2, title: 'Hawkeye' } as ITVShow;
+    const presented = presentTVShow({ ...tvshow, related_tvshows: [related] }, baseUrl);
+
+    expect(presented._links.related_tvshows).toEqual([{ href: `${baseUrl}/api/v1/tvshows/2` }]);
+    expect(presented.related_tvshows).toBeUndefined();
+  });
+
   it('Should wrap collections with pagination metadata and links', () => {
     const collection = presentTVShowCollection({
       data: [tvshow],
