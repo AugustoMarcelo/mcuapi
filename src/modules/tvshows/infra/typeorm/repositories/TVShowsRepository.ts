@@ -14,7 +14,7 @@ class TVShowsRepository implements ITVShowsRepository {
 
   public async findById(id: number): Promise<ITVShow | undefined> {
     const tvshow = await this.ormRepository.findOne(id, {
-      relations: ['related_movies'],
+      relations: ['related_movies', 'related_tvshows'],
     });
 
     return tvshow;

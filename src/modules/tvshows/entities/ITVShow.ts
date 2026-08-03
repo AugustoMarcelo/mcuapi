@@ -28,4 +28,6 @@ export default interface ITVShow {
   timeline_chronology_order?: number;
 
   related_movies?: IMovie[];
+
+  related_tvshows?: ITVShow[];
 }

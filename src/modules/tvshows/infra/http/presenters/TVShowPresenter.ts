@@ -24,12 +24,22 @@ export function presentTVShow(tvshow: ITVShow, baseUrl: string): WithLinks<ITVSh
     _links.characters = { href: `${baseUrl}/api/v1/characters/tvshow/${tvshow.id}` };
   }
 
-  const { related_movies, ...tvshowWithoutRelations } = tvshow;
+  const {
+    related_movies,
+    related_tvshows,
+    ...tvshowWithoutRelations
+  } = tvshow;
 
   if (Array.isArray(related_movies)) {
     _links.related_movies = related_movies
       .filter(related => related.id != null)
       .map<ILink>(related => ({ href: `${baseUrl}/api/v1/movies/${related.id}` }));
+  }
+
+  if (Array.isArray(related_tvshows)) {
+    _links.related_tvshows = related_tvshows
+      .filter(related => related.id != null)
+      .map<ILink>(related => ({ href: `${baseUrl}/api/v1/tvshows/${related.id}` }));
   }
 
   return { ...tvshowWithoutRelations, _links };
