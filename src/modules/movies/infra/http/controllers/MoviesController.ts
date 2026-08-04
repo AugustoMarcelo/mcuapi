@@ -10,13 +10,9 @@ import {
   presentMovieCollection,
 } from '@modules/movies/infra/http/presenters/MoviePresenter';
 import { getBaseUrl } from '@shared/infra/http/hateoas';
-
-const DEFAULT_PAGE = 1;
-const DEFAULT_LIMIT = 10;
+import { DEFAULT_LIMIT, DEFAULT_PAGE } from '@shared/infra/http/pagination';
 
 interface IRequestQuery {
-  page?: number;
-  limit?: number;
   columns?: string;
   order?: string;
   filter?: string;
