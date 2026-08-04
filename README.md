@@ -1,26 +1,26 @@
-## 📖 Index
- - 📑 [About the project](#about-the-project)
- - ➡ [Endpoint](#endpoint)
- - 🆕 [Next features](#next-features)
- - ❓ [How to run](#how-to-run)
- - 💥 [Changelogs](#changelogs)
+# MCUAPI
 
-___
+A RESTful API serving structured data on the Marvel Cinematic Universe — movies, TV shows, characters, and the timeline connecting them.
 
-## 📑 About the project <a name="about-the-project"></a>
+[![API Docs](https://img.shields.io/badge/docs-swagger-85EA2D)](https://mcuapi.up.railway.app/docs) [![Node](https://img.shields.io/badge/node-%3E%3D18-339933)](package.json)
 
-A RESTFul API for MCU (Marvel Cinematic Universe)! Movies and TV Shows. Characters coming soon! See [the new documentation](https://mcuapi.up.railway.app/docs)! If you have any suggestions, please open an issue!
-___
+```
+baseURL  https://mcuapi.up.railway.app/api/v1
+docs     https://mcuapi.up.railway.app/docs
+```
 
-## ➡ Endpoints <a name="endpoint"></a>
+## Features
 
-> baseURL: https://mcuapi.up.railway.app/api/v1
+- **Movies & TV shows** — release info, box office, cast, saga/phase, and where each title sits in the MCU timeline.
+- **Characters** — bios, actors (including recasts), and every movie/show they appear in.
+- **Timeline** — chronological ordering of the whole catalog, independent of release date.
+- **Hypermedia (HATEOAS)** — every resource ships a HAL-style `_links` object so clients can navigate the API without hardcoding URLs.
 
-> docs: https://mcuapi.up.railway.app/docs
+## Example
 
-### 🔗 Hypermedia (HATEOAS)
-
-Every resource includes a HAL-style `_links` object with navigable relations:
+```http
+GET /api/v1/movies/1
+```
 
 ```json
 {
@@ -33,367 +33,56 @@ Every resource includes a HAL-style `_links` object with navigable relations:
 }
 ```
 
-List endpoints (`/movies`, `/tvshows`, `/characters`) also return `page`, `limit` and collection `_links` (`self`, `first`, `last`, plus `prev`/`next` when paginating with the `limit` query param), preserving all other query params.
+List endpoints (`/movies`, `/tvshows`, `/characters`) return `page`, `limit`, and collection `_links` (`self`, `first`, `last`, plus `prev`/`next`), preserving all other query params. Characters are fully navigable via `GET /characters/{id}/movies` and `GET /characters/{id}/tvshows`.
 
-Characters are fully navigable via `GET /characters/{id}/movies` and `GET /characters/{id}/tvshows`, which list every movie/TV show a character appears in (with `role_type`).
+> [!TIP]
+> Full request/response schemas live in the [Swagger docs](https://mcuapi.up.railway.app/docs).
 
-> Links are built from the request host by default. Set the optional `APP_URL` environment variable (e.g. `APP_URL=https://mcuapi.up.railway.app`) to force the base URL behind a proxy.
----
+> [!NOTE]
+> Links are built from the request host by default. Set `APP_URL` (e.g. `APP_URL=https://mcuapi.up.railway.app`) to force the base URL behind a proxy.
 
-## 🆕 Next features <a name="next-features"></a>
+## Tech stack
 
-  - 🔜 Characters information (you can see more details on [this issue](https://github.com/AugustoMarcelo/mcuapi/issues/13));
-  - ⏳ An edit page where anyone can register, create/update the movies/tv-shows/characters' data and submit for final approval;
-  - ⏳ A change in `cover_url` and `trailer_url` to get them as an array of covers and trailers;
-  - ✅ A new field for movies/tv-shows indicating the last time the information has been updated (you can see more details on [this issue](https://github.com/AugustoMarcelo/mcuapi/issues/14));
-  - 🔜 A new field for movies/tv-shows indicating the streamings where they can be found (you can see more details on [this issue](https://github.com/AugustoMarcelo/mcuapi/issues/15)).
+Express · TypeScript · TypeORM · PostgreSQL — organized as Clean Architecture modules (`movies`, `tvshows`, `characters`, `timeline`) with `tsyringe` for dependency injection.
 
-___
+## Getting started
 
-## ❓ How to run <a name="how-to-run"></a>
+```bash
+git clone https://github.com/AugustoMarcelo/mcuapi
+cd mcuapi
+npm install
+```
 
- - clone the project to your local:
- ```bash
-  git clone https://github.com/AugustoMarcelo/mcuapi
- ```
+Create a `.env` from `.env.example` with your database credentials.
 
-> Running the project in development mode
-
-  - create a `.env` file and put database and environment information. You can use the `.env.example` from the project;
-  - inside the `.env` the *NODE_ENV* variable should be **development**. This tells the ormconfig where the files are located;
-  - to configure the database structure and seeds, you should run the following commands:
-
-  ```bash
-    # creating tables
-    yarn typeorm:dev migration:run
-
-    # inserting data
-    yarn seed:run:dev
-  ```
-
-  - run `yarn dev:server` to start the project and access it in the default 3333 port. You can also configure the port in the `.env` file.
-
-
----
-
-> Running the project in production mode
-
-  - create a `.env` file and put database and environment information. You can use the `.env.example` from the project;
-  - inside the `.env` the *NODE_ENV* variable should be **production**. This tells the ormconfig where the built files are located;
-  - to configure the database structure and seeds, you should run the following commands:
-
-  ```bash
-    # creating tables
-    yarn typeorm migration:run
-
-    # inserting data
-    yarn seed:run
-  ```
-
-  - run `yarn build` or `npm run build` to generate the **./dist** folder. The ormconfig will point to this folder;
-  - run `yarn start` or `npm run start` to start the project in the default 3333 port. You can also configure the port in the `.env` file.
-
-
----
-
-## 💥 Changelogs <a name="changelogs"></a>
 <details>
-  <summary>2026-07-23: Movies | Characters — HATEOAS relations are now links-only (breaking)</summary>
+<summary><strong>Development</strong></summary>
 
-  - CHANGED
-    - *`GET /movies/{id}` no longer embeds full `related_movies` objects — only `_links.related_movies` hrefs are returned*
-    - *`GET /characters/{id}` no longer embeds `variant_character`, `first_appearance_movie` or `first_appearance_tvshow` objects — only their `_links` hrefs (`variant_of`, `first_appearance_movie`, `first_appearance_tvshow`) are returned*
-    - *This is a breaking change to the response shape, made to keep the API consistently HATEOAS/HAL-style (links only, no embedded resource bodies)*
+```bash
+# NODE_ENV=development in .env
+
+npm run typeorm:dev migration:run   # create tables
+npm run seed:run:dev                # seed data
+npm run dev:server                  # start on port 3333 (hot-reload)
+```
+
 </details>
 
 <details>
-  <summary>2026-04-10: Movies | TV Shows — added updated_at field</summary>
+<summary><strong>Production</strong></summary>
 
-  - ADDED
-    - *`updated_at` field to TV Shows, exposing the last time each record was updated (closes [#14](https://github.com/AugustoMarcelo/mcuapi/issues/14))*
-    - *Movies already had this field; Swagger documentation now reflects it for both resources*
-    - *`chronology` field added to TV Show Swagger schema (was missing from docs)*
+```bash
+# NODE_ENV=production in .env
+
+npm run typeorm migration:run       # create tables
+npm run seed:run                    # seed data
+npm run build                       # compile to ./dist
+npm run start                       # start on port 3333
+```
+
 </details>
 
-<details>
-  <summary>2022-08-17: Movies | TV Shows updated</summary>
+> [!NOTE]
+> `NODE_ENV` also tells `ormconfig` where to find migrations — `src/` in development, `dist/` in production.
 
-  - UPDATED
-    - *Doctor Strange in the Multiverse of Madness: box_office*
-    - *Thor: Love and Thunder: box_office*
-    - *I Am Groot: cover_url, directed_by, saga*
-    - *She-Hulk: Attorney at Law: cover_url, release_date*
-</details>
-
-<details>
-  <summary>2022-07-25: Movies | TV Shows added/updated</summary>
-
-  - ADDED
-    - *Captain America: New World Order*
-    - *Thunderbolts*
-    - *Avengers: The Kang Dynasty*
-    - *Avengers: Secret Wars*
-    - *Daredevil: Born Again*
-
-  - UPDATED
-    - *Shang-Chi and The Legend of The Ten Rings: saga*
-    - *Eternals: saga*
-    - *Spider-Man: No Way Home: saga*
-    - *Doctor Strange in the Multiverse of Madness: saga, box_office*
-    - *Thor: Love and Thunder: saga, box_office*
-    - *Black Panther: Wakanda Forever: overview, cover_url, trailer_url, saga, chronology*
-    - *Ant-Man and The Wasp: Quantumania: overview, phase, saga, chronology*
-    - *Guardians of the Galaxy Vol. 3: overview, phase, saga, chronology*
-    - *The Marvels: phase, saga, chronology*
-    - *Blade: release_date, phase, saga, chronology*
-    - *Fantastic Four: release_date, phase, saga, chronology, directed_by*
-    - *WandaVision: saga*
-    - *The Falcon and The Winter Soldier: saga*
-    - *Loki: saga*
-    - *What If...?: saga*
-    - *Hawkeye: saga*
-    - *Moon Knight: saga*
-    - *Ms. Marvel: saga*
-    - *I Am Groot: overview, number_episodes, last_aired_date, saga*
-    - *She-Hulk: title, trailer_url, saga*
-    - *Secret Invasion: overview, phase, saga*
-    - *Echo: phase, saga*
-    - *Ironheart: phase, saga*
-    - *Agatha: House of Harkness: title, phase, saga*
-</details>
-
-<details>
-  <summary>2022-07-11: Movies | TV Shows added/updated</summary>
-
-  - ADDED
-    - *I Am Groot*
-    - *Secret Invasion*
-    - *Ironheart*
-    - *Armor Wars*
-    - *The Guardians of the Galaxy Holiday Special*
-    - *Echo*
-    - *Agatha: House of Harkness*
-
-  - UPDATED
-    - *She-Hulk: Attorney at Law: release_date*
-    - *Doctor Strange in the Multiverse of Madness: updated box_office*
-    - *Thor: Love and Thunder: updated duration, box_office and post_credit_scenes*
-</details>
-
-<details>
-  <summary>2022-06-19: Movies updated</summary>
-
-  - UPDATED
-    - *Doctor Strange in the Multiverse of Madness: updated box_office*
-    - *Shang-Chi: updated box_office*
-    - *Spider-Man: No Way Home: updated box_office*
-    - *Thor: Love and Thunder: updated duration*
-</details>
-
-<details>
-  <summary>2022-05-17: Movies updated</summary>
-
-  - UPDATED
-    - *Doctor Strange in the Multiverse of Madness: updated box_office*
-    - *Thor: Love and Thunder: updated trailer_url and cover_url*
-</details>
-
-<details>
-  <summary>2022-05-17: Movies|TV Shows added/updated</summary>
-
-  - ADDED
-    - *She-Hulk: Attorney at Law*
-
-  - UPDATED
-    - *Doctor Strange in the Multiverse of Madness: updated box_office*
-    - *Ms. Marvel: updated overview and last_aired_date*
-</details>
-
-<details>
-  <summary>2022-05-04: Movies|TV Shows updated</summary>
-
-  - UPDATED
-    - *Ms. Marvel: updated overview and release_date*
-    - *Moon Knight: updated last_aired_date and number_episodes*
-    - *Doctor Strange in the Multiverse of Madness: updated post_credit_scenes*
-</details>
-
-<details>
-  <summary>2022-05-01: Movies updated</summary>
-
-  - UPDATED
-    - *The Marvels: updated release_date*
-    - *Ant-Man and The Wasp: Quantumania: update release_date*
-    - *Thor: Love and Thunder: added overview*
-</details>
-
-<details>
-  <summary>2022-04-18: Movies updated</summary>
-
-  - UPDATED
-    - *Spider-Man: No Way Home: updated box_office, chronology and related movies*
-    - *Doctor Strange in the Multiverse of Madness: updated duration, chronology and related movies*
-    - *Thor: Love and Thunder: updated cover, trailer_url, chronology and related movies*
-</details>
-
-<details>
-  <summary>2022-03-16: TV Shows added/updated</summary>
-
-  - ADDED
-    - *Ms. Marvel*
-
-  - UPDATED
-    - *Moon Knight: updated cover_url*
-</details>
-
-<details>
-  <summary>2022-02-20: Movies|TV Shows added/updated</summary>
-
-  - UPDATED
-    - *Doctor Strange in the Multiverse of Madness: updated cover and trailer_url*
-    - *Spider-Man: No Way Home: updated box_office*
-</details>
-
-<details>
-  <summary>2022-01-22: Movies|TV Shows added/updated</summary>
-
-  - ADDED
-    - *Moon Knight*
-
-  - UPDATED
-    - *Eternals: updated cover and box_office*
-    - *Spider-Man: No Way Home: updated box_office*
-    - *Shang-Chi: updated box_office*
-</details>
-
-<details>
-  <summary>2022-01-06: Movies|TV Shows updated</summary>
-
-  - UPDATED
-    - *Black Panther: Wakanda Forever: updated cover*
-    - *Doctor Strange in the Multiverse of Madness: updated cover*
-    - *Hawkeye: updated cover*
-</details>
-
-<details>
-  <summary>2021-12-28: Movies|TV Shows updated</summary>
-
-  - UPDATED
-    - *Spider-Man: No Way Home: updated box_office, duration, cover, trailer_url and post_credit_scenes*
-    - *Eternals: updated box_office*
-    - *Shang-Chi: updated box_office*
-    - *Black Widow: updated box_office*
-    - *Spider-Man: Far From Home: updated box_office*
-    - *Doctor Strange in the Multiverse of Madness: updated trailer_url*
-    - *Hawkeye: updated cover and last_aired_episode*
-</details>
-
-<details>
-  <summary>2021-11-13: Movies updated</summary>
-
-  - UPDATED
-    - *Spider-Man: No Way Home: updated cover*
-</details>
-
-<details>
-  <summary>2021-11-06: Movies updated</summary>
-
-  - UPDATED
-    - *Eternals: updated duration and post_credit_scenes*
-    - *Doctor Strange in the Multiverse of Madness: update release_date*
-    - *Thor: Love and Thunder: update release_date*
-    - *Black Panther: Wakanda Forever: update release_date*
-    - *The Marvels: update release_date*
-    - *Ant-Man and The Wasp: Quantumania: update release_date*
-</details>
-
-<details>
-  <summary>2021-09-19: TV Shows updated</summary>
-
-  - ADDED
-    - *What If...?*
-    - *Hawkeye*
-</details>
-
-<details>
-  <summary>2021-08-28: Movies updated</summary>
-
-  - UPDATED
-    - *Spider-Man: No Way Home: updated overview, trailer_url and related_movies*
-</details>
-
-<details>
-  <summary>2021-08-21: Movies updated</summary>
-
-  - UPDATED
-    - *Shang-Chi: updated cover, title, duration and post_credit_scenes*
-    - *The Avengers: updated box_office*
-    - *Guardians of the Galaxy: updated box_office*
-    - *Guardians of the Galaxy Vol. 2: updated box_office*
-    - *Avengers: Age of Ultron: updated box_office*
-    - *Captain America: Civil War: updated box_office*
-    - *Doctor Strange: updated box_office*
-    - *Thor: Ragnarok: updated box_office*
-    - *Black Panther: updated box_office*
-    - *Avengers: Infinity War: updated box_office*
-    - *Captain Marvel: updated box_office*
-    - *Avengers: Endgame: updated box_office*
-    - *Spider-Man: Far From Home: updated box_office*
-    - *Black Widow: updated box_office*
-    - *Eternals: updated trailer_url*
-</details>
-
-<details>
-  <summary>2021-07-31: Movies updated</summary>
-
-   - UPDATED
-    - *Black Panther: updated chronology*
-    - *Avengers: Infinity War: updated chronology*
-    - *Ant-Man and The Wasp: updated chronology*
-    - *Black Widow: updated chronology*
-    - *Shang-Chi: updated cover*
-    - *Added a property `related_movies` to movies/{id} endpoint that returns all related movies*
-</details>
-
-<details>
-  <summary>2021-07-14: Movies|TV Shows updated</summary>
-
-  - UPDATED
-    - *Loki: updated last_aired_date*
-    - *Black Widow: updated chronology*
-</details>
-
-<details>
-  <summary>2021-07-04: Movies|TV Shows updated</summary>
-
-  - UPDATED
-    - *All movies and tv shows: added imdb_id property*
-    - *Black Widow: updated cover*
-</details>
-
-<details>
-  <summary>2021-06-12: Movies updated</summary>
-
-  - UPDATED
-    - *The Marvels: updated cover*
-</details>
-
-<details>
-  <summary>2021-05-24: Movies|TV Shows updated</summary>
-
-  - UPDATED
-    - *The Eternals: updated title, overview, cover and trailer_url*
-    - *Loki: updated cover*
-</details>
-
-<details>
-  <summary>2021-05-04: Movies|TV Shows updated</summary>
-
-  - UPDATED
-    - *Captain Marvel 2: updated title*
-    - *Black Panther 2: updated title and overview*
-    - *Ant-Man and The Wasp: Quantumania: updated release_date*
-    - *Loki: updated overview, cover_url and release_date*
-  - ADDED
-    - *Guardians of the Galaxy Vol .3*
-</details>
+Have a suggestion? [Open an issue](https://github.com/AugustoMarcelo/mcuapi/issues).
