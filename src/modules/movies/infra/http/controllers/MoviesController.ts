@@ -11,6 +11,9 @@ import {
 } from '@modules/movies/infra/http/presenters/MoviePresenter';
 import { getBaseUrl } from '@shared/infra/http/hateoas';
 
+const DEFAULT_PAGE = 1;
+const DEFAULT_LIMIT = 10;
+
 interface IRequestQuery {
   page?: number;
   limit?: number;
@@ -26,8 +29,6 @@ interface IRequestQuery {
 export default class MoviesController {
   public async index(request: Request, response: Response): Promise<Response> {
     const {
-      page,
-      limit,
       columns,
       order,
       filter,
@@ -36,6 +37,9 @@ export default class MoviesController {
       multiverse_designation,
       is_mcu,
     }: IRequestQuery = request.query;
+
+    const page = Number(request.query.page) || DEFAULT_PAGE;
+    const limit = Number(request.query.limit) || DEFAULT_LIMIT;
 
     const listAllMovies = container.resolve(ListAllMoviesService);
     const { data, total } = await listAllMovies.execute({

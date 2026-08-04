@@ -8,6 +8,9 @@ import {
 } from '@modules/tvshows/infra/http/presenters/TVShowPresenter';
 import { getBaseUrl } from '@shared/infra/http/hateoas';
 
+const DEFAULT_PAGE = 1;
+const DEFAULT_LIMIT = 10;
+
 interface IRequestQuery {
   page?: number;
   limit?: number;
@@ -23,8 +26,6 @@ interface IRequestQuery {
 export default class TVShowsController {
   public async index(request: Request, response: Response): Promise<Response> {
     const {
-      page,
-      limit,
       columns,
       order,
       filter,
@@ -33,6 +34,9 @@ export default class TVShowsController {
       multiverse_designation,
       is_mcu,
     }: IRequestQuery = request.query;
+
+    const page = Number(request.query.page) || DEFAULT_PAGE;
+    const limit = Number(request.query.limit) || DEFAULT_LIMIT;
 
     const listAllTVShows = container.resolve(ListTVShowsService);
     const { data, total } = await listAllTVShows.execute({
