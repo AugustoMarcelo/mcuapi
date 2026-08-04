@@ -14,6 +14,9 @@ dist/
 
 # Helper files
 Helpers.md
+SETUP.md
+MULTIVERSE_FEATURES.md
+Initial Concept.md
 
 # Local data dumps and working files
 *.bak
