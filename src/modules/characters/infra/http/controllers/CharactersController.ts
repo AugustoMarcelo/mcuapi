@@ -15,10 +15,9 @@ import {
 import { presentMovie } from '@modules/movies/infra/http/presenters/MoviePresenter';
 import { presentTVShow } from '@modules/tvshows/infra/http/presenters/TVShowPresenter';
 import { getBaseUrl } from '@shared/infra/http/hateoas';
+import { DEFAULT_LIMIT, DEFAULT_PAGE } from '@shared/infra/http/pagination';
 
 interface IRequestQuery {
-  page?: number;
-  limit?: number;
   columns?: string;
   order?: string;
   filter?: string;
@@ -29,14 +28,15 @@ interface IRequestQuery {
 export default class CharactersController {
   public async index(request: Request, response: Response): Promise<Response> {
     const {
-      page,
-      limit,
       columns,
       order,
       filter,
       continuity,
       multiverse_designation,
     }: IRequestQuery = request.query;
+
+    const page = Number(request.query.page) || DEFAULT_PAGE;
+    const limit = Number(request.query.limit) || DEFAULT_LIMIT;
 
     const listAllCharacters = container.resolve(ListAllCharactersService);
     const { data, total } = await listAllCharacters.execute({
