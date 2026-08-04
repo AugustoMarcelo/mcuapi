@@ -10,7 +10,7 @@ import {
   presentMovieCollection,
 } from '@modules/movies/infra/http/presenters/MoviePresenter';
 import { getBaseUrl } from '@shared/infra/http/hateoas';
-import { DEFAULT_LIMIT, DEFAULT_PAGE } from '@shared/infra/http/pagination';
+import { resolveLimit, resolvePage } from '@shared/infra/http/pagination';
 
 interface IRequestQuery {
   columns?: string;
@@ -34,8 +34,8 @@ export default class MoviesController {
       is_mcu,
     }: IRequestQuery = request.query;
 
-    const page = Number(request.query.page) || DEFAULT_PAGE;
-    const limit = Number(request.query.limit) || DEFAULT_LIMIT;
+    const page = resolvePage(request.query.page);
+    const limit = resolveLimit(request.query.limit);
 
     const listAllMovies = container.resolve(ListAllMoviesService);
     const { data, total } = await listAllMovies.execute({

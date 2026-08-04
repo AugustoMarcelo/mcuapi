@@ -80,9 +80,23 @@ Required in `.env` (see `.env.example`):
 DB_HOST, DB_USER, DB_PASS, DB_NAME, NODE_ENV
 ```
 
-## Current Branch: feat/multiverse
+## API Surface
 
-The active branch adds multiverse/timeline support: new fields on `Movie` and `TVShow` entities (`studio`, `continuity`, `multiverse_designation`, `is_mcu`, `timeline_*`), a `Character` entity, and a `/timeline` endpoint.
+The public HTTP API is **read-only** — every route is a `GET`. All writes happen
+out-of-band through the `mcuapi-mcp/` MCP server, which connects to Postgres
+directly. `MoviesController.create`/`update` and the character create/update/delete
+repository methods still exist and are tested, but no route registers them.
+
+Cross-cutting middleware lives in `src/shared/infra/http/server.ts`: rate limiting
+(100 req/min per IP), `Cache-Control: public, max-age=3600` on GETs (Express
+supplies the `ETag`/304 revalidation), and a `/health` endpoint used by Railway's
+healthcheck. Pagination defaults and the `limit` cap live in
+`src/shared/infra/http/pagination.ts` — use `resolvePage`/`resolveLimit` in
+controllers rather than reading the query params directly.
+
+Multiverse/timeline support is merged: `studio`, `continuity`,
+`multiverse_designation`, `is_mcu`, `timeline_chronology_order` on `Movie` and
+`TVShow`, plus a `Character` entity and a `/timeline` endpoint.
 
 ## Data Sourcing Rules
 

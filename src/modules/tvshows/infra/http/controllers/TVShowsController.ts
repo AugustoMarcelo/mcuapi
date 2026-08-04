@@ -7,7 +7,7 @@ import {
   presentTVShowCollection,
 } from '@modules/tvshows/infra/http/presenters/TVShowPresenter';
 import { getBaseUrl } from '@shared/infra/http/hateoas';
-import { DEFAULT_LIMIT, DEFAULT_PAGE } from '@shared/infra/http/pagination';
+import { resolveLimit, resolvePage } from '@shared/infra/http/pagination';
 
 interface IRequestQuery {
   columns?: string;
@@ -31,8 +31,8 @@ export default class TVShowsController {
       is_mcu,
     }: IRequestQuery = request.query;
 
-    const page = Number(request.query.page) || DEFAULT_PAGE;
-    const limit = Number(request.query.limit) || DEFAULT_LIMIT;
+    const page = resolvePage(request.query.page);
+    const limit = resolveLimit(request.query.limit);
 
     const listAllTVShows = container.resolve(ListTVShowsService);
     const { data, total } = await listAllTVShows.execute({
