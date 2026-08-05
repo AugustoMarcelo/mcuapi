@@ -67,6 +67,24 @@ for await (const character of mcu.characters.all()) {
 
 It's entirely optional — the API needs no client — but the types are derived from real production responses, so they catch things the entity definitions don't. `box_office` is a `string` (Postgres returns `bigint` as a string), and most fields are genuinely nullable.
 
+## Static mirror (CDN)
+
+The whole dataset is also committed to [`data/`](data) and served over jsDelivr, so it stays reachable even if the API is down — and it doesn't count against the rate limit.
+
+```
+https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/movies.json
+https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/tvshows.json
+https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/characters.json
+https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/timeline.json
+https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/index.json
+```
+
+Each file is a plain array of the same records the API returns, `_links` included. `index.json` carries the record counts, a `generated_at` timestamp and a `content_hash`.
+
+Pin a tag instead of `@master` if you want a fixed dataset — `@3.0.0/data/movies.json` will never change. `@master` is refreshed weekly and cached by the CDN for up to 12 hours.
+
+Regenerate it with `npm run snapshot`. The output is byte-stable when the data hasn't moved, so a no-op run leaves the tree clean.
+
 ## Usage & limits
 
 - **Read-only.** Every endpoint is a `GET`; the API never accepts writes.

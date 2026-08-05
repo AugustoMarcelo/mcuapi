@@ -1,0 +1,1738 @@
+[
+  {
+    "id": 1,
+    "title": "WandaVision",
+    "release_date": "2021-01-15",
+    "last_aired_date": "2021-03-05",
+    "season": 1,
+    "number_episodes": 9,
+    "overview": "Marvel Studios captivating new series \"WandaVision\" which premieres in early 2021 on Disney+. Starring Elizabeth Olsen and Paul Bettany, \"WandaVision\" marks the first series from Marvel Studios streaming exclusively on Disney+. The series is a blend of classic television and the Marvel Cinematic Universe in which Wanda Maximoff and Vision—two super-powered beings living idealized suburban lives—begin to suspect that everything is not as it seems",
+    "cover_url": "https://res.cloudinary.com/augustomarcelo/image/upload/v1676219587/mcuapi/gallery/tv_shows/wandavision/posters/1.jpg",
+    "trailer_url": "https://players.brightcove.net/5359769168001/BJemW31x6g_default/index.html?videoId=6215509803001",
+    "directed_by": "Matt Shakman",
+    "phase": 4,
+    "saga": "Multiverse Saga",
+    "chronology": 6,
+    "imdb_id": "tt9140560",
+    "updated_at": "2026-04-10T20:56:23.769Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 60,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/1"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/1"
+      }
+    }
+  },
+  {
+    "id": 2,
+    "title": "The Falcon and The Winter Soldier",
+    "release_date": "2021-03-19",
+    "last_aired_date": "2021-04-23",
+    "season": 1,
+    "number_episodes": 6,
+    "overview": "Following the events of \"Avengers: Endgame\" Sam Wilson/Falcon (Anthony Mackie) and Bucky Barnes/Winter Soldier (Sebastian Stan) team up in a global adventure that tests their abilities—and their patience—in Marvel Studios’ “The Falcon and The Winter Soldier.” The all-new series is directed by Kari Skogland; Malcolm Spellman is the head writer. Streaming exclusively on Disney+.",
+    "cover_url": "https://res.cloudinary.com/augustomarcelo/image/upload/v1676219753/mcuapi/gallery/tv_shows/the_falcon_and_the_winter_soldier/posters/1.jpg",
+    "trailer_url": "https://players.brightcove.net/5359769168001/BJemW31x6g_default/index.html?videoId=6215508715001",
+    "directed_by": "Kari Skogland",
+    "phase": 4,
+    "saga": "Multiverse Saga",
+    "chronology": 7,
+    "imdb_id": "tt9208876",
+    "updated_at": "2026-04-10T20:56:23.769Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 62,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/2"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/2"
+      }
+    }
+  },
+  {
+    "id": 3,
+    "title": "Loki",
+    "release_date": "2021-06-09",
+    "last_aired_date": "2021-07-14",
+    "season": 1,
+    "number_episodes": 6,
+    "overview": "In Marvel Studios’ \"Loki\" the mercurial villain Loki (Tom Hiddleston) resumes his role as the God of Mischief in a new series that takes place after the events of “Avengers: Endgame.” Kate Herron directs and Michael Waldron is head writer. Debuts on Disney+ in June 9, 2021.",
+    "cover_url": "https://res.cloudinary.com/augustomarcelo/image/upload/v1676219908/mcuapi/gallery/tv_shows/loki/season_1/posters/1.jpg",
+    "trailer_url": "https://players.brightcove.net/5359769168001/BJemW31x6g_default/index.html?videoId=6215507931001",
+    "directed_by": "Kate Herron",
+    "phase": 4,
+    "saga": "Multiverse Saga",
+    "chronology": 4,
+    "imdb_id": "tt9140554",
+    "updated_at": "2026-04-10T20:56:23.769Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 57,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/3"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/3"
+      }
+    }
+  },
+  {
+    "id": 4,
+    "title": "What If...?",
+    "release_date": "2021-08-11",
+    "last_aired_date": "2021-10-06",
+    "season": 1,
+    "number_episodes": 9,
+    "overview": "\"What If…?\" flips the script on the MCU, reimagining famous events from the films in unexpected ways. Marvel Studios’ first animated series focuses on different heroes from the MCU, featuring a voice cast that includes a host of stars who reprise their roles. Directed by Bryan Andrews with AC Bradley as head writer, “What If…?\" launches exclusively on Disney+ on August 11, 2021.",
+    "cover_url": "https://res.cloudinary.com/augustomarcelo/image/upload/v1676220025/mcuapi/gallery/tv_shows/what_if/season_1/posters/1.jpg",
+    "trailer_url": "https://assets.espn.go.com/players/web-player-bundle/next/embed/share.html#id=6262751537001&brand=marvel",
+    "directed_by": "Bryan Andrew",
+    "phase": 4,
+    "saga": "Multiverse Saga",
+    "chronology": 5,
+    "imdb_id": "tt10168312",
+    "updated_at": "2026-04-10T20:56:23.769Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 58,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/4"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/4"
+      }
+    }
+  },
+  {
+    "id": 5,
+    "title": "Hawkeye",
+    "release_date": "2021-11-24",
+    "last_aired_date": "2021-12-22",
+    "season": 1,
+    "number_episodes": 6,
+    "overview": "Marvel Studios’ \"Hawkeye\" stars Jeremy Renner as Hawkeye, who teams up with another well-known archer from the Marvel comics, Kate Bishop, played by Hailee Steinfeld. The cast also includes Vera Farmiga, Fra Fee, Tony Dalton, Zahn McClarnon, Brian d’Arcy James and newcomer Alaqua Cox as Maya Lopez. “Hawkeye” is helmed by Rhys Thomas and directing duo Bert and Bertie.",
+    "cover_url": "https://res.cloudinary.com/augustomarcelo/image/upload/v1676220173/mcuapi/gallery/tv_shows/hawkeye/1.jpg",
+    "trailer_url": "https://youtu.be/5VYb3B1ETlk",
+    "directed_by": "Rhys Thomas, Bert and Bertie",
+    "phase": 4,
+    "saga": "Multiverse Saga",
+    "chronology": 9,
+    "imdb_id": "tt10160804",
+    "updated_at": "2026-04-10T20:56:23.769Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 67,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/5"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/5"
+      }
+    }
+  },
+  {
+    "id": 6,
+    "title": "Moon Knight",
+    "release_date": "2022-03-30",
+    "last_aired_date": "2022-05-04",
+    "season": 1,
+    "number_episodes": 6,
+    "overview": "Moon Knight follows Steven Grant, a mild-mannered gift-shop employee, who becomes plagued with blackouts and memories of another life. Steven discovers he has dissociative identity disorder and shares a body with mercenary Marc Spector. As Steven/Marc's enemies converge upon them, they must navigate their complex identities while thrust into a deadly mystery among the powerful gods of Egypt.",
+    "cover_url": "https://res.cloudinary.com/augustomarcelo/image/upload/v1677417882/mcuapi/gallery/tv_shows/moon_knight/posters/3.jpg",
+    "trailer_url": "https://youtu.be/x7Krla_UxRg",
+    "directed_by": "Mohamed Diab",
+    "phase": 4,
+    "saga": "Multiverse Saga",
+    "chronology": 10,
+    "imdb_id": "tt10234724",
+    "updated_at": "2026-04-10T20:56:23.769Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 68,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/6"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/6"
+      }
+    }
+  },
+  {
+    "id": 7,
+    "title": "Ms. Marvel",
+    "release_date": "2022-06-08",
+    "last_aired_date": "2022-07-13",
+    "season": 1,
+    "number_episodes": 6,
+    "overview": "Ms. Marvel is a new, original series that introduces Kamala Khan, a Muslim American teenager growing up in Jersey City. An avid gamer and a voracious fan-fiction scribe, Kamala is a Super Hero mega-fan with an oversized imagination—particularly when it comes to Captain Marvel. Yet Kamala feels invisible both at home and at school—that is, until she gets super powers like the heroes she’s always looked up to. Life gets better with super powers, right?",
+    "cover_url": "https://res.cloudinary.com/augustomarcelo/image/upload/v1677418034/mcuapi/gallery/tv_shows/ms_marvel/posters/1.jpg",
+    "trailer_url": "https://youtu.be/m9EX0f6V11Y",
+    "directed_by": "Adil El Arbi & Bilall Fallah, Meera Menon, Sharmeen Obaid-Chinoy",
+    "phase": 4,
+    "saga": "Multiverse Saga",
+    "chronology": 13,
+    "imdb_id": "tt10857164",
+    "updated_at": "2026-04-10T20:56:23.769Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 72,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/7"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/7"
+      }
+    }
+  },
+  {
+    "id": 8,
+    "title": "I Am Groot",
+    "release_date": "2022-08-10",
+    "last_aired_date": "2022-08-10",
+    "season": 1,
+    "number_episodes": 5,
+    "overview": "There’s no guarding the galaxy from this mischievous toddler! So get ready as Baby Groot takes center stage in his very own collection of shorts, exploring his glory days growing up — and getting into trouble — among the stars. I Am Groot, five original shorts featuring several new and unusual characters, stars everyone’s favorite little tree, Baby Groot, voiced by Vin Diesel, who voices Groot in the Guardians of the Galaxy franchise.",
+    "cover_url": "https://res.cloudinary.com/augustomarcelo/image/upload/v1677418157/mcuapi/gallery/tv_shows/i_am_groot/posters/2.jpg",
+    "trailer_url": "https://youtu.be/D7eFpRf4tac",
+    "directed_by": "Kirsten Lepore",
+    "phase": 4,
+    "saga": "Infinity Saga",
+    "chronology": 2,
+    "imdb_id": "tt13623148",
+    "updated_at": "2026-04-10T20:56:23.769Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 17,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/8"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/8"
+      }
+    }
+  },
+  {
+    "id": 9,
+    "title": "She Hulk: Attorney at Law",
+    "release_date": "2022-08-18",
+    "last_aired_date": "2022-10-13",
+    "season": 1,
+    "number_episodes": 9,
+    "overview": "She-Hulk: Attorney at Law follows Jennifer Walters as she navigates the complicated life of a single, 30-something attorney who also happens to be a green 6-foot-7-inch superpowered hulk. The nine-episode series welcomes a host of MCU vets, including Mark Ruffalo as Smart Hulk, Tim Roth as Emil Blonsky/the Abomination, and Benedict Wong as Wong.",
+    "cover_url": "https://res.cloudinary.com/augustomarcelo/image/upload/v1677418342/mcuapi/gallery/tv_shows/she_hulk_attorney_at_law/posters/2.jpg",
+    "trailer_url": "https://youtu.be/u7JsKhI2An0",
+    "directed_by": "Kat Coiro and Anu Valia",
+    "phase": 4,
+    "saga": "Multiverse Saga",
+    "chronology": 12,
+    "imdb_id": "tt10857160",
+    "updated_at": "2026-04-10T20:56:23.769Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 71,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/9"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/9"
+      }
+    }
+  },
+  {
+    "id": 10,
+    "title": "Werewolf By Night",
+    "release_date": "2022-10-07",
+    "last_aired_date": "2022-10-07",
+    "season": 1,
+    "number_episodes": 1,
+    "overview": "Follows a lycanthrope superhero who fights evil using the abilities given to him by a curse brought on by his bloodline.",
+    "cover_url": "https://res.cloudinary.com/augustomarcelo/image/upload/v1677418444/mcuapi/gallery/tv_shows/werewolf_by_night/posters/1.jpg",
+    "trailer_url": "https://youtu.be/bLEFqhS5WmI",
+    "directed_by": "Michael Giacchino",
+    "phase": 4,
+    "saga": "Multiverse Saga",
+    "chronology": 15,
+    "imdb_id": "tt15318872",
+    "updated_at": "2026-04-10T20:56:23.769Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 75,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/10"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/10"
+      }
+    }
+  },
+  {
+    "id": 11,
+    "title": "The Guardians of the Galaxy Holiday Special",
+    "release_date": "2022-11-25",
+    "last_aired_date": "2022-11-25",
+    "season": 1,
+    "number_episodes": 1,
+    "overview": "In the The Guardians of the Galaxy Holiday Special, the Guardians, who are on a mission to make Christmas unforgettable for Quill, head to Earth in search of the perfect present. The Marvel Studios’ Special Presentation stars Chris Pratt, Dave Bautista, Karen Gillan, and Pom Klementieff, featuring Vin Diesel as Groot and Bradley Cooper as Rocket, Sean Gunn and The Old 97’s with Michael Rooker and Kevin Bacon",
+    "cover_url": "https://res.cloudinary.com/augustomarcelo/image/upload/v1677418587/mcuapi/gallery/tv_shows/the_guardians_of_the_galaxy_holiday_special/posters/1.jpg",
+    "trailer_url": "https://youtu.be/OYhFFQl4fLs",
+    "directed_by": "James Gunn",
+    "phase": 4,
+    "saga": "Multiverse Saga",
+    "chronology": 16,
+    "imdb_id": "tt13623136",
+    "updated_at": "2026-04-10T20:56:23.769Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 76,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/11"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/11"
+      }
+    }
+  },
+  {
+    "id": 12,
+    "title": "Secret Invasion",
+    "release_date": "2023-06-21",
+    "last_aired_date": "2023-07-26",
+    "season": 1,
+    "number_episodes": 6,
+    "overview": "In Secret Invasion, set in the present-day MCU, Fury learns of a clandestine invasion of Earth by a faction of shapeshifting Skrulls. Fury joins his allies, including Everett Ross, Maria Hill, and the Skrull Talos, who has made a life for himself on Earth. Together they race against time to thwart an imminent Skrull invasion and save humanity.",
+    "cover_url": "https://res.cloudinary.com/augustomarcelo/image/upload/v1680562454/mcuapi/gallery/tv_shows/secret_invasion/posters/2.jpg",
+    "trailer_url": "https://youtu.be/Tp_YZNqNBhw",
+    "directed_by": "Thomas Bezucha and Ali Selim",
+    "phase": 5,
+    "saga": "Multiverse Saga",
+    "chronology": 17,
+    "imdb_id": "tt13157618",
+    "updated_at": "2026-04-10T20:56:23.769Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 79,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/12"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/12"
+      }
+    }
+  },
+  {
+    "id": 13,
+    "title": "Echo",
+    "release_date": "2024-01-09",
+    "last_aired_date": "2024-01-09",
+    "season": 1,
+    "number_episodes": 5,
+    "overview": "Streaming exclusively on Disney, the origin story of Echo revisits Maya Lopez, whose ruthless behavior in New York City catches up with her in her hometown. She must face her past, reconnect with her Native American roots and embrace the meaning of family and community if she ever hopes to move forward.",
+    "cover_url": "https://res.cloudinary.com/augustomarcelo/image/upload/v1677418904/mcuapi/gallery/tv_shows/echo/posters/2.jpg",
+    "trailer_url": "https://youtu.be/AFUKnherhuw",
+    "directed_by": "Sydney Freeland and Catriona McKenzie",
+    "phase": 5,
+    "saga": "Spotlight",
+    "chronology": 11,
+    "imdb_id": "tt13966962",
+    "updated_at": "2026-04-10T20:56:23.769Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 70,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/13"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/13"
+      }
+    }
+  },
+  {
+    "id": 14,
+    "title": "Loki",
+    "release_date": "2023-10-05",
+    "last_aired_date": "2023-11-09",
+    "season": 2,
+    "number_episodes": 6,
+    "overview": "Loki Season 2 picks up in the aftermath of the shocking season finale when Loki finds himself in a battle for the soul of the Time Variance Authority. Along with Mobius, Hunter B-15, and a team of new and returning characters, Loki navigates an ever-expanding and increasingly dangerous Multiverse in search of Sylvie, Judge Renslayer, Miss Minutes, and the truth of what it means to possess free will and glorious purpose.",
+    "cover_url": "https://res.cloudinary.com/augustomarcelo/image/upload/v1698754888/mcuapi/gallery/tv_shows/loki/season_2/3.jpg",
+    "trailer_url": "https://youtu.be/dug56u8NN7g",
+    "directed_by": "Kate Herron",
+    "phase": 5,
+    "saga": "Multiverse Saga",
+    "chronology": 18,
+    "imdb_id": "tt9140554",
+    "updated_at": "2026-04-10T20:56:23.769Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 81,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/14"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/14"
+      }
+    }
+  },
+  {
+    "id": 15,
+    "title": "Ironheart",
+    "release_date": "2025-06-24",
+    "last_aired_date": "2025-07-01",
+    "season": 1,
+    "number_episodes": 6,
+    "overview": "Set after the events of “Black Panther: Wakanda Forever”, Marvel Television’s “Ironheart” pits technology against magic when Riri Williams (Dominique Thorne)—a young, genius inventor determined to make her mark on the world—returns to her hometown of Chicago. Her unique take on building iron suits is brilliant, but in pursuit of her ambitions, she finds herself wrapped up with the mysterious yet charming Parker Robbins aka “The Hood” (Anthony Ramos).",
+    "cover_url": "https://cdn.marvel.com/content/2x/ironheart_lob_crd_04.jpg",
+    "trailer_url": "https://youtu.be/WpW36ldAqnM",
+    "directed_by": "Sam Bailey and Angela Barnes",
+    "phase": 5,
+    "saga": "Multiverse Saga",
+    "chronology": 19,
+    "imdb_id": "tt13623126",
+    "updated_at": "2026-04-10T20:56:23.769Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 74,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/15"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/15"
+      }
+    }
+  },
+  {
+    "id": 16,
+    "title": "Agatha All Along",
+    "release_date": "2024-09-18",
+    "last_aired_date": "2024-11-06",
+    "season": 1,
+    "number_episodes": 9,
+    "overview": "In Agatha All Along, the infamous Agatha Harkness finds herself down and out of power after a suspicious goth Teen helps break her free from a distorted spell. Her interest is piqued when he begs her to take him on the legendary Witches’ Road, a magical gauntlet of trials that, if survived, rewards a witch with what they’re missing. Together, Agatha and this mysterious Teen pull together a desperate coven, and set off down, down, down The Road…",
+    "cover_url": "https://res.cloudinary.com/augustomarcelo/image/upload/v1721064409/mcuapi/gallery/tv_shows/agatha_all_along/posters/2.jpg",
+    "trailer_url": "https://youtu.be/R9pXbNz6Vbw",
+    "directed_by": "Jac Schaeffer, Rachel Goldberg and Gandja Montiero",
+    "phase": 5,
+    "saga": "Multiverse Saga",
+    "chronology": 20,
+    "imdb_id": "tt15571732",
+    "updated_at": "2026-04-10T20:56:23.769Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 84,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/16"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/16"
+      }
+    }
+  },
+  {
+    "id": 17,
+    "title": "Daredevil: Born Again",
+    "release_date": "2025-03-04",
+    "last_aired_date": "2025-04-15",
+    "season": 1,
+    "number_episodes": 9,
+    "overview": "In Marvel Television’s 'Daredevil: Born Again', Matt Murdock (Charlie Cox), a blind lawyer with heightened abilities, is fighting for justice through his bustling law firm, while former mob boss Wilson Fisk (Vincent D’Onofrio) pursues his own political endeavors in New York. When their past identities begin to emerge, both men find themselves on an inevitable collision course.",
+    "cover_url": "https://res.cloudinary.com/augustomarcelo/image/upload/v1737320729/mcuapi/gallery/tv_shows/daredevil_born_again/posters/2.jpg",
+    "trailer_url": "https://youtu.be/7xALolZzhSM",
+    "directed_by": "Justin Benson & Aaron Moorhead, Michael Cuesta, Jeffrey Nachmanoff and David Boyd",
+    "phase": 5,
+    "saga": "Multiverse Saga",
+    "chronology": 21,
+    "imdb_id": "tt20411934",
+    "updated_at": "2026-04-10T20:56:23.769Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 87,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/17"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/17"
+      }
+    }
+  },
+  {
+    "id": 18,
+    "title": "I Am Groot",
+    "release_date": "2023-11-06",
+    "last_aired_date": "2023-10-06",
+    "season": 2,
+    "number_episodes": 5,
+    "overview": "The troublemaking twig returns to mischief in the second season of “I Am Groot.” This time, Baby Groot finds himself exploring the universe and beyond aboard the Guardians’ spaceships, coming face-to-face—or nose-to-nose—with new and colorful creatures and environments",
+    "cover_url": "https://res.cloudinary.com/augustomarcelo/image/upload/v1698756081/mcuapi/gallery/tv_shows/i_am_groot/posters/season_2/1.jpg",
+    "trailer_url": "https://youtu.be/1k8H2CywVqg",
+    "directed_by": "Kirsten Lepore",
+    "phase": 4,
+    "saga": "Infinity Saga",
+    "chronology": 3,
+    "imdb_id": "tt13623148",
+    "updated_at": "2026-04-10T20:56:23.769Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 18,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/18"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/18"
+      }
+    }
+  },
+  {
+    "id": 19,
+    "title": "What If...?",
+    "release_date": "2023-12-22",
+    "last_aired_date": "2023-12-30",
+    "season": 2,
+    "number_episodes": 9,
+    "overview": "Season 2 of “What If…?” continues the journey as The Watcher guides viewers through the vast multiverse, introducing brand new and familiar faces throughout the MCU. The series questions, revisits and twists classic Marvel Cinematic moments with an incredible voice cast that includes a host of stars who reprise their iconic roles.",
+    "cover_url": "https://res.cloudinary.com/augustomarcelo/image/upload/v1700413035/mcuapi/gallery/tv_shows/what_if/season_2/posters/1.jpg",
+    "trailer_url": "https://youtu.be/TiEVqZ2Bc_c",
+    "directed_by": "Bryan Andrews",
+    "phase": 5,
+    "saga": "Multiverse Saga",
+    "chronology": 8,
+    "imdb_id": "tt10168312",
+    "updated_at": "2026-04-10T20:56:23.769Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 82,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/19"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/19"
+      }
+    }
+  },
+  {
+    "id": 20,
+    "title": "What If...?",
+    "release_date": "2024-12-22",
+    "last_aired_date": "2024-12-29",
+    "season": 3,
+    "number_episodes": 8,
+    "overview": "Marvel’s animated series 'What If...?' returns in Season 3 for its culminating adventure through the Multiverse. Watch as classic characters make unexpected choices that will mutate their worlds into spectacular alternate versions of the MCU. The Watcher (voice of Jeffrey Wright) will guide viewers as the series traverses new genres, bigger spectacles, and incredible new characters.",
+    "cover_url": "https://res.cloudinary.com/augustomarcelo/image/upload/v1737320435/mcuapi/gallery/tv_shows/what_if/season_3/posters/1.jpg",
+    "trailer_url": "https://youtu.be/umiKiW4En9g",
+    "directed_by": "Bryan Andrews and Stephan Franck",
+    "phase": 5,
+    "saga": "Multiverse Saga",
+    "chronology": 14,
+    "imdb_id": "tt10168312",
+    "updated_at": "2026-04-10T20:56:23.769Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 85,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/20"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/20"
+      }
+    }
+  },
+  {
+    "id": 21,
+    "title": "Eyes of Wakanda",
+    "release_date": "2025-08-01",
+    "last_aired_date": "2025-08-01",
+    "season": 1,
+    "number_episodes": 4,
+    "overview": "Marvel Animation’s new action-adventure series 'Eyes of Wakanda' follows the adventures of brave Wakandan warriors throughout history. In this globe-trotting adventure, the heroes must carry-out dangerous missions to retrieve Vibranium artifacts from the enemies of Wakanda. They are the Hatut Zaraze and this is their story.",
+    "cover_url": "https://cdn.marvel.com/content/2x/eyesofwakanda_lob_crd_02.jpg",
+    "trailer_url": "https://youtu.be/ODHh6oe4MlE",
+    "directed_by": "Todd Harris",
+    "phase": 5,
+    "saga": "Multiverse Saga",
+    "chronology": 1,
+    "imdb_id": "tt13968252",
+    "updated_at": "2026-04-10T20:56:23.769Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 1,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/21"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/21"
+      }
+    }
+  },
+  {
+    "id": 22,
+    "title": "Wonder Man",
+    "release_date": "2026-01-27",
+    "last_aired_date": "2026-01-27",
+    "season": 1,
+    "number_episodes": 8,
+    "overview": "Aspiring Hollywood actor Simon Williams is struggling to get his career off the ground. During a chance meeting with Trevor Slattery, an actor whose biggest roles may be well behind him, Simon learns legendary director Von Kovak is remaking the superhero film “Wonder Man”. These two actors at opposite ends of their careers doggedly pursue life-changing roles in this film as audiences get a peek behind the curtain of the entertainment industry.",
+    "cover_url": "https://cdn.marvel.com/content/2x/wonderman_lob_crd_02.jpg",
+    "trailer_url": "https://youtu.be/wHuWmjXsReU",
+    "directed_by": "Destin Daniel Cretton, James Ponsoldt, Tiffany Johnson, Stella Meghie",
+    "phase": 6,
+    "saga": "Multiverse Saga",
+    "chronology": 22,
+    "imdb_id": "tt21066182",
+    "updated_at": "2026-04-10T20:56:23.769Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 93,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/22"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/22"
+      }
+    }
+  },
+  {
+    "id": 23,
+    "title": "Daredevil: Born Again\t",
+    "release_date": "2026-03-24",
+    "last_aired_date": "2026-05-05",
+    "season": 2,
+    "number_episodes": 8,
+    "overview": "Matt Murdock/Daredevil and Mayor Wilson Fisk/Kingpin will find themselves on a collision course, as they both fight for the future of New York City.",
+    "cover_url": "http://cdn.marvel.com/content/2x/daredevilbornagains2_lob_crd_01.jpg",
+    "trailer_url": "https://youtu.be/sBVjIlTjoIk",
+    "directed_by": "Aaron Moorhead & Justin Benson, Michael Cuesta, Jeffrey Nachmanoff, and David Boyd",
+    "phase": 6,
+    "saga": "Multiverse Saga",
+    "chronology": 23,
+    "imdb_id": "tt18923754",
+    "updated_at": "2026-04-10T20:56:23.769Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 92,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/23"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/23"
+      }
+    }
+  },
+  {
+    "id": 24,
+    "title": "The Punisher: One Last Kill",
+    "release_date": "2026-05-12",
+    "last_aired_date": "2026-05-12",
+    "season": 0,
+    "number_episodes": 1,
+    "overview": "Frank Castle returns in 'A Marvel Television Special Presentation: The Punisher: One Last Kill' on May 12, streaming only on Disney+",
+    "cover_url": "https://cdn.marvel.com/content/2x/thepunisheronelastkill_lob_crd_01.jpg",
+    "trailer_url": "https://youtu.be/oSeqs_xeqv4",
+    "directed_by": null,
+    "phase": 6,
+    "saga": "Multiverse Saga",
+    "chronology": 24,
+    "imdb_id": "tt36042156",
+    "updated_at": "2026-04-10T20:56:23.769Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 91,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/24"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/24"
+      }
+    }
+  },
+  {
+    "id": 25,
+    "title": "Daredevil",
+    "release_date": "2015-04-10",
+    "last_aired_date": "2015-04-10",
+    "season": 1,
+    "number_episodes": 13,
+    "overview": "Blind lawyer Matt Murdock fights crime in Hell's Kitchen by day in the courtroom and by night as the masked vigilante Daredevil.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-21T18:29:33.471Z",
+    "studio": "Marvel Television",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 19,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/25"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/25"
+      }
+    }
+  },
+  {
+    "id": 26,
+    "title": "Daredevil",
+    "release_date": "2016-03-18",
+    "last_aired_date": "2016-03-18",
+    "season": 2,
+    "number_episodes": 13,
+    "overview": "Blind lawyer Matt Murdock fights crime in Hell's Kitchen by day in the courtroom and by night as the masked vigilante Daredevil.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-21T18:29:33.607Z",
+    "studio": "Marvel Television",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 24,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/26"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/26"
+      }
+    }
+  },
+  {
+    "id": 27,
+    "title": "Daredevil",
+    "release_date": "2018-10-19",
+    "last_aired_date": "2018-10-19",
+    "season": 3,
+    "number_episodes": 13,
+    "overview": "Blind lawyer Matt Murdock fights crime in Hell's Kitchen by day in the courtroom and by night as the masked vigilante Daredevil.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-21T18:29:33.730Z",
+    "studio": "Marvel Television",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 41,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/27"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/27"
+      }
+    }
+  },
+  {
+    "id": 28,
+    "title": "Jessica Jones",
+    "release_date": "2015-11-20",
+    "last_aired_date": "2015-11-20",
+    "season": 1,
+    "number_episodes": 13,
+    "overview": "Former superhero Jessica Jones rebuilds her life as a hard-drinking private investigator in New York City.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-21T18:29:33.852Z",
+    "studio": "Marvel Television",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 21,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/28"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/28"
+      }
+    }
+  },
+  {
+    "id": 29,
+    "title": "Jessica Jones",
+    "release_date": "2018-03-08",
+    "last_aired_date": "2018-03-08",
+    "season": 2,
+    "number_episodes": 13,
+    "overview": "Former superhero Jessica Jones rebuilds her life as a hard-drinking private investigator in New York City.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-21T18:29:34.052Z",
+    "studio": "Marvel Television",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 38,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/29"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/29"
+      }
+    }
+  },
+  {
+    "id": 30,
+    "title": "Jessica Jones",
+    "release_date": "2019-06-14",
+    "last_aired_date": "2019-06-14",
+    "season": 3,
+    "number_episodes": 13,
+    "overview": "Former superhero Jessica Jones rebuilds her life as a hard-drinking private investigator in New York City.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-21T18:29:34.171Z",
+    "studio": "Marvel Television",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 49,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/30"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/30"
+      }
+    }
+  },
+  {
+    "id": 31,
+    "title": "Luke Cage",
+    "release_date": "2016-09-30",
+    "last_aired_date": "2016-09-30",
+    "season": 1,
+    "number_episodes": 13,
+    "overview": "A wrongly convicted ex-con with unbreakable skin fights to protect Harlem.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-21T18:29:34.357Z",
+    "studio": "Marvel Television",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 25,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/31"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/31"
+      }
+    }
+  },
+  {
+    "id": 32,
+    "title": "Luke Cage",
+    "release_date": "2018-06-22",
+    "last_aired_date": "2018-06-22",
+    "season": 2,
+    "number_episodes": 13,
+    "overview": "A wrongly convicted ex-con with unbreakable skin fights to protect Harlem.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-21T18:29:34.476Z",
+    "studio": "Marvel Television",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 39,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/32"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/32"
+      }
+    }
+  },
+  {
+    "id": 33,
+    "title": "Iron Fist",
+    "release_date": "2017-03-17",
+    "last_aired_date": "2017-03-17",
+    "season": 1,
+    "number_episodes": 13,
+    "overview": "Danny Rand returns from the mystical city of K'un-Lun to reclaim his family company and his destiny as the Immortal Iron Fist.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-21T18:29:34.596Z",
+    "studio": "Marvel Television",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 27,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/33"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/33"
+      }
+    }
+  },
+  {
+    "id": 34,
+    "title": "Iron Fist",
+    "release_date": "2018-09-07",
+    "last_aired_date": "2018-09-07",
+    "season": 2,
+    "number_episodes": 10,
+    "overview": "Danny Rand returns from the mystical city of K'un-Lun to reclaim his family company and his destiny as the Immortal Iron Fist.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-21T18:29:34.714Z",
+    "studio": "Marvel Television",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 40,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/34"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/34"
+      }
+    }
+  },
+  {
+    "id": 35,
+    "title": "The Defenders",
+    "release_date": "2017-08-18",
+    "last_aired_date": "2017-08-18",
+    "season": 1,
+    "number_episodes": 8,
+    "overview": "Daredevil, Jessica Jones, Luke Cage, and Iron Fist reluctantly team up to save New York from the Hand.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-21T18:29:34.832Z",
+    "studio": "Marvel Television",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 28,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/35"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/35"
+      }
+    }
+  },
+  {
+    "id": 36,
+    "title": "The Punisher",
+    "release_date": "2017-11-17",
+    "last_aired_date": "2017-11-17",
+    "season": 1,
+    "number_episodes": 13,
+    "overview": "Marine veteran Frank Castle wages a one-man war on the criminals who destroyed his family.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-21T18:29:34.951Z",
+    "studio": "Marvel Television",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 36,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/36"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/36"
+      }
+    }
+  },
+  {
+    "id": 37,
+    "title": "The Punisher",
+    "release_date": "2019-01-18",
+    "last_aired_date": "2019-01-18",
+    "season": 2,
+    "number_episodes": 13,
+    "overview": "Marine veteran Frank Castle wages a one-man war on the criminals who destroyed his family.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-21T18:29:35.070Z",
+    "studio": "Marvel Television",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 48,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/37"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/37"
+      }
+    }
+  },
+  {
+    "id": 38,
+    "title": "Agents of S.H.I.E.L.D.",
+    "release_date": "2013-09-24",
+    "last_aired_date": "2014-05-13",
+    "season": 1,
+    "number_episodes": 22,
+    "overview": "Agent Phil Coulson leads a hand-picked S.H.I.E.L.D. team investigating strange threats around the globe.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-21T18:29:35.279Z",
+    "studio": "Marvel Television",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 11,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/38"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/38"
+      }
+    }
+  },
+  {
+    "id": 39,
+    "title": "Agents of S.H.I.E.L.D.",
+    "release_date": "2014-09-23",
+    "last_aired_date": "2015-05-12",
+    "season": 2,
+    "number_episodes": 22,
+    "overview": "Agent Phil Coulson leads a hand-picked S.H.I.E.L.D. team investigating strange threats around the globe.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-21T18:29:35.484Z",
+    "studio": "Marvel Television",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 20,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/39"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/39"
+      }
+    }
+  },
+  {
+    "id": 40,
+    "title": "Agents of S.H.I.E.L.D.",
+    "release_date": "2015-09-29",
+    "last_aired_date": "2016-05-17",
+    "season": 3,
+    "number_episodes": 22,
+    "overview": "Agent Phil Coulson leads a hand-picked S.H.I.E.L.D. team investigating strange threats around the globe.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-21T18:29:35.688Z",
+    "studio": "Marvel Television",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 26,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/40"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/40"
+      }
+    }
+  },
+  {
+    "id": 41,
+    "title": "Agents of S.H.I.E.L.D.",
+    "release_date": "2016-09-20",
+    "last_aired_date": "2017-05-16",
+    "season": 4,
+    "number_episodes": 22,
+    "overview": "Agent Phil Coulson leads a hand-picked S.H.I.E.L.D. team investigating strange threats around the globe.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-21T18:29:35.807Z",
+    "studio": "Marvel Television",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 31,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/41"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/41"
+      }
+    }
+  },
+  {
+    "id": 42,
+    "title": "Agents of S.H.I.E.L.D.",
+    "release_date": "2017-12-01",
+    "last_aired_date": "2018-05-18",
+    "season": 5,
+    "number_episodes": 22,
+    "overview": "Agent Phil Coulson leads a hand-picked S.H.I.E.L.D. team investigating strange threats around the globe.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-21T18:29:35.926Z",
+    "studio": "Marvel Television",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 44,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/42"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/42"
+      }
+    }
+  },
+  {
+    "id": 43,
+    "title": "Agents of S.H.I.E.L.D.",
+    "release_date": "2019-05-10",
+    "last_aired_date": "2019-08-02",
+    "season": 6,
+    "number_episodes": 13,
+    "overview": "Agent Phil Coulson leads a hand-picked S.H.I.E.L.D. team investigating strange threats around the globe.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-21T18:29:36.098Z",
+    "studio": "Marvel Television",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 52,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/43"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/43"
+      }
+    }
+  },
+  {
+    "id": 44,
+    "title": "Agents of S.H.I.E.L.D.",
+    "release_date": "2020-05-27",
+    "last_aired_date": "2020-08-12",
+    "season": 7,
+    "number_episodes": 13,
+    "overview": "Agent Phil Coulson leads a hand-picked S.H.I.E.L.D. team investigating strange threats around the globe.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-21T18:29:36.302Z",
+    "studio": "Marvel Television",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 53,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/44"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/44"
+      }
+    }
+  },
+  {
+    "id": 45,
+    "title": "Agent Carter",
+    "release_date": "2015-01-06",
+    "last_aired_date": "2015-02-24",
+    "season": 1,
+    "number_episodes": 8,
+    "overview": "In 1946, Peggy Carter balances secret missions for the SSR with life as a woman dismissed by her era.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-21T18:29:36.512Z",
+    "studio": "Marvel Television",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 3,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/45"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/45"
+      }
+    }
+  },
+  {
+    "id": 46,
+    "title": "Agent Carter",
+    "release_date": "2016-01-19",
+    "last_aired_date": "2016-03-01",
+    "season": 2,
+    "number_episodes": 10,
+    "overview": "In 1946, Peggy Carter balances secret missions for the SSR with life as a woman dismissed by her era.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-21T18:29:36.712Z",
+    "studio": "Marvel Television",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 4,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/46"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/46"
+      }
+    }
+  },
+  {
+    "id": 47,
+    "title": "Runaways",
+    "release_date": "2017-11-21",
+    "last_aired_date": "2018-01-09",
+    "season": 1,
+    "number_episodes": 10,
+    "overview": "Six teenagers discover their parents belong to a criminal cult called the Pride and run away to stop them.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-21T18:29:36.831Z",
+    "studio": "Marvel Television",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 43,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/47"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/47"
+      }
+    }
+  },
+  {
+    "id": 48,
+    "title": "Runaways",
+    "release_date": "2018-12-21",
+    "last_aired_date": "2018-12-21",
+    "season": 2,
+    "number_episodes": 13,
+    "overview": "Six teenagers discover their parents belong to a criminal cult called the Pride and run away to stop them.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-21T18:29:36.950Z",
+    "studio": "Marvel Television",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 47,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/48"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/48"
+      }
+    }
+  },
+  {
+    "id": 49,
+    "title": "Runaways",
+    "release_date": "2019-12-13",
+    "last_aired_date": "2019-12-13",
+    "season": 3,
+    "number_episodes": 10,
+    "overview": "Six teenagers discover their parents belong to a criminal cult called the Pride and run away to stop them.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-21T18:29:37.068Z",
+    "studio": "Marvel Television",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 54,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/49"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/49"
+      }
+    }
+  },
+  {
+    "id": 50,
+    "title": "Cloak & Dagger",
+    "release_date": "2018-06-07",
+    "last_aired_date": "2018-08-02",
+    "season": 1,
+    "number_episodes": 10,
+    "overview": "Two teenagers from different worlds awaken with linked powers of light and darkness in New Orleans.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-21T18:29:37.222Z",
+    "studio": "Marvel Television",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 45,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/50"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/50"
+      }
+    }
+  },
+  {
+    "id": 51,
+    "title": "Cloak & Dagger",
+    "release_date": "2019-04-04",
+    "last_aired_date": "2019-05-30",
+    "season": 2,
+    "number_episodes": 10,
+    "overview": "Two teenagers from different worlds awaken with linked powers of light and darkness in New Orleans.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-21T18:29:37.340Z",
+    "studio": "Marvel Television",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 46,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/51"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/51"
+      }
+    }
+  },
+  {
+    "id": 52,
+    "title": "Helstrom",
+    "release_date": "2020-10-16",
+    "last_aired_date": "2020-10-16",
+    "season": 1,
+    "number_episodes": 10,
+    "overview": "The estranged children of a serial killer confront demonic forces tied to their family's dark legacy.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-21T18:29:37.529Z",
+    "studio": "Marvel Television",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 55,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/52"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/52"
+      }
+    }
+  },
+  {
+    "id": 53,
+    "title": "VisionQuest",
+    "release_date": "2026-10-14",
+    "last_aired_date": null,
+    "season": 1,
+    "number_episodes": 0,
+    "overview": "White Vision struggles to regain his humanity and memories after the events of WandaVision, embarking on a reality-bending journey that reunites him with personified versions of Tony Stark's old AI programs and confronts him with Ultron.",
+    "cover_url": "https://cdn.marvel.com/content/2x/visionquest_lob_crd_01.webp",
+    "trailer_url": null,
+    "directed_by": "Terry Matalas",
+    "phase": 6,
+    "saga": "Multiverse Saga",
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-29T10:12:45.033Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 94,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/53"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/53"
+      }
+    }
+  },
+  {
+    "id": 54,
+    "title": "Marvel Zombies",
+    "release_date": "2025-09-24",
+    "last_aired_date": null,
+    "season": 1,
+    "number_episodes": 4,
+    "overview": "After the Avengers are overtaken by a zombie plague, a desperate group of survivors race across a dystopian landscape seeking a way to end the super-powered undead. Marvel Studios Animation's first TV-MA-rated series.",
+    "cover_url": "https://cdn.marvel.com/content/2x/marvelzombies_lob_crd_03.webp",
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": 6,
+    "saga": "Multiverse Saga",
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-29T10:15:41.038Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 59,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/54"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/54"
+      }
+    }
+  },
+  {
+    "id": 55,
+    "title": "Your Friendly Neighborhood Spider-Man",
+    "release_date": "2025-01-29",
+    "last_aired_date": null,
+    "season": 1,
+    "number_episodes": 10,
+    "overview": "An animated series following Peter Parker's early days as Spider-Man, celebrating the character's comic book roots. A distinct animated continuity, separate from the live-action MCU.",
+    "cover_url": "https://cdn.marvel.com/content/2x/yourfriendlyneighborhoodspiderman_lob_crd_03_0.webp",
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": 5,
+    "saga": "Multiverse Saga",
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-29T10:16:03.515Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 34,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/55"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/55"
+      }
+    }
+  },
+  {
+    "id": 56,
+    "title": "Your Friendly Neighborhood Spider-Man",
+    "release_date": null,
+    "last_aired_date": null,
+    "season": 2,
+    "number_episodes": 0,
+    "overview": "Season two of the animated series, set to introduce the Venom symbiote, Gwen Stacy, and a crossover appearance from Charlie Cox's live-action Daredevil. Release date announced only as Fall 2026.",
+    "cover_url": "https://cdn.marvel.com/content/2x/yourfriendlyneighborhoodspidermans2_lob_crd_01.webp",
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": 6,
+    "saga": "Multiverse Saga",
+    "chronology": null,
+    "imdb_id": null,
+    "updated_at": "2026-07-29T10:16:04.884Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": 35,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/56"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/56"
+      }
+    }
+  }
+]
