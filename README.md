@@ -44,6 +44,29 @@ List endpoints (`/movies`, `/tvshows`, `/characters`) return `page`, `limit`, an
 > [!NOTE]
 > Links are built from the request host by default. Set `APP_URL` (e.g. `APP_URL=https://mcuapi.up.railway.app`) to force the base URL behind a proxy.
 
+## TypeScript client
+
+A typed client is published as [`mcuapi-client`](https://www.npmjs.com/package/mcuapi-client) — zero dependencies, ESM and CJS. Source lives in [`mcuapi-client/`](mcuapi-client).
+
+```bash
+npm install mcuapi-client
+```
+
+```ts
+import { MCUAPI } from 'mcuapi-client';
+
+const mcu = new MCUAPI();
+
+const ironMan = await mcu.movies.get(1);
+
+// walks every page for you by following _links.next
+for await (const character of mcu.characters.all()) {
+  console.log(character.name, character.played_by);
+}
+```
+
+It's entirely optional — the API needs no client — but the types are derived from real production responses, so they catch things the entity definitions don't. `box_office` is a `string` (Postgres returns `bigint` as a string), and most fields are genuinely nullable.
+
 ## Usage & limits
 
 - **Read-only.** Every endpoint is a `GET`; the API never accepts writes.
