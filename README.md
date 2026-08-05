@@ -17,6 +17,7 @@ Free, open, and **no API key required**.
 - **Movies & TV shows** — release info, box office, cast, saga/phase, and where each title sits in the MCU timeline.
 - **Characters** — bios, actors (including recasts), and every movie/show they appear in.
 - **Timeline** — chronological ordering of the whole catalog, independent of release date.
+- **Where to watch** — streaming availability per title, per country, via `GET /movies/{id}/streaming`.
 - **Hypermedia (HATEOAS)** — every resource ships a HAL-style `_links` object so clients can navigate the API without hardcoding URLs.
 
 ## Example
@@ -66,6 +67,26 @@ for await (const character of mcu.characters.all()) {
 ```
 
 It's entirely optional — the API needs no client — but the types are derived from real production responses, so they catch things the entity definitions don't. `box_office` is a `string` (Postgres returns `bigint` as a string), and most fields are genuinely nullable.
+
+## Streaming availability
+
+```http
+GET /api/v1/movies/1/streaming?region=US
+```
+
+```json
+{
+  "data": [
+    { "region": "US", "offers": [{ "provider": "Disney+", "offer_type": "subscription", "url": null }] }
+  ],
+  "total": 1
+}
+```
+
+Offers are grouped by region — rights are sold per territory, so a single global answer would be wrong for most of the world. `offer_type` is one of `subscription`, `rent`, `buy`, `free`, `ads`. `GET /api/v1/streaming/providers` lists what the dataset currently covers.
+
+> [!IMPORTANT]
+> This data is **hand-curated and deliberately incomplete**. An empty `data` array means *no availability has been recorded*, not that the title is unavailable. Titles whose rights sit outside Disney — the Sony Spider-Man films, The Incredible Hulk, the FOX X-Men era — are intentionally blank rather than guessed, and nothing is recorded for a film still in cinemas. Treat it as a strong hint, not a contract, and check `updated_at` if freshness matters.
 
 ## Static mirror (CDN)
 

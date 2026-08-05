@@ -22,6 +22,7 @@ export function presentMovie(movie: IMovie, baseUrl: string): WithLinks<IMovie> 
   if (movie.id != null) {
     _links.self = { href: `${baseUrl}/api/v1/movies/${movie.id}` };
     _links.characters = { href: `${baseUrl}/api/v1/characters/movie/${movie.id}` };
+    _links.streaming = { href: `${baseUrl}/api/v1/movies/${movie.id}/streaming` };
   }
 
   const {
