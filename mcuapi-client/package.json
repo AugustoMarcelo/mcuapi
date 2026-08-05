@@ -1,5 +1,5 @@
 {
-  "name": "mcuapi",
+  "name": "mcuapi-client",
   "version": "0.1.0",
   "description": "Typed client for MCUAPI — Marvel Cinematic Universe movies, TV shows, characters and chronological timeline. No API key required.",
   "license": "MIT",

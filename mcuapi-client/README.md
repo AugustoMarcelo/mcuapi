@@ -1,19 +1,19 @@
-# mcuapi
+# mcuapi-client
 
 Typed client for [MCUAPI](https://augustomarcelo.github.io/mcuapi/) — Marvel
 Cinematic Universe movies, TV shows, characters, and the chronology that orders
 them.
 
-No API key. No runtime dependencies. ESM and CJS. ~9 kB.
+No API key. No runtime dependencies. ESM and CJS. ~10 kB packed.
 
 ```bash
-npm install mcuapi
+npm install mcuapi-client
 ```
 
 ## Usage
 
 ```ts
-import { MCUAPI } from 'mcuapi';
+import { MCUAPI } from 'mcuapi-client';
 
 const mcu = new MCUAPI();
 
@@ -95,7 +95,7 @@ handle it.
 Non-2xx responses throw `MCUAPIError`:
 
 ```ts
-import { MCUAPIError } from 'mcuapi';
+import { MCUAPIError } from 'mcuapi-client';
 
 try {
   await mcu.movies.get(99999);
