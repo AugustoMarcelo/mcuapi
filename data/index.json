@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-08-05T19:40:22.205Z",
+  "content_hash": "f7a36b64a6a29d20",
+  "source": "https://mcuapi.up.railway.app/api/v1",
+  "counts": {
+    "movies": 57,
+    "tvshows": 56,
+    "characters": 302,
+    "timeline_branches": 5,
+    "timeline_entries": 113
+  },
+  "files": [
+    {
+      "file": "movies.json",
+      "bytes": 78264
+    },
+    {
+      "file": "tvshows.json",
+      "bytes": 61242
+    },
+    {
+      "file": "characters.json",
+      "bytes": 292224
+    },
+    {
+      "file": "timeline.json",
+      "bytes": 30121
+    }
+  ],
+  "notes": [
+    "Static mirror of the MCUAPI dataset, served via jsDelivr.",
+    "Use it as a fallback when the live API is unreachable, or to avoid rate limits for bulk reads.",
+    "Record shapes are identical to the API, including _links — but those hrefs point at the live API, which may itself be down.",
+    "Regenerated on a schedule; check generated_at for freshness."
+  ]
+}

@@ -1,0 +1,76 @@
+name: Refresh data snapshot
+
+# The dataset is edited out-of-band through the MCP server, so the committed
+# mirror drifts silently. This regenerates it weekly and opens a PR only when
+# something actually changed — `npm run snapshot` is byte-stable otherwise.
+#
+# It opens a PR rather than pushing, because the master ruleset requires one.
+
+on:
+  schedule:
+    - cron: '17 6 * * 1' # Mondays, 06:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Rebuild the snapshot
+        run: yarn snapshot
+
+      - name: Open a PR if the data moved
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if git diff --quiet -- data/; then
+            echo "Snapshot unchanged — nothing to do."
+            exit 0
+          fi
+
+          echo "Changed files:"
+          git diff --stat -- data/
+
+          BRANCH="chore/snapshot-$(date -u +%Y%m%d)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add data/
+          git commit -m "chore(data): refresh jsDelivr snapshot"
+          git push -u origin "$BRANCH" --force
+
+          # Reuse an open PR from an earlier run on the same day if there is one.
+          if [ -z "$(gh pr list --head "$BRANCH" --state open --json number --jq '.[].number')" ]; then
+            gh pr create \
+              --base master \
+              --head "$BRANCH" \
+              --title "chore(data): refresh jsDelivr snapshot" \
+              --body "$(cat <<'BODY'
+          Automated refresh of the static mirror in `data/`, regenerated from the
+          live API.
+
+          Raised because the dataset changed since the last snapshot — the
+          generator is byte-stable when nothing moved, so this PR only exists
+          when there is a real difference. `data/index.json` carries the new
+          counts, `generated_at` and `content_hash`.
+
+          Worth a glance at the diff before merging: an unexpected drop in record
+          counts would mean the API served a partial response rather than that
+          data was removed.
+          BODY
+          )"
+          fi
