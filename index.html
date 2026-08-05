@@ -1,0 +1,1810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MCUAPI — a free REST API for MCU movies, series, characters and the timeline</title>
+<meta name="description" content="MCUAPI is a free, no-key REST API for the Marvel Cinematic Universe: 57 movies, 56 TV shows, 302 characters, and a 113-entry chronological timeline across five continuity branches. CORS enabled, HATEOAS links, live now.">
+<link rel="canonical" href="https://augustomarcelo.github.io/mcuapi/">
+<meta name="keywords" content="MCU API, marvel movies api, marvel cinematic universe api, marvel timeline api, marvel characters api, free marvel api no key">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MCUAPI — a free REST API for the Marvel Cinematic Universe">
+<meta property="og:description" content="57 movies, 56 TV shows, 302 characters, and a chronological timeline across five continuity branches. No key, no signup, CORS open.">
+<meta property="og:url" content="https://augustomarcelo.github.io/mcuapi/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#e9eae3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#181a16" media="(prefers-color-scheme: dark)">
+<script>
+/* Resolve the theme before first paint so the page never flashes. */
+(function () {
+  try {
+    var saved = localStorage.getItem('mcuapi-theme');
+    var dark = saved ? saved === 'dark'
+                     : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+  } catch (e) { document.documentElement.dataset.theme = 'light'; }
+}());
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://mcuapi.up.railway.app" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebAPI",
+  "name": "MCUAPI",
+  "description": "Free, read-only REST API for Marvel Cinematic Universe movies, TV shows, characters and chronological timeline. No API key required.",
+  "documentation": "https://mcuapi.up.railway.app/docs",
+  "url": "https://mcuapi.up.railway.app/api/v1",
+  "provider": { "@type": "Person", "name": "Marcelo Augusto" },
+  "termsOfService": "https://github.com/AugustoMarcelo/mcuapi",
+  "license": "https://github.com/AugustoMarcelo/mcuapi/blob/master/LICENSE"
+}
+</script>
+<style>
+/* ─────────────────────────────────────────────────────────────
+   MCUAPI — archival records direction
+   Palette: cool grey-green catalogue paper, ink, one oxidised
+   red used as a stamp. Type: Archivo (width axis carries the
+   institutional register) + IBM Plex Mono for anything the
+   API itself emits.
+
+   Dark mode is the same catalogue after hours, not a different
+   design: identical hue family, inverted lightness, and the
+   accent lifted to ~72% L so it keeps 5:1 against the ground
+   instead of sinking into it.
+   ───────────────────────────────────────────────────────────── */
+:root,
+[data-theme="light"]{
+  color-scheme: light;
+  /* L values are tuned so muted text clears 4.5:1 on the *sunken*
+     surface (the worst pairing on the page), and --border-ui clears
+     3:1 as a control boundary — not just against the page ground. */
+  --bg:            oklch(93.5% 0.008 130);
+  --surface:       oklch(97.2% 0.006 130);
+  --surface-sunk:  oklch(89.5% 0.010 130);
+  --fg:            oklch(21% 0.014 130);
+  --muted:         oklch(41% 0.012 130);
+  --border:        oklch(82% 0.012 130);
+  --border-strong: oklch(66% 0.014 130);
+  --border-ui:     oklch(52% 0.014 130);
+  --accent:        oklch(44% 0.155 32);
+  --accent-hover:  oklch(36% 0.145 32);
+  --accent-fg:     oklch(98% 0.008 130);
+  --ink:           oklch(19.5% 0.016 130);
+  --ink-2:         oklch(25% 0.016 130);
+  --ink-fg:        oklch(92% 0.008 130);
+  --ink-muted:     oklch(66% 0.012 130);
+  --ok:            oklch(46% 0.125 155);
+  --warn:          oklch(47% 0.130 70);
+  --danger:        oklch(46% 0.180 27);
+  --icon-sun:      block;
+  --icon-moon:     none;
+}
+
+[data-theme="dark"]{
+  color-scheme: dark;
+  --bg:            oklch(19% 0.012 130);
+  --surface:       oklch(23% 0.012 130);
+  --surface-sunk:  oklch(27% 0.013 130);
+  --fg:            oklch(92.5% 0.008 130);
+  --muted:         oklch(72% 0.011 130);
+  --border:        oklch(31% 0.013 130);
+  --border-strong: oklch(44% 0.014 130);
+  --border-ui:     oklch(58% 0.014 130);
+  --accent:        oklch(72% 0.150 35);
+  --accent-hover:  oklch(81% 0.125 38);
+  --accent-fg:     oklch(17% 0.020 35);
+  --ink:           oklch(14.5% 0.014 130);
+  --ink-2:         oklch(30% 0.016 130);
+  --ink-fg:        oklch(92% 0.008 130);
+  --ink-muted:     oklch(62% 0.012 130);
+  --ok:            oklch(72% 0.140 155);
+  --warn:          oklch(78% 0.130 75);
+  --danger:        oklch(70% 0.155 27);
+  --icon-sun:      none;
+  --icon-moon:     block;
+}
+
+:root{
+  --display: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --body:    "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --mono:    "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --shell: 1124px;  /* content measure — was 1180 outer minus 2×28 gutter */
+  /* Above the cap the page gets a wide centering margin and the gutter is just
+     the last 28px of it. Below the cap that margin disappears entirely, so the
+     gutter has to carry the whole margin itself — hence it scales with the
+     viewport instead of staying at the desktop value. */
+  --gut: clamp(28px, 5.5vw, 56px);
+  /* Frame inset compounds on top of --gut, so on phones it can be the tighter
+     of the two — the frame's own border already separates it from the page. */
+  --pad: clamp(14px, 1.9vw, 20px);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family:var(--body); font-size:16px; line-height:1.6;
+  font-variation-settings:"wdth" 100;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+::selection{background:var(--accent);color:var(--accent-fg)}
+
+.shell{width:min(100% - 2 * var(--gut), var(--shell));margin-inline:auto}
+.rule{border:0;border-top:1px solid var(--border);margin:0}
+
+/* eyebrow / label — the page's utility voice */
+.tag{
+  font-family:var(--mono); font-size:11px; font-weight:500;
+  letter-spacing:0.09em; text-transform:uppercase; color:var(--muted);
+}
+.tag-accent{color:var(--accent)}
+
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance}
+h1{
+  font-size:clamp(38px,5.6vw,68px); line-height:1.02;
+  letter-spacing:-0.028em; font-weight:780;
+  font-variation-settings:"wdth" 112,"wght" 780;
+}
+h2{
+  font-size:clamp(27px,3.2vw,40px); line-height:1.08;
+  letter-spacing:-0.02em; font-weight:730;
+  font-variation-settings:"wdth" 112,"wght" 730;
+}
+h3{
+  font-size:17px; line-height:1.3; letter-spacing:-0.005em; font-weight:650;
+  font-variation-settings:"wdth" 100,"wght" 650;
+}
+p{margin:0}
+.lede{font-size:17.5px;line-height:1.62;color:var(--muted);max-width:62ch;text-wrap:pretty}
+.prose{font-size:15.5px;line-height:1.62;color:var(--muted);max-width:66ch;text-wrap:pretty}
+
+a{color:inherit}
+.link{
+  color:var(--fg); text-decoration:none;
+  border-bottom:1px solid var(--border-strong);
+  padding-bottom:1px; transition:border-color .14s;
+}
+.link:hover{border-bottom-color:var(--accent);border-bottom-width:2px}
+
+:where(a,button,input,select,summary,[tabindex]):focus-visible{
+  outline:2px solid var(--accent); outline-offset:2px; border-radius:2px;
+}
+
+/* ── buttons ─────────────────────────────────────────────── */
+.btn{
+  font-family:var(--body); font-size:14px; font-weight:600;
+  font-variation-settings:"wdth" 100,"wght" 600;
+  letter-spacing:0.02em; line-height:1;
+  display:inline-flex; align-items:center; gap:9px;
+  min-height:46px; padding:0 20px; border-radius:2px;
+  border:1px solid transparent; cursor:pointer; text-decoration:none;
+  transition:background-color .14s, border-color .14s, color .14s, transform .08s;
+}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+.btn-primary:hover{background:var(--accent-hover);border-color:var(--accent-hover);color:var(--accent-fg)}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--border-ui)}
+.btn-ghost:hover{background:var(--surface);border-color:var(--fg);color:var(--fg)}
+.btn-sm{min-height:40px;padding:0 13px;font-size:12.5px}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+
+/* ── masthead ────────────────────────────────────────────── */
+.mast{
+  position:sticky; top:0; z-index:40;
+  background:color-mix(in oklab, var(--bg) 88%, transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+.mast-in{display:flex;align-items:center;gap:20px;height:58px}
+.wordmark{
+  font-family:var(--display); font-size:19px; font-weight:800;
+  font-variation-settings:"wdth" 122,"wght" 800;
+  letter-spacing:-0.01em; text-decoration:none; color:var(--fg);
+}
+.wordmark span{color:var(--muted);font-variation-settings:"wdth" 100,"wght" 500}
+.mast-base{
+  font-family:var(--mono);font-size:11.5px;color:var(--muted);
+  border-left:1px solid var(--border);padding-left:16px;
+}
+.mast-nav{margin-left:auto;display:flex;align-items:center;gap:22px}
+.nav-links{display:flex;align-items:center;gap:22px}
+.mast-nav a{
+  font-size:13.5px;font-weight:550;font-variation-settings:"wdth" 100,"wght" 550;
+  color:var(--muted);text-decoration:none;transition:color .14s;
+}
+.mast-nav a:hover{color:var(--fg)}
+
+/* One icon-button language for every chromeless control in the bar, so the
+   theme toggle carries the same weight as the text links beside it. */
+.icon-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:40px;height:40px;flex:0 0 auto;padding:0;
+  background:transparent;border:0;border-radius:2px;
+  color:var(--muted);cursor:pointer;transition:color .14s,background-color .14s;
+}
+.icon-btn:hover{color:var(--fg);background:var(--surface)}
+.icon-btn svg{width:18px;height:18px;display:block}
+.theme-btn .i-sun{display:var(--icon-sun)}
+.theme-btn .i-moon{display:var(--icon-moon)}
+
+.nav-toggle{display:none}
+.nav-toggle .i-close{display:none}
+.nav-toggle[aria-expanded="true"] .i-open{display:none}
+.nav-toggle[aria-expanded="true"] .i-close{display:block}
+
+/* Reads as a live readout in the page's mono voice, not as a chip. */
+.status{
+  display:inline-flex;align-items:center;gap:7px;flex:0 0 auto;
+  font-family:var(--mono);font-size:11px;letter-spacing:0.05em;
+  color:var(--muted);white-space:nowrap;
+}
+.status-dot{width:7px;height:7px;border-radius:50%;background:var(--border-ui);flex:0 0 auto}
+.status[data-state="up"] .status-dot{background:var(--ok);box-shadow:0 0 0 3px color-mix(in oklab,var(--ok) 22%,transparent)}
+.status[data-state="down"] .status-dot{background:var(--danger)}
+.status[data-state="up"]{color:var(--fg)}
+
+/* ── hero ────────────────────────────────────────────────── */
+.hero{padding:clamp(52px, 5vw + 15px, 74px) 0 0}
+.hero-eyebrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+.hero h1{max-width:17ch;margin-bottom:22px}
+.hero-lede{margin-bottom:32px}
+.hero-cta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+.hero-note{font-family:var(--mono);font-size:11.5px;color:var(--muted);letter-spacing:.02em;overflow-wrap:anywhere}
+
+/* ledger — the catalogue index, not a stat card row */
+.ledger{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  margin:60px 0 0;
+  /* Closed band: without the bottom rule the column dividers terminate in
+     mid-air, which reads as a border that vanishes. */
+  border-top:1px solid var(--border-strong);
+  border-bottom:1px solid var(--border-strong);
+}
+.ledger-cell{
+  display:flex;flex-direction:column;gap:5px;align-items:flex-start;
+  padding:20px 18px 22px;border-right:1px solid var(--border);
+  background:transparent;border-top:0;border-bottom:0;border-left:0;
+  text-align:left;cursor:pointer;font:inherit;color:inherit;
+  transition:background-color .14s;
+}
+.ledger-cell:first-child{padding-left:0}
+.ledger-cell:last-child{border-right:0}
+.ledger-cell:hover{background:var(--surface);box-shadow:inset 0 -2px 0 var(--accent)}
+.ledger-n{
+  font-family:var(--display);font-size:37px;line-height:1;
+  letter-spacing:-0.025em;font-variation-settings:"wdth" 118,"wght" 700;
+  font-variant-numeric:tabular-nums;
+}
+.ledger-l{font-size:13px;font-weight:550;font-variation-settings:"wdth" 100,"wght" 550}
+.ledger-p{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.02em;overflow-wrap:anywhere}
+.ledger-cell:hover .ledger-p{color:var(--fg)}
+
+/* ── generic section ─────────────────────────────────────── */
+.sec{padding:clamp(62px, 5.5vw + 23px, 88px) 0;scroll-margin-top:76px}
+.sec-head{margin-bottom:40px}
+.sec-head .tag{display:block;margin-bottom:14px}
+.sec-head h2{margin-bottom:16px}
+
+/* ── signature: multiverse rail ──────────────────────────── */
+.rail-frame,.cast-frame{
+  border:1px solid var(--border-strong);background:var(--surface);
+  border-radius:3px;overflow:hidden;
+}
+.rail-row{
+  display:grid;grid-template-columns:216px 1fr 74px;align-items:center;
+  width:100%;text-align:left;font:inherit;color:inherit;
+  background:transparent;border:0;border-bottom:1px solid var(--border);
+  padding:0 var(--pad);cursor:pointer;transition:background-color .14s;
+}
+.rail-row:last-child{border-bottom:0}
+.rail-row:hover,.rail-row:focus-visible{background:var(--surface-sunk)}
+.rail-name{
+  font-size:13.5px;font-weight:600;font-variation-settings:"wdth" 100,"wght" 600;
+  padding-right:16px;
+}
+.rail-desig{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.03em;display:block;margin-top:2px}
+.rail-track{position:relative;height:72px}
+.rail-track::after{
+  content:"";position:absolute;left:0;right:0;top:50%;height:1px;
+  background:var(--border-ui);
+}
+.tick{
+  position:absolute;top:50%;width:3px;border-radius:1px;
+  transform:translate(-50%,-50%);background:var(--fg);
+  transition:background-color .1s, height .1s;
+}
+.tick[data-t="t"]{height:15px;background:var(--muted)}
+.tick[data-t="m"]{height:30px}
+.tick.is-hot{background:var(--accent);height:38px}
+.rail-count{
+  font-family:var(--mono);font-size:11.5px;color:var(--muted);
+  text-align:right;font-variant-numeric:tabular-nums;
+}
+.rail-readout{
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  padding:14px var(--pad);background:var(--surface-sunk);
+  border-top:1px solid var(--border);
+  font-family:var(--mono);font-size:12px;color:var(--muted);min-height:48px;
+}
+.rail-readout strong{color:var(--fg);font-weight:600}
+.rail-legend{display:flex;gap:18px;margin-left:auto}
+.legend-i{display:inline-flex;align-items:center;gap:7px}
+.legend-s{width:3px;height:16px;border-radius:1px;background:var(--fg)}
+.legend-s.t{height:9px;background:var(--muted)}
+.rail-foot{
+  display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  margin-top:16px;font-family:var(--mono);font-size:11px;color:var(--muted);
+}
+
+/* ── console ─────────────────────────────────────────────── */
+.console{
+  display:grid;grid-template-columns:328px 1fr;
+  border:1px solid var(--border-strong);border-radius:3px;
+  background:var(--surface);overflow:hidden;
+}
+.cpane{border-right:1px solid var(--border);min-width:0}
+.cpane-h{
+  padding:13px var(--pad);border-bottom:1px solid var(--border);
+  background:var(--surface-sunk);
+}
+.ep-list{max-height:352px;overflow-y:auto}
+.ep{
+  display:flex;align-items:center;gap:10px;width:100%;
+  padding:11px var(--pad);background:transparent;border:0;border-left:2px solid transparent;
+  font-family:var(--mono);font-size:12px;color:var(--muted);
+  text-align:left;cursor:pointer;transition:background-color .12s,color .12s;
+}
+.ep:hover{background:var(--surface-sunk);color:var(--fg)}
+.ep[aria-pressed="true"]{background:var(--surface-sunk);color:var(--fg);border-left-color:var(--fg);font-weight:500}
+.ep-verb{font-size:11px;letter-spacing:.09em;color:var(--muted);flex:0 0 30px}
+.ep[aria-pressed="true"] .ep-verb{color:var(--accent)}
+
+.params{padding:16px var(--pad) 20px;border-top:1px solid var(--border)}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.field.wide{grid-column:1/-1}
+.field label{font-family:var(--mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.field input,.field select{
+  font-family:var(--mono);font-size:12.5px;color:var(--fg);
+  background:var(--bg);border:1px solid var(--border-ui);border-radius:2px;
+  padding:8px 9px;min-height:36px;width:100%;transition:border-color .14s;
+}
+.field input:hover,.field select:hover{border-color:var(--fg)}
+.field input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in oklab,var(--accent) 32%,transparent)}
+.field input::placeholder{color:var(--muted);opacity:.8}
+.hint{font-family:var(--mono);font-size:11px;color:var(--muted);line-height:1.45}
+
+.rpane{display:flex;flex-direction:column;min-width:0}
+.urlbar{
+  display:flex;align-items:center;gap:10px;padding:12px var(--pad);
+  border-bottom:1px solid var(--border);background:var(--surface-sunk);
+}
+.urlbox{
+  flex:1;min-width:0;font-family:var(--mono);font-size:12px;color:var(--fg);
+  background:var(--bg);border:1px solid var(--border-ui);border-radius:2px;
+  padding:9px 11px;overflow-x:auto;white-space:nowrap;
+  scrollbar-width:thin;
+}
+.meta{
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+  padding:10px var(--pad);border-bottom:1px solid var(--border);
+  font-family:var(--mono);font-size:11px;color:var(--muted);min-height:42px;
+}
+.pill{
+  display:inline-flex;align-items:center;gap:6px;padding:3px 8px;border-radius:2px;
+  font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.04em;
+  border:1px solid;
+}
+.pill-ok{color:var(--ok);border-color:color-mix(in oklab,var(--ok) 45%,transparent);background:color-mix(in oklab,var(--ok) 10%,transparent)}
+.pill-warn{color:var(--warn);border-color:color-mix(in oklab,var(--warn) 45%,transparent);background:color-mix(in oklab,var(--warn) 10%,transparent)}
+.pill-err{color:var(--danger);border-color:color-mix(in oklab,var(--danger) 45%,transparent);background:color-mix(in oklab,var(--danger) 10%,transparent)}
+.pill-idle{color:var(--muted);border-color:var(--border-ui)}
+
+.resp{
+  background:var(--ink);color:var(--ink-fg);
+  font-family:var(--mono);font-size:12.5px;line-height:1.65;
+  padding:18px var(--pad); margin:0; overflow:auto; height:396px;
+  white-space:pre; tab-size:2;
+}
+.resp::-webkit-scrollbar{width:10px;height:10px}
+.resp::-webkit-scrollbar-thumb{background:var(--ink-2);border-radius:5px}
+.j-key{color:oklch(78% 0.09 200)}
+.j-str{color:oklch(82% 0.10 120)}
+.j-num{color:oklch(84% 0.11 75)}
+.j-bool{color:oklch(76% 0.12 25)}
+.j-null{color:var(--ink-muted)}
+.j-href{
+  font:inherit;color:oklch(84% 0.11 195);background:transparent;
+  border:0;border-bottom:1px dashed color-mix(in oklab, oklch(84% 0.11 195) 55%, transparent);
+  padding:0;cursor:pointer;line-height:inherit;vertical-align:baseline;
+}
+.j-href:hover{color:oklch(93% 0.13 195);border-bottom-style:solid;border-bottom-color:oklch(93% 0.13 195)}
+
+.hateoas{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  padding:12px var(--pad);border-top:1px solid var(--border);background:var(--surface-sunk);
+  font-family:var(--mono);font-size:11px;color:var(--muted);
+}
+.hist{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto;max-width:62%;justify-content:flex-end}
+.hist button{
+  font-family:var(--mono);font-size:11px;color:var(--muted);background:var(--bg);
+  border:1px solid var(--border);border-radius:2px;padding:3px 7px;cursor:pointer;
+  max-width:230px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  transition:border-color .14s,color .14s;
+}
+.hist button:hover{color:var(--fg);border-color:var(--fg)}
+
+/* ── resource model ──────────────────────────────────────── */
+.schema{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border:1px solid var(--border-strong);border-radius:3px;
+  background:var(--surface);overflow:hidden;
+}
+.res{display:flex;flex-direction:column;border-right:1px solid var(--border);min-width:0}
+.res:last-child{border-right:0}
+.res-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:18px var(--pad) 4px}
+.res-n{font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap}
+.res-p{
+  font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.02em;
+  padding:0 var(--pad) 15px;border-bottom:1px solid var(--border);overflow-wrap:anywhere;
+}
+.fields{
+  list-style:none;margin:0;padding:16px var(--pad) 18px;flex:1;
+  display:flex;flex-wrap:wrap;gap:6px;align-content:flex-start;
+}
+.fields li{
+  font-family:var(--mono);font-size:11.5px;line-height:1.4;color:var(--fg);
+  background:var(--bg);border:1px solid var(--border);border-radius:2px;
+  padding:3px 7px;overflow-wrap:anywhere;
+}
+.fields li.nul{color:var(--muted)}
+.fields li.nul::before{content:"·";margin-right:5px;color:var(--border-ui)}
+.res-f{
+  border-top:1px solid var(--border);background:var(--surface-sunk);
+  padding:14px var(--pad) 16px;display:flex;flex-direction:column;gap:9px;
+}
+.res-fl{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.rels{display:flex;flex-wrap:wrap;gap:6px 12px}
+.rels code{
+  font-family:var(--mono);font-size:11.5px;color:var(--fg);
+  border-bottom:1px solid var(--border-strong);padding-bottom:1px;overflow-wrap:anywhere;
+}
+.notes{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:34px}
+.note .tag{display:block;margin-bottom:9px}
+.prose code{
+  font-family:var(--mono);font-size:12.5px;color:var(--fg);
+  background:var(--surface-sunk);padding:1px 5px;border-radius:2px;overflow-wrap:anywhere;
+}
+
+/* ── character graph ─────────────────────────────────────── */
+.cast-bar{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  padding:12px var(--pad);border-bottom:1px solid var(--border);
+  background:var(--surface-sunk);
+}
+.cast-label{
+  font-family:var(--mono);font-size:11px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--muted);
+}
+.cast-input{
+  flex:1 1 190px;min-width:0;
+  font-family:var(--mono);font-size:12.5px;color:var(--fg);
+  background:var(--bg);border:1px solid var(--border-ui);border-radius:2px;
+  padding:8px 9px;min-height:36px;transition:border-color .14s;
+}
+.cast-input:hover{border-color:var(--fg)}
+.cast-input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in oklab,var(--accent) 32%,transparent)}
+.cast-input::placeholder{color:var(--muted);opacity:.8}
+.cast-presets{display:flex;gap:7px;flex-wrap:wrap}
+.chip{
+  font-family:var(--mono);font-size:11px;color:var(--muted);
+  background:var(--bg);border:1px solid var(--border);border-radius:2px;
+  padding:6px 9px;min-height:32px;cursor:pointer;white-space:nowrap;
+  transition:color .14s,border-color .14s;
+}
+.chip:hover{color:var(--fg);border-color:var(--fg)}
+
+.cast-row{
+  display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;
+  width:100%;text-align:left;font:inherit;color:inherit;
+  background:transparent;border:0;border-bottom:1px solid var(--border);
+  border-left:2px solid transparent;
+  padding:12px var(--pad);cursor:pointer;transition:background-color .14s;
+}
+.cast-row:hover{background:var(--surface-sunk)}
+.cast-row[aria-pressed="true"]{background:var(--surface-sunk);border-left-color:var(--accent)}
+.cast-n{font-size:13.5px;font-weight:600;font-variation-settings:"wdth" 100,"wght" 600}
+.cast-m{
+  font-family:var(--mono);font-size:11px;color:var(--muted);
+  display:block;margin-top:3px;overflow-wrap:anywhere;
+}
+.cast-row[aria-pressed="true"] .cast-m{color:var(--fg)}
+.cast-e{
+  font-family:var(--mono);font-size:11px;color:var(--muted);
+  text-align:right;white-space:nowrap;
+}
+.cast-panel{padding:15px var(--pad) 17px;border-bottom:1px solid var(--border);background:var(--bg)}
+.cast-group + .cast-group{margin-top:15px}
+.cast-gl{
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px;
+}
+.cast-titles{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.cast-titles li{
+  font-family:var(--mono);font-size:11.5px;line-height:1.4;color:var(--fg);
+  background:var(--surface);border:1px solid var(--border);border-radius:2px;
+  padding:3px 7px;overflow-wrap:anywhere;
+}
+
+/* ── quickstart ──────────────────────────────────────────── */
+.qs{display:grid;grid-template-columns:1fr 340px;gap:32px;align-items:start}
+.snip{border:1px solid var(--border-strong);border-radius:3px;overflow:hidden;background:var(--surface)}
+.tabs{display:flex;flex-wrap:wrap;border-bottom:1px solid var(--border);background:var(--surface-sunk)}
+.tab{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;color:var(--muted);
+  background:transparent;border:0;border-bottom:2px solid transparent;
+  padding:12px 17px;cursor:pointer;transition:color .14s,border-color .14s;
+}
+.tab:hover{color:var(--fg)}
+.tab[aria-selected="true"]{color:var(--fg);border-bottom-color:var(--accent);font-weight:600}
+.tab-actions{margin-left:auto;display:flex;align-items:center;padding-right:10px}
+.snip pre{
+  margin:0;background:var(--ink);color:var(--ink-fg);
+  font-family:var(--mono);font-size:12.5px;line-height:1.7;
+  padding:20px var(--pad);overflow-x:auto;white-space:pre;
+}
+.snip .c-com{color:var(--ink-muted)}
+.snip .c-str{color:oklch(82% 0.10 120)}
+.snip .c-kw{color:oklch(78% 0.10 200)}
+
+.limits{border:1px solid var(--border-strong);border-radius:3px;background:var(--surface);padding:6px var(--pad) 8px}
+.limit-row{display:flex;flex-direction:column;gap:3px;padding:15px 0;border-bottom:1px solid var(--border)}
+.limit-row:last-child{border-bottom:0}
+.limit-k{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.limit-v{font-size:13.5px;line-height:1.5}
+.limit-v code{font-family:var(--mono);font-size:12px;background:var(--surface-sunk);padding:1px 5px;border-radius:2px}
+
+/* ── closing ─────────────────────────────────────────────── */
+.close{padding:clamp(60px, 5.5vw + 19px, 84px) 0;border-top:1px solid var(--border-strong);background:var(--surface)}
+.close-in{display:grid;grid-template-columns:1fr auto;gap:36px;align-items:center}
+.close h2{margin-bottom:12px;max-width:20ch}
+
+footer{border-top:1px solid var(--border);padding:34px 0 46px}
+.foot-in{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start}
+.foot-links{display:flex;gap:24px;flex-wrap:wrap}
+.foot-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .14s}
+.foot-links a:hover{color:var(--fg)}
+.disclaimer{margin-left:auto;max-width:44ch;font-size:11.5px;line-height:1.6;color:var(--muted);text-align:right}
+
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ── responsive ──────────────────────────────────────────── */
+@media (max-width:1080px){
+  /* the wordmark already names the API and the hero prints the full base URL —
+     dropping this here is what stops the bar crowding the status readout */
+  .mast-base{display:none}
+  .console{grid-template-columns:294px 1fr}
+  .ledger{grid-template-columns:repeat(3,1fr)}
+  .ledger-cell{border-top:1px solid var(--border)}
+  .ledger-cell:nth-child(-n+3){border-top:0}
+  /* 3-up: each row still starts flush left, but no cell hangs flush right —
+     the columns are too narrow here for text to sit on the page edge */
+  .ledger-cell:nth-child(3n){border-right:0}
+  .ledger-cell:nth-child(3n+1){padding-left:0}
+  /* Same orphan as the 2-up case: the fifth cell left column 3 of row 2 empty,
+     so the row's top border covered two thirds and the divider above it ended
+     on nothing. Span it to the last line. */
+  .ledger-cell:last-child{grid-column:2/-1}
+}
+@media (max-width:900px){
+  .mast-nav{gap:16px}
+  /* below this width the links stop competing for bar space and become a
+     disclosure panel — every destination stays reachable, none get dropped */
+  .nav-toggle{display:inline-flex}
+  .nav-links{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;align-items:stretch;gap:0;
+    padding:0 var(--gut) 10px;
+    background:var(--bg);border-bottom:1px solid var(--border-strong);
+    box-shadow:0 14px 24px -18px rgba(0,0,0,.5);
+  }
+  .nav-links[data-open="true"]{display:flex}
+  .mast-nav a{
+    display:flex;align-items:center;min-height:52px;
+    font-size:15px;border-bottom:1px solid var(--border);
+  }
+  .mast-nav a:last-child{border-bottom:0}
+  .icon-btn{width:44px;height:44px}
+  .qs{grid-template-columns:1fr;gap:24px}
+  .console{grid-template-columns:1fr}
+  .cpane{border-right:0;border-bottom:1px solid var(--border)}
+  .ep-list{max-height:236px}
+  .rail-row{grid-template-columns:150px 1fr;row-gap:0}
+  .rail-count{display:none}
+  .close-in{grid-template-columns:1fr}
+  .close-in .btn{width:100%;justify-content:center}
+  .disclaimer{margin-left:0;text-align:left}
+  .hist{max-width:100%;margin-left:0;justify-content:flex-start}
+  .schema{grid-template-columns:1fr}
+  .res{border-right:0;border-bottom:1px solid var(--border-strong)}
+  .res:last-child{border-bottom:0}
+  .notes{grid-template-columns:1fr;gap:26px}
+}
+@media (max-width:760px){
+  .ledger{grid-template-columns:repeat(2,1fr)}
+  .ledger-cell{padding:16px 14px 18px}
+  .ledger-cell:nth-child(3n){border-right:1px solid var(--border)}
+  .ledger-cell:nth-child(2n){border-right:0}
+  .ledger-cell:nth-child(-n+3){border-top:1px solid var(--border)}
+  .ledger-cell:nth-child(-n+2){border-top:0}
+  /* 2-up: same rule — rows start flush left, nothing touches the right edge */
+  .ledger-cell:nth-child(odd){padding-left:0}
+  .ledger-cell:nth-child(even){padding-left:14px}
+  /* Five items in a two-column grid orphan the fifth: it left a half-width top
+     border and a column divider that died on the last row. Span it instead —
+     which also gives the query-param endpoint a full line to sit on. */
+  .ledger-cell:last-child{
+    grid-column:1/-1;flex-direction:row;align-items:center;
+    flex-wrap:wrap;column-gap:14px;row-gap:1px;
+  }
+  .ledger-n{font-size:31px}
+  .tick{width:2px}
+  /* Side-by-side leaves the track ~150px for up to 99 marks, which reads as a
+     solid bar rather than a distribution. Stack instead: the name row keeps the
+     count, the track gets the full width. */
+  .rail-row{
+    grid-template-columns:1fr auto;grid-template-rows:auto auto;
+    align-items:center;padding:13px var(--pad);row-gap:7px;
+  }
+  .rail-name{grid-column:1;grid-row:1;font-size:13px;padding-right:12px}
+  .rail-count{grid-column:2;grid-row:1;display:block}
+  .rail-track{grid-column:1/-1;grid-row:2;height:46px}
+  .pgrid{grid-template-columns:1fr}
+  .resp{height:330px;font-size:12px}
+
+  .urlbar{flex-wrap:wrap}
+  .urlbox{flex:1 1 100%;order:-1}
+  .btn-sm{min-height:44px}
+  .ep{padding:13px var(--pad)}
+  .chip{min-height:44px}
+  .cast-input{min-height:44px}
+  .hero-cta{gap:10px}
+  .hero-cta .btn{flex:1 1 100%;justify-content:center}
+}
+@media (max-width:600px){
+  .mast-in,.mast-nav{gap:12px}
+  /* keep the dot (and its accessible text) but reclaim the label's width */
+  .status-text{
+    position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+    overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
+  }
+}
+@media (max-width:400px){
+  .mast-in,.mast-nav{gap:10px}
+  .ledger-n{font-size:27px}
+  .tab{padding:12px 12px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+  html{scroll-behavior:auto !important}
+}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="shell mast-in">
+    <a class="wordmark" href="#top">MCUAPI<span>/v1</span></a>
+    <span class="mast-base">mcuapi.up.railway.app</span>
+    <nav class="mast-nav" aria-label="Primary">
+      <div class="nav-links" id="nav-links">
+        <a href="#timeline">Timeline</a>
+        <a href="#console">Console</a>
+        <a href="#data">Data</a>
+        <a href="#characters">Characters</a>
+        <a href="https://mcuapi.up.railway.app/docs">Docs</a>
+        <a href="https://github.com/AugustoMarcelo/mcuapi">GitHub</a>
+      </div>
+      <span class="status" id="status" role="status" data-state="idle">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span id="status-text" class="status-text">checking…</span>
+      </span>
+      <button class="icon-btn theme-btn" type="button" id="theme-btn" aria-pressed="false"
+              aria-label="Switch to dark theme" title="Switch theme">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+             stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2"/>
+          <path d="M12 2.6v2.4M12 19v2.4M21.4 12H19M5 12H2.6M18.6 5.4l-1.7 1.7M7.1 16.9l-1.7 1.7M18.6 18.6l-1.7-1.7M7.1 7.1L5.4 5.4"/>
+        </svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20.5 14.4A8.6 8.6 0 1 1 9.6 3.5a6.9 6.9 0 0 0 10.9 10.9Z"/>
+        </svg>
+      </button>
+      <button class="icon-btn nav-toggle" type="button" id="nav-toggle"
+              aria-controls="nav-links" aria-expanded="false"
+              aria-label="Open menu" title="Menu">
+        <svg class="i-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+             stroke-linecap="round" aria-hidden="true">
+          <path d="M3.6 7h16.8M3.6 12h16.8M3.6 17h16.8"/>
+        </svg>
+        <svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+             stroke-linecap="round" aria-hidden="true">
+          <path d="M6.2 6.2l11.6 11.6M17.8 6.2L6.2 17.8"/>
+        </svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ── hero ─────────────────────────────────────────── -->
+  <section class="hero shell">
+    <div class="hero-eyebrow">
+      <span class="tag">MCUAPI · v1 · read-only REST</span>
+      <span class="tag tag-accent">No API key</span>
+    </div>
+
+    <h1>Every MCU movie, TV show and character — in one API that knows the order.</h1>
+
+    <p class="lede hero-lede">
+      A free REST API for the Marvel Cinematic Universe: every movie and TV show,
+      the characters and the actors who played them, and the chronology that orders it
+      all — including the X-Men and Sony continuities the MCU keeps pulling in.
+      No key, no signup, CORS open to any origin.
+    </p>
+
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#console">Run a request</a>
+      <a class="btn btn-ghost" href="https://mcuapi.up.railway.app/docs">Read the API docs</a>
+    </div>
+    <p class="hero-note">GET https://mcuapi.up.railway.app/api/v1/movies — no Authorization header</p>
+
+    <div class="ledger">
+      <button class="ledger-cell" type="button" data-load="/api/v1/movies?limit=10&amp;page=1">
+        <span class="ledger-n">57</span>
+        <span class="ledger-l">Movies</span>
+        <span class="ledger-p">/movies</span>
+      </button>
+      <button class="ledger-cell" type="button" data-load="/api/v1/tvshows?limit=10&amp;page=1">
+        <span class="ledger-n">56</span>
+        <span class="ledger-l">TV shows</span>
+        <span class="ledger-p">/tvshows</span>
+      </button>
+      <button class="ledger-cell" type="button" data-load="/api/v1/characters?limit=10&amp;page=1">
+        <span class="ledger-n">302</span>
+        <span class="ledger-l">Characters</span>
+        <span class="ledger-p">/characters</span>
+      </button>
+      <button class="ledger-cell" type="button" data-load="/api/v1/timeline">
+        <span class="ledger-n">113</span>
+        <span class="ledger-l">Timeline entries</span>
+        <span class="ledger-p">/timeline</span>
+      </button>
+      <button class="ledger-cell" type="button" data-load="/api/v1/movies?is_mcu=false&amp;limit=10&amp;page=1">
+        <span class="ledger-n">5</span>
+        <span class="ledger-l">Continuity branches</span>
+        <span class="ledger-p">?multiverse_designation</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ── signature: the multiverse rail ───────────────── -->
+  <section class="sec shell" id="timeline">
+    <div class="sec-head">
+      <span class="tag">GET /api/v1/timeline</span>
+      <h2>Release order is not watch order.</h2>
+      <p class="prose">
+        The catalogue isn't one universe either. Every title carries a continuity and an
+        Earth designation, and <code style="font-family:var(--mono);font-size:13px">/timeline</code>
+        returns them grouped and ordered by in-story chronology, so you can build a watch
+        order without maintaining one by hand. Hover a mark to read it; pick a branch to
+        load it in the console.
+      </p>
+    </div>
+
+    <div class="rail-frame">
+      <div id="rail-rows"></div>
+      <div class="rail-readout">
+        <span id="rail-out">Hover any mark to read the title and its chronology position.</span>
+        <span class="rail-legend" aria-hidden="true">
+          <span class="legend-i"><span class="legend-s"></span> Movie</span>
+          <span class="legend-i"><span class="legend-s t"></span> TV show</span>
+        </span>
+      </div>
+    </div>
+    <div class="rail-foot">
+      <span>Marks are positioned by <code>chronology_order</code> within each branch, not by release date.</span>
+      <span id="rail-src">Snapshot embedded · refreshing from live API…</span>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ── console ──────────────────────────────────────── -->
+  <section class="sec shell" id="console">
+    <div class="sec-head">
+      <span class="tag">Live request console</span>
+      <h2>Try it against production, right here.</h2>
+      <p class="prose">
+        These calls hit <code style="font-family:var(--mono);font-size:13px">mcuapi.up.railway.app</code>
+        from your browser — same URL your app will use. Every
+        <code style="font-family:var(--mono);font-size:13px">href</code> in the response is
+        clickable, because the API is hypermedia-driven: you can crawl the whole graph
+        without hardcoding a single path.
+      </p>
+    </div>
+
+    <div class="console">
+      <div class="cpane">
+        <div class="cpane-h"><span class="tag">Endpoint</span></div>
+        <div class="ep-list" id="ep-list" role="group" aria-label="Endpoints"></div>
+        <div class="params" id="params"></div>
+      </div>
+
+      <div class="rpane">
+        <div class="urlbar">
+          <div class="urlbox" id="url-box" aria-live="polite">https://mcuapi.up.railway.app/api/v1/movies?limit=5&amp;page=1</div>
+          <button class="btn btn-ghost btn-sm" type="button" id="copy-url">Copy</button>
+          <button class="btn btn-primary btn-sm" type="button" id="run">Send</button>
+        </div>
+        <div class="meta">
+          <span class="pill pill-idle" id="r-status">READY</span>
+          <span id="r-time">—</span>
+          <span id="r-size">—</span>
+          <span id="r-note">Showing a cached example response. Press Send for a live one.</span>
+        </div>
+        <pre class="resp" id="resp" tabindex="0" aria-label="API response"></pre>
+        <div class="hateoas">
+          <span>HATEOAS · click any href above to follow it</span>
+          <span class="hist" id="hist"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ── resource model ───────────────────────────────── -->
+  <section class="sec shell" id="data">
+    <div class="sec-head">
+      <span class="tag">Three resources, one graph</span>
+      <h2>Everything a record carries.</h2>
+      <p class="prose">
+        No partial payloads and no second call to hydrate a title. Every field below is
+        on the resource by default — trim it with <code style="font-family:var(--mono);font-size:13px">?columns=</code>
+        when you want less. Fields marked with a dot are nullable.
+      </p>
+    </div>
+
+    <div class="schema">
+      <article class="res">
+        <header class="res-h">
+          <h3>Movie</h3>
+          <span class="res-n">57 records</span>
+        </header>
+        <p class="res-p">GET /api/v1/movies · /movies/{id}</p>
+        <ul class="fields">
+          <li>id</li><li>title</li><li class="nul">release_date</li><li class="nul">box_office</li>
+          <li class="nul">duration</li><li class="nul">overview</li><li class="nul">cover_url</li><li class="nul">trailer_url</li>
+          <li>directed_by</li><li class="nul">phase</li><li class="nul">saga</li><li class="nul">chronology</li>
+          <li>post_credit_scenes</li><li class="nul">imdb_id</li><li>studio</li>
+          <li class="nul">continuity</li><li class="nul">multiverse_designation</li>
+          <li>is_mcu</li><li>type</li><li class="nul">timeline_chronology_order</li>
+          <li>updated_at</li>
+        </ul>
+        <footer class="res-f">
+          <span class="res-fl">_links</span>
+          <span class="rels"><code>self</code><code>characters</code><code>related_movies[]</code><code>related_tvshows[]</code></span>
+        </footer>
+      </article>
+
+      <article class="res">
+        <header class="res-h">
+          <h3>TV show</h3>
+          <span class="res-n">56 records</span>
+        </header>
+        <p class="res-p">GET /api/v1/tvshows · /tvshows/{id}</p>
+        <ul class="fields">
+          <li>id</li><li>title</li><li class="nul">release_date</li><li class="nul">last_aired_date</li>
+          <li>season</li><li>number_episodes</li><li>overview</li><li class="nul">cover_url</li>
+          <li class="nul">trailer_url</li><li class="nul">directed_by</li><li class="nul">phase</li><li class="nul">saga</li>
+          <li class="nul">chronology</li><li class="nul">imdb_id</li><li>studio</li>
+          <li class="nul">continuity</li><li class="nul">multiverse_designation</li>
+          <li>is_mcu</li><li>type</li><li class="nul">timeline_chronology_order</li>
+          <li>updated_at</li>
+        </ul>
+        <footer class="res-f">
+          <span class="res-fl">_links</span>
+          <span class="rels"><code>self</code><code>characters</code><code>related_movies[]</code><code>related_tvshows[]</code></span>
+        </footer>
+      </article>
+
+      <article class="res">
+        <header class="res-h">
+          <h3>Character</h3>
+          <span class="res-n">302 records</span>
+        </header>
+        <p class="res-p">GET /api/v1/characters · /characters/{id}</p>
+        <ul class="fields">
+          <li>id</li><li>name</li><li class="nul">alias</li><li class="nul">description</li>
+          <li class="nul">image_url</li><li class="nul">played_by</li>
+          <li class="nul">continuity</li><li class="nul">multiverse_designation</li>
+          <li class="nul">variant_of</li>
+          <li class="nul">first_appearance_movie_id</li>
+          <li class="nul">first_appearance_tvshow_id</li>
+          <li>created_at</li><li>updated_at</li>
+        </ul>
+        <footer class="res-f">
+          <span class="res-fl">_links</span>
+          <span class="rels"><code>self</code><code>movies</code><code>tvshows</code><code>variant_of</code><code>first_appearance_movie</code><code>first_appearance_tvshow</code></span>
+        </footer>
+      </article>
+    </div>
+
+    <div class="notes">
+      <div class="note">
+        <span class="tag">Recasts and variants</span>
+        <p class="prose">
+          <code>played_by</code> is per character record, and <code>variant_of</code> points a
+          character at the version they are a variant of — so a recast or a multiverse double
+          is a real edge in the graph, not a duplicate row you have to reconcile.
+        </p>
+      </div>
+      <div class="note">
+        <span class="tag">Collections</span>
+        <p class="prose">
+          List endpoints wrap results as <code>{ data, total, page, limit, _links }</code>
+          with <code>first</code>, <code>prev</code>, <code>next</code> and <code>last</code>
+          that preserve every filter you passed in.
+        </p>
+      </div>
+      <div class="note">
+        <span class="tag">Filtering</span>
+        <p class="prose">
+          <code>?filter=column=value</code> for a case-insensitive match,
+          <code>?order=column,DESC</code> to sort, and <code>?continuity=</code> or
+          <code>?is_mcu=false</code> to scope to one branch of the multiverse.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ── quickstart ───────────────────────────────────── -->
+  <!-- ── character graph ── -->
+  <section class="sec shell" id="characters">
+    <div class="sec-head">
+      <span class="tag">GET /api/v1/characters/{id}/movies</span>
+      <h2>One name, several people, several earths.</h2>
+      <p class="prose">
+        Search a name and you get every record carrying it — including the variants each
+        continuity casts separately, which is why <code style="font-family:var(--mono);font-size:13px">played_by</code>
+        sits on the character and not on the title. Pick one and the page follows that record's own
+        <code style="font-family:var(--mono);font-size:13px">_links.movies</code> and
+        <code style="font-family:var(--mono);font-size:13px">_links.tvshows</code> to the titles it
+        appears in. No join table to maintain on your side.
+      </p>
+    </div>
+
+    <div class="cast-frame">
+      <div class="cast-bar">
+        <label class="cast-label" for="cast-q">Character</label>
+        <input class="cast-input" id="cast-q" type="search" value="Peter Parker"
+               placeholder="Search a character name" autocomplete="off" spellcheck="false">
+        <span class="cast-presets" role="group" aria-label="Examples">
+          <button class="chip" type="button" data-q="Peter Parker">Peter Parker</button>
+          <button class="chip" type="button" data-q="Loki">Loki</button>
+          <button class="chip" type="button" data-q="Gamora">Gamora</button>
+        </span>
+      </div>
+      <div id="cast-rows"></div>
+      <div class="rail-readout">
+        <span id="cast-out">Loading characters from the live API…</span>
+      </div>
+    </div>
+    <div class="rail-foot">
+      <span>Variants are joined by <code>variant_of</code>; each one carries its own <code>played_by</code>.</span>
+      <span id="cast-src">Querying /characters…</span>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="sec shell">
+    <div class="sec-head">
+      <span class="tag">Three lines to first data</span>
+      <h2>No key. No client library required.</h2>
+    </div>
+
+    <div class="qs">
+      <div class="snip">
+        <div class="tabs" role="tablist" aria-label="Quickstart language">
+          <button class="tab" role="tab" id="tab-curl" aria-controls="p-curl" aria-selected="true" data-snip="curl">curl</button>
+          <button class="tab" role="tab" id="tab-js" aria-controls="p-js" aria-selected="false" data-snip="js" tabindex="-1">JavaScript</button>
+          <button class="tab" role="tab" id="tab-py" aria-controls="p-py" aria-selected="false" data-snip="py" tabindex="-1">Python</button>
+          <span class="tab-actions">
+            <button class="btn btn-ghost btn-sm" type="button" id="copy-snip">Copy</button>
+          </span>
+        </div>
+        <div role="tabpanel" id="p-curl" aria-labelledby="tab-curl"><pre><span class="c-com"># Every Phase 4 movie, newest first, three fields only</span>
+curl <span class="c-str">"https://mcuapi.up.railway.app/api/v1/movies?filter=phase=4&amp;order=release_date,DESC&amp;columns=id,title,release_date"</span>
+
+<span class="c-com"># The full chronological timeline for one branch</span>
+curl <span class="c-str">"https://mcuapi.up.railway.app/api/v1/timeline?multiverse=Earth-10005"</span></pre></div>
+        <div role="tabpanel" id="p-js" aria-labelledby="tab-js" hidden><pre><span class="c-kw">const</span> API = <span class="c-str">'https://mcuapi.up.railway.app/api/v1'</span>;
+
+<span class="c-com">// List endpoints return { data, total, page, limit, _links }</span>
+<span class="c-kw">const</span> res  = <span class="c-kw">await</span> fetch(<span class="c-str">`${API}/movies?filter=title=Spider&amp;limit=5`</span>);
+<span class="c-kw">const</span> page = <span class="c-kw">await</span> res.json();
+
+<span class="c-com">// Follow the hypermedia link instead of building a path</span>
+<span class="c-kw">const</span> cast = <span class="c-kw">await</span> fetch(page.data[0]._links.characters.href)
+  .then(r =&gt; r.json());</pre></div>
+        <div role="tabpanel" id="p-py" aria-labelledby="tab-py" hidden><pre><span class="c-kw">import</span> requests
+
+API = <span class="c-str">"https://mcuapi.up.railway.app/api/v1"</span>
+
+<span class="c-com"># Walk the MCU in chronological order</span>
+branches = requests.get(<span class="c-str">f"{API}/timeline?multiverse=Earth-616"</span>).json()
+
+<span class="c-kw">for</span> entry <span class="c-kw">in</span> branches[0][<span class="c-str">"entries"</span>]:
+    print(entry[<span class="c-str">"chronology_order"</span>], entry[<span class="c-str">"title"</span>], entry[<span class="c-str">"type"</span>])</pre></div>
+      </div>
+
+      <div class="limits">
+        <div class="limit-row">
+          <span class="limit-k">Auth</span>
+          <span class="limit-v">None. No key, no hash, no referrer allow-list.</span>
+        </div>
+        <div class="limit-row">
+          <span class="limit-k">Methods</span>
+          <span class="limit-v">Read-only — every route is a <code>GET</code>.</span>
+        </div>
+        <div class="limit-row">
+          <span class="limit-k">Pagination</span>
+          <span class="limit-v"><code>limit</code> defaults to 10, capped at 100. Collections carry <code>first</code>, <code>prev</code>, <code>next</code>, <code>last</code>.</span>
+        </div>
+        <div class="limit-row">
+          <span class="limit-k">Rate limit</span>
+          <span class="limit-v">100 requests per minute per IP, with <code>RateLimit-*</code> headers and a <code>429</code> past it.</span>
+        </div>
+        <div class="limit-row">
+          <span class="limit-k">Caching</span>
+          <span class="limit-v"><code>Cache-Control: public, max-age=3600</code> plus an <code>ETag</code>. Send <code>If-None-Match</code> for a <code>304</code>.</span>
+        </div>
+        <div class="limit-row">
+          <span class="limit-k">CORS</span>
+          <span class="limit-v"><code>Access-Control-Allow-Origin: *</code> — call it straight from the browser.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── closing ──────────────────────────────────────── -->
+  <section class="close">
+    <div class="shell close-in">
+      <div>
+        <span class="tag" style="display:block;margin-bottom:14px">Open source · issues welcome</span>
+        <h2>Built it because the data should stay reachable.</h2>
+        <p class="prose">
+          Express, TypeScript, TypeORM and Postgres, organised as clean-architecture
+          modules. If a title is missing, a cover is broken, or you want a field that
+          isn't there yet, open an issue — the dataset is maintained by hand and every
+          correction lands for everyone.
+        </p>
+      </div>
+      <a class="btn btn-primary" href="https://github.com/AugustoMarcelo/mcuapi">Star the repo on GitHub</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="shell foot-in">
+    <div class="foot-links">
+      <a href="https://mcuapi.up.railway.app/docs">Swagger docs</a>
+      <a href="https://mcuapi.up.railway.app/health">Health</a>
+      <a href="https://github.com/AugustoMarcelo/mcuapi">Source</a>
+      <a href="https://github.com/AugustoMarcelo/mcuapi/issues">Report a data error</a>
+    </div>
+    <p class="disclaimer">
+      MCUAPI is an independent, fan-maintained project. Not affiliated with, endorsed by,
+      or sponsored by Marvel, Marvel Studios, or The Walt Disney Company. All title,
+      character and image rights belong to their respective owners.
+    </p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  var API = 'https://mcuapi.up.railway.app';
+  var V1  = API + '/api/v1';
+
+  /* ── embedded timeline snapshot ─────────────────────────────
+     Fetched from GET /api/v1/timeline. The rail paints from this
+     instantly, then reconciles against the live API on load, so
+     the page is never a spinner and never silently stale.
+     Encoding: groups "~", fields "|", entries ";", trailing "*"
+     marks a movie (a title that itself ends in "*", such as
+     Thunderbolts*, is written with two).                        */
+  var SNAPSHOT = 'X-Men Universe|Earth-10005|X-Men: Days of Future Past*;X-Men: Apocalypse*;X-Men: Dark Phoenix*;Deadpool*;Deadpool 2*;Logan*~Sony Spider-Man Universe|Earth-120703|The Amazing Spider-Man*;The Amazing Spider-Man 2*~Sony Spider-Man Universe|Earth-96283|Spider-Man*;Spider-Man 2*;Spider-Man 3*~Sony Spider-Man Universe|Earth-616|Venom*;Venom: Let There Be Carnage*;Venom: The Last Dance*~MCU|Earth-616|Eyes of Wakanda;Captain America: The First Avenger*;Agent Carter;Agent Carter;Captain Marvel*;Iron Man*;Iron Man 2*;The Incredible Hulk*;Thor*;The Avengers*;Agents of S.H.I.E.L.D.;Thor: The Dark World*;Iron Man 3*;Captain America: The Winter Soldier*;Guardians of the Galaxy*;Guardians of the Galaxy Vol. 2*;I Am Groot;I Am Groot;Daredevil;Agents of S.H.I.E.L.D.;Jessica Jones;Avengers: Age of Ultron*;Ant-Man*;Daredevil;Luke Cage;Agents of S.H.I.E.L.D.;Iron Fist;The Defenders;Captain America: Civil War*;Black Widow*;Agents of S.H.I.E.L.D.;Black Panther*;Spider-Man: Homecoming*;Your Friendly Neighborhood Spider-Man;Your Friendly Neighborhood Spider-Man;The Punisher;Doctor Strange*;Jessica Jones;Luke Cage;Iron Fist;Daredevil;Thor: Ragnarok*;Runaways;Agents of S.H.I.E.L.D.;Cloak & Dagger;Cloak & Dagger;Runaways;The Punisher;Jessica Jones;Ant-Man and The Wasp*;Avengers: Infinity War*;Agents of S.H.I.E.L.D.;Agents of S.H.I.E.L.D.;Runaways;Helstrom;Avengers: Endgame*;Loki;What If...?;Marvel Zombies;WandaVision;Shang-Chi and The Legend of The Ten Rings*;The Falcon and The Winter Soldier;Spider-Man: Far From Home*;Eternals*;Spider-Man: No Way Home*;Doctor Strange in the Multiverse of Madness*;Hawkeye;Moon Knight;Black Panther: Wakanda Forever*;Echo;She Hulk: Attorney at Law;Ms. Marvel;Thor: Love and Thunder*;Ironheart;Werewolf By Night;The Guardians of the Galaxy Holiday Special;Ant-Man and The Wasp: Quantumania*;Guardians of the Galaxy Vol. 3*;Secret Invasion;The Marvels*;Loki;What If...?;Deadpool & Wolverine*;Agatha All Along;What If...?;Blade*;Daredevil: Born Again;Captain America: Brave New World*;Thunderbolts**;The Fantastic Four: First Steps*;The Punisher: One Last Kill;Daredevil: Born Again;Wonder Man;VisionQuest;Avengers: Doomsday*;Avengers: Secret Wars*;Spider-Man: Brand New Day*;Black Panther 3*;Ghost Rider*';
+
+  var EXAMPLE = {"id":1,"title":"Iron Man","release_date":"2008-05-02","box_office":"585171547","duration":126,"directed_by":"Jon Favreau","phase":1,"saga":"Infinity Saga","chronology":3,"post_credit_scenes":1,"imdb_id":"tt0371746","studio":"Marvel Studios","continuity":"MCU","multiverse_designation":"Earth-616","is_mcu":true,"type":"movie","timeline_chronology_order":6,"_links":{"self":{"href":"https://mcuapi.up.railway.app/api/v1/movies/1"},"characters":{"href":"https://mcuapi.up.railway.app/api/v1/characters/movie/1"},"related_movies":[{"href":"https://mcuapi.up.railway.app/api/v1/movies/3"},{"href":"https://mcuapi.up.railway.app/api/v1/movies/22"}]}};
+
+  var $  = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var esc = function (s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  };
+
+  /* ═══ 1. multiverse rail ═══════════════════════════════════ */
+
+  function parseSnapshot(raw) {
+    return raw.split('~').map(function (chunk) {
+      var f = chunk.split('|');
+      var entries = f[2].split(';').map(function (t, i) {
+        var isMovie = t.charAt(t.length - 1) === '*';
+        return { n: i + 1, title: (isMovie ? t.slice(0, -1) : t).trim(), type: isMovie ? 'm' : 't' };
+      });
+      return { continuity: f[0], designation: f[1], entries: entries };
+    });
+  }
+
+  function fromLive(json) {
+    return json.map(function (g) {
+      return {
+        continuity: g.continuity,
+        designation: g.multiverse_designation,
+        entries: (g.entries || []).map(function (e) {
+          return {
+            n: e.chronology_order,
+            title: String(e.title || '').trim(),
+            type: e.type === 'movie' ? 'm' : 't'
+          };
+        })
+      };
+    });
+  }
+
+  var railOut = $('#rail-out');
+  // Scrubbing a 3px mark is a pointer affordance; on touch the marks read as a
+  // density band and the row tap is the real action. Say that instead.
+  if (window.matchMedia && window.matchMedia('(hover: none)').matches) {
+    railOut.textContent = 'Tap a branch to load its timeline in the console.';
+  }
+  var railDefault = railOut.textContent;
+
+  function renderRail(groups) {
+    var host = $('#rail-rows');
+    host.innerHTML = '';
+
+    groups.forEach(function (g) {
+      var row = document.createElement('button');
+      row.type = 'button';
+      row.className = 'rail-row';
+      row.setAttribute('aria-label',
+        'Load ' + g.continuity + ' ' + g.designation + ' in the console — ' +
+        g.entries.length + ' titles in chronological order');
+
+      var name = document.createElement('span');
+      name.className = 'rail-name';
+      name.innerHTML = esc(g.continuity) + '<span class="rail-desig">' + esc(g.designation) + '</span>';
+
+      var track = document.createElement('span');
+      track.className = 'rail-track';
+      var span = Math.max(g.entries.length - 1, 1);
+
+      g.entries.forEach(function (e) {
+        var tick = document.createElement('i');
+        tick.className = 'tick';
+        tick.setAttribute('data-t', e.type);
+        // single-entry branches sit centred; otherwise spread 2%..98%
+        tick.style.left = (g.entries.length === 1 ? 50 : 2 + ((e.n - 1) / span) * 96) + '%';
+        tick.dataset.label = '#' + e.n + '  ' + e.title + '  ·  ' + (e.type === 'm' ? 'movie' : 'TV show');
+        tick.dataset.branch = g.designation;
+        track.appendChild(tick);
+      });
+
+      var count = document.createElement('span');
+      count.className = 'rail-count';
+      count.textContent = g.entries.length;
+
+      row.appendChild(name);
+      row.appendChild(track);
+      row.appendChild(count);
+
+      row.addEventListener('click', function () {
+        loadUrl(V1 + '/timeline?multiverse=' + encodeURIComponent(g.designation), true);
+      });
+
+      track.addEventListener('mousemove', function (ev) {
+        var nearest = null, best = 1e9;
+        var rect = track.getBoundingClientRect();
+        var x = ev.clientX - rect.left;
+        $$('.tick', track).forEach(function (t) {
+          var tx = (parseFloat(t.style.left) / 100) * rect.width;
+          var d = Math.abs(tx - x);
+          if (d < best) { best = d; nearest = t; }
+        });
+        $$('.tick.is-hot').forEach(function (t) { t.classList.remove('is-hot'); });
+        if (nearest && best < 22) {
+          nearest.classList.add('is-hot');
+          railOut.innerHTML = '<strong>' + esc(nearest.dataset.branch) + '</strong>  ' +
+                              esc(nearest.dataset.label);
+        }
+      });
+
+      track.addEventListener('mouseleave', function () {
+        $$('.tick.is-hot', track).forEach(function (t) { t.classList.remove('is-hot'); });
+        railOut.textContent = railDefault;
+      });
+
+      row.addEventListener('focus', function () {
+        railOut.innerHTML = '<strong>' + esc(g.designation) + '</strong>  ' + esc(g.continuity) +
+                            '  ·  ' + g.entries.length + ' titles  ·  Enter to load in console';
+      });
+      row.addEventListener('blur', function () { railOut.textContent = railDefault; });
+
+      host.appendChild(row);
+    });
+  }
+
+  renderRail(parseSnapshot(SNAPSHOT));
+
+  fetch(V1 + '/timeline')
+    .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+    .then(function (json) {
+      var groups = fromLive(json);
+      var total = groups.reduce(function (a, g) { return a + g.entries.length; }, 0);
+      renderRail(groups);
+      $('#rail-src').textContent = 'Live from /api/v1/timeline · ' + total +
+                                   ' entries across ' + groups.length + ' branches';
+    })
+    .catch(function () {
+      $('#rail-src').textContent = 'Live refresh unavailable · showing embedded snapshot';
+    });
+
+  /* ═══ 2. request console ═══════════════════════════════════ */
+
+  var LIST_PARAMS = ['page', 'limit', 'columns', 'order', 'filter', 'continuity', 'multiverse_designation', 'is_mcu', 'studio'];
+
+  var ENDPOINTS = [
+    { path: '/api/v1/movies',                    label: '/movies',                    params: LIST_PARAMS, defaults: { limit: '5', page: '1' } },
+    { path: '/api/v1/movies/{id}',               label: '/movies/{id}',               id: '1' },
+    { path: '/api/v1/tvshows',                   label: '/tvshows',                   params: LIST_PARAMS, defaults: { limit: '5', page: '1' } },
+    { path: '/api/v1/tvshows/{id}',              label: '/tvshows/{id}',              id: '8' },
+    { path: '/api/v1/characters',                label: '/characters',                params: ['page', 'limit', 'columns', 'order', 'filter', 'continuity', 'multiverse_designation'], defaults: { limit: '5', page: '1' } },
+    { path: '/api/v1/characters/{id}',           label: '/characters/{id}',           id: '1' },
+    { path: '/api/v1/characters/movie/{id}',     label: '/characters/movie/{id}',     id: '1' },
+    { path: '/api/v1/characters/tvshow/{id}',    label: '/characters/tvshow/{id}',    id: '8' },
+    { path: '/api/v1/characters/{id}/movies',    label: '/characters/{id}/movies',    id: '1' },
+    { path: '/api/v1/characters/{id}/tvshows',   label: '/characters/{id}/tvshows',   id: '1' },
+    { path: '/api/v1/timeline',                  label: '/timeline',                  params: ['multiverse'] },
+    { path: '/health',                           label: '/health' }
+  ];
+
+  var FIELDS = {
+    page:                   { ph: '1',                      hint: '' },
+    limit:                  { ph: '5',                      hint: 'max 100' },
+    columns:                { ph: 'id,title,release_date',  hint: 'comma-separated projection', wide: true },
+    order:                  { ph: 'release_date,DESC',      hint: 'column,ASC|DESC', wide: true },
+    filter:                 { ph: 'title=Spider',           hint: 'column=value · case-insensitive contains', wide: true },
+    continuity:             { ph: 'MCU',                    hint: '', wide: true },
+    multiverse_designation: { ph: 'Earth-616',              hint: '', wide: true },
+    is_mcu:                 { ph: 'true',                   hint: 'true | false' },
+    studio:                 { ph: 'Marvel Studios',         hint: '' },
+    multiverse:             { ph: 'Earth-10005',            hint: 'designation of one branch', wide: true }
+  };
+
+  var current = ENDPOINTS[0];
+  var values  = {};
+  var pathId  = '1';
+  var rawUrl  = null;               // set when following a hypermedia href
+  var recent  = [];
+
+  var epList = $('#ep-list');
+  ENDPOINTS.forEach(function (ep, i) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'ep';
+    b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+    b.innerHTML = '<span class="ep-verb">GET</span>' + esc(ep.label);
+    b.addEventListener('click', function () { selectEndpoint(ep); });
+    ep.el = b;
+    epList.appendChild(b);
+  });
+
+  function selectEndpoint(ep) {
+    current = ep;
+    rawUrl = null;
+    values = {};
+    if (ep.defaults) { Object.keys(ep.defaults).forEach(function (k) { values[k] = ep.defaults[k]; }); }
+    if (ep.id) { pathId = ep.id; }
+    ENDPOINTS.forEach(function (e) { e.el.setAttribute('aria-pressed', e === ep ? 'true' : 'false'); });
+    renderParams();
+    renderUrl();
+  }
+
+  function renderParams() {
+    var host = $('#params');
+    host.innerHTML = '';
+    var grid = document.createElement('div');
+    grid.className = 'pgrid';
+
+    if (current.path.indexOf('{id}') > -1) {
+      grid.appendChild(field('id', { ph: current.id, hint: 'path parameter', wide: true }, pathId, function (v) {
+        pathId = v; renderUrl();
+      }));
+    }
+
+    (current.params || []).forEach(function (name) {
+      var cfg = FIELDS[name] || { ph: '', hint: '' };
+      grid.appendChild(field(name, cfg, values[name] || '', function (v) {
+        if (v) { values[name] = v; } else { delete values[name]; }
+        renderUrl();
+      }));
+    });
+
+    if (!grid.children.length) {
+      var none = document.createElement('p');
+      none.className = 'hint';
+      none.textContent = 'No parameters — this endpoint takes none.';
+      host.appendChild(none);
+      return;
+    }
+    host.appendChild(grid);
+  }
+
+  function field(name, cfg, value, onInput) {
+    var wrap = document.createElement('div');
+    wrap.className = 'field' + (cfg.wide ? ' wide' : '');
+    var id = 'f-' + name;
+    var lab = document.createElement('label');
+    lab.setAttribute('for', id);
+    lab.textContent = name;
+    var inp = document.createElement('input');
+    inp.id = id;
+    inp.type = 'text';
+    inp.value = value;
+    inp.placeholder = cfg.ph;
+    inp.autocomplete = 'off';
+    inp.spellcheck = false;
+    inp.addEventListener('input', function () { onInput(inp.value.trim()); });
+    inp.addEventListener('keydown', function (e) { if (e.key === 'Enter') { send(); } });
+    wrap.appendChild(lab);
+    wrap.appendChild(inp);
+    if (cfg.hint) {
+      var h = document.createElement('span');
+      h.className = 'hint';
+      h.textContent = cfg.hint;
+      wrap.appendChild(h);
+    }
+    return wrap;
+  }
+
+  function buildUrl() {
+    if (rawUrl) { return rawUrl; }
+    var path = current.path.replace('{id}', encodeURIComponent(pathId || '1'));
+    var qs = (current.params || [])
+      .filter(function (k) { return values[k]; })
+      .map(function (k) { return k + '=' + encodeURIComponent(values[k]); })
+      .join('&');
+    return API + path + (qs ? '?' + qs : '');
+  }
+
+  function renderUrl() {
+    $('#url-box').textContent = buildUrl();
+  }
+
+  function loadUrl(url, run) {
+    rawUrl = url;
+    ENDPOINTS.forEach(function (e) { e.el.setAttribute('aria-pressed', 'false'); });
+    $('#params').innerHTML = '<p class="hint">Following a hypermedia link. Pick an endpoint above to edit parameters.</p>';
+    renderUrl();
+    if (run) {
+      var target = document.getElementById('console');
+      window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
+      send();
+    }
+  }
+
+  function setStatus(cls, text) {
+    var el = $('#r-status');
+    el.className = 'pill ' + cls;
+    el.textContent = text;
+  }
+
+  function renderJson(text) {
+    var re = /("(?:\\.|[^\\"])*"(\s*:)?|\btrue\b|\bfalse\b|\bnull\b|-?\d+(?:\.\d+)?(?:[eE][+\-]?\d+)?)/g;
+    return text.replace(re, function (m) {
+      if (m.charAt(0) === '"') {
+        if (/:\s*$/.test(m) || /"\s*:$/.test(m)) { return '<span class="j-key">' + esc(m) + '</span>'; }
+        var inner = m.slice(1, -1);
+        if (inner.indexOf(API) === 0) {
+          return '<button type="button" class="j-href" data-u="' + encodeURIComponent(inner) + '">' + esc(m) + '</button>';
+        }
+        return '<span class="j-str">' + esc(m) + '</span>';
+      }
+      if (m === 'true' || m === 'false') { return '<span class="j-bool">' + m + '</span>'; }
+      if (m === 'null') { return '<span class="j-null">' + m + '</span>'; }
+      return '<span class="j-num">' + m + '</span>';
+    });
+  }
+
+  function paint(obj) {
+    $('#resp').innerHTML = renderJson(JSON.stringify(obj, null, 2));
+  }
+
+  function pushHistory(url) {
+    recent = [url].concat(recent.filter(function (u) { return u !== url; })).slice(0, 4);
+    var host = $('#hist');
+    host.innerHTML = '';
+    recent.slice(1).forEach(function (u) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = u.replace(API, '');
+      b.title = u;
+      b.addEventListener('click', function () { loadUrl(u, true); });
+      host.appendChild(b);
+    });
+  }
+
+  var busy = false;
+
+  function send() {
+    if (busy) { return; }
+    var url = buildUrl();
+    busy = true;
+    $('#run').disabled = true;
+    setStatus('pill-idle', 'SENDING');
+    $('#r-note').textContent = '';
+    var t0 = performance.now();
+
+    fetch(url, { headers: { Accept: 'application/json' } })
+      .then(function (res) {
+        return res.text().then(function (body) { return { res: res, body: body }; });
+      })
+      .then(function (out) {
+        var ms = Math.round(performance.now() - t0);
+        var bytes = new TextEncoder().encode(out.body).length;
+        var code = out.res.status;
+        setStatus(code < 300 ? 'pill-ok' : code < 500 ? 'pill-warn' : 'pill-err', code + ' ' + (out.res.statusText || ''));
+        $('#r-time').textContent = ms + ' ms';
+        $('#r-size').textContent = bytes < 1024 ? bytes + ' B' : (bytes / 1024).toFixed(1) + ' KB';
+        $('#r-note').textContent = out.res.headers.get('cache-control')
+          ? 'cache-control: ' + out.res.headers.get('cache-control')
+          : '';
+        try { paint(JSON.parse(out.body)); }
+        catch (e) { $('#resp').textContent = out.body.slice(0, 4000); }
+        pushHistory(url);
+      })
+      .catch(function (err) {
+        setStatus('pill-err', 'NETWORK ERROR');
+        $('#r-time').textContent = '—';
+        $('#r-size').textContent = '—';
+        $('#r-note').textContent = '';
+        $('#resp').textContent = 'Request failed: ' + err.message +
+          '\n\nThe API is hosted on Railway. If this persists, check ' + API + '/health';
+      })
+      .then(function () { busy = false; $('#run').disabled = false; });
+  }
+
+  $('#run').addEventListener('click', send);
+
+  $('#resp').addEventListener('click', function (e) {
+    var t = e.target.closest ? e.target.closest('.j-href') : null;
+    if (t) { loadUrl(decodeURIComponent(t.dataset.u), true); }
+  });
+
+  $('#copy-url').addEventListener('click', function () {
+    copy(buildUrl(), this);
+  });
+
+  $$('.ledger-cell').forEach(function (cell) {
+    cell.addEventListener('click', function () {
+      loadUrl(API + cell.dataset.load, true);
+    });
+  });
+
+  // seed the console with a real cached response so it is never blank
+  selectEndpoint(ENDPOINTS[0]);
+  paint(EXAMPLE);
+
+  /* ═══ 3. quickstart tabs ═══════════════════════════════════ */
+
+  var tabs = $$('.tab');
+  function selectTab(tab) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+  }
+  tabs.forEach(function (tab, i) {
+    tab.addEventListener('click', function () { selectTab(tab); });
+    tab.addEventListener('keydown', function (e) {
+      var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!d) { return; }
+      e.preventDefault();
+      var next = tabs[(i + d + tabs.length) % tabs.length];
+      selectTab(next);
+      next.focus();
+    });
+  });
+
+  $('#copy-snip').addEventListener('click', function () {
+    var open = tabs.filter(function (t) { return t.getAttribute('aria-selected') === 'true'; })[0];
+    var pre = document.getElementById(open.getAttribute('aria-controls')).querySelector('pre');
+    copy(pre.innerText, this);
+  });
+
+  function copy(text, btn) {
+    var done = function () {
+      var was = btn.textContent;
+      btn.textContent = 'Copied';
+      setTimeout(function () { btn.textContent = was; }, 1400);
+    };
+    if (navigator.clipboard) { navigator.clipboard.writeText(text).then(done, function () {}); }
+    else { done(); }
+  }
+
+  /* ═══ 4. theme ═════════════════════════════════════════════ */
+
+  (function theme() {
+    var btn = $('#theme-btn');
+    var root = document.documentElement;
+    var mq = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function apply(mode, remember) {
+      root.dataset.theme = mode;
+      var dark = mode === 'dark';
+      btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+      btn.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+      if (remember) {
+        try { localStorage.setItem('mcuapi-theme', mode); } catch (e) { /* private mode */ }
+      }
+    }
+
+    apply(root.dataset.theme === 'dark' ? 'dark' : 'light', false);
+
+    btn.addEventListener('click', function () {
+      apply(root.dataset.theme === 'dark' ? 'light' : 'dark', true);
+    });
+
+    // follow the OS only while the visitor has not chosen for themselves
+    var onChange = function (e) {
+      var saved = null;
+      try { saved = localStorage.getItem('mcuapi-theme'); } catch (err) { /* ignore */ }
+      if (!saved) { apply(e.matches ? 'dark' : 'light', false); }
+    };
+    if (mq.addEventListener) { mq.addEventListener('change', onChange); }
+    else if (mq.addListener) { mq.addListener(onChange); }
+  }());
+
+  /* ═══ 5. character graph ═══════════════════════════════════ */
+
+  (function characterGraph() {
+    var input = $('#cast-q');
+    var host  = $('#cast-rows');
+    var out   = $('#cast-out');
+    var src   = $('#cast-src');
+    if (!input || !host) { return; }
+
+    var panel = null;   // appearance list of the selected variant
+    var token = 0;      // guards against out-of-order responses
+
+    function clearPanel() {
+      if (panel) { panel.remove(); panel = null; }
+    }
+
+    function group(label, list, isShow) {
+      if (!list.length) { return null; }
+      var g = document.createElement('div');
+      g.className = 'cast-group';
+      var l = document.createElement('span');
+      l.className = 'cast-gl';
+      l.textContent = label + ' · ' + list.length;
+      var ul = document.createElement('ul');
+      ul.className = 'cast-titles';
+      list.forEach(function (t) {
+        var li = document.createElement('li');
+        li.textContent = String(t.title || 'Untitled') +
+          (isShow && t.season != null ? '  S' + t.season : '');
+        ul.appendChild(li);
+      });
+      g.appendChild(l);
+      g.appendChild(ul);
+      return g;
+    }
+
+    function select(row, c) {
+      var mine = ++token;
+      $$('.cast-row', host).forEach(function (r) { r.setAttribute('aria-pressed', 'false'); });
+      row.setAttribute('aria-pressed', 'true');
+      clearPanel();
+      out.textContent = 'Following _links for ' + c.name + '…';
+
+      // the record ships its own hrefs — use them rather than rebuilding paths
+      var links = c._links || {};
+      var mv = (links.movies  && links.movies.href)  || (V1 + '/characters/' + c.id + '/movies');
+      var tv = (links.tvshows && links.tvshows.href) || (V1 + '/characters/' + c.id + '/tvshows');
+      var grab = function (u) {
+        return fetch(u)
+          .then(function (r) { return r.ok ? r.json() : []; })
+          .then(function (j) { return Array.isArray(j) ? j : (j && j.data) || []; })
+          .catch(function () { return []; });
+      };
+
+      Promise.all([grab(mv), grab(tv)]).then(function (res) {
+        if (mine !== token) { return; }
+        var movies = res[0], shows = res[1];
+
+        var wrap = document.createElement('div');
+        wrap.className = 'cast-panel';
+        var gm = group('Movies', movies, false);
+        var gt = group('TV shows', shows, true);
+        if (gm) { wrap.appendChild(gm); }
+        if (gt) { wrap.appendChild(gt); }
+        if (!gm && !gt) {
+          var p = document.createElement('p');
+          p.className = 'hint';
+          p.textContent = 'No appearances linked on this record yet.';
+          wrap.appendChild(p);
+        }
+        row.insertAdjacentElement('afterend', wrap);
+        panel = wrap;
+
+        out.innerHTML = '<strong>' + esc(c.name) + '</strong>  ' +
+          esc((c.played_by ? c.played_by + '  ·  ' : '') +
+              movies.length + ' movies, ' + shows.length + ' TV shows');
+      });
+    }
+
+    function search(q) {
+      var mine = ++token;
+      host.innerHTML = '';
+      panel = null;
+      out.textContent = 'Searching characters named “' + q + '”…';
+
+      fetch(V1 + '/characters?filter=name=' + encodeURIComponent(q) + '&limit=8')
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+        .then(function (json) {
+          if (mine !== token) { return; }
+          var list = (json && json.data) || [];
+          var total = json && json.total != null ? json.total : list.length;
+          src.textContent = list.length + ' of ' + total + ' matching records · live';
+
+          if (!list.length) {
+            out.textContent = 'No character matches “' + q + '”.';
+            return;
+          }
+
+          var first = null;
+          list.forEach(function (c) {
+            var row = document.createElement('button');
+            row.type = 'button';
+            row.className = 'cast-row';
+            row.setAttribute('aria-pressed', 'false');
+
+            var meta = [];
+            if (c.played_by) { meta.push(c.played_by); }
+            if (c.multiverse_designation) { meta.push(c.multiverse_designation); }
+            else if (c.continuity) { meta.push(c.continuity); }
+            if (c.variant_of != null) { meta.push('variant of #' + c.variant_of); }
+
+            row.innerHTML =
+              '<span><span class="cast-n">' + esc(c.name) + '</span>' +
+              '<span class="cast-m">' + esc(meta.join('  ·  ') || 'no cast metadata on this record') +
+              '</span></span>' +
+              '<span class="cast-e">' + esc(c.alias || ('#' + c.id)) + '</span>';
+
+            row.addEventListener('click', function () { select(row, c); });
+            host.appendChild(row);
+            if (!first) { first = { row: row, c: c }; }
+          });
+
+          select(first.row, first.c);
+        })
+        .catch(function () {
+          if (mine !== token) { return; }
+          src.textContent = 'unreachable';
+          out.textContent = 'Could not reach the API just now — the console above hits the same host.';
+        });
+    }
+
+    var timer;
+    input.addEventListener('input', function () {
+      clearTimeout(timer);
+      var q = input.value.trim();
+      if (!q) { return; }
+      timer = setTimeout(function () { search(q); }, 350);
+    });
+
+    $$('.chip', $('.cast-presets')).forEach(function (b) {
+      b.addEventListener('click', function () {
+        input.value = b.dataset.q;
+        search(b.dataset.q);
+      });
+    });
+
+    search(input.value.trim());
+  }());
+
+  /* ═══ 6. mobile nav disclosure ═════════════════════════════ */
+
+  (function navMenu() {
+    var btn = $('#nav-toggle');
+    var panel = $('#nav-links');
+    if (!btn || !panel) { return; }
+
+    var setOpen = function (open) {
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      if (open) { panel.setAttribute('data-open', 'true'); }
+      else { panel.removeAttribute('data-open'); }
+    };
+
+    btn.addEventListener('click', function () {
+      setOpen(btn.getAttribute('aria-expanded') !== 'true');
+    });
+
+    // navigating away should never leave the panel covering the target
+    panel.addEventListener('click', function (e) {
+      if (e.target.closest('a')) { setOpen(false); }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') {
+        setOpen(false);
+        btn.focus();
+      }
+    });
+
+    // widening past the breakpoint must not strand an open panel
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 900) { setOpen(false); }
+    });
+  }());
+
+  /* ═══ 7. status probe ══════════════════════════════════════ */
+
+  (function probe() {
+    var el = $('#status');
+    var txt = $('#status-text');
+    var t0 = performance.now();
+
+    var mark = function (ms) {
+      el.setAttribute('data-state', 'up');
+      txt.textContent = 'Live · ' + Math.round(ms) + ' ms';
+    };
+
+    fetch(API + '/health', { cache: 'no-store' })
+      .then(function (r) {
+        if (r.ok) { mark(performance.now() - t0); return null; }
+        // /health ships in the repo but may not be on the deployed build yet —
+        // fall back to measuring a real data endpoint rather than crying wolf.
+        var t1 = performance.now();
+        return fetch(V1 + '/movies?limit=1').then(function (r2) {
+          if (r2.ok) { mark(performance.now() - t1); }
+          else { throw new Error(String(r2.status)); }
+        });
+      })
+      .catch(function () {
+        el.setAttribute('data-state', 'down');
+        txt.textContent = 'Unreachable';
+      });
+  }());
+}());
+</script>
+</body>
+</html>
