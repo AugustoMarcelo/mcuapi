@@ -9,7 +9,48 @@
       "email": "mrclgst10@gmail.com"
     }
   },
+  "servers": [
+    {
+      "url": "https://mcuapi.up.railway.app",
+      "description": "Production"
+    },
+    {
+      "url": "http://localhost:3333",
+      "description": "Local development"
+    }
+  ],
   "paths": {
+    "/health": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "summary": "Service health check",
+        "description": "Reports API and database status. Returns 503 when the database is unreachable.",
+        "responses": {
+          "200": {
+            "description": "Service is healthy",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Health"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Database is unreachable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Health"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/movies": {
       "get": {
         "tags": [
@@ -31,11 +72,14 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "Limit of items to return",
+            "description": "Limit of items to return. Defaults to 10; values above 100 are capped at 100.",
             "required": false,
             "schema": {
               "type": "integer",
-              "example": "10"
+              "default": 10,
+              "minimum": 1,
+              "maximum": 100,
+              "example": 10
             }
           },
           {
@@ -231,11 +275,14 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "Limit of items to return",
+            "description": "Limit of items to return. Defaults to 10; values above 100 are capped at 100.",
             "required": false,
             "schema": {
               "type": "integer",
-              "example": "10"
+              "default": 10,
+              "minimum": 1,
+              "maximum": 100,
+              "example": 10
             }
           },
           {
@@ -432,11 +479,14 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "Limit of items to return",
+            "description": "Limit of items to return. Defaults to 10; values above 100 are capped at 100.",
             "required": false,
             "schema": {
               "type": "integer",
-              "example": "10"
+              "default": 10,
+              "minimum": 1,
+              "maximum": 100,
+              "example": 10
             }
           },
           {
@@ -895,6 +945,37 @@
   },
   "components": {
     "schemas": {
+      "Health": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok",
+              "degraded"
+            ],
+            "example": "ok"
+          },
+          "version": {
+            "type": "string",
+            "nullable": true,
+            "example": "3.0.0"
+          },
+          "uptime": {
+            "type": "integer",
+            "description": "Process uptime in seconds",
+            "example": 3600
+          },
+          "database": {
+            "type": "string",
+            "enum": [
+              "up",
+              "down"
+            ],
+            "example": "up"
+          }
+        }
+      },
       "Movie": {
         "type": "object",
         "properties": {

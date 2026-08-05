@@ -2,5 +2,10 @@
   "$schema": "https://railway.com/railway.schema.json",
   "build": {
     "buildCommand": "yarn install --frozen-lockfile --production=false && yarn run build"
+  },
+  "deploy": {
+    "healthcheckPath": "/health",
+    "healthcheckTimeout": 30,
+    "restartPolicyType": "ON_FAILURE"
   }
 }

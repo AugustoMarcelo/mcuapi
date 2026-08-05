@@ -7,7 +7,10 @@ A RESTful API serving structured data on the Marvel Cinematic Universe — movie
 ```
 baseURL  https://mcuapi.up.railway.app/api/v1
 docs     https://mcuapi.up.railway.app/docs
+health   https://mcuapi.up.railway.app/health
 ```
+
+Free, open, and **no API key required**.
 
 ## Features
 
@@ -40,6 +43,13 @@ List endpoints (`/movies`, `/tvshows`, `/characters`) return `page`, `limit`, an
 
 > [!NOTE]
 > Links are built from the request host by default. Set `APP_URL` (e.g. `APP_URL=https://mcuapi.up.railway.app`) to force the base URL behind a proxy.
+
+## Usage & limits
+
+- **Read-only.** Every endpoint is a `GET`; the API never accepts writes.
+- **Rate limit.** 100 requests per minute per IP. Responses carry `RateLimit-*` headers, and exceeding it returns `429`.
+- **Caching.** Responses are `Cache-Control: public, max-age=3600` and carry an `ETag`. Send `If-None-Match` to get a `304` and save the transfer — the dataset only changes a few times a month.
+- **Pagination.** `limit` defaults to `10` and is capped at `100`.
 
 ## Tech stack
 
