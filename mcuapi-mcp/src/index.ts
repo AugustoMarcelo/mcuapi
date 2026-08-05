@@ -160,6 +160,103 @@ server.registerTool(
   },
 );
 
+server.registerTool(
+  'get_usage_stats',
+  {
+    description:
+      'API traffic: request counts per day and per route, from the request_metrics table. ' +
+      'Counters are aggregate only — no IPs, user agents or query strings are stored. ' +
+      'Note that Cache-Control means repeat callers may not reach the server at all, ' +
+      'so these are a floor on real usage, not the exact figure.',
+    inputSchema: {
+      days: z
+        .number()
+        .int()
+        .min(1)
+        .max(365)
+        .optional()
+        .describe('How many days back to report. Defaults to 30.'),
+    },
+  },
+  async ({ days }) => {
+    const window = days ?? 30;
+
+    const [totals] = await query<{ total: string; active_days: string }>(
+      `SELECT COALESCE(SUM(count), 0) AS total, COUNT(DISTINCT day) AS active_days
+       FROM request_metrics
+       WHERE day >= CURRENT_DATE - $1::int`,
+      [window],
+    );
+
+    if (!totals || Number(totals.total) === 0) {
+      return {
+        content: [
+          {
+            type: 'text',
+            text:
+              `**API usage — last ${window} days**\n\n` +
+              'No requests recorded yet. If the API is deployed, either the ' +
+              'migration has not run or no traffic has arrived since it did.',
+          },
+        ],
+      };
+    }
+
+    const byRoute = await query<{ route: string; hits: string }>(
+      `SELECT route, SUM(count) AS hits
+       FROM request_metrics
+       WHERE day >= CURRENT_DATE - $1::int
+       GROUP BY route
+       ORDER BY hits DESC
+       LIMIT 20`,
+      [window],
+    );
+
+    const byDay = await query<{ day: string; hits: string }>(
+      `SELECT to_char(day, 'YYYY-MM-DD') AS day, SUM(count) AS hits
+       FROM request_metrics
+       WHERE day >= CURRENT_DATE - $1::int
+       GROUP BY day
+       ORDER BY day DESC
+       LIMIT 14`,
+      [window],
+    );
+
+    const byStatus = await query<{ status_class: number; hits: string }>(
+      `SELECT status_class, SUM(count) AS hits
+       FROM request_metrics
+       WHERE day >= CURRENT_DATE - $1::int
+       GROUP BY status_class
+       ORDER BY status_class`,
+      [window],
+    );
+
+    const total = Number(totals.total);
+    const activeDays = Number(totals.active_days) || 1;
+
+    const lines = [
+      `**API usage — last ${window} days**`,
+      '',
+      `Total requests: ${total.toLocaleString('en-US')}`,
+      `Days with traffic: ${activeDays}`,
+      `Average per active day: ${Math.round(total / activeDays).toLocaleString('en-US')}`,
+      '',
+      '**By status class:**',
+      ...byStatus.map(
+        s => `  ${s.status_class}xx: ${Number(s.hits).toLocaleString('en-US')}`,
+      ),
+      '',
+      '**Top routes:**',
+      ...byRoute.map(r => `  ${r.route} — ${Number(r.hits).toLocaleString('en-US')}`),
+      '',
+      '**Recent days:**',
+      ...byDay.map(d => `  ${d.day}: ${Number(d.hits).toLocaleString('en-US')}`),
+    ];
+
+    return { content: [{ type: 'text', text: lines.join('\n') }] };
+  },
+);
+
 // ─── MOVIES ────────────────────────────────────────────────────────────────────
 
 server.registerTool(
