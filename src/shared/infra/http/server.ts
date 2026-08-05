@@ -10,6 +10,11 @@ import AppError from '@shared/errors/AppError';
 import swaggerFile from '@config/swagger.json';
 import routes from './routes';
 import healthRouter from './routes/health.routes';
+import {
+  installMetricsShutdownHooks,
+  metricsMiddleware,
+  startMetricsFlusher,
+} from './metrics';
 import '@shared/infra/typeorm';
 import '@shared/container';
 
@@ -26,6 +31,10 @@ app.disable('x-powered-by');
 
 app.use(cors());
 app.use(express.json() as express.RequestHandler);
+
+// Before the rate limiter, so throttled requests are counted too — a spike of
+// 429s is exactly the kind of thing worth seeing.
+app.use(metricsMiddleware);
 
 app.use(
   rateLimit({
@@ -77,4 +86,6 @@ const port = process.env.PORT || 3333;
 
 app.listen(port, () => {
   console.log(`🦸‍♂️ api running on port ${port}`);
+  startMetricsFlusher();
+  installMetricsShutdownHooks();
 });
