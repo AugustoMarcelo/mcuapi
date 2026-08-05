@@ -12,7 +12,9 @@ describe('buildPaginationLinks', () => {
       total: 40,
     });
 
-    expect(_links.self).toEqual({ href: 'http://localhost:3333/api/v1/movies' });
+    expect(_links.self).toEqual({
+      href: 'http://localhost:3333/api/v1/movies',
+    });
     expect(_links.first).toEqual(_links.self);
     expect(_links.next).toBeUndefined();
     expect(_links.prev).toBeUndefined();
@@ -69,7 +71,12 @@ describe('buildPaginationLinks', () => {
     const { _links } = buildPaginationLinks({
       baseUrl,
       path,
-      query: { page: '2', limit: '5', order: 'release_date,DESC', studio: 'Marvel Studios' },
+      query: {
+        page: '2',
+        limit: '5',
+        order: 'release_date,DESC',
+        studio: 'Marvel Studios',
+      },
       page: '2',
       limit: '5',
       total: 20,
@@ -80,6 +87,24 @@ describe('buildPaginationLinks', () => {
     expect(next).toContain('order=release_date%2CDESC');
     expect(next).toContain('studio=Marvel+Studios');
     expect(next).toContain('page=3');
+  });
+
+  it('Should use resolved pagination values instead of raw query values', () => {
+    const { _links } = buildPaginationLinks({
+      baseUrl,
+      path,
+      query: { page: '2.9', limit: '100000', studio: 'Marvel Studios' },
+      page: 2,
+      limit: 100,
+      total: 300,
+    });
+
+    expect(_links.self).toEqual({
+      href: `${baseUrl}${path}?studio=Marvel+Studios&limit=100&page=2`,
+    });
+    expect(_links.next).toEqual({
+      href: `${baseUrl}${path}?studio=Marvel+Studios&limit=100&page=3`,
+    });
   });
 
   it('Should strip the trailing slash from the router-root path', () => {
