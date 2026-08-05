@@ -1,0 +1,59 @@
+{
+  "name": "mcuapi",
+  "version": "0.1.0",
+  "description": "Typed client for MCUAPI — Marvel Cinematic Universe movies, TV shows, characters and chronological timeline. No API key required.",
+  "license": "MIT",
+  "author": "Marcelo Augusto",
+  "homepage": "https://augustomarcelo.github.io/mcuapi/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AugustoMarcelo/mcuapi.git",
+    "directory": "mcuapi-client"
+  },
+  "bugs": {
+    "url": "https://github.com/AugustoMarcelo/mcuapi/issues"
+  },
+  "keywords": [
+    "marvel",
+    "mcu",
+    "marvel-cinematic-universe",
+    "api-client",
+    "movies",
+    "tv-shows",
+    "characters",
+    "timeline",
+    "typescript"
+  ],
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test test/*.test.ts",
+    "test:e2e": "MCUAPI_E2E=1 tsx --test test/e2e.test.ts",
+    "prepublishOnly": "npm run typecheck && npm run test && npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsup": "^8.0.0",
+    "tsx": "^4.20.4",
+    "typescript": "^5.0.0"
+  }
+}
