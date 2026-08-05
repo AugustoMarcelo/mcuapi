@@ -45,7 +45,9 @@ app.use('/health', healthRouter);
 app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerFile));
 
 app.use((request: Request, response: Response, next: NextFunction) => {
-  if (request.method === 'GET') {
+  // HEAD must carry the same caching headers as GET — `curl -I` is how most
+  // people check a cache policy, and omitting it there reads as "not cached".
+  if (request.method === 'GET' || request.method === 'HEAD') {
     response.set('Cache-Control', `public, max-age=${CACHE_MAX_AGE_SECONDS}`);
   }
 
