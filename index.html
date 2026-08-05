@@ -1021,7 +1021,7 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
   <section class="sec shell">
     <div class="sec-head">
       <span class="tag">Three lines to first data</span>
-      <h2>No key. No client library required.</h2>
+      <h2>No key. No setup. Client optional.</h2>
     </div>
 
     <div class="qs">
@@ -1030,6 +1030,7 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
           <button class="tab" role="tab" id="tab-curl" aria-controls="p-curl" aria-selected="true" data-snip="curl">curl</button>
           <button class="tab" role="tab" id="tab-js" aria-controls="p-js" aria-selected="false" data-snip="js" tabindex="-1">JavaScript</button>
           <button class="tab" role="tab" id="tab-py" aria-controls="p-py" aria-selected="false" data-snip="py" tabindex="-1">Python</button>
+          <button class="tab" role="tab" id="tab-ts" aria-controls="p-ts" aria-selected="false" data-snip="ts" tabindex="-1">mcuapi-client</button>
           <span class="tab-actions">
             <button class="btn btn-ghost btn-sm" type="button" id="copy-snip">Copy</button>
           </span>
@@ -1057,6 +1058,21 @@ branches = requests.get(<span class="c-str">f"{API}/timeline?multiverse=Earth-61
 
 <span class="c-kw">for</span> entry <span class="c-kw">in</span> branches[0][<span class="c-str">"entries"</span>]:
     print(entry[<span class="c-str">"chronology_order"</span>], entry[<span class="c-str">"title"</span>], entry[<span class="c-str">"type"</span>])</pre></div>
+        <div role="tabpanel" id="p-ts" aria-labelledby="tab-ts" hidden><pre><span class="c-com"># Optional — the API needs no client at all</span>
+npm i mcuapi-client
+
+<span class="c-kw">import</span> { MCUAPI } <span class="c-kw">from</span> <span class="c-str">'mcuapi-client'</span>;
+
+<span class="c-kw">const</span> mcu = <span class="c-kw">new</span> MCUAPI();
+
+<span class="c-com">// Fully typed. box_office is a string — Postgres bigint,</span>
+<span class="c-com">// so the compiler stops you treating it as a number.</span>
+<span class="c-kw">const</span> ironMan = <span class="c-kw">await</span> mcu.movies.get(1);
+
+<span class="c-com">// Walks every page for you by following _links.next</span>
+<span class="c-kw">for</span> <span class="c-kw">await</span> (<span class="c-kw">const</span> c <span class="c-kw">of</span> mcu.characters.all()) {
+  console.log(c.name, c.played_by);
+}</pre></div>
       </div>
 
       <div class="limits">
