@@ -257,6 +257,201 @@ server.registerTool(
   },
 );
 
+// ─── STREAMING AVAILABILITY ────────────────────────────────────────────────────
+
+server.registerTool(
+  'set_streaming_availability',
+  {
+    description:
+      'Record where a title can be watched in one region. Idempotent — repeating the same ' +
+      'title/region/provider updates the URL rather than adding a duplicate. ' +
+      'Pass exactly one of movie_id or tvshow_id. Only record titles that have actually ' +
+      'been released; unreleased titles stream nowhere.',
+    inputSchema: {
+      movie_id: z.number().int().optional(),
+      tvshow_id: z.number().int().optional(),
+      region: z
+        .string()
+        .length(2)
+        .describe('ISO 3166-1 alpha-2, e.g. US, BR, GB'),
+      provider: z.string().describe('Service name as viewers see it, e.g. Disney+'),
+      url: z
+        .string()
+        .optional()
+        .describe("The provider's own page for this title, if known"),
+    },
+  },
+  async ({ movie_id, tvshow_id, region, provider, url }) => {
+    if ((movie_id == null) === (tvshow_id == null)) {
+      return {
+        content: [
+          {
+            type: 'text',
+            text: 'Pass exactly one of movie_id or tvshow_id.',
+          },
+        ],
+        isError: true,
+      };
+    }
+
+    const column = movie_id != null ? 'movie_id' : 'tvshow_id';
+    const id = movie_id ?? tvshow_id;
+
+    const [row] = await query<{ id: number }>(
+      `INSERT INTO streaming_availability (${column}, region, provider, url)
+       VALUES ($1, $2, $3, $4)
+       ON CONFLICT (${column}, region, provider)
+         WHERE ${column} IS NOT NULL
+       DO UPDATE SET url = EXCLUDED.url, updated_at = now()
+       RETURNING id`,
+      [id, region.toUpperCase(), provider, url ?? null],
+    );
+
+    return {
+      content: [
+        {
+          type: 'text',
+          text: `Saved #${row.id}: ${column.replace('_id', '')} ${id} — ${provider} in ${region.toUpperCase()}`,
+        },
+      ],
+    };
+  },
+);
+
+server.registerTool(
+  'delete_streaming_availability',
+  {
+    description:
+      'Remove one streaming entry by its id. Use get_streaming_availability to find it.',
+    inputSchema: { id: z.number().int() },
+  },
+  async ({ id }) => {
+    const rows = await query<{ id: number }>(
+      'DELETE FROM streaming_availability WHERE id = $1 RETURNING id',
+      [id],
+    );
+
+    return {
+      content: [
+        {
+          type: 'text',
+          text: rows.length ? `Deleted #${id}` : `No entry with id ${id}`,
+        },
+      ],
+    };
+  },
+);
+
+server.registerTool(
+  'get_streaming_availability',
+  {
+    description:
+      'Show recorded streaming availability. Filter by title or region, or call with no ' +
+      'arguments for a coverage summary of how many released titles still have none.',
+    inputSchema: {
+      movie_id: z.number().int().optional(),
+      tvshow_id: z.number().int().optional(),
+      region: z.string().length(2).optional(),
+    },
+  },
+  async ({ movie_id, tvshow_id, region }) => {
+    if (movie_id == null && tvshow_id == null && !region) {
+      const [summary] = await query<{
+        entries: string;
+        regions: string;
+        movies_covered: string;
+        tvshows_covered: string;
+      }>(
+        `SELECT COUNT(*) AS entries,
+                COUNT(DISTINCT region) AS regions,
+                COUNT(DISTINCT movie_id) AS movies_covered,
+                COUNT(DISTINCT tvshow_id) AS tvshows_covered
+           FROM streaming_availability`,
+      );
+
+      const [gaps] = await query<{ movies: string; tvshows: string }>(
+        `SELECT
+           (SELECT COUNT(*) FROM movies m
+             WHERE m.release_date IS NOT NULL AND m.release_date <= CURRENT_DATE
+               AND NOT EXISTS (SELECT 1 FROM streaming_availability s WHERE s.movie_id = m.id)) AS movies,
+           (SELECT COUNT(*) FROM tvshows t
+             WHERE t.release_date IS NOT NULL AND t.release_date <= CURRENT_DATE
+               AND NOT EXISTS (SELECT 1 FROM streaming_availability s WHERE s.tvshow_id = t.id)) AS tvshows`,
+      );
+
+      return {
+        content: [
+          {
+            type: 'text',
+            text: [
+              '**Streaming coverage**',
+              '',
+              `Entries: ${summary.entries} across ${summary.regions} region(s)`,
+              `Titles covered: ${summary.movies_covered} movies, ${summary.tvshows_covered} TV shows`,
+              '',
+              '**Released titles with no availability recorded:**',
+              `  movies: ${gaps.movies}`,
+              `  tvshows: ${gaps.tvshows}`,
+            ].join('\n'),
+          },
+        ],
+      };
+    }
+
+    const clauses: string[] = [];
+    const params: unknown[] = [];
+
+    if (movie_id != null) {
+      params.push(movie_id);
+      clauses.push(`s.movie_id = $${params.length}`);
+    }
+    if (tvshow_id != null) {
+      params.push(tvshow_id);
+      clauses.push(`s.tvshow_id = $${params.length}`);
+    }
+    if (region) {
+      params.push(region.toUpperCase());
+      clauses.push(`s.region = $${params.length}`);
+    }
+
+    const rows = await query<{
+      id: number;
+      title: string;
+      kind: string;
+      region: string;
+      provider: string;
+      url: string | null;
+    }>(
+      `SELECT s.id, s.region, s.provider, s.url,
+              COALESCE(m.title, t.title) AS title,
+              CASE WHEN s.movie_id IS NOT NULL THEN 'movie' ELSE 'tvshow' END AS kind
+         FROM streaming_availability s
+         LEFT JOIN movies m ON m.id = s.movie_id
+         LEFT JOIN tvshows t ON t.id = s.tvshow_id
+        WHERE ${clauses.join(' AND ')}
+        ORDER BY title, s.region, s.provider
+        LIMIT 200`,
+      params,
+    );
+
+    return {
+      content: [
+        {
+          type: 'text',
+          text: rows.length
+            ? rows
+                .map(
+                  r =>
+                    `#${r.id}  ${r.title} (${r.kind})  ${r.region}  ${r.provider}${r.url ? `  ${r.url}` : ''}`,
+                )
+                .join('\n')
+            : 'No streaming availability recorded for that filter.',
+        },
+      ],
+    };
+  },
+);
+
 // ─── MOVIES ────────────────────────────────────────────────────────────────────
 
 server.registerTool(

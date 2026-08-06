@@ -98,6 +98,28 @@ Multiverse/timeline support is merged: `studio`, `continuity`,
 `multiverse_designation`, `is_mcu`, `timeline_chronology_order` on `Movie` and
 `TVShow`, plus a `Character` entity and a `/timeline` endpoint.
 
+## Streaming availability
+
+`streaming_availability` holds one row per title × region × provider, exposed
+at `/movies/{id}/streaming`, `/tvshows/{id}/streaming` and
+`/streaming/providers`. Curate it through the `set_streaming_availability`
+/ `get_streaming_availability` / `delete_streaming_availability` MCP tools.
+
+**Sourcing rules — these matter more than coverage:**
+
+- **First-party only.** Do not import from TMDB, JustWatch or similar. Their
+  watch-provider data is JustWatch-licensed, requires per-item attribution, and
+  forbids deep links — obligations this API cannot pass on to its consumers.
+- **Never record a title still in cinemas.** Films get a four-month theatrical
+  buffer; `release_date <= today` alone is not "released to streaming".
+  Disney+ originals stream on release day and need no buffer.
+- **Leave contested titles empty.** Sony's Spider-Man films, The Incredible
+  Hulk (Universal), and the FOX X-Men era have rights that move by territory.
+  A blank is honest; a guess is worse than nothing because consumers cannot
+  tell the two apart.
+- Region is ISO 3166-1 alpha-2, uppercase. Seed bootstrap:
+  `npm run seed:streaming -- --dry-run`.
+
 ## Data Sourcing Rules
 
 - `marvel.com` is the source of truth for most movie/TV show information and images (see also `box_office` → the-numbers.com, `trailer_url` → marvel.com/movies YouTube link).

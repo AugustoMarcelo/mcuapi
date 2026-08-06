@@ -941,6 +941,159 @@
           }
         }
       }
+    },
+    "/api/v1/movies/{movie_id}/streaming": {
+      "get": {
+        "tags": [
+          "Streaming"
+        ],
+        "summary": "Where to watch a movie",
+        "description": "Streaming availability for one title, grouped by region. Hand-curated: coverage is deliberately incomplete rather than guessed, so an absent title means \"not recorded yet\".",
+        "parameters": [
+          {
+            "name": "movie_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "description": "ISO 3166-1 alpha-2 country code, e.g. US or BR. Case-insensitive. Omit for every region.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 2,
+              "example": "US"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Availability grouped by region. An empty data array means no availability is recorded, not that the title is unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StreamingCollection"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "region was not a two-letter code",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/tvshows/{tvshow_id}/streaming": {
+      "get": {
+        "tags": [
+          "Streaming"
+        ],
+        "summary": "Where to watch a TV show",
+        "description": "Streaming availability for one title, grouped by region. Hand-curated: coverage is deliberately incomplete rather than guessed, so an absent title means \"not recorded yet\".",
+        "parameters": [
+          {
+            "name": "tvshow_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "description": "ISO 3166-1 alpha-2 country code, e.g. US or BR. Case-insensitive. Omit for every region.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 2,
+              "example": "US"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Availability grouped by region. An empty data array means no availability is recorded, not that the title is unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StreamingCollection"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "region was not a two-letter code",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/streaming/providers": {
+      "get": {
+        "tags": [
+          "Streaming"
+        ],
+        "summary": "Regions and providers in use",
+        "description": "Every region that has at least one recorded offer, and the distinct provider names. Use it to discover what the dataset currently covers.",
+        "parameters": [
+          {
+            "name": "region",
+            "in": "query",
+            "description": "Narrow the provider list to one region.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 2,
+              "example": "US"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Known regions and providers",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StreamingProviders"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "region was not a two-letter code",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1322,6 +1475,98 @@
           },
           "characters": {
             "href": "https://mcuapi.example.com/api/v1/characters/movie/1"
+          }
+        }
+      },
+      "StreamingOffer": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "example": "Disney+"
+          },
+          "url": {
+            "type": "string",
+            "nullable": true,
+            "description": "The provider's own page for this title, when known.",
+            "example": null
+          }
+        }
+      },
+      "StreamingRegion": {
+        "type": "object",
+        "properties": {
+          "region": {
+            "type": "string",
+            "example": "US"
+          },
+          "offers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StreamingOffer"
+            }
+          }
+        }
+      },
+      "StreamingCollection": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StreamingRegion"
+            }
+          },
+          "total": {
+            "type": "integer",
+            "description": "Number of offers, not number of regions.",
+            "example": 2
+          },
+          "_links": {
+            "$ref": "#/components/schemas/ResourceLinks"
+          }
+        }
+      },
+      "StreamingProviders": {
+        "type": "object",
+        "properties": {
+          "regions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "BR",
+              "US"
+            ]
+          },
+          "providers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "Disney+"
+            ]
+          },
+          "_links": {
+            "$ref": "#/components/schemas/ResourceLinks"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "Error"
+          },
+          "statusCode": {
+            "type": "integer",
+            "example": 400
+          },
+          "message": {
+            "type": "string"
           }
         }
       }

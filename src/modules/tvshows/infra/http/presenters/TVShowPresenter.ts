@@ -22,6 +22,7 @@ export function presentTVShow(tvshow: ITVShow, baseUrl: string): WithLinks<ITVSh
   if (tvshow.id != null) {
     _links.self = { href: `${baseUrl}/api/v1/tvshows/${tvshow.id}` };
     _links.characters = { href: `${baseUrl}/api/v1/characters/tvshow/${tvshow.id}` };
+    _links.streaming = { href: `${baseUrl}/api/v1/tvshows/${tvshow.id}/streaming` };
   }
 
   const {
