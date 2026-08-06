@@ -14,7 +14,6 @@ class FakeStreamingRepository implements IStreamingRepository {
       tvshow_id: null,
       region: 'US',
       provider: 'Disney+',
-      offer_type: 'subscription',
       url: null,
       created_at: new Date(),
       updated_at: new Date(),
@@ -32,7 +31,6 @@ class FakeStreamingRepository implements IStreamingRepository {
     return [...rows].sort(
       (a, b) =>
         a.region.localeCompare(b.region) ||
-        a.offer_type.localeCompare(b.offer_type) ||
         a.provider.localeCompare(b.provider),
     );
   }

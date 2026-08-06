@@ -1485,17 +1485,6 @@
             "type": "string",
             "example": "Disney+"
           },
-          "offer_type": {
-            "type": "string",
-            "enum": [
-              "subscription",
-              "rent",
-              "buy",
-              "free",
-              "ads"
-            ],
-            "example": "subscription"
-          },
           "url": {
             "type": "string",
             "nullable": true,

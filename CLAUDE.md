@@ -100,9 +100,9 @@ Multiverse/timeline support is merged: `studio`, `continuity`,
 
 ## Streaming availability
 
-`streaming_availability` holds one row per title × region × provider ×
-`offer_type`, exposed at `/movies/{id}/streaming`, `/tvshows/{id}/streaming`
-and `/streaming/providers`. Curate it through the `set_streaming_availability`
+`streaming_availability` holds one row per title × region × provider, exposed
+at `/movies/{id}/streaming`, `/tvshows/{id}/streaming` and
+`/streaming/providers`. Curate it through the `set_streaming_availability`
 / `get_streaming_availability` / `delete_streaming_availability` MCP tools.
 
 **Sourcing rules — these matter more than coverage:**

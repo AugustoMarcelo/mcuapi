@@ -9,7 +9,6 @@ const row = (
   tvshow_id: null,
   region: 'US',
   provider: 'Disney+',
-  offer_type: 'subscription',
   url: null,
   created_at: new Date(),
   updated_at: new Date(),
@@ -23,7 +22,7 @@ describe('presentStreamingCollection', () => {
     const result = presentStreamingCollection({
       rows: [
         row({ region: 'US', provider: 'Disney+' }),
-        row({ id: 2, region: 'US', provider: 'Apple TV', offer_type: 'rent' }),
+        row({ id: 2, region: 'US', provider: 'Apple TV' }),
         row({ id: 3, region: 'BR', provider: 'Disney+' }),
       ],
       baseUrl,
@@ -38,7 +37,7 @@ describe('presentStreamingCollection', () => {
 
   it('Should report the row count, not the region count', () => {
     const result = presentStreamingCollection({
-      rows: [row(), row({ id: 2, provider: 'Apple TV', offer_type: 'buy' })],
+      rows: [row(), row({ id: 2, provider: 'Apple TV' })],
       baseUrl,
       type: 'movies',
       title_id: 1,

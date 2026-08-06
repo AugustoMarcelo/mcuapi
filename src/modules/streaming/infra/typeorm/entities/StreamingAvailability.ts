@@ -10,9 +10,7 @@ import {
 
 import Movie from '@modules/movies/infra/typeorm/entities/Movie';
 import TVShow from '@modules/tvshows/infra/typeorm/entities/TVShow';
-import IStreamingAvailability, {
-  OfferType,
-} from '@modules/streaming/entities/IStreamingAvailability';
+import IStreamingAvailability from '@modules/streaming/entities/IStreamingAvailability';
 
 @Entity({ name: 'streaming_availability', schema: 'public' })
 class StreamingAvailability implements IStreamingAvailability {
@@ -30,9 +28,6 @@ class StreamingAvailability implements IStreamingAvailability {
 
   @Column('varchar', { length: 60 })
   provider: string;
-
-  @Column('varchar', { length: 20 })
-  offer_type: OfferType;
 
   @Column('varchar', { nullable: true })
   url: string | null;

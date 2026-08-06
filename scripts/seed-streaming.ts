@@ -40,7 +40,6 @@ dotenv.config({
 
 const THEATRICAL_WINDOW_MONTHS = 4;
 const PROVIDER = 'Disney+';
-const OFFER_TYPE = 'subscription';
 const REGIONS = ['US', 'BR'];
 
 const dryRun = process.argv.includes('--dry-run');
@@ -125,12 +124,12 @@ async function main(): Promise<void> {
     for (const region of REGIONS) {
       // eslint-disable-next-line no-await-in-loop
       const { rowCount } = await pool.query(
-        `INSERT INTO streaming_availability (${column}, region, provider, offer_type)
-         VALUES ($1, $2, $3, $4)
-         ON CONFLICT (${column}, region, provider, offer_type)
+        `INSERT INTO streaming_availability (${column}, region, provider)
+         VALUES ($1, $2, $3)
+         ON CONFLICT (${column}, region, provider)
            WHERE ${column} IS NOT NULL
          DO NOTHING`,
-        [id, region, PROVIDER, OFFER_TYPE],
+        [id, region, PROVIDER],
       );
       inserted += rowCount ?? 0;
     }

@@ -94,32 +94,30 @@ describe('GetStreamingByTitleService', () => {
     ).rejects.toBeInstanceOf(AppError);
   });
 
-  it('Should order by region, then offer type, then provider', async () => {
-    fakeRepository.seed({
-      movie_id: 1,
-      region: 'US',
-      offer_type: 'rent',
-      provider: 'Apple TV',
-    });
-    fakeRepository.seed({
-      movie_id: 1,
-      region: 'US',
-      offer_type: 'buy',
-      provider: 'Apple TV',
-    });
-    fakeRepository.seed({
-      movie_id: 1,
-      region: 'BR',
-      offer_type: 'subscription',
-      provider: 'Disney+',
-    });
+  it('Should order by region, then provider', async () => {
+    fakeRepository.seed({ movie_id: 1, region: 'US', provider: 'Disney+' });
+    fakeRepository.seed({ movie_id: 1, region: 'US', provider: 'Apple TV' });
+    fakeRepository.seed({ movie_id: 1, region: 'BR', provider: 'Disney+' });
 
     const rows = await getStreaming.execute({ title_id: 1, type: 'movie' });
 
-    expect(rows.map(row => `${row.region}/${row.offer_type}`)).toEqual([
-      'BR/subscription',
-      'US/buy',
-      'US/rent',
+    expect(rows.map(row => `${row.region}/${row.provider}`)).toEqual([
+      'BR/Disney+',
+      'US/Apple TV',
+      'US/Disney+',
     ]);
+  });
+
+  it('Should allow several providers for one title in one region', async () => {
+    fakeRepository.seed({ movie_id: 1, region: 'US', provider: 'Disney+' });
+    fakeRepository.seed({ movie_id: 1, region: 'US', provider: 'Apple TV' });
+
+    const rows = await getStreaming.execute({
+      title_id: 1,
+      type: 'movie',
+      region: 'US',
+    });
+
+    expect(rows.map(row => row.provider)).toEqual(['Apple TV', 'Disney+']);
   });
 });

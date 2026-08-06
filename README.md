@@ -77,13 +77,13 @@ GET /api/v1/movies/1/streaming?region=US
 ```json
 {
   "data": [
-    { "region": "US", "offers": [{ "provider": "Disney+", "offer_type": "subscription", "url": null }] }
+    { "region": "US", "offers": [{ "provider": "Disney+", "url": null }] }
   ],
   "total": 1
 }
 ```
 
-Offers are grouped by region — rights are sold per territory, so a single global answer would be wrong for most of the world. `offer_type` is one of `subscription`, `rent`, `buy`, `free`, `ads`. `GET /api/v1/streaming/providers` lists what the dataset currently covers.
+Offers are grouped by region — rights are sold per territory, so a single global answer would be wrong for most of the world. A title can list several providers in one region. `GET /api/v1/streaming/providers` lists what the dataset currently covers.
 
 > [!IMPORTANT]
 > This data is **hand-curated and deliberately incomplete**. An empty `data` array means *no availability has been recorded*, not that the title is unavailable. Titles whose rights sit outside Disney — the Sony Spider-Man films, The Incredible Hulk, the FOX X-Men era — are intentionally blank rather than guessed, and nothing is recorded for a film still in cinemas. Treat it as a strong hint, not a contract, and check `updated_at` if freshness matters.

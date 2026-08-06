@@ -2,7 +2,6 @@ import IStreamingAvailability from '@modules/streaming/entities/IStreamingAvaila
 
 interface IPresentedOffer {
   provider: string;
-  offer_type: string;
   url: string | null;
 }
 
@@ -38,11 +37,7 @@ export function presentStreamingCollection({
 
   rows.forEach(row => {
     const offers = byRegion.get(row.region) ?? [];
-    offers.push({
-      provider: row.provider,
-      offer_type: row.offer_type,
-      url: row.url ?? null,
-    });
+    offers.push({ provider: row.provider, url: row.url ?? null });
     byRegion.set(row.region, offers);
   });
 

@@ -7,9 +7,9 @@ import { MigrationInterface, QueryRunner, Table, TableForeignKey } from 'typeorm
  * row without a region is wrong for most of the world rather than merely
  * incomplete. `region` is an ISO 3166-1 alpha-2 code.
  *
- * A title can appear several times per region — Disney+ on subscription and
- * Apple TV to buy are two rows, which is why `offer_type` is part of the
- * uniqueness rather than a single column on the title.
+ * A title can appear several times per region, once per provider — so the
+ * uniqueness is title × region × provider rather than a single column on the
+ * title.
  *
  * Follows the `character_appearances` shape: `movie_id` and `tvshow_id` are
  * both nullable and exactly one is set.
@@ -41,12 +41,6 @@ export default class CreateStreamingAvailability1785950000000
             type: 'varchar',
             length: '60',
             comment: 'Service name as the viewer sees it, e.g. Disney+',
-          },
-          {
-            name: 'offer_type',
-            type: 'varchar',
-            length: '20',
-            comment: 'subscription | rent | buy | free | ads',
           },
           {
             name: 'url',
@@ -96,13 +90,13 @@ export default class CreateStreamingAvailability1785950000000
     // duplicate a row. Partial indexes because NULLs never compare equal.
     await queryRunner.query(
       `CREATE UNIQUE INDEX "UQStreamingMovie"
-       ON "streaming_availability" ("movie_id", "region", "provider", "offer_type")
+       ON "streaming_availability" ("movie_id", "region", "provider")
        WHERE "movie_id" IS NOT NULL`,
     );
 
     await queryRunner.query(
       `CREATE UNIQUE INDEX "UQStreamingTVShow"
-       ON "streaming_availability" ("tvshow_id", "region", "provider", "offer_type")
+       ON "streaming_availability" ("tvshow_id", "region", "provider")
        WHERE "tvshow_id" IS NOT NULL`,
     );
 

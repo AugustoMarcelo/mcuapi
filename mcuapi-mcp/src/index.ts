@@ -259,14 +259,12 @@ server.registerTool(
 
 // ─── STREAMING AVAILABILITY ────────────────────────────────────────────────────
 
-const OFFER_TYPES = ['subscription', 'rent', 'buy', 'free', 'ads'] as const;
-
 server.registerTool(
   'set_streaming_availability',
   {
     description:
       'Record where a title can be watched in one region. Idempotent — repeating the same ' +
-      'title/region/provider/offer_type updates the URL rather than adding a duplicate. ' +
+      'title/region/provider updates the URL rather than adding a duplicate. ' +
       'Pass exactly one of movie_id or tvshow_id. Only record titles that have actually ' +
       'been released; unreleased titles stream nowhere.',
     inputSchema: {
@@ -277,14 +275,13 @@ server.registerTool(
         .length(2)
         .describe('ISO 3166-1 alpha-2, e.g. US, BR, GB'),
       provider: z.string().describe('Service name as viewers see it, e.g. Disney+'),
-      offer_type: z.enum(OFFER_TYPES),
       url: z
         .string()
         .optional()
         .describe("The provider's own page for this title, if known"),
     },
   },
-  async ({ movie_id, tvshow_id, region, provider, offer_type, url }) => {
+  async ({ movie_id, tvshow_id, region, provider, url }) => {
     if ((movie_id == null) === (tvshow_id == null)) {
       return {
         content: [
@@ -301,20 +298,20 @@ server.registerTool(
     const id = movie_id ?? tvshow_id;
 
     const [row] = await query<{ id: number }>(
-      `INSERT INTO streaming_availability (${column}, region, provider, offer_type, url)
-       VALUES ($1, $2, $3, $4, $5)
-       ON CONFLICT (${column}, region, provider, offer_type)
+      `INSERT INTO streaming_availability (${column}, region, provider, url)
+       VALUES ($1, $2, $3, $4)
+       ON CONFLICT (${column}, region, provider)
          WHERE ${column} IS NOT NULL
        DO UPDATE SET url = EXCLUDED.url, updated_at = now()
        RETURNING id`,
-      [id, region.toUpperCase(), provider, offer_type, url ?? null],
+      [id, region.toUpperCase(), provider, url ?? null],
     );
 
     return {
       content: [
         {
           type: 'text',
-          text: `Saved #${row.id}: ${column.replace('_id', '')} ${id} — ${provider} (${offer_type}) in ${region.toUpperCase()}`,
+          text: `Saved #${row.id}: ${column.replace('_id', '')} ${id} — ${provider} in ${region.toUpperCase()}`,
         },
       ],
     };
@@ -423,17 +420,16 @@ server.registerTool(
       kind: string;
       region: string;
       provider: string;
-      offer_type: string;
       url: string | null;
     }>(
-      `SELECT s.id, s.region, s.provider, s.offer_type, s.url,
+      `SELECT s.id, s.region, s.provider, s.url,
               COALESCE(m.title, t.title) AS title,
               CASE WHEN s.movie_id IS NOT NULL THEN 'movie' ELSE 'tvshow' END AS kind
          FROM streaming_availability s
          LEFT JOIN movies m ON m.id = s.movie_id
          LEFT JOIN tvshows t ON t.id = s.tvshow_id
         WHERE ${clauses.join(' AND ')}
-        ORDER BY title, s.region, s.offer_type, s.provider
+        ORDER BY title, s.region, s.provider
         LIMIT 200`,
       params,
     );
@@ -446,7 +442,7 @@ server.registerTool(
             ? rows
                 .map(
                   r =>
-                    `#${r.id}  ${r.title} (${r.kind})  ${r.region}  ${r.provider} — ${r.offer_type}${r.url ? `  ${r.url}` : ''}`,
+                    `#${r.id}  ${r.title} (${r.kind})  ${r.region}  ${r.provider}${r.url ? `  ${r.url}` : ''}`,
                 )
                 .join('\n')
             : 'No streaming availability recorded for that filter.',

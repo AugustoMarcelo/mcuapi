@@ -22,8 +22,8 @@ class StreamingRepository implements IStreamingRepository {
 
     return this.ormRepository.find({
       where,
-      // Stable output: region, then the cheapest way to watch first.
-      order: { region: 'ASC', offer_type: 'ASC', provider: 'ASC' },
+      // Stable output.
+      order: { region: 'ASC', provider: 'ASC' },
     });
   }
 
