@@ -5,24 +5,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MCUAPI — a free REST API for MCU movies, series, characters and the timeline</title>
 <meta name="description" content="MCUAPI is a free, no-key REST API for the Marvel Cinematic Universe: 57 movies, 56 TV shows, 302 characters, and a 113-entry chronological timeline across five continuity branches. CORS enabled, HATEOAS links, live now.">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icon-180.png">
 <link rel="canonical" href="https://augustomarcelo.github.io/mcuapi/">
 <meta name="keywords" content="MCU API, marvel movies api, marvel cinematic universe api, marvel timeline api, marvel characters api, free marvel api no key">
 <meta property="og:type" content="website">
 <meta property="og:title" content="MCUAPI — a free REST API for the Marvel Cinematic Universe">
 <meta property="og:description" content="57 movies, 56 TV shows, 302 characters, and a chronological timeline across five continuity branches. No key, no signup, CORS open.">
 <meta property="og:url" content="https://augustomarcelo.github.io/mcuapi/">
+<meta property="og:image" content="https://augustomarcelo.github.io/mcuapi/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MCUAPI — the letter M drawn as a node-and-edge graph">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#e9eae3" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#181a16" media="(prefers-color-scheme: dark)">
+<meta name="twitter:image" content="https://augustomarcelo.github.io/mcuapi/assets/og-cover.png">
+<meta name="theme-color" id="theme-color" content="#e8ebe5">
 <script>
-/* Resolve the theme before first paint so the page never flashes. */
+/* Resolve the theme before first paint so the page never flashes, and keep the
+   browser chrome on the same colour. A media-scoped theme-color follows the OS,
+   so it desyncs the moment the visitor uses the in-page toggle; these are the
+   computed sRGB of --bg in each theme. */
+window.MCUAPI_BG = { light: '#e8ebe5', dark: '#12150f' };
 (function () {
+  function paint(mode) {
+    document.documentElement.dataset.theme = mode;
+    var m = document.getElementById('theme-color');
+    if (m) { m.setAttribute('content', window.MCUAPI_BG[mode]); }
+  }
   try {
     var saved = localStorage.getItem('mcuapi-theme');
-    var dark = saved ? saved === 'dark'
-                     : window.matchMedia('(prefers-color-scheme: dark)').matches;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
-  } catch (e) { document.documentElement.dataset.theme = 'light'; }
+    paint((saved ? saved === 'dark'
+                 : window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light');
+  } catch (e) { paint('light'); }
 }());
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -69,6 +83,7 @@
   --border:        oklch(82% 0.012 130);
   --border-strong: oklch(66% 0.014 130);
   --border-ui:     oklch(52% 0.014 130);
+  --net-glow-soft: oklch(40% 0.120 38.9);
   --accent:        oklch(44% 0.155 32);
   --accent-hover:  oklch(36% 0.145 32);
   --accent-fg:     oklch(98% 0.008 130);
@@ -93,6 +108,7 @@
   --border:        oklch(31% 0.013 130);
   --border-strong: oklch(44% 0.014 130);
   --border-ui:     oklch(58% 0.014 130);
+  --net-glow-soft: oklch(46% 0.150 38.9);
   --accent:        oklch(72% 0.150 35);
   --accent-hover:  oklch(81% 0.125 38);
   --accent-fg:     oklch(17% 0.020 35);
@@ -121,6 +137,9 @@
   /* Frame inset compounds on top of --gut, so on phones it can be the tighter
      of the two — the frame's own border already separates it from the page. */
   --pad: clamp(14px, 1.9vw, 20px);
+  /* sampled from the centre node of logo.png — a brand constant, not a
+     themed token, so it stays identical in light and dark */
+  --net-glow: oklch(63.3% 0.177 38.9);
 }
 
 *,*::before,*::after{box-sizing:border-box}
@@ -134,6 +153,9 @@ body{
 img{max-width:100%;display:block}
 ::selection{background:var(--accent);color:var(--accent-fg)}
 
+/* scoped to main, not body: clip creates no scroll container so the sticky
+   masthead keeps working, and a real overflow up there would still show */
+main{overflow-x:clip}
 .shell{width:min(100% - 2 * var(--gut), var(--shell));margin-inline:auto}
 .rule{border:0;border-top:1px solid var(--border);margin:0}
 
@@ -202,10 +224,16 @@ a{color:inherit}
 }
 .mast-in{display:flex;align-items:center;gap:20px;height:58px}
 .wordmark{
+  display:inline-flex;align-items:center;gap:9px;
   font-family:var(--display); font-size:19px; font-weight:800;
   font-variation-settings:"wdth" 122,"wght" 800;
   letter-spacing:-0.01em; text-decoration:none; color:var(--fg);
 }
+.wordmark-mark{width:26px;height:26px;border-radius:5px;flex:0 0 auto}
+/* the mark ships a baked-in dark plate: it reads on its own against the light
+   theme (14.3:1) but dissolves into the dark one (1.07:1), so give it an edge
+   only where it needs one. */
+[data-theme="dark"] .wordmark-mark{box-shadow:0 0 0 1px var(--border-ui)}
 .wordmark span{color:var(--muted);font-variation-settings:"wdth" 100,"wght" 500}
 .mast-base{
   font-family:var(--mono);font-size:11.5px;color:var(--muted);
@@ -244,7 +272,16 @@ a{color:inherit}
   color:var(--muted);white-space:nowrap;
 }
 .status-dot{width:7px;height:7px;border-radius:50%;background:var(--border-ui);flex:0 0 auto}
-.status[data-state="up"] .status-dot{background:var(--ok);box-shadow:0 0 0 3px color-mix(in oklab,var(--ok) 22%,transparent)}
+/* The dot carries the state, so it never dims — dropping it to 80% already
+   costs the 3:1 icon floor in the light theme. Only the halo breathes. */
+.status[data-state="up"] .status-dot{
+  background:var(--ok);box-shadow:0 0 0 3px color-mix(in oklab,var(--ok) 22%,transparent);
+  animation:statusBeat 2.8s ease-in-out infinite;
+}
+@keyframes statusBeat{
+  0%,100%{box-shadow:0 0 0 2px color-mix(in oklab,var(--ok) 32%,transparent)}
+  50%{box-shadow:0 0 0 6px color-mix(in oklab,var(--ok) 4%,transparent)}
+}
 .status[data-state="down"] .status-dot{background:var(--danger)}
 .status[data-state="up"]{color:var(--fg)}
 
@@ -255,6 +292,58 @@ a{color:inherit}
 .hero-lede{margin-bottom:32px}
 .hero-cta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:16px}
 .hero-note{font-family:var(--mono);font-size:11.5px;color:var(--muted);letter-spacing:.02em;overflow-wrap:anywhere}
+
+/* ── hero backdrop: the resource graph the wordmark is built from ──
+   Nodes and edges echo the icon; the travelling pulses are a request
+   walking _links, so the motion means something instead of decorating.
+   Border tones only — the hero's two accent slots are already spent
+   on the "No API key" chip and the primary CTA.                      */
+.hero-lead{position:relative}
+.hero-lead > :not(.hero-net){position:relative;z-index:1}
+.hero-net{
+  position:absolute;top:-26px;bottom:-10px;
+  /* 1px shy of the gutter on each side: making the width land on exactly 100%
+     of the viewport leaves sub-pixel rounding free to overshoot by a fraction,
+     which is enough to raise a horizontal scrollbar. The mask dissolves both
+     ends anyway, so the inset is invisible. */
+  left:calc(-1 * var(--gut) + 1px);right:calc(-1 * var(--gut) + 1px);
+  display:block;z-index:0;pointer-events:none;color:var(--border);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.42) 13%,rgba(0,0,0,.42) 44%,#000 72%,#000 87%,transparent 100%);
+          mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.42) 13%,rgba(0,0,0,.42) 44%,#000 72%,#000 87%,transparent 100%);
+}
+.hero-net .edge{stroke:currentColor;stroke-width:1.1;opacity:.42}
+.hero-net .node{fill:none;stroke:currentColor;stroke-width:3.2;opacity:.55}
+/* child combinator: the glow rings live inside a <g>, so they must not be swept
+   up by the nth-of-type counters that stagger the breathing base nodes */
+.hero-net > circle:nth-of-type(3n){animation:netBreathe 19s ease-in-out infinite}
+.hero-net > circle:nth-of-type(4n+1){animation:netBreathe 24s ease-in-out infinite;animation-delay:-9s}
+/* Each ring peaks exactly as the pulse reaches it: pathLength="1000" plus a
+   linear sweep means the pulse sits at fraction p of the path at fraction p of
+   the cycle, so the per-node delay is solved arithmetically, not eyeballed. */
+.hero-net .glow{
+  fill:none;stroke-width:3.2;opacity:0;
+  animation-timing-function:ease-in-out;animation-iteration-count:infinite;
+}
+.hero-net .glows-open .glow{
+  stroke:var(--net-glow);filter:drop-shadow(0 0 5px var(--net-glow));
+  animation-name:netGlow;
+}
+.hero-net .glows-text .glow{
+  stroke:var(--net-glow-soft);filter:drop-shadow(0 0 4px var(--net-glow-soft));
+  animation-name:netGlowSoft;
+}
+@keyframes netGlow{0%{opacity:.62}4%{opacity:0}96%{opacity:0}100%{opacity:.62}}
+@keyframes netGlowSoft{0%{opacity:.42}4%{opacity:0}96%{opacity:0}100%{opacity:.42}}
+.hero-net .signal{
+  fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;
+  opacity:.72;stroke-dasharray:30 970;
+  animation:netSignal 28s linear infinite;
+}
+.hero-net > path:nth-of-type(1){animation-duration:26s;animation-delay:-4s}
+.hero-net > path:nth-of-type(2){animation-duration:34s;animation-delay:-18s}
+.hero-net > path:nth-of-type(3){animation-duration:30s;animation-delay:-11s}
+@keyframes netBreathe{0%,100%{opacity:.42}50%{opacity:.80}}
+@keyframes netSignal{from{stroke-dashoffset:1000}to{stroke-dashoffset:0}}
 
 /* ledger — the catalogue index, not a stat card row */
 .ledger{
@@ -573,13 +662,30 @@ a{color:inherit}
 .close{padding:clamp(60px, 5.5vw + 19px, 84px) 0;border-top:1px solid var(--border-strong);background:var(--surface)}
 .close-in{display:grid;grid-template-columns:1fr auto;gap:36px;align-items:center}
 .close h2{margin-bottom:12px;max-width:20ch}
+/* the count is a live figure, so it only appears once the API answers — an
+   unauthenticated GitHub call is rate-limited and must never leave a stale or
+   invented number sitting on the CTA */
+.btn-star svg{width:16px;height:16px;flex:0 0 auto}
+.star-count{
+  font-family:var(--mono);font-size:12px;font-weight:600;
+  letter-spacing:.02em;font-variant-numeric:tabular-nums;
+  padding-left:11px;
+  border-left:1px solid color-mix(in oklab, var(--accent-fg) 36%, transparent);
+}
 
 footer{border-top:1px solid var(--border);padding:34px 0 46px}
 .foot-in{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start}
 .foot-links{display:flex;gap:24px;flex-wrap:wrap}
 .foot-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .14s}
 .foot-links a:hover{color:var(--fg)}
-.disclaimer{margin-left:auto;max-width:44ch;font-size:11.5px;line-height:1.6;color:var(--muted);text-align:right}
+/* 44ch sat under the 50-75ch readable band and, set right-aligned, left a ragged
+   left edge for the eye to hunt across six lines. Wider measure, flush left,
+   still anchored to the container edge. */
+.disclaimer{
+  margin-left:auto;max-width:66ch;
+  font-size:11.5px;line-height:1.6;color:var(--muted);
+  text-align:left;text-wrap:pretty;
+}
 
 .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
@@ -620,6 +726,10 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
   }
   .mast-nav a:last-child{border-bottom:0}
   .icon-btn{width:44px;height:44px}
+  /* only the safe variant survives here, so it no longer needs the mask that
+     kept the bright one off the text — let it cover every node uniformly */
+  .hero-net .glows-open{display:none}
+  .hero-net .glows-text{-webkit-mask:none;mask:none}
   .qs{grid-template-columns:1fr;gap:24px}
   .console{grid-template-columns:1fr}
   .cpane{border-right:0;border-bottom:1px solid var(--border)}
@@ -628,7 +738,9 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
   .rail-count{display:none}
   .close-in{grid-template-columns:1fr}
   .close-in .btn{width:100%;justify-content:center}
-  .disclaimer{margin-left:0;text-align:left}
+  /* below desktop it gets its own row and the full container — the cap was what
+     left a dead strip beside it on a phone */
+  .disclaimer{margin-left:0;max-width:none;flex:1 1 100%}
   .hist{max-width:100%;margin-left:0;justify-content:flex-start}
   .schema{grid-template-columns:1fr}
   .res{border-right:0;border-bottom:1px solid var(--border-strong)}
@@ -673,6 +785,14 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
   .ep{padding:13px var(--pad)}
   .chip{min-height:44px}
   .cast-input{min-height:44px}
+  /* The box is far taller than the viewBox here, so slice was cropping the graph
+     to a narrow centre strip — 2 of 16 nodes. Matching the height to the viewBox
+     aspect fits the whole network instead. Dimming moves onto the structure so
+     the glow keeps the full strength its contrast was verified at. */
+  .hero-net{top:50%;bottom:auto;height:calc(100vw * .52);transform:translateY(-50%)}
+  .hero-net .edge{opacity:.26}
+  .hero-net .node{opacity:.34}
+  .hero-net .signal{opacity:.45}
   .hero-cta{gap:10px}
   .hero-cta .btn{flex:1 1 100%;justify-content:center}
 }
@@ -692,6 +812,8 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
   html{scroll-behavior:auto !important}
+  .hero-net .signal,.hero-net .glows-open,.hero-net .glows-text{display:none}
+  .status-dot{animation:none}
 }
 </style>
 </head>
@@ -699,7 +821,7 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
 
 <header class="mast">
   <div class="shell mast-in">
-    <a class="wordmark" href="#top">MCUAPI<span>/v1</span></a>
+    <a class="wordmark" href="#top"><img class="wordmark-mark" src="data:image/webp;base64,UklGRpQDAABXRUJQVlA4IIgDAACwFACdASpQAFAAPj0ejESiIaER9RggA8SxgGlQEWsAdIBz1H7AfAl+2n7R2FDlCvYbJd/fc5L/gMkp+Xf5j8sdYt+1vHed5eSB+Sv9u+HD/R+1X2cfjn94/5v9++AL+Sf0H/T/1z95ONa/aMkf20aocwqRSpaDZMVLqmDA1xENQx/lrjTVdEkv3ZrWHoFNN95wrE/ZgjPKtDfABNmlVnTTkyI+SRQo7ysPLexRBgAA/v1u88JCYPrhxDNVcyQ+lSTETf80dr1xK22karrXwxMTfwEHxJVDriP/GmD/w4JHtWJ9QUAHKAj2/zYFemGZh58/i3t+/mrp2z883nUL+r7vUUfsOS/mrE5N/p/ht5WSKN46GBZHXX3UiZrIEPi02OaET65vDpE8N61KPLk1yMsG2ei2PWFA+LVKDz/+7f59onsCzAbamVlGO+JL+OfQ4OZMAaQ98RGnEWXc3l3tH/FvWMvb4+d2gNsPL1wD/5FNZfUfqQQSkTxf0i2X8NweBEsFdrciuXnldYkY/Y9j9PTR/1Jw8uFjCyTv7f3cLYJ762ii/gvVsU7drsluCA5vS79jUWNikfO4P5k5n515DcyUNia9EvsjoVZc3ESBVg402DV584/ddli0jYhxUw8SLES9oZOfPhfwk6U/QDWbsBlV+M62IM3qZkjOMwUkQvSWF84mApSqF6nIsDRfA2vya0mijIGb/VklONWnNgaX/b1j7PJhdZbPiHeXQ+RDy2ZgWDTCOnJLbxS1t8BBRcez1G++LORihivK8un5SKvBDrhb1+JFfi63j6+hXa+u1KH97ISmfIQSelISVvpNfI8h5thlGTHj3SgxWdXIPoqrGsdsP8nGV5xMejF8PmvHX2LN9nda1iFOXGGXJqcBI1ke+UlvRKZh1REI5e52U++lVXvIcZH8qYQZU9XrPcHE75PzMIH7yun08/CkT/u36V+ENQK4Qj4uVEGkEpSzRAFP7g7Jfr/mr5p/ajaXi38K9gqXR5hjpn/XG+k5AthBHKi/4Plw9UPbjqEcHZEocK66xDC/tys3X/H1AcRlXEHp0RJ26Ms2L+YiBtGB8WoaeSt/b6HU638k/Z7OTZwrEP1M6C5zYIeN2PLWTiZX6DVWO/53fsHohofwHICl7G7+zdImOlBaxlFmrAcJHZ0m+vaPslVjhON67XVOIDXVduxAADY+H4tEkHlCAAAA" alt="" width="26" height="26" decoding="async">MCUAPI<span>/v1</span></a>
     <span class="mast-base">mcuapi.up.railway.app</span>
     <nav class="mast-nav" aria-label="Primary">
       <div class="nav-links" id="nav-links">
@@ -746,25 +868,145 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
 
   <!-- ── hero ─────────────────────────────────────────── -->
   <section class="hero shell">
-    <div class="hero-eyebrow">
-      <span class="tag">MCUAPI · v1 · read-only REST</span>
-      <span class="tag tag-accent">No API key</span>
+    <div class="hero-lead">
+      <svg class="hero-net" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice"
+           aria-hidden="true" focusable="false">
+        <defs>
+          <!-- Complementary masks, summing to 1 across the width: the logo orange
+               is only bright enough for the empty half, so the text column gets a
+               deeper variant of the same hue that clears 4.5:1 against the lede.
+               The crossfade sits at 562-877px of the content column, past the text. -->
+          <linearGradient id="netFadeOpen" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1200" y2="0">
+            <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+            <stop offset=".50" stop-color="#fff" stop-opacity="0"/>
+            <stop offset=".64" stop-color="#fff" stop-opacity=".5"/>
+            <stop offset=".77" stop-color="#fff" stop-opacity="1"/>
+            <stop offset="1" stop-color="#fff" stop-opacity="1"/>
+          </linearGradient>
+          <linearGradient id="netFadeText" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1200" y2="0">
+            <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+            <stop offset=".50" stop-color="#fff" stop-opacity="1"/>
+            <stop offset=".64" stop-color="#fff" stop-opacity=".5"/>
+            <stop offset=".77" stop-color="#fff" stop-opacity="0"/>
+            <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+          </linearGradient>
+          <mask id="netMaskOpen" maskUnits="userSpaceOnUse" x="0" y="0" width="1200" height="520">
+            <rect width="1200" height="520" fill="url(#netFadeOpen)"/>
+          </mask>
+          <mask id="netMaskText" maskUnits="userSpaceOnUse" x="0" y="0" width="1200" height="520">
+            <rect width="1200" height="520" fill="url(#netFadeText)"/>
+          </mask>
+        </defs>
+        <line class="edge" x1="58" y1="92" x2="206" y2="196"/>
+        <line class="edge" x1="206" y1="196" x2="146" y2="374"/>
+        <line class="edge" x1="206" y1="196" x2="298" y2="88"/>
+        <line class="edge" x1="206" y1="196" x2="330" y2="300"/>
+        <line class="edge" x1="146" y1="374" x2="330" y2="300"/>
+        <line class="edge" x1="330" y1="300" x2="466" y2="168"/>
+        <line class="edge" x1="298" y1="88" x2="466" y2="168"/>
+        <line class="edge" x1="330" y1="300" x2="424" y2="438"/>
+        <line class="edge" x1="466" y1="168" x2="598" y2="286"/>
+        <line class="edge" x1="466" y1="168" x2="582" y2="84"/>
+        <line class="edge" x1="424" y1="438" x2="598" y2="286"/>
+        <line class="edge" x1="598" y1="286" x2="736" y2="412"/>
+        <line class="edge" x1="598" y1="286" x2="758" y2="158"/>
+        <line class="edge" x1="582" y1="84" x2="758" y2="158"/>
+        <line class="edge" x1="736" y1="412" x2="898" y2="288"/>
+        <line class="edge" x1="758" y1="158" x2="898" y2="288"/>
+        <line class="edge" x1="758" y1="158" x2="876" y2="76"/>
+        <line class="edge" x1="898" y1="288" x2="1028" y2="386"/>
+        <line class="edge" x1="898" y1="288" x2="1058" y2="176"/>
+        <line class="edge" x1="876" y1="76" x2="1058" y2="176"/>
+        <line class="edge" x1="1028" y1="386" x2="1158" y2="288"/>
+        <line class="edge" x1="1058" y1="176" x2="1158" y2="288"/>
+        <path class="signal" pathLength="1000" d="M58 92 L206 196 L330 300 L466 168 L598 286 L758 158 L898 288 L1058 176 L1158 288"/>
+        <path class="signal" pathLength="1000" d="M146 374 L330 300 L424 438 L598 286 L736 412 L898 288 L1028 386"/>
+        <path class="signal" pathLength="1000" d="M298 88 L466 168 L582 84 L758 158 L876 76 L1058 176"/>
+        <circle class="node" cx="58" cy="92" r="9"/>
+        <circle class="node" cx="206" cy="196" r="9"/>
+        <circle class="node" cx="146" cy="374" r="9"/>
+        <circle class="node" cx="330" cy="300" r="9"/>
+        <circle class="node" cx="298" cy="88" r="9"/>
+        <circle class="node" cx="466" cy="168" r="9"/>
+        <circle class="node" cx="424" cy="438" r="9"/>
+        <circle class="node" cx="598" cy="286" r="9"/>
+        <circle class="node" cx="582" cy="84" r="9"/>
+        <circle class="node" cx="736" cy="412" r="9"/>
+        <circle class="node" cx="758" cy="158" r="9"/>
+        <circle class="node" cx="898" cy="288" r="9"/>
+        <circle class="node" cx="876" cy="76" r="9"/>
+        <circle class="node" cx="1028" cy="386" r="9"/>
+        <circle class="node" cx="1058" cy="176" r="9"/>
+        <circle class="node" cx="1158" cy="288" r="9"/>
+        <g class="glows-open" mask="url(#netMaskOpen)">
+          <circle class="glow" cx="58" cy="92" r="9" style="animation-duration:26s;animation-delay:-4.00s"/>
+          <circle class="glow" cx="206" cy="196" r="9" style="animation-duration:26s;animation-delay:-0.76s"/>
+          <circle class="glow" cx="330" cy="300" r="9" style="animation-duration:26s;animation-delay:-23.86s"/>
+          <circle class="glow" cx="466" cy="168" r="9" style="animation-duration:26s;animation-delay:-20.46s"/>
+          <circle class="glow" cx="598" cy="286" r="9" style="animation-duration:26s;animation-delay:-17.29s"/>
+          <circle class="glow" cx="758" cy="158" r="9" style="animation-duration:26s;animation-delay:-13.62s"/>
+          <circle class="glow" cx="898" cy="288" r="9" style="animation-duration:26s;animation-delay:-10.19s"/>
+          <circle class="glow" cx="1058" cy="176" r="9" style="animation-duration:26s;animation-delay:-6.69s"/>
+          <circle class="glow" cx="1158" cy="288" r="9" style="animation-duration:26s;animation-delay:-4.00s"/>
+          <circle class="glow" cx="146" cy="374" r="9" style="animation-duration:34s;animation-delay:-18.00s"/>
+          <circle class="glow" cx="330" cy="300" r="9" style="animation-duration:34s;animation-delay:-12.14s"/>
+          <circle class="glow" cx="424" cy="438" r="9" style="animation-duration:34s;animation-delay:-7.20s"/>
+          <circle class="glow" cx="598" cy="286" r="9" style="animation-duration:34s;animation-delay:-0.37s"/>
+          <circle class="glow" cx="736" cy="412" r="9" style="animation-duration:34s;animation-delay:-28.84s"/>
+          <circle class="glow" cx="898" cy="288" r="9" style="animation-duration:34s;animation-delay:-22.81s"/>
+          <circle class="glow" cx="1028" cy="386" r="9" style="animation-duration:34s;animation-delay:-18.00s"/>
+          <circle class="glow" cx="298" cy="88" r="9" style="animation-duration:30s;animation-delay:-11.00s"/>
+          <circle class="glow" cx="466" cy="168" r="9" style="animation-duration:30s;animation-delay:-4.60s"/>
+          <circle class="glow" cx="582" cy="84" r="9" style="animation-duration:30s;animation-delay:-29.67s"/>
+          <circle class="glow" cx="758" cy="158" r="9" style="animation-duration:30s;animation-delay:-23.09s"/>
+          <circle class="glow" cx="876" cy="76" r="9" style="animation-duration:30s;animation-delay:-18.15s"/>
+          <circle class="glow" cx="1058" cy="176" r="9" style="animation-duration:30s;animation-delay:-11.00s"/>
+        </g>
+        <g class="glows-text" mask="url(#netMaskText)">
+          <circle class="glow" cx="58" cy="92" r="9" style="animation-duration:26s;animation-delay:-4.00s"/>
+          <circle class="glow" cx="206" cy="196" r="9" style="animation-duration:26s;animation-delay:-0.76s"/>
+          <circle class="glow" cx="330" cy="300" r="9" style="animation-duration:26s;animation-delay:-23.86s"/>
+          <circle class="glow" cx="466" cy="168" r="9" style="animation-duration:26s;animation-delay:-20.46s"/>
+          <circle class="glow" cx="598" cy="286" r="9" style="animation-duration:26s;animation-delay:-17.29s"/>
+          <circle class="glow" cx="758" cy="158" r="9" style="animation-duration:26s;animation-delay:-13.62s"/>
+          <circle class="glow" cx="898" cy="288" r="9" style="animation-duration:26s;animation-delay:-10.19s"/>
+          <circle class="glow" cx="1058" cy="176" r="9" style="animation-duration:26s;animation-delay:-6.69s"/>
+          <circle class="glow" cx="1158" cy="288" r="9" style="animation-duration:26s;animation-delay:-4.00s"/>
+          <circle class="glow" cx="146" cy="374" r="9" style="animation-duration:34s;animation-delay:-18.00s"/>
+          <circle class="glow" cx="330" cy="300" r="9" style="animation-duration:34s;animation-delay:-12.14s"/>
+          <circle class="glow" cx="424" cy="438" r="9" style="animation-duration:34s;animation-delay:-7.20s"/>
+          <circle class="glow" cx="598" cy="286" r="9" style="animation-duration:34s;animation-delay:-0.37s"/>
+          <circle class="glow" cx="736" cy="412" r="9" style="animation-duration:34s;animation-delay:-28.84s"/>
+          <circle class="glow" cx="898" cy="288" r="9" style="animation-duration:34s;animation-delay:-22.81s"/>
+          <circle class="glow" cx="1028" cy="386" r="9" style="animation-duration:34s;animation-delay:-18.00s"/>
+          <circle class="glow" cx="298" cy="88" r="9" style="animation-duration:30s;animation-delay:-11.00s"/>
+          <circle class="glow" cx="466" cy="168" r="9" style="animation-duration:30s;animation-delay:-4.60s"/>
+          <circle class="glow" cx="582" cy="84" r="9" style="animation-duration:30s;animation-delay:-29.67s"/>
+          <circle class="glow" cx="758" cy="158" r="9" style="animation-duration:30s;animation-delay:-23.09s"/>
+          <circle class="glow" cx="876" cy="76" r="9" style="animation-duration:30s;animation-delay:-18.15s"/>
+          <circle class="glow" cx="1058" cy="176" r="9" style="animation-duration:30s;animation-delay:-11.00s"/>
+        </g>
+      </svg>
+      <div class="hero-eyebrow">
+        <span class="tag">MCUAPI · v1 · read-only REST</span>
+        <span class="tag tag-accent">No API key</span>
+      </div>
+
+      <h1>Every MCU movie, TV show and character — in one API that knows the order.</h1>
+
+      <p class="lede hero-lede">
+        A free REST API for the Marvel Cinematic Universe: every movie and TV show,
+        the characters and the actors who played them, and the chronology that orders it
+        all — including the X-Men and Sony continuities the MCU keeps pulling in.
+        No key, no signup, CORS open to any origin.
+      </p>
+
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#console">Run a request</a>
+        <a class="btn btn-ghost" href="https://mcuapi.up.railway.app/docs">Read the API docs</a>
+      </div>
+      <p class="hero-note">GET https://mcuapi.up.railway.app/api/v1/movies — no Authorization header</p>
     </div>
-
-    <h1>Every MCU movie, TV show and character — in one API that knows the order.</h1>
-
-    <p class="lede hero-lede">
-      A free REST API for the Marvel Cinematic Universe: every movie and TV show,
-      the characters and the actors who played them, and the chronology that orders it
-      all — including the X-Men and Sony continuities the MCU keeps pulling in.
-      No key, no signup, CORS open to any origin.
-    </p>
-
-    <div class="hero-cta">
-      <a class="btn btn-primary" href="#console">Run a request</a>
-      <a class="btn btn-ghost" href="https://mcuapi.up.railway.app/docs">Read the API docs</a>
-    </div>
-    <p class="hero-note">GET https://mcuapi.up.railway.app/api/v1/movies — no Authorization header</p>
 
     <div class="ledger">
       <button class="ledger-cell" type="button" data-load="/api/v1/movies?limit=10&amp;page=1">
@@ -1117,7 +1359,14 @@ npm i mcuapi-client
           correction lands for everyone.
         </p>
       </div>
-      <a class="btn btn-primary" href="https://github.com/AugustoMarcelo/mcuapi">Star the repo on GitHub</a>
+      <a class="btn btn-primary btn-star" href="https://github.com/AugustoMarcelo/mcuapi">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12.00 3.40 L14.02 9.22 L20.18 9.34 L15.27 13.06 L17.05 18.96 L12.00 15.44 L6.95 18.96 L8.73 13.06 L3.82 9.34 L9.98 9.22 Z"/>
+        </svg>
+        Star the repo on GitHub
+        <span class="star-count" id="star-count" hidden><span id="star-n"></span><span class="sr"> stars on GitHub</span></span>
+      </a>
     </div>
   </section>
 </main>
@@ -1583,6 +1832,8 @@ npm i mcuapi-client
 
     function apply(mode, remember) {
       root.dataset.theme = mode;
+      var meta = document.getElementById('theme-color');
+      if (meta && window.MCUAPI_BG) { meta.setAttribute('content', window.MCUAPI_BG[mode]); }
       var dark = mode === 'dark';
       btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
       btn.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
@@ -1792,7 +2043,29 @@ npm i mcuapi-client
     });
   }());
 
-  /* ═══ 7. status probe ══════════════════════════════════════ */
+  /* ═══ 7. repo stars ════════════════════════════════════════ */
+
+  (function stars() {
+    var box = $('#star-count');
+    var out = $('#star-n');
+    if (!box || !out) { return; }
+
+    fetch('https://api.github.com/repos/AugustoMarcelo/mcuapi', {
+      headers: { Accept: 'application/vnd.github+json' }
+    })
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function (j) {
+        var n = j && j.stargazers_count;
+        if (typeof n !== 'number') { return; }
+        out.textContent = n.toLocaleString();
+        box.hidden = false;
+      })
+      .catch(function () {
+        // rate-limited or offline: the CTA reads exactly as it did before
+      });
+  }());
+
+  /* ═══ 8. status probe ══════════════════════════════════════ */
 
   (function probe() {
     var el = $('#status');
