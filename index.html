@@ -1227,8 +1227,11 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
       <span class="tag">GET /api/v1/characters/{id}/movies</span>
       <h2>One name, several people, several earths.</h2>
       <p class="prose">
-        Search a name and you get every record carrying it — including the variants each
-        continuity casts separately, which is why <code style="font-family:var(--mono);font-size:13px">played_by</code>
+        Civilian names live on <code style="font-family:var(--mono);font-size:13px">name</code> and hero
+        names on <code style="font-family:var(--mono);font-size:13px">alias</code>, so the search hits both —
+        <em>Captain America</em> returns two different people. Every record carrying the term comes back,
+        including the variants each continuity casts separately, which is why
+        <code style="font-family:var(--mono);font-size:13px">played_by</code>
         sits on the character and not on the title. Pick one and the page follows that record's own
         <code style="font-family:var(--mono);font-size:13px">_links.movies</code> and
         <code style="font-family:var(--mono);font-size:13px">_links.tvshows</code> to the titles it
@@ -1239,12 +1242,12 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
     <div class="cast-frame">
       <div class="cast-bar">
         <label class="cast-label" for="cast-q">Character</label>
-        <input class="cast-input" id="cast-q" type="search" value="Peter Parker"
-               placeholder="Search a character name" autocomplete="off" spellcheck="false">
+        <input class="cast-input" id="cast-q" type="search" value="Spider-Man"
+               placeholder="Search a name or alias" autocomplete="off" spellcheck="false">
         <span class="cast-presets" role="group" aria-label="Examples">
-          <button class="chip" type="button" data-q="Peter Parker">Peter Parker</button>
+          <button class="chip" type="button" data-q="Spider-Man">Spider-Man</button>
+          <button class="chip" type="button" data-q="Captain America">Captain America</button>
           <button class="chip" type="button" data-q="Loki">Loki</button>
-          <button class="chip" type="button" data-q="Gamora">Gamora</button>
         </span>
       </div>
       <div id="cast-rows"></div>
@@ -1466,15 +1469,32 @@ npm i mcuapi-client
 
       var track = document.createElement('span');
       track.className = 'rail-track';
-      var span = Math.max(g.entries.length - 1, 1);
+      // chronology_order is global to the whole timeline, not a per-branch index:
+      // it starts anywhere, skips numbers, repeats, and is 0 where unset. Feeding
+      // it straight into a (n-1)/count ratio threw marks far off the track — one
+      // branch landed at 1274%. Normalise against the branch's own range so the
+      // spacing still reads as chronology, fall back to even spacing when a branch
+      // carries no order at all, and clamp so no future data can escape the rail.
+      var orders = g.entries.map(function (e) {
+        return typeof e.n === 'number' && isFinite(e.n) ? e.n : null;
+      });
+      var known = orders.filter(function (n) { return n !== null; });
+      var lo = known.length ? Math.min.apply(null, known) : 0;
+      var hi = known.length ? Math.max.apply(null, known) : 0;
+      var spread = hi - lo;
+      var last = Math.max(g.entries.length - 1, 1);
 
-      g.entries.forEach(function (e) {
+      g.entries.forEach(function (e, i) {
+        var n = orders[i];
         var tick = document.createElement('i');
         tick.className = 'tick';
         tick.setAttribute('data-t', e.type);
-        // single-entry branches sit centred; otherwise spread 2%..98%
-        tick.style.left = (g.entries.length === 1 ? 50 : 2 + ((e.n - 1) / span) * 96) + '%';
-        tick.dataset.label = '#' + e.n + '  ' + e.title + '  ·  ' + (e.type === 'm' ? 'movie' : 'TV show');
+        var t = g.entries.length === 1 ? 0.5
+              : (spread > 0 && n !== null) ? (n - lo) / spread
+              : i / last;
+        tick.style.left = (2 + Math.min(1, Math.max(0, t)) * 96) + '%';
+        // 0 is the API's "not set", so don't print it as a chronology position
+        tick.dataset.label = (n ? '#' + n + '  ' : '') + e.title + '  ·  ' + (e.type === 'm' ? 'movie' : 'TV show');
         tick.dataset.branch = g.designation;
         track.appendChild(tick);
       });
@@ -1941,18 +1961,41 @@ npm i mcuapi-client
       var mine = ++token;
       host.innerHTML = '';
       panel = null;
-      out.textContent = 'Searching characters named “' + q + '”…';
+      out.textContent = 'Searching name and alias for “' + q + '”…';
 
-      fetch(V1 + '/characters?filter=name=' + encodeURIComponent(q) + '&limit=8')
-        .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
-        .then(function (json) {
+      // filter= takes one column per request, so name and alias are two calls
+      // merged here. Hero names live on alias: "Spider-Man" matches nothing by
+      // name and three Peter Parkers by alias.
+      var hit = function (field) {
+        return fetch(V1 + '/characters?filter=' + field + '=' + encodeURIComponent(q) + '&limit=8')
+          .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+          .then(function (j) { return { ok: true, rows: (j && j.data) || [] }; })
+          .catch(function () { return { ok: false, rows: [] }; });
+      };
+
+      Promise.all([hit('name'), hit('alias')])
+        .then(function (res) {
           if (mine !== token) { return; }
-          var list = (json && json.data) || [];
-          var total = json && json.total != null ? json.total : list.length;
-          src.textContent = list.length + ' of ' + total + ' matching records · live';
+
+          // both legs down is a real outage; one leg down is still a usable result
+          if (!res[0].ok && !res[1].ok) {
+            src.textContent = 'unreachable';
+            out.textContent = 'Could not reach the API just now — the console above hits the same host.';
+            return;
+          }
+
+          // name matches lead, then alias-only ones; a record can match both
+          var seen = {};
+          var list = res[0].rows.concat(res[1].rows).filter(function (c) {
+            if (c == null || seen[c.id]) { return false; }
+            seen[c.id] = true;
+            return true;
+          }).slice(0, 8);
+          src.textContent = list.length + (list.length === 1 ? ' record' : ' records') +
+                            ' matching name or alias · live';
 
           if (!list.length) {
-            out.textContent = 'No character matches “' + q + '”.';
+            out.textContent = 'No character matches “' + q + '” by name or alias.';
             return;
           }
 
@@ -1981,11 +2024,6 @@ npm i mcuapi-client
           });
 
           select(first.row, first.c);
-        })
-        .catch(function () {
-          if (mine !== token) { return; }
-          src.textContent = 'unreachable';
-          out.textContent = 'Could not reach the API just now — the console above hits the same host.';
         });
     }
 
