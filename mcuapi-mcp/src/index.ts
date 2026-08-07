@@ -384,6 +384,51 @@ server.registerTool(
   },
 );
 
+server.registerTool(
+  'delete_movie',
+  {
+    description: 'Delete a movie by ID.',
+    inputSchema: {
+      id: z.number().int().describe('Movie ID'),
+      confirm: z.boolean().describe('Must be true to confirm deletion'),
+    },
+  },
+  async ({ id, confirm }) => {
+    if (!confirm) {
+      return {
+        content: [
+          {
+            type: 'text',
+            text: '⚠️ Set confirm=true to delete the movie.',
+          },
+        ],
+      };
+    }
+
+    const [movie] = await query<{ id: number; title: string }>(
+      'SELECT id, title FROM movies WHERE id = $1',
+      [id],
+    );
+
+    if (!movie) {
+      return {
+        content: [{ type: 'text', text: `❌ Movie [${id}] not found.` }],
+      };
+    }
+
+    await query('DELETE FROM movies WHERE id = $1', [id]);
+
+    return {
+      content: [
+        {
+          type: 'text',
+          text: `✅ Movie [${id}] "${movie.title}" deleted.`,
+        },
+      ],
+    };
+  },
+);
+
 // ─── TV SHOWS ──────────────────────────────────────────────────────────────────
 
 server.registerTool(
