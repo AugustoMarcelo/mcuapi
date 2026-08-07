@@ -1,20 +1,39 @@
+/**
+ * A designation is only recorded when Marvel — or a director of the title —
+ * actually stated it: on screen, in an official publication, or in an interview.
+ * Fan wikis hand out reality numbers for practically every adaptation; none of
+ * those belong here. Anything undisclosed is 'Unknown'.
+ */
 export const KNOWN_EARTHS: Record<string, string> = {
-  'Earth-616': 'MCU (official designation)',
-  'Earth-10005': 'FOX X-Men Universe',
-  'Earth-96283': 'Raimi Spider-Man (Sony)',
-  'Earth-120703': 'Webb Spider-Man (Sony)',
-  'Earth-838': 'Illuminati Universe (Doctor Strange MoM)',
-  'Earth-TRN414': 'Deadpool / Wade Wilson (FOX)',
+  'Earth-616': 'MCU — on screen in No Way Home; official timeline book',
+  'Earth-838': 'Illuminati Universe — on screen in Doctor Strange 2',
+  'Earth-828': 'The Fantastic Four: First Steps — on screen; confirmed by Matt Shakman',
+  'Earth-10005': 'FOX X-Men Universe — on the TVA screens in Deadpool & Wolverine',
+  Unknown: 'Designation never disclosed by Marvel or a director',
 };
 
 export const KNOWN_CONTINUITIES = [
   'MCU',
-  'FOX X-Men Universe',
+  'X-Men Universe',
   'Sony Spider-Man Universe',
   'FOX Fantastic Four',
+  'FOX Daredevil',
+  'Blade Trilogy',
+  // Non-canon Marvel Television, named per franchise rather than lumped together
+  'Agents of S.H.I.E.L.D.',
+  'Agent Carter',
+  'Marvel YA',
+  'Adventure into Fear',
+  'Inhumans',
 ];
 
-export const KNOWN_STUDIOS = ['Marvel Studios', 'FOX', 'Sony', 'Lionsgate'];
+export const KNOWN_STUDIOS = [
+  'Marvel Studios',
+  'Marvel Television',
+  '20th Century Fox',
+  'Sony Pictures',
+  'New Line Cinema',
+];
 
 export function applyMovieDefaults(
   data: Record<string, unknown>,
@@ -59,14 +78,14 @@ export function applyCharacterDefaults(
 export function validateEarth(designation: string): string | null {
   if (!designation) return null;
   if (KNOWN_EARTHS[designation]) return null;
-  const similar = Object.keys(KNOWN_EARTHS).find(e =>
-    e.toLowerCase().includes(designation.toLowerCase().replace('earth-', '')),
-  );
-  return similar
-    ? `Unknown Earth "${designation}". Did you mean "${similar}"? Known: ${Object.keys(
-        KNOWN_EARTHS,
-      ).join(', ')}`
-    : `Unknown Earth "${designation}". Known: ${Object.keys(KNOWN_EARTHS).join(
-        ', ',
-      )}`;
+
+  const accepted = Object.keys(KNOWN_EARTHS).join(', ');
+
+  // An Earth-<digits> value that is not on the list is almost always a number
+  // lifted from Marvel Database rather than something Marvel ever said.
+  if (/^Earth-\d+$/i.test(designation)) {
+    return `"${designation}" is not a disclosed designation. Marvel Database and the Handbook Appendix assign reality numbers to nearly every adaptation, but those were never stated by Marvel or a director — use "Unknown" instead. Accepted: ${accepted}`;
+  }
+
+  return `Unrecognised designation "${designation}". Accepted: ${accepted}`;
 }
