@@ -47,7 +47,9 @@ class TVShowsRepository implements ITVShowsRepository {
       'timeline_chronology_order',
     ];
     let formattedColumnValue;
-    formattedColumnValue = Raw(alias => `${alias} ILIKE :value`, { value: `%${whereValue}%` });
+    formattedColumnValue = Raw(alias => `${alias} ILIKE :value`, {
+      value: `%${whereValue}%`,
+    });
 
     if (columnsWithNumericValues.includes(columnWhere)) {
       formattedColumnValue = whereValue;
@@ -75,7 +77,8 @@ class TVShowsRepository implements ITVShowsRepository {
       whereConditions.is_mcu = data.is_mcu;
     }
 
-    const where = Object.keys(whereConditions).length > 0 ? whereConditions : undefined;
+    const where =
+      Object.keys(whereConditions).length > 0 ? whereConditions : undefined;
 
     if (data?.page && data.limit) {
       const { page, limit } = data;
@@ -102,17 +105,22 @@ class TVShowsRepository implements ITVShowsRepository {
       .addSelect('MAX(tvshow.updated_at)', 'last_updated')
       .getRawOne();
 
-    const continuityRows: Array<{ continuity: string }> = await this.ormRepository
-      .createQueryBuilder('tvshow')
-      .select('DISTINCT tvshow.continuity', 'continuity')
-      .where('tvshow.continuity IS NOT NULL')
-      .getRawMany();
+    const continuityRows: Array<{ continuity: string }> =
+      await this.ormRepository
+        .createQueryBuilder('tvshow')
+        .select('DISTINCT tvshow.continuity', 'continuity')
+        .where('tvshow.continuity IS NOT NULL')
+        .getRawMany();
 
-    const designationRows: Array<{ multiverse_designation: string }> = await this.ormRepository
-      .createQueryBuilder('tvshow')
-      .select('DISTINCT tvshow.multiverse_designation', 'multiverse_designation')
-      .where('tvshow.multiverse_designation IS NOT NULL')
-      .getRawMany();
+    const designationRows: Array<{ multiverse_designation: string }> =
+      await this.ormRepository
+        .createQueryBuilder('tvshow')
+        .select(
+          'DISTINCT tvshow.multiverse_designation',
+          'multiverse_designation',
+        )
+        .where('tvshow.multiverse_designation IS NOT NULL')
+        .getRawMany();
 
     return {
       count: Number(count),

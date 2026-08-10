@@ -64,12 +64,22 @@ class FakeMoviesRepository implements IMoviesRepository {
 
   public async getStats(): Promise<IRepositoryStatsDTO> {
     const continuities = Array.from(
-      new Set(this.movies.map(movie => movie.continuity).filter((value): value is string => !!value)),
+      new Set(
+        this.movies
+          .map(movie => movie.continuity)
+          .filter((value): value is string => !!value),
+      ),
     );
     const designations = Array.from(
-      new Set(this.movies.map(movie => movie.multiverse_designation).filter((value): value is string => !!value)),
+      new Set(
+        this.movies
+          .map(movie => movie.multiverse_designation)
+          .filter((value): value is string => !!value),
+      ),
     );
-    const updatedDates = this.movies.map(movie => movie.updated_at).filter((date): date is Date => !!date);
+    const updatedDates = this.movies
+      .map(movie => movie.updated_at)
+      .filter((date): date is Date => !!date);
 
     return {
       count: this.movies.length,

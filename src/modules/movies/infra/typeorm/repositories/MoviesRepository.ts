@@ -68,7 +68,9 @@ class MoviesRepository implements IMoviesRepository {
       'timeline_chronology_order',
     ];
     let formattedColumnValue;
-    formattedColumnValue = Raw(alias => `${alias} ILIKE :value`, { value: `%${whereValue}%` });
+    formattedColumnValue = Raw(alias => `${alias} ILIKE :value`, {
+      value: `%${whereValue}%`,
+    });
 
     if (columnsWithNumericValues.includes(columnWhere)) {
       formattedColumnValue = whereValue;
@@ -96,7 +98,8 @@ class MoviesRepository implements IMoviesRepository {
       whereConditions.is_mcu = is_mcu;
     }
 
-    const where = Object.keys(whereConditions).length > 0 ? whereConditions : undefined;
+    const where =
+      Object.keys(whereConditions).length > 0 ? whereConditions : undefined;
 
     const [movies, total] = await this.ormRepository.findAndCount({
       ...(limit && { take: limit }),
@@ -118,17 +121,22 @@ class MoviesRepository implements IMoviesRepository {
       .addSelect('MAX(movie.updated_at)', 'last_updated')
       .getRawOne();
 
-    const continuityRows: Array<{ continuity: string }> = await this.ormRepository
-      .createQueryBuilder('movie')
-      .select('DISTINCT movie.continuity', 'continuity')
-      .where('movie.continuity IS NOT NULL')
-      .getRawMany();
+    const continuityRows: Array<{ continuity: string }> =
+      await this.ormRepository
+        .createQueryBuilder('movie')
+        .select('DISTINCT movie.continuity', 'continuity')
+        .where('movie.continuity IS NOT NULL')
+        .getRawMany();
 
-    const designationRows: Array<{ multiverse_designation: string }> = await this.ormRepository
-      .createQueryBuilder('movie')
-      .select('DISTINCT movie.multiverse_designation', 'multiverse_designation')
-      .where('movie.multiverse_designation IS NOT NULL')
-      .getRawMany();
+    const designationRows: Array<{ multiverse_designation: string }> =
+      await this.ormRepository
+        .createQueryBuilder('movie')
+        .select(
+          'DISTINCT movie.multiverse_designation',
+          'multiverse_designation',
+        )
+        .where('movie.multiverse_designation IS NOT NULL')
+        .getRawMany();
 
     return {
       count: Number(count),

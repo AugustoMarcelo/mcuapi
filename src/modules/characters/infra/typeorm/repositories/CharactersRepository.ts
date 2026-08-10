@@ -73,9 +73,16 @@ class CharactersRepository implements ICharactersRepository {
       ? filter.split('=').map(item => item.trim())
       : [];
 
-    const columnsWithNumericValues = ['id', 'variant_of', 'first_appearance_movie_id', 'first_appearance_tvshow_id'];
+    const columnsWithNumericValues = [
+      'id',
+      'variant_of',
+      'first_appearance_movie_id',
+      'first_appearance_tvshow_id',
+    ];
     let formattedColumnValue;
-    formattedColumnValue = Raw(alias => `${alias} ILIKE :value`, { value: `%${whereValue}%` });
+    formattedColumnValue = Raw(alias => `${alias} ILIKE :value`, {
+      value: `%${whereValue}%`,
+    });
 
     if (columnsWithNumericValues.includes(columnWhere)) {
       formattedColumnValue = whereValue;
@@ -95,7 +102,8 @@ class CharactersRepository implements ICharactersRepository {
       whereConditions.multiverse_designation = multiverse_designation;
     }
 
-    const where = Object.keys(whereConditions).length > 0 ? whereConditions : undefined;
+    const where =
+      Object.keys(whereConditions).length > 0 ? whereConditions : undefined;
 
     const [characters, total] = await this.ormRepository.findAndCount({
       ...(limit && { take: limit }),
@@ -197,11 +205,15 @@ class CharactersRepository implements ICharactersRepository {
       .addSelect('MAX(character.updated_at)', 'last_updated')
       .getRawOne();
 
-    const designationRows: Array<{ multiverse_designation: string }> = await this.ormRepository
-      .createQueryBuilder('character')
-      .select('DISTINCT character.multiverse_designation', 'multiverse_designation')
-      .where('character.multiverse_designation IS NOT NULL')
-      .getRawMany();
+    const designationRows: Array<{ multiverse_designation: string }> =
+      await this.ormRepository
+        .createQueryBuilder('character')
+        .select(
+          'DISTINCT character.multiverse_designation',
+          'multiverse_designation',
+        )
+        .where('character.multiverse_designation IS NOT NULL')
+        .getRawMany();
 
     return {
       count: Number(count),

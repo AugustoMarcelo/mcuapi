@@ -1,5 +1,9 @@
 import IUpcomingItemDTO from '@modules/upcoming/dtos/IUpcomingItemDTO';
-import { WithLinks, buildPaginationLinks } from '@shared/infra/http/hateoas';
+import {
+  IResourceLinks,
+  WithLinks,
+  buildPaginationLinks,
+} from '@shared/infra/http/hateoas';
 
 interface IPresentUpcomingCollectionParams {
   data: IUpcomingItemDTO[];
@@ -33,7 +37,13 @@ export function presentUpcomingCollection({
   baseUrl,
   path,
   query,
-}: IPresentUpcomingCollectionParams) {
+}: IPresentUpcomingCollectionParams): {
+  data: WithLinks<IUpcomingItemDTO>[];
+  total: number;
+  page: number;
+  limit?: number;
+  _links: IResourceLinks;
+} {
   const { _links, meta } = buildPaginationLinks({
     baseUrl,
     path,

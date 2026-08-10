@@ -61,12 +61,22 @@ class FakeTVShowsRepository implements ITVShowsRepository {
 
   public async getStats(): Promise<IRepositoryStatsDTO> {
     const continuities = Array.from(
-      new Set(this.tvshows.map(tvshow => tvshow.continuity).filter((value): value is string => !!value)),
+      new Set(
+        this.tvshows
+          .map(tvshow => tvshow.continuity)
+          .filter((value): value is string => !!value),
+      ),
     );
     const designations = Array.from(
-      new Set(this.tvshows.map(tvshow => tvshow.multiverse_designation).filter((value): value is string => !!value)),
+      new Set(
+        this.tvshows
+          .map(tvshow => tvshow.multiverse_designation)
+          .filter((value): value is string => !!value),
+      ),
     );
-    const updatedDates = this.tvshows.map(tvshow => tvshow.updated_at).filter((date): date is Date => !!date);
+    const updatedDates = this.tvshows
+      .map(tvshow => tvshow.updated_at)
+      .filter((date): date is Date => !!date);
 
     return {
       count: this.tvshows.length,
