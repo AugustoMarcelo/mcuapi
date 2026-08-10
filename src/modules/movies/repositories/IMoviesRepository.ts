@@ -1,3 +1,4 @@
+import IRepositoryStatsDTO from '@shared/dtos/IRepositoryStatsDTO';
 import IMovie from '../entities/IMovie';
 import ICreateMovieDTO from '../dtos/ICreateMovieDTO';
 import IFindAllMoviesDTO from '../dtos/IFindAllMoviesDTO';
@@ -8,4 +9,5 @@ export default interface IMoviesRepository {
   update(movie: IMovie): Promise<IMovie>;
   findById(id: number): Promise<IMovie | undefined>;
   findAll(data: IFindAllMoviesDTO): Promise<IFindAllMoviesResponseDTO>;
+  getStats(): Promise<IRepositoryStatsDTO>;
 }

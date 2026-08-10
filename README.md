@@ -36,7 +36,16 @@ GET /api/v1/movies/1
 }
 ```
 
-List endpoints (`/movies`, `/tvshows`, `/characters`) return `page`, `limit`, and collection `_links` (`self`, `first`, `last`, plus `prev`/`next`), preserving all other query params. Characters are fully navigable via `GET /characters/{id}/movies` and `GET /characters/{id}/tvshows`.
+List endpoints (`/movies`, `/tvshows`, `/characters`, `/upcoming`) return `page`, `limit`, and collection `_links` (`self`, `first`, `last`, plus `prev`/`next`), preserving all other query params. Characters are fully navigable via `GET /characters/{id}/movies` and `GET /characters/{id}/tvshows`.
+
+| Endpoint | Description |
+|---|---|
+| `GET /movies`, `GET /movies/{id}` | Movies, with `studio`/`continuity`/`multiverse_designation`/`is_mcu` filters |
+| `GET /tvshows`, `GET /tvshows/{id}` | TV shows, same filters as movies |
+| `GET /characters`, `GET /characters/{id}` | Characters, plus `/characters/movie/{id}`, `/characters/tvshow/{id}`, `/characters/{id}/movies`, `/characters/{id}/tvshows` |
+| `GET /timeline` | Chronological ordering across continuities, independent of release date |
+| `GET /upcoming` | Movies and TV shows whose `release_date` is strictly in the future, merged and sorted ascending. Titles with no announced release date are excluded. |
+| `GET /stats` | Dataset-wide counts — movies, tvshows, characters, titles, and distinct continuities/designations |
 
 > [!TIP]
 > Full request/response schemas live in the [Swagger docs](https://mcuapi.up.railway.app/docs).

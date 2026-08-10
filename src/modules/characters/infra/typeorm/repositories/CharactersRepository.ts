@@ -6,6 +6,7 @@ import ICharactersRepository from '@modules/characters/repositories/ICharactersR
 import ICreateCharacterDTO from '@modules/characters/dtos/ICreateCharacterDTO';
 import IFindAllCharactersDTO from '@modules/characters/dtos/IFindAllCharactersDTO';
 import IFindAllCharactersResponseDTO from '@modules/characters/dtos/IFindAllCharactersResponseDTO';
+import IRepositoryStatsDTO from '@shared/dtos/IRepositoryStatsDTO';
 import Character from '../entities/Character';
 import CharacterAppearance from '../entities/CharacterAppearance';
 
@@ -72,9 +73,16 @@ class CharactersRepository implements ICharactersRepository {
       ? filter.split('=').map(item => item.trim())
       : [];
 
-    const columnsWithNumericValues = ['id', 'variant_of', 'first_appearance_movie_id', 'first_appearance_tvshow_id'];
+    const columnsWithNumericValues = [
+      'id',
+      'variant_of',
+      'first_appearance_movie_id',
+      'first_appearance_tvshow_id',
+    ];
     let formattedColumnValue;
-    formattedColumnValue = Raw(alias => `${alias} ILIKE :value`, { value: `%${whereValue}%` });
+    formattedColumnValue = Raw(alias => `${alias} ILIKE :value`, {
+      value: `%${whereValue}%`,
+    });
 
     if (columnsWithNumericValues.includes(columnWhere)) {
       formattedColumnValue = whereValue;
@@ -94,7 +102,8 @@ class CharactersRepository implements ICharactersRepository {
       whereConditions.multiverse_designation = multiverse_designation;
     }
 
-    const where = Object.keys(whereConditions).length > 0 ? whereConditions : undefined;
+    const where =
+      Object.keys(whereConditions).length > 0 ? whereConditions : undefined;
 
     const [characters, total] = await this.ormRepository.findAndCount({
       ...(limit && { take: limit }),
@@ -188,6 +197,30 @@ class CharactersRepository implements ICharactersRepository {
       ),
     }));
   }
+
+  public async getStats(): Promise<IRepositoryStatsDTO> {
+    const { count, last_updated } = await this.ormRepository
+      .createQueryBuilder('character')
+      .select('COUNT(*)', 'count')
+      .addSelect('MAX(character.updated_at)', 'last_updated')
+      .getRawOne();
+
+    const designationRows: Array<{ multiverse_designation: string }> =
+      await this.ormRepository
+        .createQueryBuilder('character')
+        .select(
+          'DISTINCT character.multiverse_designation',
+          'multiverse_designation',
+        )
+        .where('character.multiverse_designation IS NOT NULL')
+        .getRawMany();
+
+    return {
+      count: Number(count),
+      designations: designationRows.map(row => row.multiverse_designation),
+      last_updated: last_updated ? new Date(last_updated) : null,
+    };
+  }
 }
 
-export default CharactersRepository; 
+export default CharactersRepository;

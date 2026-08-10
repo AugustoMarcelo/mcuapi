@@ -5,6 +5,7 @@ import IFindAllCharactersDTO from '@modules/characters/dtos/IFindAllCharactersDT
 import IFindAllCharactersResponseDTO from '@modules/characters/dtos/IFindAllCharactersResponseDTO';
 import IMovie from '@modules/movies/entities/IMovie';
 import ITVShow from '@modules/tvshows/entities/ITVShow';
+import IRepositoryStatsDTO from '@shared/dtos/IRepositoryStatsDTO';
 
 interface IFakeAppearance {
   character_id: number;
@@ -48,24 +49,39 @@ class FakeCharactersRepository implements ICharactersRepository {
     return character;
   }
 
-  public async findAll(data: IFindAllCharactersDTO): Promise<IFindAllCharactersResponseDTO> {
-    const { page = 1, limit = 10, continuity, multiverse_designation, filter } = data;
+  public async findAll(
+    data: IFindAllCharactersDTO,
+  ): Promise<IFindAllCharactersResponseDTO> {
+    const {
+      page = 1,
+      limit = 10,
+      continuity,
+      multiverse_designation,
+      filter,
+    } = data;
     let filteredCharacters = [...this.characters];
 
     // Apply filters
     if (continuity) {
-      filteredCharacters = filteredCharacters.filter(char => char.continuity === continuity);
+      filteredCharacters = filteredCharacters.filter(
+        char => char.continuity === continuity,
+      );
     }
 
     if (multiverse_designation) {
-      filteredCharacters = filteredCharacters.filter(char => char.multiverse_designation === multiverse_designation);
+      filteredCharacters = filteredCharacters.filter(
+        char => char.multiverse_designation === multiverse_designation,
+      );
     }
 
     if (filter) {
       const [field, value] = filter.split('=');
       filteredCharacters = filteredCharacters.filter(char => {
         const charValue = char[field as keyof ICharacter];
-        return charValue && String(charValue).toLowerCase().includes(value.toLowerCase());
+        return (
+          charValue &&
+          String(charValue).toLowerCase().includes(value.toLowerCase())
+        );
       });
     }
 
@@ -81,7 +97,9 @@ class FakeCharactersRepository implements ICharactersRepository {
   }
 
   public async update(character: ICharacter): Promise<ICharacter> {
-    const characterIndex = this.characters.findIndex(char => char.id === character.id);
+    const characterIndex = this.characters.findIndex(
+      char => char.id === character.id,
+    );
 
     if (characterIndex === -1) {
       throw new Error('Character not found');
@@ -123,18 +141,50 @@ class FakeCharactersRepository implements ICharactersRepository {
     character_id: number,
   ): Promise<Array<IMovie & { role_type?: string; appeared_in?: string }>> {
     return this.appearances
-      .filter(appearance => appearance.character_id === character_id && appearance.movie)
-      .map(appearance => ({ ...(appearance.movie as IMovie), role_type: appearance.role_type }));
+      .filter(
+        appearance =>
+          appearance.character_id === character_id && appearance.movie,
+      )
+      .map(appearance => ({
+        ...(appearance.movie as IMovie),
+        role_type: appearance.role_type,
+      }));
   }
 
   public async findTVShowsByCharacterId(
     character_id: number,
   ): Promise<Array<ITVShow & { role_type?: string; appeared_in?: string }>> {
     return this.appearances
-      .filter(appearance => appearance.character_id === character_id && appearance.tvshow)
-      .map(appearance => ({ ...(appearance.tvshow as ITVShow), role_type: appearance.role_type }));
+      .filter(
+        appearance =>
+          appearance.character_id === character_id && appearance.tvshow,
+      )
+      .map(appearance => ({
+        ...(appearance.tvshow as ITVShow),
+        role_type: appearance.role_type,
+      }));
   }
 
+  public async getStats(): Promise<IRepositoryStatsDTO> {
+    const designations = Array.from(
+      new Set(
+        this.characters
+          .map(char => char.multiverse_designation)
+          .filter((value): value is string => !!value),
+      ),
+    );
+    const updatedDates = this.characters
+      .map(char => char.updated_at)
+      .filter((date): date is Date => !!date);
+
+    return {
+      count: this.characters.length,
+      designations,
+      last_updated: updatedDates.length
+        ? new Date(Math.max(...updatedDates.map(date => date.getTime())))
+        : null,
+    };
+  }
 }
 
-export default FakeCharactersRepository; 
+export default FakeCharactersRepository;

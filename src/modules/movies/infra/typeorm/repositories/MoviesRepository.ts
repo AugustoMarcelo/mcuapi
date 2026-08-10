@@ -4,6 +4,7 @@ import IMoviesRepository from '@modules/movies/repositories/IMoviesRepository';
 import ICreateMovieDTO from '@modules/movies/dtos/ICreateMovieDTO';
 import IFindAllMoviesDTO from '@modules/movies/dtos/IFindAllMoviesDTO';
 import IFindAllMoviesResponseDTO from '@modules/movies/dtos/IFindAllMoviesResponseDTO';
+import IRepositoryStatsDTO from '@shared/dtos/IRepositoryStatsDTO';
 import Movie from '../entities/Movie';
 
 class MoviesRepository implements IMoviesRepository {
@@ -67,7 +68,9 @@ class MoviesRepository implements IMoviesRepository {
       'timeline_chronology_order',
     ];
     let formattedColumnValue;
-    formattedColumnValue = Raw(alias => `${alias} ILIKE :value`, { value: `%${whereValue}%` });
+    formattedColumnValue = Raw(alias => `${alias} ILIKE :value`, {
+      value: `%${whereValue}%`,
+    });
 
     if (columnsWithNumericValues.includes(columnWhere)) {
       formattedColumnValue = whereValue;
@@ -95,7 +98,8 @@ class MoviesRepository implements IMoviesRepository {
       whereConditions.is_mcu = is_mcu;
     }
 
-    const where = Object.keys(whereConditions).length > 0 ? whereConditions : undefined;
+    const where =
+      Object.keys(whereConditions).length > 0 ? whereConditions : undefined;
 
     const [movies, total] = await this.ormRepository.findAndCount({
       ...(limit && { take: limit }),
@@ -108,6 +112,38 @@ class MoviesRepository implements IMoviesRepository {
     });
 
     return { data: movies, total };
+  }
+
+  public async getStats(): Promise<IRepositoryStatsDTO> {
+    const { count, last_updated } = await this.ormRepository
+      .createQueryBuilder('movie')
+      .select('COUNT(*)', 'count')
+      .addSelect('MAX(movie.updated_at)', 'last_updated')
+      .getRawOne();
+
+    const continuityRows: Array<{ continuity: string }> =
+      await this.ormRepository
+        .createQueryBuilder('movie')
+        .select('DISTINCT movie.continuity', 'continuity')
+        .where('movie.continuity IS NOT NULL')
+        .getRawMany();
+
+    const designationRows: Array<{ multiverse_designation: string }> =
+      await this.ormRepository
+        .createQueryBuilder('movie')
+        .select(
+          'DISTINCT movie.multiverse_designation',
+          'multiverse_designation',
+        )
+        .where('movie.multiverse_designation IS NOT NULL')
+        .getRawMany();
+
+    return {
+      count: Number(count),
+      continuities: continuityRows.map(row => row.continuity),
+      designations: designationRows.map(row => row.multiverse_designation),
+      last_updated: last_updated ? new Date(last_updated) : null,
+    };
   }
 }
 

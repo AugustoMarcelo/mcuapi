@@ -365,10 +365,13 @@ a{color:inherit}
 .ledger-cell:last-child{border-right:0}
 .ledger-cell:hover{background:var(--surface);box-shadow:inset 0 -2px 0 var(--accent)}
 .ledger-n{
+  display:inline-block;min-width:3ch;min-height:1em;
   font-family:var(--display);font-size:37px;line-height:1;
   letter-spacing:-0.025em;font-variation-settings:"wdth" 118,"wght" 700;
   font-variant-numeric:tabular-nums;
 }
+/* while /stats is in flight: a low-contrast bar, never a spinner or a 0 */
+.ledger-n.is-loading{width:3ch;border-radius:3px;background:var(--border-strong);opacity:.5}
 .ledger-l{font-size:13px;font-weight:550;font-variation-settings:"wdth" 100,"wght" 550}
 .ledger-p{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.02em;overflow-wrap:anywhere}
 .ledger-cell:hover .ledger-p{color:var(--fg)}
@@ -428,6 +431,30 @@ a{color:inherit}
 .rail-foot{
   display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   margin-top:16px;font-family:var(--mono);font-size:11px;color:var(--muted);
+}
+
+/* ── next release ─────────────────────────────────────────── */
+.next-frame{
+  display:grid;grid-template-columns:220px 1fr;
+  border:1px solid var(--border-strong);background:var(--surface);
+  border-radius:3px;overflow:hidden;
+}
+.next-frame.no-cover{grid-template-columns:1fr}
+.next-cover{background:var(--surface-sunk);min-height:260px}
+.next-img{display:block;width:100%;height:100%;object-fit:cover}
+.next-body{padding:26px var(--pad);display:flex;flex-direction:column;gap:12px;min-width:0}
+.next-badges{display:flex;gap:8px;flex-wrap:wrap}
+.next-title{margin:0}
+.next-overview{margin:0}
+.next-countdown{
+  display:flex;flex-direction:column;gap:4px;margin-top:4px;
+  font-family:var(--mono);
+}
+.next-digits{font-size:22px;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
+.next-static{font-size:12px;color:var(--muted)}
+@media (max-width:640px){
+  .next-frame,.next-frame.no-cover{grid-template-columns:1fr}
+  .next-cover{min-height:180px}
 }
 
 /* ── console ─────────────────────────────────────────────── */
@@ -826,6 +853,7 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
     <nav class="mast-nav" aria-label="Primary">
       <div class="nav-links" id="nav-links">
         <a href="#timeline">Timeline</a>
+        <a href="#next">Next</a>
         <a href="#console">Console</a>
         <a href="#data">Data</a>
         <a href="#characters">Characters</a>
@@ -1010,28 +1038,28 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
 
     <div class="ledger">
       <button class="ledger-cell" type="button" data-load="/api/v1/movies?limit=10&amp;page=1">
-        <span class="ledger-n">57</span>
+        <span class="ledger-n is-loading" data-stat="movies"></span>
         <span class="ledger-l">Movies</span>
         <span class="ledger-p">/movies</span>
       </button>
       <button class="ledger-cell" type="button" data-load="/api/v1/tvshows?limit=10&amp;page=1">
-        <span class="ledger-n">56</span>
+        <span class="ledger-n is-loading" data-stat="tvshows"></span>
         <span class="ledger-l">TV shows</span>
         <span class="ledger-p">/tvshows</span>
       </button>
       <button class="ledger-cell" type="button" data-load="/api/v1/characters?limit=10&amp;page=1">
-        <span class="ledger-n">302</span>
+        <span class="ledger-n is-loading" data-stat="characters"></span>
         <span class="ledger-l">Characters</span>
         <span class="ledger-p">/characters</span>
       </button>
       <button class="ledger-cell" type="button" data-load="/api/v1/timeline">
-        <span class="ledger-n">113</span>
+        <span class="ledger-n is-loading" data-stat="titles"></span>
         <span class="ledger-l">Timeline entries</span>
         <span class="ledger-p">/timeline</span>
       </button>
-      <button class="ledger-cell" type="button" data-load="/api/v1/movies?is_mcu=false&amp;limit=10&amp;page=1">
-        <span class="ledger-n">5</span>
-        <span class="ledger-l">Continuity branches</span>
+      <button class="ledger-cell" type="button" data-load="/api/v1/movies?multiverse_designation=Earth-10005&amp;limit=10&amp;page=1">
+        <span class="ledger-n is-loading" data-stat="designations"></span>
+        <span class="ledger-l">Realities</span>
         <span class="ledger-p">?multiverse_designation</span>
       </button>
     </div>
@@ -1064,6 +1092,31 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
     <div class="rail-foot">
       <span>Marks are positioned by <code>chronology_order</code> within each branch, not by release date.</span>
       <span id="rail-src">Snapshot embedded · refreshing from live API…</span>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ── next release ─────────────────────────────────── -->
+  <section class="sec shell" id="next" hidden>
+    <div class="sec-head">
+      <span class="tag">GET /api/v1/upcoming</span>
+      <h2>What's next, in release order.</h2>
+    </div>
+
+    <div class="next-frame" id="next-frame">
+      <div class="next-cover" id="next-cover">
+        <img class="next-img" id="next-img" src="" alt="" hidden>
+      </div>
+      <div class="next-body">
+        <div class="next-badges" id="next-badges"></div>
+        <h3 class="next-title" id="next-title"></h3>
+        <p class="prose next-overview" id="next-overview"></p>
+        <p class="next-countdown">
+          <span class="next-digits" id="next-digits" aria-hidden="true"></span>
+          <span class="next-static" id="next-static"></span>
+        </p>
+      </div>
     </div>
   </section>
 
@@ -2129,6 +2182,112 @@ npm i mcuapi-client
       .catch(function () {
         el.setAttribute('data-state', 'down');
         txt.textContent = 'Unreachable';
+      });
+  }());
+
+  /* ═══ 9. next release ═══════════════════════════════════════ */
+
+  (function nextRelease() {
+    var section = $('#next');
+    if (!section) { return; }
+
+    var frame = $('#next-frame');
+    var coverBox = $('#next-cover');
+    var img = $('#next-img');
+    var badges = $('#next-badges');
+    var titleEl = $('#next-title');
+    var overviewEl = $('#next-overview');
+    var digits = $('#next-digits');
+    var staticEl = $('#next-static');
+    var reduceMotion = window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var pad = function (n) { return n < 10 ? '0' + n : String(n); };
+
+    var fmtDate = function (d) {
+      return d.toLocaleDateString(undefined, { day: 'numeric', month: 'long', year: 'numeric' });
+    };
+
+    var tick = function (target) {
+      var diff = Math.max(0, target.getTime() - Date.now());
+      var days = Math.floor(diff / 86400000);
+      var hrs = Math.floor((diff % 86400000) / 3600000);
+      var mins = Math.floor((diff % 3600000) / 60000);
+      var secs = Math.floor((diff % 60000) / 1000);
+      digits.textContent = days + 'd ' + pad(hrs) + ':' + pad(mins) + ':' + pad(secs);
+    };
+
+    fetch(V1 + '/upcoming?limit=1', { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function (json) {
+        var item = json && json.total > 0 && json.data && json.data[0];
+        if (!item) { return; }
+
+        // Parsing a bare 'YYYY-MM-DD' string yields UTC midnight, which in a
+        // UTC-negative timezone renders as the previous day — appending a
+        // local-time component gets local midnight instead.
+        var releaseDate = new Date(item.release_date + 'T00:00:00');
+        // Same floor-based whole-days count the ticking digits use, so the
+        // static sentence never disagrees with them by one day.
+        var daysAway = Math.max(0, Math.floor((releaseDate.getTime() - Date.now()) / 86400000));
+
+        if (item.cover_url) {
+          img.src = item.cover_url;
+          img.hidden = false;
+        } else {
+          coverBox.hidden = true;
+          frame.classList.add('no-cover');
+        }
+
+        var badgeParts = [];
+        if (item.type) { badgeParts.push(item.type === 'tvshow' ? 'TV SHOW' : 'MOVIE'); }
+        if (item.continuity) { badgeParts.push(item.continuity); }
+        if (item.multiverse_designation) { badgeParts.push(item.multiverse_designation); }
+        badges.innerHTML = badgeParts
+          .map(function (b) { return '<span class="pill pill-idle">' + esc(b) + '</span>'; })
+          .join('');
+
+        titleEl.textContent = item.title;
+        if (item.overview) { overviewEl.textContent = item.overview; }
+        else { overviewEl.hidden = true; }
+
+        staticEl.textContent = 'Releases ' + fmtDate(releaseDate) + ' — ' +
+          daysAway + (daysAway === 1 ? ' day away.' : ' days away.');
+
+        if (reduceMotion) {
+          digits.hidden = true;
+        } else {
+          tick(releaseDate);
+          setInterval(function () { tick(releaseDate); }, 1000);
+        }
+
+        section.hidden = false;
+      })
+      .catch(function () {
+        // /upcoming unreachable or nothing upcoming: the section stays
+        // hidden and the page reads exactly as it does today.
+      });
+  }());
+
+  /* ═══ 10. ledger counts ═════════════════════════════════════ */
+
+  (function ledgerCounts() {
+    var slots = $$('.ledger-n[data-stat]');
+    if (!slots.length) { return; }
+
+    fetch(V1 + '/stats', { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function (stats) {
+        slots.forEach(function (slot) {
+          var n = stats && stats[slot.dataset.stat];
+          if (typeof n !== 'number') { return; }
+          slot.textContent = n.toLocaleString();
+          slot.classList.remove('is-loading');
+        });
+      })
+      .catch(function () {
+        // /stats unreachable: slots collapse to nothing, same as the star
+        // count CTA — no dash, no zero, no second outage announcement.
+        slots.forEach(function (slot) { slot.classList.remove('is-loading'); });
       });
   }());
 }());
