@@ -242,10 +242,19 @@ a{color:inherit}
 .mast-nav{margin-left:auto;display:flex;align-items:center;gap:22px}
 .nav-links{display:flex;align-items:center;gap:22px}
 .mast-nav a{
+  position:relative;
   font-size:13.5px;font-weight:550;font-variation-settings:"wdth" 100,"wght" 550;
   color:var(--muted);text-decoration:none;transition:color .14s;
 }
 .mast-nav a:hover{color:var(--fg)}
+/* Driven by scroll position, not clicks or location.hash — see scrollSpy()
+   below — so it stays right when the user arrives by wheel, keys, or
+   history nav rather than only after tapping a nav link. */
+.mast-nav a[aria-current="location"]{color:var(--fg);font-weight:650}
+.mast-nav a[aria-current="location"]::after{
+  content:"";position:absolute;left:0;right:0;bottom:-9px;height:2px;
+  background:var(--fg);border-radius:1px;
+}
 
 /* One icon-button language for every chromeless control in the bar, so the
    theme toggle carries the same weight as the text links beside it. */
@@ -387,6 +396,14 @@ a{color:inherit}
   border:1px solid var(--border-strong);background:var(--surface);
   border-radius:3px;overflow:hidden;
 }
+/* The readout used to live inside .rail-frame, which clips (overflow:hidden)
+   for its rounded corners. overflow:hidden also makes an element a sticky
+   "scroll container" per spec, so nesting the readout inside it silently
+   breaks position:sticky — it never pins, it just sits at the true bottom
+   of a 12-branch list, invisible until that list is fully scrolled past.
+   Pulling it out to a sibling of an unclipped .rail-frame fixes that; only
+   the timeline's frame is touched, .cast-frame keeps its original shape. */
+.rail-frame{border-bottom:0;border-radius:3px 3px 0 0}
 .rail-row{
   display:grid;grid-template-columns:216px 1fr 74px;align-items:center;
   width:100%;text-align:left;font:inherit;color:inherit;
@@ -422,6 +439,15 @@ a{color:inherit}
   padding:14px var(--pad);background:var(--surface-sunk);
   border-top:1px solid var(--border);
   font-family:var(--mono);font-size:12px;color:var(--muted);min-height:48px;
+}
+/* Pins the hover readout to the bottom of the viewport while any part of
+   the (now much taller, 12-branch) rail is still on screen, so the label
+   stays visible without the branch list needing to be fully scrolled past.
+   Settles back to its normal spot once the rail itself scrolls out. */
+.rail-readout-sticky{
+  position:sticky;bottom:max(12px, env(safe-area-inset-bottom));z-index:2;
+  border:1px solid var(--border-strong);border-top:1px solid var(--border);
+  border-radius:0 0 3px 3px;box-shadow:0 12px 28px -16px rgba(0,0,0,.35);
 }
 .rail-readout strong{color:var(--fg);font-weight:600}
 .rail-legend{display:flex;gap:18px;margin-left:auto}
@@ -716,6 +742,32 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
 
 .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
+/* ── back to top ─────────────────────────────────────────────
+   Shaped like the hero graph's own node ring rather than a generic FAB —
+   the one recurring shape the brand already owns — so it reads as part of
+   this product, not a bolted-on utility. Accent-free: it's on screen for
+   the entire scroll, so it can't spend the page's 2-use accent budget. */
+.to-top{
+  position:fixed;right:24px;bottom:24px;z-index:50;
+  width:52px;height:52px;padding:0;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;
+  background:var(--surface);border:0;color:var(--muted);cursor:pointer;
+  opacity:0;transform:translateY(10px) scale(.92);pointer-events:none;
+  transition:opacity .18s ease,transform .18s ease,color .14s,background-color .14s;
+  box-shadow:0 10px 24px -12px rgba(0,0,0,.35);
+}
+.to-top.is-visible{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+.to-top:hover{color:var(--fg);background:var(--surface-sunk)}
+.to-top:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.to-top .node-ring{position:absolute;inset:0;width:100%;height:100%}
+.to-top .node-ring circle{fill:none;stroke:currentColor;stroke-width:2.2;opacity:.55;transition:opacity .14s}
+.to-top:hover .node-ring circle{opacity:.9}
+.to-top .chevron{position:relative;width:19px;height:19px}
+@media (max-width:760px){
+  .to-top{right:16px;bottom:16px;width:46px;height:46px}
+  .to-top .chevron{width:17px;height:17px}
+}
+
 /* ── responsive ──────────────────────────────────────────── */
 @media (max-width:1080px){
   /* the wordmark already names the API and the hero prints the full base URL —
@@ -750,8 +802,13 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
   .mast-nav a{
     display:flex;align-items:center;min-height:52px;
     font-size:15px;border-bottom:1px solid var(--border);
+    border-left:2px solid transparent;
   }
   .mast-nav a:last-child{border-bottom:0}
+  /* the underline trick reads oddly on a full-width row; reuse the
+     left-border-as-selection pattern .ep already uses in this list style */
+  .mast-nav a[aria-current="location"]{border-left-color:var(--fg);background:var(--surface-sunk)}
+  .mast-nav a[aria-current="location"]::after{content:none}
   .icon-btn{width:44px;height:44px}
   /* only the safe variant survives here, so it no longer needs the mask that
      kept the bright one off the text — let it cover every node uniformly */
@@ -1079,9 +1136,11 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
       </p>
     </div>
 
-    <div class="rail-frame">
-      <div id="rail-rows"></div>
-      <div class="rail-readout">
+    <div class="rail-shell">
+      <div class="rail-frame">
+        <div id="rail-rows"></div>
+      </div>
+      <div class="rail-readout rail-readout-sticky">
         <span id="rail-out">Hover any mark to read the title and its chronology position.</span>
         <span class="rail-legend" aria-hidden="true">
           <span class="legend-i"><span class="legend-s"></span> Movie</span>
@@ -1443,6 +1502,14 @@ npm i mcuapi-client
   </div>
 </footer>
 
+<button type="button" id="to-top" class="to-top" aria-label="Back to top" tabindex="-1">
+  <svg class="node-ring" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="17"/></svg>
+  <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M6 15l6-6 6 6"/>
+  </svg>
+</button>
+
 <script>
 (function () {
   'use strict';
@@ -1488,12 +1555,53 @@ npm i mcuapi-client
         entries: (g.entries || []).map(function (e) {
           return {
             n: e.chronology_order,
+            id: e.id,
             title: String(e.title || '').trim(),
             type: e.type === 'movie' ? 'm' : 't'
           };
         })
       };
     });
+  }
+
+  // /timeline never carries season — it's a /tvshows/{id} field. Rather than
+  // eagerly fetching every TV entry up front (a branch can hold dozens), the
+  // rail resolves it lazily, one request per id the first time it's hovered,
+  // cached so the same id is never fetched twice.
+  var seasonCache = new Map();
+  var seasonInFlight = new Map();
+
+  function composeTickLabel(tick, season) {
+    var n = tick.dataset.n;
+    var kind = tick.dataset.type === 'm' ? 'movie'
+             : typeof season === 'number' ? 'season ' + season
+             : 'TV show';
+    return (n ? '#' + n + '  ' : '') + tick.dataset.title + '  ·  ' + kind;
+  }
+
+  function resolveSeason(tick) {
+    var id = tick.dataset.id;
+    if (tick.dataset.type !== 't' || !id) { return; }
+    if (seasonCache.has(id)) {
+      tick.dataset.label = composeTickLabel(tick, seasonCache.get(id));
+      if (tick.classList.contains('is-hot')) {
+        railOut.innerHTML = '<strong>' + esc(tick.dataset.branch) + '</strong>  ' + esc(tick.dataset.label);
+      }
+      return;
+    }
+    if (seasonInFlight.has(id)) { return; }
+    seasonInFlight.set(id, fetch(V1 + '/tvshows/' + id)
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (json) {
+        var season = json && typeof json.season === 'number' ? json.season : null;
+        seasonCache.set(id, season);
+        tick.dataset.label = composeTickLabel(tick, season);
+        if (tick.classList.contains('is-hot')) {
+          railOut.innerHTML = '<strong>' + esc(tick.dataset.branch) + '</strong>  ' + esc(tick.dataset.label);
+        }
+      })
+      .catch(function () { /* leaves the generic "TV show" label in place */ })
+      .then(function () { seasonInFlight.delete(id); }));
   }
 
   var railOut = $('#rail-out');
@@ -1537,18 +1645,50 @@ npm i mcuapi-client
       var spread = hi - lo;
       var last = Math.max(g.entries.length - 1, 1);
 
+      // Real branches repeat chronology_order (three Spider-Man reboots all
+      // share "1"), which puts several marks on the exact same pixel — only
+      // the first one appended was ever reachable by hover, so that branch's
+      // row felt broken compared to every other. Nudge exact/near ties apart
+      // by the smallest gap that still keeps each one independently
+      // hoverable; branches with no ties (the common case) are untouched.
+      var MIN_GAP = 0.9;
+      var raw = g.entries.map(function (e, i) {
+        var n = orders[i];
+        var t = g.entries.length === 1 ? 0.5
+              : (spread > 0 && n !== null) ? (n - lo) / spread
+              : i / last;
+        return { i: i, pos: 2 + Math.min(1, Math.max(0, t)) * 96 };
+      });
+      var declutter = raw.slice().sort(function (a, b) { return a.pos - b.pos || a.i - b.i; });
+      for (var k = 1; k < declutter.length; k++) {
+        if (declutter[k].pos - declutter[k - 1].pos < MIN_GAP) {
+          declutter[k].pos = declutter[k - 1].pos + MIN_GAP;
+        }
+      }
+      var overflow = declutter.length ? declutter[declutter.length - 1].pos - 98 : 0;
+      if (overflow > 0) {
+        var span = declutter[declutter.length - 1].pos - declutter[0].pos || 1;
+        declutter.forEach(function (o) { o.pos -= overflow * ((o.pos - declutter[0].pos) / span); });
+      }
+      var positions = [];
+      declutter.forEach(function (o) { positions[o.i] = o.pos; });
+
       g.entries.forEach(function (e, i) {
         var n = orders[i];
         var tick = document.createElement('i');
         tick.className = 'tick';
         tick.setAttribute('data-t', e.type);
-        var t = g.entries.length === 1 ? 0.5
-              : (spread > 0 && n !== null) ? (n - lo) / spread
-              : i / last;
-        tick.style.left = (2 + Math.min(1, Math.max(0, t)) * 96) + '%';
-        // 0 is the API's "not set", so don't print it as a chronology position
-        tick.dataset.label = (n ? '#' + n + '  ' : '') + e.title + '  ·  ' + (e.type === 'm' ? 'movie' : 'TV show');
+        tick.style.left = positions[i] + '%';
+        tick.dataset.n = n ? String(n) : '';
+        tick.dataset.title = e.title;
+        tick.dataset.type = e.type;
+        tick.dataset.id = e.id != null ? String(e.id) : '';
         tick.dataset.branch = g.designation;
+        // 0 is the API's "not set", so don't print it as a chronology position.
+        // TV shows don't carry season on /timeline (only on /tvshows/{id}), so
+        // the label starts generic and upgrades in place once resolveSeason()
+        // below fetches it — lazily, only for marks someone actually hovers.
+        tick.dataset.label = composeTickLabel(tick, seasonCache.get(tick.dataset.id));
         track.appendChild(tick);
       });
 
@@ -1576,6 +1716,7 @@ npm i mcuapi-client
         $$('.tick.is-hot').forEach(function (t) { t.classList.remove('is-hot'); });
         if (nearest && best < 22) {
           nearest.classList.add('is-hot');
+          resolveSeason(nearest);
           railOut.innerHTML = '<strong>' + esc(nearest.dataset.branch) + '</strong>  ' +
                               esc(nearest.dataset.label);
         }
@@ -2289,6 +2430,61 @@ npm i mcuapi-client
         // count CTA — no dash, no zero, no second outage announcement.
         slots.forEach(function (slot) { slot.classList.remove('is-loading'); });
       });
+  }());
+
+  /* ═══ 11. section highlight + back to top ══════════════════ */
+
+  (function scrollSpy() {
+    var map = $$('.mast-nav a[href^="#"]').map(function (a) {
+      var el = document.getElementById(a.getAttribute('href').slice(1));
+      return el ? { a: a, el: el } : null;
+    }).filter(Boolean);
+    var toTop = $('#to-top');
+
+    var headerH = 0;
+    function measure() { var m = $('.mast'); headerH = m ? m.getBoundingClientRect().height : 0; }
+
+    var ticking = false;
+    function update() {
+      ticking = false;
+
+      // Whichever tracked section's top has most recently scrolled past the
+      // header is "current" — pure geometry, so it's right regardless of
+      // whether the user got there by clicking a link, the wheel, Page Down,
+      // or browser back/forward. Above the first section (still in the
+      // hero), nothing lights up, which matches the hero having no nav link.
+      var current = null;
+      map.forEach(function (m) {
+        var top = m.el.getBoundingClientRect().top - headerH - 8;
+        if (top <= 0 && (!current || top > current.top)) { current = { top: top, m: m }; }
+      });
+      map.forEach(function (m) {
+        if (current && current.m === m) { m.a.setAttribute('aria-current', 'location'); }
+        else { m.a.removeAttribute('aria-current'); }
+      });
+
+      if (toTop) {
+        var show = window.scrollY > window.innerHeight * 0.8;
+        toTop.classList.toggle('is-visible', show);
+        toTop.tabIndex = show ? 0 : -1;
+      }
+    }
+    function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', function () { measure(); update(); });
+    measure();
+    update();
+
+    if (toTop) {
+      toTop.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // send keyboard focus back to the top of the document, not just the
+        // viewport, so Tab resumes from the masthead rather than mid-page
+        var landing = document.getElementById('top');
+        if (landing) { landing.setAttribute('tabindex', '-1'); landing.focus({ preventScroll: true }); }
+      });
+    }
   }());
 }());
 </script>
