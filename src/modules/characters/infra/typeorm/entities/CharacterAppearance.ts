@@ -28,6 +28,9 @@ class CharacterAppearance implements ICharacterAppearance {
   @Column('varchar', { nullable: true })
   role_type: string;
 
+  @Column('varchar', { nullable: true })
+  multiverse_designation: string;
+
   @ManyToOne(() => Character)
   @JoinColumn({ name: 'character_id', referencedColumnName: 'id' })
   character: Character;
