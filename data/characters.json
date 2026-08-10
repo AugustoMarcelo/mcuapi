@@ -384,12 +384,12 @@
     "image_url": "https://image.tmdb.org/t/p/w500/s6PwSvq6gC7PGEjIku69tPbvR8M.jpg",
     "played_by": "Tobey Maguire",
     "continuity": "Sony Spider-Man Universe",
-    "multiverse_designation": "Earth-96283",
+    "multiverse_designation": "Unknown",
     "variant_of": 13,
     "first_appearance_movie_id": 42,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-21T18:12:07.724Z",
-    "updated_at": "2026-07-21T19:20:05.676Z",
+    "updated_at": "2026-08-07T19:25:39.352Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/14"
@@ -416,12 +416,12 @@
     "image_url": "https://image.tmdb.org/t/p/w500/beO5YvbTjrr5yy8hW26KVDMSr35.jpg",
     "played_by": "Andrew Garfield",
     "continuity": "Sony Spider-Man Universe",
-    "multiverse_designation": "Earth-120703",
+    "multiverse_designation": "Unknown",
     "variant_of": 13,
     "first_appearance_movie_id": 45,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-21T18:12:07.836Z",
-    "updated_at": "2026-07-21T19:20:05.676Z",
+    "updated_at": "2026-08-07T19:25:46.330Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/15"
@@ -506,12 +506,12 @@
     "image_url": "https://image.tmdb.org/t/p/w500/ui8e4sgZAwMPi3hzEO53jyBJF9B.jpg",
     "played_by": "Willem Dafoe",
     "continuity": "Sony Spider-Man Universe",
-    "multiverse_designation": "Earth-96283",
+    "multiverse_designation": "Unknown",
     "variant_of": null,
     "first_appearance_movie_id": 42,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-21T18:12:08.330Z",
-    "updated_at": "2026-07-21T19:20:05.676Z",
+    "updated_at": "2026-08-07T19:25:39.966Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/18"
@@ -535,12 +535,12 @@
     "image_url": "https://image.tmdb.org/t/p/w500/nJo91Czesn6z0d0pkfbDoVZY3sg.jpg",
     "played_by": "Alfred Molina",
     "continuity": "Sony Spider-Man Universe",
-    "multiverse_designation": "Earth-96283",
+    "multiverse_designation": "Unknown",
     "variant_of": null,
     "first_appearance_movie_id": 43,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-21T18:12:08.442Z",
-    "updated_at": "2026-07-21T19:20:05.676Z",
+    "updated_at": "2026-08-07T19:25:40.683Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/19"
@@ -564,12 +564,12 @@
     "image_url": "https://image.tmdb.org/t/p/w500/zD8Nsy4Xrghp7WunwpCj5JKBPeU.jpg",
     "played_by": "Jamie Foxx",
     "continuity": "Sony Spider-Man Universe",
-    "multiverse_designation": "Earth-120703",
+    "multiverse_designation": "Unknown",
     "variant_of": null,
     "first_appearance_movie_id": 55,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-21T18:12:08.555Z",
-    "updated_at": "2026-08-01T09:21:56.772Z",
+    "updated_at": "2026-08-07T19:25:46.875Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/20"
@@ -593,12 +593,12 @@
     "image_url": "https://image.tmdb.org/t/p/w500/5X8XcIqCDxsQYyHdx7mBwPVkSTs.jpg",
     "played_by": "Rhys Ifans",
     "continuity": "Sony Spider-Man Universe",
-    "multiverse_designation": "Earth-120703",
+    "multiverse_designation": "Unknown",
     "variant_of": null,
     "first_appearance_movie_id": 45,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-21T18:12:08.739Z",
-    "updated_at": "2026-07-21T19:20:05.676Z",
+    "updated_at": "2026-08-07T19:25:47.645Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/21"
@@ -622,12 +622,12 @@
     "image_url": "https://image.tmdb.org/t/p/w500/74NK9HCYvNafMggSp1PAK5Nwkpe.jpg",
     "played_by": "Thomas Haden Church",
     "continuity": "Sony Spider-Man Universe",
-    "multiverse_designation": "Earth-96283",
+    "multiverse_designation": "Unknown",
     "variant_of": null,
     "first_appearance_movie_id": 44,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-21T18:12:08.853Z",
-    "updated_at": "2026-07-21T19:20:05.676Z",
+    "updated_at": "2026-08-07T19:25:41.406Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/22"
@@ -738,12 +738,12 @@
     "image_url": "https://image.tmdb.org/t/p/w500/fCJuIn1PMUQtYdRRSnnoZeMJVWs.jpg",
     "played_by": "Zoe Saldana",
     "continuity": "MCU",
-    "multiverse_designation": null,
+    "multiverse_designation": "Unknown",
     "variant_of": 25,
     "first_appearance_movie_id": 22,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-21T18:12:09.311Z",
-    "updated_at": "2026-07-21T18:28:11.305Z",
+    "updated_at": "2026-08-07T19:35:48.430Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/26"
@@ -915,12 +915,12 @@
     "image_url": "https://image.tmdb.org/t/p/w500/wz3MRiMmoz6b5X3oSzMRC9nLxY1.jpg",
     "played_by": "Benedict Cumberbatch",
     "continuity": "MCU",
-    "multiverse_designation": null,
+    "multiverse_designation": "Unknown",
     "variant_of": 31,
     "first_appearance_movie_id": 28,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-21T18:12:09.985Z",
-    "updated_at": "2026-07-21T18:28:12.124Z",
+    "updated_at": "2026-08-07T19:35:49.024Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/32"
@@ -947,12 +947,12 @@
     "image_url": "https://image.tmdb.org/t/p/w500/wz3MRiMmoz6b5X3oSzMRC9nLxY1.jpg",
     "played_by": "Benedict Cumberbatch",
     "continuity": "MCU",
-    "multiverse_designation": null,
+    "multiverse_designation": "Unknown",
     "variant_of": 31,
     "first_appearance_movie_id": 28,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-21T18:12:10.097Z",
-    "updated_at": "2026-07-21T18:28:12.239Z",
+    "updated_at": "2026-08-07T19:35:49.741Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/33"
@@ -1777,12 +1777,12 @@
     "image_url": "https://image.tmdb.org/t/p/w500/mclHxMm8aPlCPKptP67257F5GPo.jpg",
     "played_by": "Tom Hiddleston",
     "continuity": "MCU",
-    "multiverse_designation": null,
+    "multiverse_designation": "Unknown",
     "variant_of": 60,
     "first_appearance_movie_id": 22,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-21T18:12:13.900Z",
-    "updated_at": "2026-07-21T18:28:15.730Z",
+    "updated_at": "2026-08-07T19:35:50.481Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/61"
@@ -1809,12 +1809,12 @@
     "image_url": "https://image.tmdb.org/t/p/w500/qZdFp18btpQJfDoknxr7DgfRpcB.jpg",
     "played_by": "Sophia Di Martino",
     "continuity": "MCU",
-    "multiverse_designation": null,
+    "multiverse_designation": "Unknown",
     "variant_of": 60,
     "first_appearance_movie_id": null,
     "first_appearance_tvshow_id": 3,
     "created_at": "2026-07-21T18:12:14.013Z",
-    "updated_at": "2026-07-30T20:47:23.257Z",
+    "updated_at": "2026-08-07T19:35:51.161Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/62"
@@ -1928,12 +1928,12 @@
     "image_url": "https://image.tmdb.org/t/p/w500/nsxnMbkl9Lpc12AmYwKi9SmsJ7e.jpg",
     "played_by": "Jonathan Majors",
     "continuity": "MCU",
-    "multiverse_designation": null,
+    "multiverse_designation": "Unknown",
     "variant_of": null,
     "first_appearance_movie_id": null,
     "first_appearance_tvshow_id": 3,
     "created_at": "2026-07-21T18:12:14.462Z",
-    "updated_at": "2026-07-21T18:28:16.418Z",
+    "updated_at": "2026-08-07T19:35:51.914Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/66"
@@ -2163,12 +2163,12 @@
     "image_url": "https://image.tmdb.org/t/p/w500/m9okq20ca2Md38i2ekJeKs3vTwa.jpg",
     "played_by": "Evan Peters",
     "continuity": "MCU",
-    "multiverse_designation": null,
+    "multiverse_designation": "Unknown",
     "variant_of": 73,
     "first_appearance_movie_id": null,
     "first_appearance_tvshow_id": 1,
     "created_at": "2026-07-21T18:12:15.360Z",
-    "updated_at": "2026-07-21T18:28:17.551Z",
+    "updated_at": "2026-08-07T19:35:52.130Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/74"
@@ -2913,35 +2913,6 @@
     }
   },
   {
-    "id": 100,
-    "name": "Wade Wilson",
-    "alias": "Deadpool",
-    "description": "Mercenary with healing factor and fourth-wall breaking abilities.",
-    "image_url": "https://image.tmdb.org/t/p/w500/trzgptffGvAlAT6MEu01fz47cLW.jpg",
-    "played_by": "Ryan Reynolds",
-    "continuity": "MCU",
-    "multiverse_designation": "Earth-616",
-    "variant_of": null,
-    "first_appearance_movie_id": 37,
-    "first_appearance_tvshow_id": null,
-    "created_at": "2026-07-21T18:12:18.570Z",
-    "updated_at": "2026-07-21T18:28:21.446Z",
-    "_links": {
-      "self": {
-        "href": "https://mcuapi.up.railway.app/api/v1/characters/100"
-      },
-      "movies": {
-        "href": "https://mcuapi.up.railway.app/api/v1/characters/100/movies"
-      },
-      "tvshows": {
-        "href": "https://mcuapi.up.railway.app/api/v1/characters/100/tvshows"
-      },
-      "first_appearance_movie": {
-        "href": "https://mcuapi.up.railway.app/api/v1/movies/37"
-      }
-    }
-  },
-  {
     "id": 101,
     "name": "Logan Howlett",
     "alias": "Wolverine",
@@ -2949,12 +2920,12 @@
     "image_url": "https://image.tmdb.org/t/p/w500/4Xujtewxqt6aU0Y81tsS9gkjizk.jpg",
     "played_by": "Hugh Jackman",
     "continuity": "MCU",
-    "multiverse_designation": null,
+    "multiverse_designation": "Unknown",
     "variant_of": null,
     "first_appearance_movie_id": 37,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-21T18:12:18.686Z",
-    "updated_at": "2026-07-21T18:28:21.648Z",
+    "updated_at": "2026-08-07T19:35:52.315Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/101"
@@ -2971,35 +2942,6 @@
     }
   },
   {
-    "id": 102,
-    "name": "Laura",
-    "alias": "X-23",
-    "description": "Logan's young clone, raised as a weapon and rescued into a new timeline.",
-    "image_url": "https://image.tmdb.org/t/p/w500/g325OIjIHrFr0te8ewPfhKQ2SKj.jpg",
-    "played_by": "Dafne Keen",
-    "continuity": "MCU",
-    "multiverse_designation": null,
-    "variant_of": null,
-    "first_appearance_movie_id": 37,
-    "first_appearance_tvshow_id": null,
-    "created_at": "2026-07-21T18:12:18.798Z",
-    "updated_at": "2026-07-21T18:28:21.852Z",
-    "_links": {
-      "self": {
-        "href": "https://mcuapi.up.railway.app/api/v1/characters/102"
-      },
-      "movies": {
-        "href": "https://mcuapi.up.railway.app/api/v1/characters/102/movies"
-      },
-      "tvshows": {
-        "href": "https://mcuapi.up.railway.app/api/v1/characters/102/tvshows"
-      },
-      "first_appearance_movie": {
-        "href": "https://mcuapi.up.railway.app/api/v1/movies/37"
-      }
-    }
-  },
-  {
     "id": 103,
     "name": "Cassandra Nova",
     "alias": null,
@@ -3007,12 +2949,12 @@
     "image_url": "https://image.tmdb.org/t/p/w500/miSbXJBlq6S3dVvOr7OoNL4axW6.jpg",
     "played_by": "Emma Corrin",
     "continuity": "MCU",
-    "multiverse_designation": null,
+    "multiverse_designation": "Unknown",
     "variant_of": null,
     "first_appearance_movie_id": 37,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-21T18:12:18.910Z",
-    "updated_at": "2026-07-21T18:28:21.982Z",
+    "updated_at": "2026-08-07T19:35:58.262Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/103"
@@ -5068,13 +5010,13 @@
     "description": "Journalist bonded to an alien symbiote, briefly pulled into the MCU by the multiverse breach.",
     "image_url": "https://image.tmdb.org/t/p/w500/d81K0RH8UX7tZj49tZaQhZ9ewH.jpg",
     "played_by": "Tom Hardy",
-    "continuity": "MCU",
-    "multiverse_designation": null,
+    "continuity": "Sony Spider-Man Universe",
+    "multiverse_designation": "Unknown",
     "variant_of": null,
     "first_appearance_movie_id": 27,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-21T18:12:28.676Z",
-    "updated_at": "2026-07-21T18:28:32.628Z",
+    "updated_at": "2026-08-07T19:55:59.891Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/174"
@@ -5149,135 +5091,19 @@
     }
   },
   {
-    "id": 177,
-    "name": "Erik Lehnsherr",
-    "alias": "Magneto",
-    "description": "Mutant master of magnetism and founder of the Brotherhood of Mutants.",
-    "image_url": "https://image.tmdb.org/t/p/w500/5cnnnpnJG6TiYUSS7qgJheUZgnv.jpg",
-    "played_by": "Ian McKellen",
-    "continuity": "MCU",
-    "multiverse_designation": null,
-    "variant_of": null,
-    "first_appearance_movie_id": 39,
-    "first_appearance_tvshow_id": null,
-    "created_at": "2026-07-21T18:47:27.098Z",
-    "updated_at": "2026-07-21T18:47:27.098Z",
-    "_links": {
-      "self": {
-        "href": "https://mcuapi.up.railway.app/api/v1/characters/177"
-      },
-      "movies": {
-        "href": "https://mcuapi.up.railway.app/api/v1/characters/177/movies"
-      },
-      "tvshows": {
-        "href": "https://mcuapi.up.railway.app/api/v1/characters/177/tvshows"
-      },
-      "first_appearance_movie": {
-        "href": "https://mcuapi.up.railway.app/api/v1/movies/39"
-      }
-    }
-  },
-  {
-    "id": 178,
-    "name": "Hank McCoy",
-    "alias": "Beast",
-    "description": "Brilliant mutant scientist with blue fur, superhuman strength and agility.",
-    "image_url": "https://image.tmdb.org/t/p/w500/5zik4VJim6YTSWDjC7tkp13wxUp.jpg",
-    "played_by": "Kelsey Grammer",
-    "continuity": "MCU",
-    "multiverse_designation": null,
-    "variant_of": null,
-    "first_appearance_movie_id": 33,
-    "first_appearance_tvshow_id": null,
-    "created_at": "2026-07-21T18:47:27.098Z",
-    "updated_at": "2026-07-21T18:47:27.098Z",
-    "_links": {
-      "self": {
-        "href": "https://mcuapi.up.railway.app/api/v1/characters/178"
-      },
-      "movies": {
-        "href": "https://mcuapi.up.railway.app/api/v1/characters/178/movies"
-      },
-      "tvshows": {
-        "href": "https://mcuapi.up.railway.app/api/v1/characters/178/tvshows"
-      },
-      "first_appearance_movie": {
-        "href": "https://mcuapi.up.railway.app/api/v1/movies/33"
-      }
-    }
-  },
-  {
-    "id": 179,
-    "name": "Raven Darkholme",
-    "alias": "Mystique",
-    "description": "Shapeshifting mutant able to mimic the appearance of anyone.",
-    "image_url": "https://image.tmdb.org/t/p/w500/doqFBHNbNhoLF9RX9SYPqwu1mvd.jpg",
-    "played_by": "Rebecca Romijn",
-    "continuity": "MCU",
-    "multiverse_designation": null,
-    "variant_of": null,
-    "first_appearance_movie_id": 39,
-    "first_appearance_tvshow_id": null,
-    "created_at": "2026-07-21T18:47:27.098Z",
-    "updated_at": "2026-07-21T18:47:27.098Z",
-    "_links": {
-      "self": {
-        "href": "https://mcuapi.up.railway.app/api/v1/characters/179"
-      },
-      "movies": {
-        "href": "https://mcuapi.up.railway.app/api/v1/characters/179/movies"
-      },
-      "tvshows": {
-        "href": "https://mcuapi.up.railway.app/api/v1/characters/179/tvshows"
-      },
-      "first_appearance_movie": {
-        "href": "https://mcuapi.up.railway.app/api/v1/movies/39"
-      }
-    }
-  },
-  {
-    "id": 180,
-    "name": "Scott Summers",
-    "alias": "Cyclops",
-    "description": "Field leader of the X-Men who emits powerful optic energy blasts.",
-    "image_url": "https://image.tmdb.org/t/p/w500/lf7OnfKZnMgNh9b98764tqSocGK.jpg",
-    "played_by": "James Marsden",
-    "continuity": "MCU",
-    "multiverse_designation": null,
-    "variant_of": null,
-    "first_appearance_movie_id": 39,
-    "first_appearance_tvshow_id": null,
-    "created_at": "2026-07-21T18:47:27.098Z",
-    "updated_at": "2026-07-21T18:47:27.098Z",
-    "_links": {
-      "self": {
-        "href": "https://mcuapi.up.railway.app/api/v1/characters/180"
-      },
-      "movies": {
-        "href": "https://mcuapi.up.railway.app/api/v1/characters/180/movies"
-      },
-      "tvshows": {
-        "href": "https://mcuapi.up.railway.app/api/v1/characters/180/tvshows"
-      },
-      "first_appearance_movie": {
-        "href": "https://mcuapi.up.railway.app/api/v1/movies/39"
-      }
-    }
-  },
-  {
     "id": 181,
     "name": "Kurt Wagner",
     "alias": "Nightcrawler",
     "description": "Teleporting mutant with prehensile tail and acrobatic skill.",
     "image_url": "https://image.tmdb.org/t/p/w500/axil8ufunARfqyU4ceZNh36fkVQ.jpg",
-    "played_by": "Alan Cumming",
+    "played_by": "Kodi Smit-McPhee, Alan Cumming",
     "continuity": "MCU",
-    "multiverse_designation": null,
+    "multiverse_designation": "Earth-10005",
     "variant_of": null,
     "first_appearance_movie_id": 39,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-21T18:47:27.098Z",
-    "updated_at": "2026-07-21T18:47:27.098Z",
+    "updated_at": "2026-08-07T20:10:18.557Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/181"
@@ -5301,12 +5127,12 @@
     "image_url": "https://image.tmdb.org/t/p/w500/4TpgnS6l8YUXSne9Av9nda6mjxY.jpg",
     "played_by": "Channing Tatum",
     "continuity": "MCU",
-    "multiverse_designation": null,
+    "multiverse_designation": "Unknown",
     "variant_of": null,
     "first_appearance_movie_id": 37,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-21T18:47:27.098Z",
-    "updated_at": "2026-07-21T18:47:27.098Z",
+    "updated_at": "2026-08-07T19:35:58.879Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/182"
@@ -5792,14 +5618,14 @@
     "alias": "Juggernaut",
     "description": "Unstoppable mutant enforcer serving Cassandra Nova in the Void.",
     "image_url": "https://image.tmdb.org/t/p/w500/e9dW9ezNxeGEu8MnQ1NTOz3PM93.jpg",
-    "played_by": "Aaron W. Reed",
+    "played_by": "Vinnie Jones, Ryan Reynolds, Aaron W. Reed",
     "continuity": "X-Men Universe",
     "multiverse_designation": "Earth-10005",
     "variant_of": null,
     "first_appearance_movie_id": 50,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-24T09:02:28.711Z",
-    "updated_at": "2026-07-24T09:12:58.320Z",
+    "updated_at": "2026-08-07T21:49:46.083Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/199"
@@ -5821,14 +5647,14 @@
     "alias": "Blob",
     "description": "Mutant enforcer serving Cassandra Nova in the Void.",
     "image_url": "https://image.tmdb.org/t/p/w500/qq8qHJvdjPowWGPku6h2ANUOVuI.jpg",
-    "played_by": "Mike Waters",
+    "played_by": "Kevin Durand, Mike Waters",
     "continuity": "X-Men Universe",
     "multiverse_designation": "Earth-10005",
     "variant_of": null,
     "first_appearance_movie_id": 37,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-24T09:02:28.824Z",
-    "updated_at": "2026-07-24T09:02:28.824Z",
+    "updated_at": "2026-08-07T21:49:48.737Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/200"
@@ -5852,12 +5678,12 @@
     "image_url": "https://image.tmdb.org/t/p/w500/iDmPuZXAGheRMbMyB80acMWYJ2s.jpg",
     "played_by": "Wesley Snipes",
     "continuity": "MCU",
-    "multiverse_designation": null,
+    "multiverse_designation": "Unknown",
     "variant_of": 173,
     "first_appearance_movie_id": 37,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-24T09:02:28.937Z",
-    "updated_at": "2026-07-24T09:02:28.937Z",
+    "updated_at": "2026-08-07T19:36:00.309Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/201"
@@ -5884,12 +5710,12 @@
     "image_url": "https://image.tmdb.org/t/p/w500/ftymEXqdTnXfaI6dGd9qrJoFOSE.jpg",
     "played_by": "Jennifer Garner",
     "continuity": "MCU",
-    "multiverse_designation": null,
+    "multiverse_designation": "Unknown",
     "variant_of": 115,
     "first_appearance_movie_id": 37,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-24T09:02:29.050Z",
-    "updated_at": "2026-07-24T09:02:29.050Z",
+    "updated_at": "2026-08-07T19:36:00.800Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/202"
@@ -5916,12 +5742,12 @@
     "image_url": "https://image.tmdb.org/t/p/w500/3bOGNsHlrswhyW79uvIHH1V43JI.jpg",
     "played_by": "Chris Evans",
     "continuity": "MCU",
-    "multiverse_designation": null,
+    "multiverse_designation": "Unknown",
     "variant_of": 98,
     "first_appearance_movie_id": 37,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-24T09:02:29.204Z",
-    "updated_at": "2026-07-24T09:02:29.204Z",
+    "updated_at": "2026-08-07T19:36:01.083Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/203"
@@ -5941,51 +5767,19 @@
     }
   },
   {
-    "id": 204,
-    "name": "Remy LeBeau",
-    "alias": "Gambit",
-    "description": "Kinetic-charging mutant variant stranded in the Void, from Channing Tatum's unproduced solo film.",
-    "image_url": "https://image.tmdb.org/t/p/w500/4TpgnS6l8YUXSne9Av9nda6mjxY.jpg",
-    "played_by": "Channing Tatum",
-    "continuity": "MCU",
-    "multiverse_designation": null,
-    "variant_of": 182,
-    "first_appearance_movie_id": 37,
-    "first_appearance_tvshow_id": null,
-    "created_at": "2026-07-24T09:02:29.360Z",
-    "updated_at": "2026-07-30T20:47:20.341Z",
-    "_links": {
-      "self": {
-        "href": "https://mcuapi.up.railway.app/api/v1/characters/204"
-      },
-      "movies": {
-        "href": "https://mcuapi.up.railway.app/api/v1/characters/204/movies"
-      },
-      "tvshows": {
-        "href": "https://mcuapi.up.railway.app/api/v1/characters/204/tvshows"
-      },
-      "variant_of": {
-        "href": "https://mcuapi.up.railway.app/api/v1/characters/182"
-      },
-      "first_appearance_movie": {
-        "href": "https://mcuapi.up.railway.app/api/v1/movies/37"
-      }
-    }
-  },
-  {
     "id": 205,
     "name": "Psylocke",
     "alias": null,
     "description": "Telepathic mutant killed in the Void's mutant graveyard.",
     "image_url": "https://image.tmdb.org/t/p/w500/7bChdeG2k7GoAf8nG12p05Ssrbe.jpg",
-    "played_by": "Ayesha Hussain",
+    "played_by": "Olivia Munn, Ayesha Hussain",
     "continuity": "X-Men Universe",
     "multiverse_designation": "Earth-10005",
     "variant_of": null,
     "first_appearance_movie_id": 37,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-24T09:02:29.474Z",
-    "updated_at": "2026-07-24T09:02:29.474Z",
+    "updated_at": "2026-08-07T21:49:54.540Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/205"
@@ -6007,14 +5801,14 @@
     "alias": "Toad",
     "description": "Mutant with a long prehensile tongue, killed in the Void's mutant graveyard.",
     "image_url": "https://image.tmdb.org/t/p/w500/3ZmlKGTlBF09ZxmoOH9lB1xdsf2.jpg",
-    "played_by": "Daniel Medina Ramos",
+    "played_by": "Ray Park, Daniel Medina Ramos",
     "continuity": "X-Men Universe",
     "multiverse_designation": "Earth-10005",
     "variant_of": null,
     "first_appearance_movie_id": 37,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-24T09:02:29.587Z",
-    "updated_at": "2026-07-24T09:02:29.587Z",
+    "updated_at": "2026-08-07T21:49:45.680Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/206"
@@ -6036,14 +5830,14 @@
     "alias": null,
     "description": "Assassin killed in the Void's mutant graveyard; reprises the character from the 2003 Daredevil film.",
     "image_url": "https://image.tmdb.org/t/p/w500/lgAOeihmiZ2CdKWpa35BxpBeSiK.jpg",
-    "played_by": "Curtis Small",
+    "played_by": "Colin Farrell, Curtis Small",
     "continuity": "X-Men Universe",
     "multiverse_designation": "Earth-10005",
     "variant_of": null,
     "first_appearance_movie_id": 37,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-24T09:02:29.701Z",
-    "updated_at": "2026-07-24T09:02:29.701Z",
+    "updated_at": "2026-08-07T21:49:53.210Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/207"
@@ -6065,14 +5859,14 @@
     "alias": null,
     "description": "Teleporting demonic mutant killed in the Void's mutant graveyard.",
     "image_url": "https://image.tmdb.org/t/p/w500/r9DaaOfiACoUX7Ezs63K8DZrpHI.jpg",
-    "played_by": "Eduardo Gago Muñoz",
+    "played_by": "Jason Flemyng, Eduardo Gago Muñoz",
     "continuity": "X-Men Universe",
     "multiverse_designation": "Earth-10005",
     "variant_of": null,
     "first_appearance_movie_id": 37,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-24T09:02:29.814Z",
-    "updated_at": "2026-07-24T09:02:29.814Z",
+    "updated_at": "2026-08-07T21:49:49.109Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/208"
@@ -6094,14 +5888,14 @@
     "alias": null,
     "description": "Morlock mutant tracker killed in the Void's mutant graveyard.",
     "image_url": "https://image.tmdb.org/t/p/w500/6jgp3IJenhe9R1cdV25gfzlSDpy.jpg",
-    "played_by": "Chloe Kibble",
+    "played_by": "Dania Ramirez, Chloe Kibble",
     "continuity": "X-Men Universe",
     "multiverse_designation": "Earth-10005",
     "variant_of": null,
     "first_appearance_movie_id": 37,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-24T09:02:29.928Z",
-    "updated_at": "2026-07-24T09:02:29.928Z",
+    "updated_at": "2026-08-07T21:49:46.737Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/209"
@@ -6123,14 +5917,14 @@
     "alias": null,
     "description": "Mutant with concussive-blast powers, killed in the Void's mutant graveyard.",
     "image_url": "https://image.tmdb.org/t/p/w500/5fZ41rVpPKI5VpBFt2dBRcOaHtL.jpg",
-    "played_by": "Jessica Walker",
+    "played_by": "Omahyra Mota, Jessica Walker",
     "continuity": "X-Men Universe",
     "multiverse_designation": "Earth-10005",
     "variant_of": null,
     "first_appearance_movie_id": 37,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-24T09:02:30.041Z",
-    "updated_at": "2026-07-24T09:02:30.041Z",
+    "updated_at": "2026-08-07T21:49:47.335Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/210"
@@ -6152,14 +5946,14 @@
     "alias": null,
     "description": "Adamantium-clawed mutant killed in the Void's mutant graveyard.",
     "image_url": "https://image.tmdb.org/t/p/w500/4r1zrh8Wf32W74fltUn37Uz2FfV.jpg",
-    "played_by": "Jade Lye",
+    "played_by": "Kelly Hu, Jade Lye",
     "continuity": "X-Men Universe",
     "multiverse_designation": "Earth-10005",
     "variant_of": null,
     "first_appearance_movie_id": 37,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-24T09:02:30.155Z",
-    "updated_at": "2026-07-24T09:02:30.155Z",
+    "updated_at": "2026-08-07T21:49:45.909Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/211"
@@ -6181,14 +5975,14 @@
     "alias": null,
     "description": "Black-market organ dealer who once tortured Wade Wilson, killed in the Void's mutant graveyard.",
     "image_url": "https://image.tmdb.org/t/p/w500/nipJ22DXJBsdM1teQodwop42U6S.jpg",
-    "played_by": "Billy Clements",
+    "played_by": "Kevin Nash, Billy Clements",
     "continuity": "X-Men Universe",
     "multiverse_designation": "Earth-10005",
     "variant_of": null,
     "first_appearance_movie_id": 47,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-24T09:02:30.268Z",
-    "updated_at": "2026-07-24T09:02:30.268Z",
+    "updated_at": "2026-08-07T21:55:29.556Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/212"
@@ -6210,14 +6004,14 @@
     "alias": null,
     "description": "Quill-covered mutant tracked by Stryker's forces; killed in the Void's mutant graveyard. Not to be confused with Peter Quill / Star-Lord.",
     "image_url": "https://image.tmdb.org/t/p/w500/vLKWIjSztXEHUOMFolVudij4jbs.jpg",
-    "played_by": "Nilly Cetin",
+    "played_by": "Ken Leung, Nilly Cetin",
     "continuity": "X-Men Universe",
     "multiverse_designation": "Earth-10005",
     "variant_of": null,
     "first_appearance_movie_id": 37,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-24T09:02:30.381Z",
-    "updated_at": "2026-07-24T09:02:30.381Z",
+    "updated_at": "2026-08-07T21:49:48.086Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/213"
@@ -7082,12 +6876,12 @@
     "image_url": "https://image.tmdb.org/t/p/w500/t7EYLBMWQiIDtCoOYZjvqXV84S5.jpg",
     "played_by": "Emma Stone",
     "continuity": "Sony Spider-Man Universe",
-    "multiverse_designation": "Earth-120703",
+    "multiverse_designation": "Unknown",
     "variant_of": null,
     "first_appearance_movie_id": 45,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-24T09:58:51.468Z",
-    "updated_at": "2026-07-24T09:58:51.468Z",
+    "updated_at": "2026-08-07T19:25:47.846Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/243"
@@ -7111,12 +6905,12 @@
     "image_url": "https://image.tmdb.org/t/p/w500/yhLKGjuiMMdbGnFrR8AREkCZcVF.jpg",
     "played_by": "Kirsten Dunst",
     "continuity": "Sony Spider-Man Universe",
-    "multiverse_designation": "Earth-96283",
+    "multiverse_designation": "Unknown",
     "variant_of": null,
     "first_appearance_movie_id": 42,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-24T09:58:51.586Z",
-    "updated_at": "2026-07-24T09:58:51.586Z",
+    "updated_at": "2026-08-07T19:25:42.018Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/244"
@@ -7140,12 +6934,12 @@
     "image_url": "https://image.tmdb.org/t/p/w500/bjmAntHGiibLZixH8nTNVBzaFQn.jpg",
     "played_by": "James Franco",
     "continuity": "Sony Spider-Man Universe",
-    "multiverse_designation": "Earth-96283",
+    "multiverse_designation": "Unknown",
     "variant_of": null,
     "first_appearance_movie_id": 42,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-24T09:58:51.724Z",
-    "updated_at": "2026-07-24T09:58:51.724Z",
+    "updated_at": "2026-08-07T19:25:42.196Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/245"
@@ -7560,7 +7354,7 @@
     "name": "Charles Xavier",
     "alias": "Professor X",
     "description": null,
-    "image_url": "https://image.tmdb.org/t/p/w500/u4REKbm3zhFI2J5tVyqRovGRYUJ.jpg",
+    "image_url": "https://image.tmdb.org/t/p/w500/ufqtnLh3JJjPbEgxEag3MM5nZyv.jpg",
     "played_by": "James McAvoy, Patrick Stewart",
     "continuity": "X-Men Universe",
     "multiverse_designation": "Earth-10005",
@@ -7568,7 +7362,7 @@
     "first_appearance_movie_id": 46,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-24T18:29:56.489Z",
-    "updated_at": "2026-07-24T18:29:56.489Z",
+    "updated_at": "2026-08-07T20:10:17.838Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/260"
@@ -7589,7 +7383,7 @@
     "name": "Erik Lehnsherr",
     "alias": "Magneto",
     "description": null,
-    "image_url": "https://image.tmdb.org/t/p/w500/xvbnUiB2ZBR3QIt595OzNy657Vw.jpg",
+    "image_url": "https://image.tmdb.org/t/p/w500/5cnnnpnJG6TiYUSS7qgJheUZgnv.jpg",
     "played_by": "Michael Fassbender, Ian McKellen",
     "continuity": "X-Men Universe",
     "multiverse_designation": "Earth-10005",
@@ -7597,7 +7391,7 @@
     "first_appearance_movie_id": 46,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-24T18:29:56.716Z",
-    "updated_at": "2026-07-24T18:29:56.716Z",
+    "updated_at": "2026-08-07T20:10:15.740Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/261"
@@ -7618,15 +7412,15 @@
     "name": "Raven Darkholme",
     "alias": "Mystique",
     "description": null,
-    "image_url": "https://image.tmdb.org/t/p/w500/6WTY6HjXMGxnHilJRVC3eLnu43F.jpg",
-    "played_by": "Jennifer Lawrence",
+    "image_url": "https://image.tmdb.org/t/p/w500/doqFBHNbNhoLF9RX9SYPqwu1mvd.jpg",
+    "played_by": "Jennifer Lawrence, Rebecca Romijn",
     "continuity": "X-Men Universe",
     "multiverse_designation": "Earth-10005",
     "variant_of": null,
     "first_appearance_movie_id": 46,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-24T18:29:56.837Z",
-    "updated_at": "2026-07-24T18:29:56.837Z",
+    "updated_at": "2026-08-07T20:10:12.211Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/262"
@@ -7647,15 +7441,15 @@
     "name": "Hank McCoy",
     "alias": "Beast",
     "description": null,
-    "image_url": "https://image.tmdb.org/t/p/w500/pXm8GWTm9eIA8pUGOjvmYjlxamu.jpg",
-    "played_by": "Nicholas Hoult",
+    "image_url": "https://image.tmdb.org/t/p/w500/5zik4VJim6YTSWDjC7tkp13wxUp.jpg",
+    "played_by": "Nicholas Hoult, Kelsey Grammer",
     "continuity": "X-Men Universe",
     "multiverse_designation": "Earth-10005",
     "variant_of": null,
     "first_appearance_movie_id": 46,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-24T18:29:57.023Z",
-    "updated_at": "2026-07-24T18:29:57.023Z",
+    "updated_at": "2026-08-07T20:10:10.068Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/263"
@@ -7996,14 +7790,14 @@
     "alias": "Phoenix",
     "description": null,
     "image_url": "https://image.tmdb.org/t/p/w500/8ur4aHFakVCinWk0cvrGO8qAUhv.jpg",
-    "played_by": "Sophie Turner",
+    "played_by": "Sophie Turner, Famke Janssen",
     "continuity": "X-Men Universe",
     "multiverse_designation": "Earth-10005",
     "variant_of": null,
     "first_appearance_movie_id": 46,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-24T18:29:58.941Z",
-    "updated_at": "2026-07-24T18:29:58.941Z",
+    "updated_at": "2026-08-07T20:09:38.537Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/275"
@@ -8024,15 +7818,15 @@
     "name": "Scott Summers",
     "alias": "Cyclops",
     "description": null,
-    "image_url": "https://image.tmdb.org/t/p/w500/d5ZS2fjqC98cIGkhEGX0fRYhku4.jpg",
-    "played_by": "Tye Sheridan",
+    "image_url": "https://image.tmdb.org/t/p/w500/lf7OnfKZnMgNh9b98764tqSocGK.jpg",
+    "played_by": "Tye Sheridan, James Marsden",
     "continuity": "X-Men Universe",
     "multiverse_designation": "Earth-10005",
     "variant_of": null,
     "first_appearance_movie_id": 48,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-24T18:29:59.061Z",
-    "updated_at": "2026-07-24T18:29:59.061Z",
+    "updated_at": "2026-08-07T20:10:14.303Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/276"
@@ -8198,7 +7992,7 @@
     "name": "J.A.R.V.I.S.",
     "alias": null,
     "description": "Personified avatar of Tony Stark's original AI, one of the digital 'siblings' Vision encounters on his journey.",
-    "image_url": null,
+    "image_url": "https://image.tmdb.org/t/p/w500/6CInTvBeLwXLx2id9TgaULaVEO4.jpg",
     "played_by": "James D'Arcy",
     "continuity": "MCU",
     "multiverse_designation": "Earth-616",
@@ -8206,7 +8000,7 @@
     "first_appearance_movie_id": null,
     "first_appearance_tvshow_id": 53,
     "created_at": "2026-07-29T10:13:09.372Z",
-    "updated_at": "2026-07-29T10:13:09.372Z",
+    "updated_at": "2026-08-07T19:55:16.337Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/282"
@@ -8227,7 +8021,7 @@
     "name": "F.R.I.D.A.Y.",
     "alias": null,
     "description": "Personified avatar of Tony Stark's AI assistant, one of the digital 'siblings' Vision encounters on his journey.",
-    "image_url": null,
+    "image_url": "https://image.tmdb.org/t/p/w500/wjo8xposTE0HenFopy6KELCWoD0.jpg",
     "played_by": "Orla Brady",
     "continuity": "MCU",
     "multiverse_designation": "Earth-616",
@@ -8235,7 +8029,7 @@
     "first_appearance_movie_id": null,
     "first_appearance_tvshow_id": 53,
     "created_at": "2026-07-29T10:13:09.482Z",
-    "updated_at": "2026-07-29T10:13:09.482Z",
+    "updated_at": "2026-08-07T19:55:17.637Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/283"
@@ -8256,7 +8050,7 @@
     "name": "E.D.I.T.H.",
     "alias": null,
     "description": "Personified avatar of Tony Stark's 'Even Dead, I'm The Hero' AI system, one of the digital 'siblings' Vision encounters on his journey.",
-    "image_url": null,
+    "image_url": "https://image.tmdb.org/t/p/w500/kXb6SAUOACHN9F3M4rkxF7BsJGN.jpg",
     "played_by": "Emily Hampshire",
     "continuity": "MCU",
     "multiverse_designation": "Earth-616",
@@ -8264,7 +8058,7 @@
     "first_appearance_movie_id": null,
     "first_appearance_tvshow_id": 53,
     "created_at": "2026-07-29T10:13:09.594Z",
-    "updated_at": "2026-07-29T10:13:09.594Z",
+    "updated_at": "2026-08-07T19:55:18.454Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/284"
@@ -8314,7 +8108,7 @@
     "name": "U",
     "alias": null,
     "description": "Personified avatar of Tony Stark's robotic lab assistant.",
-    "image_url": null,
+    "image_url": "https://image.tmdb.org/t/p/w500/s7uy8s3sG9AqMOlUuKC74JbKRxP.jpg",
     "played_by": "Jonathan Sayer",
     "continuity": "MCU",
     "multiverse_designation": "Earth-616",
@@ -8322,7 +8116,7 @@
     "first_appearance_movie_id": null,
     "first_appearance_tvshow_id": 53,
     "created_at": "2026-07-29T10:13:09.816Z",
-    "updated_at": "2026-07-29T10:13:09.816Z",
+    "updated_at": "2026-08-07T19:55:19.785Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/286"
@@ -8343,7 +8137,7 @@
     "name": "Vanessa Fisk",
     "alias": null,
     "description": "Wilson Fisk's wife, supporting his rise as mayor of New York.",
-    "image_url": null,
+    "image_url": "https://image.tmdb.org/t/p/w500/wSDtipN1Ew19x7duWaNEP8kPMCx.jpg",
     "played_by": "Ayelet Zurer",
     "continuity": "MCU",
     "multiverse_designation": "Earth-616",
@@ -8351,7 +8145,7 @@
     "first_appearance_movie_id": null,
     "first_appearance_tvshow_id": 17,
     "created_at": "2026-07-29T10:14:26.002Z",
-    "updated_at": "2026-07-29T10:14:26.002Z",
+    "updated_at": "2026-08-07T19:55:21.173Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/287"
@@ -8372,7 +8166,7 @@
     "name": "Heather Glenn",
     "alias": null,
     "description": "Matt Murdock's ex, now backing Fisk's anti-vigilante crackdown.",
-    "image_url": null,
+    "image_url": "https://image.tmdb.org/t/p/w500/7rSf7C5oKuvjgEBfe2GVv064Le.jpg",
     "played_by": "Margarita Levieva",
     "continuity": "MCU",
     "multiverse_designation": "Earth-616",
@@ -8380,7 +8174,7 @@
     "first_appearance_movie_id": null,
     "first_appearance_tvshow_id": 17,
     "created_at": "2026-07-29T10:14:26.113Z",
-    "updated_at": "2026-07-29T10:14:26.113Z",
+    "updated_at": "2026-08-07T19:55:22.653Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/288"
@@ -8401,7 +8195,7 @@
     "name": "Sheila Rivera",
     "alias": null,
     "description": "Wilson Fisk's campaign director, reckoning with her role in his rise to power.",
-    "image_url": null,
+    "image_url": "https://image.tmdb.org/t/p/w500/7NlCmTZoauvyqjNdzTZv2auwOXg.jpg",
     "played_by": "Zabryna Guevara",
     "continuity": "MCU",
     "multiverse_designation": "Earth-616",
@@ -8409,7 +8203,7 @@
     "first_appearance_movie_id": null,
     "first_appearance_tvshow_id": 17,
     "created_at": "2026-07-29T10:14:26.223Z",
-    "updated_at": "2026-07-29T10:14:26.223Z",
+    "updated_at": "2026-08-07T19:55:24.087Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/289"
@@ -8430,7 +8224,7 @@
     "name": "Kirsten McDuffie",
     "alias": null,
     "description": "Attorney providing legal support to Matt Murdock's resistance against Fisk.",
-    "image_url": null,
+    "image_url": "https://image.tmdb.org/t/p/w500/1UrvslAV9FOF82Hh9A96kgfVaT1.jpg",
     "played_by": "Nikki M. James",
     "continuity": "MCU",
     "multiverse_designation": "Earth-616",
@@ -8438,7 +8232,7 @@
     "first_appearance_movie_id": null,
     "first_appearance_tvshow_id": 17,
     "created_at": "2026-07-29T10:14:26.336Z",
-    "updated_at": "2026-07-29T10:14:26.336Z",
+    "updated_at": "2026-08-07T19:55:24.701Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/290"
@@ -8459,7 +8253,7 @@
     "name": "BB Urich",
     "alias": null,
     "description": "Journalist reporting on Wilson Fisk's mayoral administration.",
-    "image_url": null,
+    "image_url": "https://image.tmdb.org/t/p/w500/eP3wMmU1drxDHW54t5hvDcIxs05.jpg",
     "played_by": "Genneya Walton",
     "continuity": "MCU",
     "multiverse_designation": "Earth-616",
@@ -8467,7 +8261,7 @@
     "first_appearance_movie_id": null,
     "first_appearance_tvshow_id": 17,
     "created_at": "2026-07-29T10:14:26.454Z",
-    "updated_at": "2026-07-29T10:14:26.454Z",
+    "updated_at": "2026-08-07T19:55:29.001Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/291"
@@ -8488,7 +8282,7 @@
     "name": "Cherry",
     "alias": null,
     "description": "Former NYPD detective assisting Daredevil against Fisk.",
-    "image_url": null,
+    "image_url": "https://image.tmdb.org/t/p/w500/k4EcCKRI7lqxrqYqVuffdSe9JBN.jpg",
     "played_by": "Clark Johnson",
     "continuity": "MCU",
     "multiverse_designation": "Earth-616",
@@ -8496,7 +8290,7 @@
     "first_appearance_movie_id": null,
     "first_appearance_tvshow_id": 17,
     "created_at": "2026-07-29T10:14:26.564Z",
-    "updated_at": "2026-07-29T10:14:26.564Z",
+    "updated_at": "2026-08-07T19:55:30.429Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/292"
@@ -8517,7 +8311,7 @@
     "name": "Benjamin Poindexter",
     "alias": "Bullseye",
     "description": "Unhinged assassin serving as Wilson Fisk's enforcer.",
-    "image_url": null,
+    "image_url": "https://image.tmdb.org/t/p/w500/xHLjGi9onJXwHoZALZ9pLBVnH5x.jpg",
     "played_by": "Wilson Bethel",
     "continuity": "MCU",
     "multiverse_designation": "Earth-616",
@@ -8525,7 +8319,7 @@
     "first_appearance_movie_id": null,
     "first_appearance_tvshow_id": 17,
     "created_at": "2026-07-29T10:14:26.675Z",
-    "updated_at": "2026-07-29T10:14:26.675Z",
+    "updated_at": "2026-08-07T19:55:31.797Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/293"
@@ -8546,7 +8340,7 @@
     "name": "Daniel Blake",
     "alias": null,
     "description": "Deputy mayor tasked with maintaining Fisk's public image, gradually drawn into criminality.",
-    "image_url": null,
+    "image_url": "https://image.tmdb.org/t/p/w500/949lN8eoD3oXx1TmpjzmPQvt2TI.jpg",
     "played_by": "Michael Gandolfini",
     "continuity": "MCU",
     "multiverse_designation": "Earth-616",
@@ -8554,7 +8348,7 @@
     "first_appearance_movie_id": null,
     "first_appearance_tvshow_id": 23,
     "created_at": "2026-07-29T10:14:26.785Z",
-    "updated_at": "2026-07-29T10:14:26.785Z",
+    "updated_at": "2026-08-07T19:55:33.447Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/294"
@@ -8575,7 +8369,7 @@
     "name": "Buck Cashman",
     "alias": null,
     "description": "Former spy serving as Wilson Fisk's muscle and fixer.",
-    "image_url": null,
+    "image_url": "https://image.tmdb.org/t/p/w500/zYNvzONSgyfnC4efHXh6zcrVj4d.jpg",
     "played_by": "Arty Froushan",
     "continuity": "MCU",
     "multiverse_designation": "Earth-616",
@@ -8583,7 +8377,7 @@
     "first_appearance_movie_id": null,
     "first_appearance_tvshow_id": 23,
     "created_at": "2026-07-29T10:14:26.896Z",
-    "updated_at": "2026-07-29T10:14:26.896Z",
+    "updated_at": "2026-08-07T19:55:33.955Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/295"
@@ -8604,7 +8398,7 @@
     "name": "Mr. Charles",
     "alias": null,
     "description": "CIA agent working to oppose Wilson Fisk.",
-    "image_url": null,
+    "image_url": "https://image.tmdb.org/t/p/w500/mIEKAfe0iC41RDXibbTy48LtNOi.jpg",
     "played_by": "Matthew Lillard",
     "continuity": "MCU",
     "multiverse_designation": "Earth-616",
@@ -8612,7 +8406,7 @@
     "first_appearance_movie_id": null,
     "first_appearance_tvshow_id": 23,
     "created_at": "2026-07-29T10:14:27.010Z",
-    "updated_at": "2026-07-29T10:14:27.010Z",
+    "updated_at": "2026-08-07T19:55:35.454Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/296"
@@ -8633,7 +8427,7 @@
     "name": "Mac Gargan",
     "alias": "Scorpion",
     "description": "Career criminal with a grudge against Spider-Man after being captured during a weapons deal in Homecoming.",
-    "image_url": null,
+    "image_url": "https://image.tmdb.org/t/p/w500/gvM2wG66bjEpiirdeQdyG9EzUfv.jpg",
     "played_by": "Michael Mando",
     "continuity": "MCU",
     "multiverse_designation": "Earth-616",
@@ -8641,7 +8435,7 @@
     "first_appearance_movie_id": 16,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-29T10:15:17.112Z",
-    "updated_at": "2026-07-29T10:15:17.112Z",
+    "updated_at": "2026-08-07T19:55:36.722Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/297"
@@ -8662,7 +8456,7 @@
     "name": "Bill Metzger",
     "alias": null,
     "description": "Head of the Department of Damage Control (DoDC), the government agency monitoring and controlling superpowered individuals.",
-    "image_url": null,
+    "image_url": "https://image.tmdb.org/t/p/w500/bEA15zMnkcXlRroYjKrFUWiiK7y.jpg",
     "played_by": "Tramell Tillman",
     "continuity": "MCU",
     "multiverse_designation": "Earth-616",
@@ -8670,7 +8464,7 @@
     "first_appearance_movie_id": 41,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-29T10:15:18.185Z",
-    "updated_at": "2026-07-29T10:15:18.185Z",
+    "updated_at": "2026-08-07T19:55:38.219Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/298"
@@ -8691,7 +8485,7 @@
     "name": "Jean Grey",
     "alias": null,
     "description": "MCU debut of Jean Grey, introduced in Spider-Man: Brand New Day.",
-    "image_url": null,
+    "image_url": "https://image.tmdb.org/t/p/w500/92FddzBfK50XOUbtwjqHPraoGHy.jpg",
     "played_by": "Sadie Sink",
     "continuity": "MCU",
     "multiverse_designation": "Earth-616",
@@ -8699,7 +8493,7 @@
     "first_appearance_movie_id": 41,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-29T10:15:19.337Z",
-    "updated_at": "2026-07-29T10:15:19.337Z",
+    "updated_at": "2026-08-07T19:55:42.888Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/299"
@@ -8723,7 +8517,7 @@
     "name": "Ghost Rider",
     "alias": null,
     "description": "Motorcycle-riding hero making his first appearance in a Marvel Studios film, announced at SDCC 2026. Specific identity (Johnny Blaze, Danny Ketch, etc.) not yet confirmed.",
-    "image_url": null,
+    "image_url": "https://image.tmdb.org/t/p/w500/lyUyVARQKhGxaxy0FbPJCQRpiaW.jpg",
     "played_by": "Ryan Gosling",
     "continuity": "MCU",
     "multiverse_designation": "Earth-616",
@@ -8731,7 +8525,7 @@
     "first_appearance_movie_id": 53,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-29T10:19:41.864Z",
-    "updated_at": "2026-07-29T10:19:41.864Z",
+    "updated_at": "2026-08-07T19:55:44.294Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/300"
@@ -8752,7 +8546,7 @@
     "name": "Toussaint",
     "alias": "T'Challa II",
     "description": "Son of T'Challa and Nakia, introduced as a child at the end of Wakanda Forever; grows into the mantle of King and Black Panther.",
-    "image_url": null,
+    "image_url": "https://image.tmdb.org/t/p/w500/2ZZNGZw57KKMrVIr27g7W16G0jV.jpg",
     "played_by": "David Jonsson",
     "continuity": "MCU",
     "multiverse_designation": "Earth-616",
@@ -8760,7 +8554,7 @@
     "first_appearance_movie_id": 30,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-29T10:19:43.037Z",
-    "updated_at": "2026-07-29T10:19:43.037Z",
+    "updated_at": "2026-08-07T19:55:45.716Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/301"
@@ -8802,6 +8596,285 @@
       },
       "first_appearance_movie": {
         "href": "https://mcuapi.up.railway.app/api/v1/movies/2"
+      }
+    }
+  },
+  {
+    "id": 303,
+    "name": "Victor Timely",
+    "alias": "Kang",
+    "description": "A variant of Kang raised on the Sacred Timeline, who received He Who Remains' TVA guidebook as a child in 1868 Chicago and grew up to be a turn-of-the-century inventor and showman. Introduced in the Ant-Man and the Wasp: Quantumania post-credits scene and a central figure in Loki's second season.",
+    "image_url": "https://image.tmdb.org/t/p/w500/nsxnMbkl9Lpc12AmYwKi9SmsJ7e.jpg",
+    "played_by": "Jonathan Majors",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": 106,
+    "first_appearance_movie_id": 31,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-07T17:29:35.315Z",
+    "updated_at": "2026-08-07T19:55:47.121Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/303"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/303/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/303/tvshows"
+      },
+      "variant_of": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/106"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/31"
+      }
+    }
+  },
+  {
+    "id": 304,
+    "name": "Rama-Tut",
+    "alias": "Kang",
+    "description": "A variant of Kang who ruled ancient Egypt as a pharaoh. Appears with the Council of Kangs in the Ant-Man and the Wasp: Quantumania mid-credits scene.",
+    "image_url": "https://image.tmdb.org/t/p/w500/nsxnMbkl9Lpc12AmYwKi9SmsJ7e.jpg",
+    "played_by": "Jonathan Majors",
+    "continuity": "MCU",
+    "multiverse_designation": "Unknown",
+    "variant_of": 106,
+    "first_appearance_movie_id": 31,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-07T17:29:35.784Z",
+    "updated_at": "2026-08-07T19:55:47.831Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/304"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/304/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/304/tvshows"
+      },
+      "variant_of": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/106"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/31"
+      }
+    }
+  },
+  {
+    "id": 305,
+    "name": "Immortus",
+    "alias": "Kang",
+    "description": "A blue-skinned, bearded variant of Kang. Appears with the Council of Kangs in the Ant-Man and the Wasp: Quantumania mid-credits scene.",
+    "image_url": "https://image.tmdb.org/t/p/w500/nsxnMbkl9Lpc12AmYwKi9SmsJ7e.jpg",
+    "played_by": "Jonathan Majors",
+    "continuity": "MCU",
+    "multiverse_designation": "Unknown",
+    "variant_of": 106,
+    "first_appearance_movie_id": 31,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-07T17:29:41.177Z",
+    "updated_at": "2026-08-07T19:55:48.668Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/305"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/305/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/305/tvshows"
+      },
+      "variant_of": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/106"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/31"
+      }
+    }
+  },
+  {
+    "id": 306,
+    "name": "Scarlet Centurion",
+    "alias": "Kang",
+    "description": "An armored variant of Kang. Appears with the Council of Kangs in the Ant-Man and the Wasp: Quantumania mid-credits scene.",
+    "image_url": "https://image.tmdb.org/t/p/w500/nsxnMbkl9Lpc12AmYwKi9SmsJ7e.jpg",
+    "played_by": "Jonathan Majors",
+    "continuity": "MCU",
+    "multiverse_designation": "Unknown",
+    "variant_of": 106,
+    "first_appearance_movie_id": 31,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-07T17:29:42.506Z",
+    "updated_at": "2026-08-07T19:55:50.095Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/306"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/306/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/306/tvshows"
+      },
+      "variant_of": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/106"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/31"
+      }
+    }
+  },
+  {
+    "id": 307,
+    "name": "Blackagar Boltagon",
+    "alias": "Black Bolt",
+    "description": "King of the Inhumans and a member of the Illuminati on Earth-838. His voice is destructive enough to level a city, which is how Wanda Maximoff kills him after taking his mouth away and turning his own scream against him.",
+    "image_url": "https://image.tmdb.org/t/p/w500/A4YBdwnzJKRcZXfodjT4UalHOK9.jpg",
+    "played_by": "Anson Mount",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-838",
+    "variant_of": null,
+    "first_appearance_movie_id": 28,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-07T17:50:21.734Z",
+    "updated_at": "2026-08-07T19:55:50.710Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/307"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/307/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/307/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/28"
+      }
+    }
+  },
+  {
+    "id": 308,
+    "name": "Billy Maximoff",
+    "alias": null,
+    "description": "The Earth-838 Billy Maximoff — an ordinary boy, not Wiccan. He and his brother are what Wanda Maximoff invades the multiverse to reach.",
+    "image_url": "https://image.tmdb.org/t/p/w500/lp1IJliBZb9OFP5KK09HjSGOsau.jpg",
+    "played_by": "Julian Hilliard",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-838",
+    "variant_of": 71,
+    "first_appearance_movie_id": 28,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-07T18:16:07.454Z",
+    "updated_at": "2026-08-07T19:55:54.807Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/308"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/308/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/308/tvshows"
+      },
+      "variant_of": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/71"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/28"
+      }
+    }
+  },
+  {
+    "id": 309,
+    "name": "Tommy Maximoff",
+    "alias": null,
+    "description": "The Earth-838 Tommy Maximoff — an ordinary boy, not Speed. He and his brother are what Wanda Maximoff invades the multiverse to reach.",
+    "image_url": "https://image.tmdb.org/t/p/w500/6F7fGR6iQFzKNFfHCCYZbg82Alk.jpg",
+    "played_by": "Jett Klyne",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-838",
+    "variant_of": 72,
+    "first_appearance_movie_id": 28,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-07T18:16:08.624Z",
+    "updated_at": "2026-08-07T19:55:56.174Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/309"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/309/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/309/tvshows"
+      },
+      "variant_of": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/72"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/28"
+      }
+    }
+  },
+  {
+    "id": 310,
+    "name": "Rintrah",
+    "alias": null,
+    "description": "A minotaur-like sorcerer of Kamar-Taj who studies and fights alongside Doctor Strange and Wong.",
+    "image_url": "https://image.tmdb.org/t/p/w500/o0XToJB2MrTtNm5n2g3UYxcMNrV.jpg",
+    "played_by": "Adam Hugill",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 28,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-07T18:16:10.636Z",
+    "updated_at": "2026-08-07T19:55:57.605Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/310"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/310/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/310/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/28"
+      }
+    }
+  },
+  {
+    "id": 311,
+    "name": "Sara Wolfe",
+    "alias": null,
+    "description": "A sorcerer of Kamar-Taj who helps defend the compound, and destroys the Darkhold at Wong's order.",
+    "image_url": "https://image.tmdb.org/t/p/w500/esAjvG2IXvzQODNEHVCVsc4WALI.jpg",
+    "played_by": "Sheila Atim",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 28,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-07T18:16:11.978Z",
+    "updated_at": "2026-08-07T19:55:59.658Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/311"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/311/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/311/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/28"
       }
     }
   }

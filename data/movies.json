@@ -1163,11 +1163,11 @@
     "imdb_id": "tt10676052",
     "studio": "Marvel Studios",
     "continuity": "MCU",
-    "multiverse_designation": "Earth-616",
+    "multiverse_designation": "Earth-828",
     "is_mcu": true,
     "type": "movie",
     "timeline_chronology_order": 90,
-    "updated_at": "2025-12-30T15:28:29.628Z",
+    "updated_at": "2026-08-07T17:19:33.337Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/movies/38"
@@ -1243,8 +1243,8 @@
     "id": 41,
     "title": "Spider-Man: Brand New Day",
     "release_date": "2026-07-31",
-    "box_office": null,
-    "duration": null,
+    "box_office": "1155469617",
+    "duration": 145,
     "overview": "It's a BRAND NEW DAY for Peter Parker. Fighting crime full-time as Spider-Man in a world that doesn’t remember him—and the pressure of seeing his old friends move on without him—sparks a change in Peter he may not have the power to control. But that transformation might also be the only thing that can stop a shocking new threat to the city and those he loves—a powerful villain no one can even see.",
     "cover_url": "https://cdn.marvel.com/content/2x/spidermanbrandnewday_lob_crd_02.webp",
     "trailer_url": "https://youtu.be/3gAlCLVpePk",
@@ -1252,7 +1252,7 @@
     "phase": 6,
     "saga": "Multiverse Saga",
     "chronology": 41,
-    "post_credit_scenes": 0,
+    "post_credit_scenes": 1,
     "imdb_id": "tt22084616",
     "studio": "Marvel Studios",
     "continuity": "MCU",
@@ -1260,7 +1260,7 @@
     "is_mcu": true,
     "type": "movie",
     "timeline_chronology_order": 97,
-    "updated_at": "2026-07-21T18:47:27.098Z",
+    "updated_at": "2026-08-05T21:17:12.778Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/movies/41"
@@ -1287,11 +1287,11 @@
     "imdb_id": "tt0145487",
     "studio": "Columbia Pictures",
     "continuity": "Sony Spider-Man Universe",
-    "multiverse_designation": "Earth-96283",
+    "multiverse_designation": "Unknown",
     "is_mcu": false,
     "type": "movie",
     "timeline_chronology_order": 1,
-    "updated_at": "2026-07-21T19:35:05.143Z",
+    "updated_at": "2026-08-07T19:25:34.857Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/movies/42"
@@ -1318,11 +1318,11 @@
     "imdb_id": "tt0316654",
     "studio": "Columbia Pictures",
     "continuity": "Sony Spider-Man Universe",
-    "multiverse_designation": "Earth-96283",
+    "multiverse_designation": "Unknown",
     "is_mcu": false,
     "type": "movie",
     "timeline_chronology_order": 2,
-    "updated_at": "2026-07-21T19:35:05.143Z",
+    "updated_at": "2026-08-07T19:25:35.002Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/movies/43"
@@ -1349,11 +1349,11 @@
     "imdb_id": "tt0413300",
     "studio": "Columbia Pictures",
     "continuity": "Sony Spider-Man Universe",
-    "multiverse_designation": "Earth-96283",
+    "multiverse_designation": "Unknown",
     "is_mcu": false,
     "type": "movie",
     "timeline_chronology_order": 3,
-    "updated_at": "2026-07-21T19:35:05.143Z",
+    "updated_at": "2026-08-07T19:25:35.163Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/movies/44"
@@ -1380,11 +1380,11 @@
     "imdb_id": "tt0948470",
     "studio": "Columbia Pictures",
     "continuity": "Sony Spider-Man Universe",
-    "multiverse_designation": "Earth-120703",
+    "multiverse_designation": "Unknown",
     "is_mcu": false,
     "type": "movie",
     "timeline_chronology_order": 1,
-    "updated_at": "2026-07-21T19:35:05.143Z",
+    "updated_at": "2026-08-07T19:25:35.767Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/movies/45"
@@ -1566,11 +1566,11 @@
     "imdb_id": "tt1270797",
     "studio": "Columbia Pictures",
     "continuity": "Sony Spider-Man Universe",
-    "multiverse_designation": "Earth-616",
+    "multiverse_designation": "Unknown",
     "is_mcu": false,
     "type": "movie",
     "timeline_chronology_order": 1,
-    "updated_at": "2026-07-21T19:35:05.143Z",
+    "updated_at": "2026-08-07T19:29:58.254Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/movies/51"
@@ -1690,11 +1690,11 @@
     "imdb_id": "tt1872181",
     "studio": "Columbia Pictures",
     "continuity": "Sony Spider-Man Universe",
-    "multiverse_designation": "Earth-120703",
+    "multiverse_designation": "Unknown",
     "is_mcu": false,
     "type": "movie",
     "timeline_chronology_order": 2,
-    "updated_at": "2026-08-01T09:21:46.180Z",
+    "updated_at": "2026-08-07T19:25:35.941Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/movies/55"
@@ -1721,11 +1721,11 @@
     "imdb_id": "tt7097896",
     "studio": "Columbia Pictures",
     "continuity": "Sony Spider-Man Universe",
-    "multiverse_designation": "Earth-616",
+    "multiverse_designation": "Unknown",
     "is_mcu": false,
     "type": "movie",
     "timeline_chronology_order": 2,
-    "updated_at": "2026-08-01T09:38:56.310Z",
+    "updated_at": "2026-08-07T19:29:58.444Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/movies/56"
@@ -1752,17 +1752,544 @@
     "imdb_id": "tt16366836",
     "studio": "Columbia Pictures",
     "continuity": "Sony Spider-Man Universe",
-    "multiverse_designation": "Earth-616",
+    "multiverse_designation": "Unknown",
     "is_mcu": false,
     "type": "movie",
     "timeline_chronology_order": 3,
-    "updated_at": "2026-08-01T09:38:57.646Z",
+    "updated_at": "2026-08-07T19:29:59.038Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/movies/57"
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/57"
+      }
+    }
+  },
+  {
+    "id": 58,
+    "title": "X-Men",
+    "release_date": "2000-07-14",
+    "box_office": "296339527",
+    "duration": 104,
+    "overview": "Two mutants, Rogue and Wolverine, are drawn into Charles Xavier's school for the gifted as Magneto's Brotherhood moves against a world that fears mutantkind.",
+    "cover_url": "https://image.tmdb.org/t/p/w500/bRDAc4GogyS9ci3ow7UnInOcriN.jpg",
+    "trailer_url": "https://youtu.be/s4Wqw8tqgdM",
+    "directed_by": "Bryan Singer",
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "post_credit_scenes": 0,
+    "imdb_id": "tt0120903",
+    "studio": "20th Century Fox",
+    "continuity": "X-Men Universe",
+    "multiverse_designation": "Earth-10005",
+    "is_mcu": false,
+    "type": "movie",
+    "timeline_chronology_order": null,
+    "updated_at": "2026-08-07T19:54:48.616Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/58"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/58"
+      }
+    }
+  },
+  {
+    "id": 59,
+    "title": "X2",
+    "release_date": "2003-05-02",
+    "box_office": "407711549",
+    "duration": 133,
+    "overview": "After an attack on the President, the X-Men are forced into an uneasy alliance with Magneto against Colonel William Stryker, whose campaign threatens every mutant alive.",
+    "cover_url": "https://image.tmdb.org/t/p/w500/bst4alFUXCxISwdRUKSMhhkrX1M.jpg",
+    "trailer_url": "https://youtu.be/yVzqz_zpP20",
+    "directed_by": "Bryan Singer",
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "post_credit_scenes": 0,
+    "imdb_id": "tt0290334",
+    "studio": "20th Century Fox",
+    "continuity": "X-Men Universe",
+    "multiverse_designation": "Earth-10005",
+    "is_mcu": false,
+    "type": "movie",
+    "timeline_chronology_order": null,
+    "updated_at": "2026-08-07T19:54:49.170Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/59"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/59"
+      }
+    }
+  },
+  {
+    "id": 60,
+    "title": "X-Men: The Last Stand",
+    "release_date": "2006-05-26",
+    "box_office": "459359555",
+    "duration": 104,
+    "overview": "A cure for the mutant gene splits mutantkind, while the resurrected Jean Grey returns as the Phoenix and Magneto raises an army against humanity.",
+    "cover_url": "https://image.tmdb.org/t/p/w500/a2xicU8DpKtRizOHjQLC1JyCSRS.jpg",
+    "trailer_url": "https://youtu.be/X8ozc_dQprk",
+    "directed_by": "Brett Ratner",
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "post_credit_scenes": 0,
+    "imdb_id": "tt0376994",
+    "studio": "20th Century Fox",
+    "continuity": "X-Men Universe",
+    "multiverse_designation": "Earth-10005",
+    "is_mcu": false,
+    "type": "movie",
+    "timeline_chronology_order": null,
+    "updated_at": "2026-08-07T19:54:49.947Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/60"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/60"
+      }
+    }
+  },
+  {
+    "id": 61,
+    "title": "X-Men Origins: Wolverine",
+    "release_date": "2009-05-01",
+    "box_office": "373062864",
+    "duration": 107,
+    "overview": "Logan's origin: his life with Victor Creed, the Weapon X programme that bonds adamantium to his skeleton, and the betrayal that sets him on his own path.",
+    "cover_url": "https://image.tmdb.org/t/p/w500/yj8LbTju1p7CUJg7US2unSBk33s.jpg",
+    "trailer_url": "https://youtu.be/8TQ-gD4UCmI",
+    "directed_by": "Gavin Hood",
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "post_credit_scenes": 0,
+    "imdb_id": "tt0458525",
+    "studio": "20th Century Fox",
+    "continuity": "X-Men Universe",
+    "multiverse_designation": "Earth-10005",
+    "is_mcu": false,
+    "type": "movie",
+    "timeline_chronology_order": null,
+    "updated_at": "2026-08-07T19:54:51.218Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/61"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/61"
+      }
+    }
+  },
+  {
+    "id": 62,
+    "title": "X-Men: First Class",
+    "release_date": "2011-06-03",
+    "box_office": "353624124",
+    "duration": 132,
+    "overview": "Before they were Professor X and Magneto, Charles Xavier and Erik Lehnsherr were allies gathering the first class of mutants against Sebastian Shaw during the Cuban Missile Crisis.",
+    "cover_url": "https://image.tmdb.org/t/p/w500/hNEokmUke0dazoBhttFN0o3L7Xv.jpg",
+    "trailer_url": "https://youtu.be/2BAYQD_j6Xc",
+    "directed_by": "Matthew Vaughn",
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "post_credit_scenes": 0,
+    "imdb_id": "tt1270798",
+    "studio": "20th Century Fox",
+    "continuity": "X-Men Universe",
+    "multiverse_designation": "Earth-10005",
+    "is_mcu": false,
+    "type": "movie",
+    "timeline_chronology_order": null,
+    "updated_at": "2026-08-07T19:54:52.640Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/62"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/62"
+      }
+    }
+  },
+  {
+    "id": 63,
+    "title": "The Wolverine",
+    "release_date": "2013-07-26",
+    "box_office": "415440673",
+    "duration": 126,
+    "overview": "Summoned to Japan by a man whose life he saved at Nagasaki, Logan is offered mortality and drawn into a family war that strips away his healing factor.",
+    "cover_url": "https://image.tmdb.org/t/p/w500/t2wVAcoRlKvEIVSbiYDb8d0QqqS.jpg",
+    "trailer_url": "https://youtu.be/DwG56k6VGOE",
+    "directed_by": "James Mangold",
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "post_credit_scenes": 0,
+    "imdb_id": "tt1430132",
+    "studio": "20th Century Fox",
+    "continuity": "X-Men Universe",
+    "multiverse_designation": "Earth-10005",
+    "is_mcu": false,
+    "type": "movie",
+    "timeline_chronology_order": null,
+    "updated_at": "2026-08-07T19:54:52.958Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/63"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/63"
+      }
+    }
+  },
+  {
+    "id": 64,
+    "title": "The New Mutants",
+    "release_date": "2020-08-28",
+    "box_office": "49169594",
+    "duration": 94,
+    "overview": "Five young mutants held in a secret facility confront their pasts and their powers as they try to escape. The final film of the FOX X-Men series.",
+    "cover_url": "https://image.tmdb.org/t/p/w500/xiDGcXJTvu1lazFRYip6g1eLt9c.jpg",
+    "trailer_url": "https://youtu.be/W_vJhUAOFpI",
+    "directed_by": "Josh Boone",
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "post_credit_scenes": 0,
+    "imdb_id": "tt4682266",
+    "studio": "20th Century Fox",
+    "continuity": "X-Men Universe",
+    "multiverse_designation": "Earth-10005",
+    "is_mcu": false,
+    "type": "movie",
+    "timeline_chronology_order": null,
+    "updated_at": "2026-08-07T19:54:57.075Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/64"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/64"
+      }
+    }
+  },
+  {
+    "id": 65,
+    "title": "Blade",
+    "release_date": "1998-08-21",
+    "box_office": "131183530",
+    "duration": 121,
+    "overview": "Half-mortal, half-immortal Eric Brooks hunts the vampires who killed his mother, standing between humanity and Deacon Frost's plan to summon a blood god.",
+    "cover_url": "https://image.tmdb.org/t/p/w500/oWT70TvbsmQaqyphCZpsnQR7R32.jpg",
+    "trailer_url": "https://youtu.be/O2Y3FFFIvRI",
+    "directed_by": "Stephen Norrington",
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "post_credit_scenes": 0,
+    "imdb_id": "tt0120611",
+    "studio": "New Line Cinema",
+    "continuity": "Blade Trilogy",
+    "multiverse_designation": "Unknown",
+    "is_mcu": false,
+    "type": "movie",
+    "timeline_chronology_order": null,
+    "updated_at": "2026-08-07T19:54:58.597Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/65"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/65"
+      }
+    }
+  },
+  {
+    "id": 66,
+    "title": "Blade II",
+    "release_date": "2002-03-22",
+    "box_office": "155010032",
+    "duration": 117,
+    "overview": "Blade allies with a vampire strike team to hunt the Reapers, a mutated strain that preys on vampires and humans alike.",
+    "cover_url": "https://image.tmdb.org/t/p/w500/yDHwo3eWcMiy5LnnEnlGV9iLu9k.jpg",
+    "trailer_url": "https://youtu.be/fcCQ7xk8zzM",
+    "directed_by": "Guillermo del Toro",
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "post_credit_scenes": 0,
+    "imdb_id": "tt0187738",
+    "studio": "New Line Cinema",
+    "continuity": "Blade Trilogy",
+    "multiverse_designation": "Unknown",
+    "is_mcu": false,
+    "type": "movie",
+    "timeline_chronology_order": null,
+    "updated_at": "2026-08-07T19:55:00.173Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/66"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/66"
+      }
+    }
+  },
+  {
+    "id": 67,
+    "title": "Blade: Trinity",
+    "release_date": "2004-12-08",
+    "box_office": "128905366",
+    "duration": 113,
+    "overview": "Framed and hunted by the FBI, Blade joins the Nightstalkers to face Drake, the original vampire.",
+    "cover_url": "https://image.tmdb.org/t/p/w500/6f7iXvPOnf83MaLB1JmPzUor1rr.jpg",
+    "trailer_url": "https://youtu.be/qcHEDGs7eAY",
+    "directed_by": "David S. Goyer",
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "post_credit_scenes": 0,
+    "imdb_id": "tt0359013",
+    "studio": "New Line Cinema",
+    "continuity": "Blade Trilogy",
+    "multiverse_designation": "Unknown",
+    "is_mcu": false,
+    "type": "movie",
+    "timeline_chronology_order": null,
+    "updated_at": "2026-08-07T19:55:00.853Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/67"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/67"
+      }
+    }
+  },
+  {
+    "id": 68,
+    "title": "Daredevil",
+    "release_date": "2003-02-14",
+    "box_office": "179179718",
+    "duration": 103,
+    "overview": "Blinded as a boy and left with heightened senses, lawyer Matt Murdock fights Hell's Kitchen crime as Daredevil while pursuing the Kingpin.",
+    "cover_url": "https://image.tmdb.org/t/p/w500/oCDBwSkntYamuw8VJIxMRCtDBmi.jpg",
+    "trailer_url": "https://youtu.be/t3Xc6FjRfoA",
+    "directed_by": "Mark Steven Johnson",
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "post_credit_scenes": 0,
+    "imdb_id": "tt0287978",
+    "studio": "20th Century Fox",
+    "continuity": "FOX Daredevil",
+    "multiverse_designation": "Unknown",
+    "is_mcu": false,
+    "type": "movie",
+    "timeline_chronology_order": null,
+    "updated_at": "2026-08-07T19:55:02.174Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/68"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/68"
+      }
+    }
+  },
+  {
+    "id": 69,
+    "title": "Elektra",
+    "release_date": "2005-01-14",
+    "box_office": "56681566",
+    "duration": 97,
+    "overview": "Resurrected as an assassin for hire, Elektra Natchios refuses a contract on a father and daughter and turns on the Hand. A spin-off of Daredevil (2003).",
+    "cover_url": "https://image.tmdb.org/t/p/w500/gC6s6NKHneSrOKyQZnUMb443RKU.jpg",
+    "trailer_url": "https://youtu.be/etfIjKxKzqw",
+    "directed_by": "Rob Bowman",
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "post_credit_scenes": 0,
+    "imdb_id": "tt0357277",
+    "studio": "20th Century Fox",
+    "continuity": "FOX Daredevil",
+    "multiverse_designation": "Unknown",
+    "is_mcu": false,
+    "type": "movie",
+    "timeline_chronology_order": null,
+    "updated_at": "2026-08-07T19:55:02.662Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/69"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/69"
+      }
+    }
+  },
+  {
+    "id": 70,
+    "title": "Fantastic Four",
+    "release_date": "2005-07-08",
+    "box_office": "333535934",
+    "duration": 106,
+    "overview": "A cosmic storm grants four astronauts extraordinary powers, and turns their financier Victor Von Doom into something far worse.",
+    "cover_url": "https://image.tmdb.org/t/p/w500/4YMcYEFS8sFuW3soP1HVmgR3cSm.jpg",
+    "trailer_url": "https://youtu.be/QIx2jkXYu34",
+    "directed_by": "Tim Story",
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "post_credit_scenes": 0,
+    "imdb_id": "tt0120667",
+    "studio": "20th Century Fox",
+    "continuity": "FOX Fantastic Four",
+    "multiverse_designation": "Unknown",
+    "is_mcu": false,
+    "type": "movie",
+    "timeline_chronology_order": null,
+    "updated_at": "2026-08-07T19:55:07.113Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/70"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/70"
+      }
+    }
+  },
+  {
+    "id": 71,
+    "title": "Fantastic Four: Rise of the Silver Surfer",
+    "release_date": "2007-06-15",
+    "box_office": "301913131",
+    "duration": 92,
+    "overview": "The Fantastic Four confront the Silver Surfer, herald of a world-devouring force, as Reed and Sue try to marry.",
+    "cover_url": "https://image.tmdb.org/t/p/w500/9wRfzTcMyyzkQxVDqBHv8RwuZOv.jpg",
+    "trailer_url": "https://youtu.be/7whodtti908",
+    "directed_by": "Tim Story",
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "post_credit_scenes": 0,
+    "imdb_id": "tt0486576",
+    "studio": "20th Century Fox",
+    "continuity": "FOX Fantastic Four",
+    "multiverse_designation": "Unknown",
+    "is_mcu": false,
+    "type": "movie",
+    "timeline_chronology_order": null,
+    "updated_at": "2026-08-07T19:55:07.703Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/71"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/71"
+      }
+    }
+  },
+  {
+    "id": 73,
+    "title": "Morbius",
+    "release_date": "2022-04-01",
+    "box_office": "167635712",
+    "duration": 105,
+    "overview": "Biochemist Michael Morbius cures his rare blood disorder with a vampire-bat serum and gains monstrous powers alongside a ruinous thirst.",
+    "cover_url": "https://image.tmdb.org/t/p/w500/Av8Z2jZhEm1FLkFzMThzz9hndJF.jpg",
+    "trailer_url": "https://youtu.be/wG2TjtueeSU",
+    "directed_by": "Daniel Espinosa",
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "post_credit_scenes": 0,
+    "imdb_id": "tt5108870",
+    "studio": "Sony Pictures",
+    "continuity": "Sony Spider-Man Universe",
+    "multiverse_designation": "Unknown",
+    "is_mcu": false,
+    "type": "movie",
+    "timeline_chronology_order": null,
+    "updated_at": "2026-08-07T19:55:09.753Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/73"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/73"
+      }
+    }
+  },
+  {
+    "id": 74,
+    "title": "Madame Web",
+    "release_date": "2024-02-14",
+    "box_office": "100498764",
+    "duration": 117,
+    "overview": "Paramedic Cassandra Webb develops clairvoyance and must protect three young women from a man hunting them in her visions of the future.",
+    "cover_url": "https://image.tmdb.org/t/p/w500/rULWuutDcN5NvtiZi4FRPzRYWSh.jpg",
+    "trailer_url": "https://youtu.be/s_76M4c4LTo",
+    "directed_by": "S.J. Clarkson",
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "post_credit_scenes": 0,
+    "imdb_id": "tt11057302",
+    "studio": "Sony Pictures",
+    "continuity": "Sony Spider-Man Universe",
+    "multiverse_designation": "Unknown",
+    "is_mcu": false,
+    "type": "movie",
+    "timeline_chronology_order": null,
+    "updated_at": "2026-08-07T19:55:11.187Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/74"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/74"
+      }
+    }
+  },
+  {
+    "id": 75,
+    "title": "Kraven the Hunter",
+    "release_date": "2024-12-13",
+    "box_office": "62076533",
+    "duration": 127,
+    "overview": "Sergei Kravinoff's fraught relationship with his ruthless father sets him on the path to becoming the world's greatest hunter.",
+    "cover_url": "https://image.tmdb.org/t/p/w500/1GvBhRxY6MELDfxFrete6BNhBB5.jpg",
+    "trailer_url": "https://youtu.be/hR1-ihzff3I",
+    "directed_by": "J.C. Chandor",
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "post_credit_scenes": 0,
+    "imdb_id": "tt8790086",
+    "studio": "Sony Pictures",
+    "continuity": "Sony Spider-Man Universe",
+    "multiverse_designation": "Unknown",
+    "is_mcu": false,
+    "type": "movie",
+    "timeline_chronology_order": null,
+    "updated_at": "2026-08-07T19:55:11.812Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/75"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/75"
       }
     }
   }
