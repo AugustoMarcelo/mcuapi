@@ -13,6 +13,13 @@ interface IRequestQuery {
   is_mcu?: string;
 }
 
+function parseBooleanQuery(value: string | undefined): boolean | undefined {
+  if (value === 'true') return true;
+  if (value === 'false') return false;
+
+  return undefined;
+}
+
 export default class UpcomingController {
   public async index(request: Request, response: Response): Promise<Response> {
     const { type, continuity, multiverse_designation, is_mcu }: IRequestQuery =
@@ -28,7 +35,7 @@ export default class UpcomingController {
       type,
       continuity,
       multiverse_designation,
-      is_mcu: is_mcu === 'true' ? true : is_mcu === 'false' ? false : undefined,
+      is_mcu: parseBooleanQuery(is_mcu),
     });
 
     return response.status(200).json(

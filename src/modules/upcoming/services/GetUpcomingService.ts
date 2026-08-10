@@ -43,8 +43,10 @@ class GetUpcomingService {
     multiverse_designation,
     is_mcu,
   }: IGetUpcomingDTO): Promise<IGetUpcomingResponseDTO> {
-    const { data: movies } = await this.moviesRepository.findAll({});
-    const { data: tvshows } = await this.tvshowsRepository.findAll({});
+    const [{ data: movies }, { data: tvshows }] = await Promise.all([
+      this.moviesRepository.findAll({}),
+      this.tvshowsRepository.findAll({}),
+    ]);
 
     const now = Date.now();
     const isUpcoming = (title: IMovie | ITVShow): boolean =>
