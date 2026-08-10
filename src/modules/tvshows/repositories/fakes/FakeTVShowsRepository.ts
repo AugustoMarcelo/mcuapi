@@ -3,6 +3,7 @@ import IFindAllTVShowsResponseDTO from '@modules/tvshows/dtos/IFindAllTVShowsRes
 import ITVShow from '@modules/tvshows/entities/ITVShow';
 import TVShow from '@modules/tvshows/infra/typeorm/entities/TVShow';
 import ITVShowsRepository from '@modules/tvshows/repositories/ITVShowsRepository';
+import IRepositoryStatsDTO from '@shared/dtos/IRepositoryStatsDTO';
 
 class FakeTVShowsRepository implements ITVShowsRepository {
   private tvshows: ITVShow[];
@@ -55,6 +56,25 @@ class FakeTVShowsRepository implements ITVShowsRepository {
     return {
       data: filteredTVShows,
       total: filteredTVShows.length,
+    };
+  }
+
+  public async getStats(): Promise<IRepositoryStatsDTO> {
+    const continuities = Array.from(
+      new Set(this.tvshows.map(tvshow => tvshow.continuity).filter((value): value is string => !!value)),
+    );
+    const designations = Array.from(
+      new Set(this.tvshows.map(tvshow => tvshow.multiverse_designation).filter((value): value is string => !!value)),
+    );
+    const updatedDates = this.tvshows.map(tvshow => tvshow.updated_at).filter((date): date is Date => !!date);
+
+    return {
+      count: this.tvshows.length,
+      continuities,
+      designations,
+      last_updated: updatedDates.length
+        ? new Date(Math.max(...updatedDates.map(date => date.getTime())))
+        : null,
     };
   }
 }

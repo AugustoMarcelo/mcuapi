@@ -98,6 +98,21 @@ Multiverse/timeline support is merged: `studio`, `continuity`,
 `multiverse_designation`, `is_mcu`, `timeline_chronology_order` on `Movie` and
 `TVShow`, plus a `Character` entity and a `/timeline` endpoint.
 
+`/upcoming` merges movies and TV shows whose `release_date` is strictly in the future
+(`release_date > today`), sorted ascending; titles with a `NULL` `release_date` (announced
+but undated, e.g. *Blade*) are excluded rather than sorted to either end.
+
+`/stats` returns dataset-wide counts. `continuities` is the distinct count of
+`continuity` over movies + tvshows only; `designations` is the distinct count of
+`multiverse_designation` over movies + tvshows + **characters** — `Earth-838` exists only
+on characters (the *Doctor Strange in the Multiverse of Madness* Illuminati), so titles
+alone would undercount it. Each repository exposes a `getStats()` method that aggregates
+in Postgres (`COUNT`/`MAX`/`SELECT DISTINCT`) rather than loading rows.
+
+`src/config/swagger.json` is **hand-maintained** — nothing generates it from the routes.
+Any new route needs a matching `paths` entry (and `components.schemas` entry, if it
+introduces a new response shape) added by hand in the same change.
+
 ## Data Sourcing Rules
 
 - `marvel.com` is the source of truth for most movie/TV show information and images (see also `box_office` → the-numbers.com, `trailer_url` → marvel.com/movies YouTube link).

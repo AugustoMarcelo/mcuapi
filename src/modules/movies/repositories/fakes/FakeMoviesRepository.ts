@@ -2,6 +2,7 @@ import ICreateMovieDTO from '@modules/movies/dtos/ICreateMovieDTO';
 import IFindAllMoviesDTO from '@modules/movies/dtos/IFindAllMoviesDTO';
 import IFindAllMoviesResponseDTO from '@modules/movies/dtos/IFindAllMoviesResponseDTO';
 import IMovie from '@modules/movies/entities/IMovie';
+import IRepositoryStatsDTO from '@shared/dtos/IRepositoryStatsDTO';
 
 import Movie from '@modules/movies/infra/typeorm/entities/Movie';
 import IMoviesRepository from '../IMoviesRepository';
@@ -59,6 +60,25 @@ class FakeMoviesRepository implements IMoviesRepository {
     }
 
     return { data: filteredMovies, total: this.movies.length };
+  }
+
+  public async getStats(): Promise<IRepositoryStatsDTO> {
+    const continuities = Array.from(
+      new Set(this.movies.map(movie => movie.continuity).filter((value): value is string => !!value)),
+    );
+    const designations = Array.from(
+      new Set(this.movies.map(movie => movie.multiverse_designation).filter((value): value is string => !!value)),
+    );
+    const updatedDates = this.movies.map(movie => movie.updated_at).filter((date): date is Date => !!date);
+
+    return {
+      count: this.movies.length,
+      continuities,
+      designations,
+      last_updated: updatedDates.length
+        ? new Date(Math.max(...updatedDates.map(date => date.getTime())))
+        : null,
+    };
   }
 }
 

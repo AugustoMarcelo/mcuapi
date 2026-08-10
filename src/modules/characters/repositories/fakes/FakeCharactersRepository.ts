@@ -5,6 +5,7 @@ import IFindAllCharactersDTO from '@modules/characters/dtos/IFindAllCharactersDT
 import IFindAllCharactersResponseDTO from '@modules/characters/dtos/IFindAllCharactersResponseDTO';
 import IMovie from '@modules/movies/entities/IMovie';
 import ITVShow from '@modules/tvshows/entities/ITVShow';
+import IRepositoryStatsDTO from '@shared/dtos/IRepositoryStatsDTO';
 
 interface IFakeAppearance {
   character_id: number;
@@ -135,6 +136,21 @@ class FakeCharactersRepository implements ICharactersRepository {
       .map(appearance => ({ ...(appearance.tvshow as ITVShow), role_type: appearance.role_type }));
   }
 
+  public async getStats(): Promise<IRepositoryStatsDTO> {
+    const designations = Array.from(
+      new Set(this.characters.map(char => char.multiverse_designation).filter((value): value is string => !!value)),
+    );
+    const updatedDates = this.characters.map(char => char.updated_at).filter((date): date is Date => !!date);
+
+    return {
+      count: this.characters.length,
+      designations,
+      last_updated: updatedDates.length
+        ? new Date(Math.max(...updatedDates.map(date => date.getTime())))
+        : null,
+    };
+  }
+
 }
 
-export default FakeCharactersRepository; 
+export default FakeCharactersRepository;

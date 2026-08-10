@@ -863,6 +863,153 @@
         }
       }
     },
+    "/api/v1/upcoming": {
+      "get": {
+        "tags": [
+          "Upcoming"
+        ],
+        "summary": "List upcoming releases",
+        "description": "Titles whose release_date is strictly in the future, movies and TV shows merged into one list sorted by release_date ascending. Titles with no announced release_date (e.g. Blade, Ghost Rider, Your Friendly Neighborhood Spider-Man) are excluded — they remain reachable via /movies and /tvshows.",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": "1"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit of items to return. Defaults to 10; values above 100 are capped at 100.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1,
+              "maximum": 100,
+              "example": 10
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Filter by content type",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "movie",
+                "tvshow"
+              ],
+              "example": "tvshow"
+            }
+          },
+          {
+            "name": "continuity",
+            "in": "query",
+            "description": "Filter by continuity/universe (e.g., MCU, FOX X-Men Universe)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "MCU"
+            }
+          },
+          {
+            "name": "multiverse_designation",
+            "in": "query",
+            "description": "Filter by multiverse Earth designation (e.g., Earth-616, Earth-838)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "Earth-616"
+            }
+          },
+          {
+            "name": "is_mcu",
+            "in": "query",
+            "description": "Filter for MCU content only",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/UpcomingItem"
+                      }
+                    },
+                    "total": {
+                      "type": "integer",
+                      "description": "Total of upcoming titles matching the filters"
+                    },
+                    "page": {
+                      "type": "integer",
+                      "description": "Current page (1 when not paginated)",
+                      "example": 1
+                    },
+                    "limit": {
+                      "type": "integer",
+                      "description": "Items per page (present only when the limit query param is used)",
+                      "example": 10
+                    },
+                    "_links": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/ResourceLinks"
+                        }
+                      ],
+                      "description": "Collection links: self, first, last, and prev/next when applicable. All original query params are preserved."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/stats": {
+      "get": {
+        "tags": [
+          "Stats"
+        ],
+        "summary": "Get dataset-wide counts",
+        "description": "Aggregate counts of the catalogue: movies, tvshows, characters, titles (movies + tvshows), continuities and designations. continuities is the distinct count over movies + tvshows only. designations is the distinct count over movies + tvshows + characters — Earth-838 exists only on characters (the Doctor Strange in the Multiverse of Madness Illuminati), so titles alone would undercount it.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Stats"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/api/v1/characters/{character_id}/tvshows": {
       "get": {
         "tags": [
@@ -1285,6 +1432,114 @@
             "type": "string",
             "description": "Content type (movie or tvshow)",
             "example": "movie"
+          },
+          "_links": {
+            "$ref": "#/components/schemas/ResourceLinks"
+          }
+        }
+      },
+      "UpcomingItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Movie or TV show ID"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "movie",
+              "tvshow"
+            ],
+            "description": "Content type",
+            "example": "tvshow"
+          },
+          "title": {
+            "type": "string",
+            "description": "Movie or TV show title",
+            "example": "VisionQuest"
+          },
+          "release_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Release date"
+          },
+          "overview": {
+            "type": "string",
+            "description": "Synopsis",
+            "nullable": true
+          },
+          "cover_url": {
+            "type": "string",
+            "description": "Cover image URL",
+            "nullable": true
+          },
+          "continuity": {
+            "type": "string",
+            "description": "Story/branding group (e.g., MCU, FOX X-Men Universe)",
+            "example": "MCU"
+          },
+          "multiverse_designation": {
+            "type": "string",
+            "description": "Multiverse Earth designation (e.g., Earth-616, Earth-838)",
+            "example": "Earth-616"
+          },
+          "is_mcu": {
+            "type": "boolean",
+            "description": "Whether the title is part of the official MCU",
+            "example": true
+          },
+          "phase": {
+            "type": "integer",
+            "description": "Phase to which the title belongs"
+          },
+          "saga": {
+            "type": "string",
+            "description": "Saga to which the title belongs"
+          },
+          "_links": {
+            "$ref": "#/components/schemas/ResourceLinks"
+          }
+        }
+      },
+      "Stats": {
+        "type": "object",
+        "properties": {
+          "movies": {
+            "type": "integer",
+            "description": "Total number of movies",
+            "example": 74
+          },
+          "tvshows": {
+            "type": "integer",
+            "description": "Total number of TV shows",
+            "example": 56
+          },
+          "characters": {
+            "type": "integer",
+            "description": "Total number of characters",
+            "example": 302
+          },
+          "titles": {
+            "type": "integer",
+            "description": "movies + tvshows",
+            "example": 130
+          },
+          "continuities": {
+            "type": "integer",
+            "description": "Distinct non-null continuity values across movies + tvshows only",
+            "example": 10
+          },
+          "designations": {
+            "type": "integer",
+            "description": "Distinct non-null multiverse_designation values across movies + tvshows + characters",
+            "example": 5
+          },
+          "last_updated": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "description": "Max updated_at across movies, tvshows and characters; null when all three tables are empty"
           },
           "_links": {
             "$ref": "#/components/schemas/ResourceLinks"

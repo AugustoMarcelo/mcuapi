@@ -3,6 +3,7 @@ import IFindAllTVShowsResponseDTO from '@modules/tvshows/dtos/IFindAllTVShowsRes
 import ITVShow from '@modules/tvshows/entities/ITVShow';
 import TVShow from '@modules/tvshows/infra/typeorm/entities/TVShow';
 import ITVShowsRepository from '@modules/tvshows/repositories/ITVShowsRepository';
+import IRepositoryStatsDTO from '@shared/dtos/IRepositoryStatsDTO';
 import { getRepository, Raw, Repository } from 'typeorm';
 
 class TVShowsRepository implements ITVShowsRepository {
@@ -92,6 +93,33 @@ class TVShowsRepository implements ITVShowsRepository {
     });
 
     return { data: tvshows, total };
+  }
+
+  public async getStats(): Promise<IRepositoryStatsDTO> {
+    const { count, last_updated } = await this.ormRepository
+      .createQueryBuilder('tvshow')
+      .select('COUNT(*)', 'count')
+      .addSelect('MAX(tvshow.updated_at)', 'last_updated')
+      .getRawOne();
+
+    const continuityRows: Array<{ continuity: string }> = await this.ormRepository
+      .createQueryBuilder('tvshow')
+      .select('DISTINCT tvshow.continuity', 'continuity')
+      .where('tvshow.continuity IS NOT NULL')
+      .getRawMany();
+
+    const designationRows: Array<{ multiverse_designation: string }> = await this.ormRepository
+      .createQueryBuilder('tvshow')
+      .select('DISTINCT tvshow.multiverse_designation', 'multiverse_designation')
+      .where('tvshow.multiverse_designation IS NOT NULL')
+      .getRawMany();
+
+    return {
+      count: Number(count),
+      continuities: continuityRows.map(row => row.continuity),
+      designations: designationRows.map(row => row.multiverse_designation),
+      last_updated: last_updated ? new Date(last_updated) : null,
+    };
   }
 }
 
