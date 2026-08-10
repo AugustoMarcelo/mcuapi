@@ -7,6 +7,7 @@ import {
 
 type ICharacterWithRelations = ICharacter & {
   role_type?: string;
+  appeared_in?: string;
   variant_character?: unknown;
   first_appearance_movie?: unknown;
   first_appearance_tvshow?: unknown;

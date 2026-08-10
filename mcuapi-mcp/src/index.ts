@@ -677,6 +677,60 @@ server.registerTool(
 );
 
 server.registerTool(
+  'delete_tvshow',
+  {
+    description:
+      'Delete a TV show by ID. Refuses if characters are still linked to it — unlink them first so the deletion never silently drops appearance rows.',
+    inputSchema: {
+      id: z.number().int().describe('TV Show ID'),
+      confirm: z.boolean().describe('Must be true to confirm deletion'),
+    },
+  },
+  async ({ id, confirm }) => {
+    if (!confirm) {
+      return {
+        content: [
+          { type: 'text', text: '⚠️ Set confirm=true to delete the TV show.' },
+        ],
+      };
+    }
+
+    const [show] = await query<{ id: number; title: string }>(
+      'SELECT id, title FROM tvshows WHERE id = $1',
+      [id],
+    );
+
+    if (!show) {
+      return { content: [{ type: 'text', text: `❌ TV Show [${id}] not found.` }] };
+    }
+
+    const [{ count }] = await query<{ count: string }>(
+      'SELECT COUNT(*) as count FROM character_appearances WHERE tvshow_id = $1',
+      [id],
+    );
+
+    if (Number(count) > 0) {
+      return {
+        content: [
+          {
+            type: 'text',
+            text: `❌ TV Show [${id}] "${show.title}" still has ${count} character appearance(s). Unlink them with delete_appearance first.`,
+          },
+        ],
+      };
+    }
+
+    await query('DELETE FROM tvshows WHERE id = $1', [id]);
+
+    return {
+      content: [
+        { type: 'text', text: `✅ TV Show [${id}] "${show.title}" deleted.` },
+      ],
+    };
+  },
+);
+
+server.registerTool(
   'delete_character',
   {
     description: 'Delete a character by ID.',
@@ -726,15 +780,28 @@ server.registerTool(
 server.registerTool(
   'link_appearance',
   {
-    description: 'Link a character to a movie or TV show with a role type.',
+    description:
+      'Link a character to a movie or TV show with a role type. Set multiverse_designation ONLY when the character is somewhere other than the reality the title itself is set in (e.g. the Void in Deadpool & Wolverine) — leaving it null means "same as the title", which is the normal case.',
     inputSchema: {
       character_id: z.number().int(),
       movie_id: z.number().int().optional(),
       tvshow_id: z.number().int().optional(),
       role_type: z.enum(['main', 'supporting', 'cameo']).default('main'),
+      multiverse_designation: z
+        .string()
+        .optional()
+        .describe(
+          'Reality the character was in for THIS title. Omit unless it differs from the title.',
+        ),
     },
   },
-  async ({ character_id, movie_id, tvshow_id, role_type }) => {
+  async ({
+    character_id,
+    movie_id,
+    tvshow_id,
+    role_type,
+    multiverse_designation,
+  }) => {
     if (!movie_id && !tvshow_id) {
       return {
         content: [
@@ -787,8 +854,8 @@ server.registerTool(
       }
 
       await query(
-        'INSERT INTO character_appearances (character_id, movie_id, role_type) VALUES ($1, $2, $3)',
-        [character_id, movie_id, role_type],
+        'INSERT INTO character_appearances (character_id, movie_id, role_type, multiverse_designation) VALUES ($1, $2, $3, $4)',
+        [character_id, movie_id, role_type, multiverse_designation ?? null],
       );
     } else if (tvshow_id) {
       const [show] = await query<{ id: number; title: string }>(
@@ -819,8 +886,8 @@ server.registerTool(
       }
 
       await query(
-        'INSERT INTO character_appearances (character_id, tvshow_id, role_type) VALUES ($1, $2, $3)',
-        [character_id, tvshow_id, role_type],
+        'INSERT INTO character_appearances (character_id, tvshow_id, role_type, multiverse_designation) VALUES ($1, $2, $3, $4)',
+        [character_id, tvshow_id, role_type, multiverse_designation ?? null],
       );
     }
 
@@ -828,7 +895,9 @@ server.registerTool(
       content: [
         {
           type: 'text',
-          text: `✅ Linked: ${character.name} → "${title}" as ${role_type}`,
+          text: `✅ Linked: ${character.name} → "${title}" as ${role_type}${
+            multiverse_designation ? ` (in ${multiverse_designation})` : ''
+          }`,
         },
       ],
     };
@@ -839,15 +908,27 @@ server.registerTool(
   'update_appearance',
   {
     description:
-      'Update the role_type of an existing character appearance (movie or TV show link). Use this instead of link_appearance when the link already exists but its role_type is wrong.',
+      'Update an existing character appearance (movie or TV show link). Use this instead of link_appearance when the link already exists but its role_type or multiverse_designation is wrong. Pass an empty string for multiverse_designation to clear it back to "same reality as the title".',
     inputSchema: {
       character_id: z.number().int(),
       movie_id: z.number().int().optional(),
       tvshow_id: z.number().int().optional(),
-      role_type: z.enum(['main', 'supporting', 'cameo']),
+      role_type: z.enum(['main', 'supporting', 'cameo']).optional(),
+      multiverse_designation: z
+        .string()
+        .optional()
+        .describe(
+          'Reality the character was in for THIS title. Empty string clears it.',
+        ),
     },
   },
-  async ({ character_id, movie_id, tvshow_id, role_type }) => {
+  async ({
+    character_id,
+    movie_id,
+    tvshow_id,
+    role_type,
+    multiverse_designation,
+  }) => {
     if (!movie_id && !tvshow_id) {
       return {
         content: [
@@ -875,16 +956,40 @@ server.registerTool(
       };
     }
 
-    await query('UPDATE character_appearances SET role_type = $1 WHERE id = $2', [
-      role_type,
-      existing.id,
-    ]);
+    const sets: string[] = [];
+    const values: unknown[] = [];
+    const changed: string[] = [];
+
+    if (role_type !== undefined) {
+      sets.push(`role_type = $${sets.length + 1}`);
+      values.push(role_type);
+      changed.push(`role_type = ${role_type}`);
+    }
+
+    if (multiverse_designation !== undefined) {
+      // Empty string is the explicit "clear it" signal — null means
+      // "same reality as the title", which is the column's default meaning.
+      const value = multiverse_designation === '' ? null : multiverse_designation;
+      sets.push(`multiverse_designation = $${sets.length + 1}`);
+      values.push(value);
+      changed.push(`multiverse_designation = ${value ?? 'null (same as title)'}`);
+    }
+
+    if (sets.length === 0) {
+      return { content: [{ type: 'text', text: '⚠️ No fields to update.' }] };
+    }
+
+    values.push(existing.id);
+    await query(
+      `UPDATE character_appearances SET ${sets.join(', ')} WHERE id = $${values.length}`,
+      values,
+    );
 
     return {
       content: [
         {
           type: 'text',
-          text: `✅ Appearance [${existing.id}] updated: role_type = ${role_type}`,
+          text: `✅ Appearance [${existing.id}] updated: ${changed.join(', ')}`,
         },
       ],
     };

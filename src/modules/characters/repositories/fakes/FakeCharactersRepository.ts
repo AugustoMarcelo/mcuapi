@@ -98,7 +98,7 @@ class FakeCharactersRepository implements ICharactersRepository {
 
   public async findByMovieId(
     movie_id: number,
-  ): Promise<Array<ICharacter & { role_type?: string }>> {
+  ): Promise<Array<ICharacter & { role_type?: string; appeared_in?: string }>> {
     return this.characters
       .filter(character => character.first_appearance_movie_id === movie_id)
       .map(character => ({ ...character, role_type: 'main' }));
@@ -113,7 +113,7 @@ class FakeCharactersRepository implements ICharactersRepository {
 
   public async findByTVShowId(
     tvshow_id: number,
-  ): Promise<Array<ICharacter & { role_type?: string }>> {
+  ): Promise<Array<ICharacter & { role_type?: string; appeared_in?: string }>> {
     return this.characters
       .filter(character => character.first_appearance_tvshow_id === tvshow_id)
       .map(character => ({ ...character, role_type: 'main' }));
@@ -121,7 +121,7 @@ class FakeCharactersRepository implements ICharactersRepository {
 
   public async findMoviesByCharacterId(
     character_id: number,
-  ): Promise<Array<IMovie & { role_type?: string }>> {
+  ): Promise<Array<IMovie & { role_type?: string; appeared_in?: string }>> {
     return this.appearances
       .filter(appearance => appearance.character_id === character_id && appearance.movie)
       .map(appearance => ({ ...(appearance.movie as IMovie), role_type: appearance.role_type }));
@@ -129,7 +129,7 @@ class FakeCharactersRepository implements ICharactersRepository {
 
   public async findTVShowsByCharacterId(
     character_id: number,
-  ): Promise<Array<ITVShow & { role_type?: string }>> {
+  ): Promise<Array<ITVShow & { role_type?: string; appeared_in?: string }>> {
     return this.appearances
       .filter(appearance => appearance.character_id === character_id && appearance.tvshow)
       .map(appearance => ({ ...(appearance.tvshow as ITVShow), role_type: appearance.role_type }));

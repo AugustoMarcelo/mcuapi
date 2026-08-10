@@ -9,6 +9,21 @@ import IFindAllCharactersResponseDTO from '@modules/characters/dtos/IFindAllChar
 import Character from '../entities/Character';
 import CharacterAppearance from '../entities/CharacterAppearance';
 
+/**
+ * Which reality a character was actually in for a given title.
+ *
+ * Almost always the title's own — a character in The Fantastic Four: First
+ * Steps is in Earth-828 because that is where the film happens. The per-appearance
+ * value only exists for the exceptions, like the Void sequences in Deadpool &
+ * Wolverine, so null falls back to the title rather than to the character's origin.
+ */
+function resolveAppearedIn(
+  appearanceDesignation?: string,
+  titleDesignation?: string,
+): string | undefined {
+  return appearanceDesignation ?? titleDesignation ?? undefined;
+}
+
 class CharactersRepository implements ICharactersRepository {
   private ormRepository: Repository<Character>;
 
@@ -94,16 +109,22 @@ class CharactersRepository implements ICharactersRepository {
     return { data: characters, total };
   }
 
-  public async findByMovieId(movie_id: number): Promise<Array<Character & { role_type?: string }>> {
+  public async findByMovieId(
+    movie_id: number,
+  ): Promise<Array<Character & { role_type?: string; appeared_in?: string }>> {
     const characterAppearancesRepository = getRepository(CharacterAppearance);
     const appearances = await characterAppearancesRepository.find({
       where: { movie_id },
-      relations: ['character'],
+      relations: ['character', 'movie'],
     });
 
     return appearances.map(appearance => ({
       ...appearance.character,
       role_type: appearance.role_type,
+      appeared_in: resolveAppearedIn(
+        appearance.multiverse_designation,
+        appearance.movie?.multiverse_designation,
+      ),
     }));
   }
 
@@ -111,22 +132,28 @@ class CharactersRepository implements ICharactersRepository {
     await this.ormRepository.delete(id);
   }
 
-  public async findByTVShowId(tvshow_id: number): Promise<Array<Character & { role_type?: string }>> {
+  public async findByTVShowId(
+    tvshow_id: number,
+  ): Promise<Array<Character & { role_type?: string; appeared_in?: string }>> {
     const characterAppearancesRepository = getRepository(CharacterAppearance);
     const appearances = await characterAppearancesRepository.find({
       where: { tvshow_id },
-      relations: ['character'],
+      relations: ['character', 'tvshow'],
     });
 
     return appearances.map(appearance => ({
       ...appearance.character,
       role_type: appearance.role_type,
+      appeared_in: resolveAppearedIn(
+        appearance.multiverse_designation,
+        appearance.tvshow?.multiverse_designation,
+      ),
     }));
   }
 
   public async findMoviesByCharacterId(
     character_id: number,
-  ): Promise<Array<IMovie & { role_type?: string }>> {
+  ): Promise<Array<IMovie & { role_type?: string; appeared_in?: string }>> {
     const characterAppearancesRepository = getRepository(CharacterAppearance);
     const appearances = await characterAppearancesRepository.find({
       where: { character_id, movie_id: Not(IsNull()) },
@@ -136,12 +163,16 @@ class CharactersRepository implements ICharactersRepository {
     return appearances.map(appearance => ({
       ...appearance.movie,
       role_type: appearance.role_type,
+      appeared_in: resolveAppearedIn(
+        appearance.multiverse_designation,
+        appearance.movie?.multiverse_designation,
+      ),
     }));
   }
 
   public async findTVShowsByCharacterId(
     character_id: number,
-  ): Promise<Array<ITVShow & { role_type?: string }>> {
+  ): Promise<Array<ITVShow & { role_type?: string; appeared_in?: string }>> {
     const characterAppearancesRepository = getRepository(CharacterAppearance);
     const appearances = await characterAppearancesRepository.find({
       where: { character_id, tvshow_id: Not(IsNull()) },
@@ -151,6 +182,10 @@ class CharactersRepository implements ICharactersRepository {
     return appearances.map(appearance => ({
       ...appearance.tvshow,
       role_type: appearance.role_type,
+      appeared_in: resolveAppearedIn(
+        appearance.multiverse_designation,
+        appearance.tvshow?.multiverse_designation,
+      ),
     }));
   }
 }

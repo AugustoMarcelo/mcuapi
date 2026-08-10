@@ -10,9 +10,9 @@ export default interface ICharactersRepository {
   update(character: ICharacter): Promise<ICharacter>;
   findById(id: number): Promise<ICharacter | undefined>;
   findAll(data: IFindAllCharactersDTO): Promise<IFindAllCharactersResponseDTO>;
-  findByMovieId(movie_id: number): Promise<Array<ICharacter & { role_type?: string }>>;
-  findByTVShowId(tvshow_id: number): Promise<Array<ICharacter & { role_type?: string }>>;
-  findMoviesByCharacterId(character_id: number): Promise<Array<IMovie & { role_type?: string }>>;
-  findTVShowsByCharacterId(character_id: number): Promise<Array<ITVShow & { role_type?: string }>>;
+  findByMovieId(movie_id: number): Promise<Array<ICharacter & { role_type?: string; appeared_in?: string }>>;
+  findByTVShowId(tvshow_id: number): Promise<Array<ICharacter & { role_type?: string; appeared_in?: string }>>;
+  findMoviesByCharacterId(character_id: number): Promise<Array<IMovie & { role_type?: string; appeared_in?: string }>>;
+  findTVShowsByCharacterId(character_id: number): Promise<Array<ITVShow & { role_type?: string; appeared_in?: string }>>;
   delete(id: number): Promise<void>;
 }

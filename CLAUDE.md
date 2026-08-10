@@ -125,7 +125,20 @@ Multiverse/timeline support is merged: `studio`, `continuity`,
   stable image URLs, and TMDB is already this project's image host for characters, so using it
   keeps a single image CDN across the whole dataset.
 - Characters (name, bio, `played_by`, `image_url`) are sourced from TMDB (`image.tmdb.org` for images).
-- **Recast characters**: `played_by` lists every actor who has played the role, comma-separated in chronological order (e.g. `"Edward Norton, Mark Ruffalo"`), but `image_url` always reflects the *current/most recent* actor — update it when a character is recast rather than leaving the original actor's photo.
+- **Recast characters**: `played_by` lists every actor who has played the role, comma-separated in
+  **in-story chronological order** — the order the versions exist on the character's own timeline,
+  not release order. For most characters the two agree (`"Edward Norton, Mark Ruffalo"`). Where a
+  franchise jumps between eras they diverge, and in-story order wins:
+  `"James McAvoy, Patrick Stewart"` for Xavier, even though Stewart played the role first in 2000.
+  Same for Magneto, Mystique, Beast, Cyclops, Nightcrawler and Jean Grey.
+
+  `image_url` always reflects the **most recent actor by release date** — that is a separate
+  question from list order, and is why char 260 reads McAvoy-first but carries Stewart's photo
+  (he appears in *Doomsday*, 2026).
+
+  A cameo re-performed by a stunt double counts as a recast: list the originating actor first,
+  then the performer (`"Ray Park, Daniel Medina Ramos"`). An actor genuinely returning to the role
+  is **not** a recast — Aaron Stanford's Pyro stays a single name.
 - **Animated show characters**: do not add a character from an animated series/movie unless there is a confirmed live-action actor behind the voice (i.e., an actor also appearing in live-action MCU content). Purely voice-only animated characters with no live-action counterpart are skipped.
 
 ## Canon Rules
@@ -196,6 +209,30 @@ until Marvel says otherwise. That currently means every non-MCU continuity excep
 `Earth-96283` (Raimi), `Earth-120703` (Webb), `Earth-26320`, `Earth-701306`, `Earth-121698`,
 `Earth-58732`, `Earth-89521` and `Earth-86445` were all removed for failing this bar — every one
 was a Marvel Database number.
+
+### Origin vs. where they turned up
+
+`characters.multiverse_designation` means **origin** — the reality a character is native to. Where
+they physically *are* during a given title is a different question, and the two diverge whenever
+someone crosses over.
+
+That second question lives on the appearance: `character_appearances.multiverse_designation`,
+surfaced by the API as **`appeared_in`** on `/characters/movie/:id`, `/characters/tvshow/:id`,
+`/characters/:id/movies` and `/characters/:id/tvshows`.
+
+**Null is the normal case and means "the same reality the title is set in"** — so `appeared_in`
+falls back to the *title's* designation, not the character's. That is deliberate: a character in
+*The Fantastic Four: First Steps* is in Earth-828 because that is where the film happens. Only
+fill the column when someone is somewhere the title's own designation doesn't cover — the Void
+sequences in *Deadpool & Wolverine* being the clearest example.
+
+It falls out correctly without any stored data in most cases:
+
+| | origin | `appeared_in` |
+|---|---|---|
+| Reed Richards in *First Steps* | `Earth-828` | `Earth-828` |
+| Reed Richards in *Doomsday* | `Earth-828` | `Earth-616` |
+| Maguire's Peter in *No Way Home* | `Unknown` | `Earth-616` — visiting, not stranded |
 
 **The database uses exactly four designations plus `"Unknown"`.** If you are about to write a
 fifth, you almost certainly have a wiki number in hand — stop and find where Marvel or a director

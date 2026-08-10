@@ -22,3 +22,7 @@ Initial Concept.md
 *.bak
 mcu_characters.json
 /package-lock.json
+
+# never commit any env variant (was: .env.local-backup exposed DB creds)
+.env.*
+!.env.example
