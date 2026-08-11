@@ -33,6 +33,18 @@ describe('ListAllTVShowsService', () => {
     expect(data).toEqual([initialData[0], initialData[1], initialData[2]]);
   });
 
+  it('Should be able to list tv shows on pages beyond the first', async () => {
+    const initialData = Array.from({ length: 5 }).map(() => mockTVShow());
+    const fakeTVShowsRepository = new FakeTVShowsRepository(initialData);
+    const listTVShows = new ListTVShowsService(fakeTVShowsRepository);
+    const { data, total } = await listTVShows.execute({
+      page: 2,
+      limit: 2,
+    });
+    expect(total).toBe(5);
+    expect(data).toEqual([initialData[2], initialData[3]]);
+  });
+
   it('Should be able to list only tv shows attributes with columns params', async () => {
     const initialData = [mockTVShow()];
     const fakeTVShowsRepository = new FakeTVShowsRepository(initialData);

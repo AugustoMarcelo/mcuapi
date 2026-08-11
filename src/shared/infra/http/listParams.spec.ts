@@ -35,6 +35,12 @@ describe('resolveColumns', () => {
   it('Should return undefined when no column survives the allow list', () => {
     expect(resolveColumns('unknown_column', ALLOW_LIST)).toBeUndefined();
   });
+
+  it('Should not treat inherited Object.prototype properties as allowed columns', () => {
+    expect(
+      resolveColumns('constructor,hasOwnProperty,toString', ALLOW_LIST),
+    ).toBeUndefined();
+  });
 });
 
 describe('resolveOrder', () => {
@@ -66,6 +72,10 @@ describe('resolveOrder', () => {
       resolveOrder('unknown_column,ASC;title,SIDEWAYS;phase,DESC', ALLOW_LIST),
     ).toEqual([{ column: 'phase', direction: 'DESC' }]);
   });
+
+  it('Should not treat inherited Object.prototype properties as allowed columns', () => {
+    expect(resolveOrder('toString,ASC', ALLOW_LIST)).toBeUndefined();
+  });
 });
 
 describe('resolveFilter', () => {
@@ -96,5 +106,9 @@ describe('resolveFilter', () => {
     expect(
       resolveFilter('unknown_column=value;title=;phase=1', ALLOW_LIST),
     ).toEqual([{ column: 'phase', value: '1' }]);
+  });
+
+  it('Should not treat inherited Object.prototype properties as allowed columns', () => {
+    expect(resolveFilter('constructor=x', ALLOW_LIST)).toBeUndefined();
   });
 });

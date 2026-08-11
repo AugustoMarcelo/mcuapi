@@ -55,8 +55,17 @@ export function buildOrderFromClauses<T extends string>(
     return undefined;
   }
 
-  return order.reduce<Record<string, 'ASC' | 'DESC'>>(
-    (acc, { column, direction }) => ({ ...acc, [column]: direction }),
-    {},
-  );
+  const result: Record<string, 'ASC' | 'DESC'> = {};
+
+  // A column repeated in the clause list only has an effect the first time
+  // it appears — any later ORDER BY on the same column is unreachable, so
+  // the first occurrence's direction wins instead of a later one silently
+  // replacing it.
+  order.forEach(({ column, direction }) => {
+    if (!Object.prototype.hasOwnProperty.call(result, column)) {
+      result[column] = direction;
+    }
+  });
+
+  return result;
 }

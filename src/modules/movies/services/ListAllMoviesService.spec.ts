@@ -60,6 +60,32 @@ describe('ListAllMovies', () => {
     expect(total).toBe(3);
   });
 
+  it('Should be able to list movies on pages beyond the first', async () => {
+    fakeMoviesRepository.create({
+      id: 1,
+      title: 'Iron Man',
+      directed_by: 'Jon Fraveau',
+    });
+
+    fakeMoviesRepository.create({
+      id: 2,
+      title: 'The Incredible Hulk',
+      directed_by: 'Louis Leterrier',
+    });
+
+    fakeMoviesRepository.create({
+      id: 3,
+      title: 'Iron Man II',
+      directed_by: 'Jon Favreau',
+    });
+
+    const { data, total } = await listAllMovies.execute({ page: 2, limit: 1 });
+
+    expect(data).toHaveLength(1);
+    expect(data[0].id).toBe(2);
+    expect(total).toBe(3);
+  });
+
   it('Should be able to list only movies attributes with columns passed by query params', async () => {
     fakeMoviesRepository.create({
       id: 1,

@@ -105,4 +105,13 @@ describe('buildOrderFromClauses', () => {
       ]),
     ).toEqual({ phase: 'DESC', title: 'ASC' });
   });
+
+  it('Should keep the first direction when a column is repeated', () => {
+    expect(
+      buildOrderFromClauses([
+        { column: 'title', direction: 'ASC' },
+        { column: 'title', direction: 'DESC' },
+      ]),
+    ).toEqual({ title: 'ASC' });
+  });
 });

@@ -63,7 +63,7 @@ class FakeTVShowsRepository implements ITVShowsRepository {
       const { page, limit } = data;
       const offset = (page - 1) * limit;
 
-      pagedTVShows = pagedTVShows.slice(offset, limit);
+      pagedTVShows = pagedTVShows.slice(offset, offset + limit);
     }
 
     if (data && data.columns) {

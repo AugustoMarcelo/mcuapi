@@ -78,7 +78,8 @@ class FakeMoviesRepository implements IMoviesRepository {
     const total = filteredMovies.length;
 
     const offset = page && limit && (page - 1) * limit;
-    let pagedMovies = filteredMovies.slice(offset, limit);
+    const end = limit === undefined ? undefined : (offset ?? 0) + limit;
+    let pagedMovies = filteredMovies.slice(offset, end);
 
     if (columns) {
       pagedMovies = pagedMovies.map(movie => {

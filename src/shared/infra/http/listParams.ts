@@ -18,7 +18,7 @@ function isAllowedColumn<T extends string>(
   column: string,
   allowList: ColumnAllowList<T>,
 ): column is T {
-  return column in allowList;
+  return Object.prototype.hasOwnProperty.call(allowList, column);
 }
 
 export function resolveColumns<T extends string>(
