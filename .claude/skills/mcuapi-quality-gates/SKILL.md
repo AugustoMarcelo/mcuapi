@@ -16,6 +16,7 @@ This repo is three independently-tooled sub-projects sharing one working tree. A
 | `src/`, root `*.ts` | API | repo root |
 | `mcuapi-mcp/` | MCP server | `mcuapi-mcp/` |
 | `mcuapi-client/` | Client | `mcuapi-client/` |
+| `index.html` | Landing page | n/a — see Step 4 |
 
 A change can touch more than one (e.g. a new column used by both the API and the MCP server) — run every affected project's gates, not just one.
 
@@ -40,3 +41,12 @@ A change can touch more than one (e.g. a new column used by both the API and the
 Read `references/test-patterns.md` in full — it documents the fixture style, file naming, and assertion pattern each sub-project already uses (Jest + fake repositories for the API, `node:test` + a stub `fetch` for the client, no wired runner for mcuapi-mcp).
 
 *Done when:* the new/changed test follows the same shape as existing tests in that sub-project, or, for mcuapi-mcp, the report states explicitly that it's a manual check rather than an automated one.
+
+**Step 4: Landing page (`index.html`) changes need visual proof in the PR, not just a text description**
+
+`index.html` has no lint/typecheck/test/build — the only gate is manually driving it in a browser (see the repo's `run` skill for the headless-Chromium pattern). That verification is not optional and its evidence belongs in the PR itself:
+
+- Any PR touching `index.html` must attach at least one **screenshot** of the changed area rendered, and a **screen recording/video** for anything interactive (the live console, search boxes, nav/scroll behavior, hover states) — not just a written description of what was checked.
+- Attach these directly to the PR body/comment (drag-and-drop in the GitHub UI, or `gh pr comment --body-file` referencing local capture output) so a reviewer can see the actual result without re-running the page themselves.
+
+*Done when:* the PR contains embedded screenshot(s) for static changes and a video for interactive ones, alongside the text description of what was verified.
