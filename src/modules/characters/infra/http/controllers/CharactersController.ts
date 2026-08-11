@@ -16,6 +16,12 @@ import { presentMovie } from '@modules/movies/infra/http/presenters/MoviePresent
 import { presentTVShow } from '@modules/tvshows/infra/http/presenters/TVShowPresenter';
 import { getBaseUrl } from '@shared/infra/http/hateoas';
 import { resolveLimit, resolvePage } from '@shared/infra/http/pagination';
+import {
+  resolveColumns,
+  resolveFilter,
+  resolveOrder,
+} from '@shared/infra/http/listParams';
+import CHARACTER_COLUMNS from '@modules/characters/entities/characterColumns';
 
 interface IRequestQuery {
   columns?: string;
@@ -42,9 +48,9 @@ export default class CharactersController {
     const { data, total } = await listAllCharacters.execute({
       page,
       limit,
-      columns,
-      order,
-      filter,
+      columns: resolveColumns(columns, CHARACTER_COLUMNS),
+      order: resolveOrder(order, CHARACTER_COLUMNS),
+      filter: resolveFilter(filter, CHARACTER_COLUMNS),
       continuity,
       multiverse_designation,
     });

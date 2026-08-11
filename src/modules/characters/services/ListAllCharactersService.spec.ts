@@ -109,7 +109,7 @@ describe('ListAllCharacters', () => {
     const result = await listAllCharacters.execute({
       page: 1,
       limit: 10,
-      filter: 'name=Tony',
+      filter: [{ column: 'name', value: 'Tony' }],
     });
 
     expect(result.data).toHaveLength(1);
@@ -134,4 +134,67 @@ describe('ListAllCharacters', () => {
     expect(result.data).toHaveLength(3);
     expect(result.total).toBe(5);
   });
-}); 
+
+  it('Should be able to filter characters by multiple filter clauses', async () => {
+    await fakeCharactersRepository.create({
+      name: 'Tony Stark',
+      alias: 'Iron Man',
+      continuity: 'MCU',
+      multiverse_designation: 'Earth-616',
+    });
+
+    await fakeCharactersRepository.create({
+      name: 'Tony Masters',
+      alias: 'Taskmaster',
+      continuity: 'MCU',
+      multiverse_designation: 'Earth-838',
+    });
+
+    const result = await listAllCharacters.execute({
+      page: 1,
+      limit: 10,
+      filter: [
+        { column: 'name', value: 'Tony' },
+        { column: 'multiverse_designation', value: 'Earth-616' },
+      ],
+    });
+
+    expect(result.data).toHaveLength(1);
+    expect(result.data[0].name).toBe('Tony Stark');
+  });
+
+  it('Should be able to order characters by multiple columns', async () => {
+    await fakeCharactersRepository.create({
+      name: 'Steve Rogers',
+      continuity: 'MCU',
+      multiverse_designation: 'Earth-616',
+    });
+
+    await fakeCharactersRepository.create({
+      name: 'Tony Stark',
+      continuity: 'MCU',
+      multiverse_designation: 'Earth-838',
+    });
+
+    await fakeCharactersRepository.create({
+      name: 'Bruce Banner',
+      continuity: 'MCU',
+      multiverse_designation: 'Earth-838',
+    });
+
+    const result = await listAllCharacters.execute({
+      page: 1,
+      limit: 10,
+      order: [
+        { column: 'multiverse_designation', direction: 'ASC' },
+        { column: 'name', direction: 'ASC' },
+      ],
+    });
+
+    expect(result.data.map(char => char.name)).toEqual([
+      'Steve Rogers',
+      'Bruce Banner',
+      'Tony Stark',
+    ]);
+  });
+});

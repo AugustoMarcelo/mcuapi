@@ -85,7 +85,7 @@
           {
             "name": "columns",
             "in": "query",
-            "description": "Movie properties to be returned",
+            "description": "Comma-separated movie properties to be returned. Unknown properties are ignored",
             "required": false,
             "schema": {
               "type": "string",
@@ -95,21 +95,21 @@
           {
             "name": "order",
             "in": "query",
-            "description": "Order return by column and sorting type (ASC, DESC)",
+            "description": "Order by column and sorting type (ASC, DESC). Multiple clauses can be separated by semicolons; unknown columns are ignored",
             "required": false,
             "schema": {
               "type": "string",
-              "example": "chronology,DESC"
+              "example": "chronology,DESC;title,ASC"
             }
           },
           {
             "name": "filter",
             "in": "query",
-            "description": "Filter by a column",
+            "description": "Filter by column=value. Multiple clauses can be separated by semicolons; unknown columns are ignored",
             "required": false,
             "schema": {
               "type": "string",
-              "example": "title=Iron"
+              "example": "title=Iron;phase=1"
             }
           },
           {
@@ -288,7 +288,7 @@
           {
             "name": "columns",
             "in": "query",
-            "description": "TV Show properties to be returned",
+            "description": "Comma-separated TV show properties to be returned. Unknown properties are ignored",
             "required": false,
             "schema": {
               "type": "string",
@@ -298,21 +298,21 @@
           {
             "name": "order",
             "in": "query",
-            "description": "Order return by column and sorting type (ASC, DESC)",
+            "description": "Order by column and sorting type (ASC, DESC). Multiple clauses can be separated by semicolons; unknown columns are ignored",
             "required": false,
             "schema": {
               "type": "string",
-              "example": "release_date,DESC"
+              "example": "release_date,DESC;title,ASC"
             }
           },
           {
             "name": "filter",
             "in": "query",
-            "description": "Filter by a column",
+            "description": "Filter by column=value. Multiple clauses can be separated by semicolons; unknown columns are ignored",
             "required": false,
             "schema": {
               "type": "string",
-              "example": "title=Wanda"
+              "example": "title=Wanda;phase=4"
             }
           },
           {
@@ -492,7 +492,7 @@
           {
             "name": "columns",
             "in": "query",
-            "description": "Character properties to be returned",
+            "description": "Comma-separated character properties to be returned. Unknown properties are ignored",
             "required": false,
             "schema": {
               "type": "string",
@@ -502,21 +502,21 @@
           {
             "name": "order",
             "in": "query",
-            "description": "Order return by column and sorting type (ASC, DESC)",
+            "description": "Order by column and sorting type (ASC, DESC). Multiple clauses can be separated by semicolons; unknown columns are ignored",
             "required": false,
             "schema": {
               "type": "string",
-              "example": "name,ASC"
+              "example": "name,ASC;continuity,DESC"
             }
           },
           {
             "name": "filter",
             "in": "query",
-            "description": "Filter by a column",
+            "description": "Filter by column=value. Multiple clauses can be separated by semicolons; unknown columns are ignored",
             "required": false,
             "schema": {
               "type": "string",
-              "example": "name=Iron Man"
+              "example": "name=Iron Man;continuity=MCU"
             }
           },
           {

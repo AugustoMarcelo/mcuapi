@@ -79,7 +79,7 @@ describe('ListAllMovies', () => {
     });
 
     const { data } = await listAllMovies.execute({
-      columns: 'title,release_date,cover_url',
+      columns: ['title', 'release_date', 'cover_url'],
     });
 
     expect(data[0]).not.toHaveProperty('box_office');
@@ -90,5 +90,61 @@ describe('ListAllMovies', () => {
     expect(data[0]).not.toHaveProperty('saga');
     expect(data[0]).not.toHaveProperty('chronology');
     expect(data[0]).not.toHaveProperty('post_credit_scenes');
+  });
+
+  it('Should be able to filter movies by multiple filter clauses', async () => {
+    fakeMoviesRepository.create({
+      id: 1,
+      title: 'Iron Man',
+      directed_by: 'Jon Favreau',
+      phase: 1,
+    });
+
+    fakeMoviesRepository.create({
+      id: 2,
+      title: 'Iron Man II',
+      directed_by: 'Jon Favreau',
+      phase: 2,
+    });
+
+    const { data, total } = await listAllMovies.execute({
+      filter: [
+        { column: 'title', value: 'Iron' },
+        { column: 'phase', value: '1' },
+      ],
+    });
+
+    expect(total).toBe(1);
+    expect(data[0].id).toBe(1);
+  });
+
+  it('Should be able to order movies by multiple columns', async () => {
+    fakeMoviesRepository.create({
+      id: 1,
+      title: 'Iron Man',
+      directed_by: 'Jon Favreau',
+      phase: 2,
+    });
+    fakeMoviesRepository.create({
+      id: 2,
+      title: 'The Incredible Hulk',
+      directed_by: 'Louis Leterrier',
+      phase: 1,
+    });
+    fakeMoviesRepository.create({
+      id: 3,
+      title: 'Iron Man II',
+      directed_by: 'Jon Favreau',
+      phase: 1,
+    });
+
+    const { data } = await listAllMovies.execute({
+      order: [
+        { column: 'phase', direction: 'ASC' },
+        { column: 'title', direction: 'DESC' },
+      ],
+    });
+
+    expect(data.map(movie => movie.id)).toEqual([2, 3, 1]);
   });
 });

@@ -2,10 +2,19 @@ import ICreateMovieDTO from '@modules/movies/dtos/ICreateMovieDTO';
 import IFindAllMoviesDTO from '@modules/movies/dtos/IFindAllMoviesDTO';
 import IFindAllMoviesResponseDTO from '@modules/movies/dtos/IFindAllMoviesResponseDTO';
 import IMovie from '@modules/movies/entities/IMovie';
+import MOVIE_COLUMNS from '@modules/movies/entities/movieColumns';
 import IRepositoryStatsDTO from '@shared/dtos/IRepositoryStatsDTO';
 
 import Movie from '@modules/movies/infra/typeorm/entities/Movie';
 import IMoviesRepository from '../IMoviesRepository';
+
+function compareValues(a: unknown, b: unknown): number {
+  if (a === b) return 0;
+  if (a === undefined || a === null) return 1;
+  if (b === undefined || b === null) return -1;
+
+  return a > b ? 1 : -1;
+}
 
 class FakeMoviesRepository implements IMoviesRepository {
   private movies: IMovie[] = [];
@@ -40,18 +49,49 @@ class FakeMoviesRepository implements IMoviesRepository {
     page,
     limit,
     columns,
+    order,
+    filter,
   }: IFindAllMoviesDTO): Promise<IFindAllMoviesResponseDTO> {
-    const offset = page && limit && (page - 1) * limit;
+    let filteredMovies = [...this.movies];
 
-    let filteredMovies = this.movies.slice(offset, limit);
+    filter?.forEach(({ column, value }) => {
+      filteredMovies = filteredMovies.filter(movie => {
+        const movieValue = movie[column];
+
+        if (movieValue === undefined || movieValue === null) {
+          return false;
+        }
+
+        return MOVIE_COLUMNS[column] === 'exact'
+          ? String(movieValue) === value
+          : String(movieValue).toLowerCase().includes(value.toLowerCase());
+      });
+    });
+
+    if (order?.length) {
+      filteredMovies = [...filteredMovies].sort((a, b) => {
+        const clause = order.find(
+          ({ column }) => compareValues(a[column], b[column]) !== 0,
+        );
+
+        if (!clause) return 0;
+
+        const comparison = compareValues(a[clause.column], b[clause.column]);
+
+        return clause.direction === 'ASC' ? comparison : -comparison;
+      });
+    }
+
+    const total = filteredMovies.length;
+
+    const offset = page && limit && (page - 1) * limit;
+    let pagedMovies = filteredMovies.slice(offset, limit);
 
     if (columns) {
-      const columnsArray = columns.split(',') as (keyof IMovie)[];
-
-      filteredMovies = filteredMovies.map(movie => {
+      pagedMovies = pagedMovies.map(movie => {
         const filterMovie = new Movie();
 
-        columnsArray.forEach(item => {
+        columns.forEach(item => {
           Object.assign(filterMovie, { [item]: movie[item] });
         });
 
@@ -59,7 +99,7 @@ class FakeMoviesRepository implements IMoviesRepository {
       });
     }
 
-    return { data: filteredMovies, total: this.movies.length };
+    return { data: pagedMovies, total };
   }
 
   public async getStats(): Promise<IRepositoryStatsDTO> {

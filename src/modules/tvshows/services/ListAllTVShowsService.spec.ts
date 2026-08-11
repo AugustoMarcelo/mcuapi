@@ -29,7 +29,7 @@ describe('ListAllTVShowsService', () => {
       page: 1,
       limit: 3,
     });
-    expect(total).toBe(3);
+    expect(total).toBe(5);
     expect(data).toEqual([initialData[0], initialData[1], initialData[2]]);
   });
 
@@ -38,7 +38,7 @@ describe('ListAllTVShowsService', () => {
     const fakeTVShowsRepository = new FakeTVShowsRepository(initialData);
     const listTVShows = new ListTVShowsService(fakeTVShowsRepository);
     const { data, total } = await listTVShows.execute({
-      columns: 'title,release_date,season',
+      columns: ['title', 'release_date', 'season'],
     });
 
     expect(total).toBe(1);
@@ -64,7 +64,7 @@ describe('ListAllTVShowsService', () => {
     const listTVShows = new ListTVShowsService(fakeTVShowsRepository);
 
     const { data, total } = await listTVShows.execute({
-      filter: 'title=any_title',
+      filter: [{ column: 'title', value: 'any_title' }],
     });
 
     expect(data[0]).toEqual(searchedTVShow);
@@ -80,5 +80,45 @@ describe('ListAllTVShowsService', () => {
 
     expect(data[0]).toHaveProperty('updated_at');
     expect(data[0].updated_at).toBeInstanceOf(Date);
+  });
+
+  it('Should be able to filter tv shows by multiple filter clauses', async () => {
+    const wandavision = { ...mockTVShow(), title: 'WandaVision', phase: 4 };
+    const lokiShow = { ...mockTVShow(), title: 'Loki', phase: 4 };
+    const initialData = [wandavision, lokiShow];
+    const fakeTVShowsRepository = new FakeTVShowsRepository(initialData);
+    const listTVShows = new ListTVShowsService(fakeTVShowsRepository);
+
+    const { data, total } = await listTVShows.execute({
+      filter: [
+        { column: 'phase', value: '4' },
+        { column: 'title', value: 'Wanda' },
+      ],
+    });
+
+    expect(total).toBe(1);
+    expect(data[0]).toEqual(wandavision);
+  });
+
+  it('Should be able to order tv shows by multiple columns', async () => {
+    const phaseFourA = { ...mockTVShow(), title: 'Loki', phase: 4 };
+    const phaseFourB = { ...mockTVShow(), title: 'WandaVision', phase: 4 };
+    const phaseOne = { ...mockTVShow(), title: 'Agent Carter', phase: 1 };
+    const initialData = [phaseFourB, phaseOne, phaseFourA];
+    const fakeTVShowsRepository = new FakeTVShowsRepository(initialData);
+    const listTVShows = new ListTVShowsService(fakeTVShowsRepository);
+
+    const { data } = await listTVShows.execute({
+      order: [
+        { column: 'phase', direction: 'DESC' },
+        { column: 'title', direction: 'ASC' },
+      ],
+    });
+
+    expect(data.map(tvshow => tvshow.title)).toEqual([
+      'Loki',
+      'WandaVision',
+      'Agent Carter',
+    ]);
   });
 });
