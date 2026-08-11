@@ -21,20 +21,25 @@ export function buildWhereFromFilter<T extends string>(
 
   valuesByColumn.forEach((values, column) => {
     const isExact = allowList[column] === 'exact';
+    // Parameter names must be unique across the whole query, not just per
+    // column: TypeORM merges every Raw() operator's parameters into one flat
+    // object, so reusing e.g. "value0" for two different columns silently
+    // overwrites the first column's bound value with the second's.
+    const paramNames = values.map((_, index) => `${column}_${index}`);
 
     where[column] = Raw(
       alias =>
-        values
-          .map((_, index) =>
+        paramNames
+          .map(paramName =>
             isExact
-              ? `${alias} = :value${index}`
-              : `${alias} ILIKE :value${index}`,
+              ? `${alias} = :${paramName}`
+              : `${alias} ILIKE :${paramName}`,
           )
           .join(' AND '),
       Object.fromEntries(
-        values.map((value, index) => [
-          `value${index}`,
-          isExact ? value : `%${value}%`,
+        paramNames.map((paramName, index) => [
+          paramName,
+          isExact ? values[index] : `%${values[index]}%`,
         ]),
       ),
     );

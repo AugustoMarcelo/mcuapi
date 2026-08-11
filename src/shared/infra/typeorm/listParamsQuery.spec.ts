@@ -21,8 +21,8 @@ describe('buildWhereFromFilter', () => {
     );
     const operator = where.title as FindOperator<unknown>;
 
-    expect(operator.getSql?.('alias')).toBe('alias ILIKE :value0');
-    expect(operator.objectLiteralParameters).toEqual({ value0: '%Iron%' });
+    expect(operator.getSql?.('alias')).toBe('alias ILIKE :title_0');
+    expect(operator.objectLiteralParameters).toEqual({ title_0: '%Iron%' });
   });
 
   it('Should build a Raw equality condition for an exact column', () => {
@@ -32,8 +32,8 @@ describe('buildWhereFromFilter', () => {
     );
     const operator = where.phase as FindOperator<unknown>;
 
-    expect(operator.getSql?.('alias')).toBe('alias = :value0');
-    expect(operator.objectLiteralParameters).toEqual({ value0: '1' });
+    expect(operator.getSql?.('alias')).toBe('alias = :phase_0');
+    expect(operator.objectLiteralParameters).toEqual({ phase_0: '1' });
   });
 
   it('Should AND multiple clauses targeting the same column instead of dropping earlier ones', () => {
@@ -47,11 +47,11 @@ describe('buildWhereFromFilter', () => {
     const operator = where.title as FindOperator<unknown>;
 
     expect(operator.getSql?.('alias')).toBe(
-      'alias ILIKE :value0 AND alias ILIKE :value1',
+      'alias ILIKE :title_0 AND alias ILIKE :title_1',
     );
     expect(operator.objectLiteralParameters).toEqual({
-      value0: '%Iron%',
-      value1: '%Man%',
+      title_0: '%Iron%',
+      title_1: '%Man%',
     });
   });
 
@@ -65,6 +65,29 @@ describe('buildWhereFromFilter', () => {
     );
 
     expect(Object.keys(where)).toEqual(['title', 'phase']);
+  });
+
+  it('Should not collide parameter names across different columns when merged into one parameter bag', () => {
+    const where = buildWhereFromFilter(
+      [
+        { column: 'title', value: 'Iron' },
+        { column: 'phase', value: '1' },
+      ],
+      ALLOW_LIST,
+    );
+
+    const titleOperator = where.title as FindOperator<unknown>;
+    const phaseOperator = where.phase as FindOperator<unknown>;
+
+    const mergedParameters = {
+      ...titleOperator.objectLiteralParameters,
+      ...phaseOperator.objectLiteralParameters,
+    };
+
+    expect(mergedParameters).toEqual({
+      title_0: '%Iron%',
+      phase_0: '1',
+    });
   });
 });
 
