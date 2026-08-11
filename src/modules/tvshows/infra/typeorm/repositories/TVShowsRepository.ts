@@ -5,7 +5,11 @@ import TVSHOW_COLUMNS from '@modules/tvshows/entities/tvshowColumns';
 import TVShow from '@modules/tvshows/infra/typeorm/entities/TVShow';
 import ITVShowsRepository from '@modules/tvshows/repositories/ITVShowsRepository';
 import IRepositoryStatsDTO from '@shared/dtos/IRepositoryStatsDTO';
-import { FindConditions, getRepository, Raw, Repository } from 'typeorm';
+import {
+  buildOrderFromClauses,
+  buildWhereFromFilter,
+} from '@shared/infra/typeorm/listParamsQuery';
+import { FindConditions, getRepository, Repository } from 'typeorm';
 
 class TVShowsRepository implements ITVShowsRepository {
   private ormRepository: Repository<TVShow>;
@@ -27,19 +31,9 @@ class TVShowsRepository implements ITVShowsRepository {
   ): Promise<IFindAllTVShowsResponseDTO> {
     let skip;
 
-    const orderBy = data?.order?.reduce<Record<string, 'ASC' | 'DESC'>>(
-      (acc, { column, direction }) => ({ ...acc, [column]: direction }),
-      {},
-    );
+    const orderBy = buildOrderFromClauses(data?.order);
 
-    const whereConditions: Record<string, unknown> = {};
-
-    data?.filter?.forEach(({ column, value }) => {
-      whereConditions[column] =
-        TVSHOW_COLUMNS[column] === 'exact'
-          ? value
-          : Raw(alias => `${alias} ILIKE :value`, { value: `%${value}%` });
-    });
+    const whereConditions = buildWhereFromFilter(data?.filter, TVSHOW_COLUMNS);
 
     if (data?.studio) {
       whereConditions.studio = data.studio;
@@ -72,7 +66,7 @@ class TVShowsRepository implements ITVShowsRepository {
       ...(skip && { skip }),
       ...(data?.columns && { select: data.columns }),
       ...(where && { where }),
-      ...(orderBy && Object.keys(orderBy).length && { order: orderBy }),
+      ...(orderBy && { order: orderBy }),
     });
 
     return { data: tvshows, total };

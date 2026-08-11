@@ -1,7 +1,6 @@
 import {
   Repository,
   getRepository,
-  Raw,
   Not,
   IsNull,
   FindConditions,
@@ -15,6 +14,10 @@ import IFindAllCharactersDTO from '@modules/characters/dtos/IFindAllCharactersDT
 import IFindAllCharactersResponseDTO from '@modules/characters/dtos/IFindAllCharactersResponseDTO';
 import IRepositoryStatsDTO from '@shared/dtos/IRepositoryStatsDTO';
 import CHARACTER_COLUMNS from '@modules/characters/entities/characterColumns';
+import {
+  buildOrderFromClauses,
+  buildWhereFromFilter,
+} from '@shared/infra/typeorm/listParamsQuery';
 import Character from '../entities/Character';
 import CharacterAppearance from '../entities/CharacterAppearance';
 
@@ -69,19 +72,9 @@ class CharactersRepository implements ICharactersRepository {
   }: IFindAllCharactersDTO): Promise<IFindAllCharactersResponseDTO> {
     const skip = page && limit && (page - 1) * limit;
 
-    const orderBy = order?.reduce<Record<string, 'ASC' | 'DESC'>>(
-      (acc, { column, direction }) => ({ ...acc, [column]: direction }),
-      {},
-    );
+    const orderBy = buildOrderFromClauses(order);
 
-    const whereConditions: Record<string, unknown> = {};
-
-    filter?.forEach(({ column, value }) => {
-      whereConditions[column] =
-        CHARACTER_COLUMNS[column] === 'exact'
-          ? value
-          : Raw(alias => `${alias} ILIKE :value`, { value: `%${value}%` });
-    });
+    const whereConditions = buildWhereFromFilter(filter, CHARACTER_COLUMNS);
 
     if (continuity) {
       whereConditions.continuity = continuity;
@@ -101,7 +94,7 @@ class CharactersRepository implements ICharactersRepository {
       ...(skip && { skip }),
       ...(columns && { select: columns }),
       ...(where && { where }),
-      ...(orderBy && Object.keys(orderBy).length && { order: orderBy }),
+      ...(orderBy && { order: orderBy }),
     });
 
     return { data: characters, total };

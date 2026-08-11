@@ -4,17 +4,10 @@ import IFindAllMoviesResponseDTO from '@modules/movies/dtos/IFindAllMoviesRespon
 import IMovie from '@modules/movies/entities/IMovie';
 import MOVIE_COLUMNS from '@modules/movies/entities/movieColumns';
 import IRepositoryStatsDTO from '@shared/dtos/IRepositoryStatsDTO';
+import compareValues from '@shared/utils/compareValues';
 
 import Movie from '@modules/movies/infra/typeorm/entities/Movie';
 import IMoviesRepository from '../IMoviesRepository';
-
-function compareValues(a: unknown, b: unknown): number {
-  if (a === b) return 0;
-  if (a === undefined || a === null) return 1;
-  if (b === undefined || b === null) return -1;
-
-  return a > b ? 1 : -1;
-}
 
 class FakeMoviesRepository implements IMoviesRepository {
   private movies: IMovie[] = [];

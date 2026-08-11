@@ -5,14 +5,7 @@ import TVSHOW_COLUMNS from '@modules/tvshows/entities/tvshowColumns';
 import TVShow from '@modules/tvshows/infra/typeorm/entities/TVShow';
 import ITVShowsRepository from '@modules/tvshows/repositories/ITVShowsRepository';
 import IRepositoryStatsDTO from '@shared/dtos/IRepositoryStatsDTO';
-
-function compareValues(a: unknown, b: unknown): number {
-  if (a === b) return 0;
-  if (a === undefined || a === null) return 1;
-  if (b === undefined || b === null) return -1;
-
-  return a > b ? 1 : -1;
-}
+import compareValues from '@shared/utils/compareValues';
 
 class FakeTVShowsRepository implements ITVShowsRepository {
   private tvshows: ITVShow[];

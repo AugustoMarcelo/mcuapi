@@ -1,4 +1,4 @@
-import { Repository, getRepository, Raw, FindConditions } from 'typeorm';
+import { Repository, getRepository, FindConditions } from 'typeorm';
 
 import IMoviesRepository from '@modules/movies/repositories/IMoviesRepository';
 import ICreateMovieDTO from '@modules/movies/dtos/ICreateMovieDTO';
@@ -6,6 +6,10 @@ import IFindAllMoviesDTO from '@modules/movies/dtos/IFindAllMoviesDTO';
 import IFindAllMoviesResponseDTO from '@modules/movies/dtos/IFindAllMoviesResponseDTO';
 import IRepositoryStatsDTO from '@shared/dtos/IRepositoryStatsDTO';
 import MOVIE_COLUMNS from '@modules/movies/entities/movieColumns';
+import {
+  buildOrderFromClauses,
+  buildWhereFromFilter,
+} from '@shared/infra/typeorm/listParamsQuery';
 import Movie from '../entities/Movie';
 
 class MoviesRepository implements IMoviesRepository {
@@ -48,19 +52,9 @@ class MoviesRepository implements IMoviesRepository {
   }: IFindAllMoviesDTO): Promise<IFindAllMoviesResponseDTO> {
     const skip = page && limit && (page - 1) * limit;
 
-    const orderBy = order?.reduce<Record<string, 'ASC' | 'DESC'>>(
-      (acc, { column, direction }) => ({ ...acc, [column]: direction }),
-      {},
-    );
+    const orderBy = buildOrderFromClauses(order);
 
-    const whereConditions: Record<string, unknown> = {};
-
-    filter?.forEach(({ column, value }) => {
-      whereConditions[column] =
-        MOVIE_COLUMNS[column] === 'exact'
-          ? value
-          : Raw(alias => `${alias} ILIKE :value`, { value: `%${value}%` });
-    });
+    const whereConditions = buildWhereFromFilter(filter, MOVIE_COLUMNS);
 
     if (studio) {
       whereConditions.studio = studio;
@@ -88,7 +82,7 @@ class MoviesRepository implements IMoviesRepository {
       ...(skip && { skip }),
       ...(columns && { select: columns }),
       ...(where && { where }),
-      ...(orderBy && Object.keys(orderBy).length && { order: orderBy }),
+      ...(orderBy && { order: orderBy }),
     });
 
     return { data: movies, total };
