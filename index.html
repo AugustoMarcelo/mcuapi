@@ -1325,6 +1325,10 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
           <code>?filter=column=value</code> for a case-insensitive match,
           <code>?order=column,DESC</code> to sort, and <code>?continuity=</code> or
           <code>?is_mcu=false</code> to scope to one branch of the multiverse.
+          Both <code>filter</code> and <code>order</code> accept multiple
+          <code>;</code>-separated clauses, e.g.
+          <code>?filter=title=Iron;phase=1</code> and
+          <code>?order=phase,DESC;title,ASC</code> — filter clauses are ANDed together.
         </p>
       </div>
     </div>
@@ -1775,8 +1779,8 @@ npm i mcuapi-client
     page:                   { ph: '1',                      hint: '' },
     limit:                  { ph: '5',                      hint: 'max 100' },
     columns:                { ph: 'id,title,release_date',  hint: 'comma-separated projection', wide: true },
-    order:                  { ph: 'release_date,DESC',      hint: 'column,ASC|DESC', wide: true },
-    filter:                 { ph: 'title=Spider',           hint: 'column=value · case-insensitive contains', wide: true },
+    order:                  { ph: 'release_date,DESC',      hint: 'column,ASC|DESC · ;-separate for multiple clauses', wide: true },
+    filter:                 { ph: 'title=Spider',           hint: 'column=value · case-insensitive contains · ;-separate for multiple (ANDed) clauses', wide: true },
     continuity:             { ph: 'MCU',                    hint: '', wide: true },
     multiverse_designation: { ph: 'Earth-616',              hint: '', wide: true },
     is_mcu:                 { ph: 'true',                   hint: 'true | false' },
@@ -2157,7 +2161,8 @@ npm i mcuapi-client
       panel = null;
       out.textContent = 'Searching name and alias for “' + q + '”…';
 
-      // filter= takes one column per request, so name and alias are two calls
+      // filter= supports multiple ;-separated clauses, but they're ANDed — there's
+      // no way to ask for name OR alias in one call, so this is still two requests
       // merged here. Hero names live on alias: "Spider-Man" matches nothing by
       // name and three Peter Parkers by alias.
       var hit = function (field) {
