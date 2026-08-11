@@ -1,10 +1,15 @@
 import IFindAllTVShowsDTO from '@modules/tvshows/dtos/IFindAllTVShowsDTO';
 import IFindAllTVShowsResponseDTO from '@modules/tvshows/dtos/IFindAllTVShowsResponseDTO';
 import ITVShow from '@modules/tvshows/entities/ITVShow';
+import TVSHOW_COLUMNS from '@modules/tvshows/entities/tvshowColumns';
 import TVShow from '@modules/tvshows/infra/typeorm/entities/TVShow';
 import ITVShowsRepository from '@modules/tvshows/repositories/ITVShowsRepository';
 import IRepositoryStatsDTO from '@shared/dtos/IRepositoryStatsDTO';
-import { getRepository, Raw, Repository } from 'typeorm';
+import {
+  buildOrderFromClauses,
+  buildWhereFromFilter,
+} from '@shared/infra/typeorm/listParamsQuery';
+import { FindConditions, getRepository, Repository } from 'typeorm';
 
 class TVShowsRepository implements ITVShowsRepository {
   private ormRepository: Repository<TVShow>;
@@ -25,41 +30,10 @@ class TVShowsRepository implements ITVShowsRepository {
     data?: IFindAllTVShowsDTO,
   ): Promise<IFindAllTVShowsResponseDTO> {
     let skip;
-    const select = data?.columns
-      ?.split(',')
-      .map(column => column.trim()) as (keyof TVShow)[];
 
-    const [columnWhere, whereValue] = data?.filter
-      ? data?.filter.split('=').map(item => item.trim())
-      : [];
+    const orderBy = buildOrderFromClauses(data?.order);
 
-    const [columnOrder, sortingOrder = 'ASC'] = data?.order
-      ? data?.order.split(',').map(item => item.trim())
-      : [];
-
-    const columnsWithNumericValues = [
-      'phase',
-      'season',
-      'number_episodes',
-      'release_date',
-      'last_aired_date',
-      'chronology',
-      'timeline_chronology_order',
-    ];
-    let formattedColumnValue;
-    formattedColumnValue = Raw(alias => `${alias} ILIKE :value`, {
-      value: `%${whereValue}%`,
-    });
-
-    if (columnsWithNumericValues.includes(columnWhere)) {
-      formattedColumnValue = whereValue;
-    }
-
-    const whereConditions: any = {};
-
-    if (columnWhere) {
-      whereConditions[columnWhere] = formattedColumnValue;
-    }
+    const whereConditions = buildWhereFromFilter(data?.filter, TVSHOW_COLUMNS);
 
     if (data?.studio) {
       whereConditions.studio = data.studio;
@@ -78,7 +52,9 @@ class TVShowsRepository implements ITVShowsRepository {
     }
 
     const where =
-      Object.keys(whereConditions).length > 0 ? whereConditions : undefined;
+      Object.keys(whereConditions).length > 0
+        ? (whereConditions as FindConditions<TVShow>)
+        : undefined;
 
     if (data?.page && data.limit) {
       const { page, limit } = data;
@@ -88,11 +64,9 @@ class TVShowsRepository implements ITVShowsRepository {
     const [tvshows, total] = await this.ormRepository.findAndCount({
       ...(data?.limit && { take: data.limit }),
       ...(skip && { skip }),
-      ...(select && { select }),
+      ...(data?.columns && { select: data.columns }),
       ...(where && { where }),
-      ...(columnOrder && {
-        order: { [columnOrder]: sortingOrder.toUpperCase() },
-      }),
+      ...(orderBy && { order: orderBy }),
     });
 
     return { data: tvshows, total };

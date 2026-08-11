@@ -8,6 +8,12 @@ import {
 } from '@modules/tvshows/infra/http/presenters/TVShowPresenter';
 import { getBaseUrl } from '@shared/infra/http/hateoas';
 import { resolveLimit, resolvePage } from '@shared/infra/http/pagination';
+import {
+  resolveColumns,
+  resolveFilter,
+  resolveOrder,
+} from '@shared/infra/http/listParams';
+import TVSHOW_COLUMNS from '@modules/tvshows/entities/tvshowColumns';
 
 interface IRequestQuery {
   columns?: string;
@@ -38,9 +44,9 @@ export default class TVShowsController {
     const { data, total } = await listAllTVShows.execute({
       page,
       limit,
-      columns,
-      order,
-      filter,
+      columns: resolveColumns(columns, TVSHOW_COLUMNS),
+      order: resolveOrder(order, TVSHOW_COLUMNS),
+      filter: resolveFilter(filter, TVSHOW_COLUMNS),
       studio,
       continuity,
       multiverse_designation,

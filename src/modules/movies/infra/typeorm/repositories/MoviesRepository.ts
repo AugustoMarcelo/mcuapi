@@ -1,10 +1,15 @@
-import { Repository, getRepository, Raw } from 'typeorm';
+import { Repository, getRepository, FindConditions } from 'typeorm';
 
 import IMoviesRepository from '@modules/movies/repositories/IMoviesRepository';
 import ICreateMovieDTO from '@modules/movies/dtos/ICreateMovieDTO';
 import IFindAllMoviesDTO from '@modules/movies/dtos/IFindAllMoviesDTO';
 import IFindAllMoviesResponseDTO from '@modules/movies/dtos/IFindAllMoviesResponseDTO';
 import IRepositoryStatsDTO from '@shared/dtos/IRepositoryStatsDTO';
+import MOVIE_COLUMNS from '@modules/movies/entities/movieColumns';
+import {
+  buildOrderFromClauses,
+  buildWhereFromFilter,
+} from '@shared/infra/typeorm/listParamsQuery';
 import Movie from '../entities/Movie';
 
 class MoviesRepository implements IMoviesRepository {
@@ -47,40 +52,9 @@ class MoviesRepository implements IMoviesRepository {
   }: IFindAllMoviesDTO): Promise<IFindAllMoviesResponseDTO> {
     const skip = page && limit && (page - 1) * limit;
 
-    const select = columns
-      ?.split(',')
-      .map(column => column.trim()) as (keyof Movie)[];
+    const orderBy = buildOrderFromClauses(order);
 
-    const [columnOrder, sortingOrder = 'ASC'] = order
-      ? order.split(',').map(item => item.trim())
-      : [];
-
-    const [columnWhere, whereValue] = filter
-      ? filter.split('=').map(item => item.trim())
-      : [];
-
-    const columnsWithNumericValues = [
-      'phase',
-      'chronology',
-      'box_office',
-      'post_credit_scenes',
-      'release_date',
-      'timeline_chronology_order',
-    ];
-    let formattedColumnValue;
-    formattedColumnValue = Raw(alias => `${alias} ILIKE :value`, {
-      value: `%${whereValue}%`,
-    });
-
-    if (columnsWithNumericValues.includes(columnWhere)) {
-      formattedColumnValue = whereValue;
-    }
-
-    const whereConditions: any = {};
-
-    if (columnWhere) {
-      whereConditions[columnWhere] = formattedColumnValue;
-    }
+    const whereConditions = buildWhereFromFilter(filter, MOVIE_COLUMNS);
 
     if (studio) {
       whereConditions.studio = studio;
@@ -99,16 +73,16 @@ class MoviesRepository implements IMoviesRepository {
     }
 
     const where =
-      Object.keys(whereConditions).length > 0 ? whereConditions : undefined;
+      Object.keys(whereConditions).length > 0
+        ? (whereConditions as FindConditions<Movie>)
+        : undefined;
 
     const [movies, total] = await this.ormRepository.findAndCount({
       ...(limit && { take: limit }),
       ...(skip && { skip }),
-      ...(select && { select }),
+      ...(columns && { select: columns }),
       ...(where && { where }),
-      ...(columnOrder && {
-        order: { [columnOrder]: sortingOrder.toUpperCase() },
-      }),
+      ...(orderBy && { order: orderBy }),
     });
 
     return { data: movies, total };

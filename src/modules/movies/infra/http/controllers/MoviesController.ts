@@ -11,6 +11,12 @@ import {
 } from '@modules/movies/infra/http/presenters/MoviePresenter';
 import { getBaseUrl } from '@shared/infra/http/hateoas';
 import { resolveLimit, resolvePage } from '@shared/infra/http/pagination';
+import {
+  resolveColumns,
+  resolveFilter,
+  resolveOrder,
+} from '@shared/infra/http/listParams';
+import MOVIE_COLUMNS from '@modules/movies/entities/movieColumns';
 
 interface IRequestQuery {
   columns?: string;
@@ -41,9 +47,9 @@ export default class MoviesController {
     const { data, total } = await listAllMovies.execute({
       page,
       limit,
-      columns,
-      order,
-      filter,
+      columns: resolveColumns(columns, MOVIE_COLUMNS),
+      order: resolveOrder(order, MOVIE_COLUMNS),
+      filter: resolveFilter(filter, MOVIE_COLUMNS),
       studio,
       continuity,
       multiverse_designation,

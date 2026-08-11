@@ -57,13 +57,29 @@ class GetTimelineService {
   public async execute(multiverse?: string): Promise<ITimelineContinuity[]> {
     // Get all movies and TV shows with timeline data
     const { data: movies } = await this.moviesRepository.findAll({
-      columns: 'id,title,continuity,multiverse_designation,timeline_chronology_order,release_date,type',
-      order: 'timeline_chronology_order,ASC',
+      columns: [
+        'id',
+        'title',
+        'continuity',
+        'multiverse_designation',
+        'timeline_chronology_order',
+        'release_date',
+        'type',
+      ],
+      order: [{ column: 'timeline_chronology_order', direction: 'ASC' }],
     });
 
     const { data: tvshows } = await this.tvshowsRepository.findAll({
-      columns: 'id,title,continuity,multiverse_designation,timeline_chronology_order,release_date,type',
-      order: 'timeline_chronology_order,ASC',
+      columns: [
+        'id',
+        'title',
+        'continuity',
+        'multiverse_designation',
+        'timeline_chronology_order',
+        'release_date',
+        'type',
+      ],
+      order: [{ column: 'timeline_chronology_order', direction: 'ASC' }],
     });
 
     // Combine and filter by multiverse if specified

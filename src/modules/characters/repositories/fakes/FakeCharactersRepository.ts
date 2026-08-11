@@ -1,4 +1,5 @@
 import ICharacter from '@modules/characters/entities/ICharacter';
+import CHARACTER_COLUMNS from '@modules/characters/entities/characterColumns';
 import ICharactersRepository from '@modules/characters/repositories/ICharactersRepository';
 import ICreateCharacterDTO from '@modules/characters/dtos/ICreateCharacterDTO';
 import IFindAllCharactersDTO from '@modules/characters/dtos/IFindAllCharactersDTO';
@@ -6,6 +7,7 @@ import IFindAllCharactersResponseDTO from '@modules/characters/dtos/IFindAllChar
 import IMovie from '@modules/movies/entities/IMovie';
 import ITVShow from '@modules/tvshows/entities/ITVShow';
 import IRepositoryStatsDTO from '@shared/dtos/IRepositoryStatsDTO';
+import compareValues from '@shared/utils/compareValues';
 
 interface IFakeAppearance {
   character_id: number;
@@ -58,10 +60,10 @@ class FakeCharactersRepository implements ICharactersRepository {
       continuity,
       multiverse_designation,
       filter,
+      order,
     } = data;
     let filteredCharacters = [...this.characters];
 
-    // Apply filters
     if (continuity) {
       filteredCharacters = filteredCharacters.filter(
         char => char.continuity === continuity,
@@ -74,14 +76,31 @@ class FakeCharactersRepository implements ICharactersRepository {
       );
     }
 
-    if (filter) {
-      const [field, value] = filter.split('=');
+    filter?.forEach(({ column, value }) => {
       filteredCharacters = filteredCharacters.filter(char => {
-        const charValue = char[field as keyof ICharacter];
-        return (
-          charValue &&
-          String(charValue).toLowerCase().includes(value.toLowerCase())
+        const charValue = char[column];
+
+        if (charValue === undefined || charValue === null) {
+          return false;
+        }
+
+        return CHARACTER_COLUMNS[column] === 'exact'
+          ? String(charValue) === value
+          : String(charValue).toLowerCase().includes(value.toLowerCase());
+      });
+    });
+
+    if (order?.length) {
+      filteredCharacters = [...filteredCharacters].sort((a, b) => {
+        const clause = order.find(
+          ({ column }) => compareValues(a[column], b[column]) !== 0,
         );
+
+        if (!clause) return 0;
+
+        const comparison = compareValues(a[clause.column], b[clause.column]);
+
+        return clause.direction === 'ASC' ? comparison : -comparison;
       });
     }
 

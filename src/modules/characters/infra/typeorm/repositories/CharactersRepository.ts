@@ -1,4 +1,10 @@
-import { Repository, getRepository, Raw, Not, IsNull } from 'typeorm';
+import {
+  Repository,
+  getRepository,
+  Not,
+  IsNull,
+  FindConditions,
+} from 'typeorm';
 
 import IMovie from '@modules/movies/entities/IMovie';
 import ITVShow from '@modules/tvshows/entities/ITVShow';
@@ -7,6 +13,11 @@ import ICreateCharacterDTO from '@modules/characters/dtos/ICreateCharacterDTO';
 import IFindAllCharactersDTO from '@modules/characters/dtos/IFindAllCharactersDTO';
 import IFindAllCharactersResponseDTO from '@modules/characters/dtos/IFindAllCharactersResponseDTO';
 import IRepositoryStatsDTO from '@shared/dtos/IRepositoryStatsDTO';
+import CHARACTER_COLUMNS from '@modules/characters/entities/characterColumns';
+import {
+  buildOrderFromClauses,
+  buildWhereFromFilter,
+} from '@shared/infra/typeorm/listParamsQuery';
 import Character from '../entities/Character';
 import CharacterAppearance from '../entities/CharacterAppearance';
 
@@ -61,38 +72,9 @@ class CharactersRepository implements ICharactersRepository {
   }: IFindAllCharactersDTO): Promise<IFindAllCharactersResponseDTO> {
     const skip = page && limit && (page - 1) * limit;
 
-    const select = columns
-      ?.split(',')
-      .map(column => column.trim()) as (keyof Character)[];
+    const orderBy = buildOrderFromClauses(order);
 
-    const [columnOrder, sortingOrder = 'ASC'] = order
-      ? order.split(',').map(item => item.trim())
-      : [];
-
-    const [columnWhere, whereValue] = filter
-      ? filter.split('=').map(item => item.trim())
-      : [];
-
-    const columnsWithNumericValues = [
-      'id',
-      'variant_of',
-      'first_appearance_movie_id',
-      'first_appearance_tvshow_id',
-    ];
-    let formattedColumnValue;
-    formattedColumnValue = Raw(alias => `${alias} ILIKE :value`, {
-      value: `%${whereValue}%`,
-    });
-
-    if (columnsWithNumericValues.includes(columnWhere)) {
-      formattedColumnValue = whereValue;
-    }
-
-    const whereConditions: any = {};
-
-    if (columnWhere) {
-      whereConditions[columnWhere] = formattedColumnValue;
-    }
+    const whereConditions = buildWhereFromFilter(filter, CHARACTER_COLUMNS);
 
     if (continuity) {
       whereConditions.continuity = continuity;
@@ -103,16 +85,16 @@ class CharactersRepository implements ICharactersRepository {
     }
 
     const where =
-      Object.keys(whereConditions).length > 0 ? whereConditions : undefined;
+      Object.keys(whereConditions).length > 0
+        ? (whereConditions as FindConditions<Character>)
+        : undefined;
 
     const [characters, total] = await this.ormRepository.findAndCount({
       ...(limit && { take: limit }),
       ...(skip && { skip }),
-      ...(select && { select }),
+      ...(columns && { select: columns }),
       ...(where && { where }),
-      ...(columnOrder && {
-        order: { [columnOrder]: sortingOrder.toUpperCase() },
-      }),
+      ...(orderBy && { order: orderBy }),
     });
 
     return { data: characters, total };

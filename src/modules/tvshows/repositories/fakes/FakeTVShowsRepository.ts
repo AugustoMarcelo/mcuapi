@@ -1,9 +1,11 @@
 import IFindAllTVShowsDTO from '@modules/tvshows/dtos/IFindAllTVShowsDTO';
 import IFindAllTVShowsResponseDTO from '@modules/tvshows/dtos/IFindAllTVShowsResponseDTO';
 import ITVShow from '@modules/tvshows/entities/ITVShow';
+import TVSHOW_COLUMNS from '@modules/tvshows/entities/tvshowColumns';
 import TVShow from '@modules/tvshows/infra/typeorm/entities/TVShow';
 import ITVShowsRepository from '@modules/tvshows/repositories/ITVShowsRepository';
 import IRepositoryStatsDTO from '@shared/dtos/IRepositoryStatsDTO';
+import compareValues from '@shared/utils/compareValues';
 
 class FakeTVShowsRepository implements ITVShowsRepository {
   private tvshows: ITVShow[];
@@ -21,31 +23,56 @@ class FakeTVShowsRepository implements ITVShowsRepository {
   public async findAll(
     data?: IFindAllTVShowsDTO,
   ): Promise<IFindAllTVShowsResponseDTO> {
-    let filteredTVShows = this.tvshows;
+    let filteredTVShows = [...this.tvshows];
+
+    data?.filter?.forEach(({ column, value }) => {
+      filteredTVShows = filteredTVShows.filter(tvshow => {
+        const tvshowValue = tvshow[column];
+
+        if (tvshowValue === undefined || tvshowValue === null) {
+          return false;
+        }
+
+        return TVSHOW_COLUMNS[column] === 'exact'
+          ? String(tvshowValue) === value
+          : String(tvshowValue).toLowerCase().includes(value.toLowerCase());
+      });
+    });
+
+    if (data?.order?.length) {
+      const { order } = data;
+
+      filteredTVShows = [...filteredTVShows].sort((a, b) => {
+        const clause = order.find(
+          ({ column }) => compareValues(a[column], b[column]) !== 0,
+        );
+
+        if (!clause) return 0;
+
+        const comparison = compareValues(a[clause.column], b[clause.column]);
+
+        return clause.direction === 'ASC' ? comparison : -comparison;
+      });
+    }
+
+    const total = filteredTVShows.length;
+
+    let pagedTVShows = filteredTVShows;
 
     if (data && data.page && data.limit) {
       const { page, limit } = data;
       const offset = (page - 1) * limit;
 
-      filteredTVShows = filteredTVShows.slice(offset, limit);
-    }
-
-    if (data && data.filter) {
-      const { filter } = data;
-      const [column, value] = filter.split('=') as [keyof ITVShow, string];
-
-      filteredTVShows = filteredTVShows.filter(item =>
-        item[column]?.toString().includes(value),
-      );
+      pagedTVShows = pagedTVShows.slice(offset, offset + limit);
     }
 
     if (data && data.columns) {
-      const columnsArray = data.columns.split(',') as (keyof ITVShow)[];
+      const { columns } = data;
 
-      filteredTVShows = filteredTVShows.map(tvshow => {
+      pagedTVShows = pagedTVShows.map(tvshow => {
         const filterTVShow = new TVShow();
 
-        columnsArray.forEach(item => {
+        columns.forEach(item => {
           Object.assign(filterTVShow, { [item]: tvshow[item] });
         });
 
@@ -54,8 +81,8 @@ class FakeTVShowsRepository implements ITVShowsRepository {
     }
 
     return {
-      data: filteredTVShows,
-      total: filteredTVShows.length,
+      data: pagedTVShows,
+      total,
     };
   }
 
