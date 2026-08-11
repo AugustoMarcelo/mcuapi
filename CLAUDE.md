@@ -102,6 +102,7 @@ HTTP Request → `src/shared/infra/http/routes/index.ts` → Module routes → C
 - SSL enabled when `NODE_ENV=production`
 - Migrations: `src/shared/infra/typeorm/migrations/`
 - Seeds: `src/shared/infra/typeorm/seeds/`
+- `.env`'s `DB_HOST` decides which database every migration, seed, and `dev:server`/`start` run actually hits — see **Environment Variables** below before running any of them.
 
 ### TypeScript Path Aliases
 
@@ -115,6 +116,22 @@ Required in `.env` (see `.env.example`):
 ```
 DB_HOST, DB_USER, DB_PASS, DB_NAME, NODE_ENV
 ```
+
+Root `.env` is **not pinned to local Postgres** — it currently points `DB_HOST` at the
+production Neon database with `NODE_ENV=production`, which is what lets `npm run start`
+serve real data locally. That means migrations, seeds, and `dev:server` all hit whatever
+`.env` currently says, production included, unless it's swapped first.
+
+Before running any migration or seed command (`yarn typeorm:dev migration:run`,
+`yarn seed:run:dev`, or their non-`:dev` counterparts), check `DB_HOST` in `.env` first.
+If it resolves to the Neon host, stop and confirm with the user before proceeding —
+those commands apply directly to the live production database. For local schema/data
+work, point `.env` at `docker-compose up`'s local Postgres instead: the local-Postgres
+values are backed up, untracked, in `.env.local-backup`.
+
+Tests never need this at all — the API's Jest suite runs against fake repositories, not
+a real connection (see Testing), so there's no reason to touch `DB_HOST` just to run
+`yarn test`.
 
 ## API Surface
 
@@ -164,7 +181,9 @@ introduces a new response shape) added by hand in the same change.
 
 ## Testing
 
-Unit tests live alongside services (e.g., `ListAllMoviesService.spec.ts`), using fake repositories instead of a real DB — same pattern for the API and `mcuapi-client`. Every new or changed module needs tests, kept at or above 80% coverage. In the API, coverage is scoped by `collectCoverageFrom` in `jest.config.js` to `src/modules/**/services/*.ts`, `src/modules/**/infra/http/presenters/*.ts`, and `src/shared/infra/http/hateoas/*.ts` — check with `yarn test -- --coverage`.
+Unit tests live alongside services (e.g., `ListAllMoviesService.spec.ts`), using fakes instead of a real DB or live network. Every new or changed module needs tests, kept at or above 80% coverage. In the API, coverage is scoped by `collectCoverageFrom` in `jest.config.js` to `src/modules/**/services/*.ts`, `src/modules/**/infra/http/presenters/*.ts`, and `src/shared/infra/http/hateoas/*.ts` — check with `yarn test -- --coverage`.
+
+The API, `mcuapi-mcp`, and `mcuapi-client` each use a different test runner and fixture style, and only some of them have lint/typecheck wired up at all — see the `mcuapi-quality-gates` skill for the exact commands and pattern per sub-project, and run its gates for every sub-project a change touches before calling the work done.
 
 ## Domain Rules
 
