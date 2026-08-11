@@ -1,0 +1,32 @@
+# MCUAPI
+
+> Free, open, read-only REST API for the Marvel Cinematic Universe — movies, TV shows,
+> characters, and the timeline connecting them across continuities. No API key required.
+
+Base URL: https://mcuapi.up.railway.app/api/v1
+OpenAPI spec: https://mcuapi.up.railway.app/docs/openapi.json
+Interactive docs (Swagger UI): https://mcuapi.up.railway.app/docs
+Health check: https://mcuapi.up.railway.app/health
+
+## Key endpoints
+
+- `GET /movies`, `GET /movies/{id}` — movies, filterable by `studio`/`continuity`/`multiverse_designation`/`is_mcu`
+- `GET /tvshows`, `GET /tvshows/{id}` — TV shows, same filters as movies
+- `GET /characters`, `GET /characters/{id}` — characters, plus `/characters/movie/{id}`, `/characters/tvshow/{id}`, `/characters/{id}/movies`, `/characters/{id}/tvshows`
+- `GET /timeline` — chronological ordering across continuities, independent of release date
+- `GET /upcoming` — movies and TV shows with a future `release_date`, merged and sorted ascending
+- `GET /stats` — dataset-wide counts, including distinct continuities and multiverse designations
+
+## Notes
+
+- Every endpoint is a `GET`; the API never accepts writes.
+- Rate limit: 100 requests/minute per IP.
+- Responses include HAL-style `_links` for hypermedia navigation and are cacheable via `ETag`/`Cache-Control`.
+- Full request/response schemas: see the OpenAPI spec above.
+- A typed TypeScript client is published as `mcuapi-client` on npm.
+- The whole dataset is also mirrored as static JSON on jsDelivr — see the README for URLs.
+
+## Source
+
+Repository: https://github.com/AugustoMarcelo/mcuapi
+Landing page: https://augustomarcelo.github.io/mcuapi/

@@ -51,6 +51,27 @@
         }
       }
     },
+    "/docs/openapi.json": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "summary": "Raw OpenAPI spec",
+        "description": "Returns this OpenAPI document as raw JSON, for tooling and agents that need a fetchable spec URL instead of the rendered Swagger UI at /docs.",
+        "responses": {
+          "200": {
+            "description": "OpenAPI 3.0 document",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/movies": {
       "get": {
         "tags": [

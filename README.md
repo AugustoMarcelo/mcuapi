@@ -7,6 +7,7 @@ A RESTful API serving structured data on the Marvel Cinematic Universe — movie
 ```
 baseURL  https://mcuapi.up.railway.app/api/v1
 docs     https://mcuapi.up.railway.app/docs
+openapi  https://mcuapi.up.railway.app/docs/openapi.json
 health   https://mcuapi.up.railway.app/health
 ```
 
@@ -48,7 +49,7 @@ List endpoints (`/movies`, `/tvshows`, `/characters`, `/upcoming`) return `page`
 | `GET /stats` | Dataset-wide counts — movies, tvshows, characters, titles, and distinct continuities/designations |
 
 > [!TIP]
-> Full request/response schemas live in the [Swagger docs](https://mcuapi.up.railway.app/docs).
+> Full request/response schemas live in the [Swagger docs](https://mcuapi.up.railway.app/docs), also available as a raw [OpenAPI spec](https://mcuapi.up.railway.app/docs/openapi.json). An [`llms.txt`](llms.txt) is also published for LLM agents and tooling.
 
 > [!NOTE]
 > Links are built from the request host by default. Set `APP_URL` (e.g. `APP_URL=https://mcuapi.up.railway.app`) to force the base URL behind a proxy.
