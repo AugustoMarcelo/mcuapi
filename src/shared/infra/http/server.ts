@@ -51,6 +51,14 @@ app.use(
 );
 
 app.use('/health', healthRouter);
+
+// Registered before the /docs mount so swagger-ui-express's catch-all setup
+// middleware — which renders the HTML page for any /docs/* path — never
+// swallows this request.
+app.get('/docs/openapi.json', (request: Request, response: Response) => {
+  response.set('Cache-Control', `public, max-age=${CACHE_MAX_AGE_SECONDS}`);
+  return response.json(swaggerFile);
+});
 app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerFile));
 
 app.use((request: Request, response: Response, next: NextFunction) => {
