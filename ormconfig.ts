@@ -7,8 +7,6 @@ const dev = {
   database: process.env.DB_NAME,
   entities: ['./src/modules/**/infra/typeorm/entities/*.ts'],
   migrations: ['./src/shared/infra/typeorm/migrations/*.ts'],
-  seeds: ['./src/shared/infra/typeorm/seeds/*.ts'],
-  factories: ['./src/shared/infra/typeorm/factories/*.ts'],
   cli: {
     migrationsDir: './src/shared/infra/typeorm/migrations',
   },
@@ -29,8 +27,6 @@ const production = {
   },
   entities: ['./dist/modules/**/infra/typeorm/entities/*.js'],
   migrations: ['./dist/shared/infra/typeorm/migrations/*.js'],
-  seeds: ['./dist/shared/infra/typeorm/seeds/*.js'],
-  factories: ['./dist/shared/infra/typeorm/factories/*.js'],
   cli: {
     migrationsDir: './dist/shared/infra/typeorm/migrations',
   },

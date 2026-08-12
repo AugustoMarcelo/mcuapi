@@ -123,7 +123,6 @@ Create a `.env` from `.env.example` with your database credentials.
 # NODE_ENV=development in .env
 
 npm run typeorm:dev migration:run   # create tables
-npm run seed:run:dev                # seed data
 npm run dev:server                  # start on port 3333 (hot-reload)
 ```
 
@@ -136,7 +135,6 @@ npm run dev:server                  # start on port 3333 (hot-reload)
 # NODE_ENV=production in .env
 
 npm run typeorm migration:run       # create tables
-npm run seed:run                    # seed data
 npm run build                       # compile to ./dist
 npm run start                       # start on port 3333
 ```

@@ -1,22 +1,22 @@
 import ITVShow from '@modules/tvshows/entities/ITVShow';
-import faker from 'faker';
 
-const mockTVShow = (): ITVShow => ({
-  id: faker.random.number(),
-  title: faker.random.words(),
-  overview: faker.random.words(),
-  cover_url: faker.internet.url(),
-  trailer_url: faker.internet.url(),
-  number_episodes: faker.random.number(),
-  season: faker.random.number(),
-  directed_by: faker.name.findName(),
-  phase: faker.random.number(),
-  saga: faker.random.words(),
-  chronology: faker.random.number(),
-  release_date: faker.date.past(),
-  last_aired_date: faker.date.future(),
-  imdb_id: `tt${faker.random.number()}`,
-  updated_at: faker.date.recent(),
+const mockTVShow = (overrides: Partial<ITVShow> = {}): ITVShow => ({
+  id: 1,
+  title: 'Mock TV Show',
+  overview: 'A mock tv show overview',
+  cover_url: 'https://example.com/cover.jpg',
+  trailer_url: 'https://example.com/trailer.mp4',
+  number_episodes: 6,
+  season: 1,
+  directed_by: 'Mock Director',
+  phase: 1,
+  saga: 'Mock Saga',
+  chronology: 1,
+  release_date: new Date('2021-01-01'),
+  last_aired_date: new Date('2021-02-05'),
+  imdb_id: 'tt1234567',
+  updated_at: new Date('2021-02-06'),
+  ...overrides,
 });
 
 export default mockTVShow;

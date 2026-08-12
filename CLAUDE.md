@@ -24,7 +24,6 @@ yarn build                   # Compile TypeScript to dist/ and resolve path alia
 # Database
 yarn typeorm:dev migration:run                              # Run migrations (development)
 yarn typeorm:dev migration:create -- -n MigrationName        # Create migration
-yarn seed:run:dev                                            # Seed database (development)
 docker-compose up                                            # Start PostgreSQL 16 locally
 
 # Testing
@@ -101,8 +100,7 @@ HTTP Request → `src/shared/infra/http/routes/index.ts` → Module routes → C
 - Dev mode uses `src/**/*.ts` source; prod uses `dist/**/*.js`
 - SSL enabled when `NODE_ENV=production`
 - Migrations: `src/shared/infra/typeorm/migrations/`
-- Seeds: `src/shared/infra/typeorm/seeds/`
-- `.env`'s `DB_HOST` decides which database every migration, seed, and `dev:server`/`start` run actually hits — see **Environment Variables** below before running any of them.
+- `.env`'s `DB_HOST` decides which database every migration and `dev:server`/`start` run actually hits — see **Environment Variables** below before running any of them.
 
 ### TypeScript Path Aliases
 
@@ -119,15 +117,15 @@ DB_HOST, DB_USER, DB_PASS, DB_NAME, NODE_ENV
 
 Root `.env` is **not pinned to local Postgres** — it currently points `DB_HOST` at the
 production Neon database with `NODE_ENV=production`, which is what lets `npm run start`
-serve real data locally. That means migrations, seeds, and `dev:server` all hit whatever
-`.env` currently says, production included, unless it's swapped first.
+serve real data locally. That means migrations and `dev:server` all hit whatever `.env`
+currently says, production included, unless it's swapped first.
 
-Before running any migration or seed command (`yarn typeorm:dev migration:run`,
-`yarn seed:run:dev`, or their non-`:dev` counterparts), check `DB_HOST` in `.env` first.
-If it resolves to the Neon host, stop and confirm with the user before proceeding —
-those commands apply directly to the live production database. For local schema/data
-work, point `.env` at `docker-compose up`'s local Postgres instead: the local-Postgres
-values are backed up, untracked, in `.env.local-backup`.
+Before running any migration command (`yarn typeorm:dev migration:run` or its
+non-`:dev` counterpart), check `DB_HOST` in `.env` first. If it resolves to the Neon
+host, stop and confirm with the user before proceeding — those commands apply directly
+to the live production database. For local schema/data work, point `.env` at
+`docker-compose up`'s local Postgres instead: the local-Postgres values are backed up,
+untracked, in `.env.local-backup`.
 
 Tests never need this at all — the API's Jest suite runs against fake repositories, not
 a real connection (see Testing), so there's no reason to touch `DB_HOST` just to run
