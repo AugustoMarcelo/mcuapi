@@ -6,6 +6,8 @@ import ITVShowsRepository from '@modules/tvshows/repositories/ITVShowsRepository
 import TVShowsRepository from '@modules/tvshows/infra/typeorm/repositories/TVShowsRepository';
 import ICharactersRepository from '@modules/characters/repositories/ICharactersRepository';
 import CharactersRepository from '@modules/characters/infra/typeorm/repositories/CharactersRepository';
+import IPeopleRepository from '@modules/people/repositories/IPeopleRepository';
+import PeopleRepository from '@modules/people/infra/typeorm/repositories/PeopleRepository';
 
 container.registerSingleton<IMoviesRepository>(
   'MoviesRepository',
@@ -20,4 +22,9 @@ container.registerSingleton<ITVShowsRepository>(
 container.registerSingleton<ICharactersRepository>(
   'CharactersRepository',
   CharactersRepository,
+);
+
+container.registerSingleton<IPeopleRepository>(
+  'PeopleRepository',
+  PeopleRepository,
 );
