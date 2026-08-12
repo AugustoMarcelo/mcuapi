@@ -1,24 +1,6 @@
-import ITVShow from '@modules/tvshows/entities/ITVShow';
 import FakeTVShowsRepository from '@modules/tvshows/repositories/fakes/FakeTVShowsRepository';
 import ListTVShowsService from '@modules/tvshows/services/ListTVShowsService';
-import faker from 'faker';
-
-const mockTVShow = (): ITVShow => ({
-  id: faker.random.number(),
-  title: faker.random.words(),
-  overview: faker.random.words(),
-  cover_url: faker.internet.url(),
-  trailer_url: faker.internet.url(),
-  number_episodes: faker.random.number(),
-  season: faker.random.number(),
-  directed_by: faker.name.findName(),
-  phase: faker.random.number(),
-  saga: faker.random.words(),
-  chronology: faker.random.number(),
-  release_date: faker.date.past(),
-  last_aired_date: faker.date.future(),
-  updated_at: faker.date.recent(),
-});
+import mockTVShow from '@modules/tvshows/utils/mockTVShow';
 
 describe('ListAllTVShowsService', () => {
   it('Should be able to list tv shows with limit params', async () => {
