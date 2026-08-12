@@ -12,6 +12,7 @@ import {
 import { getBaseUrl } from '@shared/infra/http/hateoas';
 import { resolveLimit, resolvePage } from '@shared/infra/http/pagination';
 import {
+  resolveBoolean,
   resolveColumns,
   resolveFilter,
   resolveOrder,
@@ -53,7 +54,7 @@ export default class MoviesController {
       studio,
       continuity,
       multiverse_designation,
-      is_mcu: is_mcu === 'true' ? true : is_mcu === 'false' ? false : undefined,
+      is_mcu: resolveBoolean(is_mcu),
     });
 
     return response.status(200).json(

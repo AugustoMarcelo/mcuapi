@@ -1,5 +1,6 @@
 import { container } from 'tsyringe';
 import GetTimelineService from './GetTimelineService';
+import ITVShow from '@modules/tvshows/entities/ITVShow';
 
 // Mock repositories
 const mockMoviesRepository = {
@@ -148,7 +149,7 @@ describe('GetTimelineService', () => {
       },
     ];
 
-    const mockTVShows: any[] = [];
+    const mockTVShows: ITVShow[] = [];
 
     mockMoviesRepository.findAll.mockResolvedValue({
       data: mockMovies,

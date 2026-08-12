@@ -21,12 +21,8 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      # Non-blocking for now: the codebase predates the lint setup and has a
-      # backlog of formatting errors. Run `yarn lint:fix && yarn format` once
-      # to clear it, then drop this line to make lint gate merges.
       - name: Lint
         run: yarn lint
-        continue-on-error: true
 
       - name: Test
         run: yarn test

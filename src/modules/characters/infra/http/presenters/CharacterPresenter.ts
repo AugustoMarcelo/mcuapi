@@ -23,6 +23,14 @@ interface IPresentCharacterCollectionParams {
   query: Record<string, unknown>;
 }
 
+interface IPresentCharacterCollectionResult {
+  data: Array<WithLinks<ICharacterWithRelations>>;
+  total: number;
+  page: number;
+  limit?: number;
+  _links: IResourceLinks;
+}
+
 export function presentCharacter(
   character: ICharacterWithRelations,
   baseUrl: string,
@@ -85,7 +93,7 @@ export function presentCharacterCollection({
   baseUrl,
   path,
   query,
-}: IPresentCharacterCollectionParams) {
+}: IPresentCharacterCollectionParams): IPresentCharacterCollectionResult {
   const { _links, meta } = buildPaginationLinks({
     baseUrl,
     path,

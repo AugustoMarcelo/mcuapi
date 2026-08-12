@@ -154,6 +154,7 @@ export async function flush(): Promise<number> {
     await getConnection().query(text, values);
 
     if (droppedKeys > 0) {
+      // eslint-disable-next-line no-console -- surfaces buffer overflow; metrics have no other sink
       console.warn(
         `metrics: dropped ${droppedKeys} keys while buffer was full`,
       );
@@ -164,6 +165,7 @@ export async function flush(): Promise<number> {
   } catch (err) {
     // Losing counters is strictly preferable to breaking the API or
     // accumulating a buffer we can never drain.
+    // eslint-disable-next-line no-console -- surfaces flush failure; metrics have no other sink
     console.error('metrics: flush failed, discarding batch', err);
     return 0;
   }

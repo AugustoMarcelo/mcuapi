@@ -118,13 +118,15 @@ describe('ListAllCharacters', () => {
 
   it('Should be able to paginate results', async () => {
     // Create 5 characters
-    for (let i = 1; i <= 5; i++) {
-      await fakeCharactersRepository.create({
-        name: `Character ${i}`,
-        alias: `Alias ${i}`,
-        continuity: 'MCU',
-      });
-    }
+    await Promise.all(
+      Array.from({ length: 5 }, (_, index) =>
+        fakeCharactersRepository.create({
+          name: `Character ${index + 1}`,
+          alias: `Alias ${index + 1}`,
+          continuity: 'MCU',
+        }),
+      ),
+    );
 
     const result = await listAllCharacters.execute({
       page: 1,

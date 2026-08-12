@@ -16,6 +16,14 @@ interface IPresentMovieCollectionParams {
   query: Record<string, unknown>;
 }
 
+interface IPresentMovieCollectionResult {
+  data: Array<WithLinks<IMovie>>;
+  total: number;
+  page: number;
+  limit?: number;
+  _links: IResourceLinks;
+}
+
 export function presentMovie(
   movie: IMovie,
   baseUrl: string,
@@ -58,7 +66,7 @@ export function presentMovieCollection({
   baseUrl,
   path,
   query,
-}: IPresentMovieCollectionParams) {
+}: IPresentMovieCollectionParams): IPresentMovieCollectionResult {
   const { _links, meta } = buildPaginationLinks({
     baseUrl,
     path,

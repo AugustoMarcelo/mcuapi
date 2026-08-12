@@ -16,6 +16,14 @@ interface IPresentTVShowCollectionParams {
   query: Record<string, unknown>;
 }
 
+interface IPresentTVShowCollectionResult {
+  data: Array<WithLinks<ITVShow>>;
+  total: number;
+  page: number;
+  limit?: number;
+  _links: IResourceLinks;
+}
+
 export function presentTVShow(
   tvshow: ITVShow,
   baseUrl: string,
@@ -58,7 +66,7 @@ export function presentTVShowCollection({
   baseUrl,
   path,
   query,
-}: IPresentTVShowCollectionParams) {
+}: IPresentTVShowCollectionParams): IPresentTVShowCollectionResult {
   const { _links, meta } = buildPaginationLinks({
     baseUrl,
     path,
