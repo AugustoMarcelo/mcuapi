@@ -22,8 +22,8 @@ yarn dev:server              # Start dev server on port 3333 (hot-reload via tsx
 yarn build                   # Compile TypeScript to dist/ and resolve path aliases
 
 # Database
-yarn typeorm:dev migration:run                              # Run migrations (development)
-yarn typeorm:dev migration:create -- -n MigrationName        # Create migration
+yarn typeorm:dev migration:run -- -d src/shared/infra/typeorm/dataSource.ts        # Run migrations (development)
+yarn typeorm:dev migration:create -- src/shared/infra/typeorm/migrations/MigrationName  # Create migration
 docker-compose up                                            # Start PostgreSQL 16 locally
 
 # Testing
@@ -100,7 +100,7 @@ HTTP Request → `src/shared/infra/http/routes/index.ts` → Module routes → C
 - Dev mode uses `src/**/*.ts` source; prod uses `dist/**/*.js`
 - SSL enabled when `NODE_ENV=production`
 - Migrations: `src/shared/infra/typeorm/migrations/`
-- CLI commands (`typeorm:dev`/`typeorm` scripts) pass `-d src/shared/infra/typeorm/dataSource.ts` (or the compiled `.js` path) explicitly — TypeORM 1.x no longer auto-discovers `ormconfig.ts`.
+- TypeORM 1.x no longer auto-discovers `ormconfig.ts`. Commands that touch the database (`migration:run`, `migration:generate`) need `-d src/shared/infra/typeorm/dataSource.ts` (or the compiled `.js` path) passed explicitly; `migration:create` does not accept `-d` at all — it only writes an empty timestamped file and errors on the flag if passed.
 - `.env`'s `DB_HOST` decides which database every migration and `dev:server`/`start` run actually hits — see **Environment Variables** below before running any of them.
 
 ### TypeScript Path Aliases
