@@ -183,6 +183,8 @@ introduces a new response shape) added by hand in the same change.
 
 Unit tests live alongside services (e.g., `ListAllMoviesService.spec.ts`), using fakes instead of a real DB or live network. Every new or changed module needs tests, kept at or above 80% coverage. In the API, coverage is scoped by `collectCoverageFrom` in `jest.config.js` to `src/modules/**/services/*.ts`, `src/modules/**/infra/http/presenters/*.ts`, and `src/shared/infra/http/hateoas/*.ts` — check with `yarn test -- --coverage`.
 
+The API also has `supertest` integration tests that send real HTTP requests through the full Express stack, separate from and not counted toward the coverage scope above: one colocated with each module's routes (e.g. `src/modules/movies/infra/http/routes/movies.routes.spec.ts`), plus `src/shared/infra/http/app.spec.ts` for cross-cutting behavior (404, error handler) that doesn't belong to any one module. New or changed routes need one of these, not just a unit test — see the `mcuapi-quality-gates` skill for the pattern and when it applies.
+
 The API, `mcuapi-mcp`, and `mcuapi-client` each use a different test runner and fixture style, and only some of them have lint/typecheck wired up at all — see the `mcuapi-quality-gates` skill for the exact commands and pattern per sub-project, and run its gates for every sub-project a change touches before calling the work done.
 
 ## Domain Rules

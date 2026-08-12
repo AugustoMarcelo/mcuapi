@@ -37,6 +37,46 @@ describe('ListAllMovies', () => {
 });
 ```
 
+## API (root `src/`) — supertest integration tests
+
+Unit tests above call a controller method directly with a hand-built mock `Request`/`Response`. These instead send a real HTTP request through the full Express stack (middleware, routing, controller, error handler) via `supertest`, importing the app rather than the controller.
+
+- **Per-module route spec** (`src/modules/<name>/infra/http/routes/<name>.routes.spec.ts`, e.g. `movies.routes.spec.ts` next to `movies.routes.ts`): imports the shared app from `@shared/infra/http/app`, mocks `container.resolve` with `jest.spyOn` in `beforeEach`/restores in `afterEach` (not the fake-repository pattern above — the goal here is exercising real HTTP wiring, not business logic), and asserts on `response.status`/`response.body`/`response.headers` for **one representative route**. This is not the place to re-test a service's business logic (that's the unit test's job) — one passing-case request is enough to prove the module is wired into `routes/index.ts` and returns a real HTTP response.
+- **`src/shared/infra/http/app.spec.ts`**: scoped to behavior that belongs to `app.ts` itself, not any one module — the 404 fallback for an unmatched route, and the error handler's `AppError`→status/message and generic-`Error`→500 paths. Do **not** add a new module's route case here; put it in that module's colocated spec instead.
+- **Standalone router spec** (e.g. `src/shared/infra/http/routes/health.routes.spec.ts`): for a router not wired through a module's controller/service stack, mount just that router on a bare `express()` instance instead of the full app, and mock its direct dependency (e.g. `typeorm`'s `getConnection`) rather than `container.resolve`.
+
+Example shape (see `src/modules/movies/infra/http/routes/movies.routes.spec.ts` for the full file):
+
+```ts
+import request from 'supertest';
+import { container } from 'tsyringe';
+
+import app from '@shared/infra/http/app';
+
+describe('movies.routes', () => {
+  let resolveSpy: jest.SpyInstance;
+
+  beforeEach(() => {
+    resolveSpy = jest.spyOn(container, 'resolve');
+  });
+
+  afterEach(() => {
+    resolveSpy.mockRestore();
+  });
+
+  it('Should list movies through the full HTTP stack', async () => {
+    resolveSpy.mockReturnValue({
+      execute: jest.fn().mockResolvedValue({ data: [{ id: 1, title: 'Iron Man' }], total: 1 }),
+    });
+
+    const response = await request(app).get('/api/v1/movies');
+
+    expect(response.status).toBe(200);
+    expect(response.body.data[0].title).toBe('Iron Man');
+  });
+});
+```
+
 ## mcuapi-client — `node:test`
 
 - Runner: Node's built-in test runner via `tsx --test test/*.test.ts` (`npm test`), no Jest, no external assertion library — `node:assert/strict`.

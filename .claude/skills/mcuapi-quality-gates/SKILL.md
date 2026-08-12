@@ -40,7 +40,16 @@ A change can touch more than one (e.g. a new column used by both the API and the
 
 Read `references/test-patterns.md` in full — it documents the fixture style, file naming, and assertion pattern each sub-project already uses (Jest + fake repositories for the API, `node:test` + a stub `fetch` for the client, no wired runner for mcuapi-mcp).
 
-*Done when:* the new/changed test follows the same shape as existing tests in that sub-project, or, for mcuapi-mcp, the report states explicitly that it's a manual check rather than an automated one.
+For the API specifically, decide whether an integration test is also needed, not just a unit test:
+
+| Change | Integration test needed |
+|---|---|
+| New route, or a change to an existing route's status/body/headers, inside a module | Add/update that module's colocated `<name>.routes.spec.ts` (see `references/test-patterns.md`) |
+| New standalone router (not behind a module's controller/service, e.g. `health.routes.ts`) | Give it its own colocated spec |
+| Change to `app.ts`'s own cross-cutting behavior (middleware, error handler, 404 fallback) | Update `src/shared/infra/http/app.spec.ts` |
+| Service/business-logic change with no HTTP-wiring change | Unit test only — no integration spec needed |
+
+*Done when:* the new/changed test follows the same shape as existing tests in that sub-project, the table above has been checked for any API route/wiring change, and, for mcuapi-mcp, the report states explicitly that it's a manual check rather than an automated one.
 
 **Step 4: Landing page (`index.html`) changes need visual proof in the PR, not just a text description**
 
