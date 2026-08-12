@@ -16,7 +16,7 @@ This repo is three independently-tooled sub-projects sharing one working tree. A
 | `src/`, root `*.ts` | API | repo root |
 | `mcuapi-mcp/` | MCP server | `mcuapi-mcp/` |
 | `mcuapi-client/` | Client | `mcuapi-client/` |
-| `index.html` | Landing page | n/a — see Step 4 |
+| `index.html` | Landing page | n/a — see Step 5 |
 
 A change can touch more than one (e.g. a new column used by both the API and the MCP server) — run every affected project's gates, not just one.
 
@@ -51,7 +51,13 @@ For the API specifically, decide whether an integration test is also needed, not
 
 *Done when:* the new/changed test follows the same shape as existing tests in that sub-project, the table above has been checked for any API route/wiring change, and, for mcuapi-mcp, the report states explicitly that it's a manual check rather than an automated one.
 
-**Step 4: Landing page (`index.html`) changes need visual proof in the PR, not just a text description**
+**Step 4: Run the `deslop` skill against the whole branch diff**
+
+Unlike Steps 1-2, this runs once for the entire branch diff, not per sub-project — invoke the `deslop` skill (`~/.claude/skills/deslop/SKILL.md`) to strip AI-generated slop (unnecessary comments, abnormal defensive checks, `any` casts, unneeded nesting) introduced anywhere in the branch before considering the gate satisfied.
+
+*Done when:* the `deslop` skill has been run against the full branch diff and its findings addressed.
+
+**Step 5: Landing page (`index.html`) changes need visual proof in the PR, not just a text description**
 
 `index.html` has no lint/typecheck/test/build — the only gate is manually driving it in a browser (see the repo's `run` skill for the headless-Chromium pattern). That verification is not optional and its evidence belongs in the PR itself:
 
