@@ -19,7 +19,7 @@
     "snapshot": "tsx scripts/build-snapshot.ts"
   },
   "engines": {
-    "node": ">=18"
+    "node": "^20.19.0 || ^22.13.0 || >=24.11.0"
   },
   "dependencies": {
     "class-transformer": "^0.3.1",
