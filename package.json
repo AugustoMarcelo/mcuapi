@@ -20,7 +20,7 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "format:check": "prettier --check \"src/**/*.ts\"",
     "snapshot": "tsx scripts/build-snapshot.ts",
-    "postinstall": "patch-package"
+    "pretest": "patch-package"
   },
   "engines": {
     "node": ">=18"
