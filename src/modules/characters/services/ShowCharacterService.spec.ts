@@ -20,7 +20,9 @@ describe('ShowCharacter', () => {
       multiverse_designation: 'Earth-616',
     });
 
-    const character = await showCharacter.execute({ character_id: createdCharacter.id });
+    const character = await showCharacter.execute({
+      character_id: createdCharacter.id,
+    });
 
     expect(character).toBeDefined();
     expect(character!.id).toBe(createdCharacter.id);
@@ -54,10 +56,12 @@ describe('ShowCharacter', () => {
       variant_of: baseCharacter.id,
     });
 
-    const character = await showCharacter.execute({ character_id: variantCharacter.id });
+    const character = await showCharacter.execute({
+      character_id: variantCharacter.id,
+    });
 
     expect(character).toBeDefined();
     expect(character!.variant_of).toBe(baseCharacter.id);
     expect(character!.continuity).toBe('Sony Spider-Man Universe');
   });
-}); 
+});

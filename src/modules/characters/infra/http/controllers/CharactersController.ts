@@ -73,30 +73,49 @@ export default class CharactersController {
 
     const showCharacter = container.resolve(ShowCharacterService);
 
-    const character = await showCharacter.execute({ character_id: Number(character_id) });
+    const character = await showCharacter.execute({
+      character_id: Number(character_id),
+    });
 
-    return response.status(200).json(presentCharacter(character, getBaseUrl(request)));
+    return response
+      .status(200)
+      .json(presentCharacter(character, getBaseUrl(request)));
   }
 
-  public async getByMovie(request: Request, response: Response): Promise<Response> {
+  public async getByMovie(
+    request: Request,
+    response: Response,
+  ): Promise<Response> {
     const { movie_id } = request.params;
 
     const getCharactersByMovie = container.resolve(GetCharactersByMovieService);
     const characters = await getCharactersByMovie.execute(Number(movie_id));
 
-    return response.status(200).json(presentCharacterArray(characters, getBaseUrl(request)));
+    return response
+      .status(200)
+      .json(presentCharacterArray(characters, getBaseUrl(request)));
   }
 
-  public async getByTVShow(request: Request, response: Response): Promise<Response> {
+  public async getByTVShow(
+    request: Request,
+    response: Response,
+  ): Promise<Response> {
     const { tvshow_id } = request.params;
 
-    const getCharactersByTVShow = container.resolve(GetCharactersByTVShowService);
+    const getCharactersByTVShow = container.resolve(
+      GetCharactersByTVShowService,
+    );
     const characters = await getCharactersByTVShow.execute(Number(tvshow_id));
 
-    return response.status(200).json(presentCharacterArray(characters, getBaseUrl(request)));
+    return response
+      .status(200)
+      .json(presentCharacterArray(characters, getBaseUrl(request)));
   }
 
-  public async getMovies(request: Request, response: Response): Promise<Response> {
+  public async getMovies(
+    request: Request,
+    response: Response,
+  ): Promise<Response> {
     const { character_id } = request.params;
 
     const getMoviesByCharacter = container.resolve(GetMoviesByCharacterService);
@@ -104,17 +123,26 @@ export default class CharactersController {
 
     const baseUrl = getBaseUrl(request);
 
-    return response.status(200).json(movies.map(movie => presentMovie(movie, baseUrl)));
+    return response
+      .status(200)
+      .json(movies.map(movie => presentMovie(movie, baseUrl)));
   }
 
-  public async getTVShows(request: Request, response: Response): Promise<Response> {
+  public async getTVShows(
+    request: Request,
+    response: Response,
+  ): Promise<Response> {
     const { character_id } = request.params;
 
-    const getTVShowsByCharacter = container.resolve(GetTVShowsByCharacterService);
+    const getTVShowsByCharacter = container.resolve(
+      GetTVShowsByCharacterService,
+    );
     const tvshows = await getTVShowsByCharacter.execute(Number(character_id));
 
     const baseUrl = getBaseUrl(request);
 
-    return response.status(200).json(tvshows.map(tvshow => presentTVShow(tvshow, baseUrl)));
+    return response
+      .status(200)
+      .json(tvshows.map(tvshow => presentTVShow(tvshow, baseUrl)));
   }
 }

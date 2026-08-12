@@ -1,5 +1,5 @@
-import TVShowsController from '@modules/tvshows/infra/http/controllers/TVShowsController';
 import { Router } from 'express';
+import TVShowsController from '@modules/tvshows/infra/http/controllers/TVShowsController';
 
 const tvshowsRouter = Router();
 const tvShowsControler = new TVShowsController();

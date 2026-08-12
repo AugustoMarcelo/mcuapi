@@ -10,4 +10,4 @@ export default interface ICharacterAppearance {
    */
   multiverse_designation?: string;
   created_at?: Date;
-} 
+}

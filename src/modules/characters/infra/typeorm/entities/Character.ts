@@ -1,4 +1,3 @@
-import ICharacter from '@modules/characters/entities/ICharacter';
 import {
   Column,
   Entity,
@@ -8,6 +7,7 @@ import {
   ManyToOne,
   JoinColumn,
 } from 'typeorm';
+import ICharacter from '@modules/characters/entities/ICharacter';
 import Movie from '@modules/movies/infra/typeorm/entities/Movie';
 import TVShow from '@modules/tvshows/infra/typeorm/entities/TVShow';
 
@@ -55,7 +55,10 @@ class Character implements ICharacter {
   first_appearance_movie: Movie;
 
   @ManyToOne(() => TVShow)
-  @JoinColumn({ name: 'first_appearance_tvshow_id', referencedColumnName: 'id' })
+  @JoinColumn({
+    name: 'first_appearance_tvshow_id',
+    referencedColumnName: 'id',
+  })
   first_appearance_tvshow: TVShow;
 
   @CreateDateColumn()
@@ -65,4 +68,4 @@ class Character implements ICharacter {
   updated_at: Date;
 }
 
-export default Character; 
+export default Character;

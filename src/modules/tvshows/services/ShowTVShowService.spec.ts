@@ -1,7 +1,7 @@
-import mockTVShow from '@modules/tvshows/utils/mockTVShow';
-import AppError from '@shared/errors/AppError';
 import FakeTVShowsRepository from '../repositories/fakes/FakeTVShowsRepository';
 import ShowTVShowService from './ShowTVShowService';
+import mockTVShow from '@modules/tvshows/utils/mockTVShow';
+import AppError from '@shared/errors/AppError';
 
 let fakeTVShowsRepository: FakeTVShowsRepository;
 let showTVShow: ShowTVShowService;

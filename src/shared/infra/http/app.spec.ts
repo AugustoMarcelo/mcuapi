@@ -1,8 +1,8 @@
 import request from 'supertest';
 import { container } from 'tsyringe';
 
-import AppError from '@shared/errors/AppError';
 import app from './app';
+import AppError from '@shared/errors/AppError';
 
 describe('app', () => {
   let resolveSpy: jest.SpyInstance;

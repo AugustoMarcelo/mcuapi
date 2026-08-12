@@ -1,5 +1,5 @@
-import ICharacter from '@modules/characters/entities/ICharacter';
 import { presentCharacter, presentCharacterArray } from './CharacterPresenter';
+import ICharacter from '@modules/characters/entities/ICharacter';
 
 const baseUrl = 'http://localhost:3333';
 
@@ -13,9 +13,15 @@ describe('CharacterPresenter', () => {
   it('Should add self, movies and tvshows links', () => {
     const presented = presentCharacter(character, baseUrl);
 
-    expect(presented._links.self).toEqual({ href: `${baseUrl}/api/v1/characters/7` });
-    expect(presented._links.movies).toEqual({ href: `${baseUrl}/api/v1/characters/7/movies` });
-    expect(presented._links.tvshows).toEqual({ href: `${baseUrl}/api/v1/characters/7/tvshows` });
+    expect(presented._links.self).toEqual({
+      href: `${baseUrl}/api/v1/characters/7`,
+    });
+    expect(presented._links.movies).toEqual({
+      href: `${baseUrl}/api/v1/characters/7/movies`,
+    });
+    expect(presented._links.tvshows).toEqual({
+      href: `${baseUrl}/api/v1/characters/7/tvshows`,
+    });
   });
 
   it('Should omit variant_of and first_appearance links when the FKs are null', () => {
@@ -37,9 +43,15 @@ describe('CharacterPresenter', () => {
       baseUrl,
     );
 
-    expect(presented._links.variant_of).toEqual({ href: `${baseUrl}/api/v1/characters/3` });
-    expect(presented._links.first_appearance_movie).toEqual({ href: `${baseUrl}/api/v1/movies/5` });
-    expect(presented._links.first_appearance_tvshow).toEqual({ href: `${baseUrl}/api/v1/tvshows/9` });
+    expect(presented._links.variant_of).toEqual({
+      href: `${baseUrl}/api/v1/characters/3`,
+    });
+    expect(presented._links.first_appearance_movie).toEqual({
+      href: `${baseUrl}/api/v1/movies/5`,
+    });
+    expect(presented._links.first_appearance_tvshow).toEqual({
+      href: `${baseUrl}/api/v1/tvshows/9`,
+    });
   });
 
   it('Should not embed relation objects, even when present on the input', () => {
@@ -60,16 +72,27 @@ describe('CharacterPresenter', () => {
     expect(presentedAsRecord.variant_character).toBeUndefined();
     expect(presentedAsRecord.first_appearance_movie).toBeUndefined();
     expect(presentedAsRecord.first_appearance_tvshow).toBeUndefined();
-    expect(presented._links.variant_of).toEqual({ href: `${baseUrl}/api/v1/characters/3` });
-    expect(presented._links.first_appearance_movie).toEqual({ href: `${baseUrl}/api/v1/movies/5` });
-    expect(presented._links.first_appearance_tvshow).toEqual({ href: `${baseUrl}/api/v1/tvshows/9` });
+    expect(presented._links.variant_of).toEqual({
+      href: `${baseUrl}/api/v1/characters/3`,
+    });
+    expect(presented._links.first_appearance_movie).toEqual({
+      href: `${baseUrl}/api/v1/movies/5`,
+    });
+    expect(presented._links.first_appearance_tvshow).toEqual({
+      href: `${baseUrl}/api/v1/tvshows/9`,
+    });
   });
 
   it('Should preserve role_type on array items', () => {
-    const presented = presentCharacterArray([{ ...character, role_type: 'main' }], baseUrl);
+    const presented = presentCharacterArray(
+      [{ ...character, role_type: 'main' }],
+      baseUrl,
+    );
 
     expect(presented[0].role_type).toBe('main');
-    expect(presented[0]._links.self).toEqual({ href: `${baseUrl}/api/v1/characters/7` });
+    expect(presented[0]._links.self).toEqual({
+      href: `${baseUrl}/api/v1/characters/7`,
+    });
   });
 
   it('Should skip id-dependent links when id is missing but keep FK links', () => {
@@ -80,6 +103,8 @@ describe('CharacterPresenter', () => {
 
     expect(presented._links.self).toBeUndefined();
     expect(presented._links.movies).toBeUndefined();
-    expect(presented._links.variant_of).toEqual({ href: `${baseUrl}/api/v1/characters/3` });
+    expect(presented._links.variant_of).toEqual({
+      href: `${baseUrl}/api/v1/characters/3`,
+    });
   });
 });

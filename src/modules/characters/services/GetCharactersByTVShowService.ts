@@ -13,4 +13,4 @@ class GetCharactersByTVShowService {
   }
 }
 
-export default GetCharactersByTVShowService; 
+export default GetCharactersByTVShowService;

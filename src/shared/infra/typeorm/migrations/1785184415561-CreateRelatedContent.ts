@@ -5,8 +5,7 @@ import {
   TableForeignKey,
 } from 'typeorm';
 
-export default class CreateRelatedContent1785184415561
-  implements MigrationInterface {
+export default class CreateRelatedContent1785184415561 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
@@ -50,8 +49,14 @@ export default class CreateRelatedContent1785184415561
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey('related_content', 'FKRelatedContentMovieId');
-    await queryRunner.dropForeignKey('related_content', 'FKRelatedContentTVShowId');
+    await queryRunner.dropForeignKey(
+      'related_content',
+      'FKRelatedContentMovieId',
+    );
+    await queryRunner.dropForeignKey(
+      'related_content',
+      'FKRelatedContentTVShowId',
+    );
     await queryRunner.dropTable('related_content');
   }
 }

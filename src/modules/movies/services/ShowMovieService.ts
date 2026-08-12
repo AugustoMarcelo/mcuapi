@@ -1,7 +1,7 @@
 import { injectable, inject } from 'tsyringe';
-import AppError from '@shared/errors/AppError';
 import IMoviesRepository from '../repositories/IMoviesRepository';
 import IMovie from '../entities/IMovie';
+import AppError from '@shared/errors/AppError';
 
 interface IRequest {
   movie_id: number;

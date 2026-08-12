@@ -75,6 +75,8 @@ export default class TVShowsController {
       return response.status(404).json({ message: 'TV Show not found' });
     }
 
-    return response.status(200).json(presentTVShow(tvshow, getBaseUrl(request)));
+    return response
+      .status(200)
+      .json(presentTVShow(tvshow, getBaseUrl(request)));
   }
 }

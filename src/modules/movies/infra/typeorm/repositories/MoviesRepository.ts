@@ -1,5 +1,6 @@
 import { Repository, getRepository, FindConditions } from 'typeorm';
 
+import Movie from '../entities/Movie';
 import IMoviesRepository from '@modules/movies/repositories/IMoviesRepository';
 import ICreateMovieDTO from '@modules/movies/dtos/ICreateMovieDTO';
 import IFindAllMoviesDTO from '@modules/movies/dtos/IFindAllMoviesDTO';
@@ -10,7 +11,6 @@ import {
   buildOrderFromClauses,
   buildWhereFromFilter,
 } from '@shared/infra/typeorm/listParamsQuery';
-import Movie from '../entities/Movie';
 
 class MoviesRepository implements IMoviesRepository {
   private ormRepository: Repository<Movie>;

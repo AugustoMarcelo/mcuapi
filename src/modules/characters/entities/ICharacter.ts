@@ -12,4 +12,4 @@ export default interface ICharacter {
   first_appearance_tvshow_id?: number;
   created_at?: Date;
   updated_at?: Date;
-} 
+}

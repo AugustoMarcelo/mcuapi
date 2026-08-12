@@ -1,5 +1,5 @@
-import { ColumnAllowList } from '@shared/infra/http/listParams';
 import ICharacter from './ICharacter';
+import { ColumnAllowList } from '@shared/infra/http/listParams';
 
 export type CharacterColumn = keyof ICharacter;
 

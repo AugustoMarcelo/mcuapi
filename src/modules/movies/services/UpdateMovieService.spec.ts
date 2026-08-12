@@ -1,6 +1,6 @@
-import AppError from '@shared/errors/AppError';
 import FakeMoviesRepository from '../repositories/fakes/FakeMoviesRepository';
 import UpdateMovieService from './UpdateMovieService';
+import AppError from '@shared/errors/AppError';
 
 let fakeMoviesRepository: FakeMoviesRepository;
 let updateMovie: UpdateMovieService;

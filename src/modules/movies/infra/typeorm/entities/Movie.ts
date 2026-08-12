@@ -1,5 +1,3 @@
-import IMovie from '@modules/movies/entities/IMovie';
-import TVShow from '@modules/tvshows/infra/typeorm/entities/TVShow';
 import {
   Column,
   Entity,
@@ -8,6 +6,8 @@ import {
   PrimaryColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import IMovie from '@modules/movies/entities/IMovie';
+import TVShow from '@modules/tvshows/infra/typeorm/entities/TVShow';
 
 @Entity({ name: 'movies', schema: 'public' })
 class Movie implements IMovie {

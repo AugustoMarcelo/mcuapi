@@ -16,7 +16,7 @@ const req = (originalUrl: string, matched = true): Request =>
     originalUrl,
     baseUrl: '',
     route: matched ? { path: '/ignored' } : undefined,
-  } as unknown as Request);
+  }) as unknown as Request;
 
 describe('today', () => {
   it('Should format as YYYY-MM-DD in UTC', () => {

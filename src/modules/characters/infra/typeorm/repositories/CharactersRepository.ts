@@ -6,6 +6,8 @@ import {
   FindConditions,
 } from 'typeorm';
 
+import Character from '../entities/Character';
+import CharacterAppearance from '../entities/CharacterAppearance';
 import IMovie from '@modules/movies/entities/IMovie';
 import ITVShow from '@modules/tvshows/entities/ITVShow';
 import ICharactersRepository from '@modules/characters/repositories/ICharactersRepository';
@@ -18,8 +20,6 @@ import {
   buildOrderFromClauses,
   buildWhereFromFilter,
 } from '@shared/infra/typeorm/listParamsQuery';
-import Character from '../entities/Character';
-import CharacterAppearance from '../entities/CharacterAppearance';
 
 /**
  * Which reality a character was actually in for a given title.

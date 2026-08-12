@@ -1,8 +1,8 @@
-import IRepositoryStatsDTO from '@shared/dtos/IRepositoryStatsDTO';
 import IMovie from '../entities/IMovie';
 import ICreateMovieDTO from '../dtos/ICreateMovieDTO';
 import IFindAllMoviesDTO from '../dtos/IFindAllMoviesDTO';
 import IFindAllMoviesResponseDTO from '../dtos/IFindAllMoviesResponseDTO';
+import IRepositoryStatsDTO from '@shared/dtos/IRepositoryStatsDTO';
 
 export default interface IMoviesRepository {
   create(data: ICreateMovieDTO): Promise<IMovie>;

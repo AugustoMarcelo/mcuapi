@@ -6,11 +6,11 @@ import cors from 'cors';
 import rateLimit from 'express-rate-limit';
 import 'express-async-errors';
 
-import AppError from '@shared/errors/AppError';
-import swaggerFile from '@config/swagger.json';
 import routes from './routes';
 import healthRouter from './routes/health.routes';
 import { metricsMiddleware } from './metrics';
+import swaggerFile from '@config/swagger.json';
+import AppError from '@shared/errors/AppError';
 import '@shared/container';
 
 // The dataset changes a handful of times a month, so responses are safe to

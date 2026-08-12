@@ -10,11 +10,14 @@ class ListAllCharactersService {
     private charactersRepository: ICharactersRepository,
   ) {}
 
-  public async execute(data: IFindAllCharactersDTO): Promise<IFindAllCharactersResponseDTO> {
-    const { data: characters, total } = await this.charactersRepository.findAll(data);
+  public async execute(
+    data: IFindAllCharactersDTO,
+  ): Promise<IFindAllCharactersResponseDTO> {
+    const { data: characters, total } =
+      await this.charactersRepository.findAll(data);
 
     return { data: characters, total };
   }
 }
 
-export default ListAllCharactersService; 
+export default ListAllCharactersService;

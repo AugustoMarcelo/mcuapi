@@ -67,4 +67,4 @@ export default class AddMultiverseFieldsToMovies1703123456789 implements Migrati
     await queryRunner.dropColumn('movies', 'timeline_starts_at');
     await queryRunner.dropColumn('movies', 'timeline_ends_at');
   }
-} 
+}

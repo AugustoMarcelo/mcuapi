@@ -12,4 +12,4 @@ charactersRouter.get('/:character_id/movies', charactersController.getMovies);
 charactersRouter.get('/:character_id/tvshows', charactersController.getTVShows);
 charactersRouter.get('/:character_id', charactersController.show);
 
-export default charactersRouter; 
+export default charactersRouter;

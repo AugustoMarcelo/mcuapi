@@ -1,3 +1,4 @@
+import { FindConditions, getRepository, Repository } from 'typeorm';
 import IFindAllTVShowsDTO from '@modules/tvshows/dtos/IFindAllTVShowsDTO';
 import IFindAllTVShowsResponseDTO from '@modules/tvshows/dtos/IFindAllTVShowsResponseDTO';
 import ITVShow from '@modules/tvshows/entities/ITVShow';
@@ -9,7 +10,6 @@ import {
   buildOrderFromClauses,
   buildWhereFromFilter,
 } from '@shared/infra/typeorm/listParamsQuery';
-import { FindConditions, getRepository, Repository } from 'typeorm';
 
 class TVShowsRepository implements ITVShowsRepository {
   private ormRepository: Repository<TVShow>;

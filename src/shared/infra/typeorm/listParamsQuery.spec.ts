@@ -1,6 +1,6 @@
 import { FindOperator } from 'typeorm';
-import { ColumnAllowList } from '@shared/infra/http/listParams';
 import { buildOrderFromClauses, buildWhereFromFilter } from './listParamsQuery';
+import { ColumnAllowList } from '@shared/infra/http/listParams';
 
 type Column = 'title' | 'phase';
 
