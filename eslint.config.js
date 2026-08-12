@@ -46,6 +46,20 @@ module.exports = [
       // airbnb-base enabled this; deliberate server-side logging gets an explicit
       // disable + reason instead of being silently allowed
       'no-console': 'error',
+      // airbnb-base enabled this; exported functions should declare their return
+      // type rather than leaving it inferred
+      '@typescript-eslint/explicit-module-boundary-types': 'error',
+      // airbnb-base enabled this; prefer +=/Array.from over the increment operator
+      'no-plusplus': 'error',
+      // airbnb-base enabled this; sequential awaits in a loop are usually a missed
+      // Promise.all, and worth calling out explicitly when they're not
+      'no-await-in-loop': 'error',
+      // note: @typescript-eslint/ban-types was removed upstream in v6+; its
+      // replacements (no-empty-object-type, no-unsafe-function-type,
+      // no-wrapper-object-types) already ship in tsPlugin's recommended config above
+      // airbnb-base enabled this as a warning, not an error — `!` is sometimes the
+      // most readable option in test assertions after a toBeDefined() check
+      '@typescript-eslint/no-non-null-assertion': 'warn',
       // preserved from the pre-upgrade config: `_`-prefixed unused args (e.g. Express
       // middleware signatures) are intentional, not dead code
       '@typescript-eslint/no-unused-vars': [

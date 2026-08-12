@@ -124,15 +124,17 @@ class GetTimelineService {
     filteredEntries.forEach(entry => {
       const key = `${entry.continuity}-${entry.multiverse_designation}`;
 
-      if (!timelineMap.has(key)) {
-        timelineMap.set(key, {
+      let group = timelineMap.get(key);
+      if (!group) {
+        group = {
           continuity: entry.continuity,
           multiverse_designation: entry.multiverse_designation,
           entries: [],
-        });
+        };
+        timelineMap.set(key, group);
       }
 
-      timelineMap.get(key)!.entries.push(entry);
+      group.entries.push(entry);
     });
 
     // Sort entries within each continuity: real chronology_order first (by

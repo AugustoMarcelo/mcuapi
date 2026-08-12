@@ -62,6 +62,9 @@ async function collectAll<T extends Identified>(
   while (records.length < total) {
     const url = `${base}/api/v1/${resource}?limit=${PAGE_SIZE}&page=${page}`;
 
+    // Each page's request depends on `total` from the previous response, so
+    // pages can't be fetched in parallel.
+    // eslint-disable-next-line no-await-in-loop
     const envelope = await getJson<Envelope<T>>(url);
 
     total = envelope.total;
