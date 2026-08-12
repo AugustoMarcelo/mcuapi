@@ -1,6 +1,6 @@
 import ITVShow from '@modules/tvshows/entities/ITVShow';
 
-const mockTVShow = (): ITVShow => ({
+const mockTVShow = (overrides: Partial<ITVShow> = {}): ITVShow => ({
   id: 1,
   title: 'Mock TV Show',
   overview: 'A mock tv show overview',
@@ -16,6 +16,7 @@ const mockTVShow = (): ITVShow => ({
   last_aired_date: new Date('2021-02-05'),
   imdb_id: 'tt1234567',
   updated_at: new Date('2021-02-06'),
+  ...overrides,
 });
 
 export default mockTVShow;
