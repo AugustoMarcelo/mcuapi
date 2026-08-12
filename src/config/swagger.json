@@ -766,6 +766,321 @@
         }
       }
     },
+    "/api/v1/people": {
+      "get": {
+        "tags": [
+          "People"
+        ],
+        "summary": "List all people",
+        "description": "List all people (actors and directors) normalized out of the played_by/directed_by fields on characters, movies, and TV shows",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": "1"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit of items to return. Defaults to 10; values above 100 are capped at 100.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1,
+              "maximum": 100,
+              "example": 10
+            }
+          },
+          {
+            "name": "columns",
+            "in": "query",
+            "description": "Comma-separated person properties to be returned. Unknown properties are ignored",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "name"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "Order by column and sorting type (ASC, DESC). Multiple clauses can be separated by semicolons; unknown columns are ignored",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "name,ASC"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Filter by column=value. Multiple clauses can be separated by semicolons; unknown columns are ignored",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "name=Robert Downey Jr."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Person"
+                      }
+                    },
+                    "total": {
+                      "type": "integer",
+                      "description": "Total of people"
+                    },
+                    "page": {
+                      "type": "integer",
+                      "description": "Current page (1 when not paginated)",
+                      "example": 1
+                    },
+                    "limit": {
+                      "type": "integer",
+                      "description": "Items per page (present only when the limit query param is used)",
+                      "example": 10
+                    },
+                    "_links": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/ResourceLinks"
+                        }
+                      ],
+                      "description": "Collection links: self, first, last, and prev/next when applicable. All original query params are preserved."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/people/{person_id}": {
+      "get": {
+        "tags": [
+          "People"
+        ],
+        "summary": "Get a person",
+        "description": "Get a person by ID",
+        "parameters": [
+          {
+            "name": "person_id",
+            "in": "path",
+            "description": "Person ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Person"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Person not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Person not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/people/{person_id}/characters": {
+      "get": {
+        "tags": [
+          "People"
+        ],
+        "summary": "Get characters played by a person",
+        "description": "Get every character a person has played, in in-story chronological recast order",
+        "parameters": [
+          {
+            "name": "person_id",
+            "in": "path",
+            "description": "Person ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Character"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "recast_order": {
+                            "type": "integer",
+                            "description": "In-story chronological position among this character's actors; 1 is earliest",
+                            "example": 1
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Person not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Person not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/people/{person_id}/titles": {
+      "get": {
+        "tags": [
+          "People"
+        ],
+        "summary": "Get titles directed by a person",
+        "description": "Get every movie and TV show a person directed, merged and sorted by release date",
+        "parameters": [
+          {
+            "name": "person_id",
+            "in": "path",
+            "description": "Person ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "allOf": [
+                      {
+                        "anyOf": [
+                          {
+                            "$ref": "#/components/schemas/Movie"
+                          },
+                          {
+                            "$ref": "#/components/schemas/TVShow"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "movie",
+                              "tvshow"
+                            ],
+                            "description": "Content type",
+                            "example": "movie"
+                          },
+                          "role": {
+                            "type": "string",
+                            "description": "Person's role for this title",
+                            "example": "director"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Person not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Person not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/api/v1/timeline": {
       "get": {
         "tags": [
@@ -1404,6 +1719,33 @@
             "type": "string",
             "format": "date-time",
             "description": "When the character was last updated"
+          },
+          "_links": {
+            "$ref": "#/components/schemas/ResourceLinks"
+          }
+        }
+      },
+      "Person": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Person ID"
+          },
+          "name": {
+            "type": "string",
+            "description": "Person's real name",
+            "example": "Robert Downey Jr."
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the person was created in the database"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the person was last updated"
           },
           "_links": {
             "$ref": "#/components/schemas/ResourceLinks"
