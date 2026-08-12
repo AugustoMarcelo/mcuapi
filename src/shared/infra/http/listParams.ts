@@ -66,6 +66,13 @@ export function resolveOrder<T extends string>(
   return clauses.length ? clauses : undefined;
 }
 
+export function resolveBoolean(value: unknown): boolean | undefined {
+  if (value === 'true') return true;
+  if (value === 'false') return false;
+
+  return undefined;
+}
+
 export function resolveFilter<T extends string>(
   value: unknown,
   allowList: ColumnAllowList<T>,

@@ -14,21 +14,21 @@ describe('GetCharactersByMovie', () => {
 
   it('Should be able to get characters by movie ID', async () => {
     // Create test characters
-    const character1 = await fakeCharactersRepository.create({
+    await fakeCharactersRepository.create({
       name: 'Tony Stark',
       alias: 'Iron Man',
       continuity: 'MCU',
       first_appearance_movie_id: 1,
     });
 
-    const character2 = await fakeCharactersRepository.create({
+    await fakeCharactersRepository.create({
       name: 'Pepper Potts',
       alias: undefined,
       continuity: 'MCU',
       first_appearance_movie_id: 1,
     });
 
-    const character3 = await fakeCharactersRepository.create({
+    await fakeCharactersRepository.create({
       name: 'Steve Rogers',
       alias: 'Captain America',
       continuity: 'MCU',
@@ -58,7 +58,7 @@ describe('GetCharactersByMovie', () => {
     });
 
     // Create variant
-    const variantCharacter = await fakeCharactersRepository.create({
+    await fakeCharactersRepository.create({
       name: 'Peter Parker',
       alias: 'Spider-Man',
       continuity: 'Sony Spider-Man Universe',

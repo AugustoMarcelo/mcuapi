@@ -5,19 +5,13 @@ import GetUpcomingService from '@modules/upcoming/services/GetUpcomingService';
 import { presentUpcomingCollection } from '@modules/upcoming/infra/http/presenters/UpcomingPresenter';
 import { getBaseUrl } from '@shared/infra/http/hateoas';
 import { resolveLimit, resolvePage } from '@shared/infra/http/pagination';
+import { resolveBoolean } from '@shared/infra/http/listParams';
 
 interface IRequestQuery {
   type?: 'movie' | 'tvshow';
   continuity?: string;
   multiverse_designation?: string;
   is_mcu?: string;
-}
-
-function parseBooleanQuery(value: string | undefined): boolean | undefined {
-  if (value === 'true') return true;
-  if (value === 'false') return false;
-
-  return undefined;
 }
 
 export default class UpcomingController {
@@ -35,7 +29,7 @@ export default class UpcomingController {
       type,
       continuity,
       multiverse_designation,
-      is_mcu: parseBooleanQuery(is_mcu),
+      is_mcu: resolveBoolean(is_mcu),
     });
 
     return response.status(200).json(

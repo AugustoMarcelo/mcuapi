@@ -4,7 +4,7 @@ import { container } from 'tsyringe';
 import CharactersController from './CharactersController';
 
 jest.mock('tsyringe', () => ({
-  ...(jest.requireActual('tsyringe') as object),
+  ...jest.requireActual<typeof import('tsyringe')>('tsyringe'),
   container: { resolve: jest.fn() },
 }));
 

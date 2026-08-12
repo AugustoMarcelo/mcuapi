@@ -43,6 +43,9 @@ module.exports = [
       'no-nested-ternary': 'error',
       // airbnb-base enabled this; keep import grouping/order enforced
       'import/order': 'error',
+      // airbnb-base enabled this; deliberate server-side logging gets an explicit
+      // disable + reason instead of being silently allowed
+      'no-console': 'error',
       // preserved from the pre-upgrade config: `_`-prefixed unused args (e.g. Express
       // middleware signatures) are intentional, not dead code
       '@typescript-eslint/no-unused-vars': [

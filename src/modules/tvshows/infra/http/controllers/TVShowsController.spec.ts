@@ -4,7 +4,7 @@ import { container } from 'tsyringe';
 import TVShowsController from './TVShowsController';
 
 jest.mock('tsyringe', () => ({
-  ...(jest.requireActual('tsyringe') as object),
+  ...jest.requireActual<typeof import('tsyringe')>('tsyringe'),
   container: { resolve: jest.fn() },
 }));
 
