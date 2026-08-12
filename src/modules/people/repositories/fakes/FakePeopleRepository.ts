@@ -58,6 +58,7 @@ class FakePeopleRepository implements IPeopleRepository {
   public async findAll({
     page = 1,
     limit = 10,
+    columns,
     filter,
     order,
   }: IFindAllPeopleDTO): Promise<IFindAllPeopleResponseDTO> {
@@ -93,7 +94,19 @@ class FakePeopleRepository implements IPeopleRepository {
 
     const startIndex = (page - 1) * limit;
     const endIndex = startIndex + limit;
-    const paginatedPeople = filteredPeople.slice(startIndex, endIndex);
+    let paginatedPeople = filteredPeople.slice(startIndex, endIndex);
+
+    if (columns) {
+      paginatedPeople = paginatedPeople.map(person => {
+        const projectedPerson: Partial<IPerson> = {};
+
+        columns.forEach(column => {
+          Object.assign(projectedPerson, { [column]: person[column] });
+        });
+
+        return projectedPerson as IPerson;
+      });
+    }
 
     return {
       data: paginatedPeople,

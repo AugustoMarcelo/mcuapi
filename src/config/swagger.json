@@ -933,7 +933,7 @@
           "People"
         ],
         "summary": "Get characters played by a person",
-        "description": "Get every character a person has played, in in-story chronological recast order",
+        "description": "Get every character a person has played, in the order they appear in the character's played_by field",
         "parameters": [
           {
             "name": "person_id",
@@ -963,7 +963,7 @@
                         "properties": {
                           "recast_order": {
                             "type": "integer",
-                            "description": "In-story chronological position among this character's actors; 1 is earliest",
+                            "description": "Position preserved from the character's played_by sequence; 1 is first-listed",
                             "example": 1
                           }
                         }

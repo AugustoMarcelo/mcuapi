@@ -2,6 +2,7 @@ import {
   MigrationInterface,
   QueryRunner,
   Table,
+  TableCheck,
   TableForeignKey,
 } from 'typeorm';
 
@@ -18,11 +19,15 @@ function splitNames(value: string): string[] {
     .filter(Boolean);
 }
 
-async function upsertPersonId(
-  queryRunner: QueryRunner,
-  cache: Map<string, number>,
-  name: string,
-): Promise<number> {
+async function upsertPersonId({
+  queryRunner,
+  cache,
+  name,
+}: {
+  queryRunner: QueryRunner;
+  cache: Map<string, number>;
+  name: string;
+}): Promise<number> {
   const cached = cache.get(name);
 
   if (cached) {
@@ -222,6 +227,15 @@ export default class CreatePeople1786200000000 implements MigrationInterface {
       }),
     );
 
+    await queryRunner.createCheckConstraint(
+      'person_titles',
+      new TableCheck({
+        name: 'PersonTitleExactlyOneTarget',
+        columnNames: ['movie_id', 'tvshow_id'],
+        expression: 'num_nonnulls(movie_id, tvshow_id) = 1',
+      }),
+    );
+
     const personIdByName = new Map<string, number>();
 
     const characters: IPersonSourceRow[] = await queryRunner.query(
@@ -232,11 +246,11 @@ export default class CreatePeople1786200000000 implements MigrationInterface {
       const names = splitNames(character.played_by as string);
 
       for (const [index, name] of names.entries()) {
-        const personId = await upsertPersonId(
+        const personId = await upsertPersonId({
           queryRunner,
-          personIdByName,
+          cache: personIdByName,
           name,
-        );
+        });
 
         await queryRunner.query(
           'INSERT INTO person_characters (person_id, character_id, recast_order, created_at) VALUES ($1, $2, $3, now())',
@@ -253,11 +267,11 @@ export default class CreatePeople1786200000000 implements MigrationInterface {
       const names = splitNames(movie.directed_by as string);
 
       for (const name of names) {
-        const personId = await upsertPersonId(
+        const personId = await upsertPersonId({
           queryRunner,
-          personIdByName,
+          cache: personIdByName,
           name,
-        );
+        });
 
         await queryRunner.query(
           "INSERT INTO person_titles (person_id, movie_id, role, created_at) VALUES ($1, $2, 'director', now())",
@@ -274,11 +288,11 @@ export default class CreatePeople1786200000000 implements MigrationInterface {
       const names = splitNames(tvshow.directed_by as string);
 
       for (const name of names) {
-        const personId = await upsertPersonId(
+        const personId = await upsertPersonId({
           queryRunner,
-          personIdByName,
+          cache: personIdByName,
           name,
-        );
+        });
 
         await queryRunner.query(
           "INSERT INTO person_titles (person_id, tvshow_id, role, created_at) VALUES ($1, $2, 'director', now())",
@@ -289,6 +303,10 @@ export default class CreatePeople1786200000000 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.dropCheckConstraint(
+      'person_titles',
+      'PersonTitleExactlyOneTarget',
+    );
     await queryRunner.dropForeignKey('person_titles', 'PersonTitlePerson');
     await queryRunner.dropForeignKey('person_titles', 'PersonTitleMovie');
     await queryRunner.dropForeignKey('person_titles', 'PersonTitleTVShow');

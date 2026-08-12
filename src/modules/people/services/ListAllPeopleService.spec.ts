@@ -60,4 +60,18 @@ describe('ListAllPeople', () => {
       'Robert Downey Jr.',
     ]);
   });
+
+  it('Should project only the requested columns', async () => {
+    fakePeopleRepository.seedPerson({ name: 'Robert Downey Jr.' });
+
+    const result = await listAllPeople.execute({
+      page: 1,
+      limit: 10,
+      columns: ['name'],
+    });
+
+    expect(result.data[0].name).toBe('Robert Downey Jr.');
+    expect(result.data[0].id).toBeUndefined();
+    expect(result.data[0].created_at).toBeUndefined();
+  });
 });
