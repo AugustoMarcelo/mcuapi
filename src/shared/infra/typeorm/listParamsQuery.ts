@@ -48,6 +48,19 @@ export function buildWhereFromFilter<T extends string>(
   return where;
 }
 
+export function buildSelectFromColumns<T extends string>(
+  columns: T[] | undefined,
+): Record<T, true> | undefined {
+  if (!columns?.length) {
+    return undefined;
+  }
+
+  return Object.fromEntries(columns.map(column => [column, true])) as Record<
+    T,
+    true
+  >;
+}
+
 export function buildOrderFromClauses<T extends string>(
   order: OrderClause<T>[] | undefined,
 ): Record<string, 'ASC' | 'DESC'> | undefined {

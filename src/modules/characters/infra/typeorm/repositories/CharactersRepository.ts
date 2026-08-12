@@ -1,13 +1,8 @@
-import {
-  Repository,
-  getRepository,
-  Not,
-  IsNull,
-  FindConditions,
-} from 'typeorm';
+import { Repository, Not, IsNull, FindOptionsWhere } from 'typeorm';
 
 import Character from '../entities/Character';
 import CharacterAppearance from '../entities/CharacterAppearance';
+import AppDataSource from '@shared/infra/typeorm/dataSource';
 import IMovie from '@modules/movies/entities/IMovie';
 import ITVShow from '@modules/tvshows/entities/ITVShow';
 import ICharactersRepository from '@modules/characters/repositories/ICharactersRepository';
@@ -18,6 +13,7 @@ import IRepositoryStatsDTO from '@shared/dtos/IRepositoryStatsDTO';
 import CHARACTER_COLUMNS from '@modules/characters/entities/characterColumns';
 import {
   buildOrderFromClauses,
+  buildSelectFromColumns,
   buildWhereFromFilter,
 } from '@shared/infra/typeorm/listParamsQuery';
 
@@ -40,7 +36,7 @@ class CharactersRepository implements ICharactersRepository {
   private ormRepository: Repository<Character>;
 
   constructor() {
-    this.ormRepository = getRepository(Character);
+    this.ormRepository = AppDataSource.getRepository(Character);
   }
 
   public async create(data: ICreateCharacterDTO): Promise<Character> {
@@ -56,9 +52,11 @@ class CharactersRepository implements ICharactersRepository {
   }
 
   public async findById(id: number): Promise<Character | undefined> {
-    const findCharacter = await this.ormRepository.findOne(id);
+    const findCharacter = await this.ormRepository.findOne({
+      where: { id },
+    });
 
-    return findCharacter;
+    return findCharacter ?? undefined;
   }
 
   public async findAll({
@@ -86,13 +84,15 @@ class CharactersRepository implements ICharactersRepository {
 
     const where =
       Object.keys(whereConditions).length > 0
-        ? (whereConditions as FindConditions<Character>)
+        ? (whereConditions as FindOptionsWhere<Character>)
         : undefined;
+
+    const select = buildSelectFromColumns(columns);
 
     const [characters, total] = await this.ormRepository.findAndCount({
       ...(limit && { take: limit }),
       ...(skip && { skip }),
-      ...(columns && { select: columns }),
+      ...(select && { select }),
       ...(where && { where }),
       ...(orderBy && { order: orderBy }),
     });
@@ -103,10 +103,11 @@ class CharactersRepository implements ICharactersRepository {
   public async findByMovieId(
     movie_id: number,
   ): Promise<Array<Character & { role_type?: string; appeared_in?: string }>> {
-    const characterAppearancesRepository = getRepository(CharacterAppearance);
+    const characterAppearancesRepository =
+      AppDataSource.getRepository(CharacterAppearance);
     const appearances = await characterAppearancesRepository.find({
       where: { movie_id },
-      relations: ['character', 'movie'],
+      relations: { character: true, movie: true },
     });
 
     return appearances.map(appearance => ({
@@ -126,10 +127,11 @@ class CharactersRepository implements ICharactersRepository {
   public async findByTVShowId(
     tvshow_id: number,
   ): Promise<Array<Character & { role_type?: string; appeared_in?: string }>> {
-    const characterAppearancesRepository = getRepository(CharacterAppearance);
+    const characterAppearancesRepository =
+      AppDataSource.getRepository(CharacterAppearance);
     const appearances = await characterAppearancesRepository.find({
       where: { tvshow_id },
-      relations: ['character', 'tvshow'],
+      relations: { character: true, tvshow: true },
     });
 
     return appearances.map(appearance => ({
@@ -145,10 +147,11 @@ class CharactersRepository implements ICharactersRepository {
   public async findMoviesByCharacterId(
     character_id: number,
   ): Promise<Array<IMovie & { role_type?: string; appeared_in?: string }>> {
-    const characterAppearancesRepository = getRepository(CharacterAppearance);
+    const characterAppearancesRepository =
+      AppDataSource.getRepository(CharacterAppearance);
     const appearances = await characterAppearancesRepository.find({
       where: { character_id, movie_id: Not(IsNull()) },
-      relations: ['movie'],
+      relations: { movie: true },
     });
 
     return appearances.map(appearance => ({
@@ -164,10 +167,11 @@ class CharactersRepository implements ICharactersRepository {
   public async findTVShowsByCharacterId(
     character_id: number,
   ): Promise<Array<ITVShow & { role_type?: string; appeared_in?: string }>> {
-    const characterAppearancesRepository = getRepository(CharacterAppearance);
+    const characterAppearancesRepository =
+      AppDataSource.getRepository(CharacterAppearance);
     const appearances = await characterAppearancesRepository.find({
       where: { character_id, tvshow_id: Not(IsNull()) },
-      relations: ['tvshow'],
+      relations: { tvshow: true },
     });
 
     return appearances.map(appearance => ({

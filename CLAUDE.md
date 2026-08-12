@@ -96,10 +96,11 @@ HTTP Request → `src/shared/infra/http/routes/index.ts` → Module routes → C
 
 ### Database
 
-- `ormconfig.ts` at root — reads env vars for connection
+- `src/shared/infra/typeorm/dataSource.ts` — exports `AppDataSource`, an initialized TypeORM `DataSource`; reads env vars for connection. `src/shared/infra/typeorm/index.ts` calls `AppDataSource.initialize()` and exports the promise, which `server.ts` awaits before `app.listen`.
 - Dev mode uses `src/**/*.ts` source; prod uses `dist/**/*.js`
 - SSL enabled when `NODE_ENV=production`
 - Migrations: `src/shared/infra/typeorm/migrations/`
+- CLI commands (`typeorm:dev`/`typeorm` scripts) pass `-d src/shared/infra/typeorm/dataSource.ts` (or the compiled `.js` path) explicitly — TypeORM 1.x no longer auto-discovers `ormconfig.ts`.
 - `.env`'s `DB_HOST` decides which database every migration and `dev:server`/`start` run actually hits — see **Environment Variables** below before running any of them.
 
 ### TypeScript Path Aliases

@@ -1,4 +1,7 @@
-const dev = {
+import 'reflect-metadata';
+import { DataSource, DataSourceOptions } from 'typeorm';
+
+const dev: DataSourceOptions = {
   type: 'postgres',
   host: process.env.DB_HOST,
   port: 5432,
@@ -7,12 +10,9 @@ const dev = {
   database: process.env.DB_NAME,
   entities: ['./src/modules/**/infra/typeorm/entities/*.ts'],
   migrations: ['./src/shared/infra/typeorm/migrations/*.ts'],
-  cli: {
-    migrationsDir: './src/shared/infra/typeorm/migrations',
-  },
 };
 
-const production = {
+const production: DataSourceOptions = {
   type: 'postgres',
   host: process.env.DB_HOST,
   port: 5432,
@@ -27,9 +27,10 @@ const production = {
   },
   entities: ['./dist/modules/**/infra/typeorm/entities/*.js'],
   migrations: ['./dist/shared/infra/typeorm/migrations/*.js'],
-  cli: {
-    migrationsDir: './dist/shared/infra/typeorm/migrations',
-  },
 };
 
-module.exports = process.env.NODE_ENV === 'production' ? production : dev;
+export const AppDataSource = new DataSource(
+  process.env.NODE_ENV === 'production' ? production : dev,
+);
+
+export default AppDataSource;

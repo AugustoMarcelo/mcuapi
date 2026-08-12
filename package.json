@@ -8,8 +8,8 @@
     "dev:server": "tsx watch --inspect -r tsconfig-paths/register src/shared/infra/http/server.ts",
     "start": "node dist/shared/infra/http/server.js",
     "build": "tsc --project tsconfig.build.json && tsc-alias -p tsconfig.build.json",
-    "typeorm:dev": "tsx -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
-    "typeorm": "node ./node_modules/typeorm/cli.js",
+    "typeorm:dev": "tsx -r tsconfig-paths/register ./node_modules/typeorm/cli.js -d src/shared/infra/typeorm/dataSource.ts",
+    "typeorm": "node ./node_modules/typeorm/cli.js -d dist/shared/infra/typeorm/dataSource.js",
     "test": "jest",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src scripts jest.config.js prettier.config.js",
@@ -32,7 +32,7 @@
     "reflect-metadata": "^0.1.13",
     "swagger-ui-express": "^4.1.6",
     "tsyringe": "^4.2.0",
-    "typeorm": "^0.2.32"
+    "typeorm": "^1.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.0.0",

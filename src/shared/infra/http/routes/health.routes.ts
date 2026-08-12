@@ -1,5 +1,6 @@
 import { Request, Response, Router } from 'express';
-import { getConnection } from 'typeorm';
+
+import AppDataSource from '@shared/infra/typeorm/dataSource';
 
 const healthRouter = Router();
 
@@ -7,7 +8,7 @@ healthRouter.get('/', async (_request: Request, response: Response) => {
   let database = 'down';
 
   try {
-    await getConnection().query('SELECT 1');
+    await AppDataSource.query('SELECT 1');
     database = 'up';
   } catch {
     database = 'down';
