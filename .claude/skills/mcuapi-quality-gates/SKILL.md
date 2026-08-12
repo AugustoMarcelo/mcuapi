@@ -53,7 +53,7 @@ For the API specifically, decide whether an integration test is also needed, not
 
 **Step 4: Run the `deslop` skill against the whole branch diff**
 
-Unlike Steps 1-2, this runs once for the entire branch diff, not per sub-project — invoke the `deslop` skill (`~/.claude/skills/deslop/SKILL.md`) to strip AI-generated slop (unnecessary comments, abnormal defensive checks, `any` casts, unneeded nesting) introduced anywhere in the branch before considering the gate satisfied.
+Unlike Steps 1-2, this runs once for the entire branch diff, not per sub-project — invoke the `deslop` skill to strip AI-generated slop (unnecessary comments, abnormal defensive checks, `any` casts, unneeded nesting) introduced anywhere in the branch before considering the gate satisfied.
 
 *Done when:* the `deslop` skill has been run against the full branch diff and its findings addressed.
 
