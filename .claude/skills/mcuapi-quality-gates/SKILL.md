@@ -26,13 +26,14 @@ A change can touch more than one (e.g. a new column used by both the API and the
 
 | Sub-project | Lint | Typecheck | Test | Build |
 |---|---|---|---|---|
-| API | `yarn eslint <changed files> --ext .ts` | *(covered by build)* | `yarn test -- --testPathPattern=<Name>` | `yarn build` |
+| API | `yarn eslint <changed files> --ext .ts` | `yarn typecheck` | `yarn test -- --testPathPattern=<Name>` | `yarn build` |
 | mcuapi-client | *(no lint config)* | `npm run typecheck` | `npm test` | `npm run build` |
 | mcuapi-mcp | *(no lint config)* | `npx tsc --noEmit` | *(no test script — see references/test-patterns.md)* | `npm run build` |
 
 - Scope the API lint command to the changed files, not the whole tree: `yarn lint` runs repo-wide, and the existing backlog of pre-existing formatting errors is intentionally non-blocking in CI (see `.github/workflows/ci.yml`) until someone runs `yarn lint:fix && yarn format` once. The changed files should still come back clean.
-- For mcuapi-client and mcuapi-mcp, their `build` script (tsup / esbuild) transpiles but does not type-check — the typecheck command is a separate, required step, not optional polish.
+- For mcuapi-client and mcuapi-mcp, their `build` script (tsup / esbuild) transpiles but does not type-check — the typecheck command is a separate, required step, not optional polish. The API's `yarn build` does type-check (it's a `tsc` compile), but `yarn typecheck` is still the faster, no-emit way to run the same check.
 - Run the full API suite (`yarn test`) at least once per session touching `src/`, since a change in one module's shared dependency can break another module's spec.
+- CI (`.github/workflows/ci.yml`) is no longer API-only — `build`, `client`, and `mcp` jobs each run their own sub-project's gates on every push/PR, so a change that fails a gate here fails CI too, not just a local check.
 
 *Done when:* every command in the row for every touched sub-project has been run in this session and exits 0, with no new lint/type/test errors introduced by the change (pre-existing backlog is out of scope).
 

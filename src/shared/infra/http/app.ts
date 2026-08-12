@@ -1,14 +1,13 @@
 import 'reflect-metadata';
 import 'dotenv/config';
 import express, { Request, Response, NextFunction } from 'express';
-import swaggerUI from 'swagger-ui-express';
 import cors from 'cors';
 import rateLimit from 'express-rate-limit';
-import 'express-async-errors';
 
 import routes from './routes';
 import healthRouter from './routes/health.routes';
 import { metricsMiddleware } from './metrics';
+import swaggerUI from 'swagger-ui-express';
 import swaggerFile from '@config/swagger.json';
 import AppError from '@shared/errors/AppError';
 import '@shared/container';
@@ -25,7 +24,7 @@ app.set('trust proxy', 1);
 app.disable('x-powered-by');
 
 app.use(cors());
-app.use(express.json() as express.RequestHandler);
+app.use(express.json());
 
 // Before the rate limiter, so throttled requests are counted too — a spike of
 // 429s is exactly the kind of thing worth seeing.

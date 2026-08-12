@@ -15,7 +15,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: yarn
 
       - name: Install dependencies
@@ -29,3 +29,55 @@ jobs:
 
       - name: Build
         run: yarn build
+
+  client:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: mcuapi-client/package-lock.json
+
+      - name: Install dependencies
+        working-directory: mcuapi-client
+        run: npm ci
+
+      - name: Typecheck
+        working-directory: mcuapi-client
+        run: npm run typecheck
+
+      - name: Test
+        working-directory: mcuapi-client
+        run: npm test
+
+      - name: Build
+        working-directory: mcuapi-client
+        run: npm run build
+
+  mcp:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: mcuapi-mcp/package-lock.json
+
+      - name: Install dependencies
+        working-directory: mcuapi-mcp
+        run: npm ci
+
+      - name: Typecheck
+        working-directory: mcuapi-mcp
+        run: npx tsc --noEmit
+
+      - name: Build
+        working-directory: mcuapi-mcp
+        run: npm run build

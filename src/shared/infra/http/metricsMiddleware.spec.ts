@@ -1,14 +1,14 @@
 import http from 'http';
 import express, { NextFunction, Request, Response, Router } from 'express';
-import 'express-async-errors';
 
 import { drain, metricsMiddleware } from './metrics';
 import AppError from '@shared/errors/AppError';
 
 /**
  * Exercises the middleware against an app shaped like the real one: nested
- * routers, async handlers, `express-async-errors`, and services that signal
- * "not found" by throwing `AppError` rather than returning a response.
+ * routers, async handlers (Express 5 forwards their rejections to the error
+ * handler natively), and services that signal "not found" by throwing
+ * `AppError` rather than returning a response.
  *
  * That last detail is the whole point. A thrown AppError unwinds the router
  * stack via next(err) before the app-level error handler responds, and Express
