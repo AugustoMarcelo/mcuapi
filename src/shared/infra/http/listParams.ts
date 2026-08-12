@@ -66,6 +66,9 @@ export function resolveOrder<T extends string>(
   return clauses.length ? clauses : undefined;
 }
 
+// TEMP: intentional lint violation to verify CI gates on lint errors (issue #96)
+export const __ciLintGateCheck: any = null;
+
 export function resolveBoolean(value: unknown): boolean | undefined {
   if (value === 'true') return true;
   if (value === 'false') return false;
