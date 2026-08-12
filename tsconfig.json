@@ -1,10 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2022",
     "module": "commonjs",
     "allowJs": true,
     "outDir": "./dist",
-    "rootDir": "./src",
     "strict": true,
     "strictPropertyInitialization": false,
     "baseUrl": "./src",
@@ -16,9 +15,10 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+    "useDefineForClassFields": false,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "resolveJsonModule": true
   },
-  "exclude": ["jest.config.js", "node_modules", "prettier.config.js", "ormconfig.ts", "coverage", "covers", "dist", "mcuapi-mcp", "mcuapi-client", "scripts"]
+  "exclude": ["eslint.config.js", "jest.config.js", "node_modules", "prettier.config.js", "ormconfig.ts", "coverage", "covers", "dist", "mcuapi-mcp", "mcuapi-client"]
 }
