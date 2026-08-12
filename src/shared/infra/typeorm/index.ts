@@ -1,3 +1,8 @@
-import { createConnection } from 'typeorm';
+import { DataSource } from 'typeorm';
 
-createConnection();
+import AppDataSource from './dataSource';
+
+const dataSourceInitialization: Promise<DataSource> =
+  AppDataSource.initialize();
+
+export default dataSourceInitialization;

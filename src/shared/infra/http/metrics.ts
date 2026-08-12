@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
-import { getConnection } from 'typeorm';
+
+import AppDataSource from '@shared/infra/typeorm/dataSource';
 
 /**
  * Request counting.
@@ -151,7 +152,7 @@ export async function flush(): Promise<number> {
 
   try {
     const { text, values } = buildUpsert(rows);
-    await getConnection().query(text, values);
+    await AppDataSource.query(text, values);
 
     if (droppedKeys > 0) {
       // eslint-disable-next-line no-console -- surfaces buffer overflow; metrics have no other sink

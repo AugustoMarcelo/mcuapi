@@ -1,4 +1,5 @@
-import { FindConditions, getRepository, Repository } from 'typeorm';
+import { FindOptionsWhere, Repository } from 'typeorm';
+import AppDataSource from '@shared/infra/typeorm/dataSource';
 import IFindAllTVShowsDTO from '@modules/tvshows/dtos/IFindAllTVShowsDTO';
 import IFindAllTVShowsResponseDTO from '@modules/tvshows/dtos/IFindAllTVShowsResponseDTO';
 import ITVShow from '@modules/tvshows/entities/ITVShow';
@@ -8,6 +9,7 @@ import ITVShowsRepository from '@modules/tvshows/repositories/ITVShowsRepository
 import IRepositoryStatsDTO from '@shared/dtos/IRepositoryStatsDTO';
 import {
   buildOrderFromClauses,
+  buildSelectFromColumns,
   buildWhereFromFilter,
 } from '@shared/infra/typeorm/listParamsQuery';
 
@@ -15,15 +17,16 @@ class TVShowsRepository implements ITVShowsRepository {
   private ormRepository: Repository<TVShow>;
 
   constructor() {
-    this.ormRepository = getRepository(TVShow);
+    this.ormRepository = AppDataSource.getRepository(TVShow);
   }
 
   public async findById(id: number): Promise<ITVShow | undefined> {
-    const tvshow = await this.ormRepository.findOne(id, {
-      relations: ['related_movies', 'related_tvshows'],
+    const tvshow = await this.ormRepository.findOne({
+      where: { id },
+      relations: { related_movies: true, related_tvshows: true },
     });
 
-    return tvshow;
+    return tvshow ?? undefined;
   }
 
   public async findAll(
@@ -53,7 +56,7 @@ class TVShowsRepository implements ITVShowsRepository {
 
     const where =
       Object.keys(whereConditions).length > 0
-        ? (whereConditions as FindConditions<TVShow>)
+        ? (whereConditions as FindOptionsWhere<TVShow>)
         : undefined;
 
     if (data?.page && data.limit) {
@@ -61,10 +64,12 @@ class TVShowsRepository implements ITVShowsRepository {
       skip = page && limit && (page - 1) * limit;
     }
 
+    const select = buildSelectFromColumns(data?.columns);
+
     const [tvshows, total] = await this.ormRepository.findAndCount({
       ...(data?.limit && { take: data.limit }),
       ...(skip && { skip }),
-      ...(data?.columns && { select: data.columns }),
+      ...(select && { select }),
       ...(where && { where }),
       ...(orderBy && { order: orderBy }),
     });

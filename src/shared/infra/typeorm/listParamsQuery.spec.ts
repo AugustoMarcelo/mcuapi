@@ -1,5 +1,9 @@
 import { FindOperator } from 'typeorm';
-import { buildOrderFromClauses, buildWhereFromFilter } from './listParamsQuery';
+import {
+  buildOrderFromClauses,
+  buildSelectFromColumns,
+  buildWhereFromFilter,
+} from './listParamsQuery';
 import { ColumnAllowList } from '@shared/infra/http/listParams';
 
 type Column = 'title' | 'phase';
@@ -113,5 +117,19 @@ describe('buildOrderFromClauses', () => {
         { column: 'title', direction: 'DESC' },
       ]),
     ).toEqual({ title: 'ASC' });
+  });
+});
+
+describe('buildSelectFromColumns', () => {
+  it('Should return undefined when there are no columns', () => {
+    expect(buildSelectFromColumns(undefined)).toBeUndefined();
+    expect(buildSelectFromColumns([])).toBeUndefined();
+  });
+
+  it('Should build a TypeORM 1.x object-form select from a column list', () => {
+    expect(buildSelectFromColumns(['title', 'phase'])).toEqual({
+      title: true,
+      phase: true,
+    });
   });
 });

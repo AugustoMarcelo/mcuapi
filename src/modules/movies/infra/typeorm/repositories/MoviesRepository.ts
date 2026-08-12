@@ -1,6 +1,7 @@
-import { Repository, getRepository, FindConditions } from 'typeorm';
+import { Repository, FindOptionsWhere } from 'typeorm';
 
 import Movie from '../entities/Movie';
+import AppDataSource from '@shared/infra/typeorm/dataSource';
 import IMoviesRepository from '@modules/movies/repositories/IMoviesRepository';
 import ICreateMovieDTO from '@modules/movies/dtos/ICreateMovieDTO';
 import IFindAllMoviesDTO from '@modules/movies/dtos/IFindAllMoviesDTO';
@@ -9,6 +10,7 @@ import IRepositoryStatsDTO from '@shared/dtos/IRepositoryStatsDTO';
 import MOVIE_COLUMNS from '@modules/movies/entities/movieColumns';
 import {
   buildOrderFromClauses,
+  buildSelectFromColumns,
   buildWhereFromFilter,
 } from '@shared/infra/typeorm/listParamsQuery';
 
@@ -16,7 +18,7 @@ class MoviesRepository implements IMoviesRepository {
   private ormRepository: Repository<Movie>;
 
   constructor() {
-    this.ormRepository = getRepository(Movie);
+    this.ormRepository = AppDataSource.getRepository(Movie);
   }
 
   public async create(data: ICreateMovieDTO): Promise<Movie> {
@@ -32,11 +34,12 @@ class MoviesRepository implements IMoviesRepository {
   }
 
   public async findById(id: number): Promise<Movie | undefined> {
-    const findMovie = await this.ormRepository.findOne(id, {
-      relations: ['related_movies', 'related_tvshows'],
+    const findMovie = await this.ormRepository.findOne({
+      where: { id },
+      relations: { related_movies: true, related_tvshows: true },
     });
 
-    return findMovie;
+    return findMovie ?? undefined;
   }
 
   public async findAll({
@@ -74,13 +77,15 @@ class MoviesRepository implements IMoviesRepository {
 
     const where =
       Object.keys(whereConditions).length > 0
-        ? (whereConditions as FindConditions<Movie>)
+        ? (whereConditions as FindOptionsWhere<Movie>)
         : undefined;
+
+    const select = buildSelectFromColumns(columns);
 
     const [movies, total] = await this.ormRepository.findAndCount({
       ...(limit && { take: limit }),
       ...(skip && { skip }),
-      ...(columns && { select: columns }),
+      ...(select && { select }),
       ...(where && { where }),
       ...(orderBy && { order: orderBy }),
     });

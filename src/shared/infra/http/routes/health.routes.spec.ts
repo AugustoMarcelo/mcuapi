@@ -1,11 +1,12 @@
 import express from 'express';
 import request from 'supertest';
-import { getConnection } from 'typeorm';
 
 import healthRouter from './health.routes';
+import AppDataSource from '@shared/infra/typeorm/dataSource';
 
-jest.mock('typeorm', () => ({
-  getConnection: jest.fn(),
+jest.mock('@shared/infra/typeorm/dataSource', () => ({
+  __esModule: true,
+  default: { query: jest.fn() },
 }));
 
 function makeApp() {
@@ -16,9 +17,7 @@ function makeApp() {
 
 describe('health.routes', () => {
   it('Should return 200 with database up when the connection query succeeds', async () => {
-    (getConnection as jest.Mock).mockReturnValue({
-      query: jest.fn().mockResolvedValue([{ '?column?': 1 }]),
-    });
+    (AppDataSource.query as jest.Mock).mockResolvedValue([{ '?column?': 1 }]);
 
     const response = await request(makeApp()).get('/health');
 
@@ -28,9 +27,9 @@ describe('health.routes', () => {
   });
 
   it('Should return 503 with database down when the connection query throws', async () => {
-    (getConnection as jest.Mock).mockReturnValue({
-      query: jest.fn().mockRejectedValue(new Error('connection refused')),
-    });
+    (AppDataSource.query as jest.Mock).mockRejectedValue(
+      new Error('connection refused'),
+    );
 
     const response = await request(makeApp()).get('/health');
 
