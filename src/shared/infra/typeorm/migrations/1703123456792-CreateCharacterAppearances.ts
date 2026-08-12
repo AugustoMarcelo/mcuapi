@@ -1,4 +1,9 @@
-import { MigrationInterface, QueryRunner, Table, TableForeignKey } from 'typeorm';
+import {
+  MigrationInterface,
+  QueryRunner,
+  Table,
+  TableForeignKey,
+} from 'typeorm';
 
 export default class CreateCharacterAppearances1703123456792 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
@@ -83,9 +88,18 @@ export default class CreateCharacterAppearances1703123456792 implements Migratio
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey('character_appearances', 'CharacterAppearanceCharacter');
-    await queryRunner.dropForeignKey('character_appearances', 'CharacterAppearanceMovie');
-    await queryRunner.dropForeignKey('character_appearances', 'CharacterAppearanceTVShow');
+    await queryRunner.dropForeignKey(
+      'character_appearances',
+      'CharacterAppearanceCharacter',
+    );
+    await queryRunner.dropForeignKey(
+      'character_appearances',
+      'CharacterAppearanceMovie',
+    );
+    await queryRunner.dropForeignKey(
+      'character_appearances',
+      'CharacterAppearanceTVShow',
+    );
     await queryRunner.dropTable('character_appearances');
   }
-} 
+}

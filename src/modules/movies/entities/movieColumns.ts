@@ -1,5 +1,5 @@
-import { ColumnAllowList } from '@shared/infra/http/listParams';
 import IMovie from './IMovie';
+import { ColumnAllowList } from '@shared/infra/http/listParams';
 
 export type MovieColumn = Exclude<
   keyof IMovie,

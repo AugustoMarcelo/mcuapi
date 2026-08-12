@@ -5,8 +5,7 @@ import {
   TableForeignKey,
 } from 'typeorm';
 
-export default class CreateRelatedTVShows1785790668577
-  implements MigrationInterface {
+export default class CreateRelatedTVShows1785790668577 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({

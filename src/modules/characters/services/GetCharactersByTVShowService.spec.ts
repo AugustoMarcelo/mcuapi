@@ -7,7 +7,9 @@ let getCharactersByTVShow: GetCharactersByTVShowService;
 describe('GetCharactersByTVShow', () => {
   beforeEach(() => {
     fakeCharactersRepository = new FakeCharactersRepository();
-    getCharactersByTVShow = new GetCharactersByTVShowService(fakeCharactersRepository);
+    getCharactersByTVShow = new GetCharactersByTVShowService(
+      fakeCharactersRepository,
+    );
   });
 
   it('Should be able to get characters by TV show id', async () => {

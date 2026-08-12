@@ -1,3 +1,4 @@
+import IMoviesRepository from '../IMoviesRepository';
 import ICreateMovieDTO from '@modules/movies/dtos/ICreateMovieDTO';
 import IFindAllMoviesDTO from '@modules/movies/dtos/IFindAllMoviesDTO';
 import IFindAllMoviesResponseDTO from '@modules/movies/dtos/IFindAllMoviesResponseDTO';
@@ -7,7 +8,6 @@ import IRepositoryStatsDTO from '@shared/dtos/IRepositoryStatsDTO';
 import compareValues from '@shared/utils/compareValues';
 
 import Movie from '@modules/movies/infra/typeorm/entities/Movie';
-import IMoviesRepository from '../IMoviesRepository';
 
 class FakeMoviesRepository implements IMoviesRepository {
   private movies: IMovie[] = [];

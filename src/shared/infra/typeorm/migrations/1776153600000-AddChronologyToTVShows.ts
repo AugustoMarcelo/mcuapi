@@ -1,7 +1,6 @@
 import { MigrationInterface, QueryRunner, TableColumn } from 'typeorm';
 
-export default class AddChronologyToTVShows1776153600000
-  implements MigrationInterface {
+export default class AddChronologyToTVShows1776153600000 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.addColumn(
       'tvshows',

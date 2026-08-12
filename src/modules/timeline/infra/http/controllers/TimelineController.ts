@@ -16,6 +16,8 @@ export default class TimelineController {
     const getTimeline = container.resolve(GetTimelineService);
     const timeline = await getTimeline.execute(multiverse);
 
-    return response.status(200).json(presentTimeline(timeline, getBaseUrl(request)));
+    return response
+      .status(200)
+      .json(presentTimeline(timeline, getBaseUrl(request)));
   }
-} 
+}

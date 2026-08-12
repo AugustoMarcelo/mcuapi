@@ -1,7 +1,6 @@
 import { MigrationInterface, QueryRunner, TableColumn } from 'typeorm';
 
-export default class AddPlayedByToCharacters1784592000000
-  implements MigrationInterface {
+export default class AddPlayedByToCharacters1784592000000 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.addColumn(
       'characters',

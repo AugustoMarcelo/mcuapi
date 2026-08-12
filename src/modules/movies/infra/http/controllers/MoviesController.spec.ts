@@ -43,7 +43,10 @@ describe('MoviesController', () => {
     (container.resolve as jest.Mock).mockReturnValue({ execute });
 
     const controller = new MoviesController();
-    await controller.index(makeRequest({ page: '2', limit: '5' }), makeResponse());
+    await controller.index(
+      makeRequest({ page: '2', limit: '5' }),
+      makeResponse(),
+    );
 
     expect(execute).toHaveBeenCalledWith(
       expect.objectContaining({ page: 2, limit: 5 }),

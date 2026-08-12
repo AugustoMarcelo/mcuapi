@@ -1,8 +1,8 @@
 import { injectable, inject } from 'tsyringe';
-import AppError from '@shared/errors/AppError';
 import IMovie from '../entities/IMovie';
 import IMoviesRepository from '../repositories/IMoviesRepository';
 import IUpdateMovieDTO from '../dtos/IUpdateMovieDTO';
+import AppError from '@shared/errors/AppError';
 
 @injectable()
 class UpdateMovieService {

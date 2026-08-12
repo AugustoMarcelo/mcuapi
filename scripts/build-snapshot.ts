@@ -32,11 +32,16 @@ interface Identified {
 
 function baseUrl(): string {
   const flag = process.argv.find(arg => arg.startsWith('--base='));
-  return (flag ? flag.slice('--base='.length) : DEFAULT_BASE).replace(/\/+$/, '');
+  return (flag ? flag.slice('--base='.length) : DEFAULT_BASE).replace(
+    /\/+$/,
+    '',
+  );
 }
 
 async function getJson<T>(url: string): Promise<T> {
-  const response = await fetch(url, { headers: { Accept: 'application/json' } });
+  const response = await fetch(url, {
+    headers: { Accept: 'application/json' },
+  });
 
   if (!response.ok) {
     throw new Error(`${response.status} ${response.statusText} from ${url}`);
@@ -56,7 +61,7 @@ async function collectAll<T extends Identified>(
 
   while (records.length < total) {
     const url = `${base}/api/v1/${resource}?limit=${PAGE_SIZE}&page=${page}`;
-    // eslint-disable-next-line no-await-in-loop
+
     const envelope = await getJson<Envelope<T>>(url);
 
     total = envelope.total;
@@ -89,7 +94,9 @@ function existingGeneratedAt(hash: string): string | null {
       fs.readFileSync(path.join(OUT_DIR, 'index.json'), 'utf8'),
     ) as { content_hash?: string; generated_at?: string };
 
-    return previous.content_hash === hash ? previous.generated_at ?? null : null;
+    return previous.content_hash === hash
+      ? (previous.generated_at ?? null)
+      : null;
   } catch {
     return null;
   }

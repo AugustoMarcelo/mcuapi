@@ -1,5 +1,5 @@
-import { ColumnAllowList } from '@shared/infra/http/listParams';
 import ITVShow from './ITVShow';
+import { ColumnAllowList } from '@shared/infra/http/listParams';
 
 export type TVShowColumn = Exclude<
   keyof ITVShow,

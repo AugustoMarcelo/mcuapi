@@ -1,7 +1,7 @@
+import { inject, injectable } from 'tsyringe';
 import IFindAllTVShowsDTO from '@modules/tvshows/dtos/IFindAllTVShowsDTO';
 import IFindAllTVShowsResponseDTO from '@modules/tvshows/dtos/IFindAllTVShowsResponseDTO';
 import ITVShowsRepository from '@modules/tvshows/repositories/ITVShowsRepository';
-import { inject, injectable } from 'tsyringe';
 
 @injectable()
 class ListTVShowsService {

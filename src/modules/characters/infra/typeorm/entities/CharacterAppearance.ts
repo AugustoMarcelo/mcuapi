@@ -1,4 +1,3 @@
-import ICharacterAppearance from '@modules/characters/entities/ICharacterAppearance';
 import {
   Column,
   Entity,
@@ -8,6 +7,7 @@ import {
   JoinColumn,
 } from 'typeorm';
 import Character from './Character';
+import ICharacterAppearance from '@modules/characters/entities/ICharacterAppearance';
 import Movie from '@modules/movies/infra/typeorm/entities/Movie';
 import TVShow from '@modules/tvshows/infra/typeorm/entities/TVShow';
 
@@ -47,4 +47,4 @@ class CharacterAppearance implements ICharacterAppearance {
   created_at: Date;
 }
 
-export default CharacterAppearance; 
+export default CharacterAppearance;

@@ -7,4 +7,4 @@ const timelineController = new TimelineController();
 
 timelineRouter.get('/', timelineController.index);
 
-export default timelineRouter; 
+export default timelineRouter;

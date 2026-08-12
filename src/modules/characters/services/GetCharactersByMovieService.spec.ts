@@ -7,7 +7,9 @@ let getCharactersByMovie: GetCharactersByMovieService;
 describe('GetCharactersByMovie', () => {
   beforeEach(() => {
     fakeCharactersRepository = new FakeCharactersRepository();
-    getCharactersByMovie = new GetCharactersByMovieService(fakeCharactersRepository);
+    getCharactersByMovie = new GetCharactersByMovieService(
+      fakeCharactersRepository,
+    );
   });
 
   it('Should be able to get characters by movie ID', async () => {
@@ -71,4 +73,4 @@ describe('GetCharactersByMovie', () => {
     expect(result[1].name).toBe('Peter Parker');
     expect(result[1].variant_of).toBe(baseCharacter.id);
   });
-}); 
+});

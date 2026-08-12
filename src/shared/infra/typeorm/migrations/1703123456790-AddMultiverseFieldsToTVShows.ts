@@ -67,4 +67,4 @@ export default class AddMultiverseFieldsToTVShows1703123456790 implements Migrat
     await queryRunner.dropColumn('tvshows', 'timeline_starts_at');
     await queryRunner.dropColumn('tvshows', 'timeline_ends_at');
   }
-} 
+}

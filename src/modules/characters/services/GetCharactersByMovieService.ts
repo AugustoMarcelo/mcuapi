@@ -13,4 +13,4 @@ class GetCharactersByMovieService {
   }
 }
 
-export default GetCharactersByMovieService; 
+export default GetCharactersByMovieService;

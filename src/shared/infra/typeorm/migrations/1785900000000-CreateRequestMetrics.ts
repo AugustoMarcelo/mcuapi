@@ -10,8 +10,7 @@ import { MigrationInterface, QueryRunner, Table } from 'typeorm';
  * requested path, which bounds the row count by the size of the route table
  * instead of letting it grow with traffic.
  */
-export default class CreateRequestMetrics1785900000000
-  implements MigrationInterface {
+export default class CreateRequestMetrics1785900000000 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({

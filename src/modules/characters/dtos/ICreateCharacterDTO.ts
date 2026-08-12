@@ -8,4 +8,4 @@ export default interface ICreateCharacterDTO {
   variant_of?: number;
   first_appearance_movie_id?: number;
   first_appearance_tvshow_id?: number;
-} 
+}

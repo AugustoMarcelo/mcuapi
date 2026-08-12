@@ -18,8 +18,12 @@ describe('TimelinePresenter', () => {
     const presented = presentTimeline(timeline, baseUrl);
 
     expect(presented[0].continuity).toBe('MCU');
-    expect(presented[0].entries[0]._links.self).toEqual({ href: `${baseUrl}/api/v1/movies/1` });
-    expect(presented[0].entries[1]._links.self).toEqual({ href: `${baseUrl}/api/v1/tvshows/2` });
+    expect(presented[0].entries[0]._links.self).toEqual({
+      href: `${baseUrl}/api/v1/movies/1`,
+    });
+    expect(presented[0].entries[1]._links.self).toEqual({
+      href: `${baseUrl}/api/v1/tvshows/2`,
+    });
   });
 
   it('Should default unknown types to movie links', () => {
@@ -27,12 +31,16 @@ describe('TimelinePresenter', () => {
       {
         continuity: 'MCU',
         multiverse_designation: 'Earth-616',
-        entries: [{ id: 4, title: 'One-Shot', chronology_order: 1, type: 'one-shot' }],
+        entries: [
+          { id: 4, title: 'One-Shot', chronology_order: 1, type: 'one-shot' },
+        ],
       },
     ];
 
     const presented = presentTimeline(timeline, baseUrl);
 
-    expect(presented[0].entries[0]._links.self).toEqual({ href: `${baseUrl}/api/v1/movies/4` });
+    expect(presented[0].entries[0]._links.self).toEqual({
+      href: `${baseUrl}/api/v1/movies/4`,
+    });
   });
 });

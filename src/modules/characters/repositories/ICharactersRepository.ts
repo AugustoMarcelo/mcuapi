@@ -1,10 +1,10 @@
-import IMovie from '@modules/movies/entities/IMovie';
-import ITVShow from '@modules/tvshows/entities/ITVShow';
-import IRepositoryStatsDTO from '@shared/dtos/IRepositoryStatsDTO';
 import ICharacter from '../entities/ICharacter';
 import ICreateCharacterDTO from '../dtos/ICreateCharacterDTO';
 import IFindAllCharactersDTO from '../dtos/IFindAllCharactersDTO';
 import IFindAllCharactersResponseDTO from '../dtos/IFindAllCharactersResponseDTO';
+import IRepositoryStatsDTO from '@shared/dtos/IRepositoryStatsDTO';
+import ITVShow from '@modules/tvshows/entities/ITVShow';
+import IMovie from '@modules/movies/entities/IMovie';
 
 export default interface ICharactersRepository {
   create(data: ICreateCharacterDTO): Promise<ICharacter>;

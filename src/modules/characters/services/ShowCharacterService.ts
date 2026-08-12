@@ -1,7 +1,7 @@
 import { injectable, inject } from 'tsyringe';
-import AppError from '@shared/errors/AppError';
 import ICharactersRepository from '../repositories/ICharactersRepository';
 import ICharacter from '../entities/ICharacter';
+import AppError from '@shared/errors/AppError';
 
 @injectable()
 class ShowCharacterService {
@@ -10,7 +10,11 @@ class ShowCharacterService {
     private charactersRepository: ICharactersRepository,
   ) {}
 
-  public async execute({ character_id }: { character_id: number }): Promise<ICharacter> {
+  public async execute({
+    character_id,
+  }: {
+    character_id: number;
+  }): Promise<ICharacter> {
     const character = await this.charactersRepository.findById(character_id);
 
     if (!character) {
@@ -21,4 +25,4 @@ class ShowCharacterService {
   }
 }
 
-export default ShowCharacterService; 
+export default ShowCharacterService;

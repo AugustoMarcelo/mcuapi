@@ -21,7 +21,10 @@ interface IInternalTimelineEntry extends ITimelineEntry {
   release_date?: Date;
 }
 
-function compareTimelineEntries(a: IInternalTimelineEntry, b: IInternalTimelineEntry): number {
+function compareTimelineEntries(
+  a: IInternalTimelineEntry,
+  b: IInternalTimelineEntry,
+): number {
   const aHasOrder = a.chronology_order > 0;
   const bHasOrder = b.chronology_order > 0;
 
@@ -109,7 +112,14 @@ class GetTimelineService {
       : allEntries;
 
     // Group by continuity and multiverse designation
-    const timelineMap = new Map<string, { continuity: string; multiverse_designation: string; entries: IInternalTimelineEntry[] }>();
+    const timelineMap = new Map<
+      string,
+      {
+        continuity: string;
+        multiverse_designation: string;
+        entries: IInternalTimelineEntry[];
+      }
+    >();
 
     filteredEntries.forEach(entry => {
       const key = `${entry.continuity}-${entry.multiverse_designation}`;
@@ -135,12 +145,14 @@ class GetTimelineService {
     return Array.from(timelineMap.values()).map(continuity => ({
       continuity: continuity.continuity,
       multiverse_designation: continuity.multiverse_designation,
-      entries: continuity.entries.map(({ id, title, chronology_order, type }) => ({
-        id,
-        title,
-        chronology_order,
-        type,
-      })),
+      entries: continuity.entries.map(
+        ({ id, title, chronology_order, type }) => ({
+          id,
+          title,
+          chronology_order,
+          type,
+        }),
+      ),
     }));
   }
 }

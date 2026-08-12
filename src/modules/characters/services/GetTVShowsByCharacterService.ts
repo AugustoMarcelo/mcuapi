@@ -1,7 +1,7 @@
 import { injectable, inject } from 'tsyringe';
+import ICharactersRepository from '../repositories/ICharactersRepository';
 import AppError from '@shared/errors/AppError';
 import ITVShow from '@modules/tvshows/entities/ITVShow';
-import ICharactersRepository from '../repositories/ICharactersRepository';
 
 @injectable()
 class GetTVShowsByCharacterService {
@@ -10,7 +10,9 @@ class GetTVShowsByCharacterService {
     private charactersRepository: ICharactersRepository,
   ) {}
 
-  public async execute(character_id: number): Promise<Array<ITVShow & { role_type?: string }>> {
+  public async execute(
+    character_id: number,
+  ): Promise<Array<ITVShow & { role_type?: string }>> {
     const character = await this.charactersRepository.findById(character_id);
 
     if (!character) {

@@ -1,9 +1,9 @@
-import express, { NextFunction, Request, Response, Router } from 'express';
 import http from 'http';
+import express, { NextFunction, Request, Response, Router } from 'express';
 import 'express-async-errors';
 
-import AppError from '@shared/errors/AppError';
 import { drain, metricsMiddleware } from './metrics';
+import AppError from '@shared/errors/AppError';
 
 /**
  * Exercises the middleware against an app shaped like the real one: nested

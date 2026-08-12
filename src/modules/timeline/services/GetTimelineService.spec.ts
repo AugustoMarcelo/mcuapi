@@ -17,7 +17,7 @@ describe('GetTimelineService', () => {
     // Register mocks
     container.registerInstance('MoviesRepository', mockMoviesRepository);
     container.registerInstance('TVShowsRepository', mockTVShowsRepository);
-    
+
     getTimelineService = container.resolve(GetTimelineService);
     jest.clearAllMocks();
   });
@@ -61,21 +61,29 @@ describe('GetTimelineService', () => {
       },
     ];
 
-    mockMoviesRepository.findAll.mockResolvedValue({ data: mockMovies, total: 3 });
-    mockTVShowsRepository.findAll.mockResolvedValue({ data: mockTVShows, total: 1 });
+    mockMoviesRepository.findAll.mockResolvedValue({
+      data: mockMovies,
+      total: 3,
+    });
+    mockTVShowsRepository.findAll.mockResolvedValue({
+      data: mockTVShows,
+      total: 1,
+    });
 
     const result = await getTimelineService.execute();
 
     expect(result).toHaveLength(2);
-    
+
     // Check MCU timeline
     const mcuTimeline = result.find(t => t.continuity === 'MCU');
     expect(mcuTimeline).toBeDefined();
     expect(mcuTimeline!.multiverse_designation).toBe('Earth-616');
     expect(mcuTimeline!.entries).toHaveLength(3);
-    
+
     // Check Sony timeline
-    const sonyTimeline = result.find(t => t.continuity === 'Sony Spider-Man Universe');
+    const sonyTimeline = result.find(
+      t => t.continuity === 'Sony Spider-Man Universe',
+    );
     expect(sonyTimeline).toBeDefined();
     expect(sonyTimeline!.multiverse_designation).toBe('Earth-96283');
     expect(sonyTimeline!.entries).toHaveLength(1);
@@ -104,8 +112,14 @@ describe('GetTimelineService', () => {
       },
     ];
 
-    mockMoviesRepository.findAll.mockResolvedValue({ data: mockMovies, total: 1 });
-    mockTVShowsRepository.findAll.mockResolvedValue({ data: mockTVShows, total: 1 });
+    mockMoviesRepository.findAll.mockResolvedValue({
+      data: mockMovies,
+      total: 1,
+    });
+    mockTVShowsRepository.findAll.mockResolvedValue({
+      data: mockTVShows,
+      total: 1,
+    });
 
     const result = await getTimelineService.execute('Earth-616');
 
@@ -136,8 +150,14 @@ describe('GetTimelineService', () => {
 
     const mockTVShows: any[] = [];
 
-    mockMoviesRepository.findAll.mockResolvedValue({ data: mockMovies, total: 2 });
-    mockTVShowsRepository.findAll.mockResolvedValue({ data: mockTVShows, total: 0 });
+    mockMoviesRepository.findAll.mockResolvedValue({
+      data: mockMovies,
+      total: 2,
+    });
+    mockTVShowsRepository.findAll.mockResolvedValue({
+      data: mockTVShows,
+      total: 0,
+    });
 
     const result = await getTimelineService.execute();
 
@@ -179,7 +199,10 @@ describe('GetTimelineService', () => {
       },
     ];
 
-    mockMoviesRepository.findAll.mockResolvedValue({ data: mockMovies, total: 3 });
+    mockMoviesRepository.findAll.mockResolvedValue({
+      data: mockMovies,
+      total: 3,
+    });
     mockTVShowsRepository.findAll.mockResolvedValue({ data: [], total: 0 });
 
     const result = await getTimelineService.execute();
@@ -213,14 +236,20 @@ describe('GetTimelineService', () => {
       },
     ];
 
-    mockMoviesRepository.findAll.mockResolvedValue({ data: mockMovies, total: 2 });
+    mockMoviesRepository.findAll.mockResolvedValue({
+      data: mockMovies,
+      total: 2,
+    });
     mockTVShowsRepository.findAll.mockResolvedValue({ data: [], total: 0 });
 
     const result = await getTimelineService.execute();
 
     // "The Avengers" has a real chronology_order, so it sorts first even
     // though "Iron Man" has an earlier release_date fallback.
-    expect(result[0].entries.map(e => e.title)).toEqual(['The Avengers', 'Iron Man']);
+    expect(result[0].entries.map(e => e.title)).toEqual([
+      'The Avengers',
+      'Iron Man',
+    ]);
   });
 
   it('Should place entries without chronology_order and without release_date last, preserving their original order', async () => {
@@ -261,7 +290,10 @@ describe('GetTimelineService', () => {
       },
     ];
 
-    mockMoviesRepository.findAll.mockResolvedValue({ data: mockMovies, total: 4 });
+    mockMoviesRepository.findAll.mockResolvedValue({
+      data: mockMovies,
+      total: 4,
+    });
     mockTVShowsRepository.findAll.mockResolvedValue({ data: [], total: 0 });
 
     const result = await getTimelineService.execute();
@@ -288,4 +320,4 @@ describe('GetTimelineService', () => {
 
     expect(result).toHaveLength(0);
   });
-}); 
+});

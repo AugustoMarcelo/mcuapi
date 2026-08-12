@@ -31,12 +31,18 @@ export function presentCharacter(
 
   if (character.id != null) {
     _links.self = { href: `${baseUrl}/api/v1/characters/${character.id}` };
-    _links.movies = { href: `${baseUrl}/api/v1/characters/${character.id}/movies` };
-    _links.tvshows = { href: `${baseUrl}/api/v1/characters/${character.id}/tvshows` };
+    _links.movies = {
+      href: `${baseUrl}/api/v1/characters/${character.id}/movies`,
+    };
+    _links.tvshows = {
+      href: `${baseUrl}/api/v1/characters/${character.id}/tvshows`,
+    };
   }
 
   if (character.variant_of != null) {
-    _links.variant_of = { href: `${baseUrl}/api/v1/characters/${character.variant_of}` };
+    _links.variant_of = {
+      href: `${baseUrl}/api/v1/characters/${character.variant_of}`,
+    };
   }
 
   if (character.first_appearance_movie_id != null) {
@@ -51,7 +57,9 @@ export function presentCharacter(
     };
   }
 
-  const characterWithoutEmbeddedRelations: ICharacterWithRelations = { ...character };
+  const characterWithoutEmbeddedRelations: ICharacterWithRelations = {
+    ...character,
+  };
   delete characterWithoutEmbeddedRelations.variant_character;
   delete characterWithoutEmbeddedRelations.first_appearance_movie;
   delete characterWithoutEmbeddedRelations.first_appearance_tvshow;
@@ -78,7 +86,14 @@ export function presentCharacterCollection({
   path,
   query,
 }: IPresentCharacterCollectionParams) {
-  const { _links, meta } = buildPaginationLinks({ baseUrl, path, query, page, limit, total });
+  const { _links, meta } = buildPaginationLinks({
+    baseUrl,
+    path,
+    query,
+    page,
+    limit,
+    total,
+  });
 
   return {
     data: presentCharacterArray(data, baseUrl),
