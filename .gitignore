@@ -26,3 +26,6 @@ mcu_characters.json
 # never commit any env variant (was: .env.local-backup exposed DB creds)
 .env.*
 !.env.example
+
+# Editor config (personal, not shared)
+.vscode/
