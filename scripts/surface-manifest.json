@@ -1,0 +1,46 @@
+{
+  "surfaces": ["swagger", "console", "client", "llms", "readme", "snapshot", "mcp"],
+  "resources": {
+    "movies": {
+      "in": ["swagger", "console", "client", "llms", "readme", "snapshot", "mcp"]
+    },
+    "tvshows": {
+      "in": ["swagger", "console", "client", "llms", "readme", "snapshot", "mcp"]
+    },
+    "characters": {
+      "in": ["swagger", "console", "client", "llms", "readme", "snapshot", "mcp"]
+    },
+    "people": {
+      "in": ["swagger"],
+      "singular": "person",
+      "todo": {
+        "console": "#113",
+        "client": "#114",
+        "llms": "#115",
+        "readme": "#115",
+        "snapshot": "#116",
+        "mcp": "#117"
+      }
+    },
+    "timeline": {
+      "in": ["swagger", "console", "client", "llms", "readme", "snapshot", "mcp"]
+    },
+    "upcoming": {
+      "in": ["swagger", "llms", "readme"],
+      "exempt": {
+        "console": "derived view over movies+tvshows; the console lists primary resources, not merged views",
+        "client": "derived view over movies+tvshows; callers compose it client-side from mcu.movies/mcu.tvshows rather than a dedicated resource",
+        "snapshot": "time-dependent (relative to 'today'); a static mirror snapshot would go stale immediately",
+        "mcp": "read-only aggregate over movies+tvshows; the MCP server's read tools are search_content/get_stats/get_timeline, not per-endpoint mirrors"
+      }
+    },
+    "stats": {
+      "in": ["swagger", "llms", "readme", "mcp"],
+      "exempt": {
+        "console": "aggregate diagnostic endpoint, not a queryable resource; the landing page's hero tiles already surface it separately from the ENDPOINTS console",
+        "client": "aggregate diagnostic endpoint; not a resource collection with list/get semantics",
+        "snapshot": "time-dependent aggregate computed over the live dataset; would go stale immediately in a static mirror"
+      }
+    }
+  }
+}

@@ -20,6 +20,8 @@ This repo is three independently-tooled sub-projects sharing one working tree. A
 
 A change can touch more than one (e.g. a new column used by both the API and the MCP server) — run every affected project's gates, not just one.
 
+If the change adds, renames, or removes an API resource or route, or changes a response shape, also run the `mcuapi-surface-sync` skill — it covers the surfaces (client, MCP, landing page console, docs, static snapshot) that these gates don't.
+
 *Done when:* every sub-project with a changed file is listed.
 
 **Step 2: Run that sub-project's gate commands**
