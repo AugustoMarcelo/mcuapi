@@ -68,12 +68,18 @@ const cast = await mcu.follow(movie._links!.characters!);
 | `mcu.characters.movies(id)` | `WithRole<Movie>[]` |
 | `mcu.characters.tvshows(id)` | `WithRole<TVShow>[]` |
 | `mcu.timeline.get(params?)` | `TimelineGroup[]` |
+| `mcu.upcoming.list(params?)` | `Paginated<UpcomingItem>` |
+| `mcu.upcoming.all(params?)` | `AsyncGenerator<UpcomingItem>` |
 | `mcu.health()` | `Health` |
 | `mcu.follow(link)` | whatever the link points at |
 
 List params: `page`, `limit`, `order`, `filter`, `continuity`,
 `multiverse_designation` — plus `studio` and `is_mcu` on movies and TV shows.
-`timeline.get()` takes `multiverse`.
+`timeline.get()` takes `multiverse`. `upcoming.list()`/`.all()` take `page`,
+`limit`, `type` (`'movie' | 'tvshow'`), `continuity`, `multiverse_designation`,
+and `is_mcu` — movies and TV shows whose `release_date` is strictly in the
+future, merged and sorted ascending; titles with no announced release date are
+excluded.
 
 ## Two things worth knowing
 

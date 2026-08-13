@@ -9,6 +9,8 @@ import type {
   TimelineGroup,
   TimelineParams,
   TitleListParams,
+  UpcomingItem,
+  UpcomingParams,
   WithRole,
 } from './types';
 
@@ -218,6 +220,22 @@ export class MCUAPI {
     get: (params: TimelineParams = {}, options?: RequestOptions) =>
       this.request<TimelineGroup[]>(
         `/api/v1/timeline${toQuery(params as Record<string, QueryValue>)}`,
+        options,
+      ),
+  };
+
+  readonly upcoming = {
+    list: (params: UpcomingParams = {}, options?: RequestOptions) =>
+      this.request<Paginated<UpcomingItem>>(
+        `/api/v1/upcoming${toQuery(params as Record<string, QueryValue>)}`,
+        options,
+      ),
+
+    /** Async iterator over every upcoming title matching `params`. */
+    all: (params: UpcomingParams = {}, options?: RequestOptions) =>
+      this.paginate<UpcomingItem>(
+        '/api/v1/upcoming',
+        params as Record<string, QueryValue>,
         options,
       ),
   };

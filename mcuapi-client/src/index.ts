@@ -15,5 +15,7 @@ export type {
   TimelineParams,
   TitleListParams,
   TVShow,
+  UpcomingItem,
+  UpcomingParams,
   WithRole,
 } from './types';
