@@ -20,11 +20,11 @@ server.registerTool(
   'search_content',
   {
     description:
-      'Search for movies, TV shows, or characters by title/name. Returns matching records.',
+      'Search for movies, TV shows, characters, or people by title/name. Returns matching records.',
     inputSchema: {
       query: z.string().describe('Search text'),
       type: z
-        .enum(['movie', 'tvshow', 'character', 'all'])
+        .enum(['movie', 'tvshow', 'character', 'person', 'all'])
         .default('all')
         .describe('Type of content to search'),
       limit: z.number().int().min(1).max(50).default(10),
@@ -98,6 +98,17 @@ server.registerTool(
       }
     }
 
+    if (type === 'person' || type === 'all') {
+      const people = await query<{ id: number; name: string }>(
+        `SELECT id, name FROM people WHERE name ILIKE $1 LIMIT $2`,
+        [param, limit],
+      );
+      if (people.length > 0) {
+        results.push('**People:**');
+        people.forEach(p => results.push(`  [${p.id}] ${p.name}`));
+      }
+    }
+
     return {
       content: [
         {
@@ -130,6 +141,9 @@ server.registerTool(
     const [charCount] = await query<{ count: string }>(
       'SELECT COUNT(*) as count FROM characters',
     );
+    const [peopleCount] = await query<{ count: string }>(
+      'SELECT COUNT(*) as count FROM people',
+    );
     const universes = await query<{
       multiverse_designation: string;
       continuity: string;
@@ -148,6 +162,7 @@ server.registerTool(
       `Movies: ${movieCount.count}`,
       `TV Shows: ${tvshowCount.count}`,
       `Characters: ${charCount.count}`,
+      `People: ${peopleCount.count}`,
       '',
       '**Universes:**',
       ...universes.map(
