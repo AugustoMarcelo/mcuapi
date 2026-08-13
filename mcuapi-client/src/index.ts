@@ -9,6 +9,9 @@ export type {
   ListParams,
   Movie,
   Paginated,
+  Person,
+  PersonListParams,
+  PersonTitle,
   ResourceLinks,
   TimelineEntry,
   TimelineGroup,
@@ -17,5 +20,6 @@ export type {
   TVShow,
   UpcomingItem,
   UpcomingParams,
+  WithRecastOrder,
   WithRole,
 } from './types';

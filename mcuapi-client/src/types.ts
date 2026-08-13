@@ -12,6 +12,7 @@ export interface ResourceLinks {
   characters?: Link;
   movies?: Link;
   tvshows?: Link;
+  titles?: Link;
   related_movies?: Link[];
   related_tvshows?: Link[];
   variant_of?: Link;
@@ -94,6 +95,20 @@ export interface Character {
 /** Appearance endpoints append the join row's `role_type` to each record. */
 export type WithRole<T> = T & { role_type: string | null };
 
+export interface Person {
+  id: number;
+  name: string;
+  created_at: string;
+  updated_at: string;
+  _links?: ResourceLinks;
+}
+
+/** `/people/{id}/characters` appends the recast position within `played_by`; 1 is first-listed. */
+export type WithRecastOrder<T> = T & { recast_order: number };
+
+/** A movie or TV show a person directed, returned by `/people/{id}/titles`. */
+export type PersonTitle = (Movie | TVShow) & { type: 'movie' | 'tvshow'; role: string };
+
 export interface TimelineEntry {
   id: number;
   title: string;
@@ -148,6 +163,9 @@ export interface TitleListParams extends ListParams {
   studio?: string;
   is_mcu?: boolean;
 }
+
+/** `/people` has no `continuity`/`multiverse_designation` columns to filter by. */
+export type PersonListParams = Pick<ListParams, 'page' | 'limit' | 'order' | 'filter'>;
 
 export interface TimelineParams {
   /** Exact match on `multiverse_designation`, e.g. `"Earth-10005"`. */

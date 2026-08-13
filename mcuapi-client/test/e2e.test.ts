@@ -60,6 +60,31 @@ describe('e2e (live API)', { skip: enabled ? false : 'set MCUAPI_E2E=1 to run' }
     assert.ok('role_type' in cast[0]!);
   });
 
+  test('person 1 matches the declared shape', async () => {
+    const p = await mcu.people.get(1);
+    assert.equal(typeof p.id, 'number');
+    assert.equal(typeof p.name, 'string');
+    assert.ok(p._links?.self?.href);
+    assert.ok(p._links?.characters?.href);
+    assert.ok(p._links?.titles?.href);
+  });
+
+  test('people.characters appends recast_order', async () => {
+    const characters = await mcu.people.characters(1);
+    assert.ok(Array.isArray(characters));
+    assert.ok(characters.length > 0);
+    assert.equal(typeof characters[0]!.recast_order, 'number');
+  });
+
+  test('people.titles returns movies and TV shows tagged with type/role', async () => {
+    const titles = await mcu.people.titles(1);
+    assert.ok(Array.isArray(titles));
+    titles.forEach((t) => {
+      assert.ok(t.type === 'movie' || t.type === 'tvshow');
+      assert.equal(typeof t.role, 'string');
+    });
+  });
+
   test('timeline groups carry ordered entries', async () => {
     const groups = await mcu.timeline.get();
     assert.ok(groups.length > 0);
