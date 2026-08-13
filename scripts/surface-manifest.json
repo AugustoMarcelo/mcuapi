@@ -28,10 +28,12 @@
     "upcoming": {
       "in": ["swagger", "llms", "readme"],
       "exempt": {
-        "console": "derived view over movies+tvshows; the console lists primary resources, not merged views",
-        "client": "derived view over movies+tvshows; callers compose it client-side from mcu.movies/mcu.tvshows rather than a dedicated resource",
-        "snapshot": "time-dependent (relative to 'today'); a static mirror snapshot would go stale immediately",
-        "mcp": "read-only aggregate over movies+tvshows; the MCP server's read tools are search_content/get_stats/get_timeline, not per-endpoint mirrors"
+        "snapshot": "time-dependent (relative to 'today'); a static mirror snapshot would go stale immediately"
+      },
+      "todo": {
+        "console": "#119",
+        "client": "#120",
+        "mcp": "#121"
       }
     },
     "stats": {
