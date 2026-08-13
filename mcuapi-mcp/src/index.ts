@@ -775,6 +775,481 @@ server.registerTool(
   },
 );
 
+// ─── PEOPLE ────────────────────────────────────────────────────────────────────
+
+server.registerTool(
+  'create_person',
+  {
+    description:
+      'Create a new person (real-world actor or director) who can be linked to characters or titles.',
+    inputSchema: {
+      name: z.string(),
+    },
+  },
+  async ({ name }) => {
+    const [person] = await query<{ id: number; name: string }>(
+      'INSERT INTO people (name, created_at, updated_at) VALUES ($1, NOW(), NOW()) RETURNING id, name',
+      [name],
+    );
+
+    return {
+      content: [
+        { type: 'text', text: `✅ Person [${person.id}] "${person.name}" created.` },
+      ],
+    };
+  },
+);
+
+const PERSON_UPDATABLE_FIELDS = ['name'] as const;
+
+server.registerTool(
+  'update_person',
+  {
+    description: 'Update an existing person by ID.',
+    inputSchema: {
+      id: z.number().int().describe('Person ID'),
+      name: z.string().optional(),
+    },
+  },
+  async ({ id, ...updates }) => {
+    const fields = PERSON_UPDATABLE_FIELDS.filter(
+      k => (updates as Record<string, unknown>)[k] !== undefined,
+    );
+    if (fields.length === 0) {
+      return { content: [{ type: 'text', text: '⚠️ No fields to update.' }] };
+    }
+
+    const setClause = fields.map((f, i) => `${f} = $${i + 1}`).join(', ');
+    const values = [
+      ...fields.map(f => (updates as Record<string, unknown>)[f]),
+      id,
+    ];
+
+    const [person] = await query<{ id: number; name: string }>(
+      `UPDATE people SET ${setClause}, updated_at = NOW() WHERE id = $${
+        fields.length + 1
+      } RETURNING id, name`,
+      values,
+    );
+
+    if (!person) {
+      return {
+        content: [{ type: 'text', text: `❌ Person [${id}] not found.` }],
+      };
+    }
+
+    return {
+      content: [
+        { type: 'text', text: `✅ Person [${person.id}] "${person.name}" updated.` },
+      ],
+    };
+  },
+);
+
+server.registerTool(
+  'delete_person',
+  {
+    description:
+      'Delete a person by ID. Cascades to their person_characters and person_titles links.',
+    inputSchema: {
+      id: z.number().int().describe('Person ID'),
+      confirm: z.boolean().describe('Must be true to confirm deletion'),
+    },
+  },
+  async ({ id, confirm }) => {
+    if (!confirm) {
+      return {
+        content: [
+          { type: 'text', text: '⚠️ Set confirm=true to delete the person.' },
+        ],
+      };
+    }
+
+    const [person] = await query<{ id: number; name: string }>(
+      'SELECT id, name FROM people WHERE id = $1',
+      [id],
+    );
+
+    if (!person) {
+      return {
+        content: [{ type: 'text', text: `❌ Person [${id}] not found.` }],
+      };
+    }
+
+    await query('DELETE FROM people WHERE id = $1', [id]);
+
+    return {
+      content: [
+        { type: 'text', text: `✅ Person [${id}] "${person.name}" deleted.` },
+      ],
+    };
+  },
+);
+
+server.registerTool(
+  'link_person_character',
+  {
+    description:
+      'Link a person to a character they played. recast_order is the in-story chronological position among the character\'s actors (1 is earliest) — required, since a wrong auto-default would silently corrupt data.',
+    inputSchema: {
+      person_id: z.number().int(),
+      character_id: z.number().int(),
+      recast_order: z
+        .number()
+        .int()
+        .describe(
+          "In-story chronological position among the character's actors; 1 is earliest.",
+        ),
+    },
+  },
+  async ({ person_id, character_id, recast_order }) => {
+    const [person] = await query<{ id: number; name: string }>(
+      'SELECT id, name FROM people WHERE id = $1',
+      [person_id],
+    );
+    if (!person) {
+      return {
+        content: [{ type: 'text', text: `❌ Person [${person_id}] not found.` }],
+      };
+    }
+
+    const [character] = await query<{ id: number; name: string }>(
+      'SELECT id, name FROM characters WHERE id = $1',
+      [character_id],
+    );
+    if (!character) {
+      return {
+        content: [
+          { type: 'text', text: `❌ Character [${character_id}] not found.` },
+        ],
+      };
+    }
+
+    const [existing] = await query<{ id: number }>(
+      'SELECT id FROM person_characters WHERE person_id = $1 AND character_id = $2',
+      [person_id, character_id],
+    );
+    if (existing) {
+      return {
+        content: [
+          {
+            type: 'text',
+            text: `⚠️ ${person.name} is already linked to ${character.name}.`,
+          },
+        ],
+      };
+    }
+
+    await query(
+      'INSERT INTO person_characters (person_id, character_id, recast_order, created_at) VALUES ($1, $2, $3, NOW())',
+      [person_id, character_id, recast_order],
+    );
+
+    return {
+      content: [
+        {
+          type: 'text',
+          text: `✅ Linked: ${person.name} → ${character.name} (recast_order ${recast_order})`,
+        },
+      ],
+    };
+  },
+);
+
+server.registerTool(
+  'update_person_character',
+  {
+    description:
+      'Update the recast_order of an existing person↔character link. Use this instead of link_person_character when the link already exists but its recast_order is wrong.',
+    inputSchema: {
+      person_id: z.number().int(),
+      character_id: z.number().int(),
+      recast_order: z.number().int(),
+    },
+  },
+  async ({ person_id, character_id, recast_order }) => {
+    const [existing] = await query<{ id: number }>(
+      'SELECT id FROM person_characters WHERE person_id = $1 AND character_id = $2',
+      [person_id, character_id],
+    );
+
+    if (!existing) {
+      return {
+        content: [
+          {
+            type: 'text',
+            text: `❌ No existing link found for person [${person_id}] and character [${character_id}]. Use link_person_character to create it.`,
+          },
+        ],
+      };
+    }
+
+    await query('UPDATE person_characters SET recast_order = $1 WHERE id = $2', [
+      recast_order,
+      existing.id,
+    ]);
+
+    return {
+      content: [
+        {
+          type: 'text',
+          text: `✅ Link [${existing.id}] updated: recast_order = ${recast_order}`,
+        },
+      ],
+    };
+  },
+);
+
+server.registerTool(
+  'delete_person_character',
+  {
+    description: 'Delete a spurious person↔character link.',
+    inputSchema: {
+      person_id: z.number().int(),
+      character_id: z.number().int(),
+      confirm: z.boolean().describe('Must be true to confirm deletion'),
+    },
+  },
+  async ({ person_id, character_id, confirm }) => {
+    if (!confirm) {
+      return {
+        content: [{ type: 'text', text: '⚠️ Set confirm=true to delete the link.' }],
+      };
+    }
+
+    const [existing] = await query<{ id: number }>(
+      'SELECT id FROM person_characters WHERE person_id = $1 AND character_id = $2',
+      [person_id, character_id],
+    );
+
+    if (!existing) {
+      return {
+        content: [
+          {
+            type: 'text',
+            text: `❌ No existing link found for person [${person_id}] and character [${character_id}].`,
+          },
+        ],
+      };
+    }
+
+    await query('DELETE FROM person_characters WHERE id = $1', [existing.id]);
+
+    return {
+      content: [
+        {
+          type: 'text',
+          text: `✅ Link [${existing.id}] deleted (person [${person_id}], character [${character_id}]).`,
+        },
+      ],
+    };
+  },
+);
+
+interface ITitleTarget {
+  column: 'movie_id' | 'tvshow_id';
+  titleId: number;
+}
+
+// Shared by the three person_titles tools below — a row must have exactly
+// one of movie_id/tvshow_id (PersonTitleExactlyOneTarget CHECK constraint),
+// so this is validated once here rather than in each tool.
+function resolveTitleTarget({
+  movie_id,
+  tvshow_id,
+}: {
+  movie_id?: number;
+  tvshow_id?: number;
+}): ITitleTarget | null {
+  if (movie_id !== undefined && tvshow_id !== undefined) return null;
+  if (movie_id !== undefined) return { column: 'movie_id', titleId: movie_id };
+  if (tvshow_id !== undefined) return { column: 'tvshow_id', titleId: tvshow_id };
+  return null;
+}
+
+server.registerTool(
+  'link_person_title',
+  {
+    description:
+      'Link a person to a movie or TV show with a role (defaults to "director", the only value the original backfill produced).',
+    inputSchema: {
+      person_id: z.number().int(),
+      movie_id: z.number().int().optional(),
+      tvshow_id: z.number().int().optional(),
+      role: z.string().default('director'),
+    },
+  },
+  async ({ person_id, movie_id, tvshow_id, role }) => {
+    const target = resolveTitleTarget({ movie_id, tvshow_id });
+    if (!target) {
+      return {
+        content: [
+          { type: 'text', text: '❌ Provide either movie_id or tvshow_id.' },
+        ],
+      };
+    }
+
+    const [person] = await query<{ id: number; name: string }>(
+      'SELECT id, name FROM people WHERE id = $1',
+      [person_id],
+    );
+    if (!person) {
+      return {
+        content: [{ type: 'text', text: `❌ Person [${person_id}] not found.` }],
+      };
+    }
+
+    const titleTable = target.column === 'movie_id' ? 'movies' : 'tvshows';
+    const [titleRow] = await query<{ id: number; title: string }>(
+      `SELECT id, title FROM ${titleTable} WHERE id = $1`,
+      [target.titleId],
+    );
+    if (!titleRow) {
+      const label = target.column === 'movie_id' ? 'Movie' : 'TV Show';
+      return {
+        content: [
+          { type: 'text', text: `❌ ${label} [${target.titleId}] not found.` },
+        ],
+      };
+    }
+
+    const [existing] = await query<{ id: number }>(
+      `SELECT id FROM person_titles WHERE person_id = $1 AND ${target.column} = $2`,
+      [person_id, target.titleId],
+    );
+    if (existing) {
+      return {
+        content: [
+          {
+            type: 'text',
+            text: `⚠️ ${person.name} is already linked to "${titleRow.title}".`,
+          },
+        ],
+      };
+    }
+
+    await query(
+      `INSERT INTO person_titles (person_id, ${target.column}, role, created_at) VALUES ($1, $2, $3, NOW())`,
+      [person_id, target.titleId, role],
+    );
+
+    return {
+      content: [
+        {
+          type: 'text',
+          text: `✅ Linked: ${person.name} → "${titleRow.title}" as ${role}`,
+        },
+      ],
+    };
+  },
+);
+
+server.registerTool(
+  'update_person_title',
+  {
+    description:
+      'Update the role of an existing person↔title link. Use this instead of link_person_title when the link already exists but its role is wrong.',
+    inputSchema: {
+      person_id: z.number().int(),
+      movie_id: z.number().int().optional(),
+      tvshow_id: z.number().int().optional(),
+      role: z.string(),
+    },
+  },
+  async ({ person_id, movie_id, tvshow_id, role }) => {
+    const target = resolveTitleTarget({ movie_id, tvshow_id });
+    if (!target) {
+      return {
+        content: [
+          { type: 'text', text: '❌ Provide either movie_id or tvshow_id.' },
+        ],
+      };
+    }
+
+    const [existing] = await query<{ id: number }>(
+      `SELECT id FROM person_titles WHERE person_id = $1 AND ${target.column} = $2`,
+      [person_id, target.titleId],
+    );
+
+    if (!existing) {
+      return {
+        content: [
+          {
+            type: 'text',
+            text: `❌ No existing link found for person [${person_id}] on ${target.column} [${target.titleId}]. Use link_person_title to create it.`,
+          },
+        ],
+      };
+    }
+
+    await query('UPDATE person_titles SET role = $1 WHERE id = $2', [
+      role,
+      existing.id,
+    ]);
+
+    return {
+      content: [
+        { type: 'text', text: `✅ Link [${existing.id}] updated: role = ${role}` },
+      ],
+    };
+  },
+);
+
+server.registerTool(
+  'delete_person_title',
+  {
+    description: 'Delete a spurious person↔title link.',
+    inputSchema: {
+      person_id: z.number().int(),
+      movie_id: z.number().int().optional(),
+      tvshow_id: z.number().int().optional(),
+      confirm: z.boolean().describe('Must be true to confirm deletion'),
+    },
+  },
+  async ({ person_id, movie_id, tvshow_id, confirm }) => {
+    const target = resolveTitleTarget({ movie_id, tvshow_id });
+    if (!target) {
+      return {
+        content: [
+          { type: 'text', text: '❌ Provide either movie_id or tvshow_id.' },
+        ],
+      };
+    }
+    if (!confirm) {
+      return {
+        content: [{ type: 'text', text: '⚠️ Set confirm=true to delete the link.' }],
+      };
+    }
+
+    const [existing] = await query<{ id: number }>(
+      `SELECT id FROM person_titles WHERE person_id = $1 AND ${target.column} = $2`,
+      [person_id, target.titleId],
+    );
+
+    if (!existing) {
+      return {
+        content: [
+          {
+            type: 'text',
+            text: `❌ No existing link found for person [${person_id}] on ${target.column} [${target.titleId}].`,
+          },
+        ],
+      };
+    }
+
+    await query('DELETE FROM person_titles WHERE id = $1', [existing.id]);
+
+    return {
+      content: [
+        {
+          type: 'text',
+          text: `✅ Link [${existing.id}] deleted (person [${person_id}], ${target.column} [${target.titleId}]).`,
+        },
+      ],
+    };
+  },
+);
+
 // ─── APPEARANCES ───────────────────────────────────────────────────────────────
 
 server.registerTool(
