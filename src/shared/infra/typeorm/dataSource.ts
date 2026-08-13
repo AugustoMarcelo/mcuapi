@@ -1,4 +1,5 @@
 import 'reflect-metadata';
+import 'dotenv/config';
 import { DataSource, DataSourceOptions } from 'typeorm';
 
 const dev: DataSourceOptions = {
@@ -29,7 +30,7 @@ const production: DataSourceOptions = {
   migrations: ['./dist/shared/infra/typeorm/migrations/*.js'],
 };
 
-export const AppDataSource = new DataSource(
+const AppDataSource = new DataSource(
   process.env.NODE_ENV === 'production' ? production : dev,
 );
 
