@@ -13,9 +13,10 @@ Health check: https://mcuapi.up.railway.app/health
 - `GET /movies`, `GET /movies/{id}` — movies, filterable by `studio`/`continuity`/`multiverse_designation`/`is_mcu`
 - `GET /tvshows`, `GET /tvshows/{id}` — TV shows, same filters as movies
 - `GET /characters`, `GET /characters/{id}` — characters, plus `/characters/movie/{id}`, `/characters/tvshow/{id}`, `/characters/{id}/movies`, `/characters/{id}/tvshows`
+- `GET /people`, `GET /people/{id}` — people (actors and directors) normalized out of the `played_by`/`directed_by` fields, plus `/people/{id}/characters` and `/people/{id}/titles`
 - `GET /timeline` — chronological ordering across continuities, independent of release date
 - `GET /upcoming` — movies and TV shows with a future `release_date`, merged and sorted ascending
-- `GET /stats` — dataset-wide counts, including distinct continuities and multiverse designations
+- `GET /stats` — dataset-wide counts, including people and distinct continuities and multiverse designations
 
 ## Notes
 
