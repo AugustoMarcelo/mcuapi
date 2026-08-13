@@ -5,6 +5,7 @@ import IFindAllPeopleDTO from '@modules/people/dtos/IFindAllPeopleDTO';
 import IFindAllPeopleResponseDTO from '@modules/people/dtos/IFindAllPeopleResponseDTO';
 import IPersonCharacterDTO from '@modules/people/dtos/IPersonCharacterDTO';
 import IPersonTitleDTO from '@modules/people/dtos/IPersonTitleDTO';
+import IPeopleStatsDTO from '@modules/people/dtos/IPeopleStatsDTO';
 import ICharacter from '@modules/characters/entities/ICharacter';
 import IMovie from '@modules/movies/entities/IMovie';
 import ITVShow from '@modules/tvshows/entities/ITVShow';
@@ -148,6 +149,19 @@ class FakePeopleRepository implements IPeopleRepository {
 
       return aTime - bTime;
     });
+  }
+
+  public async getStats(): Promise<IPeopleStatsDTO> {
+    const updatedDates = this.people
+      .map(person => person.updated_at)
+      .filter((date): date is Date => !!date);
+
+    return {
+      count: this.people.length,
+      last_updated: updatedDates.length
+        ? new Date(Math.max(...updatedDates.map(date => date.getTime())))
+        : null,
+    };
   }
 }
 

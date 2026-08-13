@@ -583,7 +583,7 @@ a{color:inherit}
 
 /* ── resource model ──────────────────────────────────────── */
 .schema{
-  display:grid;grid-template-columns:repeat(3,1fr);
+  display:grid;grid-template-columns:repeat(4,1fr);
   border:1px solid var(--border-strong);border-radius:3px;
   background:var(--surface);overflow:hidden;
 }
@@ -1119,6 +1119,11 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
         <span class="ledger-l">Realities</span>
         <span class="ledger-p">?multiverse_designation</span>
       </button>
+      <button class="ledger-cell" type="button" data-load="/api/v1/people?limit=10&amp;page=1">
+        <span class="ledger-n is-loading" data-stat="people"></span>
+        <span class="ledger-l">People</span>
+        <span class="ledger-p">/people</span>
+      </button>
     </div>
   </section>
 
@@ -1228,7 +1233,7 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
   <!-- ── resource model ───────────────────────────────── -->
   <section class="sec shell" id="data">
     <div class="sec-head">
-      <span class="tag">Three resources, one graph</span>
+      <span class="tag">Four resources, one graph</span>
       <h2>Everything a record carries.</h2>
       <p class="prose">
         No partial payloads and no second call to hydrate a title. Every field below is
@@ -1298,6 +1303,21 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
         <footer class="res-f">
           <span class="res-fl">_links</span>
           <span class="rels"><code>self</code><code>movies</code><code>tvshows</code><code>variant_of</code><code>first_appearance_movie</code><code>first_appearance_tvshow</code></span>
+        </footer>
+      </article>
+
+      <article class="res">
+        <header class="res-h">
+          <h3>Person</h3>
+          <span class="res-n">372 records</span>
+        </header>
+        <p class="res-p">GET /api/v1/people · /people/{person_id}</p>
+        <ul class="fields">
+          <li>id</li><li>name</li><li>created_at</li><li>updated_at</li>
+        </ul>
+        <footer class="res-f">
+          <span class="res-fl">_links</span>
+          <span class="rels"><code>self</code><code>characters</code><code>titles</code></span>
         </footer>
       </article>
     </div>

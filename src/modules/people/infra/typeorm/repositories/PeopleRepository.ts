@@ -9,6 +9,7 @@ import IFindAllPeopleDTO from '@modules/people/dtos/IFindAllPeopleDTO';
 import IFindAllPeopleResponseDTO from '@modules/people/dtos/IFindAllPeopleResponseDTO';
 import IPersonCharacterDTO from '@modules/people/dtos/IPersonCharacterDTO';
 import IPersonTitleDTO from '@modules/people/dtos/IPersonTitleDTO';
+import IPeopleStatsDTO from '@modules/people/dtos/IPeopleStatsDTO';
 import PEOPLE_COLUMNS from '@modules/people/entities/peopleColumns';
 import {
   buildOrderFromClauses,
@@ -119,6 +120,19 @@ class PeopleRepository implements IPeopleRepository {
     });
 
     return items;
+  }
+
+  public async getStats(): Promise<IPeopleStatsDTO> {
+    const { count, last_updated } = await this.ormRepository
+      .createQueryBuilder('person')
+      .select('COUNT(*)', 'count')
+      .addSelect('MAX(person.updated_at)', 'last_updated')
+      .getRawOne();
+
+    return {
+      count: Number(count),
+      last_updated: last_updated ? new Date(last_updated) : null,
+    };
   }
 }
 
