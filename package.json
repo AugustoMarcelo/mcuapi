@@ -16,7 +16,8 @@
     "lint:fix": "eslint src scripts jest.config.js prettier.config.js --fix",
     "format": "prettier --write \"src/**/*.ts\"",
     "format:check": "prettier --check \"src/**/*.ts\"",
-    "snapshot": "tsx scripts/build-snapshot.ts"
+    "snapshot": "tsx scripts/build-snapshot.ts",
+    "check:surfaces": "tsx scripts/check-surface-parity.ts"
   },
   "engines": {
     "node": "^20.19.0 || ^22.13.0 || >=24.11.0"

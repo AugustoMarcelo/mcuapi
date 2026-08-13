@@ -1,0 +1,48 @@
+{
+  "surfaces": ["swagger", "console", "client", "llms", "readme", "snapshot", "mcp"],
+  "resources": {
+    "movies": {
+      "in": ["swagger", "console", "client", "llms", "readme", "snapshot", "mcp"]
+    },
+    "tvshows": {
+      "in": ["swagger", "console", "client", "llms", "readme", "snapshot", "mcp"]
+    },
+    "characters": {
+      "in": ["swagger", "console", "client", "llms", "readme", "snapshot", "mcp"]
+    },
+    "people": {
+      "in": ["swagger"],
+      "singular": "person",
+      "todo": {
+        "console": "#113",
+        "client": "#114",
+        "llms": "#115",
+        "readme": "#115",
+        "snapshot": "#116",
+        "mcp": "#117"
+      }
+    },
+    "timeline": {
+      "in": ["swagger", "console", "client", "llms", "readme", "snapshot", "mcp"]
+    },
+    "upcoming": {
+      "in": ["swagger", "llms", "readme"],
+      "exempt": {
+        "snapshot": "time-dependent (relative to 'today'); a static mirror snapshot would go stale immediately"
+      },
+      "todo": {
+        "console": "#119",
+        "client": "#120",
+        "mcp": "#121"
+      }
+    },
+    "stats": {
+      "in": ["swagger", "llms", "readme", "mcp"],
+      "exempt": {
+        "console": "aggregate diagnostic endpoint, not a queryable resource; the landing page's hero tiles already surface it separately from the ENDPOINTS console",
+        "client": "aggregate diagnostic endpoint; not a resource collection with list/get semantics",
+        "snapshot": "time-dependent aggregate computed over the live dataset; would go stale immediately in a static mirror"
+      }
+    }
+  }
+}

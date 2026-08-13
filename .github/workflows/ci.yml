@@ -24,6 +24,9 @@ jobs:
       - name: Lint
         run: yarn lint
 
+      - name: Surface parity
+        run: yarn check:surfaces
+
       - name: Test
         run: yarn test
 

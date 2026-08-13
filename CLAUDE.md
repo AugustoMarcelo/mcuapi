@@ -169,6 +169,13 @@ in Postgres (`COUNT`/`MAX`/`SELECT DISTINCT`) rather than loading rows.
 Any new route needs a matching `paths` entry (and `components.schemas` entry, if it
 introduces a new response shape) added by hand in the same change.
 
+More generally, a resource can be consumed through up to seven surfaces — `swagger.json`,
+`mcuapi-client`, `mcuapi-mcp`, the landing page's live console, `llms.txt`, `README.md`,
+and the static snapshot — and none of them is generated from the routes. Adding, renaming,
+or removing a resource requires an explicit decision for each, recorded in
+`scripts/surface-manifest.json` and enforced by `yarn check:surfaces`; see the
+`mcuapi-surface-sync` skill.
+
 ## Code Standards
 
 - Write all code and comments in English.
