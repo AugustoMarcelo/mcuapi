@@ -84,6 +84,59 @@ test('encodes path parameters', async () => {
   assert.ok(calls[0]!.endsWith('/api/v1/characters/a%20b%2Fc'));
 });
 
+test('people.list builds the default path', async () => {
+  const { fetch, calls } = stub([{ body: { data: [], total: 0, page: 1, limit: 10 } }]);
+  await new MCUAPI({ fetch }).people.list();
+  assert.equal(calls[0], 'https://mcuapi.up.railway.app/api/v1/people');
+});
+
+test('people.get requests a single person', async () => {
+  const { fetch, calls } = stub([
+    { body: { id: 1, name: 'Zoe Saldana', created_at: '2026-01-01', updated_at: '2026-01-01' } },
+  ]);
+  await new MCUAPI({ fetch }).people.get(1);
+  assert.equal(calls[0], 'https://mcuapi.up.railway.app/api/v1/people/1');
+});
+
+test('people.characters requests the recast relation endpoint', async () => {
+  const { fetch, calls } = stub([{ body: [] }]);
+  await new MCUAPI({ fetch }).people.characters(1);
+  assert.equal(calls[0], 'https://mcuapi.up.railway.app/api/v1/people/1/characters');
+});
+
+test('people.titles requests the directed-titles relation endpoint', async () => {
+  const { fetch, calls } = stub([{ body: [] }]);
+  await new MCUAPI({ fetch }).people.titles(1);
+  assert.equal(calls[0], 'https://mcuapi.up.railway.app/api/v1/people/1/titles');
+});
+
+test('people.all paginates like the other collections', async () => {
+  const person = (id: number) => ({
+    id,
+    name: `Person ${id}`,
+    created_at: '2026-01-01T00:00:00.000Z',
+    updated_at: '2026-01-01T00:00:00.000Z',
+  });
+  const page = (ids: number[], next?: string) => ({
+    data: ids.map(person),
+    total: 4,
+    page: 1,
+    limit: 2,
+    _links: next ? { next: { href: next } } : {},
+  });
+
+  const { fetch, calls } = stub([
+    { body: page([1, 2], 'https://mcuapi.up.railway.app/api/v1/people?limit=2&page=2') },
+    { body: page([3, 4]) },
+  ]);
+
+  const seen: number[] = [];
+  for await (const p of new MCUAPI({ fetch }).people.all()) seen.push(p.id);
+
+  assert.deepEqual(seen, [1, 2, 3, 4]);
+  assert.equal(calls.length, 2);
+});
+
 test('throws MCUAPIError carrying status and parsed body', async () => {
   const { fetch } = stub([{ status: 404, body: { message: 'Movie not found' } }]);
   await assert.rejects(

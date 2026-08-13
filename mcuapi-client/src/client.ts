@@ -5,10 +5,14 @@ import type {
   ListParams,
   Movie,
   Paginated,
+  Person,
+  PersonListParams,
+  PersonTitle,
   TVShow,
   TimelineGroup,
   TimelineParams,
   TitleListParams,
+  WithRecastOrder,
   WithRole,
 } from './types';
 
@@ -210,6 +214,36 @@ export class MCUAPI {
     tvshows: (id: number | string, options?: RequestOptions) =>
       this.request<WithRole<TVShow>[]>(
         `/api/v1/characters/${encodeURIComponent(id)}/tvshows`,
+        options,
+      ),
+  };
+
+  readonly people = {
+    list: (params: PersonListParams = {}, options?: RequestOptions) =>
+      this.request<Paginated<Person>>(
+        `/api/v1/people${toQuery(params as Record<string, QueryValue>)}`,
+        options,
+      ),
+
+    get: (id: number | string, options?: RequestOptions) =>
+      this.request<Person>(`/api/v1/people/${encodeURIComponent(id)}`, options),
+
+    all: (params: PersonListParams = {}, options?: RequestOptions) =>
+      this.paginate<Person>(
+        '/api/v1/people',
+        params as Record<string, QueryValue>,
+        options,
+      ),
+
+    characters: (id: number | string, options?: RequestOptions) =>
+      this.request<WithRecastOrder<Character>[]>(
+        `/api/v1/people/${encodeURIComponent(id)}/characters`,
+        options,
+      ),
+
+    titles: (id: number | string, options?: RequestOptions) =>
+      this.request<PersonTitle[]>(
+        `/api/v1/people/${encodeURIComponent(id)}/titles`,
         options,
       ),
   };

@@ -1,8 +1,8 @@
 # mcuapi-client
 
 Typed client for [MCUAPI](https://augustomarcelo.github.io/mcuapi/) — Marvel
-Cinematic Universe movies, TV shows, characters, and the chronology that orders
-them.
+Cinematic Universe movies, TV shows, characters, people, and the chronology
+that orders them.
 
 No API key. No runtime dependencies. ESM and CJS. ~10 kB packed.
 
@@ -67,13 +67,20 @@ const cast = await mcu.follow(movie._links!.characters!);
 | `mcu.characters.all(params?)` | `AsyncGenerator<Character>` |
 | `mcu.characters.movies(id)` | `WithRole<Movie>[]` |
 | `mcu.characters.tvshows(id)` | `WithRole<TVShow>[]` |
+| `mcu.people.list(params?)` | `Paginated<Person>` |
+| `mcu.people.get(id)` | `Person` |
+| `mcu.people.all(params?)` | `AsyncGenerator<Person>` |
+| `mcu.people.characters(id)` | `WithRecastOrder<Character>[]` |
+| `mcu.people.titles(id)` | `PersonTitle[]` |
 | `mcu.timeline.get(params?)` | `TimelineGroup[]` |
 | `mcu.health()` | `Health` |
 | `mcu.follow(link)` | whatever the link points at |
 
 List params: `page`, `limit`, `order`, `filter`, `continuity`,
 `multiverse_designation` — plus `studio` and `is_mcu` on movies and TV shows.
-`timeline.get()` takes `multiverse`.
+`people.list()` only honours `page`, `limit`, `order`, and `filter`; people have
+no `continuity` or `multiverse_designation` columns to filter by. `timeline.get()`
+takes `multiverse`.
 
 ## Two things worth knowing
 
