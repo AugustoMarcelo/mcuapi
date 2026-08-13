@@ -86,11 +86,10 @@ The whole dataset is also committed to [`data/`](data) and served over jsDelivr,
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/movies.json
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/tvshows.json
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/characters.json
+https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/people.json
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/timeline.json
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/index.json
 ```
-
-`data/people.json` is pending — the snapshot script doesn't mirror `people` yet (tracked in [#116](https://github.com/AugustoMarcelo/mcuapi/issues/116)).
 
 Each file is a plain array of the same records the API returns, `_links` included. `index.json` carries the record counts, a `generated_at` timestamp and a `content_hash`.
 

@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 
 import { MCUAPI, MCUAPIError } from '../src/index';
-import type { Movie, Paginated } from '../src/index';
+import type { Movie, Paginated, UpcomingItem } from '../src/index';
 
 /** Records the URLs it was called with and replays canned responses. */
 function stub(
@@ -49,6 +49,21 @@ const movie = (id: number): Movie =>
     timeline_chronology_order: null,
     updated_at: '2026-01-01T00:00:00.000Z',
   }) satisfies Movie;
+
+const upcomingItem = (id: number): UpcomingItem =>
+  ({
+    id,
+    type: 'movie',
+    title: `Upcoming ${id}`,
+    release_date: '2027-05-01',
+    overview: null,
+    cover_url: null,
+    continuity: 'MCU',
+    multiverse_designation: 'Earth-616',
+    is_mcu: true,
+    phase: null,
+    saga: null,
+  }) satisfies UpcomingItem;
 
 test('builds the default base URL and path', async () => {
   const { fetch, calls } = stub([{ body: { data: [], total: 0, page: 1, limit: 10 } }]);
@@ -242,6 +257,44 @@ test('surfaces a non-JSON error body as raw text', async () => {
     () => new MCUAPI({ fetch }).movies.list(),
     (err: unknown) => err instanceof MCUAPIError && err.body === '<html>502</html>',
   );
+});
+
+test('upcoming.list() hits /api/v1/upcoming and serialises filters', async () => {
+  const { fetch, calls } = stub([
+    { body: { data: [upcomingItem(1)], total: 1, page: 1, limit: 10 } },
+  ]);
+
+  const { data } = await new MCUAPI({ fetch }).upcoming.list({
+    type: 'movie',
+    is_mcu: true,
+  });
+
+  const url = new URL(calls[0]!);
+  assert.equal(url.pathname, '/api/v1/upcoming');
+  assert.equal(url.searchParams.get('type'), 'movie');
+  assert.equal(url.searchParams.get('is_mcu'), 'true');
+  assert.equal(data[0]!.title, 'Upcoming 1');
+});
+
+test('upcoming.all() paginates the merged movies/tvshows list', async () => {
+  const page = (ids: number[], next?: string): Paginated<UpcomingItem> => ({
+    data: ids.map(upcomingItem),
+    total: 3,
+    page: 1,
+    limit: 2,
+    _links: next ? { next: { href: next } } : {},
+  });
+
+  const { fetch, calls } = stub([
+    { body: page([1, 2], 'https://mcuapi.up.railway.app/api/v1/upcoming?limit=2&page=2') },
+    { body: page([3]) },
+  ]);
+
+  const seen: number[] = [];
+  for await (const item of new MCUAPI({ fetch }).upcoming.all()) seen.push(item.id);
+
+  assert.deepEqual(seen, [1, 2, 3]);
+  assert.equal(calls.length, 2);
 });
 
 test('rejects construction when no fetch is available anywhere', () => {

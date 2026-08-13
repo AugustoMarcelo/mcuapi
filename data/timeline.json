@@ -1,5 +1,132 @@
 [
   {
+    "continuity": "Sony Spider-Man Universe",
+    "multiverse_designation": "Unknown",
+    "entries": [
+      {
+        "id": 51,
+        "title": "Venom",
+        "chronology_order": 1,
+        "type": "movie",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/51"
+          }
+        }
+      },
+      {
+        "id": 45,
+        "title": "The Amazing Spider-Man",
+        "chronology_order": 1,
+        "type": "movie",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/45"
+          }
+        }
+      },
+      {
+        "id": 42,
+        "title": "Spider-Man",
+        "chronology_order": 1,
+        "type": "movie",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/42"
+          }
+        }
+      },
+      {
+        "id": 55,
+        "title": "The Amazing Spider-Man 2",
+        "chronology_order": 2,
+        "type": "movie",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/55"
+          }
+        }
+      },
+      {
+        "id": 56,
+        "title": "Venom: Let There Be Carnage",
+        "chronology_order": 2,
+        "type": "movie",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/56"
+          }
+        }
+      },
+      {
+        "id": 43,
+        "title": "Spider-Man 2",
+        "chronology_order": 2,
+        "type": "movie",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/43"
+          }
+        }
+      },
+      {
+        "id": 57,
+        "title": "Venom: The Last Dance",
+        "chronology_order": 3,
+        "type": "movie",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/57"
+          }
+        }
+      },
+      {
+        "id": 44,
+        "title": "Spider-Man 3",
+        "chronology_order": 3,
+        "type": "movie",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/44"
+          }
+        }
+      },
+      {
+        "id": 73,
+        "title": "Morbius",
+        "chronology_order": 0,
+        "type": "movie",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/73"
+          }
+        }
+      },
+      {
+        "id": 74,
+        "title": "Madame Web",
+        "chronology_order": 0,
+        "type": "movie",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/74"
+          }
+        }
+      },
+      {
+        "id": 75,
+        "title": "Kraven the Hunter",
+        "chronology_order": 0,
+        "type": "movie",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/75"
+          }
+        }
+      }
+    ]
+  },
+  {
     "continuity": "X-Men Universe",
     "multiverse_designation": "Earth-10005",
     "entries": [
@@ -68,110 +195,81 @@
             "href": "https://mcuapi.up.railway.app/api/v1/movies/49"
           }
         }
-      }
-    ]
-  },
-  {
-    "continuity": "Sony Spider-Man Universe",
-    "multiverse_designation": "Earth-120703",
-    "entries": [
+      },
       {
-        "id": 45,
-        "title": "The Amazing Spider-Man",
-        "chronology_order": 1,
+        "id": 58,
+        "title": "X-Men",
+        "chronology_order": 0,
         "type": "movie",
         "_links": {
           "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/movies/45"
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/58"
           }
         }
       },
       {
-        "id": 55,
-        "title": "The Amazing Spider-Man 2",
-        "chronology_order": 2,
+        "id": 59,
+        "title": "X2",
+        "chronology_order": 0,
         "type": "movie",
         "_links": {
           "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/movies/55"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "continuity": "Sony Spider-Man Universe",
-    "multiverse_designation": "Earth-96283",
-    "entries": [
-      {
-        "id": 42,
-        "title": "Spider-Man",
-        "chronology_order": 1,
-        "type": "movie",
-        "_links": {
-          "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/movies/42"
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/59"
           }
         }
       },
       {
-        "id": 43,
-        "title": "Spider-Man 2",
-        "chronology_order": 2,
+        "id": 60,
+        "title": "X-Men: The Last Stand",
+        "chronology_order": 0,
         "type": "movie",
         "_links": {
           "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/movies/43"
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/60"
           }
         }
       },
       {
-        "id": 44,
-        "title": "Spider-Man 3",
-        "chronology_order": 3,
+        "id": 61,
+        "title": "X-Men Origins: Wolverine",
+        "chronology_order": 0,
         "type": "movie",
         "_links": {
           "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/movies/44"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "continuity": "Sony Spider-Man Universe",
-    "multiverse_designation": "Earth-616",
-    "entries": [
-      {
-        "id": 51,
-        "title": "Venom",
-        "chronology_order": 1,
-        "type": "movie",
-        "_links": {
-          "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/movies/51"
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/61"
           }
         }
       },
       {
-        "id": 56,
-        "title": "Venom: Let There Be Carnage",
-        "chronology_order": 2,
+        "id": 62,
+        "title": "X-Men: First Class",
+        "chronology_order": 0,
         "type": "movie",
         "_links": {
           "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/movies/56"
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/62"
           }
         }
       },
       {
-        "id": 57,
-        "title": "Venom: The Last Dance",
-        "chronology_order": 3,
+        "id": 63,
+        "title": "The Wolverine",
+        "chronology_order": 0,
         "type": "movie",
         "_links": {
           "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/movies/57"
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/63"
+          }
+        }
+      },
+      {
+        "id": 64,
+        "title": "The New Mutants",
+        "chronology_order": 0,
+        "type": "movie",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/64"
           }
         }
       }
@@ -200,28 +298,6 @@
         "_links": {
           "self": {
             "href": "https://mcuapi.up.railway.app/api/v1/movies/5"
-          }
-        }
-      },
-      {
-        "id": 45,
-        "title": "Agent Carter",
-        "chronology_order": 3,
-        "type": "tvshow",
-        "_links": {
-          "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/45"
-          }
-        }
-      },
-      {
-        "id": 46,
-        "title": "Agent Carter",
-        "chronology_order": 4,
-        "type": "tvshow",
-        "_links": {
-          "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/46"
           }
         }
       },
@@ -288,17 +364,6 @@
         "_links": {
           "self": {
             "href": "https://mcuapi.up.railway.app/api/v1/movies/6"
-          }
-        }
-      },
-      {
-        "id": 38,
-        "title": "Agents of S.H.I.E.L.D.",
-        "chronology_order": 11,
-        "type": "tvshow",
-        "_links": {
-          "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/38"
           }
         }
       },
@@ -391,17 +456,6 @@
         }
       },
       {
-        "id": 39,
-        "title": "Agents of S.H.I.E.L.D.",
-        "chronology_order": 20,
-        "type": "tvshow",
-        "_links": {
-          "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/39"
-          }
-        }
-      },
-      {
         "id": 28,
         "title": "Jessica Jones",
         "chronology_order": 21,
@@ -457,17 +511,6 @@
         }
       },
       {
-        "id": 40,
-        "title": "Agents of S.H.I.E.L.D.",
-        "chronology_order": 26,
-        "type": "tvshow",
-        "_links": {
-          "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/40"
-          }
-        }
-      },
-      {
         "id": 33,
         "title": "Iron Fist",
         "chronology_order": 27,
@@ -512,17 +555,6 @@
         }
       },
       {
-        "id": 41,
-        "title": "Agents of S.H.I.E.L.D.",
-        "chronology_order": 31,
-        "type": "tvshow",
-        "_links": {
-          "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/41"
-          }
-        }
-      },
-      {
         "id": 18,
         "title": "Black Panther",
         "chronology_order": 32,
@@ -541,28 +573,6 @@
         "_links": {
           "self": {
             "href": "https://mcuapi.up.railway.app/api/v1/movies/16"
-          }
-        }
-      },
-      {
-        "id": 55,
-        "title": "Your Friendly Neighborhood Spider-Man",
-        "chronology_order": 34,
-        "type": "tvshow",
-        "_links": {
-          "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/55"
-          }
-        }
-      },
-      {
-        "id": 56,
-        "title": "Your Friendly Neighborhood Spider-Man",
-        "chronology_order": 35,
-        "type": "tvshow",
-        "_links": {
-          "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/56"
           }
         }
       },
@@ -644,61 +654,6 @@
         }
       },
       {
-        "id": 47,
-        "title": "Runaways",
-        "chronology_order": 43,
-        "type": "tvshow",
-        "_links": {
-          "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/47"
-          }
-        }
-      },
-      {
-        "id": 42,
-        "title": "Agents of S.H.I.E.L.D.",
-        "chronology_order": 44,
-        "type": "tvshow",
-        "_links": {
-          "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/42"
-          }
-        }
-      },
-      {
-        "id": 50,
-        "title": "Cloak & Dagger",
-        "chronology_order": 45,
-        "type": "tvshow",
-        "_links": {
-          "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/50"
-          }
-        }
-      },
-      {
-        "id": 51,
-        "title": "Cloak & Dagger",
-        "chronology_order": 46,
-        "type": "tvshow",
-        "_links": {
-          "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/51"
-          }
-        }
-      },
-      {
-        "id": 48,
-        "title": "Runaways",
-        "chronology_order": 47,
-        "type": "tvshow",
-        "_links": {
-          "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/48"
-          }
-        }
-      },
-      {
         "id": 37,
         "title": "The Punisher",
         "chronology_order": 48,
@@ -743,50 +698,6 @@
         }
       },
       {
-        "id": 43,
-        "title": "Agents of S.H.I.E.L.D.",
-        "chronology_order": 52,
-        "type": "tvshow",
-        "_links": {
-          "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/43"
-          }
-        }
-      },
-      {
-        "id": 44,
-        "title": "Agents of S.H.I.E.L.D.",
-        "chronology_order": 53,
-        "type": "tvshow",
-        "_links": {
-          "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/44"
-          }
-        }
-      },
-      {
-        "id": 49,
-        "title": "Runaways",
-        "chronology_order": 54,
-        "type": "tvshow",
-        "_links": {
-          "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/49"
-          }
-        }
-      },
-      {
-        "id": 52,
-        "title": "Helstrom",
-        "chronology_order": 55,
-        "type": "tvshow",
-        "_links": {
-          "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/52"
-          }
-        }
-      },
-      {
         "id": 22,
         "title": "Avengers: Endgame",
         "chronology_order": 56,
@@ -816,17 +727,6 @@
         "_links": {
           "self": {
             "href": "https://mcuapi.up.railway.app/api/v1/tvshows/4"
-          }
-        }
-      },
-      {
-        "id": 54,
-        "title": "Marvel Zombies",
-        "chronology_order": 59,
-        "type": "tvshow",
-        "_links": {
-          "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/54"
           }
         }
       },
@@ -1161,17 +1061,6 @@
         }
       },
       {
-        "id": 38,
-        "title": "The Fantastic Four: First Steps",
-        "chronology_order": 90,
-        "type": "movie",
-        "_links": {
-          "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/movies/38"
-          }
-        }
-      },
-      {
         "id": 24,
         "title": "The Punisher: One Last Kill",
         "chronology_order": 91,
@@ -1184,7 +1073,7 @@
       },
       {
         "id": 23,
-        "title": "Daredevil: Born Again\t",
+        "title": "Daredevil: Born Again",
         "chronology_order": 92,
         "type": "tvshow",
         "_links": {
@@ -1267,6 +1156,346 @@
         "_links": {
           "self": {
             "href": "https://mcuapi.up.railway.app/api/v1/movies/53"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-828",
+    "entries": [
+      {
+        "id": 38,
+        "title": "The Fantastic Four: First Steps",
+        "chronology_order": 90,
+        "type": "movie",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/38"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "continuity": "FOX Fantastic Four",
+    "multiverse_designation": "Unknown",
+    "entries": [
+      {
+        "id": 70,
+        "title": "Fantastic Four",
+        "chronology_order": 0,
+        "type": "movie",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/70"
+          }
+        }
+      },
+      {
+        "id": 71,
+        "title": "Fantastic Four: Rise of the Silver Surfer",
+        "chronology_order": 0,
+        "type": "movie",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/71"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "continuity": "Blade Trilogy",
+    "multiverse_designation": "Unknown",
+    "entries": [
+      {
+        "id": 65,
+        "title": "Blade",
+        "chronology_order": 0,
+        "type": "movie",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/65"
+          }
+        }
+      },
+      {
+        "id": 66,
+        "title": "Blade II",
+        "chronology_order": 0,
+        "type": "movie",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/66"
+          }
+        }
+      },
+      {
+        "id": 67,
+        "title": "Blade: Trinity",
+        "chronology_order": 0,
+        "type": "movie",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/67"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "continuity": "FOX Daredevil",
+    "multiverse_designation": "Unknown",
+    "entries": [
+      {
+        "id": 68,
+        "title": "Daredevil",
+        "chronology_order": 0,
+        "type": "movie",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/68"
+          }
+        }
+      },
+      {
+        "id": 69,
+        "title": "Elektra",
+        "chronology_order": 0,
+        "type": "movie",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/69"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "continuity": "Agent Carter",
+    "multiverse_designation": "Earth-616",
+    "entries": [
+      {
+        "id": 45,
+        "title": "Agent Carter",
+        "chronology_order": 3,
+        "type": "tvshow",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/45"
+          }
+        }
+      },
+      {
+        "id": 46,
+        "title": "Agent Carter",
+        "chronology_order": 4,
+        "type": "tvshow",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/46"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "continuity": "Agents of S.H.I.E.L.D.",
+    "multiverse_designation": "Earth-616",
+    "entries": [
+      {
+        "id": 38,
+        "title": "Agents of S.H.I.E.L.D.",
+        "chronology_order": 11,
+        "type": "tvshow",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/38"
+          }
+        }
+      },
+      {
+        "id": 39,
+        "title": "Agents of S.H.I.E.L.D.",
+        "chronology_order": 20,
+        "type": "tvshow",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/39"
+          }
+        }
+      },
+      {
+        "id": 40,
+        "title": "Agents of S.H.I.E.L.D.",
+        "chronology_order": 26,
+        "type": "tvshow",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/40"
+          }
+        }
+      },
+      {
+        "id": 41,
+        "title": "Agents of S.H.I.E.L.D.",
+        "chronology_order": 31,
+        "type": "tvshow",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/41"
+          }
+        }
+      },
+      {
+        "id": 42,
+        "title": "Agents of S.H.I.E.L.D.",
+        "chronology_order": 44,
+        "type": "tvshow",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/42"
+          }
+        }
+      },
+      {
+        "id": 43,
+        "title": "Agents of S.H.I.E.L.D.",
+        "chronology_order": 52,
+        "type": "tvshow",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/43"
+          }
+        }
+      },
+      {
+        "id": 44,
+        "title": "Agents of S.H.I.E.L.D.",
+        "chronology_order": 53,
+        "type": "tvshow",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/44"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "continuity": "MCU",
+    "multiverse_designation": "Unknown",
+    "entries": [
+      {
+        "id": 55,
+        "title": "Your Friendly Neighborhood Spider-Man",
+        "chronology_order": 34,
+        "type": "tvshow",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/55"
+          }
+        }
+      },
+      {
+        "id": 56,
+        "title": "Your Friendly Neighborhood Spider-Man",
+        "chronology_order": 35,
+        "type": "tvshow",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/56"
+          }
+        }
+      },
+      {
+        "id": 54,
+        "title": "Marvel Zombies",
+        "chronology_order": 59,
+        "type": "tvshow",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/54"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "continuity": "Marvel YA",
+    "multiverse_designation": "Earth-616",
+    "entries": [
+      {
+        "id": 47,
+        "title": "Runaways",
+        "chronology_order": 43,
+        "type": "tvshow",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/47"
+          }
+        }
+      },
+      {
+        "id": 50,
+        "title": "Cloak & Dagger",
+        "chronology_order": 45,
+        "type": "tvshow",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/50"
+          }
+        }
+      },
+      {
+        "id": 51,
+        "title": "Cloak & Dagger",
+        "chronology_order": 46,
+        "type": "tvshow",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/51"
+          }
+        }
+      },
+      {
+        "id": 48,
+        "title": "Runaways",
+        "chronology_order": 47,
+        "type": "tvshow",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/48"
+          }
+        }
+      },
+      {
+        "id": 49,
+        "title": "Runaways",
+        "chronology_order": 54,
+        "type": "tvshow",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/49"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "continuity": "Adventure into Fear",
+    "multiverse_designation": "Earth-616",
+    "entries": [
+      {
+        "id": 52,
+        "title": "Helstrom",
+        "chronology_order": 55,
+        "type": "tvshow",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/52"
           }
         }
       }

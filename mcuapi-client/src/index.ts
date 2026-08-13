@@ -18,6 +18,8 @@ export type {
   TimelineParams,
   TitleListParams,
   TVShow,
+  UpcomingItem,
+  UpcomingParams,
   WithRecastOrder,
   WithRole,
 } from './types';

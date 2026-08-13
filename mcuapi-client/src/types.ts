@@ -171,3 +171,34 @@ export interface TimelineParams {
   /** Exact match on `multiverse_designation`, e.g. `"Earth-10005"`. */
   multiverse?: string;
 }
+
+/**
+ * `/upcoming` merges movies and TV shows whose `release_date` is strictly in
+ * the future, sorted ascending. Titles with no announced `release_date` are
+ * excluded rather than sorted to either end, so `release_date` is never null
+ * here even though it's nullable on `Movie`/`TVShow`.
+ */
+export interface UpcomingItem {
+  id: number;
+  type: 'movie' | 'tvshow';
+  title: string;
+  release_date: string;
+  overview: string | null;
+  cover_url: string | null;
+  continuity: string | null;
+  multiverse_designation: string | null;
+  is_mcu: boolean;
+  phase: number | null;
+  saga: string | null;
+  _links?: ResourceLinks;
+}
+
+export interface UpcomingParams {
+  page?: number;
+  /** Defaults to 10 server-side and is capped at 100. */
+  limit?: number;
+  type?: 'movie' | 'tvshow';
+  continuity?: string;
+  multiverse_designation?: string;
+  is_mcu?: boolean;
+}

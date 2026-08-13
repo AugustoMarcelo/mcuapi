@@ -11,26 +11,16 @@
       "in": ["swagger", "console", "client", "llms", "readme", "snapshot", "mcp"]
     },
     "people": {
-      "in": ["swagger", "llms", "readme", "client"],
-      "singular": "person",
-      "todo": {
-        "console": "#113",
-        "snapshot": "#116",
-        "mcp": "#117"
-      }
+      "in": ["swagger", "console", "client", "llms", "readme", "snapshot", "mcp"],
+      "singular": "person"
     },
     "timeline": {
       "in": ["swagger", "console", "client", "llms", "readme", "snapshot", "mcp"]
     },
     "upcoming": {
-      "in": ["swagger", "llms", "readme"],
+      "in": ["swagger", "console", "llms", "readme", "client", "mcp"],
       "exempt": {
         "snapshot": "time-dependent (relative to 'today'); a static mirror snapshot would go stale immediately"
-      },
-      "todo": {
-        "console": "#119",
-        "client": "#120",
-        "mcp": "#121"
       }
     },
     "stats": {
