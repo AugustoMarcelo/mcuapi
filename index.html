@@ -1791,6 +1791,10 @@ npm i mcuapi-client
     { path: '/api/v1/characters/tvshow/{id}',    label: '/characters/tvshow/{id}',    id: '8' },
     { path: '/api/v1/characters/{id}/movies',    label: '/characters/{id}/movies',    id: '1' },
     { path: '/api/v1/characters/{id}/tvshows',   label: '/characters/{id}/tvshows',   id: '1' },
+    { path: '/api/v1/people',                    label: '/people',                    params: ['page', 'limit', 'columns', 'order', 'filter'], defaults: { limit: '5', page: '1' } },
+    { path: '/api/v1/people/{id}',               label: '/people/{id}',               id: '1' },
+    { path: '/api/v1/people/{id}/characters',    label: '/people/{id}/characters',    id: '1' },
+    { path: '/api/v1/people/{id}/titles',        label: '/people/{id}/titles',        id: '1' },
     { path: '/api/v1/timeline',                  label: '/timeline',                  params: ['multiverse'] },
     { path: '/health',                           label: '/health' }
   ];
