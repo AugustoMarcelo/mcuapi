@@ -1,0 +1,6326 @@
+[
+  {
+    "id": 1,
+    "name": "Zoe Saldana",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/1"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/1/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/1/titles"
+      }
+    }
+  },
+  {
+    "id": 2,
+    "name": "James D'Arcy",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/2"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/2/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/2/titles"
+      }
+    }
+  },
+  {
+    "id": 3,
+    "name": "Jacob Batalon",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/3"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/3/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/3/titles"
+      }
+    }
+  },
+  {
+    "id": 4,
+    "name": "Rachel McAdams",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/4"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/4/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/4/titles"
+      }
+    }
+  },
+  {
+    "id": 5,
+    "name": "Xochitl Gomez",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/5"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/5/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/5/titles"
+      }
+    }
+  },
+  {
+    "id": 6,
+    "name": "Lashana Lynch",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/6"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/6/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/6/titles"
+      }
+    }
+  },
+  {
+    "id": 7,
+    "name": "Chadwick Boseman",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/7"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/7/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/7/titles"
+      }
+    }
+  },
+  {
+    "id": 8,
+    "name": "Letitia Wright",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/8"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/8/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/8/titles"
+      }
+    }
+  },
+  {
+    "id": 9,
+    "name": "Chris Evans",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/9"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/9/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/9/titles"
+      }
+    }
+  },
+  {
+    "id": 10,
+    "name": "Vin Diesel",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/10"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/10/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/10/titles"
+      }
+    }
+  },
+  {
+    "id": 11,
+    "name": "Chris Hemsworth",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/11"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/11/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/11/titles"
+      }
+    }
+  },
+  {
+    "id": 12,
+    "name": "Scarlett Johansson",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/12"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/12/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/12/titles"
+      }
+    }
+  },
+  {
+    "id": 13,
+    "name": "Jeremy Renner",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/13"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/13/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/13/titles"
+      }
+    }
+  },
+  {
+    "id": 14,
+    "name": "Samuel L. Jackson",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/14"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/14/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/14/titles"
+      }
+    }
+  },
+  {
+    "id": 15,
+    "name": "Gwyneth Paltrow",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/15"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/15/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/15/titles"
+      }
+    }
+  },
+  {
+    "id": 16,
+    "name": "Clark Gregg",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/16"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/16/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/16/titles"
+      }
+    }
+  },
+  {
+    "id": 17,
+    "name": "Cobie Smulders",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/17"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/17/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/17/titles"
+      }
+    }
+  },
+  {
+    "id": 18,
+    "name": "Zendaya",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/18"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/18/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/18/titles"
+      }
+    }
+  },
+  {
+    "id": 19,
+    "name": "Jake Gyllenhaal",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/19"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/19/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/19/titles"
+      }
+    }
+  },
+  {
+    "id": 20,
+    "name": "Robert Downey Jr.",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/20"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/20/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/20/titles"
+      }
+    }
+  },
+  {
+    "id": 21,
+    "name": "Dave Bautista",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/21"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/21/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/21/titles"
+      }
+    }
+  },
+  {
+    "id": 22,
+    "name": "Benedict Cumberbatch",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/22"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/22/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/22/titles"
+      }
+    }
+  },
+  {
+    "id": 23,
+    "name": "Chiwetel Ejiofor",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/23"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/23/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/23/titles"
+      }
+    }
+  },
+  {
+    "id": 24,
+    "name": "Michael B. Jordan",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/24"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/24/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/24/titles"
+      }
+    }
+  },
+  {
+    "id": 25,
+    "name": "Brie Larson",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/25"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/25/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/25/titles"
+      }
+    }
+  },
+  {
+    "id": 26,
+    "name": "Iman Vellani",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/26"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/26/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/26/titles"
+      }
+    }
+  },
+  {
+    "id": 27,
+    "name": "Paul Rudd",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/27"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/27/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/27/titles"
+      }
+    }
+  },
+  {
+    "id": 28,
+    "name": "Evangeline Lilly",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/28"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/28/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/28/titles"
+      }
+    }
+  },
+  {
+    "id": 29,
+    "name": "Michelle Pfeiffer",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/29"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/29/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/29/titles"
+      }
+    }
+  },
+  {
+    "id": 30,
+    "name": "Corey Stoll",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/30"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/30/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/30/titles"
+      }
+    }
+  },
+  {
+    "id": 31,
+    "name": "Orla Brady",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/31"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/31/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/31/titles"
+      }
+    }
+  },
+  {
+    "id": 32,
+    "name": "Vanessa Kirby",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/32"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/32/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/32/titles"
+      }
+    }
+  },
+  {
+    "id": 33,
+    "name": "Joseph Quinn",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/33"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/33/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/33/titles"
+      }
+    }
+  },
+  {
+    "id": 34,
+    "name": "Ebon Moss-Bachrach",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/34"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/34/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/34/titles"
+      }
+    }
+  },
+  {
+    "id": 35,
+    "name": "Owen Wilson",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/35"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/35/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/35/titles"
+      }
+    }
+  },
+  {
+    "id": 36,
+    "name": "Gugu Mbatha-Raw",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/36"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/36/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/36/titles"
+      }
+    }
+  },
+  {
+    "id": 37,
+    "name": "Wunmi Mosaku",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/37"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/37/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/37/titles"
+      }
+    }
+  },
+  {
+    "id": 38,
+    "name": "Elizabeth Olsen",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/38"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/38/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/38/titles"
+      }
+    }
+  },
+  {
+    "id": 39,
+    "name": "Kathryn Hahn",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/39"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/39/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/39/titles"
+      }
+    }
+  },
+  {
+    "id": 40,
+    "name": "Josh Stamberg",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/40"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/40/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/40/titles"
+      }
+    }
+  },
+  {
+    "id": 41,
+    "name": "Randall Park",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/41"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/41/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/41/titles"
+      }
+    }
+  },
+  {
+    "id": 42,
+    "name": "Awkwafina",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/42"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/42/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/42/titles"
+      }
+    }
+  },
+  {
+    "id": 43,
+    "name": "Gemma Chan",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/43"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/43/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/43/titles"
+      }
+    }
+  },
+  {
+    "id": 44,
+    "name": "Angelina Jolie",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/44"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/44/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/44/titles"
+      }
+    }
+  },
+  {
+    "id": 45,
+    "name": "Tessa Thompson",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/45"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/45/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/45/titles"
+      }
+    }
+  },
+  {
+    "id": 46,
+    "name": "Taika Waititi",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/46"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/46/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/46/titles"
+      }
+    }
+  },
+  {
+    "id": 47,
+    "name": "Hayley Atwell",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/47"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/47/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/47/titles"
+      }
+    }
+  },
+  {
+    "id": 48,
+    "name": "Emily VanCamp",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/48"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/48/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/48/titles"
+      }
+    }
+  },
+  {
+    "id": 49,
+    "name": "James Spader",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/49"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/49/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/49/titles"
+      }
+    }
+  },
+  {
+    "id": 50,
+    "name": "Charlie Cox",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/50"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/50/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/50/titles"
+      }
+    }
+  },
+  {
+    "id": 51,
+    "name": "Krysten Ritter",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/51"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/51/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/51/titles"
+      }
+    }
+  },
+  {
+    "id": 52,
+    "name": "Mike Colter",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/52"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/52/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/52/titles"
+      }
+    }
+  },
+  {
+    "id": 53,
+    "name": "Elodie Yung",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/53"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/53/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/53/titles"
+      }
+    }
+  },
+  {
+    "id": 54,
+    "name": "Deborah Ann Woll",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/54"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/54/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/54/titles"
+      }
+    }
+  },
+  {
+    "id": 55,
+    "name": "Rachael Taylor",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/55"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/55/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/55/titles"
+      }
+    }
+  },
+  {
+    "id": 56,
+    "name": "Hailee Steinfeld",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/56"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/56/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/56/titles"
+      }
+    }
+  },
+  {
+    "id": 57,
+    "name": "Florence Pugh",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/57"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/57/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/57/titles"
+      }
+    }
+  },
+  {
+    "id": 58,
+    "name": "Vera Farmiga",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/58"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/58/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/58/titles"
+      }
+    }
+  },
+  {
+    "id": 59,
+    "name": "Tony Leung",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/59"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/59/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/59/titles"
+      }
+    }
+  },
+  {
+    "id": 60,
+    "name": "Hugh Jackman",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/60"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/60/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/60/titles"
+      }
+    }
+  },
+  {
+    "id": 61,
+    "name": "Emma Corrin",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/61"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/61/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/61/titles"
+      }
+    }
+  },
+  {
+    "id": 62,
+    "name": "Gabriel Luna",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/62"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/62/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/62/titles"
+      }
+    }
+  },
+  {
+    "id": 63,
+    "name": "Benedict Wong",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/63"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/63/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/63/titles"
+      }
+    }
+  },
+  {
+    "id": 64,
+    "name": "Jameela Jamil",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/64"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/64/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/64/titles"
+      }
+    }
+  },
+  {
+    "id": 65,
+    "name": "Matt Lintz",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/65"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/65/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/65/titles"
+      }
+    }
+  },
+  {
+    "id": 66,
+    "name": "Oscar Isaac",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/66"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/66/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/66/titles"
+      }
+    }
+  },
+  {
+    "id": 67,
+    "name": "Ethan Hawke",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/67"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/67/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/67/titles"
+      }
+    }
+  },
+  {
+    "id": 68,
+    "name": "Martin Freeman",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/68"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/68/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/68/titles"
+      }
+    }
+  },
+  {
+    "id": 69,
+    "name": "Ben Mendelsohn",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/69"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/69/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/69/titles"
+      }
+    }
+  },
+  {
+    "id": 70,
+    "name": "Sharon Blynn",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/70"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/70/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/70/titles"
+      }
+    }
+  },
+  {
+    "id": 71,
+    "name": "Ali Ahn",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/71"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/71/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/71/titles"
+      }
+    }
+  },
+  {
+    "id": 72,
+    "name": "Rob Delaney",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/72"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/72/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/72/titles"
+      }
+    }
+  },
+  {
+    "id": 73,
+    "name": "Adrian Pasdar",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/73"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/73/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/73/titles"
+      }
+    }
+  },
+  {
+    "id": 74,
+    "name": "Rhenzy Feliz",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/74"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/74/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/74/titles"
+      }
+    }
+  },
+  {
+    "id": 75,
+    "name": "Ariela Barer",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/75"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/75/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/75/titles"
+      }
+    }
+  },
+  {
+    "id": 76,
+    "name": "Chris Pratt",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/76"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/76/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/76/titles"
+      }
+    }
+  },
+  {
+    "id": 77,
+    "name": "Gregg Sulkin",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/77"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/77/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/77/titles"
+      }
+    }
+  },
+  {
+    "id": 78,
+    "name": "Emma Lahana",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/78"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/78/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/78/titles"
+      }
+    }
+  },
+  {
+    "id": 79,
+    "name": "Tom Austen",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/79"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/79/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/79/titles"
+      }
+    }
+  },
+  {
+    "id": 80,
+    "name": "Mahershala Ali",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/80"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/80/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/80/titles"
+      }
+    }
+  },
+  {
+    "id": 81,
+    "name": "Amber Rose Revah",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/81"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/81/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/81/titles"
+      }
+    }
+  },
+  {
+    "id": 82,
+    "name": "Karen Gillan",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/82"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/82/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/82/titles"
+      }
+    }
+  },
+  {
+    "id": 83,
+    "name": "John Krasinski",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/83"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/83/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/83/titles"
+      }
+    }
+  },
+  {
+    "id": 84,
+    "name": "Henry Lewis",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/84"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/84/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/84/titles"
+      }
+    }
+  },
+  {
+    "id": 85,
+    "name": "Ginger Gonzaga",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/85"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/85/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/85/titles"
+      }
+    }
+  },
+  {
+    "id": 86,
+    "name": "Akira Akbar",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/86"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/86/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/86/titles"
+      }
+    }
+  },
+  {
+    "id": 87,
+    "name": "Teyonah Parris",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/87"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/87/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/87/titles"
+      }
+    }
+  },
+  {
+    "id": 88,
+    "name": "Tom Hardy",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/88"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/88/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/88/titles"
+      }
+    }
+  },
+  {
+    "id": 89,
+    "name": "Pedro Pascal",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/89"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/89/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/89/titles"
+      }
+    }
+  },
+  {
+    "id": 90,
+    "name": "Jonathan Majors",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/90"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/90/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/90/titles"
+      }
+    }
+  },
+  {
+    "id": 91,
+    "name": "Simone Missick",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/91"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/91/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/91/titles"
+      }
+    }
+  },
+  {
+    "id": 92,
+    "name": "Carrie-Anne Moss",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/92"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/92/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/92/titles"
+      }
+    }
+  },
+  {
+    "id": 93,
+    "name": "Alaqua Cox",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/93"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/93/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/93/titles"
+      }
+    }
+  },
+  {
+    "id": 94,
+    "name": "Jason O'Mara",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/94"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/94/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/94/titles"
+      }
+    }
+  },
+  {
+    "id": 95,
+    "name": "Virginia Gardner",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/95"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/95/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/95/titles"
+      }
+    }
+  },
+  {
+    "id": 96,
+    "name": "Allegra Acosta",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/96"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/96/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/96/titles"
+      }
+    }
+  },
+  {
+    "id": 97,
+    "name": "Aubrey Joseph",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/97"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/97/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/97/titles"
+      }
+    }
+  },
+  {
+    "id": 98,
+    "name": "Elizabeth Marvel",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/98"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/98/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/98/titles"
+      }
+    }
+  },
+  {
+    "id": 99,
+    "name": "Jett Klyne",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/99"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/99/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/99/titles"
+      }
+    }
+  },
+  {
+    "id": 100,
+    "name": "Evan Peters",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/100"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/100/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/100/titles"
+      }
+    }
+  },
+  {
+    "id": 101,
+    "name": "Kat Dennings",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/101"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/101/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/101/titles"
+      }
+    }
+  },
+  {
+    "id": 102,
+    "name": "Simu Liu",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/102"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/102/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/102/titles"
+      }
+    }
+  },
+  {
+    "id": 103,
+    "name": "Sebastian Stan",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/103"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/103/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/103/titles"
+      }
+    }
+  },
+  {
+    "id": 104,
+    "name": "Daniel Brühl",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/104"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/104/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/104/titles"
+      }
+    }
+  },
+  {
+    "id": 105,
+    "name": "Elden Henson",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/105"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/105/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/105/titles"
+      }
+    }
+  },
+  {
+    "id": 106,
+    "name": "Yasmeen Fletcher",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/106"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/106/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/106/titles"
+      }
+    }
+  },
+  {
+    "id": 107,
+    "name": "Julia Louis-Dreyfus",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/107"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/107/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/107/titles"
+      }
+    }
+  },
+  {
+    "id": 108,
+    "name": "Patti LuPone",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/108"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/108/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/108/titles"
+      }
+    }
+  },
+  {
+    "id": 109,
+    "name": "Yahya Abdul-Mateen II",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/109"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/109/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/109/titles"
+      }
+    }
+  },
+  {
+    "id": 110,
+    "name": "Chad Michael Murray",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/110"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/110/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/110/titles"
+      }
+    }
+  },
+  {
+    "id": 111,
+    "name": "Lewis Pullman",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/111"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/111/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/111/titles"
+      }
+    }
+  },
+  {
+    "id": 112,
+    "name": "Tenoch Huerta Mejía",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/112"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/112/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/112/titles"
+      }
+    }
+  },
+  {
+    "id": 113,
+    "name": "Winston Duke",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/113"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/113/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/113/titles"
+      }
+    }
+  },
+  {
+    "id": 114,
+    "name": "Danny Ramirez",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/114"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/114/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/114/titles"
+      }
+    }
+  },
+  {
+    "id": 115,
+    "name": "Tobey Maguire",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/115"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/115/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/115/titles"
+      }
+    }
+  },
+  {
+    "id": 116,
+    "name": "Willem Dafoe",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/116"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/116/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/116/titles"
+      }
+    }
+  },
+  {
+    "id": 117,
+    "name": "Alfred Molina",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/117"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/117/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/117/titles"
+      }
+    }
+  },
+  {
+    "id": 118,
+    "name": "Thomas Haden Church",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/118"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/118/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/118/titles"
+      }
+    }
+  },
+  {
+    "id": 119,
+    "name": "Andrew Garfield",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/119"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/119/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/119/titles"
+      }
+    }
+  },
+  {
+    "id": 120,
+    "name": "Rhys Ifans",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/120"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/120/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/120/titles"
+      }
+    }
+  },
+  {
+    "id": 121,
+    "name": "Vinnie Jones",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/121"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/121/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/121/titles"
+      }
+    }
+  },
+  {
+    "id": 122,
+    "name": "Ryan Reynolds",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/122"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/122/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/122/titles"
+      }
+    }
+  },
+  {
+    "id": 123,
+    "name": "Aaron W. Reed",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/123"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/123/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/123/titles"
+      }
+    }
+  },
+  {
+    "id": 124,
+    "name": "Kevin Durand",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/124"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/124/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/124/titles"
+      }
+    }
+  },
+  {
+    "id": 125,
+    "name": "Mike Waters",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/125"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/125/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/125/titles"
+      }
+    }
+  },
+  {
+    "id": 126,
+    "name": "Jason Flemyng",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/126"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/126/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/126/titles"
+      }
+    }
+  },
+  {
+    "id": 127,
+    "name": "Eduardo Gago Muñoz",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/127"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/127/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/127/titles"
+      }
+    }
+  },
+  {
+    "id": 128,
+    "name": "Olivia Munn",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/128"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/128/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/128/titles"
+      }
+    }
+  },
+  {
+    "id": 129,
+    "name": "Ayesha Hussain",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/129"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/129/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/129/titles"
+      }
+    }
+  },
+  {
+    "id": 130,
+    "name": "Jonathan Sayer",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/130"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/130/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/130/titles"
+      }
+    }
+  },
+  {
+    "id": 131,
+    "name": "Ayelet Zurer",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/131"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/131/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/131/titles"
+      }
+    }
+  },
+  {
+    "id": 132,
+    "name": "Vincent D'Onofrio",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/132"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/132/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/132/titles"
+      }
+    }
+  },
+  {
+    "id": 133,
+    "name": "Jon Bernthal",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/133"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/133/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/133/titles"
+      }
+    }
+  },
+  {
+    "id": 134,
+    "name": "Ming-Na Wen",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/134"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/134/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/134/titles"
+      }
+    }
+  },
+  {
+    "id": 135,
+    "name": "Elizabeth Henstridge",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/135"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/135/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/135/titles"
+      }
+    }
+  },
+  {
+    "id": 136,
+    "name": "Morena Baccarin",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/136"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/136/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/136/titles"
+      }
+    }
+  },
+  {
+    "id": 137,
+    "name": "Leslie Uggams",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/137"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/137/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/137/titles"
+      }
+    }
+  },
+  {
+    "id": 138,
+    "name": "Karan Soni",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/138"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/138/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/138/titles"
+      }
+    }
+  },
+  {
+    "id": 139,
+    "name": "Shioli Kutsuna",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/139"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/139/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/139/titles"
+      }
+    }
+  },
+  {
+    "id": 140,
+    "name": "Stefan Kapičić",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/140"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/140/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/140/titles"
+      }
+    }
+  },
+  {
+    "id": 141,
+    "name": "Randal Reeder",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/141"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/141/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/141/titles"
+      }
+    }
+  },
+  {
+    "id": 142,
+    "name": "Aaron Stanford",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/142"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/142/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/142/titles"
+      }
+    }
+  },
+  {
+    "id": 143,
+    "name": "Kirsten Dunst",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/143"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/143/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/143/titles"
+      }
+    }
+  },
+  {
+    "id": 144,
+    "name": "Jennifer Garner",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/144"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/144/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/144/titles"
+      }
+    }
+  },
+  {
+    "id": 145,
+    "name": "Margarita Levieva",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/145"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/145/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/145/titles"
+      }
+    }
+  },
+  {
+    "id": 146,
+    "name": "James McAvoy",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/146"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/146/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/146/titles"
+      }
+    }
+  },
+  {
+    "id": 147,
+    "name": "Patrick Stewart",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/147"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/147/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/147/titles"
+      }
+    }
+  },
+  {
+    "id": 148,
+    "name": "Dania Ramirez",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/148"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/148/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/148/titles"
+      }
+    }
+  },
+  {
+    "id": 149,
+    "name": "Chloe Kibble",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/149"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/149/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/149/titles"
+      }
+    }
+  },
+  {
+    "id": 150,
+    "name": "Omahyra Mota",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/150"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/150/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/150/titles"
+      }
+    }
+  },
+  {
+    "id": 151,
+    "name": "Jessica Walker",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/151"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/151/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/151/titles"
+      }
+    }
+  },
+  {
+    "id": 152,
+    "name": "Kevin Nash",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/152"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/152/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/152/titles"
+      }
+    }
+  },
+  {
+    "id": 153,
+    "name": "Billy Clements",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/153"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/153/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/153/titles"
+      }
+    }
+  },
+  {
+    "id": 154,
+    "name": "Zazie Beetz",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/154"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/154/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/154/titles"
+      }
+    }
+  },
+  {
+    "id": 155,
+    "name": "T.J. Miller",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/155"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/155/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/155/titles"
+      }
+    }
+  },
+  {
+    "id": 156,
+    "name": "Julian Dennison",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/156"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/156/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/156/titles"
+      }
+    }
+  },
+  {
+    "id": 157,
+    "name": "Lewis Tan",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/157"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/157/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/157/titles"
+      }
+    }
+  },
+  {
+    "id": 158,
+    "name": "Bill Skarsgård",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/158"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/158/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/158/titles"
+      }
+    }
+  },
+  {
+    "id": 159,
+    "name": "Eddie Marsan",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/159"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/159/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/159/titles"
+      }
+    }
+  },
+  {
+    "id": 160,
+    "name": "Natalie Portman",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/160"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/160/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/160/titles"
+      }
+    }
+  },
+  {
+    "id": 161,
+    "name": "Anthony Hopkins",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/161"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/161/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/161/titles"
+      }
+    }
+  },
+  {
+    "id": 162,
+    "name": "Hugo Weaving",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/162"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/162/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/162/titles"
+      }
+    }
+  },
+  {
+    "id": 163,
+    "name": "Mickey Rourke",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/163"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/163/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/163/titles"
+      }
+    }
+  },
+  {
+    "id": 164,
+    "name": "Sam Rockwell",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/164"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/164/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/164/titles"
+      }
+    }
+  },
+  {
+    "id": 165,
+    "name": "Ed Skrein",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/165"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/165/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/165/titles"
+      }
+    }
+  },
+  {
+    "id": 166,
+    "name": "Mads Mikkelsen",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/166"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/166/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/166/titles"
+      }
+    }
+  },
+  {
+    "id": 167,
+    "name": "Michael Keaton",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/167"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/167/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/167/titles"
+      }
+    }
+  },
+  {
+    "id": 168,
+    "name": "Meng'er Zhang",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/168"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/168/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/168/titles"
+      }
+    }
+  },
+  {
+    "id": 169,
+    "name": "Christian Bale",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/169"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/169/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/169/titles"
+      }
+    }
+  },
+  {
+    "id": 170,
+    "name": "F. Murray Abraham",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/170"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/170/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/170/titles"
+      }
+    }
+  },
+  {
+    "id": 171,
+    "name": "Marisa Tomei",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/171"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/171/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/171/titles"
+      }
+    }
+  },
+  {
+    "id": 172,
+    "name": "Rachel Weisz",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/172"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/172/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/172/titles"
+      }
+    }
+  },
+  {
+    "id": 173,
+    "name": "Liv Tyler",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/173"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/173/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/173/titles"
+      }
+    }
+  },
+  {
+    "id": 174,
+    "name": "Kumail Nanjiani",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/174"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/174/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/174/titles"
+      }
+    }
+  },
+  {
+    "id": 175,
+    "name": "Lia McHugh",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/175"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/175/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/175/titles"
+      }
+    }
+  },
+  {
+    "id": 176,
+    "name": "Lauren Ridloff",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/176"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/176/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/176/titles"
+      }
+    }
+  },
+  {
+    "id": 177,
+    "name": "Salma Hayek",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/177"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/177/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/177/titles"
+      }
+    }
+  },
+  {
+    "id": 178,
+    "name": "Don Lee",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/178"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/178/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/178/titles"
+      }
+    }
+  },
+  {
+    "id": 179,
+    "name": "Kingsley Ben-Adir",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/179"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/179/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/179/titles"
+      }
+    }
+  },
+  {
+    "id": 180,
+    "name": "Laura Donnelly",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/180"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/180/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/180/titles"
+      }
+    }
+  },
+  {
+    "id": 181,
+    "name": "Olga Kurylenko",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/181"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/181/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/181/titles"
+      }
+    }
+  },
+  {
+    "id": 182,
+    "name": "Tom Hiddleston",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/182"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/182/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/182/titles"
+      }
+    }
+  },
+  {
+    "id": 183,
+    "name": "Anthony Mackie",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/183"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/183/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/183/titles"
+      }
+    }
+  },
+  {
+    "id": 184,
+    "name": "Zabryna Guevara",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/184"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/184/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/184/titles"
+      }
+    }
+  },
+  {
+    "id": 185,
+    "name": "Nicholas Hoult",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/185"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/185/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/185/titles"
+      }
+    }
+  },
+  {
+    "id": 186,
+    "name": "Kelsey Grammer",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/186"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/186/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/186/titles"
+      }
+    }
+  },
+  {
+    "id": 187,
+    "name": "Tye Sheridan",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/187"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/187/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/187/titles"
+      }
+    }
+  },
+  {
+    "id": 188,
+    "name": "James Marsden",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/188"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/188/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/188/titles"
+      }
+    }
+  },
+  {
+    "id": 189,
+    "name": "Jon Favreau",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/189"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/189/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/189/titles"
+      }
+    }
+  },
+  {
+    "id": 190,
+    "name": "Bradley Cooper",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/190"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/190/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/190/titles"
+      }
+    }
+  },
+  {
+    "id": 191,
+    "name": "Danai Gurira",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/191"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/191/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/191/titles"
+      }
+    }
+  },
+  {
+    "id": 192,
+    "name": "Michael Douglas",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/192"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/192/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/192/titles"
+      }
+    }
+  },
+  {
+    "id": 193,
+    "name": "Emma Fuhrmann",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/193"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/193/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/193/titles"
+      }
+    }
+  },
+  {
+    "id": 194,
+    "name": "Kathryn Newton",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/194"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/194/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/194/titles"
+      }
+    }
+  },
+  {
+    "id": 195,
+    "name": "Paul Bettany",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/195"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/195/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/195/titles"
+      }
+    }
+  },
+  {
+    "id": 196,
+    "name": "Aaron Taylor-Johnson",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/196"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/196/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/196/titles"
+      }
+    }
+  },
+  {
+    "id": 197,
+    "name": "Ben Kingsley",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/197"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/197/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/197/titles"
+      }
+    }
+  },
+  {
+    "id": 198,
+    "name": "Richard Madden",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/198"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/198/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/198/titles"
+      }
+    }
+  },
+  {
+    "id": 199,
+    "name": "Cate Blanchett",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/199"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/199/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/199/titles"
+      }
+    }
+  },
+  {
+    "id": 200,
+    "name": "Wyatt Russell",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/200"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/200/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/200/titles"
+      }
+    }
+  },
+  {
+    "id": 201,
+    "name": "Damion Poitier",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/201"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/201/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/201/titles"
+      }
+    }
+  },
+  {
+    "id": 202,
+    "name": "Josh Brolin",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/202"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/202/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/202/titles"
+      }
+    }
+  },
+  {
+    "id": 203,
+    "name": "Tim Roth",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/203"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/203/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/203/titles"
+      }
+    }
+  },
+  {
+    "id": 204,
+    "name": "Halle Berry",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/204"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/204/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/204/titles"
+      }
+    }
+  },
+  {
+    "id": 205,
+    "name": "Alexandra Shipp",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/205"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/205/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/205/titles"
+      }
+    }
+  },
+  {
+    "id": 206,
+    "name": "Ellen Page",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/206"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/206/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/206/titles"
+      }
+    }
+  },
+  {
+    "id": 207,
+    "name": "Fan Bingbing",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/207"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/207/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/207/titles"
+      }
+    }
+  },
+  {
+    "id": 208,
+    "name": "Adan Canto",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/208"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/208/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/208/titles"
+      }
+    }
+  },
+  {
+    "id": 209,
+    "name": "Peter Dinklage",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/209"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/209/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/209/titles"
+      }
+    }
+  },
+  {
+    "id": 210,
+    "name": "Dafne Keen",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/210"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/210/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/210/titles"
+      }
+    }
+  },
+  {
+    "id": 211,
+    "name": "Boyd Holbrook",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/211"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/211/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/211/titles"
+      }
+    }
+  },
+  {
+    "id": 212,
+    "name": "Richard E. Grant",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/212"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/212/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/212/titles"
+      }
+    }
+  },
+  {
+    "id": 213,
+    "name": "Finn Jones",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/213"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/213/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/213/titles"
+      }
+    }
+  },
+  {
+    "id": 214,
+    "name": "Ben Barnes",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/214"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/214/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/214/titles"
+      }
+    }
+  },
+  {
+    "id": 215,
+    "name": "Jessica Henwick",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/215"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/215/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/215/titles"
+      }
+    }
+  },
+  {
+    "id": 216,
+    "name": "Tony Dalton",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/216"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/216/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/216/titles"
+      }
+    }
+  },
+  {
+    "id": 217,
+    "name": "Tatiana Maslany",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/217"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/217/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/217/titles"
+      }
+    }
+  },
+  {
+    "id": 218,
+    "name": "Laurel Marsden",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/218"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/218/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/218/titles"
+      }
+    }
+  },
+  {
+    "id": 219,
+    "name": "Nimra Bucha",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/219"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/219/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/219/titles"
+      }
+    }
+  },
+  {
+    "id": 220,
+    "name": "May Calamawy",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/220"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/220/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/220/titles"
+      }
+    }
+  },
+  {
+    "id": 221,
+    "name": "Sasheer Zamata",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/221"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/221/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/221/titles"
+      }
+    }
+  },
+  {
+    "id": 222,
+    "name": "Chloe Bennet",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/222"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/222/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/222/titles"
+      }
+    }
+  },
+  {
+    "id": 223,
+    "name": "Iain De Caestecker",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/223"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/223/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/223/titles"
+      }
+    }
+  },
+  {
+    "id": 224,
+    "name": "Enver Gjokaj",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/224"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/224/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/224/titles"
+      }
+    }
+  },
+  {
+    "id": 225,
+    "name": "Lyrica Okano",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/225"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/225/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/225/titles"
+      }
+    }
+  },
+  {
+    "id": 226,
+    "name": "Olivia Holt",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/226"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/226/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/226/titles"
+      }
+    }
+  },
+  {
+    "id": 227,
+    "name": "Sydney Lemmon",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/227"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/227/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/227/titles"
+      }
+    }
+  },
+  {
+    "id": 228,
+    "name": "Eka Darville",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/228"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/228/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/228/titles"
+      }
+    }
+  },
+  {
+    "id": 229,
+    "name": "Matthew Macfadyen",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/229"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/229/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/229/titles"
+      }
+    }
+  },
+  {
+    "id": 230,
+    "name": "Brianna Hildebrand",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/230"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/230/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/230/titles"
+      }
+    }
+  },
+  {
+    "id": 231,
+    "name": "Tyler Mane",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/231"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/231/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/231/titles"
+      }
+    }
+  },
+  {
+    "id": 232,
+    "name": "Terry Crews",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/232"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/232/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/232/titles"
+      }
+    }
+  },
+  {
+    "id": 233,
+    "name": "Brad Pitt",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/233"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/233/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/233/titles"
+      }
+    }
+  },
+  {
+    "id": 234,
+    "name": "Jeff Bridges",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/234"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/234/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/234/titles"
+      }
+    }
+  },
+  {
+    "id": 235,
+    "name": "Lee Pace",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/235"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/235/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/235/titles"
+      }
+    }
+  },
+  {
+    "id": 236,
+    "name": "Tilda Swinton",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/236"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/236/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/236/titles"
+      }
+    }
+  },
+  {
+    "id": 237,
+    "name": "Ray Park",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/237"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/237/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/237/titles"
+      }
+    }
+  },
+  {
+    "id": 238,
+    "name": "Daniel Medina Ramos",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/238"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/238/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/238/titles"
+      }
+    }
+  },
+  {
+    "id": 239,
+    "name": "Channing Tatum",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/239"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/239/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/239/titles"
+      }
+    }
+  },
+  {
+    "id": 240,
+    "name": "Wesley Snipes",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/240"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/240/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/240/titles"
+      }
+    }
+  },
+  {
+    "id": 241,
+    "name": "Kelly Hu",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/241"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/241/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/241/titles"
+      }
+    }
+  },
+  {
+    "id": 242,
+    "name": "Jade Lye",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/242"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/242/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/242/titles"
+      }
+    }
+  },
+  {
+    "id": 243,
+    "name": "Lupita Nyong'o",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/243"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/243/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/243/titles"
+      }
+    }
+  },
+  {
+    "id": 244,
+    "name": "Pom Klementieff",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/244"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/244/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/244/titles"
+      }
+    }
+  },
+  {
+    "id": 245,
+    "name": "Carl Lumbly",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/245"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/245/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/245/titles"
+      }
+    }
+  },
+  {
+    "id": 246,
+    "name": "Brian Tyree Henry",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/246"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/246/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/246/titles"
+      }
+    }
+  },
+  {
+    "id": 247,
+    "name": "Barry Keoghan",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/247"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/247/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/247/titles"
+      }
+    }
+  },
+  {
+    "id": 248,
+    "name": "Aubrey Plaza",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/248"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/248/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/248/titles"
+      }
+    }
+  },
+  {
+    "id": 249,
+    "name": "Gael Garcia Bernal",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/249"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/249/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/249/titles"
+      }
+    }
+  },
+  {
+    "id": 250,
+    "name": "Dominique Thorne",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/250"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/250/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/250/titles"
+      }
+    }
+  },
+  {
+    "id": 251,
+    "name": "Omar Sy",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/251"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/251/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/251/titles"
+      }
+    }
+  },
+  {
+    "id": 252,
+    "name": "Booboo Stewart",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/252"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/252/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/252/titles"
+      }
+    }
+  },
+  {
+    "id": 253,
+    "name": "Josh Helman",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/253"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/253/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/253/titles"
+      }
+    }
+  },
+  {
+    "id": 254,
+    "name": "Stephen Merchant",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/254"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/254/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/254/titles"
+      }
+    }
+  },
+  {
+    "id": 255,
+    "name": "Jessica Chastain",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/255"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/255/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/255/titles"
+      }
+    }
+  },
+  {
+    "id": 256,
+    "name": "Edward Norton",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/256"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/256/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/256/titles"
+      }
+    }
+  },
+  {
+    "id": 257,
+    "name": "Mark Ruffalo",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/257"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/257/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/257/titles"
+      }
+    }
+  },
+  {
+    "id": 258,
+    "name": "Terrence Howard",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/258"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/258/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/258/titles"
+      }
+    }
+  },
+  {
+    "id": 259,
+    "name": "Don Cheadle",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/259"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/259/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/259/titles"
+      }
+    }
+  },
+  {
+    "id": 260,
+    "name": "William Hurt",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/260"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/260/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/260/titles"
+      }
+    }
+  },
+  {
+    "id": 261,
+    "name": "Harrison Ford",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/261"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/261/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/261/titles"
+      }
+    }
+  },
+  {
+    "id": 262,
+    "name": "Hannah John-Kamen",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/262"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/262/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/262/titles"
+      }
+    }
+  },
+  {
+    "id": 263,
+    "name": "Tom Holland",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/263"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/263/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/263/titles"
+      }
+    }
+  },
+  {
+    "id": 264,
+    "name": "David Harbour",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/264"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/264/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/264/titles"
+      }
+    }
+  },
+  {
+    "id": 265,
+    "name": "Emma Stone",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/265"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/265/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/265/titles"
+      }
+    }
+  },
+  {
+    "id": 266,
+    "name": "Colin Farrell",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/266"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/266/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/266/titles"
+      }
+    }
+  },
+  {
+    "id": 267,
+    "name": "Curtis Small",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/267"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/267/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/267/titles"
+      }
+    }
+  },
+  {
+    "id": 268,
+    "name": "Nikki M. James",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/268"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/268/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/268/titles"
+      }
+    }
+  },
+  {
+    "id": 269,
+    "name": "Genneya Walton",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/269"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/269/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/269/titles"
+      }
+    }
+  },
+  {
+    "id": 270,
+    "name": "Wilson Bethel",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/270"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/270/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/270/titles"
+      }
+    }
+  },
+  {
+    "id": 271,
+    "name": "Arty Froushan",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/271"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/271/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/271/titles"
+      }
+    }
+  },
+  {
+    "id": 272,
+    "name": "Matthew Lillard",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/272"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/272/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/272/titles"
+      }
+    }
+  },
+  {
+    "id": 273,
+    "name": "Michael Mando",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/273"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/273/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/273/titles"
+      }
+    }
+  },
+  {
+    "id": 274,
+    "name": "Sadie Sink",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/274"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/274/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/274/titles"
+      }
+    }
+  },
+  {
+    "id": 275,
+    "name": "Ryan Gosling",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/275"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/275/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/275/titles"
+      }
+    }
+  },
+  {
+    "id": 276,
+    "name": "David Jonsson",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/276"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/276/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/276/titles"
+      }
+    }
+  },
+  {
+    "id": 277,
+    "name": "Sophie Turner",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/277"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/277/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/277/titles"
+      }
+    }
+  },
+  {
+    "id": 278,
+    "name": "Famke Janssen",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/278"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/278/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/278/titles"
+      }
+    }
+  },
+  {
+    "id": 279,
+    "name": "Jennifer Lawrence",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/279"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/279/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/279/titles"
+      }
+    }
+  },
+  {
+    "id": 280,
+    "name": "Rebecca Romijn",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/280"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/280/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/280/titles"
+      }
+    }
+  },
+  {
+    "id": 281,
+    "name": "Michael Fassbender",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/281"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/281/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/281/titles"
+      }
+    }
+  },
+  {
+    "id": 282,
+    "name": "Ian McKellen",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/282"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/282/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/282/titles"
+      }
+    }
+  },
+  {
+    "id": 283,
+    "name": "Julian Hilliard",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/283"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/283/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/283/titles"
+      }
+    }
+  },
+  {
+    "id": 284,
+    "name": "Joe Locke",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/284"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/284/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/284/titles"
+      }
+    }
+  },
+  {
+    "id": 285,
+    "name": "James Franco",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/285"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/285/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/285/titles"
+      }
+    }
+  },
+  {
+    "id": 286,
+    "name": "Jamie Foxx",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/286"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/286/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/286/titles"
+      }
+    }
+  },
+  {
+    "id": 287,
+    "name": "Sophia Di Martino",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/287"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/287/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/287/titles"
+      }
+    }
+  },
+  {
+    "id": 288,
+    "name": "Emily Hampshire",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/288"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/288/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/288/titles"
+      }
+    }
+  },
+  {
+    "id": 289,
+    "name": "Clark Johnson",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/289"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/289/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/289/titles"
+      }
+    }
+  },
+  {
+    "id": 290,
+    "name": "Michael Gandolfini",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/290"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/290/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/290/titles"
+      }
+    }
+  },
+  {
+    "id": 291,
+    "name": "Tramell Tillman",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/291"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/291/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/291/titles"
+      }
+    }
+  },
+  {
+    "id": 292,
+    "name": "Anson Mount",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/292"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/292/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/292/titles"
+      }
+    }
+  },
+  {
+    "id": 293,
+    "name": "Adam Hugill",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/293"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/293/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/293/titles"
+      }
+    }
+  },
+  {
+    "id": 294,
+    "name": "Sheila Atim",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/294"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/294/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/294/titles"
+      }
+    }
+  },
+  {
+    "id": 295,
+    "name": "Kodi Smit-McPhee",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/295"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/295/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/295/titles"
+      }
+    }
+  },
+  {
+    "id": 296,
+    "name": "Alan Cumming",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/296"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/296/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/296/titles"
+      }
+    }
+  },
+  {
+    "id": 297,
+    "name": "Ken Leung",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/297"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/297/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/297/titles"
+      }
+    }
+  },
+  {
+    "id": 298,
+    "name": "Nilly Cetin",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/298"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/298/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/298/titles"
+      }
+    }
+  },
+  {
+    "id": 299,
+    "name": "Ryan Coogler",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/299"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/299/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/299/titles"
+      }
+    }
+  },
+  {
+    "id": 300,
+    "name": "Shawn Levy",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/300"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/300/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/300/titles"
+      }
+    }
+  },
+  {
+    "id": 301,
+    "name": "Marc Webb",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/301"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/301/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/301/titles"
+      }
+    }
+  },
+  {
+    "id": 302,
+    "name": "Andy Serkis",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/302"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/302/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/302/titles"
+      }
+    }
+  },
+  {
+    "id": 303,
+    "name": "Kelly Marcel",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/303"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/303/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/303/titles"
+      }
+    }
+  },
+  {
+    "id": 304,
+    "name": "Anna Boden",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/304"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/304/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/304/titles"
+      }
+    }
+  },
+  {
+    "id": 305,
+    "name": "Ryan Fleck",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/305"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/305/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/305/titles"
+      }
+    }
+  },
+  {
+    "id": 306,
+    "name": "Louis Leterrier",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/306"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/306/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/306/titles"
+      }
+    }
+  },
+  {
+    "id": 307,
+    "name": "Kenneth Branagh",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/307"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/307/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/307/titles"
+      }
+    }
+  },
+  {
+    "id": 308,
+    "name": "Joss Whedon",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/308"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/308/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/308/titles"
+      }
+    }
+  },
+  {
+    "id": 309,
+    "name": "Alan Taylor",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/309"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/309/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/309/titles"
+      }
+    }
+  },
+  {
+    "id": 310,
+    "name": "Shane Black",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/310"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/310/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/310/titles"
+      }
+    }
+  },
+  {
+    "id": 311,
+    "name": "Anthony Russo",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/311"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/311/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/311/titles"
+      }
+    }
+  },
+  {
+    "id": 312,
+    "name": "Joe Russo",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/312"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/312/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/312/titles"
+      }
+    }
+  },
+  {
+    "id": 313,
+    "name": "James Gunn",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/313"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/313/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/313/titles"
+      }
+    }
+  },
+  {
+    "id": 314,
+    "name": "Peyton Reed",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/314"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/314/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/314/titles"
+      }
+    }
+  },
+  {
+    "id": 315,
+    "name": "Cate Shortland",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/315"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/315/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/315/titles"
+      }
+    }
+  },
+  {
+    "id": 316,
+    "name": "Jon Watts",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/316"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/316/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/316/titles"
+      }
+    }
+  },
+  {
+    "id": 317,
+    "name": "Scott Derrickson",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/317"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/317/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/317/titles"
+      }
+    }
+  },
+  {
+    "id": 318,
+    "name": "Destin Daniel Cretton",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/318"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/318/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/318/titles"
+      }
+    }
+  },
+  {
+    "id": 319,
+    "name": "Chloé Zhao",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/319"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/319/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/319/titles"
+      }
+    }
+  },
+  {
+    "id": 320,
+    "name": "Sam Raimi",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/320"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/320/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/320/titles"
+      }
+    }
+  },
+  {
+    "id": 321,
+    "name": "Matt Shakman",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/321"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/321/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/321/titles"
+      }
+    }
+  },
+  {
+    "id": 322,
+    "name": "Nia DaCosta",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/322"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/322/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/322/titles"
+      }
+    }
+  },
+  {
+    "id": 323,
+    "name": "Jake Schreier",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/323"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/323/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/323/titles"
+      }
+    }
+  },
+  {
+    "id": 324,
+    "name": "Tim Miller",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/324"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/324/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/324/titles"
+      }
+    }
+  },
+  {
+    "id": 325,
+    "name": "Bryan Singer",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/325"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/325/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/325/titles"
+      }
+    }
+  },
+  {
+    "id": 326,
+    "name": "Simon Kinberg",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/326"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/326/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/326/titles"
+      }
+    }
+  },
+  {
+    "id": 327,
+    "name": "David Leitch",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/327"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/327/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/327/titles"
+      }
+    }
+  },
+  {
+    "id": 328,
+    "name": "James Mangold",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/328"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/328/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/328/titles"
+      }
+    }
+  },
+  {
+    "id": 329,
+    "name": "Ruben Fleischer",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/329"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/329/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/329/titles"
+      }
+    }
+  },
+  {
+    "id": 330,
+    "name": "Gavin Hood",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/330"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/330/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/330/titles"
+      }
+    }
+  },
+  {
+    "id": 331,
+    "name": "Matthew Vaughn",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/331"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/331/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/331/titles"
+      }
+    }
+  },
+  {
+    "id": 332,
+    "name": "Josh Boone",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/332"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/332/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/332/titles"
+      }
+    }
+  },
+  {
+    "id": 333,
+    "name": "Stephen Norrington",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/333"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/333/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/333/titles"
+      }
+    }
+  },
+  {
+    "id": 334,
+    "name": "Guillermo del Toro",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/334"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/334/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/334/titles"
+      }
+    }
+  },
+  {
+    "id": 335,
+    "name": "Tim Story",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/335"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/335/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/335/titles"
+      }
+    }
+  },
+  {
+    "id": 336,
+    "name": "Daniel Espinosa",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/336"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/336/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/336/titles"
+      }
+    }
+  },
+  {
+    "id": 337,
+    "name": "S.J. Clarkson",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/337"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/337/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/337/titles"
+      }
+    }
+  },
+  {
+    "id": 338,
+    "name": "J.C. Chandor",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/338"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/338/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/338/titles"
+      }
+    }
+  },
+  {
+    "id": 339,
+    "name": "David S. Goyer",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/339"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/339/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/339/titles"
+      }
+    }
+  },
+  {
+    "id": 340,
+    "name": "Mark Steven Johnson",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/340"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/340/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/340/titles"
+      }
+    }
+  },
+  {
+    "id": 341,
+    "name": "Brett Ratner",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/341"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/341/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/341/titles"
+      }
+    }
+  },
+  {
+    "id": 342,
+    "name": "Rob Bowman",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/342"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/342/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/342/titles"
+      }
+    }
+  },
+  {
+    "id": 343,
+    "name": "Joe Johnston",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/343"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/343/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/343/titles"
+      }
+    }
+  },
+  {
+    "id": 344,
+    "name": "Julius Onah",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/344"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/344/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/344/titles"
+      }
+    }
+  },
+  {
+    "id": 345,
+    "name": "Kirsten Lepore",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/345"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/345/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/345/titles"
+      }
+    }
+  },
+  {
+    "id": 346,
+    "name": "Bryan Andrew",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/346"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/346/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/346/titles"
+      }
+    }
+  },
+  {
+    "id": 347,
+    "name": "Kari Skogland",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/347"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/347/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/347/titles"
+      }
+    }
+  },
+  {
+    "id": 348,
+    "name": "Terry Matalas",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/348"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/348/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/348/titles"
+      }
+    }
+  },
+  {
+    "id": 349,
+    "name": "Todd Harris",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/349"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/349/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/349/titles"
+      }
+    }
+  },
+  {
+    "id": 350,
+    "name": "Rhys Thomas",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/350"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/350/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/350/titles"
+      }
+    }
+  },
+  {
+    "id": 351,
+    "name": "Bert and Bertie",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/351"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/351/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/351/titles"
+      }
+    }
+  },
+  {
+    "id": 352,
+    "name": "Mohamed Diab",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/352"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/352/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/352/titles"
+      }
+    }
+  },
+  {
+    "id": 353,
+    "name": "Sydney Freeland and Catriona McKenzie",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/353"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/353/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/353/titles"
+      }
+    }
+  },
+  {
+    "id": 354,
+    "name": "Kat Coiro and Anu Valia",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/354"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/354/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/354/titles"
+      }
+    }
+  },
+  {
+    "id": 355,
+    "name": "Adil El Arbi & Bilall Fallah",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/355"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/355/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/355/titles"
+      }
+    }
+  },
+  {
+    "id": 356,
+    "name": "Meera Menon",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/356"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/356/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/356/titles"
+      }
+    }
+  },
+  {
+    "id": 357,
+    "name": "Sharmeen Obaid-Chinoy",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/357"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/357/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/357/titles"
+      }
+    }
+  },
+  {
+    "id": 358,
+    "name": "Michael Giacchino",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/358"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/358/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/358/titles"
+      }
+    }
+  },
+  {
+    "id": 359,
+    "name": "Thomas Bezucha and Ali Selim",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/359"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/359/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/359/titles"
+      }
+    }
+  },
+  {
+    "id": 360,
+    "name": "Kate Herron",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/360"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/360/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/360/titles"
+      }
+    }
+  },
+  {
+    "id": 361,
+    "name": "Bryan Andrews",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/361"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/361/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/361/titles"
+      }
+    }
+  },
+  {
+    "id": 362,
+    "name": "Jac Schaeffer",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/362"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/362/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/362/titles"
+      }
+    }
+  },
+  {
+    "id": 363,
+    "name": "Rachel Goldberg and Gandja Montiero",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/363"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/363/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/363/titles"
+      }
+    }
+  },
+  {
+    "id": 364,
+    "name": "Bryan Andrews and Stephan Franck",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/364"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/364/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/364/titles"
+      }
+    }
+  },
+  {
+    "id": 365,
+    "name": "Justin Benson & Aaron Moorhead",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/365"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/365/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/365/titles"
+      }
+    }
+  },
+  {
+    "id": 366,
+    "name": "Michael Cuesta",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/366"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/366/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/366/titles"
+      }
+    }
+  },
+  {
+    "id": 367,
+    "name": "Jeffrey Nachmanoff and David Boyd",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/367"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/367/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/367/titles"
+      }
+    }
+  },
+  {
+    "id": 368,
+    "name": "James Ponsoldt",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/368"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/368/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/368/titles"
+      }
+    }
+  },
+  {
+    "id": 369,
+    "name": "Tiffany Johnson",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/369"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/369/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/369/titles"
+      }
+    }
+  },
+  {
+    "id": 370,
+    "name": "Stella Meghie",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/370"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/370/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/370/titles"
+      }
+    }
+  },
+  {
+    "id": 371,
+    "name": "Aaron Moorhead & Justin Benson",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/371"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/371/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/371/titles"
+      }
+    }
+  },
+  {
+    "id": 374,
+    "name": "Sam Bailey and Angela Barnes",
+    "created_at": "2026-08-13T00:15:02.453Z",
+    "updated_at": "2026-08-13T00:15:02.453Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/374"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/374/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/374/titles"
+      }
+    }
+  }
+]

@@ -85,6 +85,7 @@ The whole dataset is also committed to [`data/`](data) and served over jsDelivr,
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/movies.json
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/tvshows.json
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/characters.json
+https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/people.json
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/timeline.json
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/index.json
 ```
