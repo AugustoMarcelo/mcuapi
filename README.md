@@ -37,16 +37,17 @@ GET /api/v1/movies/1
 }
 ```
 
-List endpoints (`/movies`, `/tvshows`, `/characters`, `/upcoming`) return `page`, `limit`, and collection `_links` (`self`, `first`, `last`, plus `prev`/`next`), preserving all other query params. Characters are fully navigable via `GET /characters/{id}/movies` and `GET /characters/{id}/tvshows`.
+List endpoints (`/movies`, `/tvshows`, `/characters`, `/people`, `/upcoming`) return `page`, `limit`, and collection `_links` (`self`, `first`, `last`, plus `prev`/`next`), preserving all other query params. Characters are fully navigable via `GET /characters/{id}/movies` and `GET /characters/{id}/tvshows`.
 
 | Endpoint | Description |
 |---|---|
 | `GET /movies`, `GET /movies/{id}` | Movies, with `studio`/`continuity`/`multiverse_designation`/`is_mcu` filters |
 | `GET /tvshows`, `GET /tvshows/{id}` | TV shows, same filters as movies |
 | `GET /characters`, `GET /characters/{id}` | Characters, plus `/characters/movie/{id}`, `/characters/tvshow/{id}`, `/characters/{id}/movies`, `/characters/{id}/tvshows` |
+| `GET /people`, `GET /people/{id}` | People (actors and directors) normalized out of the `played_by`/`directed_by` fields, plus `/people/{id}/characters` and `/people/{id}/titles` |
 | `GET /timeline` | Chronological ordering across continuities, independent of release date |
 | `GET /upcoming` | Movies and TV shows whose `release_date` is strictly in the future, merged and sorted ascending. Titles with no announced release date are excluded. |
-| `GET /stats` | Dataset-wide counts — movies, tvshows, characters, titles, and distinct continuities/designations |
+| `GET /stats` | Dataset-wide counts — movies, tvshows, characters, people, titles, and distinct continuities/designations |
 
 > [!TIP]
 > Full request/response schemas live in the [Swagger docs](https://mcuapi.up.railway.app/docs), also available as a raw [OpenAPI spec](https://mcuapi.up.railway.app/docs/openapi.json). An [`llms.txt`](llms.txt) is also published for LLM agents and tooling.
@@ -85,6 +86,7 @@ The whole dataset is also committed to [`data/`](data) and served over jsDelivr,
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/movies.json
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/tvshows.json
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/characters.json
+https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/people.json
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/timeline.json
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/index.json
 ```
@@ -104,7 +106,7 @@ Regenerate it with `npm run snapshot`. The output is byte-stable when the data h
 
 ## Tech stack
 
-Express · TypeScript · TypeORM · PostgreSQL — organized as Clean Architecture modules (`movies`, `tvshows`, `characters`, `timeline`) with `tsyringe` for dependency injection.
+Express · TypeScript · TypeORM · PostgreSQL — organized as Clean Architecture modules (`movies`, `tvshows`, `characters`, `people`, `timeline`, `upcoming`, `stats`) with `tsyringe` for dependency injection.
 
 ## Getting started
 
