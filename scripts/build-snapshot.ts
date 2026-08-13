@@ -111,14 +111,15 @@ async function main(): Promise<void> {
 
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
-  const [movies, tvshows, characters, timeline] = await Promise.all([
+  const [movies, tvshows, characters, people, timeline] = await Promise.all([
     collectAll<Identified>(base, 'movies'),
     collectAll<Identified>(base, 'tvshows'),
     collectAll<Identified>(base, 'characters'),
+    collectAll<Identified>(base, 'people'),
     getJson<{ entries: unknown[] }[]>(`${base}/api/v1/timeline`),
   ]);
 
-  const payloads = { movies, tvshows, characters, timeline };
+  const payloads = { movies, tvshows, characters, people, timeline };
   const hash = crypto
     .createHash('sha256')
     .update(JSON.stringify(payloads))
@@ -129,6 +130,7 @@ async function main(): Promise<void> {
     'movies.json': write('movies.json', movies),
     'tvshows.json': write('tvshows.json', tvshows),
     'characters.json': write('characters.json', characters),
+    'people.json': write('people.json', people),
     'timeline.json': write('timeline.json', timeline),
   };
 
@@ -150,6 +152,7 @@ async function main(): Promise<void> {
       movies: movies.length,
       tvshows: tvshows.length,
       characters: characters.length,
+      people: people.length,
       timeline_branches: timeline.length,
       timeline_entries: timelineEntries,
     },
@@ -168,6 +171,7 @@ async function main(): Promise<void> {
       `  movies            ${movies.length}`,
       `  tvshows           ${tvshows.length}`,
       `  characters        ${characters.length}`,
+      `  people            ${people.length}`,
       `  timeline branches ${timeline.length} (${timelineEntries} entries)`,
       `  total             ${(totalBytes / 1024).toFixed(1)} kB`,
       `  content hash      ${hash}`,

@@ -11,12 +11,11 @@
       "in": ["swagger", "console", "client", "llms", "readme", "snapshot", "mcp"]
     },
     "people": {
-      "in": ["swagger", "llms", "readme", "mcp"],
+      "in": ["swagger", "llms", "readme", "snapshot", "mcp"],
       "singular": "person",
       "todo": {
         "console": "#113",
-        "client": "#114",
-        "snapshot": "#116"
+        "client": "#114"
       }
     },
     "timeline": {
