@@ -800,6 +800,8 @@ server.registerTool(
   },
 );
 
+const PERSON_UPDATABLE_FIELDS = ['name'] as const;
+
 server.registerTool(
   'update_person',
   {
@@ -810,7 +812,7 @@ server.registerTool(
     },
   },
   async ({ id, ...updates }) => {
-    const fields = Object.keys(updates).filter(
+    const fields = PERSON_UPDATABLE_FIELDS.filter(
       k => (updates as Record<string, unknown>)[k] !== undefined,
     );
     if (fields.length === 0) {
@@ -1044,6 +1046,27 @@ server.registerTool(
   },
 );
 
+interface ITitleTarget {
+  column: 'movie_id' | 'tvshow_id';
+  titleId: number;
+}
+
+// Shared by the three person_titles tools below — a row must have exactly
+// one of movie_id/tvshow_id (PersonTitleExactlyOneTarget CHECK constraint),
+// so this is validated once here rather than in each tool.
+function resolveTitleTarget({
+  movie_id,
+  tvshow_id,
+}: {
+  movie_id?: number;
+  tvshow_id?: number;
+}): ITitleTarget | null {
+  if (movie_id !== undefined && tvshow_id !== undefined) return null;
+  if (movie_id !== undefined) return { column: 'movie_id', titleId: movie_id };
+  if (tvshow_id !== undefined) return { column: 'tvshow_id', titleId: tvshow_id };
+  return null;
+}
+
 server.registerTool(
   'link_person_title',
   {
@@ -1057,7 +1080,8 @@ server.registerTool(
     },
   },
   async ({ person_id, movie_id, tvshow_id, role }) => {
-    if ((!movie_id && !tvshow_id) || (movie_id && tvshow_id)) {
+    const target = resolveTitleTarget({ movie_id, tvshow_id });
+    if (!target) {
       return {
         content: [
           { type: 'text', text: '❌ Provide either movie_id or tvshow_id.' },
@@ -1075,78 +1099,45 @@ server.registerTool(
       };
     }
 
-    let title = '';
-    if (movie_id) {
-      const [movie] = await query<{ id: number; title: string }>(
-        'SELECT id, title FROM movies WHERE id = $1',
-        [movie_id],
-      );
-      if (!movie)
-        return {
-          content: [
-            { type: 'text', text: `❌ Movie [${movie_id}] not found.` },
-          ],
-        };
-      title = movie.title;
-
-      const [existing] = await query<{ id: number }>(
-        'SELECT id FROM person_titles WHERE person_id = $1 AND movie_id = $2',
-        [person_id, movie_id],
-      );
-      if (existing) {
-        return {
-          content: [
-            {
-              type: 'text',
-              text: `⚠️ ${person.name} is already linked to "${title}".`,
-            },
-          ],
-        };
-      }
-
-      await query(
-        'INSERT INTO person_titles (person_id, movie_id, role, created_at) VALUES ($1, $2, $3, NOW())',
-        [person_id, movie_id, role],
-      );
-    } else if (tvshow_id) {
-      const [show] = await query<{ id: number; title: string }>(
-        'SELECT id, title FROM tvshows WHERE id = $1',
-        [tvshow_id],
-      );
-      if (!show)
-        return {
-          content: [
-            { type: 'text', text: `❌ TV Show [${tvshow_id}] not found.` },
-          ],
-        };
-      title = show.title;
-
-      const [existing] = await query<{ id: number }>(
-        'SELECT id FROM person_titles WHERE person_id = $1 AND tvshow_id = $2',
-        [person_id, tvshow_id],
-      );
-      if (existing) {
-        return {
-          content: [
-            {
-              type: 'text',
-              text: `⚠️ ${person.name} is already linked to "${title}".`,
-            },
-          ],
-        };
-      }
-
-      await query(
-        'INSERT INTO person_titles (person_id, tvshow_id, role, created_at) VALUES ($1, $2, $3, NOW())',
-        [person_id, tvshow_id, role],
-      );
+    const titleTable = target.column === 'movie_id' ? 'movies' : 'tvshows';
+    const [titleRow] = await query<{ id: number; title: string }>(
+      `SELECT id, title FROM ${titleTable} WHERE id = $1`,
+      [target.titleId],
+    );
+    if (!titleRow) {
+      const label = target.column === 'movie_id' ? 'Movie' : 'TV Show';
+      return {
+        content: [
+          { type: 'text', text: `❌ ${label} [${target.titleId}] not found.` },
+        ],
+      };
     }
+
+    const [existing] = await query<{ id: number }>(
+      `SELECT id FROM person_titles WHERE person_id = $1 AND ${target.column} = $2`,
+      [person_id, target.titleId],
+    );
+    if (existing) {
+      return {
+        content: [
+          {
+            type: 'text',
+            text: `⚠️ ${person.name} is already linked to "${titleRow.title}".`,
+          },
+        ],
+      };
+    }
+
+    await query(
+      `INSERT INTO person_titles (person_id, ${target.column}, role, created_at) VALUES ($1, $2, $3, NOW())`,
+      [person_id, target.titleId, role],
+    );
 
     return {
       content: [
         {
           type: 'text',
-          text: `✅ Linked: ${person.name} → "${title}" as ${role}`,
+          text: `✅ Linked: ${person.name} → "${titleRow.title}" as ${role}`,
         },
       ],
     };
@@ -1166,7 +1157,8 @@ server.registerTool(
     },
   },
   async ({ person_id, movie_id, tvshow_id, role }) => {
-    if ((!movie_id && !tvshow_id) || (movie_id && tvshow_id)) {
+    const target = resolveTitleTarget({ movie_id, tvshow_id });
+    if (!target) {
       return {
         content: [
           { type: 'text', text: '❌ Provide either movie_id or tvshow_id.' },
@@ -1174,12 +1166,9 @@ server.registerTool(
       };
     }
 
-    const column = movie_id ? 'movie_id' : 'tvshow_id';
-    const titleId = movie_id ?? tvshow_id;
-
     const [existing] = await query<{ id: number }>(
-      `SELECT id FROM person_titles WHERE person_id = $1 AND ${column} = $2`,
-      [person_id, titleId],
+      `SELECT id FROM person_titles WHERE person_id = $1 AND ${target.column} = $2`,
+      [person_id, target.titleId],
     );
 
     if (!existing) {
@@ -1187,7 +1176,7 @@ server.registerTool(
         content: [
           {
             type: 'text',
-            text: `❌ No existing link found for person [${person_id}] on ${column} [${titleId}]. Use link_person_title to create it.`,
+            text: `❌ No existing link found for person [${person_id}] on ${target.column} [${target.titleId}]. Use link_person_title to create it.`,
           },
         ],
       };
@@ -1218,7 +1207,8 @@ server.registerTool(
     },
   },
   async ({ person_id, movie_id, tvshow_id, confirm }) => {
-    if ((!movie_id && !tvshow_id) || (movie_id && tvshow_id)) {
+    const target = resolveTitleTarget({ movie_id, tvshow_id });
+    if (!target) {
       return {
         content: [
           { type: 'text', text: '❌ Provide either movie_id or tvshow_id.' },
@@ -1231,12 +1221,9 @@ server.registerTool(
       };
     }
 
-    const column = movie_id ? 'movie_id' : 'tvshow_id';
-    const titleId = movie_id ?? tvshow_id;
-
     const [existing] = await query<{ id: number }>(
-      `SELECT id FROM person_titles WHERE person_id = $1 AND ${column} = $2`,
-      [person_id, titleId],
+      `SELECT id FROM person_titles WHERE person_id = $1 AND ${target.column} = $2`,
+      [person_id, target.titleId],
     );
 
     if (!existing) {
@@ -1244,7 +1231,7 @@ server.registerTool(
         content: [
           {
             type: 'text',
-            text: `❌ No existing link found for person [${person_id}] on ${column} [${titleId}].`,
+            text: `❌ No existing link found for person [${person_id}] on ${target.column} [${target.titleId}].`,
           },
         ],
       };
@@ -1256,7 +1243,7 @@ server.registerTool(
       content: [
         {
           type: 'text',
-          text: `✅ Link [${existing.id}] deleted (person [${person_id}], ${column} [${titleId}]).`,
+          text: `✅ Link [${existing.id}] deleted (person [${person_id}], ${target.column} [${target.titleId}]).`,
         },
       ],
     };
