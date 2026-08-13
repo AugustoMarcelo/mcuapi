@@ -1884,6 +1884,92 @@ server.registerTool(
   },
 );
 
+// ─── UPCOMING ──────────────────────────────────────────────────────────────────
+
+server.registerTool(
+  'get_upcoming',
+  {
+    description:
+      'Get upcoming movies and TV shows (release_date strictly in the future), sorted by ' +
+      'release date ascending. Titles with no release date are excluded.',
+    inputSchema: {
+      type: z.enum(['movie', 'tvshow']).optional().describe('Filter by content type'),
+      continuity: z
+        .string()
+        .optional()
+        .describe('Filter by continuity, e.g. "MCU"'),
+      multiverse_designation: z
+        .string()
+        .optional()
+        .describe('Filter by Earth designation, e.g. "Earth-616"'),
+      is_mcu: z.boolean().optional().describe('Filter by MCU canon status'),
+      limit: z.number().int().min(1).max(100).default(20),
+    },
+  },
+  async ({ type, continuity, multiverse_designation, is_mcu, limit }) => {
+    const conditions: string[] = ['release_date > NOW()'];
+    const params: unknown[] = [];
+
+    if (type) {
+      params.push(type);
+      conditions.push(`type = $${params.length}`);
+    }
+    if (continuity) {
+      params.push(continuity);
+      conditions.push(`continuity = $${params.length}`);
+    }
+    if (multiverse_designation) {
+      params.push(multiverse_designation);
+      conditions.push(`multiverse_designation = $${params.length}`);
+    }
+    if (is_mcu !== undefined) {
+      params.push(is_mcu);
+      conditions.push(`is_mcu = $${params.length}`);
+    }
+
+    params.push(limit);
+    const limitParam = `$${params.length}`;
+
+    const items = await query<{
+      id: number;
+      title: string;
+      type: string;
+      release_date: string;
+      continuity: string;
+      multiverse_designation: string;
+      is_mcu: boolean;
+    }>(
+      `SELECT id, title, type, release_date, continuity, multiverse_designation, is_mcu
+       FROM (
+         SELECT id, title, type, release_date, continuity, multiverse_designation, is_mcu FROM movies
+         UNION ALL
+         SELECT id, title, type, release_date, continuity, multiverse_designation, is_mcu FROM tvshows
+       ) combined
+       WHERE ${conditions.join(' AND ')}
+       ORDER BY release_date ASC
+       LIMIT ${limitParam}`,
+      params,
+    );
+
+    if (items.length === 0) {
+      return {
+        content: [{ type: 'text', text: 'No upcoming releases found.' }],
+      };
+    }
+
+    const lines = ['**Upcoming Releases**', ''];
+    items.forEach(item => {
+      const date = new Date(item.release_date).toISOString().split('T')[0];
+      const canon = item.is_mcu === false ? ' | non-canon' : '';
+      lines.push(
+        `  ${date} — [${item.type}] ${item.title} (#${item.id}) | ${item.continuity} | ${item.multiverse_designation}${canon}`,
+      );
+    });
+
+    return { content: [{ type: 'text', text: lines.join('\n') }] };
+  },
+);
+
 // ─── START ─────────────────────────────────────────────────────────────────────
 
 async function main() {
