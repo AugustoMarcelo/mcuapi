@@ -1328,7 +1328,7 @@
           "Stats"
         ],
         "summary": "Get dataset-wide counts",
-        "description": "Aggregate counts of the catalogue: movies, tvshows, characters, titles (movies + tvshows), continuities and designations. continuities is the distinct count over movies + tvshows only. designations is the distinct count over movies + tvshows + characters — Earth-838 exists only on characters (the Doctor Strange in the Multiverse of Madness Illuminati), so titles alone would undercount it.",
+        "description": "Aggregate counts of the catalogue: movies, tvshows, characters, people, titles (movies + tvshows), continuities and designations. continuities is the distinct count over movies + tvshows only. designations is the distinct count over movies + tvshows + characters — Earth-838 exists only on characters (the Doctor Strange in the Multiverse of Madness Illuminati), so titles alone would undercount it.",
         "responses": {
           "200": {
             "description": "OK",
@@ -1882,6 +1882,11 @@
             "type": "integer",
             "description": "Total number of characters",
             "example": 302
+          },
+          "people": {
+            "type": "integer",
+            "description": "Total number of people",
+            "example": 372
           },
           "titles": {
             "type": "integer",

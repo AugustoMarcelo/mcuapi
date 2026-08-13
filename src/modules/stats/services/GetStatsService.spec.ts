@@ -13,6 +13,10 @@ const mockCharactersRepository = {
   getStats: jest.fn(),
 };
 
+const mockPeopleRepository = {
+  getStats: jest.fn(),
+};
+
 describe('GetStatsService', () => {
   let getStatsService: GetStatsService;
 
@@ -23,6 +27,7 @@ describe('GetStatsService', () => {
       'CharactersRepository',
       mockCharactersRepository,
     );
+    container.registerInstance('PeopleRepository', mockPeopleRepository);
 
     getStatsService = container.resolve(GetStatsService);
     jest.clearAllMocks();
@@ -46,12 +51,17 @@ describe('GetStatsService', () => {
       designations: ['Earth-616'],
       last_updated: new Date('2026-08-05T00:00:00.000Z'),
     });
+    mockPeopleRepository.getStats.mockResolvedValue({
+      count: 372,
+      last_updated: new Date('2026-08-13T00:15:02.000Z'),
+    });
 
     const result = await getStatsService.execute();
 
     expect(result.movies).toBe(74);
     expect(result.tvshows).toBe(56);
     expect(result.characters).toBe(302);
+    expect(result.people).toBe(372);
     expect(result.titles).toBe(130);
   });
 
@@ -71,6 +81,10 @@ describe('GetStatsService', () => {
     mockCharactersRepository.getStats.mockResolvedValue({
       count: 302,
       designations: ['Earth-616'],
+      last_updated: null,
+    });
+    mockPeopleRepository.getStats.mockResolvedValue({
+      count: 372,
       last_updated: null,
     });
 
@@ -100,13 +114,17 @@ describe('GetStatsService', () => {
       designations: ['Earth-616', 'Earth-838'],
       last_updated: null,
     });
+    mockPeopleRepository.getStats.mockResolvedValue({
+      count: 372,
+      last_updated: null,
+    });
 
     const result = await getStatsService.execute();
 
     expect(result.designations).toBe(3);
   });
 
-  it('Should use the max updated_at across the three tables as last_updated', async () => {
+  it('Should use the max updated_at across the four tables as last_updated', async () => {
     mockMoviesRepository.getStats.mockResolvedValue({
       count: 1,
       continuities: [],
@@ -124,13 +142,17 @@ describe('GetStatsService', () => {
       designations: [],
       last_updated: new Date('2026-08-05T00:00:00.000Z'),
     });
+    mockPeopleRepository.getStats.mockResolvedValue({
+      count: 1,
+      last_updated: new Date('2026-08-13T00:15:02.000Z'),
+    });
 
     const result = await getStatsService.execute();
 
-    expect(result.last_updated).toEqual(new Date('2026-08-09T18:22:04.000Z'));
+    expect(result.last_updated).toEqual(new Date('2026-08-13T00:15:02.000Z'));
   });
 
-  it('Should return a null last_updated when all three tables are empty', async () => {
+  it('Should return a null last_updated when all four tables are empty', async () => {
     mockMoviesRepository.getStats.mockResolvedValue({
       count: 0,
       continuities: [],
@@ -148,10 +170,15 @@ describe('GetStatsService', () => {
       designations: [],
       last_updated: null,
     });
+    mockPeopleRepository.getStats.mockResolvedValue({
+      count: 0,
+      last_updated: null,
+    });
 
     const result = await getStatsService.execute();
 
     expect(result.last_updated).toBeNull();
+    expect(result.people).toBe(0);
     expect(result.titles).toBe(0);
     expect(result.continuities).toBe(0);
     expect(result.designations).toBe(0);

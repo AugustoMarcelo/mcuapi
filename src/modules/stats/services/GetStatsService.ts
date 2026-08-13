@@ -2,6 +2,7 @@ import { injectable, inject } from 'tsyringe';
 import IMoviesRepository from '@modules/movies/repositories/IMoviesRepository';
 import ITVShowsRepository from '@modules/tvshows/repositories/ITVShowsRepository';
 import ICharactersRepository from '@modules/characters/repositories/ICharactersRepository';
+import IPeopleRepository from '@modules/people/repositories/IPeopleRepository';
 import IStatsResponseDTO from '@modules/stats/dtos/IStatsResponseDTO';
 
 function distinctCount(...lists: Array<string[] | undefined>): number {
@@ -27,19 +28,23 @@ class GetStatsService {
     private tvshowsRepository: ITVShowsRepository,
     @inject('CharactersRepository')
     private charactersRepository: ICharactersRepository,
+    @inject('PeopleRepository')
+    private peopleRepository: IPeopleRepository,
   ) {}
 
   public async execute(): Promise<IStatsResponseDTO> {
-    const [movies, tvshows, characters] = await Promise.all([
+    const [movies, tvshows, characters, people] = await Promise.all([
       this.moviesRepository.getStats(),
       this.tvshowsRepository.getStats(),
       this.charactersRepository.getStats(),
+      this.peopleRepository.getStats(),
     ]);
 
     return {
       movies: movies.count,
       tvshows: tvshows.count,
       characters: characters.count,
+      people: people.count,
       titles: movies.count + tvshows.count,
       continuities: distinctCount(movies.continuities, tvshows.continuities),
       designations: distinctCount(
@@ -51,6 +56,7 @@ class GetStatsService {
         movies.last_updated,
         tvshows.last_updated,
         characters.last_updated,
+        people.last_updated,
       ),
     };
   }
