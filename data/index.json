@@ -1,30 +1,35 @@
 {
-  "generated_at": "2026-08-05T19:40:22.205Z",
-  "content_hash": "f7a36b64a6a29d20",
+  "generated_at": "2026-08-13T12:52:56.041Z",
+  "content_hash": "62536a37fe5db19c",
   "source": "https://mcuapi.up.railway.app/api/v1",
   "counts": {
-    "movies": 57,
+    "movies": 74,
     "tvshows": 56,
-    "characters": 302,
-    "timeline_branches": 5,
-    "timeline_entries": 113
+    "characters": 314,
+    "people": 372,
+    "timeline_branches": 12,
+    "timeline_entries": 130
   },
   "files": [
     {
       "file": "movies.json",
-      "bytes": 78264
+      "bytes": 96038
     },
     {
       "file": "tvshows.json",
-      "bytes": 61242
+      "bytes": 61445
     },
     {
       "file": "characters.json",
-      "bytes": 292224
+      "bytes": 307980
+    },
+    {
+      "file": "people.json",
+      "bytes": 172719
     },
     {
       "file": "timeline.json",
-      "bytes": 30121
+      "bytes": 35201
     }
   ],
   "notes": [
