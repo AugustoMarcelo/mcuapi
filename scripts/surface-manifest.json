@@ -26,12 +26,11 @@
       "in": ["swagger", "console", "client", "llms", "readme", "snapshot", "mcp"]
     },
     "upcoming": {
-      "in": ["swagger", "llms", "readme"],
+      "in": ["swagger", "console", "llms", "readme"],
       "exempt": {
         "snapshot": "time-dependent (relative to 'today'); a static mirror snapshot would go stale immediately"
       },
       "todo": {
-        "console": "#119",
         "client": "#120",
         "mcp": "#121"
       }
