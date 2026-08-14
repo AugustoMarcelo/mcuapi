@@ -45,6 +45,7 @@ List endpoints (`/movies`, `/tvshows`, `/characters`, `/people`, `/upcoming`) re
 | `GET /tvshows`, `GET /tvshows/{id}` | TV shows, same filters as movies |
 | `GET /characters`, `GET /characters/{id}` | Characters, plus `/characters/movie/{id}`, `/characters/tvshow/{id}`, `/characters/{id}/movies`, `/characters/{id}/tvshows` |
 | `GET /people`, `GET /people/{id}` | People (actors and directors) normalized out of the `played_by`/`directed_by` fields, plus `/people/{id}/characters` and `/people/{id}/titles` |
+| `GET /post-credit-scenes`, `GET /post-credit-scenes/{id}` | Structured post- and mid-credits scenes, plus `/post-credit-scenes/movie/{id}` and `/post-credit-scenes/tvshow/{id}` |
 | `GET /timeline` | Chronological ordering across continuities, independent of release date |
 | `GET /upcoming` | Movies and TV shows whose `release_date` is strictly in the future, merged and sorted ascending. Titles with no announced release date are excluded. |
 | `GET /stats` | Dataset-wide counts — movies, tvshows, characters, people, titles, and distinct continuities/designations |
@@ -87,6 +88,7 @@ https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/movies.json
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/tvshows.json
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/characters.json
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/people.json
+https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/post-credit-scenes.json
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/timeline.json
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/index.json
 ```
@@ -106,7 +108,7 @@ Regenerate it with `npm run snapshot`. The output is byte-stable when the data h
 
 ## Tech stack
 
-Express · TypeScript · TypeORM · PostgreSQL — organized as Clean Architecture modules (`movies`, `tvshows`, `characters`, `people`, `timeline`, `upcoming`, `stats`) with `tsyringe` for dependency injection.
+Express · TypeScript · TypeORM · PostgreSQL — organized as Clean Architecture modules (`movies`, `tvshows`, `characters`, `people`, `postCreditScenes`, `timeline`, `upcoming`, `stats`) with `tsyringe` for dependency injection.
 
 ## Getting started
 

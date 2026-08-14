@@ -1081,6 +1081,245 @@
         }
       }
     },
+    "/api/v1/post-credit-scenes": {
+      "get": {
+        "tags": [
+          "PostCreditScenes"
+        ],
+        "summary": "List all post-credit scenes",
+        "description": "List structured post- and mid-credits scenes across movies and TV shows",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": "1"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit of items to return. Defaults to 10; values above 100 are capped at 100.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1,
+              "maximum": 100,
+              "example": 10
+            }
+          },
+          {
+            "name": "columns",
+            "in": "query",
+            "description": "Comma-separated post-credit scene properties to be returned. Unknown properties are ignored",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "description"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "Order by column and sorting type (ASC, DESC). Multiple clauses can be separated by semicolons; unknown columns are ignored",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "movie_id,ASC"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Filter by column=value. Multiple clauses can be separated by semicolons; unknown columns are ignored",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "movie_id=1"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/PostCreditScene"
+                      }
+                    },
+                    "total": {
+                      "type": "integer",
+                      "description": "Total of post-credit scenes"
+                    },
+                    "page": {
+                      "type": "integer",
+                      "description": "Current page (1 when not paginated)",
+                      "example": 1
+                    },
+                    "limit": {
+                      "type": "integer",
+                      "description": "Items per page (present only when the limit query param is used)",
+                      "example": 10
+                    },
+                    "_links": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/ResourceLinks"
+                        }
+                      ],
+                      "description": "Collection links: self, first, last, and prev/next when applicable. All original query params are preserved."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/post-credit-scenes/{post_credit_scene_id}": {
+      "get": {
+        "tags": [
+          "PostCreditScenes"
+        ],
+        "summary": "Get a post-credit scene",
+        "description": "Get a post-credit scene by ID",
+        "parameters": [
+          {
+            "name": "post_credit_scene_id",
+            "in": "path",
+            "description": "Post-credit scene ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostCreditScene"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Post-credit scene not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Post-credit scene not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/post-credit-scenes/movie/{movie_id}": {
+      "get": {
+        "tags": [
+          "PostCreditScenes"
+        ],
+        "summary": "Get post-credit scenes for a movie",
+        "description": "Get every post- and mid-credits scene belonging to a movie",
+        "parameters": [
+          {
+            "name": "movie_id",
+            "in": "path",
+            "description": "Movie ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PostCreditScene"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/post-credit-scenes/tvshow/{tvshow_id}": {
+      "get": {
+        "tags": [
+          "PostCreditScenes"
+        ],
+        "summary": "Get post-credit scenes for a TV show",
+        "description": "Get every post- and mid-credits scene belonging to a TV show",
+        "parameters": [
+          {
+            "name": "tvshow_id",
+            "in": "path",
+            "description": "TV show ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PostCreditScene"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/api/v1/timeline": {
       "get": {
         "tags": [
@@ -1613,6 +1852,10 @@
             "type": "integer",
             "description": "Position of the tv show in chronological order"
           },
+          "post_credit_scenes": {
+            "type": "integer",
+            "description": "Number of post-credit scenes in the tv show"
+          },
           "imdb_id": {
             "type": "string",
             "description": "IMDB ID"
@@ -1746,6 +1989,58 @@
             "type": "string",
             "format": "date-time",
             "description": "When the person was last updated"
+          },
+          "_links": {
+            "$ref": "#/components/schemas/ResourceLinks"
+          }
+        }
+      },
+      "PostCreditScene": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Post-credit scene ID"
+          },
+          "movie_id": {
+            "type": "integer",
+            "description": "ID of the movie this scene appears in (mutually exclusive with tvshow_id)",
+            "nullable": true
+          },
+          "tvshow_id": {
+            "type": "integer",
+            "description": "ID of the TV show this scene appears in (mutually exclusive with movie_id)",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "description": "What happens in the scene",
+            "example": "Nick Fury approaches Tony Stark to discuss the Avengers Initiative."
+          },
+          "teases_movie_id": {
+            "type": "integer",
+            "description": "ID of the movie this scene teases, if any (mutually exclusive with teases_tvshow_id)",
+            "nullable": true
+          },
+          "teases_tvshow_id": {
+            "type": "integer",
+            "description": "ID of the TV show this scene teases, if any (mutually exclusive with teases_movie_id)",
+            "nullable": true
+          },
+          "is_stinger": {
+            "type": "boolean",
+            "description": "true = mid-credits scene, false = final post-credits scene",
+            "example": false
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the scene was created in the database"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the scene was last updated"
           },
           "_links": {
             "$ref": "#/components/schemas/ResourceLinks"

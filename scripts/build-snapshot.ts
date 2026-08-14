@@ -111,15 +111,24 @@ async function main(): Promise<void> {
 
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
-  const [movies, tvshows, characters, people, timeline] = await Promise.all([
-    collectAll<Identified>(base, 'movies'),
-    collectAll<Identified>(base, 'tvshows'),
-    collectAll<Identified>(base, 'characters'),
-    collectAll<Identified>(base, 'people'),
-    getJson<{ entries: unknown[] }[]>(`${base}/api/v1/timeline`),
-  ]);
+  const [movies, tvshows, characters, people, postCreditScenes, timeline] =
+    await Promise.all([
+      collectAll<Identified>(base, 'movies'),
+      collectAll<Identified>(base, 'tvshows'),
+      collectAll<Identified>(base, 'characters'),
+      collectAll<Identified>(base, 'people'),
+      collectAll<Identified>(base, 'post-credit-scenes'),
+      getJson<{ entries: unknown[] }[]>(`${base}/api/v1/timeline`),
+    ]);
 
-  const payloads = { movies, tvshows, characters, people, timeline };
+  const payloads = {
+    movies,
+    tvshows,
+    characters,
+    people,
+    postCreditScenes,
+    timeline,
+  };
   const hash = crypto
     .createHash('sha256')
     .update(JSON.stringify(payloads))
@@ -131,6 +140,10 @@ async function main(): Promise<void> {
     'tvshows.json': write('tvshows.json', tvshows),
     'characters.json': write('characters.json', characters),
     'people.json': write('people.json', people),
+    'post-credit-scenes.json': write(
+      'post-credit-scenes.json',
+      postCreditScenes,
+    ),
     'timeline.json': write('timeline.json', timeline),
   };
 
@@ -153,6 +166,7 @@ async function main(): Promise<void> {
       tvshows: tvshows.length,
       characters: characters.length,
       people: people.length,
+      post_credit_scenes: postCreditScenes.length,
       timeline_branches: timeline.length,
       timeline_entries: timelineEntries,
     },
@@ -172,6 +186,7 @@ async function main(): Promise<void> {
       `  tvshows           ${tvshows.length}`,
       `  characters        ${characters.length}`,
       `  people            ${people.length}`,
+      `  post-credit scenes ${postCreditScenes.length}`,
       `  timeline branches ${timeline.length} (${timelineEntries} entries)`,
       `  total             ${(totalBytes / 1024).toFixed(1)} kB`,
       `  content hash      ${hash}`,

@@ -152,6 +152,87 @@ test('people.all paginates like the other collections', async () => {
   assert.equal(calls.length, 2);
 });
 
+test('postCreditScenes.list builds the default path', async () => {
+  const { fetch, calls } = stub([{ body: { data: [], total: 0, page: 1, limit: 10 } }]);
+  await new MCUAPI({ fetch }).postCreditScenes.list();
+  assert.equal(calls[0], 'https://mcuapi.up.railway.app/api/v1/post-credit-scenes');
+});
+
+test('postCreditScenes.get requests a single scene', async () => {
+  const { fetch, calls } = stub([
+    {
+      body: {
+        id: 1,
+        movie_id: 1,
+        tvshow_id: null,
+        description: 'Nick Fury reveals the Avengers Initiative.',
+        teases_movie_id: null,
+        teases_tvshow_id: null,
+        is_stinger: false,
+        created_at: '2026-01-01',
+        updated_at: '2026-01-01',
+      },
+    },
+  ]);
+  await new MCUAPI({ fetch }).postCreditScenes.get(1);
+  assert.equal(calls[0], 'https://mcuapi.up.railway.app/api/v1/post-credit-scenes/1');
+});
+
+test('postCreditScenes.byMovie requests the movie relation endpoint', async () => {
+  const { fetch, calls } = stub([{ body: [] }]);
+  await new MCUAPI({ fetch }).postCreditScenes.byMovie(1);
+  assert.equal(
+    calls[0],
+    'https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/1',
+  );
+});
+
+test('postCreditScenes.byTVShow requests the tvshow relation endpoint', async () => {
+  const { fetch, calls } = stub([{ body: [] }]);
+  await new MCUAPI({ fetch }).postCreditScenes.byTVShow(1);
+  assert.equal(
+    calls[0],
+    'https://mcuapi.up.railway.app/api/v1/post-credit-scenes/tvshow/1',
+  );
+});
+
+test('postCreditScenes.all paginates like the other collections', async () => {
+  const scene = (id: number) => ({
+    id,
+    movie_id: 1,
+    tvshow_id: null,
+    description: `Scene ${id}`,
+    teases_movie_id: null,
+    teases_tvshow_id: null,
+    is_stinger: false,
+    created_at: '2026-01-01T00:00:00.000Z',
+    updated_at: '2026-01-01T00:00:00.000Z',
+  });
+  const page = (ids: number[], next?: string) => ({
+    data: ids.map(scene),
+    total: 4,
+    page: 1,
+    limit: 2,
+    _links: next ? { next: { href: next } } : {},
+  });
+
+  const { fetch, calls } = stub([
+    {
+      body: page(
+        [1, 2],
+        'https://mcuapi.up.railway.app/api/v1/post-credit-scenes?limit=2&page=2',
+      ),
+    },
+    { body: page([3, 4]) },
+  ]);
+
+  const seen: number[] = [];
+  for await (const s of new MCUAPI({ fetch }).postCreditScenes.all()) seen.push(s.id);
+
+  assert.deepEqual(seen, [1, 2, 3, 4]);
+  assert.equal(calls.length, 2);
+});
+
 test('throws MCUAPIError carrying status and parsed body', async () => {
   const { fetch } = stub([{ status: 404, body: { message: 'Movie not found' } }]);
   await assert.rejects(

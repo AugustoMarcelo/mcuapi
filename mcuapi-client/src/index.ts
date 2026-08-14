@@ -12,6 +12,8 @@ export type {
   Person,
   PersonListParams,
   PersonTitle,
+  PostCreditScene,
+  PostCreditSceneListParams,
   ResourceLinks,
   TimelineEntry,
   TimelineGroup,

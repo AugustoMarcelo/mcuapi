@@ -144,6 +144,9 @@ server.registerTool(
     const [peopleCount] = await query<{ count: string }>(
       'SELECT COUNT(*) as count FROM people',
     );
+    const [postCreditSceneCount] = await query<{ count: string }>(
+      'SELECT COUNT(*) as count FROM post_credit_scenes',
+    );
     const universes = await query<{
       multiverse_designation: string;
       continuity: string;
@@ -163,6 +166,7 @@ server.registerTool(
       `TV Shows: ${tvshowCount.count}`,
       `Characters: ${charCount.count}`,
       `People: ${peopleCount.count}`,
+      `Post-credit scenes: ${postCreditSceneCount.count}`,
       '',
       '**Universes:**',
       ...universes.map(
@@ -1979,6 +1983,410 @@ server.registerTool(
       lines.push(
         `  ${date} — [${item.type}] ${item.title} (#${item.id}) | ${item.continuity} | ${item.multiverse_designation}${canon}`,
       );
+    });
+
+    return { content: [{ type: 'text', text: lines.join('\n') }] };
+  },
+);
+
+// ─── POST-CREDIT SCENES ─────────────────────────────────────────────────────────
+
+// The legacy `post_credit_scenes` int column on movies/tvshows stays as a
+// derived read cache rather than a live COUNT() query on every API read —
+// this keeps it in sync on the one path that can change the structured data.
+async function syncPostCreditSceneCount(
+  hostColumn: 'movie_id' | 'tvshow_id',
+  hostId: number,
+): Promise<void> {
+  const table = hostColumn === 'movie_id' ? 'movies' : 'tvshows';
+
+  await query(
+    `UPDATE ${table} SET post_credit_scenes = (
+       SELECT COUNT(*) FROM post_credit_scenes WHERE ${hostColumn} = $1
+     ) WHERE id = $1`,
+    [hostId],
+  );
+}
+
+server.registerTool(
+  'create_post_credit_scene',
+  {
+    description:
+      'Add a structured post- or mid-credits scene for a movie or TV show. Automatically keeps the legacy post_credit_scenes count on the movie/tvshow row in sync — no need to update it separately.',
+    inputSchema: {
+      movie_id: z.number().int().optional(),
+      tvshow_id: z.number().int().optional(),
+      description: z.string().describe('What happens in the scene'),
+      is_stinger: z
+        .boolean()
+        .default(false)
+        .describe(
+          'true = mid-credits scene, false = final post-credits scene',
+        ),
+      teases_movie_id: z
+        .number()
+        .int()
+        .optional()
+        .describe('Movie this scene sets up, if any'),
+      teases_tvshow_id: z
+        .number()
+        .int()
+        .optional()
+        .describe('TV show this scene sets up, if any'),
+    },
+  },
+  async ({
+    movie_id,
+    tvshow_id,
+    description,
+    is_stinger,
+    teases_movie_id,
+    teases_tvshow_id,
+  }) => {
+    if (!movie_id && !tvshow_id) {
+      return {
+        content: [
+          { type: 'text', text: '❌ Provide either movie_id or tvshow_id.' },
+        ],
+      };
+    }
+    if (movie_id && tvshow_id) {
+      return {
+        content: [
+          {
+            type: 'text',
+            text: '❌ Provide only one of movie_id or tvshow_id, not both.',
+          },
+        ],
+      };
+    }
+    if (teases_movie_id && teases_tvshow_id) {
+      return {
+        content: [
+          {
+            type: 'text',
+            text: '❌ Provide only one of teases_movie_id or teases_tvshow_id, not both.',
+          },
+        ],
+      };
+    }
+
+    const hostColumn = movie_id ? 'movie_id' : 'tvshow_id';
+    const hostId = (movie_id ?? tvshow_id) as number;
+    const hostTable = movie_id ? 'movies' : 'tvshows';
+
+    const [host] = await query<{ id: number; title: string }>(
+      `SELECT id, title FROM ${hostTable} WHERE id = $1`,
+      [hostId],
+    );
+    if (!host) {
+      return {
+        content: [
+          {
+            type: 'text',
+            text: `❌ ${movie_id ? 'Movie' : 'TV Show'} [${hostId}] not found.`,
+          },
+        ],
+      };
+    }
+
+    if (teases_movie_id) {
+      const [teased] = await query<{ id: number }>(
+        'SELECT id FROM movies WHERE id = $1',
+        [teases_movie_id],
+      );
+      if (!teased) {
+        return {
+          content: [
+            {
+              type: 'text',
+              text: `❌ teases_movie_id [${teases_movie_id}] not found.`,
+            },
+          ],
+        };
+      }
+    }
+    if (teases_tvshow_id) {
+      const [teased] = await query<{ id: number }>(
+        'SELECT id FROM tvshows WHERE id = $1',
+        [teases_tvshow_id],
+      );
+      if (!teased) {
+        return {
+          content: [
+            {
+              type: 'text',
+              text: `❌ teases_tvshow_id [${teases_tvshow_id}] not found.`,
+            },
+          ],
+        };
+      }
+    }
+
+    const [created] = await query<{ id: number }>(
+      `INSERT INTO post_credit_scenes (movie_id, tvshow_id, description, is_stinger, teases_movie_id, teases_tvshow_id)
+       VALUES ($1, $2, $3, $4, $5, $6) RETURNING id`,
+      [
+        movie_id ?? null,
+        tvshow_id ?? null,
+        description,
+        is_stinger,
+        teases_movie_id ?? null,
+        teases_tvshow_id ?? null,
+      ],
+    );
+
+    await syncPostCreditSceneCount(hostColumn, hostId);
+
+    return {
+      content: [
+        {
+          type: 'text',
+          text: `✅ Post-credit scene [${created.id}] added to "${host.title}" (${
+            is_stinger ? 'mid-credits' : 'post-credits'
+          }).`,
+        },
+      ],
+    };
+  },
+);
+
+server.registerTool(
+  'update_post_credit_scene',
+  {
+    description:
+      "Update an existing post-credit scene's description, is_stinger, or tease target. Set clear_teases=true to remove an existing tease without setting a new one.",
+    inputSchema: {
+      id: z.number().int(),
+      description: z.string().optional(),
+      is_stinger: z.boolean().optional(),
+      teases_movie_id: z.number().int().optional(),
+      teases_tvshow_id: z.number().int().optional(),
+      clear_teases: z
+        .boolean()
+        .optional()
+        .describe(
+          'Set true to clear teases_movie_id/teases_tvshow_id back to null',
+        ),
+    },
+  },
+  async ({
+    id,
+    description,
+    is_stinger,
+    teases_movie_id,
+    teases_tvshow_id,
+    clear_teases,
+  }) => {
+    if (teases_movie_id && teases_tvshow_id) {
+      return {
+        content: [
+          {
+            type: 'text',
+            text: '❌ Provide only one of teases_movie_id or teases_tvshow_id, not both.',
+          },
+        ],
+      };
+    }
+
+    const [existing] = await query<{ id: number }>(
+      'SELECT id FROM post_credit_scenes WHERE id = $1',
+      [id],
+    );
+    if (!existing) {
+      return {
+        content: [
+          { type: 'text', text: `❌ Post-credit scene [${id}] not found.` },
+        ],
+      };
+    }
+
+    const sets: string[] = [];
+    const values: unknown[] = [];
+    const changed: string[] = [];
+
+    if (description !== undefined) {
+      sets.push(`description = $${sets.length + 1}`);
+      values.push(description);
+      changed.push('description');
+    }
+
+    if (is_stinger !== undefined) {
+      sets.push(`is_stinger = $${sets.length + 1}`);
+      values.push(is_stinger);
+      changed.push(`is_stinger = ${is_stinger}`);
+    }
+
+    if (clear_teases) {
+      sets.push(`teases_movie_id = $${sets.length + 1}`);
+      values.push(null);
+      sets.push(`teases_tvshow_id = $${sets.length + 1}`);
+      values.push(null);
+      changed.push('teases cleared');
+    } else if (teases_movie_id) {
+      const [teased] = await query<{ id: number }>(
+        'SELECT id FROM movies WHERE id = $1',
+        [teases_movie_id],
+      );
+      if (!teased) {
+        return {
+          content: [
+            {
+              type: 'text',
+              text: `❌ teases_movie_id [${teases_movie_id}] not found.`,
+            },
+          ],
+        };
+      }
+      sets.push(`teases_movie_id = $${sets.length + 1}`);
+      values.push(teases_movie_id);
+      sets.push(`teases_tvshow_id = $${sets.length + 1}`);
+      values.push(null);
+      changed.push(`teases_movie_id = ${teases_movie_id}`);
+    } else if (teases_tvshow_id) {
+      const [teased] = await query<{ id: number }>(
+        'SELECT id FROM tvshows WHERE id = $1',
+        [teases_tvshow_id],
+      );
+      if (!teased) {
+        return {
+          content: [
+            {
+              type: 'text',
+              text: `❌ teases_tvshow_id [${teases_tvshow_id}] not found.`,
+            },
+          ],
+        };
+      }
+      sets.push(`teases_tvshow_id = $${sets.length + 1}`);
+      values.push(teases_tvshow_id);
+      sets.push(`teases_movie_id = $${sets.length + 1}`);
+      values.push(null);
+      changed.push(`teases_tvshow_id = ${teases_tvshow_id}`);
+    }
+
+    if (sets.length === 0) {
+      return { content: [{ type: 'text', text: '⚠️ No fields to update.' }] };
+    }
+
+    values.push(id);
+    await query(
+      `UPDATE post_credit_scenes SET ${sets.join(', ')}, updated_at = now() WHERE id = $${values.length}`,
+      values,
+    );
+
+    return {
+      content: [
+        {
+          type: 'text',
+          text: `✅ Post-credit scene [${id}] updated: ${changed.join(', ')}`,
+        },
+      ],
+    };
+  },
+);
+
+server.registerTool(
+  'delete_post_credit_scene',
+  {
+    description:
+      'Delete a post-credit scene. Keeps the legacy post_credit_scenes count on the movie/tvshow row in sync.',
+    inputSchema: {
+      id: z.number().int(),
+      confirm: z.boolean().describe('Must be true to confirm deletion'),
+    },
+  },
+  async ({ id, confirm }) => {
+    if (!confirm) {
+      return {
+        content: [
+          {
+            type: 'text',
+            text: '⚠️ Set confirm=true to delete the post-credit scene.',
+          },
+        ],
+      };
+    }
+
+    const [existing] = await query<{
+      id: number;
+      movie_id: number | null;
+      tvshow_id: number | null;
+    }>(
+      'SELECT id, movie_id, tvshow_id FROM post_credit_scenes WHERE id = $1',
+      [id],
+    );
+    if (!existing) {
+      return {
+        content: [
+          { type: 'text', text: `❌ Post-credit scene [${id}] not found.` },
+        ],
+      };
+    }
+
+    await query('DELETE FROM post_credit_scenes WHERE id = $1', [id]);
+
+    const hostColumn = existing.movie_id ? 'movie_id' : 'tvshow_id';
+    const hostId = (existing.movie_id ?? existing.tvshow_id) as number;
+    await syncPostCreditSceneCount(hostColumn, hostId);
+
+    return {
+      content: [
+        { type: 'text', text: `✅ Post-credit scene [${id}] deleted.` },
+      ],
+    };
+  },
+);
+
+server.registerTool(
+  'get_post_credit_scenes',
+  {
+    description:
+      'List existing post-credit scenes for a movie or TV show — use before create_post_credit_scene to avoid entering duplicates.',
+    inputSchema: {
+      movie_id: z.number().int().optional(),
+      tvshow_id: z.number().int().optional(),
+    },
+  },
+  async ({ movie_id, tvshow_id }) => {
+    if (!movie_id && !tvshow_id) {
+      return {
+        content: [
+          { type: 'text', text: '❌ Provide either movie_id or tvshow_id.' },
+        ],
+      };
+    }
+
+    const column = movie_id ? 'movie_id' : 'tvshow_id';
+    const hostId = movie_id ?? tvshow_id;
+
+    const scenes = await query<{
+      id: number;
+      description: string;
+      is_stinger: boolean;
+      teases_movie_id: number | null;
+      teases_tvshow_id: number | null;
+    }>(
+      `SELECT id, description, is_stinger, teases_movie_id, teases_tvshow_id
+       FROM post_credit_scenes WHERE ${column} = $1 ORDER BY is_stinger ASC, id ASC`,
+      [hostId],
+    );
+
+    if (scenes.length === 0) {
+      return {
+        content: [{ type: 'text', text: 'No post-credit scenes recorded yet.' }],
+      };
+    }
+
+    const lines = scenes.map(scene => {
+      const kind = scene.is_stinger ? 'mid-credits' : 'post-credits';
+      let teases = '';
+      if (scene.teases_movie_id) {
+        teases = ` → teases movie [${scene.teases_movie_id}]`;
+      } else if (scene.teases_tvshow_id) {
+        teases = ` → teases tvshow [${scene.teases_tvshow_id}]`;
+      }
+      return `  [${scene.id}] (${kind}) ${scene.description}${teases}`;
     });
 
     return { content: [{ type: 'text', text: lines.join('\n') }] };

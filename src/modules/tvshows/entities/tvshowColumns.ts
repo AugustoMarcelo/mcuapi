@@ -20,6 +20,7 @@ const TVSHOW_COLUMNS: ColumnAllowList<TVShowColumn> = {
   phase: 'exact',
   saga: 'text',
   chronology: 'exact',
+  post_credit_scenes: 'exact',
   imdb_id: 'text',
   updated_at: 'exact',
   studio: 'text',

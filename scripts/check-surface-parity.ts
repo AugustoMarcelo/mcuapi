@@ -41,7 +41,7 @@ function read(relPath: string): string {
 /** Resource names mounted under /api/v1 in the route table — the source of truth. */
 function discoverResources(): string[] {
   const source = read('src/shared/infra/http/routes/index.ts');
-  const matches = [...source.matchAll(/routes\.use\('\/api\/v1\/([a-z]+)'/g)];
+  const matches = [...source.matchAll(/routes\.use\('\/api\/v1\/([a-z-]+)'/g)];
   return matches.map(m => m[1]);
 }
 

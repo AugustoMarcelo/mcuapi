@@ -14,6 +14,10 @@
       "in": ["swagger", "console", "client", "llms", "readme", "snapshot", "mcp"],
       "singular": "person"
     },
+    "post-credit-scenes": {
+      "in": ["swagger", "console", "client", "llms", "readme", "snapshot", "mcp"],
+      "singular": "post_credit_scene"
+    },
     "timeline": {
       "in": ["swagger", "console", "client", "llms", "readme", "snapshot", "mcp"]
     },

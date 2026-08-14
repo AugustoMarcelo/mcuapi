@@ -8,6 +8,8 @@ import ICharactersRepository from '@modules/characters/repositories/ICharactersR
 import CharactersRepository from '@modules/characters/infra/typeorm/repositories/CharactersRepository';
 import IPeopleRepository from '@modules/people/repositories/IPeopleRepository';
 import PeopleRepository from '@modules/people/infra/typeorm/repositories/PeopleRepository';
+import IPostCreditScenesRepository from '@modules/postCreditScenes/repositories/IPostCreditScenesRepository';
+import PostCreditScenesRepository from '@modules/postCreditScenes/infra/typeorm/repositories/PostCreditScenesRepository';
 
 container.registerSingleton<IMoviesRepository>(
   'MoviesRepository',
@@ -27,4 +29,9 @@ container.registerSingleton<ICharactersRepository>(
 container.registerSingleton<IPeopleRepository>(
   'PeopleRepository',
   PeopleRepository,
+);
+
+container.registerSingleton<IPostCreditScenesRepository>(
+  'PostCreditScenesRepository',
+  PostCreditScenesRepository,
 );

@@ -50,6 +50,9 @@ class TVShow implements ITVShow {
   @Column('int')
   chronology: number;
 
+  @Column('int', { default: 0 })
+  post_credit_scenes: number;
+
   @Column('varchar')
   imdb_id: string;
 
