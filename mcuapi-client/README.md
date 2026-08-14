@@ -58,10 +58,12 @@ const cast = await mcu.follow(movie._links!.characters!);
 | `mcu.movies.get(id)` | `Movie` |
 | `mcu.movies.all(params?)` | `AsyncGenerator<Movie>` |
 | `mcu.movies.characters(id)` | `WithRole<Character>[]` |
+| `mcu.movies.postCreditScenes(id)` | `PostCreditScene[]` |
 | `mcu.tvshows.list(params?)` | `Paginated<TVShow>` |
 | `mcu.tvshows.get(id)` | `TVShow` |
 | `mcu.tvshows.all(params?)` | `AsyncGenerator<TVShow>` |
 | `mcu.tvshows.characters(id)` | `WithRole<Character>[]` |
+| `mcu.tvshows.postCreditScenes(id)` | `PostCreditScene[]` |
 | `mcu.characters.list(params?)` | `Paginated<Character>` |
 | `mcu.characters.get(id)` | `Character` |
 | `mcu.characters.all(params?)` | `AsyncGenerator<Character>` |
@@ -75,8 +77,6 @@ const cast = await mcu.follow(movie._links!.characters!);
 | `mcu.postCreditScenes.list(params?)` | `Paginated<PostCreditScene>` |
 | `mcu.postCreditScenes.get(id)` | `PostCreditScene` |
 | `mcu.postCreditScenes.all(params?)` | `AsyncGenerator<PostCreditScene>` |
-| `mcu.postCreditScenes.byMovie(id)` | `PostCreditScene[]` |
-| `mcu.postCreditScenes.byTVShow(id)` | `PostCreditScene[]` |
 | `mcu.timeline.get(params?)` | `TimelineGroup[]` |
 | `mcu.upcoming.list(params?)` | `Paginated<UpcomingItem>` |
 | `mcu.upcoming.all(params?)` | `AsyncGenerator<UpcomingItem>` |

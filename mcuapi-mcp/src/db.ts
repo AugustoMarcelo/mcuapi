@@ -1,6 +1,6 @@
 import * as dotenv from 'dotenv';
 import * as path from 'path';
-import { Pool } from 'pg';
+import { Pool, PoolClient } from 'pg';
 
 // Load env file from parent project (defaults to .env; override via MCP_ENV_FILE,
 // e.g. '../../.env.production' to target Neon instead of local Postgres)
@@ -28,6 +28,28 @@ export async function query<T = Record<string, unknown>>(
   try {
     const result = await client.query(sql, params);
     return result.rows as T[];
+  } finally {
+    client.release();
+  }
+}
+
+/**
+ * Runs `fn` inside BEGIN/COMMIT on one held connection, rolling back on any
+ * failure — for call sites that need a write plus a follow-up derived-state
+ * update (e.g. a row insert plus a count sync) to succeed or fail together.
+ */
+export async function withTransaction<T>(
+  fn: (client: PoolClient) => Promise<T>,
+): Promise<T> {
+  const client = await pool.connect();
+  try {
+    await client.query('BEGIN');
+    const result = await fn(client);
+    await client.query('COMMIT');
+    return result;
+  } catch (err) {
+    await client.query('ROLLBACK');
+    throw err;
   } finally {
     client.release();
   }

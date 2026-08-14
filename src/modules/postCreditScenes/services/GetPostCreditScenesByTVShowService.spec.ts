@@ -30,6 +30,23 @@ describe('GetPostCreditScenesByTVShow', () => {
     expect(result[0].tvshow_id).toBe(1);
   });
 
+  it('Should list the mid-credits scene before the post-credits scene', async () => {
+    fakePostCreditScenesRepository.seed({
+      tvshow_id: 1,
+      description: 'Post-credits scene.',
+      is_stinger: false,
+    });
+    fakePostCreditScenesRepository.seed({
+      tvshow_id: 1,
+      description: 'Mid-credits scene.',
+      is_stinger: true,
+    });
+
+    const result = await getPostCreditScenesByTVShow.execute(1);
+
+    expect(result.map(scene => scene.is_stinger)).toEqual([true, false]);
+  });
+
   it('Should return an empty array when the tvshow has no post-credit scenes', async () => {
     const result = await getPostCreditScenesByTVShow.execute(999);
 

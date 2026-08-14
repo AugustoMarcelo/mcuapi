@@ -1,7 +1,8 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { z } from 'zod';
-import { query } from './db.js';
+import type { PoolClient } from 'pg';
+import { query, withTransaction } from './db.js';
 import {
   applyCharacterDefaults,
   applyMovieDefaults,
@@ -295,7 +296,13 @@ server.registerTool(
       cover_url: z.string().optional(),
       trailer_url: z.string().optional(),
       directed_by: z.string().optional(),
-      post_credit_scenes: z.number().int().optional(),
+      post_credit_scenes: z
+        .number()
+        .int()
+        .optional()
+        .describe(
+          'Legacy manual count — overwritten automatically once structured post_credit_scenes rows exist for this title; prefer create_post_credit_scene instead.',
+        ),
       imdb_id: z.string().optional(),
       studio: z
         .string()
@@ -362,7 +369,13 @@ server.registerTool(
       cover_url: z.string().optional(),
       trailer_url: z.string().optional(),
       directed_by: z.string().optional(),
-      post_credit_scenes: z.number().int().optional(),
+      post_credit_scenes: z
+        .number()
+        .int()
+        .optional()
+        .describe(
+          'Legacy manual count — overwritten automatically once structured post_credit_scenes rows exist for this title; prefer create_post_credit_scene instead.',
+        ),
       imdb_id: z.string().optional(),
       studio: z.string().optional(),
       continuity: z.string().optional(),
@@ -1994,18 +2007,75 @@ server.registerTool(
 // The legacy `post_credit_scenes` int column on movies/tvshows stays as a
 // derived read cache rather than a live COUNT() query on every API read —
 // this keeps it in sync on the one path that can change the structured data.
+// Runs on the same client/transaction as the row write it follows, so a
+// failed sync rolls back the write instead of leaving the count adrift.
 async function syncPostCreditSceneCount(
+  client: PoolClient,
   hostColumn: 'movie_id' | 'tvshow_id',
   hostId: number,
 ): Promise<void> {
   const table = hostColumn === 'movie_id' ? 'movies' : 'tvshows';
 
-  await query(
+  await client.query(
     `UPDATE ${table} SET post_credit_scenes = (
        SELECT COUNT(*) FROM post_credit_scenes WHERE ${hostColumn} = $1
      ) WHERE id = $1`,
     [hostId],
   );
+}
+
+type TeaseResolution =
+  | { ok: true; teases_movie_id: number | null; teases_tvshow_id: number | null }
+  | { ok: false; message: string };
+
+// Shared by create_post_credit_scene and update_post_credit_scene: enforces
+// "at most one tease target" and that whichever one is given actually exists.
+async function resolveTeaseTarget({
+  teases_movie_id,
+  teases_tvshow_id,
+}: {
+  teases_movie_id?: number;
+  teases_tvshow_id?: number;
+}): Promise<TeaseResolution> {
+  if (teases_movie_id && teases_tvshow_id) {
+    return {
+      ok: false,
+      message:
+        '❌ Provide only one of teases_movie_id or teases_tvshow_id, not both.',
+    };
+  }
+
+  if (teases_movie_id) {
+    const [teased] = await query<{ id: number }>(
+      'SELECT id FROM movies WHERE id = $1',
+      [teases_movie_id],
+    );
+    if (!teased) {
+      return {
+        ok: false,
+        message: `❌ teases_movie_id [${teases_movie_id}] not found.`,
+      };
+    }
+  }
+
+  if (teases_tvshow_id) {
+    const [teased] = await query<{ id: number }>(
+      'SELECT id FROM tvshows WHERE id = $1',
+      [teases_tvshow_id],
+    );
+    if (!teased) {
+      return {
+        ok: false,
+        message: `❌ teases_tvshow_id [${teases_tvshow_id}] not found.`,
+      };
+    }
+  }
+
+  return {
+    ok: true,
+    teases_movie_id: teases_movie_id ?? null,
+    teases_tvshow_id: teases_tvshow_id ?? null,
+  };
 }
 
 server.registerTool(
@@ -2060,15 +2130,12 @@ server.registerTool(
         ],
       };
     }
-    if (teases_movie_id && teases_tvshow_id) {
-      return {
-        content: [
-          {
-            type: 'text',
-            text: '❌ Provide only one of teases_movie_id or teases_tvshow_id, not both.',
-          },
-        ],
-      };
+    const teaseResolution = await resolveTeaseTarget({
+      teases_movie_id,
+      teases_tvshow_id,
+    });
+    if (!teaseResolution.ok) {
+      return { content: [{ type: 'text', text: teaseResolution.message }] };
     }
 
     const hostColumn = movie_id ? 'movie_id' : 'tvshow_id';
@@ -2090,53 +2157,24 @@ server.registerTool(
       };
     }
 
-    if (teases_movie_id) {
-      const [teased] = await query<{ id: number }>(
-        'SELECT id FROM movies WHERE id = $1',
-        [teases_movie_id],
+    const created = await withTransaction(async client => {
+      const result = await client.query<{ id: number }>(
+        `INSERT INTO post_credit_scenes (movie_id, tvshow_id, description, is_stinger, teases_movie_id, teases_tvshow_id)
+         VALUES ($1, $2, $3, $4, $5, $6) RETURNING id`,
+        [
+          movie_id ?? null,
+          tvshow_id ?? null,
+          description,
+          is_stinger,
+          teaseResolution.teases_movie_id,
+          teaseResolution.teases_tvshow_id,
+        ],
       );
-      if (!teased) {
-        return {
-          content: [
-            {
-              type: 'text',
-              text: `❌ teases_movie_id [${teases_movie_id}] not found.`,
-            },
-          ],
-        };
-      }
-    }
-    if (teases_tvshow_id) {
-      const [teased] = await query<{ id: number }>(
-        'SELECT id FROM tvshows WHERE id = $1',
-        [teases_tvshow_id],
-      );
-      if (!teased) {
-        return {
-          content: [
-            {
-              type: 'text',
-              text: `❌ teases_tvshow_id [${teases_tvshow_id}] not found.`,
-            },
-          ],
-        };
-      }
-    }
 
-    const [created] = await query<{ id: number }>(
-      `INSERT INTO post_credit_scenes (movie_id, tvshow_id, description, is_stinger, teases_movie_id, teases_tvshow_id)
-       VALUES ($1, $2, $3, $4, $5, $6) RETURNING id`,
-      [
-        movie_id ?? null,
-        tvshow_id ?? null,
-        description,
-        is_stinger,
-        teases_movie_id ?? null,
-        teases_tvshow_id ?? null,
-      ],
-    );
+      await syncPostCreditSceneCount(client, hostColumn, hostId);
 
-    await syncPostCreditSceneCount(hostColumn, hostId);
+      return result.rows[0];
+    });
 
     return {
       content: [
@@ -2178,12 +2216,12 @@ server.registerTool(
     teases_tvshow_id,
     clear_teases,
   }) => {
-    if (teases_movie_id && teases_tvshow_id) {
+    if (clear_teases && (teases_movie_id || teases_tvshow_id)) {
       return {
         content: [
           {
             type: 'text',
-            text: '❌ Provide only one of teases_movie_id or teases_tvshow_id, not both.',
+            text: '❌ clear_teases cannot be combined with teases_movie_id or teases_tvshow_id.',
           },
         ],
       };
@@ -2223,46 +2261,23 @@ server.registerTool(
       sets.push(`teases_tvshow_id = $${sets.length + 1}`);
       values.push(null);
       changed.push('teases cleared');
-    } else if (teases_movie_id) {
-      const [teased] = await query<{ id: number }>(
-        'SELECT id FROM movies WHERE id = $1',
-        [teases_movie_id],
-      );
-      if (!teased) {
-        return {
-          content: [
-            {
-              type: 'text',
-              text: `❌ teases_movie_id [${teases_movie_id}] not found.`,
-            },
-          ],
-        };
+    } else if (teases_movie_id || teases_tvshow_id) {
+      const teaseResolution = await resolveTeaseTarget({
+        teases_movie_id,
+        teases_tvshow_id,
+      });
+      if (!teaseResolution.ok) {
+        return { content: [{ type: 'text', text: teaseResolution.message }] };
       }
       sets.push(`teases_movie_id = $${sets.length + 1}`);
-      values.push(teases_movie_id);
+      values.push(teaseResolution.teases_movie_id);
       sets.push(`teases_tvshow_id = $${sets.length + 1}`);
-      values.push(null);
-      changed.push(`teases_movie_id = ${teases_movie_id}`);
-    } else if (teases_tvshow_id) {
-      const [teased] = await query<{ id: number }>(
-        'SELECT id FROM tvshows WHERE id = $1',
-        [teases_tvshow_id],
+      values.push(teaseResolution.teases_tvshow_id);
+      changed.push(
+        teases_movie_id
+          ? `teases_movie_id = ${teases_movie_id}`
+          : `teases_tvshow_id = ${teases_tvshow_id}`,
       );
-      if (!teased) {
-        return {
-          content: [
-            {
-              type: 'text',
-              text: `❌ teases_tvshow_id [${teases_tvshow_id}] not found.`,
-            },
-          ],
-        };
-      }
-      sets.push(`teases_tvshow_id = $${sets.length + 1}`);
-      values.push(teases_tvshow_id);
-      sets.push(`teases_movie_id = $${sets.length + 1}`);
-      values.push(null);
-      changed.push(`teases_tvshow_id = ${teases_tvshow_id}`);
     }
 
     if (sets.length === 0) {
@@ -2324,11 +2339,13 @@ server.registerTool(
       };
     }
 
-    await query('DELETE FROM post_credit_scenes WHERE id = $1', [id]);
-
     const hostColumn = existing.movie_id ? 'movie_id' : 'tvshow_id';
     const hostId = (existing.movie_id ?? existing.tvshow_id) as number;
-    await syncPostCreditSceneCount(hostColumn, hostId);
+
+    await withTransaction(async client => {
+      await client.query('DELETE FROM post_credit_scenes WHERE id = $1', [id]);
+      await syncPostCreditSceneCount(client, hostColumn, hostId);
+    });
 
     return {
       content: [
@@ -2356,6 +2373,16 @@ server.registerTool(
         ],
       };
     }
+    if (movie_id && tvshow_id) {
+      return {
+        content: [
+          {
+            type: 'text',
+            text: '❌ Provide only one of movie_id or tvshow_id, not both.',
+          },
+        ],
+      };
+    }
 
     const column = movie_id ? 'movie_id' : 'tvshow_id';
     const hostId = movie_id ?? tvshow_id;
@@ -2368,7 +2395,7 @@ server.registerTool(
       teases_tvshow_id: number | null;
     }>(
       `SELECT id, description, is_stinger, teases_movie_id, teases_tvshow_id
-       FROM post_credit_scenes WHERE ${column} = $1 ORDER BY is_stinger ASC, id ASC`,
+       FROM post_credit_scenes WHERE ${column} = $1 ORDER BY is_stinger DESC, id ASC`,
       [hostId],
     );
 

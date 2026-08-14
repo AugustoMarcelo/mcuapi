@@ -11,7 +11,7 @@ export default interface IPostCreditScene {
 
   teases_tvshow_id?: number;
 
-  // true = mid-credits scene, false = final post-credits scene
+  /** true = mid-credits scene, false = final post-credits scene */
   is_stinger: boolean;
 
   created_at?: Date;

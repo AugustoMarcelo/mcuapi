@@ -86,13 +86,13 @@ class FakePostCreditScenesRepository implements IPostCreditScenesRepository {
   public async findByMovieId(movie_id: number): Promise<IPostCreditScene[]> {
     return this.postCreditScenes
       .filter(postCreditScene => postCreditScene.movie_id === movie_id)
-      .sort((a, b) => Number(a.is_stinger) - Number(b.is_stinger));
+      .sort((a, b) => Number(b.is_stinger) - Number(a.is_stinger));
   }
 
   public async findByTVShowId(tvshow_id: number): Promise<IPostCreditScene[]> {
     return this.postCreditScenes
       .filter(postCreditScene => postCreditScene.tvshow_id === tvshow_id)
-      .sort((a, b) => Number(a.is_stinger) - Number(b.is_stinger));
+      .sort((a, b) => Number(b.is_stinger) - Number(a.is_stinger));
   }
 }
 

@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 
 import { MCUAPI, MCUAPIError } from '../src/index';
-import type { Movie, Paginated, UpcomingItem } from '../src/index';
+import type { Movie, Paginated, PostCreditScene, UpcomingItem } from '../src/index';
 
 /** Records the URLs it was called with and replays canned responses. */
 function stub(
@@ -49,6 +49,19 @@ const movie = (id: number): Movie =>
     timeline_chronology_order: null,
     updated_at: '2026-01-01T00:00:00.000Z',
   }) satisfies Movie;
+
+const postCreditScene = (id: number): PostCreditScene =>
+  ({
+    id,
+    movie_id: 1,
+    tvshow_id: null,
+    description: `Scene ${id}`,
+    teases_movie_id: null,
+    teases_tvshow_id: null,
+    is_stinger: false,
+    created_at: '2026-01-01T00:00:00.000Z',
+    updated_at: '2026-01-01T00:00:00.000Z',
+  }) satisfies PostCreditScene;
 
 const upcomingItem = (id: number): UpcomingItem =>
   ({
@@ -159,37 +172,23 @@ test('postCreditScenes.list builds the default path', async () => {
 });
 
 test('postCreditScenes.get requests a single scene', async () => {
-  const { fetch, calls } = stub([
-    {
-      body: {
-        id: 1,
-        movie_id: 1,
-        tvshow_id: null,
-        description: 'Nick Fury reveals the Avengers Initiative.',
-        teases_movie_id: null,
-        teases_tvshow_id: null,
-        is_stinger: false,
-        created_at: '2026-01-01',
-        updated_at: '2026-01-01',
-      },
-    },
-  ]);
+  const { fetch, calls } = stub([{ body: postCreditScene(1) }]);
   await new MCUAPI({ fetch }).postCreditScenes.get(1);
   assert.equal(calls[0], 'https://mcuapi.up.railway.app/api/v1/post-credit-scenes/1');
 });
 
-test('postCreditScenes.byMovie requests the movie relation endpoint', async () => {
+test('movies.postCreditScenes requests the movie relation endpoint', async () => {
   const { fetch, calls } = stub([{ body: [] }]);
-  await new MCUAPI({ fetch }).postCreditScenes.byMovie(1);
+  await new MCUAPI({ fetch }).movies.postCreditScenes(1);
   assert.equal(
     calls[0],
     'https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/1',
   );
 });
 
-test('postCreditScenes.byTVShow requests the tvshow relation endpoint', async () => {
+test('tvshows.postCreditScenes requests the tvshow relation endpoint', async () => {
   const { fetch, calls } = stub([{ body: [] }]);
-  await new MCUAPI({ fetch }).postCreditScenes.byTVShow(1);
+  await new MCUAPI({ fetch }).tvshows.postCreditScenes(1);
   assert.equal(
     calls[0],
     'https://mcuapi.up.railway.app/api/v1/post-credit-scenes/tvshow/1',
@@ -197,19 +196,8 @@ test('postCreditScenes.byTVShow requests the tvshow relation endpoint', async ()
 });
 
 test('postCreditScenes.all paginates like the other collections', async () => {
-  const scene = (id: number) => ({
-    id,
-    movie_id: 1,
-    tvshow_id: null,
-    description: `Scene ${id}`,
-    teases_movie_id: null,
-    teases_tvshow_id: null,
-    is_stinger: false,
-    created_at: '2026-01-01T00:00:00.000Z',
-    updated_at: '2026-01-01T00:00:00.000Z',
-  });
   const page = (ids: number[], next?: string) => ({
-    data: ids.map(scene),
+    data: ids.map(postCreditScene),
     total: 4,
     page: 1,
     limit: 2,

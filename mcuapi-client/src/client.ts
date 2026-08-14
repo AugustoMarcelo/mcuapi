@@ -166,6 +166,12 @@ export class MCUAPI {
         `/api/v1/characters/movie/${encodeURIComponent(id)}`,
         options,
       ),
+
+    postCreditScenes: (id: number | string, options?: RequestOptions) =>
+      this.request<PostCreditScene[]>(
+        `/api/v1/post-credit-scenes/movie/${encodeURIComponent(id)}`,
+        options,
+      ),
   };
 
   readonly tvshows = {
@@ -188,6 +194,12 @@ export class MCUAPI {
     characters: (id: number | string, options?: RequestOptions) =>
       this.request<WithRole<Character>[]>(
         `/api/v1/characters/tvshow/${encodeURIComponent(id)}`,
+        options,
+      ),
+
+    postCreditScenes: (id: number | string, options?: RequestOptions) =>
+      this.request<PostCreditScene[]>(
+        `/api/v1/post-credit-scenes/tvshow/${encodeURIComponent(id)}`,
         options,
       ),
   };
@@ -269,18 +281,6 @@ export class MCUAPI {
       this.paginate<PostCreditScene>(
         '/api/v1/post-credit-scenes',
         params as Record<string, QueryValue>,
-        options,
-      ),
-
-    byMovie: (id: number | string, options?: RequestOptions) =>
-      this.request<PostCreditScene[]>(
-        `/api/v1/post-credit-scenes/movie/${encodeURIComponent(id)}`,
-        options,
-      ),
-
-    byTVShow: (id: number | string, options?: RequestOptions) =>
-      this.request<PostCreditScene[]>(
-        `/api/v1/post-credit-scenes/tvshow/${encodeURIComponent(id)}`,
         options,
       ),
   };

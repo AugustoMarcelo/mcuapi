@@ -186,7 +186,7 @@ async function main(): Promise<void> {
       `  tvshows           ${tvshows.length}`,
       `  characters        ${characters.length}`,
       `  people            ${people.length}`,
-      `  post-credit scenes ${postCreditScenes.length}`,
+      `  post-credit       ${postCreditScenes.length}`,
       `  timeline branches ${timeline.length} (${timelineEntries} entries)`,
       `  total             ${(totalBytes / 1024).toFixed(1)} kB`,
       `  content hash      ${hash}`,

@@ -64,14 +64,14 @@ class PostCreditScenesRepository implements IPostCreditScenesRepository {
   public async findByMovieId(movie_id: number): Promise<PostCreditScene[]> {
     return this.ormRepository.find({
       where: { movie_id },
-      order: { is_stinger: 'ASC', id: 'ASC' },
+      order: { is_stinger: 'DESC', id: 'ASC' },
     });
   }
 
   public async findByTVShowId(tvshow_id: number): Promise<PostCreditScene[]> {
     return this.ormRepository.find({
       where: { tvshow_id },
-      order: { is_stinger: 'ASC', id: 'ASC' },
+      order: { is_stinger: 'DESC', id: 'ASC' },
     });
   }
 }

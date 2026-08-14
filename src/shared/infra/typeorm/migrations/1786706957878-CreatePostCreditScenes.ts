@@ -4,6 +4,7 @@ import {
   Table,
   TableCheck,
   TableForeignKey,
+  TableIndex,
 } from 'typeorm';
 
 export default class CreatePostCreditScenes1786706957878 implements MigrationInterface {
@@ -129,9 +130,33 @@ export default class CreatePostCreditScenes1786706957878 implements MigrationInt
         expression: 'num_nonnulls(teases_movie_id, teases_tvshow_id) <= 1',
       }),
     );
+
+    await queryRunner.createIndex(
+      'post_credit_scenes',
+      new TableIndex({
+        name: 'IDXPostCreditSceneMovie',
+        columnNames: ['movie_id'],
+      }),
+    );
+
+    await queryRunner.createIndex(
+      'post_credit_scenes',
+      new TableIndex({
+        name: 'IDXPostCreditSceneTVShow',
+        columnNames: ['tvshow_id'],
+      }),
+    );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.dropIndex(
+      'post_credit_scenes',
+      'IDXPostCreditSceneTVShow',
+    );
+    await queryRunner.dropIndex(
+      'post_credit_scenes',
+      'IDXPostCreditSceneMovie',
+    );
     await queryRunner.dropCheckConstraint(
       'post_credit_scenes',
       'PostCreditSceneAtMostOneTease',

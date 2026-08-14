@@ -32,11 +32,11 @@ describe('ShowPostCreditScene', () => {
   });
 
   it('Should throw AppError when post-credit scene is not found', async () => {
-    await expect(
-      showPostCreditScene.execute({ post_credit_scene_id: 999 }),
-    ).rejects.toBeInstanceOf(AppError);
-    await expect(
-      showPostCreditScene.execute({ post_credit_scene_id: 999 }),
-    ).rejects.toHaveProperty('statusCode', 404);
+    const error = await showPostCreditScene
+      .execute({ post_credit_scene_id: 999 })
+      .catch(e => e);
+
+    expect(error).toBeInstanceOf(AppError);
+    expect(error).toHaveProperty('statusCode', 404);
   });
 });
