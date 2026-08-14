@@ -58,10 +58,12 @@ const cast = await mcu.follow(movie._links!.characters!);
 | `mcu.movies.get(id)` | `Movie` |
 | `mcu.movies.all(params?)` | `AsyncGenerator<Movie>` |
 | `mcu.movies.characters(id)` | `WithRole<Character>[]` |
+| `mcu.movies.postCreditScenes(id)` | `PostCreditScene[]` |
 | `mcu.tvshows.list(params?)` | `Paginated<TVShow>` |
 | `mcu.tvshows.get(id)` | `TVShow` |
 | `mcu.tvshows.all(params?)` | `AsyncGenerator<TVShow>` |
 | `mcu.tvshows.characters(id)` | `WithRole<Character>[]` |
+| `mcu.tvshows.postCreditScenes(id)` | `PostCreditScene[]` |
 | `mcu.characters.list(params?)` | `Paginated<Character>` |
 | `mcu.characters.get(id)` | `Character` |
 | `mcu.characters.all(params?)` | `AsyncGenerator<Character>` |
@@ -72,6 +74,9 @@ const cast = await mcu.follow(movie._links!.characters!);
 | `mcu.people.all(params?)` | `AsyncGenerator<Person>` |
 | `mcu.people.characters(id)` | `WithRecastOrder<Character>[]` |
 | `mcu.people.titles(id)` | `PersonTitle[]` |
+| `mcu.postCreditScenes.list(params?)` | `Paginated<PostCreditScene>` |
+| `mcu.postCreditScenes.get(id)` | `PostCreditScene` |
+| `mcu.postCreditScenes.all(params?)` | `AsyncGenerator<PostCreditScene>` |
 | `mcu.timeline.get(params?)` | `TimelineGroup[]` |
 | `mcu.upcoming.list(params?)` | `Paginated<UpcomingItem>` |
 | `mcu.upcoming.all(params?)` | `AsyncGenerator<UpcomingItem>` |
@@ -80,8 +85,9 @@ const cast = await mcu.follow(movie._links!.characters!);
 
 List params: `page`, `limit`, `order`, `filter`, `continuity`,
 `multiverse_designation` — plus `studio` and `is_mcu` on movies and TV shows.
-`people.list()` only honours `page`, `limit`, `order`, and `filter`; people have
-no `continuity` or `multiverse_designation` columns to filter by. `timeline.get()`
+`people.list()` and `postCreditScenes.list()` only honour `page`, `limit`,
+`order`, and `filter`; neither has `continuity` or `multiverse_designation`
+columns to filter by. `timeline.get()`
 takes `multiverse`. `upcoming.list()`/`.all()` take `page`,
 `limit`, `type` (`'movie' | 'tvshow'`), `continuity`, `multiverse_designation`,
 and `is_mcu` — movies and TV shows whose `release_date` is strictly in the

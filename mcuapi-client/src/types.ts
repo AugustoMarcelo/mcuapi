@@ -18,6 +18,9 @@ export interface ResourceLinks {
   variant_of?: Link;
   first_appearance_movie?: Link;
   first_appearance_tvshow?: Link;
+  movie?: Link;
+  tvshow?: Link;
+  teases?: Link;
 }
 
 export interface Movie {
@@ -63,6 +66,7 @@ export interface TVShow {
   phase: number | null;
   saga: string | null;
   chronology: number | null;
+  post_credit_scenes: number;
   imdb_id: string | null;
   studio: string | null;
   continuity: string | null;
@@ -108,6 +112,22 @@ export type WithRecastOrder<T> = T & { recast_order: number };
 
 /** A movie or TV show a person directed, returned by `/people/{id}/titles`. */
 export type PersonTitle = (Movie | TVShow) & { type: 'movie' | 'tvshow'; role: string };
+
+export interface PostCreditScene {
+  id: number;
+  /** Exactly one of movie_id/tvshow_id is set — the title the scene appears in. */
+  movie_id: number | null;
+  tvshow_id: number | null;
+  description: string;
+  /** At most one of these is set — the title this scene sets up, if any. */
+  teases_movie_id: number | null;
+  teases_tvshow_id: number | null;
+  /** true = mid-credits scene, false = final post-credits scene. */
+  is_stinger: boolean;
+  created_at: string;
+  updated_at: string;
+  _links?: ResourceLinks;
+}
 
 export interface TimelineEntry {
   id: number;
@@ -166,6 +186,12 @@ export interface TitleListParams extends ListParams {
 
 /** `/people` has no `continuity`/`multiverse_designation` columns to filter by. */
 export type PersonListParams = Pick<ListParams, 'page' | 'limit' | 'order' | 'filter'>;
+
+/** `/post-credit-scenes` has no `continuity`/`multiverse_designation` columns to filter by. */
+export type PostCreditSceneListParams = Pick<
+  ListParams,
+  'page' | 'limit' | 'order' | 'filter'
+>;
 
 export interface TimelineParams {
   /** Exact match on `multiverse_designation`, e.g. `"Earth-10005"`. */

@@ -8,6 +8,8 @@ import type {
   Person,
   PersonListParams,
   PersonTitle,
+  PostCreditScene,
+  PostCreditSceneListParams,
   TVShow,
   TimelineGroup,
   TimelineParams,
@@ -164,6 +166,12 @@ export class MCUAPI {
         `/api/v1/characters/movie/${encodeURIComponent(id)}`,
         options,
       ),
+
+    postCreditScenes: (id: number | string, options?: RequestOptions) =>
+      this.request<PostCreditScene[]>(
+        `/api/v1/post-credit-scenes/movie/${encodeURIComponent(id)}`,
+        options,
+      ),
   };
 
   readonly tvshows = {
@@ -186,6 +194,12 @@ export class MCUAPI {
     characters: (id: number | string, options?: RequestOptions) =>
       this.request<WithRole<Character>[]>(
         `/api/v1/characters/tvshow/${encodeURIComponent(id)}`,
+        options,
+      ),
+
+    postCreditScenes: (id: number | string, options?: RequestOptions) =>
+      this.request<PostCreditScene[]>(
+        `/api/v1/post-credit-scenes/tvshow/${encodeURIComponent(id)}`,
         options,
       ),
   };
@@ -246,6 +260,27 @@ export class MCUAPI {
     titles: (id: number | string, options?: RequestOptions) =>
       this.request<PersonTitle[]>(
         `/api/v1/people/${encodeURIComponent(id)}/titles`,
+        options,
+      ),
+  };
+
+  readonly postCreditScenes = {
+    list: (params: PostCreditSceneListParams = {}, options?: RequestOptions) =>
+      this.request<Paginated<PostCreditScene>>(
+        `/api/v1/post-credit-scenes${toQuery(params as Record<string, QueryValue>)}`,
+        options,
+      ),
+
+    get: (id: number | string, options?: RequestOptions) =>
+      this.request<PostCreditScene>(
+        `/api/v1/post-credit-scenes/${encodeURIComponent(id)}`,
+        options,
+      ),
+
+    all: (params: PostCreditSceneListParams = {}, options?: RequestOptions) =>
+      this.paginate<PostCreditScene>(
+        '/api/v1/post-credit-scenes',
+        params as Record<string, QueryValue>,
         options,
       ),
   };

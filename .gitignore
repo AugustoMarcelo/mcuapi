@@ -29,3 +29,6 @@ mcu_characters.json
 
 # Editor config (personal, not shared)
 .vscode/
+
+# deep-review local working artifacts (manifests, prompts, per-agent findings)
+.deep-review/

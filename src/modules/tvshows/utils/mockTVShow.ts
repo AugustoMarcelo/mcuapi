@@ -12,6 +12,7 @@ const mockTVShow = (overrides: Partial<ITVShow> = {}): ITVShow => ({
   phase: 1,
   saga: 'Mock Saga',
   chronology: 1,
+  post_credit_scenes: 0,
   release_date: new Date('2021-01-01'),
   last_aired_date: new Date('2021-02-05'),
   imdb_id: 'tt1234567',
