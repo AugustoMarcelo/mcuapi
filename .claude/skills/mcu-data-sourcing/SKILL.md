@@ -18,10 +18,9 @@ Where each mcuapi field comes from, so two agents filling in the same field reac
   | Blade trilogy (New Line) | `warnerbros.com/movies/<slug>` |
   | Sony Spider-Man Universe, Raimi and Webb Spider-Man | `sonypictures.com/movies/<slug>` |
 
+- **`trailer_url`** and **`cover_url`** (movies/TV shows): always `marvel.com`, never TMDB — fetch the title's `marvel.com/movies/<slug>` (or `marvel.com/tv-shows/<slug>/<season>`) page with a real browser User-Agent (plain fetches 403 on Cloudflare). The trailer is the YouTube link embedded in the page (`[!youtube=<id>]` or `youtube.com/embed/<id>`); the cover is the `og:image` meta tag or the embedded JSON schema's `image` field, a `cdn.marvel.com/content/2x/<slug>_lob_crd_NN.<ext>` URL — use that directly as `cover_url`. A marvel.com page section labeled "Official Trailer" outranks one labeled "Special Look," "Teaser," or similar — only overwrite an existing `trailer_url` with a promo clip when no full trailer has been set yet; a later special look never demotes an already-stored official trailer.
 - **`box_office`**: the-numbers.com, where reachable. The site returns 403 to automated requests, so the 18 legacy titles were filled from TMDB's `revenue` field instead — spot-checked against five existing the-numbers values already in the database, TMDB runs within ~1% (Deadpool & Wolverine +0.00%, Captain Marvel +0.15%, The Incredible Hulk −0.30%, The Amazing Spider-Man 2 +1.02%). Acceptable as a fallback, but prefer the-numbers when reachable by hand.
-- **`trailer_url`**: the official trailer's YouTube link (`https://youtu.be/<id>`), matching existing MCU rows. TMDB's `/movie/{id}/videos` endpoint reliably surfaces the official one without guessing IDs.
-- **`cover_url`**: TMDB (`image.tmdb.org`), never the studio sites — they expose no stable image URLs, and TMDB is already this project's image host for characters, so this keeps a single image CDN across the whole dataset.
-- **Characters** (`name`, `bio`, `played_by`, `image_url`): sourced from TMDB, `image.tmdb.org` for images.
+- **Characters** (`name`, `bio`, `played_by`, `image_url`): sourced from TMDB, `image.tmdb.org` for images — TMDB stays the source for characters specifically, unlike movie/TV show media.
 
 ### Recast characters
 
