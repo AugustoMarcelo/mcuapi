@@ -24,6 +24,14 @@ describe('MoviePresenter', () => {
     expect(presented.title).toBe('Iron Man');
   });
 
+  it('Should add post_credit_scenes link', () => {
+    const presented = presentMovie(movie, baseUrl);
+
+    expect(presented._links.post_credit_scenes).toEqual({
+      href: `${baseUrl}/api/v1/post-credit-scenes/movie/1`,
+    });
+  });
+
   it('Should omit related_movies link when the relation is not loaded', () => {
     const presented = presentMovie(movie, baseUrl);
 

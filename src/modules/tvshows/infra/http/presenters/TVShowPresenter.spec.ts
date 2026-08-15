@@ -24,6 +24,14 @@ describe('TVShowPresenter', () => {
     expect(presented.title).toBe('Loki');
   });
 
+  it('Should add post_credit_scenes link', () => {
+    const presented = presentTVShow(tvshow, baseUrl);
+
+    expect(presented._links.post_credit_scenes).toEqual({
+      href: `${baseUrl}/api/v1/post-credit-scenes/tvshow/3`,
+    });
+  });
+
   it('Should skip links when id is missing (columns selection)', () => {
     const presented = presentTVShow({ title: 'Loki' } as ITVShow, baseUrl);
 
