@@ -2240,6 +2240,9 @@
           },
           "characters": {
             "href": "https://mcuapi.example.com/api/v1/characters/movie/1"
+          },
+          "post_credit_scenes": {
+            "href": "https://mcuapi.example.com/api/v1/post-credit-scenes/movie/1"
           }
         }
       }

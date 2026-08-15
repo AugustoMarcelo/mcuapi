@@ -35,6 +35,9 @@ export function presentMovie(
     _links.characters = {
       href: `${baseUrl}/api/v1/characters/movie/${movie.id}`,
     };
+    _links.post_credit_scenes = {
+      href: `${baseUrl}/api/v1/post-credit-scenes/movie/${movie.id}`,
+    };
   }
 
   const { related_movies, related_tvshows, ...movieWithoutRelations } = movie;
