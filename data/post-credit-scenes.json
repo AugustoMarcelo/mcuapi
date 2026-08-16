@@ -1,0 +1,1724 @@
+[
+  {
+    "id": 1,
+    "movie_id": 1,
+    "tvshow_id": null,
+    "description": "Nick Fury visits Tony Stark at his mansion and tells him he has become part of a \"bigger universe,\" introducing the Avenger Initiative.",
+    "teases_movie_id": 6,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:20:15.910Z",
+    "updated_at": "2026-08-14T17:20:15.910Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/1"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/1"
+      },
+      "teases": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/6"
+      }
+    }
+  },
+  {
+    "id": 2,
+    "movie_id": 2,
+    "tvshow_id": null,
+    "description": "Tony Stark meets General Thaddeus Ross at a bar and tells him he is \"putting a team together,\" hinting at the Avenger Initiative.",
+    "teases_movie_id": 6,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:20:16.812Z",
+    "updated_at": "2026-08-14T17:20:16.812Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/2"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/2"
+      },
+      "teases": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/6"
+      }
+    }
+  },
+  {
+    "id": 3,
+    "movie_id": 3,
+    "tvshow_id": null,
+    "description": "Agent Phil Coulson, sent to investigate a disturbance in New Mexico, finds Mjolnir embedded in a crater in the desert.",
+    "teases_movie_id": 4,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:20:17.954Z",
+    "updated_at": "2026-08-14T17:20:17.954Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/3"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/3"
+      },
+      "teases": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/4"
+      }
+    }
+  },
+  {
+    "id": 4,
+    "movie_id": 4,
+    "tvshow_id": null,
+    "description": "Nick Fury and Dr. Erik Selvig examine the Tesseract; Selvig, subtly influenced already, stares at it and insists he is \"never better.\"",
+    "teases_movie_id": 6,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:20:19.077Z",
+    "updated_at": "2026-08-14T17:20:19.077Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/4"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/4"
+      },
+      "teases": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/6"
+      }
+    }
+  },
+  {
+    "id": 5,
+    "movie_id": 5,
+    "tvshow_id": null,
+    "description": "Steve Rogers, having just learned he has been asleep since World War II, is introduced by Nick Fury to a new mission in present-day New York.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:20:20.019Z",
+    "updated_at": "2026-08-14T17:20:20.019Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/5"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/5"
+      }
+    }
+  },
+  {
+    "id": 6,
+    "movie_id": 6,
+    "tvshow_id": null,
+    "description": "Thanos, informed that attacking Earth \"would be courting death,\" turns and smiles at the prospect of taking on the Avengers himself.",
+    "teases_movie_id": 19,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:20:21.236Z",
+    "updated_at": "2026-08-14T17:20:21.236Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/6"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/6"
+      },
+      "teases": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/19"
+      }
+    }
+  },
+  {
+    "id": 7,
+    "movie_id": 6,
+    "tvshow_id": null,
+    "description": "The Avengers eat shawarma in silence at a damaged restaurant near the battle site, too exhausted to speak.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:20:22.153Z",
+    "updated_at": "2026-08-14T17:20:22.153Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/7"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/6"
+      }
+    }
+  },
+  {
+    "id": 8,
+    "movie_id": 7,
+    "tvshow_id": null,
+    "description": "Tony Stark reveals he has been recounting the entire film to a bored, unimpressed Bruce Banner, who has fallen asleep partway through.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:20:23.246Z",
+    "updated_at": "2026-08-14T17:20:23.246Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/8"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/7"
+      }
+    }
+  },
+  {
+    "id": 9,
+    "movie_id": 8,
+    "tvshow_id": null,
+    "description": "The Collector receives the Aether from Sif and Volstagg for safekeeping and remarks \"one down, five to go,\" revealing he is gathering the Infinity Stones.",
+    "teases_movie_id": 10,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:20:24.448Z",
+    "updated_at": "2026-08-14T17:20:24.448Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/9"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/8"
+      },
+      "teases": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/10"
+      }
+    }
+  },
+  {
+    "id": 10,
+    "movie_id": 8,
+    "tvshow_id": null,
+    "description": "Thor and Jane share a private reunion at her apartment, comedically interrupted by a strange creature that wanders through the portal device left behind.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:20:25.428Z",
+    "updated_at": "2026-08-14T17:20:25.428Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/10"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/8"
+      }
+    }
+  },
+  {
+    "id": 11,
+    "movie_id": 9,
+    "tvshow_id": null,
+    "description": "Baron von Strucker, examining Loki's scepter at a Hydra base, unveils two captive test subjects: the Maximoff twins, who volunteered for experimentation.",
+    "teases_movie_id": 11,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:20:26.663Z",
+    "updated_at": "2026-08-14T17:20:26.663Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/11"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/9"
+      },
+      "teases": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/11"
+      }
+    }
+  },
+  {
+    "id": 12,
+    "movie_id": 9,
+    "tvshow_id": null,
+    "description": "Bucky Barnes visits the Captain America exhibit at the Smithsonian, studying his own history as the Winter Soldier begins to remember who he was.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:20:27.320Z",
+    "updated_at": "2026-08-14T17:20:27.320Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/12"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/9"
+      }
+    }
+  },
+  {
+    "id": 13,
+    "movie_id": 10,
+    "tvshow_id": null,
+    "description": "Howard the Duck, found amid the wreckage of the Collector's museum, comments on the chaos alongside Cosmo and a barely-conscious Carina.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:20:30.900Z",
+    "updated_at": "2026-08-14T18:13:13.920Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/13"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/10"
+      }
+    }
+  },
+  {
+    "id": 14,
+    "movie_id": 10,
+    "tvshow_id": null,
+    "description": "A regrown Baby Groot dances to \"I Want You Back\" in the Milano while Drax looks unimpressed and Rocket tells him to stop.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:20:32.104Z",
+    "updated_at": "2026-08-14T18:13:14.478Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/14"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/10"
+      }
+    }
+  },
+  {
+    "id": 15,
+    "movie_id": 11,
+    "tvshow_id": null,
+    "description": "Frustrated that others have failed to retrieve the Infinity Stones for him, Thanos picks up the Infinity Gauntlet himself, declaring \"Fine, I'll do it myself.\"",
+    "teases_movie_id": 19,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:20:33.789Z",
+    "updated_at": "2026-08-14T18:13:15.006Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/15"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/11"
+      },
+      "teases": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/19"
+      }
+    }
+  },
+  {
+    "id": 16,
+    "movie_id": 12,
+    "tvshow_id": null,
+    "description": "Sam Wilson and Captain America confront Bucky Barnes; Cap mentions he knows someone who could help, setting up Ant-Man's recruitment for the airport fight.",
+    "teases_movie_id": 13,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:20:34.865Z",
+    "updated_at": "2026-08-14T18:13:15.554Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/16"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/12"
+      },
+      "teases": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/13"
+      }
+    }
+  },
+  {
+    "id": 17,
+    "movie_id": 12,
+    "tvshow_id": null,
+    "description": "Hank Pym shows Hope van Dyne her mother Janet's original Wasp suit and tells her she is ready to become the new Wasp.",
+    "teases_movie_id": 20,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:20:36.102Z",
+    "updated_at": "2026-08-14T18:13:16.100Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/17"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/12"
+      },
+      "teases": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/20"
+      }
+    }
+  },
+  {
+    "id": 18,
+    "movie_id": 13,
+    "tvshow_id": null,
+    "description": "T'Challa has Bucky Barnes placed into protective cryogenic stasis in a secret Wakandan lab while researchers work on curing his Winter Soldier programming.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:20:37.021Z",
+    "updated_at": "2026-08-14T17:20:37.021Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/18"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/13"
+      }
+    }
+  },
+  {
+    "id": 19,
+    "movie_id": 13,
+    "tvshow_id": null,
+    "description": "Peter Parker returns home and examines the upgraded suit components and web-shooters Tony Stark gave him, testing a built-in spider-signal that projects onto the ceiling. Aunt May walks in, and Peter scrambles to hide the equipment before the screen reads \"Spider-Man Will Return.\"",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:20:38.036Z",
+    "updated_at": "2026-08-14T18:13:26.306Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/19"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/13"
+      }
+    }
+  },
+  {
+    "id": 20,
+    "movie_id": 14,
+    "tvshow_id": null,
+    "description": "Thor arrives at the Sanctum Sanctorum to ask for Doctor Strange's help locating Odin, who has gone missing on Earth.",
+    "teases_movie_id": 17,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:20:39.258Z",
+    "updated_at": "2026-08-14T17:20:39.258Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/20"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/14"
+      },
+      "teases": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/17"
+      }
+    }
+  },
+  {
+    "id": 21,
+    "movie_id": 14,
+    "tvshow_id": null,
+    "description": "Mordo confronts former sorcerer Jonathan Pangborn on the street and, declaring \"there must be balance,\" strips him of his magical abilities.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:20:40.217Z",
+    "updated_at": "2026-08-14T17:20:40.217Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/21"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/14"
+      }
+    }
+  },
+  {
+    "id": 22,
+    "movie_id": 15,
+    "tvshow_id": null,
+    "description": "Kraglin practices controlling Yondu's Yaka arrow using his fin and whistle, but loses control and accidentally shoots it into Drax, who is standing nearby minding his own business. Drax screams in pain while Kraglin quietly slips away to avoid taking the blame.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:20:41.521Z",
+    "updated_at": "2026-08-14T18:13:27.379Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/22"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/15"
+      }
+    }
+  },
+  {
+    "id": 23,
+    "movie_id": 15,
+    "tvshow_id": null,
+    "description": "Ayesha of the Sovereign unveils a cocoon containing a powerful new being she has created for revenge, naming him Adam.",
+    "teases_movie_id": 32,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:20:42.842Z",
+    "updated_at": "2026-08-14T17:20:42.842Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/23"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/15"
+      },
+      "teases": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/32"
+      }
+    }
+  },
+  {
+    "id": 24,
+    "movie_id": 15,
+    "tvshow_id": null,
+    "description": "A now-teenage, rebellious Groot lounges on the Milano playing a handheld game and ignoring Peter Quill.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:20:43.572Z",
+    "updated_at": "2026-08-14T18:13:16.810Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/24"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/15"
+      }
+    }
+  },
+  {
+    "id": 25,
+    "movie_id": 15,
+    "tvshow_id": null,
+    "description": "Stakar Ogord reunites with his old Ravager crew, including Charlie-27, Aleta Ogord, Martinex, and Mainframe, following Yondu's funeral.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:20:44.608Z",
+    "updated_at": "2026-08-14T17:20:44.608Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/25"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/15"
+      }
+    }
+  },
+  {
+    "id": 26,
+    "movie_id": 15,
+    "tvshow_id": null,
+    "description": "Stan Lee, as one of the cosmic Watchers, tells a group of fellow Watchers a story, only for them to leave mid-tale, prompting him to call after them.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:20:45.547Z",
+    "updated_at": "2026-08-14T17:20:45.547Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/26"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/15"
+      }
+    }
+  },
+  {
+    "id": 27,
+    "movie_id": 16,
+    "tvshow_id": null,
+    "description": "In prison, Adrian Toomes is approached by a fellow inmate who mentions someone wants to talk to him about \"a job\" involving Spider-Man.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:20:48.972Z",
+    "updated_at": "2026-08-14T17:20:48.972Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/27"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/16"
+      }
+    }
+  },
+  {
+    "id": 28,
+    "movie_id": 16,
+    "tvshow_id": null,
+    "description": "A fake Captain America PSA about the importance of patience plays as a comedic, non-canon closer.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:20:50.143Z",
+    "updated_at": "2026-08-14T17:20:50.143Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/28"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/16"
+      }
+    }
+  },
+  {
+    "id": 29,
+    "movie_id": 17,
+    "tvshow_id": null,
+    "description": "The Grandmaster, overthrown by a Sakaaran revolution, is confronted by his own subjects while fleeing in a shuttle.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:20:51.250Z",
+    "updated_at": "2026-08-14T18:13:17.071Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/29"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/17"
+      }
+    }
+  },
+  {
+    "id": 30,
+    "movie_id": 17,
+    "tvshow_id": null,
+    "description": "The surviving Asgardians' escape ship is suddenly overshadowed by a massive, ominous warship.",
+    "teases_movie_id": 19,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:20:52.347Z",
+    "updated_at": "2026-08-14T18:13:17.332Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/30"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/17"
+      },
+      "teases": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/19"
+      }
+    }
+  },
+  {
+    "id": 31,
+    "movie_id": 18,
+    "tvshow_id": null,
+    "description": "T'Challa addresses the United Nations and announces that Wakanda will no longer hide its technology and resources from the world.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:20:52.935Z",
+    "updated_at": "2026-08-14T17:20:52.935Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/31"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/18"
+      }
+    }
+  },
+  {
+    "id": 32,
+    "movie_id": 18,
+    "tvshow_id": null,
+    "description": "Bucky Barnes, recovering in a Wakandan village and now without his metal arm, is called \"White Wolf\" by a group of local children. Shuri finds him and tells him he still has much more to learn before he's ready to rejoin the world.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:20:53.915Z",
+    "updated_at": "2026-08-14T18:13:28.832Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/32"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/18"
+      }
+    }
+  },
+  {
+    "id": 33,
+    "movie_id": 19,
+    "tvshow_id": null,
+    "description": "As Nick Fury and Maria Hill begin to disintegrate from the Snap, Fury sends a distress signal from a modified pager whose screen shows an unfamiliar symbol.",
+    "teases_movie_id": 21,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:20:55.657Z",
+    "updated_at": "2026-08-14T17:20:55.657Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/33"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/19"
+      },
+      "teases": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/21"
+      }
+    }
+  },
+  {
+    "id": 34,
+    "movie_id": 20,
+    "tvshow_id": null,
+    "description": "Scott Lang, collecting healing particles in the Quantum Realm for Ghost, is left stranded when Hope, Hank, and Janet disintegrate from the Snap above.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:20:56.691Z",
+    "updated_at": "2026-08-14T17:20:56.691Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/34"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/20"
+      }
+    }
+  },
+  {
+    "id": 35,
+    "movie_id": 21,
+    "tvshow_id": null,
+    "description": "The remaining Avengers examine Fury's pager, now displaying Carol Danvers' symbol, and agree they need to find her.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:20:57.716Z",
+    "updated_at": "2026-08-14T17:20:57.716Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/35"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/21"
+      }
+    }
+  },
+  {
+    "id": 36,
+    "movie_id": 21,
+    "tvshow_id": null,
+    "description": "Goose the Flerken coughs up the Tesseract in Nick Fury's desk drawer at S.H.I.E.L.D. headquarters.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:20:58.377Z",
+    "updated_at": "2026-08-14T17:20:58.377Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/36"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/21"
+      }
+    }
+  },
+  {
+    "id": 37,
+    "movie_id": 23,
+    "tvshow_id": null,
+    "description": "A TMZ-style broadcast by J. Jonah Jameson airs Mysterio's doctored footage, revealing Spider-Man's secret identity as Peter Parker to the world.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:20:59.922Z",
+    "updated_at": "2026-08-14T17:20:59.922Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/37"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/23"
+      }
+    }
+  },
+  {
+    "id": 38,
+    "movie_id": 23,
+    "tvshow_id": null,
+    "description": "It is revealed that \"Fury\" and \"Hill\" throughout the film were Talos and Soren in disguise, while the real Fury relaxes aboard a Skrull ship.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:21:01.015Z",
+    "updated_at": "2026-08-14T17:21:01.015Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/38"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/23"
+      }
+    }
+  },
+  {
+    "id": 39,
+    "movie_id": 24,
+    "tvshow_id": null,
+    "description": "Yelena Belova visits Natasha Romanoff's grave and is approached by Valentina Allegra de Fontaine, who hires her for a new assignment and points her toward Clint Barton.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": 5,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:21:01.857Z",
+    "updated_at": "2026-08-14T17:21:01.857Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/39"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/24"
+      },
+      "teases": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/5"
+      }
+    }
+  },
+  {
+    "id": 40,
+    "movie_id": 25,
+    "tvshow_id": null,
+    "description": "Wong, Bruce Banner, and Captain Marvel examine the Ten Rings, which suddenly emit a mysterious signal into space.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:21:05.344Z",
+    "updated_at": "2026-08-14T17:21:05.344Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/40"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/25"
+      }
+    }
+  },
+  {
+    "id": 41,
+    "movie_id": 25,
+    "tvshow_id": null,
+    "description": "With Wenwu dead, Xu Xialing claims his empire and takes command of the Ten Rings organization, transforming its graffiti-covered base into a training ground where a new generation of assassins, men and women alike, train side by side for the first time.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:21:06.510Z",
+    "updated_at": "2026-08-14T18:13:29.580Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/41"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/25"
+      }
+    }
+  },
+  {
+    "id": 42,
+    "movie_id": 26,
+    "tvshow_id": null,
+    "description": "Eros and Pip the Troll arrive by spaceship to help the stranded Eternals locate the rest of their team.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:21:07.525Z",
+    "updated_at": "2026-08-14T17:21:07.525Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/42"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/26"
+      }
+    }
+  },
+  {
+    "id": 43,
+    "movie_id": 26,
+    "tvshow_id": null,
+    "description": "Dane Whitman opens a chest containing the mystical Ebony Blade; as he reaches for it, an unseen voice asks if he is ready for that responsibility.",
+    "teases_movie_id": 36,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:21:08.954Z",
+    "updated_at": "2026-08-14T17:21:08.954Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/43"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/26"
+      },
+      "teases": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/36"
+      }
+    }
+  },
+  {
+    "id": 44,
+    "movie_id": 27,
+    "tvshow_id": null,
+    "description": "In a bar, a patron revealed to be Eddie Brock is briefed on the multiverse chaos; when reality resolves, his Venom symbiote is left behind in this universe.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:21:09.734Z",
+    "updated_at": "2026-08-14T17:21:09.734Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/44"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/27"
+      }
+    }
+  },
+  {
+    "id": 45,
+    "movie_id": 28,
+    "tvshow_id": null,
+    "description": "Strange, now carrying a third eye from wielding the Darkhold, is approached on the street by Clea, who pulls him into the Dark Dimension to address an incursion he caused.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:21:10.797Z",
+    "updated_at": "2026-08-14T17:21:10.797Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/45"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/28"
+      }
+    }
+  },
+  {
+    "id": 46,
+    "movie_id": 28,
+    "tvshow_id": null,
+    "description": "Pizza Poppa, still cursed to punch himself after crossing Doctor Strange, is left exhausted but unable to stop. The spell finally wears off, and he looks at the camera and gives an exhausted, delighted \"It's over!\"",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:21:11.887Z",
+    "updated_at": "2026-08-14T18:13:30.649Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/46"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/28"
+      }
+    }
+  },
+  {
+    "id": 47,
+    "movie_id": 29,
+    "tvshow_id": null,
+    "description": "Zeus, humiliated by Thor, sends his son Hercules to hunt Thor down and avenge him.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:21:12.981Z",
+    "updated_at": "2026-08-14T17:21:12.981Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/47"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/29"
+      }
+    }
+  },
+  {
+    "id": 48,
+    "movie_id": 29,
+    "tvshow_id": null,
+    "description": "Jane Foster arrives in Valhalla after sacrificing herself as the Mighty Thor. Heimdall greets her, confirms she has died, thanks her, and welcomes her into the afterlife alongside his son Axl and the other fallen warriors.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:21:14.069Z",
+    "updated_at": "2026-08-14T18:13:31.764Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/48"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/29"
+      }
+    }
+  },
+  {
+    "id": 49,
+    "movie_id": 30,
+    "tvshow_id": null,
+    "description": "Shuri privately burns ceremonial funeral garments for her mother and brother; a flashback then reveals Nakia has secretly been raising T'Challa's son, Toussaint, in Haiti.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:21:15.162Z",
+    "updated_at": "2026-08-14T18:13:17.788Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/49"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/30"
+      }
+    }
+  },
+  {
+    "id": 50,
+    "movie_id": 31,
+    "tvshow_id": null,
+    "description": "In the Quantum Realm, an assembly of Kang variants convenes as \"the Council of Kangs,\" revealing the multiversal threat is far larger than one Kang.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:21:16.263Z",
+    "updated_at": "2026-08-14T17:21:16.263Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/50"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/31"
+      }
+    }
+  },
+  {
+    "id": 51,
+    "movie_id": 31,
+    "tvshow_id": null,
+    "description": "In the TVA, Loki and Mobius meet a mild-mannered Kang variant named Victor Timely, lecturing a room of clerks.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": 14,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:21:17.468Z",
+    "updated_at": "2026-08-14T17:21:17.468Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/51"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/31"
+      },
+      "teases": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/14"
+      }
+    }
+  },
+  {
+    "id": 52,
+    "movie_id": 32,
+    "tvshow_id": null,
+    "description": "Rocket leads a new Guardians lineup — Groot, Kraglin, Cosmo, Adam Warlock and Phyla — on a desert planet, protecting a settlement from a horde of alien beasts. As the fight breaks out, Rocket plays \"Come and Get Your Love,\" the same song that introduced Peter Quill in the first film.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:21:18.980Z",
+    "updated_at": "2026-08-14T18:13:33.379Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/52"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/32"
+      }
+    }
+  },
+  {
+    "id": 53,
+    "movie_id": 32,
+    "tvshow_id": null,
+    "description": "Peter Quill returns to Earth for the first time since being abducted as a child and reunites with his elderly grandfather.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:21:19.706Z",
+    "updated_at": "2026-08-14T17:21:19.706Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/53"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/32"
+      }
+    }
+  },
+  {
+    "id": 54,
+    "movie_id": null,
+    "tvshow_id": 1,
+    "description": "A Skrull approaches Monica Rambeau and tells her a friend of her mother's wants to meet her, hinting at Nick Fury's wider cosmic operation. Elsewhere, in a remote cabin, Wanda studies the Darkhold when she hears Billy and Tommy calling out to her, suggesting their souls still exist somewhere.",
+    "teases_movie_id": 28,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:21:24.210Z",
+    "updated_at": "2026-08-14T18:13:21.001Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/54"
+      },
+      "tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/1"
+      },
+      "teases": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/28"
+      }
+    }
+  },
+  {
+    "id": 55,
+    "movie_id": null,
+    "tvshow_id": 2,
+    "description": "A news broadcast reveals that Sharon Carter has secretly been operating as the Power Broker, seen accepting a call from a U.S. government official.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:21:25.099Z",
+    "updated_at": "2026-08-14T17:21:25.099Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/55"
+      },
+      "tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/2"
+      }
+    }
+  },
+  {
+    "id": 56,
+    "movie_id": null,
+    "tvshow_id": 6,
+    "description": "Arthur Harrow, having survived being hit by a bus, wakes up institutionalized; a mysterious figure implied to be another Khonshu avatar visits and kills him off-screen.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:21:26.273Z",
+    "updated_at": "2026-08-14T18:13:18.310Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/56"
+      },
+      "tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/6"
+      }
+    }
+  },
+  {
+    "id": 57,
+    "movie_id": null,
+    "tvshow_id": 7,
+    "description": "At home, Kamala Khan finds her body has begun momentarily swapping places with Captain Marvel due to their entangled powers.",
+    "teases_movie_id": 33,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:21:27.413Z",
+    "updated_at": "2026-08-14T18:13:18.827Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/57"
+      },
+      "tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/7"
+      },
+      "teases": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/33"
+      }
+    }
+  },
+  {
+    "id": 59,
+    "movie_id": 33,
+    "tvshow_id": null,
+    "description": "Monica Rambeau wakes in a hospital bed in an alternate reality, attended by a variant of her mother operating as \"Binary.\" A version of Hank McCoy/Beast arrives, saying Charles Xavier needs help.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:21:30.061Z",
+    "updated_at": "2026-08-14T18:13:19.376Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/59"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/33"
+      }
+    }
+  },
+  {
+    "id": 60,
+    "movie_id": null,
+    "tvshow_id": 13,
+    "description": "Wilson Fisk, still disoriented, watches a news segment about the NYC mayoral race discussing the need for a \"fighter\" as the next mayor.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": 17,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:21:31.448Z",
+    "updated_at": "2026-08-14T17:21:31.448Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/60"
+      },
+      "tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/13"
+      },
+      "teases": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/17"
+      }
+    }
+  },
+  {
+    "id": 61,
+    "movie_id": 37,
+    "tvshow_id": null,
+    "description": "Deadpool addresses the camera to deny rumors he \"got Johnny killed,\" then shows footage confirming Johnny Storm really did insult Cassandra Nova as he had claimed earlier in the film.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:21:32.414Z",
+    "updated_at": "2026-08-14T17:21:32.414Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/61"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/37"
+      }
+    }
+  },
+  {
+    "id": 62,
+    "movie_id": 34,
+    "tvshow_id": null,
+    "description": "Sam Wilson visits Samuel Sterns (\"The Leader\") at The Raft; Sterns cryptically warns him that the multiverse is real and threats beyond Earth are coming.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:21:33.437Z",
+    "updated_at": "2026-08-14T17:21:33.437Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/62"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/34"
+      }
+    }
+  },
+  {
+    "id": 63,
+    "movie_id": null,
+    "tvshow_id": 17,
+    "description": "Frank Castle, imprisoned, manipulates a guard into range, breaks his arm, strangles him, and takes his keys.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:21:34.465Z",
+    "updated_at": "2026-08-14T17:21:34.465Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/63"
+      },
+      "tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/17"
+      }
+    }
+  },
+  {
+    "id": 64,
+    "movie_id": null,
+    "tvshow_id": 15,
+    "description": "Having had his cursed cloak removed by Riri and now bearing the scars it left behind, Parker Robbins approaches Zelma Stanton at her mother's shop and asks if she can teach him magic. Skeptical but curious, Zelma agrees to help him control what's left of his power.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:21:35.473Z",
+    "updated_at": "2026-08-14T18:13:34.488Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/64"
+      },
+      "tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/15"
+      }
+    }
+  },
+  {
+    "id": 65,
+    "movie_id": 35,
+    "tvshow_id": null,
+    "description": "Red Guardian tells a woman in a grocery store to buy Wheaties, since the team — now branded the New Avengers — is on the box.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:21:36.615Z",
+    "updated_at": "2026-08-14T17:21:36.615Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/65"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/35"
+      }
+    }
+  },
+  {
+    "id": 66,
+    "movie_id": 35,
+    "tvshow_id": null,
+    "description": "Fourteen months later, the New Avengers, working from the former Avengers Tower, get an alert about an interdimensional spacecraft bearing a large \"4\" approaching Earth.",
+    "teases_movie_id": 38,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:21:37.859Z",
+    "updated_at": "2026-08-14T17:21:37.859Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/66"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/35"
+      },
+      "teases": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/38"
+      }
+    }
+  },
+  {
+    "id": 67,
+    "movie_id": 38,
+    "tvshow_id": null,
+    "description": "Four years after the film's events, Sue Storm reads to her son Franklin while H.E.R.B.I.E. fetches another book. She returns to find a cloaked figure holding Doctor Doom's mask crouched beside Franklin, who reaches out to touch the stranger's face as the screen cuts to black.",
+    "teases_movie_id": 39,
+    "teases_tvshow_id": null,
+    "is_stinger": true,
+    "created_at": "2026-08-14T17:21:39.488Z",
+    "updated_at": "2026-08-14T18:13:36.107Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/67"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/38"
+      },
+      "teases": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/39"
+      }
+    }
+  },
+  {
+    "id": 68,
+    "movie_id": 38,
+    "tvshow_id": null,
+    "description": "H.E.R.B.I.E. watches the opening of an in-universe animated Fantastic Four cartoon set on Earth-828, featuring Ben Grimm's signature catchphrase and the team facing off against Red Ghost and Diablo, before calmly switching the television off.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:21:40.436Z",
+    "updated_at": "2026-08-14T18:13:36.965Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/68"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/38"
+      }
+    }
+  },
+  {
+    "id": 69,
+    "movie_id": 41,
+    "tvshow_id": null,
+    "description": "Ned Leeds' in-universe Spider-Man tracker app zooms out from Earth to reveal a Spider-Man sighting detected in outer space, beyond the Moon.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T17:21:41.432Z",
+    "updated_at": "2026-08-14T17:21:41.432Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/69"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/41"
+      }
+    }
+  },
+  {
+    "id": 70,
+    "movie_id": 20,
+    "tvshow_id": null,
+    "description": "A giant ant left behind to imitate Scott Lang's daily routine plays drums inside his empty home. A television in the background reports the catastrophic disappearance of half the universe, revealing Scott has been trapped in the Quantum Realm since the Snap.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T18:13:40.988Z",
+    "updated_at": "2026-08-14T18:13:40.988Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/70"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/20"
+      }
+    }
+  },
+  {
+    "id": 71,
+    "movie_id": null,
+    "tvshow_id": 1,
+    "description": "Monica Rambeau investigates the house next door and discovers Agatha Harkness's hidden basement. Ralph Bohner suddenly appears behind her, revealing himself as the actor Agatha used to impersonate a resurrected Pietro Maximoff.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T18:13:42.270Z",
+    "updated_at": "2026-08-14T18:13:42.270Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/71"
+      },
+      "tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/1"
+      }
+    }
+  },
+  {
+    "id": 72,
+    "movie_id": null,
+    "tvshow_id": 1,
+    "description": "Tyler Hayward oversees the activation of a synthetic body rebuilt from Vision's remains. It opens its eyes with a completely white, blank appearance, introducing the version later known as White Vision.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T18:13:43.168Z",
+    "updated_at": "2026-08-14T18:13:43.168Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/72"
+      },
+      "tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/1"
+      }
+    }
+  },
+  {
+    "id": 73,
+    "movie_id": null,
+    "tvshow_id": 2,
+    "description": "Having lost the Captain America identity, John Walker sits alone building his own shield out of scrap metal, hand-painting it himself. The scene shows he intends to keep operating as a darker, unofficial version of Captain America.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T18:13:44.259Z",
+    "updated_at": "2026-08-14T18:13:44.259Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/73"
+      },
+      "tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/2"
+      }
+    }
+  },
+  {
+    "id": 74,
+    "movie_id": null,
+    "tvshow_id": 3,
+    "description": "Pruned by the TVA, Loki wakes in a wasteland known as the Void, surrounded by several alternate versions of himself — Classic Loki, Kid Loki, Boastful Loki and Alligator Loki — who warn him that surviving the Void will require cooperation.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T18:13:45.958Z",
+    "updated_at": "2026-08-14T18:13:45.958Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/74"
+      },
+      "tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/3"
+      }
+    }
+  },
+  {
+    "id": 75,
+    "movie_id": null,
+    "tvshow_id": 4,
+    "description": "Captain Peggy Carter and Natasha Romanoff investigate an abandoned facility and find the Hydra Stomper armor, seemingly preserved with someone still inside, teasing that Steve Rogers may have survived in Peggy's universe.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T18:13:46.988Z",
+    "updated_at": "2026-08-14T18:13:46.988Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/75"
+      },
+      "tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/4"
+      }
+    }
+  },
+  {
+    "id": 76,
+    "movie_id": null,
+    "tvshow_id": 5,
+    "description": "The scene presents the full performance of Rogers: The Musical's number \"Save the City,\" with the entire stage cast reenacting the Battle of New York as an extended comedic callback to the series.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T18:13:48.079Z",
+    "updated_at": "2026-08-14T18:13:48.079Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/76"
+      },
+      "tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/5"
+      }
+    }
+  },
+  {
+    "id": 77,
+    "movie_id": 27,
+    "tvshow_id": null,
+    "description": "The theatrical post-credits slot presents a preview of Doctor Strange in the Multiverse of Madness, shifting from the end of No Way Home into footage of Strange, Wanda and the multiversal threat awaiting Strange's next adventure.",
+    "teases_movie_id": 28,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T18:13:50.046Z",
+    "updated_at": "2026-08-14T18:13:50.046Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/77"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/27"
+      },
+      "teases": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/28"
+      }
+    }
+  },
+  {
+    "id": 78,
+    "movie_id": null,
+    "tvshow_id": 7,
+    "description": "Damage Control agents P. Cleary and Sadie Deever review footage of Kamala Khan using her powers at AvengerCon, identify her as a potential threat, and decide to track her down.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T18:13:50.827Z",
+    "updated_at": "2026-08-14T18:13:50.827Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/78"
+      },
+      "tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/7"
+      }
+    }
+  },
+  {
+    "id": 79,
+    "movie_id": null,
+    "tvshow_id": 8,
+    "description": "Groot proudly presents a handmade drawing of himself and the Guardians, shown floating through space as a small, childlike final gag.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T18:13:51.903Z",
+    "updated_at": "2026-08-14T18:13:51.903Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/79"
+      },
+      "tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/8"
+      }
+    }
+  },
+  {
+    "id": 80,
+    "movie_id": null,
+    "tvshow_id": 9,
+    "description": "Bruce Banner and Jennifer Walters sit together discussing Steve Rogers, and Bruce finally confirms that Steve did have sex during his USO tour, settling one of Jennifer's long-running questions about Captain America's love life.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T18:13:53.544Z",
+    "updated_at": "2026-08-14T18:13:53.544Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/80"
+      },
+      "tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/9"
+      }
+    }
+  },
+  {
+    "id": 81,
+    "movie_id": null,
+    "tvshow_id": 9,
+    "description": "Jennifer Walters casually uses her She-Hulk strength to help her parents with ordinary household chores instead of superheroics, carrying heavy furniture around the house with ease.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T18:13:54.626Z",
+    "updated_at": "2026-08-14T18:13:54.626Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/81"
+      },
+      "tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/9"
+      }
+    }
+  },
+  {
+    "id": 82,
+    "movie_id": null,
+    "tvshow_id": 9,
+    "description": "Jennifer Walters and Megan Thee Stallion dance together after their courtroom-related adventure, with Jennifer leaning fully into the celebrity moment and her She-Hulk confidence.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T18:13:55.715Z",
+    "updated_at": "2026-08-14T18:13:55.715Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/82"
+      },
+      "tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/9"
+      }
+    }
+  },
+  {
+    "id": 83,
+    "movie_id": null,
+    "tvshow_id": 9,
+    "description": "Wong and Madisynn relax at Wong's home watching television, their unlikely friendship continuing as Madisynn tells one of her bizarre stories and Wong reacts with his usual deadpan patience.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T18:13:56.807Z",
+    "updated_at": "2026-08-14T18:13:56.807Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/83"
+      },
+      "tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/9"
+      }
+    }
+  },
+  {
+    "id": 84,
+    "movie_id": null,
+    "tvshow_id": 9,
+    "description": "Emil Blonsky is back in his cell after violating his parole when Wong opens a portal and pulls him through, bringing him to Kamar-Taj instead of leaving him imprisoned.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T18:13:58.444Z",
+    "updated_at": "2026-08-14T18:13:58.444Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/84"
+      },
+      "tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/9"
+      }
+    }
+  },
+  {
+    "id": 85,
+    "movie_id": null,
+    "tvshow_id": 11,
+    "description": "Rocket, Cosmo and Groot decorate Groot as a Christmas tree while the Guardians celebrate, with Rocket joking about doing another holiday special.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T18:13:59.033Z",
+    "updated_at": "2026-08-14T18:13:59.033Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/85"
+      },
+      "tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/11"
+      }
+    }
+  },
+  {
+    "id": 86,
+    "movie_id": null,
+    "tvshow_id": 18,
+    "description": "Groot sits with Rocket drinking a mug of hot chocolate, takes an overly large sip, burns himself, spits it out and knocks the mug away while Rocket reacts to the chaos.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T18:14:00.625Z",
+    "updated_at": "2026-08-14T18:14:00.625Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/86"
+      },
+      "tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/18"
+      }
+    }
+  },
+  {
+    "id": 87,
+    "movie_id": null,
+    "tvshow_id": 14,
+    "description": "Sylvie arrives in a 1982 McDonald's and becomes fascinated by the restaurant and its food, sitting down to enjoy a rare moment of peace after leaving the TVA and starting her new life on the timeline.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T18:14:01.718Z",
+    "updated_at": "2026-08-14T18:14:01.718Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/87"
+      },
+      "tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/14"
+      }
+    }
+  },
+  {
+    "id": 88,
+    "movie_id": null,
+    "tvshow_id": 19,
+    "description": "The Grandmaster survives the events of the episode as a small, puddle-like remnant. Topaz finds him and reluctantly helps him recover, turning his apparent defeat into another absurd survival gag.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-08-14T18:14:02.481Z",
+    "updated_at": "2026-08-14T18:14:02.481Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/88"
+      },
+      "tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/19"
+      }
+    }
+  }
+]
