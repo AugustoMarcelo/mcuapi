@@ -27,6 +27,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/1"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/1"
       }
     }
   },
@@ -58,6 +61,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/2"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/2"
       }
     }
   },
@@ -89,6 +95,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/3"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/3"
       }
     }
   },
@@ -120,6 +129,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/4"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/4"
       }
     }
   },
@@ -151,6 +163,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/5"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/5"
       }
     }
   },
@@ -182,6 +197,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/6"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/6"
       }
     }
   },
@@ -213,6 +231,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/7"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/7"
       }
     }
   },
@@ -244,6 +265,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/8"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/8"
       }
     }
   },
@@ -275,6 +299,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/9"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/9"
       }
     }
   },
@@ -306,6 +333,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/10"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/10"
       }
     }
   },
@@ -337,6 +367,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/11"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/11"
       }
     }
   },
@@ -368,6 +401,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/12"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/12"
       }
     }
   },
@@ -399,6 +435,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/13"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/13"
       }
     }
   },
@@ -430,6 +469,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/14"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/14"
       }
     }
   },
@@ -461,6 +503,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/15"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/15"
       }
     }
   },
@@ -492,6 +537,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/16"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/16"
       }
     }
   },
@@ -523,6 +571,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/17"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/17"
       }
     }
   },
@@ -554,6 +605,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/18"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/18"
       }
     }
   },
@@ -585,6 +639,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/19"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/19"
       }
     }
   },
@@ -616,6 +673,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/20"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/20"
       }
     }
   },
@@ -647,6 +707,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/21"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/21"
       }
     }
   },
@@ -678,6 +741,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/22"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/22"
       }
     }
   },
@@ -709,6 +775,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/23"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/23"
       }
     }
   },
@@ -740,6 +809,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/24"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/24"
       }
     }
   },
@@ -771,6 +843,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/25"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/25"
       }
     }
   },
@@ -802,6 +877,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/26"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/26"
       }
     }
   },
@@ -833,6 +911,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/27"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/27"
       }
     }
   },
@@ -864,6 +945,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/28"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/28"
       }
     }
   },
@@ -895,6 +979,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/29"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/29"
       }
     }
   },
@@ -926,6 +1013,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/30"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/30"
       }
     }
   },
@@ -957,6 +1047,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/31"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/31"
       }
     }
   },
@@ -988,6 +1081,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/32"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/32"
       }
     }
   },
@@ -1019,6 +1115,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/33"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/33"
       }
     }
   },
@@ -1050,6 +1149,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/34"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/34"
       }
     }
   },
@@ -1081,6 +1183,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/35"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/35"
       }
     }
   },
@@ -1112,6 +1217,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/36"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/36"
       }
     }
   },
@@ -1143,6 +1251,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/37"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/37"
       }
     }
   },
@@ -1174,6 +1285,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/38"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/38"
       }
     }
   },
@@ -1183,7 +1297,7 @@
     "release_date": "2026-12-18",
     "box_office": "0",
     "duration": 0,
-    "overview": null,
+    "overview": "Universes collide and the Multiverse Saga begins its final chapter in Marvel Studios' Avengers: Doomsday. Beloved heroes from three distinct universes will be set on a deadly collision course and ultimately face an existential threat unlike anything they've ever encountered. This epic film will lay the foundation for the future of the Marvel Cinematic Universe.",
     "cover_url": "https://cdn.marvel.com/content/2x/avengersdoomsday_lob_crd_03.webp",
     "trailer_url": "https://youtu.be/irVNGjRFZGk",
     "directed_by": "Joe Russo, Anthony Russo",
@@ -1198,13 +1312,16 @@
     "is_mcu": true,
     "type": "movie",
     "timeline_chronology_order": 95,
-    "updated_at": "2026-07-21T18:47:27.098Z",
+    "updated_at": "2026-08-15T19:35:53.181Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/movies/39"
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/39"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/39"
       }
     }
   },
@@ -1236,6 +1353,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/40"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/40"
       }
     }
   },
@@ -1267,6 +1387,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/41"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/41"
       }
     }
   },
@@ -1298,6 +1421,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/42"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/42"
       }
     }
   },
@@ -1329,6 +1455,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/43"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/43"
       }
     }
   },
@@ -1360,6 +1489,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/44"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/44"
       }
     }
   },
@@ -1391,6 +1523,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/45"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/45"
       }
     }
   },
@@ -1422,6 +1557,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/46"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/46"
       }
     }
   },
@@ -1453,6 +1591,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/47"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/47"
       }
     }
   },
@@ -1484,6 +1625,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/48"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/48"
       }
     }
   },
@@ -1515,6 +1659,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/49"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/49"
       }
     }
   },
@@ -1546,6 +1693,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/50"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/50"
       }
     }
   },
@@ -1577,6 +1727,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/51"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/51"
       }
     }
   },
@@ -1608,6 +1761,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/52"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/52"
       }
     }
   },
@@ -1639,6 +1795,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/53"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/53"
       }
     }
   },
@@ -1670,6 +1829,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/54"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/54"
       }
     }
   },
@@ -1701,6 +1863,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/55"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/55"
       }
     }
   },
@@ -1732,6 +1897,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/56"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/56"
       }
     }
   },
@@ -1763,6 +1931,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/57"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/57"
       }
     }
   },
@@ -1794,6 +1965,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/58"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/58"
       }
     }
   },
@@ -1825,6 +1999,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/59"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/59"
       }
     }
   },
@@ -1856,6 +2033,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/60"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/60"
       }
     }
   },
@@ -1887,6 +2067,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/61"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/61"
       }
     }
   },
@@ -1918,6 +2101,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/62"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/62"
       }
     }
   },
@@ -1949,6 +2135,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/63"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/63"
       }
     }
   },
@@ -1980,6 +2169,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/64"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/64"
       }
     }
   },
@@ -2011,6 +2203,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/65"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/65"
       }
     }
   },
@@ -2042,6 +2237,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/66"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/66"
       }
     }
   },
@@ -2073,6 +2271,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/67"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/67"
       }
     }
   },
@@ -2104,6 +2305,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/68"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/68"
       }
     }
   },
@@ -2135,6 +2339,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/69"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/69"
       }
     }
   },
@@ -2166,6 +2373,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/70"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/70"
       }
     }
   },
@@ -2197,6 +2407,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/71"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/71"
       }
     }
   },
@@ -2228,6 +2441,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/73"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/73"
       }
     }
   },
@@ -2259,6 +2475,9 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/74"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/74"
       }
     }
   },
@@ -2290,6 +2509,43 @@
       },
       "characters": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/75"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/75"
+      }
+    }
+  },
+  {
+    "id": 76,
+    "title": "X-Men",
+    "release_date": "2028-05-05",
+    "box_office": null,
+    "duration": null,
+    "overview": null,
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": "Jake Schreier",
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "post_credit_scenes": 0,
+    "imdb_id": null,
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "movie",
+    "timeline_chronology_order": null,
+    "updated_at": "2026-08-15T19:35:54.446Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/76"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/movie/76"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/movie/76"
       }
     }
   }

@@ -590,7 +590,9 @@ a{color:inherit}
 .res{display:flex;flex-direction:column;border-right:1px solid var(--border);min-width:0}
 .res:last-child{border-right:0}
 .res-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:18px var(--pad) 4px}
-.res-n{font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap}
+.res-n{font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap;display:inline-block;min-height:1em}
+/* while /stats is in flight: a low-contrast bar, never a spinner or a 0 */
+.res-n.is-loading{min-width:6ch;border-radius:3px;background:var(--border-strong);opacity:.5}
 .res-p{
   font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.02em;
   padding:0 var(--pad) 15px;border-bottom:1px solid var(--border);overflow-wrap:anywhere;
@@ -1246,7 +1248,7 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
       <article class="res">
         <header class="res-h">
           <h3>Movie</h3>
-          <span class="res-n">57 records</span>
+          <span class="res-n is-loading" data-stat="movies"></span>
         </header>
         <p class="res-p">GET /api/v1/movies · /movies/{id}</p>
         <ul class="fields">
@@ -1267,7 +1269,7 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
       <article class="res">
         <header class="res-h">
           <h3>TV show</h3>
-          <span class="res-n">56 records</span>
+          <span class="res-n is-loading" data-stat="tvshows"></span>
         </header>
         <p class="res-p">GET /api/v1/tvshows · /tvshows/{id}</p>
         <ul class="fields">
@@ -1288,7 +1290,7 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
       <article class="res">
         <header class="res-h">
           <h3>Character</h3>
-          <span class="res-n">302 records</span>
+          <span class="res-n is-loading" data-stat="characters"></span>
         </header>
         <p class="res-p">GET /api/v1/characters · /characters/{id}</p>
         <ul class="fields">
@@ -1309,7 +1311,7 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
       <article class="res">
         <header class="res-h">
           <h3>Person</h3>
-          <span class="res-n">372 records</span>
+          <span class="res-n is-loading" data-stat="people"></span>
         </header>
         <p class="res-p">GET /api/v1/people · /people/{person_id}</p>
         <ul class="fields">
@@ -2449,7 +2451,7 @@ npm i mcuapi-client
   /* ═══ 10. ledger counts ═════════════════════════════════════ */
 
   (function ledgerCounts() {
-    var slots = $$('.ledger-n[data-stat]');
+    var slots = $$('.ledger-n[data-stat], .res-n[data-stat]');
     if (!slots.length) { return; }
 
     fetch(V1 + '/stats', { cache: 'no-store' })
@@ -2458,7 +2460,9 @@ npm i mcuapi-client
         slots.forEach(function (slot) {
           var n = stats && stats[slot.dataset.stat];
           if (typeof n !== 'number') { return; }
-          slot.textContent = n.toLocaleString();
+          slot.textContent = slot.classList.contains('res-n')
+            ? n.toLocaleString() + (n === 1 ? ' record' : ' records')
+            : n.toLocaleString();
           slot.classList.remove('is-loading');
         });
       })

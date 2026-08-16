@@ -15,17 +15,6 @@
         }
       },
       {
-        "id": 45,
-        "title": "The Amazing Spider-Man",
-        "chronology_order": 1,
-        "type": "movie",
-        "_links": {
-          "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/movies/45"
-          }
-        }
-      },
-      {
         "id": 42,
         "title": "Spider-Man",
         "chronology_order": 1,
@@ -33,6 +22,17 @@
         "_links": {
           "self": {
             "href": "https://mcuapi.up.railway.app/api/v1/movies/42"
+          }
+        }
+      },
+      {
+        "id": 45,
+        "title": "The Amazing Spider-Man",
+        "chronology_order": 1,
+        "type": "movie",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/45"
           }
         }
       },
@@ -1156,6 +1156,17 @@
         "_links": {
           "self": {
             "href": "https://mcuapi.up.railway.app/api/v1/movies/53"
+          }
+        }
+      },
+      {
+        "id": 76,
+        "title": "X-Men",
+        "chronology_order": 0,
+        "type": "movie",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/76"
           }
         }
       }

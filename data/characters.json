@@ -1247,7 +1247,7 @@
   {
     "id": 43,
     "name": "Maria Rambeau",
-    "alias": "Captain Marvel",
+    "alias": "Binary",
     "description": "Earth-838's Captain Marvel, member of the Illuminati.",
     "image_url": "https://image.tmdb.org/t/p/w500/ypNxRag9uJ5nzPAN2um3amQK340.jpg",
     "played_by": "Lashana Lynch",
@@ -1257,7 +1257,7 @@
     "first_appearance_movie_id": 28,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-21T18:12:11.504Z",
-    "updated_at": "2026-07-21T18:28:13.480Z",
+    "updated_at": "2026-08-14T18:13:22.004Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/43"
@@ -2076,15 +2076,15 @@
     "name": "Tommy Maximoff",
     "alias": "Speed",
     "description": "Wanda's son conjured within the Westview Hex, a speedster like his uncle Pietro.",
-    "image_url": "https://image.tmdb.org/t/p/w500/6F7fGR6iQFzKNFfHCCYZbg82Alk.jpg",
-    "played_by": "Jett Klyne",
+    "image_url": "https://image.tmdb.org/t/p/w500/wiSim6nG9TSY4AO8KOwsaaPJ0EH.jpg",
+    "played_by": "Jett Klyne, Ruaridh Mollica",
     "continuity": "MCU",
     "multiverse_designation": "Earth-616",
     "variant_of": null,
     "first_appearance_movie_id": null,
     "first_appearance_tvshow_id": 1,
     "created_at": "2026-07-21T18:12:15.135Z",
-    "updated_at": "2026-07-21T18:28:17.165Z",
+    "updated_at": "2026-08-15T19:37:13.236Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/72"
@@ -9204,6 +9204,1741 @@
       },
       "first_appearance_tvshow": {
         "href": "https://mcuapi.up.railway.app/api/v1/tvshows/54"
+      }
+    }
+  },
+  {
+    "id": 324,
+    "name": "Erik Selvig",
+    "alias": null,
+    "description": "Astrophysicist and friend of the Foster family who helps Thor and later becomes a S.H.I.E.L.D. consultant, eventually falling under Loki's mind control.",
+    "image_url": "https://image.tmdb.org/t/p/w500/mW7xmtGV4y79kQGn0zkKVGDMAmw.jpg",
+    "played_by": "Stellan Skarsgård",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 4,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:49:18.304Z",
+    "updated_at": "2026-08-14T21:49:18.304Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/324"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/324/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/324/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/4"
+      }
+    }
+  },
+  {
+    "id": 325,
+    "name": "The Other",
+    "alias": null,
+    "description": "Servant of Thanos who relays his master's message to Loki in a mid-credits scene, warning of \"a war\" if the Tesseract is not retrieved.",
+    "image_url": "https://image.tmdb.org/t/p/w500/luTHwbaLutoKYWJSpk2WyuPasvk.jpg",
+    "played_by": "Alexis Denisof",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 6,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:49:19.258Z",
+    "updated_at": "2026-08-14T21:49:19.258Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/325"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/325/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/325/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/6"
+      }
+    }
+  },
+  {
+    "id": 326,
+    "name": "Volstagg",
+    "alias": "Volstagg the Voluminous",
+    "description": "Boisterous, hearty member of the Warriors Three, Thor's band of Asgardian companions.",
+    "image_url": "https://image.tmdb.org/t/p/w500/9QCVNDgTgDEbGsa6w3JuECEPuQz.jpg",
+    "played_by": "Ray Stevenson",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 8,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:49:20.907Z",
+    "updated_at": "2026-08-14T21:49:20.907Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/326"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/326/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/326/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/8"
+      }
+    }
+  },
+  {
+    "id": 327,
+    "name": "Sif",
+    "alias": "Lady Sif",
+    "description": "Asgardian warrior and skilled fighter, one of Thor's closest allies and companions.",
+    "image_url": "https://image.tmdb.org/t/p/w500/21IQHPAXNUHiqPrpIYr4X8h2wmf.jpg",
+    "played_by": "Jaimie Alexander",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 8,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:49:22.543Z",
+    "updated_at": "2026-08-14T21:49:22.543Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/327"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/327/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/327/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/8"
+      }
+    }
+  },
+  {
+    "id": 328,
+    "name": "Taneleer Tivan",
+    "alias": "The Collector",
+    "description": "Eccentric collector of rare and powerful objects and beings across the galaxy, keeper of an Infinity Stone at his museum on Knowhere.",
+    "image_url": "https://image.tmdb.org/t/p/w500/aYomJWx0B2B8ra6Rmgt8lr0XCrw.jpg",
+    "played_by": "Benicio del Toro",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 8,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:49:24.245Z",
+    "updated_at": "2026-08-14T21:49:24.245Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/328"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/328/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/328/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/8"
+      }
+    }
+  },
+  {
+    "id": 329,
+    "name": "Cosmo the Spacedog",
+    "alias": "Cosmo",
+    "description": "Telepathic Soviet space dog who serves as Knowhere's head of security.",
+    "image_url": "https://image.tmdb.org/t/p/w500/vCz0ycZr1PgJVOAeS29fIiZE8pN.jpg",
+    "played_by": "Maria Bakalova",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 10,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:49:25.280Z",
+    "updated_at": "2026-08-14T21:49:25.280Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/329"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/329/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/329/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/10"
+      }
+    }
+  },
+  {
+    "id": 330,
+    "name": "Howard the Duck",
+    "alias": null,
+    "description": "Anthropomorphic, wisecracking duck who ends up in the Collector's museum on Knowhere.",
+    "image_url": "https://image.tmdb.org/t/p/w500/l4No5Eu6j0U80hCIkaSn17AOWrj.jpg",
+    "played_by": "Seth Green",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 10,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:49:26.906Z",
+    "updated_at": "2026-08-14T21:49:26.906Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/330"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/330/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/330/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/10"
+      }
+    }
+  },
+  {
+    "id": 331,
+    "name": "Wolfgang von Strucker",
+    "alias": "Baron Strucker",
+    "description": "HYDRA leader who experiments with the Scepter and the Enhanced twins Wanda and Pietro Maximoff at his Sokovian facility.",
+    "image_url": "https://image.tmdb.org/t/p/w500/7M0P39a3CVA22dJyv5YQEkTThU7.jpg",
+    "played_by": "Thomas Kretschmann",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 9,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:49:28.538Z",
+    "updated_at": "2026-08-14T21:49:28.538Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/331"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/331/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/331/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/9"
+      }
+    }
+  },
+  {
+    "id": 332,
+    "name": "Jonathan Pangborn",
+    "alias": null,
+    "description": "Former surgeon left paraplegic by a car accident who regained the use of his legs through mystical training at Kamar-Taj.",
+    "image_url": "https://image.tmdb.org/t/p/w500/hBenHPT4iJEG2kt5z2TOGnkRZwh.jpg",
+    "played_by": "Benjamin Bratt",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 14,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:49:29.884Z",
+    "updated_at": "2026-08-14T21:49:29.884Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/332"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/332/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/332/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/14"
+      }
+    }
+  },
+  {
+    "id": 333,
+    "name": "Kraglin Obfonteri",
+    "alias": null,
+    "description": "A Ravager and Yondu Udonta's loyal first mate, Kraglin later inherits Yondu's arrow-controlling fin and helps lead a new generation of Guardians.",
+    "image_url": "https://image.tmdb.org/t/p/w500/tiolBlPytndQVGHO9vLnBKWWenq.jpg",
+    "played_by": "Sean Gunn",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 10,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:50:22.097Z",
+    "updated_at": "2026-08-14T21:55:31.858Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/333"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/333/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/333/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/10"
+      }
+    }
+  },
+  {
+    "id": 334,
+    "name": "Yondu Udonta",
+    "alias": null,
+    "description": "Ravager captain who abducted and raised Peter Quill after taking him from Earth; sacrifices himself to save Quill during the confrontation with Ego.",
+    "image_url": "https://image.tmdb.org/t/p/w500/ngOuHNIAGrKyY1O7F0f9C5Q9ONg.jpg",
+    "played_by": "Michael Rooker",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 10,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:50:23.077Z",
+    "updated_at": "2026-08-14T21:55:31.991Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/334"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/334/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/334/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/10"
+      }
+    }
+  },
+  {
+    "id": 335,
+    "name": "Stakar Ogord",
+    "alias": null,
+    "description": "Leader of the original Ravager clans and Yondu's former mentor and friend, who reunites his old crew after learning of Yondu's death.",
+    "image_url": "https://image.tmdb.org/t/p/w500/gn3pDWthJqR0VDYGViGD3048og7.jpg",
+    "played_by": "Sylvester Stallone",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 15,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:50:24.116Z",
+    "updated_at": "2026-08-14T21:50:24.116Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/335"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/335/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/335/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/15"
+      }
+    }
+  },
+  {
+    "id": 336,
+    "name": "Martinex",
+    "alias": null,
+    "description": "A crystalline-skinned Ravager captain and founding member of the original Guardians of the Galaxy team, part of Stakar Ogord's reunited crew.",
+    "image_url": "https://image.tmdb.org/t/p/w500/ymiZjRwcS3gcCtsfv4w3GjRc2yc.jpg",
+    "played_by": "Michael Rosenbaum",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 15,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:50:25.755Z",
+    "updated_at": "2026-08-14T21:50:25.755Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/336"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/336/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/336/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/15"
+      }
+    }
+  },
+  {
+    "id": 337,
+    "name": "Charlie-27",
+    "alias": null,
+    "description": "A genetically engineered Jupiter-born super-soldier and Ravager captain, part of Stakar Ogord's original crew.",
+    "image_url": "https://image.tmdb.org/t/p/w500/wmGvGw7Pow7CafGMcjoLDQHNQUw.jpg",
+    "played_by": "Ving Rhames",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 15,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:50:27.392Z",
+    "updated_at": "2026-08-14T21:50:27.392Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/337"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/337/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/337/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/15"
+      }
+    }
+  },
+  {
+    "id": 338,
+    "name": "Aleta Ogord",
+    "alias": null,
+    "description": "Ravager captain and Stakar Ogord's former wife, part of the original team reunited after Yondu's death.",
+    "image_url": "https://image.tmdb.org/t/p/w500/i6fHvGt7Rb8oVyjjdQVV6vEHB94.jpg",
+    "played_by": "Michelle Yeoh",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 15,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:50:28.482Z",
+    "updated_at": "2026-08-14T21:50:28.482Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/338"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/338/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/338/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/15"
+      }
+    }
+  },
+  {
+    "id": 339,
+    "name": "Mainframe",
+    "alias": null,
+    "description": "An artificial intelligence Ravager, part of Stakar Ogord's original crew reunited following Yondu's death.",
+    "image_url": "https://image.tmdb.org/t/p/w500/7slnMlDLR1O65U3Hr8gcOmxDlZz.jpg",
+    "played_by": "Miley Cyrus",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 15,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:50:30.449Z",
+    "updated_at": "2026-08-14T21:50:30.449Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/339"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/339/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/339/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/15"
+      }
+    }
+  },
+  {
+    "id": 340,
+    "name": "Krugarr",
+    "alias": null,
+    "description": "A sorcerous alien Ravager captain skilled in interdimensional magic, part of Stakar Ogord's original crew.",
+    "image_url": null,
+    "played_by": null,
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 15,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:50:31.430Z",
+    "updated_at": "2026-08-14T21:50:31.430Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/340"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/340/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/340/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/15"
+      }
+    }
+  },
+  {
+    "id": 341,
+    "name": "Ayesha",
+    "alias": null,
+    "description": "High Priestess of the genetically perfect Sovereign race, who creates Adam Warlock and sends him after the Guardians in retaliation for the theft of the Sovereign's batteries.",
+    "image_url": "https://image.tmdb.org/t/p/w500/sJxj44aKdY0pjSIgnxBgMWLrQmw.jpg",
+    "played_by": "Elizabeth Debicki",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 15,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:50:32.855Z",
+    "updated_at": "2026-08-14T21:50:32.855Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/341"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/341/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/341/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/15"
+      }
+    }
+  },
+  {
+    "id": 342,
+    "name": "Adam Warlock",
+    "alias": null,
+    "description": "A genetically perfect being created by the Sovereign as a weapon against the Guardians, who later joins forces with them and helps rescue Rocket.",
+    "image_url": "https://image.tmdb.org/t/p/w500/9blYMaj79VGC6BHTLmJp3V5S8r3.jpg",
+    "played_by": "Will Poulter",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 15,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:50:33.669Z",
+    "updated_at": "2026-08-14T21:50:33.669Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/342"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/342/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/342/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/15"
+      }
+    }
+  },
+  {
+    "id": 343,
+    "name": "P. Cleary",
+    "alias": null,
+    "description": "Damage Control agent who investigates and monitors enhanced individuals, first encountering Kamala Khan in Jersey City.",
+    "image_url": "https://image.tmdb.org/t/p/w500/hYBqwt0HelUqgKSd1VDUAyvfDME.jpg",
+    "played_by": "Arian Moayed",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": null,
+    "first_appearance_tvshow_id": 7,
+    "created_at": "2026-08-14T21:51:27.405Z",
+    "updated_at": "2026-08-14T21:51:27.405Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/343"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/343/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/343/tvshows"
+      },
+      "first_appearance_tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/7"
+      }
+    }
+  },
+  {
+    "id": 344,
+    "name": "Sadie Deever",
+    "alias": null,
+    "description": "Damage Control agent partnered with P. Cleary, tasked with tracking down Ms. Marvel after her powers are exposed online.",
+    "image_url": "https://image.tmdb.org/t/p/w500/eHtaKC4HSI2cz4kZF2pAYhPN74U.jpg",
+    "played_by": "Alysia Reiner",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": null,
+    "first_appearance_tvshow_id": 7,
+    "created_at": "2026-08-14T21:51:29.584Z",
+    "updated_at": "2026-08-14T21:51:29.584Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/344"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/344/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/344/tvshows"
+      },
+      "first_appearance_tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/7"
+      }
+    }
+  },
+  {
+    "id": 345,
+    "name": "Zeus",
+    "alias": null,
+    "description": "King of the Olympian gods, ruler of the Pantheon and father of Hercules.",
+    "image_url": "https://image.tmdb.org/t/p/w500/uxiXuVH4vNWrKlJMVVPG1sxAJFe.jpg",
+    "played_by": "Russell Crowe",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 29,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:51:31.387Z",
+    "updated_at": "2026-08-14T21:51:31.387Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/345"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/345/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/345/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/29"
+      }
+    }
+  },
+  {
+    "id": 346,
+    "name": "Hercules",
+    "alias": null,
+    "description": "Zeus's son and fellow Olympian god, sent by his father to hunt down Thor.",
+    "image_url": "https://image.tmdb.org/t/p/w500/xYdFNE7EkncE8uiPJzT3RrkqcAQ.jpg",
+    "played_by": "Brett Goldstein",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 29,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:51:32.859Z",
+    "updated_at": "2026-08-14T21:51:32.859Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/346"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/346/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/346/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/29"
+      }
+    }
+  },
+  {
+    "id": 347,
+    "name": "Heimdall",
+    "alias": null,
+    "description": "Asgardian guardian of the Bifrost with all-seeing sight, watching over the realms even from beyond death.",
+    "image_url": "https://image.tmdb.org/t/p/w500/be1bVF7qGX91a6c5WeRPs5pKXln.jpg",
+    "played_by": "Idris Elba",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 4,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:51:35.048Z",
+    "updated_at": "2026-08-14T21:51:35.048Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/347"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/347/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/347/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/4"
+      }
+    }
+  },
+  {
+    "id": 348,
+    "name": "Axl",
+    "alias": null,
+    "description": "Orphaned Asgardian boy, son of Heimdall, who inherits his father's all-seeing powers while living in New Asgard.",
+    "image_url": "https://image.tmdb.org/t/p/w500/fCkjcROfa3hmJdPVZZjFUZqghDa.jpg",
+    "played_by": "Kieron L. Dyer",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 29,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:51:36.676Z",
+    "updated_at": "2026-08-14T21:51:36.676Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/348"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/348/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/348/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/29"
+      }
+    }
+  },
+  {
+    "id": 349,
+    "name": "Madisynn King",
+    "alias": null,
+    "description": "Chaotic, magic-loving party girl who becomes Wong's unlikely friend and occasional assistant.",
+    "image_url": "https://image.tmdb.org/t/p/w500/nlsDxYSzXKROpesQB4TPmdJCKkA.jpg",
+    "played_by": "Patty Guggenheim",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": null,
+    "first_appearance_tvshow_id": 9,
+    "created_at": "2026-08-14T21:51:38.902Z",
+    "updated_at": "2026-08-14T21:51:38.902Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/349"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/349/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/349/tvshows"
+      },
+      "first_appearance_tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/9"
+      }
+    }
+  },
+  {
+    "id": 350,
+    "name": "Phyla-Vell",
+    "alias": "Phyla",
+    "description": "One of the genetically altered children rescued from the High Evolutionary, later joining Peter Quill's new Guardians team.",
+    "image_url": "https://image.tmdb.org/t/p/w500/tZYjiqO9A0Zc5yyvfzu2HUmNUzj.jpg",
+    "played_by": "Kai Zen",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 32,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:51:41.039Z",
+    "updated_at": "2026-08-14T21:51:41.039Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/350"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/350/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/350/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/32"
+      }
+    }
+  },
+  {
+    "id": 351,
+    "name": "Blurp",
+    "alias": null,
+    "description": "An alien creature aboard Knowhere who becomes Cosmo the Spacedog's companion.",
+    "image_url": "https://image.tmdb.org/t/p/w500/9oFnToDZWp0I484s7Ua1EzNQQ2m.jpg",
+    "played_by": "Dee Bradley Baker",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 32,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:51:42.675Z",
+    "updated_at": "2026-08-14T21:51:42.675Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/351"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/351/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/351/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/32"
+      }
+    }
+  },
+  {
+    "id": 352,
+    "name": "Jason Quill",
+    "alias": null,
+    "description": "Peter Quill's human grandfather, reunited with him on Earth after he steps down from the Guardians.",
+    "image_url": "https://image.tmdb.org/t/p/w500/j17nuAFulrbYP34g4Qw8SZRDNUo.jpg",
+    "played_by": "Gregg Henry",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 32,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:51:44.313Z",
+    "updated_at": "2026-08-14T21:51:44.313Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/352"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/352/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/352/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/32"
+      }
+    }
+  },
+  {
+    "id": 353,
+    "name": "Topaz",
+    "alias": null,
+    "description": "Loki's fiercely loyal aide-de-camp in the Void, serving Alioth and later President Loki.",
+    "image_url": "https://image.tmdb.org/t/p/w500/2LCQF7Bn0I91o17GGkox0ZhhbE7.jpg",
+    "played_by": "Rachel House",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": null,
+    "first_appearance_tvshow_id": 19,
+    "created_at": "2026-08-14T21:51:46.494Z",
+    "updated_at": "2026-08-14T21:51:46.494Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/353"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/353/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/353/tvshows"
+      },
+      "first_appearance_tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/19"
+      }
+    }
+  },
+  {
+    "id": 354,
+    "name": "Samuel Sterns",
+    "alias": "The Leader",
+    "description": "Brilliant but embittered scientist mutated by gamma-irradiated blood, seeking revenge on Bruce Banner and the U.S. government.",
+    "image_url": "https://image.tmdb.org/t/p/w500/rWuTGiAMaaHIJ30eRkQS23LbRSW.jpg",
+    "played_by": "Tim Blake Nelson",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 2,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:51:48.678Z",
+    "updated_at": "2026-08-14T21:51:48.678Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/354"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/354/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/354/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/2"
+      }
+    }
+  },
+  {
+    "id": 355,
+    "name": "Parker Robbins",
+    "alias": "The Hood",
+    "description": "Chicago criminal who acquires a set of mystical boots and cloak, becoming the masked crime boss known as the Hood.",
+    "image_url": "https://image.tmdb.org/t/p/w500/gCeRfH3aetIpZwKxe8Wl4ZYcQg5.jpg",
+    "played_by": "Anthony Ramos",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": null,
+    "first_appearance_tvshow_id": 15,
+    "created_at": "2026-08-14T21:51:50.952Z",
+    "updated_at": "2026-08-14T21:51:50.952Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/355"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/355/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/355/tvshows"
+      },
+      "first_appearance_tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/15"
+      }
+    }
+  },
+  {
+    "id": 356,
+    "name": "Zelma Stanton",
+    "alias": null,
+    "description": "Occult-obsessed librarian who becomes an ally to Riri Williams in her investigation of Parker Robbins.",
+    "image_url": "https://image.tmdb.org/t/p/w500/JIlvGvReVAJyPUklsL0yh1Lqt.jpg",
+    "played_by": "Regan Aliyah",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": null,
+    "first_appearance_tvshow_id": 15,
+    "created_at": "2026-08-14T21:51:52.563Z",
+    "updated_at": "2026-08-14T21:51:52.563Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/356"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/356/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/356/tvshows"
+      },
+      "first_appearance_tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/15"
+      }
+    }
+  },
+  {
+    "id": 357,
+    "name": "Franklin Richards",
+    "alias": null,
+    "description": "Infant son of Reed Richards and Sue Storm, born with immense, as-yet-unrealized cosmic potential.",
+    "image_url": null,
+    "played_by": "Ada Scott",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-828",
+    "variant_of": null,
+    "first_appearance_movie_id": 38,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:51:54.178Z",
+    "updated_at": "2026-08-14T21:51:54.178Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/357"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/357/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/357/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/38"
+      }
+    }
+  },
+  {
+    "id": 358,
+    "name": "H.E.R.B.I.E.",
+    "alias": null,
+    "description": "Humanoid Experimental Robot, B-type, Integrated Electronics — the Richards family's helper robot and household AI.",
+    "image_url": "https://image.tmdb.org/t/p/w500/u1UjHLTeS5Dregg85A3GICf7Nkf.jpg",
+    "played_by": "Matthew Wood",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-828",
+    "variant_of": null,
+    "first_appearance_movie_id": 38,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:51:55.897Z",
+    "updated_at": "2026-08-14T21:51:55.897Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/358"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/358/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/358/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/38"
+      }
+    }
+  },
+  {
+    "id": 359,
+    "name": "En Dwi Gast",
+    "alias": "Grandmaster",
+    "description": "Eccentric ruler of the planet Sakaar who runs its gladiatorial Contest of Champions.",
+    "image_url": "https://image.tmdb.org/t/p/w500/kcyEPgYtBP5Pm6LLeLGfXKjYovL.jpg",
+    "played_by": "Jeff Goldblum",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 17,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:54:36.561Z",
+    "updated_at": "2026-08-14T21:54:36.561Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/359"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/359/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/359/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/17"
+      }
+    }
+  },
+  {
+    "id": 360,
+    "name": "Goose",
+    "alias": null,
+    "description": "Nick Fury's seemingly ordinary orange tabby cat, secretly a Flerken — an alien species with tentacles hidden in its mouth and a pocket-dimension throat capable of swallowing entire objects, including the Tesseract.",
+    "image_url": "https://image.tmdb.org/t/p/w500/wzcnkQA0Ed7Fa7In6jZCCECoDGN.jpg",
+    "played_by": "Reggie, Gonzo, Rizzo, Archie",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 21,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:54:36.942Z",
+    "updated_at": "2026-08-14T21:54:36.942Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/360"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/360/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/360/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/21"
+      }
+    }
+  },
+  {
+    "id": 361,
+    "name": "J. Jonah Jameson",
+    "alias": null,
+    "description": "Bombastic editor-in-chief of the Daily Bugle who publicly exposes Spider-Man's secret identity.",
+    "image_url": "https://image.tmdb.org/t/p/w500/ScmKoJ9eiSUOthAt1PDNLi8Fkw.jpg",
+    "played_by": "J.K. Simmons",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 23,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:54:38.618Z",
+    "updated_at": "2026-08-14T21:54:38.618Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/361"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/361/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/361/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/23"
+      }
+    }
+  },
+  {
+    "id": 362,
+    "name": "White Vision",
+    "alias": null,
+    "description": "A synthetic body built from Vision's original remains and reactivated by S.W.O.R.D. with no memories, briefly opposing Wanda's Vision before regaining the original Vision's full consciousness and departing Westview.",
+    "image_url": "https://image.tmdb.org/t/p/w500/vcAVrAOZrpqmi37qjFdztRAv1u9.jpg",
+    "played_by": "Paul Bettany",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": 69,
+    "first_appearance_movie_id": null,
+    "first_appearance_tvshow_id": 1,
+    "created_at": "2026-08-14T21:54:40.362Z",
+    "updated_at": "2026-08-14T21:54:40.362Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/362"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/362/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/362/tvshows"
+      },
+      "variant_of": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/69"
+      },
+      "first_appearance_tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/1"
+      }
+    }
+  },
+  {
+    "id": 363,
+    "name": "Classic Loki",
+    "alias": null,
+    "description": "A powerful Loki variant, pruned by the TVA after faking his death on Asgard and spending centuries in seclusion mastering illusion magic.",
+    "image_url": "https://image.tmdb.org/t/p/w500/720dpCjuN5cEYFn43GwzZqXtpWv.jpg",
+    "played_by": "Richard E. Grant",
+    "continuity": "MCU",
+    "multiverse_designation": "Unknown",
+    "variant_of": 60,
+    "first_appearance_movie_id": null,
+    "first_appearance_tvshow_id": 3,
+    "created_at": "2026-08-14T21:54:42.543Z",
+    "updated_at": "2026-08-14T21:54:42.543Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/363"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/363/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/363/tvshows"
+      },
+      "variant_of": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/60"
+      },
+      "first_appearance_tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/3"
+      }
+    }
+  },
+  {
+    "id": 364,
+    "name": "Kid Loki",
+    "alias": null,
+    "description": "A child Loki variant who ruled Old Asgard for a time before being pruned by the TVA.",
+    "image_url": "https://image.tmdb.org/t/p/w500/59JTd0HUKOUG9cOZud2bUL9weRA.jpg",
+    "played_by": "Jack Veal",
+    "continuity": "MCU",
+    "multiverse_designation": "Unknown",
+    "variant_of": 60,
+    "first_appearance_movie_id": null,
+    "first_appearance_tvshow_id": 3,
+    "created_at": "2026-08-14T21:54:44.250Z",
+    "updated_at": "2026-08-14T21:54:44.250Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/364"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/364/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/364/tvshows"
+      },
+      "variant_of": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/60"
+      },
+      "first_appearance_tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/3"
+      }
+    }
+  },
+  {
+    "id": 365,
+    "name": "Boastful Loki",
+    "alias": null,
+    "description": "A grandiose Loki variant found in the Void, prone to exaggerating his exploits to the other pruned variants.",
+    "image_url": "https://image.tmdb.org/t/p/w500/kcw8vNMlYgK8peuN80zhX6TqeNk.jpg",
+    "played_by": "Deobia Oparei",
+    "continuity": "MCU",
+    "multiverse_designation": "Unknown",
+    "variant_of": 60,
+    "first_appearance_movie_id": null,
+    "first_appearance_tvshow_id": 3,
+    "created_at": "2026-08-14T21:54:45.819Z",
+    "updated_at": "2026-08-14T21:54:45.819Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/365"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/365/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/365/tvshows"
+      },
+      "variant_of": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/60"
+      },
+      "first_appearance_tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/3"
+      }
+    }
+  },
+  {
+    "id": 366,
+    "name": "Alligator Loki",
+    "alias": null,
+    "description": "A reptilian Loki variant found in the Void, more animal than god.",
+    "image_url": "https://image.tmdb.org/t/p/w500/tJPM9kRFnMlHoOx4AEnw3Ju2oBv.jpg",
+    "played_by": null,
+    "continuity": "MCU",
+    "multiverse_designation": "Unknown",
+    "variant_of": 60,
+    "first_appearance_movie_id": null,
+    "first_appearance_tvshow_id": 3,
+    "created_at": "2026-08-14T21:54:47.539Z",
+    "updated_at": "2026-08-14T21:54:47.539Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/366"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/366/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/366/tvshows"
+      },
+      "variant_of": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/60"
+      },
+      "first_appearance_tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/3"
+      }
+    }
+  },
+  {
+    "id": 367,
+    "name": "Xu Xialing",
+    "alias": null,
+    "description": "Skilled martial artist and businesswoman who runs an underground fight club, daughter of Wenwu and sister of Shang-Chi.",
+    "image_url": "https://image.tmdb.org/t/p/w500/lOJ0EIjNybCDT6J3ZLMDnqpoDXD.jpg",
+    "played_by": "Meng'er Zhang",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 25,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:54:49.025Z",
+    "updated_at": "2026-08-14T21:54:49.025Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/367"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/367/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/367/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/25"
+      }
+    }
+  },
+  {
+    "id": 368,
+    "name": "Eros",
+    "alias": "Starfox",
+    "description": "Thanos's younger brother, an Eternal with the power to manipulate others' emotions, who arrives with Pip the Troll to help the surviving Eternals find their missing teammates.",
+    "image_url": "https://image.tmdb.org/t/p/w500/9EKjDDD8Naa7dBH76renIjso6CP.jpg",
+    "played_by": "Harry Styles",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 26,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:54:50.613Z",
+    "updated_at": "2026-08-14T21:54:50.613Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/368"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/368/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/368/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/26"
+      }
+    }
+  },
+  {
+    "id": 369,
+    "name": "Pip the Troll",
+    "alias": null,
+    "description": "A teleporting extraterrestrial companion of Eros who helps guide the search for the missing Eternals.",
+    "image_url": "https://image.tmdb.org/t/p/w500/ljQvjbPmcIAl205Lb2Mu4CW8WO7.jpg",
+    "played_by": "Patton Oswalt",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 26,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:54:52.249Z",
+    "updated_at": "2026-08-14T21:54:52.249Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/369"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/369/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/369/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/26"
+      }
+    }
+  },
+  {
+    "id": 370,
+    "name": "Dane Whitman",
+    "alias": null,
+    "description": "Art historian and love interest of Sersi who inherits the mystical Ebony Blade.",
+    "image_url": "https://image.tmdb.org/t/p/w500/iGXlJbExWwZmo9sUDsYuzf4Sv4y.jpg",
+    "played_by": "Kit Harington",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 26,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:54:53.340Z",
+    "updated_at": "2026-08-14T21:54:53.340Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/370"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/370/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/370/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/26"
+      }
+    }
+  },
+  {
+    "id": 371,
+    "name": "Clea",
+    "alias": null,
+    "description": "A powerful sorceress from the Dark Dimension who recruits Doctor Strange to help fix an incursion he caused.",
+    "image_url": "https://image.tmdb.org/t/p/w500/9coVbqj35Fa5dWxlX5K9pDCqKfa.jpg",
+    "played_by": "Charlize Theron",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 28,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:54:55.002Z",
+    "updated_at": "2026-08-14T21:54:55.002Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/371"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/371/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/371/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/28"
+      }
+    }
+  },
+  {
+    "id": 372,
+    "name": "Pizza Poppa",
+    "alias": null,
+    "description": "A New York pizza vendor on Earth-838 whose body Doctor Strange briefly possesses to fight Wanda Maximoff.",
+    "image_url": "https://image.tmdb.org/t/p/w500/p9335ljr7luOWsfwZSOlsIzFJKE.jpg",
+    "played_by": "Bruce Campbell",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 28,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-14T21:54:56.132Z",
+    "updated_at": "2026-08-14T21:54:56.132Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/372"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/372/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/372/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/28"
+      }
+    }
+  },
+  {
+    "id": 373,
+    "name": "Scott Summers",
+    "alias": "Cyclops",
+    "description": "Mutant field leader with optic blasts, from Marvel Studios' Earth-616 X-Men.",
+    "image_url": "https://image.tmdb.org/t/p/w500/1zx8xbJd8cUmNBertjzSuajCIGx.jpg",
+    "played_by": "Kit Connor",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": 276,
+    "first_appearance_movie_id": 76,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-15T19:37:00.484Z",
+    "updated_at": "2026-08-15T19:37:00.484Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/373"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/373/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/373/tvshows"
+      },
+      "variant_of": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/276"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/76"
+      }
+    }
+  },
+  {
+    "id": 374,
+    "name": "Charles Xavier",
+    "alias": "Professor X",
+    "description": "Founder of the X-Men, Earth-616 incarnation.",
+    "image_url": "https://image.tmdb.org/t/p/w500/bE7zzh60RXydH3p632ZZSmsTlcn.jpg",
+    "played_by": "Christopher Abbott",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": 260,
+    "first_appearance_movie_id": 76,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-15T19:37:01.422Z",
+    "updated_at": "2026-08-15T19:37:01.422Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/374"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/374/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/374/tvshows"
+      },
+      "variant_of": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/260"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/76"
+      }
+    }
+  },
+  {
+    "id": 375,
+    "name": "Ororo Munroe",
+    "alias": "Storm",
+    "description": "Weather-controlling mutant, Earth-616 incarnation.",
+    "image_url": "https://image.tmdb.org/t/p/w500/uUh4sUDcD5bdUhIbgRQsE3LUpem.jpg",
+    "played_by": "Maya Boyd",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": 265,
+    "first_appearance_movie_id": 76,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-15T19:37:03.064Z",
+    "updated_at": "2026-08-15T19:37:03.064Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/375"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/375/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/375/tvshows"
+      },
+      "variant_of": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/265"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/76"
+      }
+    }
+  },
+  {
+    "id": 376,
+    "name": "Emma Frost",
+    "alias": null,
+    "description": "Telepathic mutant, Earth-616 incarnation.",
+    "image_url": "https://image.tmdb.org/t/p/w500/ngVKl0sxrut5PPMAIDsfXrVjA1R.jpg",
+    "played_by": "Samara Weaving",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 76,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-15T19:37:04.509Z",
+    "updated_at": "2026-08-15T19:37:04.509Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/376"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/376/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/376/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/76"
+      }
+    }
+  },
+  {
+    "id": 377,
+    "name": "Rogue",
+    "alias": null,
+    "description": "Power-absorbing mutant, Earth-616 incarnation.",
+    "image_url": "https://image.tmdb.org/t/p/w500/qlNBUGON8FebgzcqVhhRSVFYSa5.jpg",
+    "played_by": "Inde Navarrette",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 76,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-15T19:37:05.597Z",
+    "updated_at": "2026-08-15T19:37:05.597Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/377"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/377/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/377/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/76"
+      }
+    }
+  },
+  {
+    "id": 378,
+    "name": "Nathaniel Milbury",
+    "alias": "Mister Sinister",
+    "description": "Genetically-obsessed antagonist, Earth-616 incarnation.",
+    "image_url": "https://image.tmdb.org/t/p/w500/b5w381C8Z33D1iF30KT4k8tJNsk.jpg",
+    "played_by": "Adam Driver",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 76,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-15T19:37:07.251Z",
+    "updated_at": "2026-08-15T19:37:07.251Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/378"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/378/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/378/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/76"
+      }
+    }
+  },
+  {
+    "id": 379,
+    "name": "Paladin",
+    "alias": null,
+    "description": "Mercenary character introduced in VisionQuest.",
+    "image_url": "https://image.tmdb.org/t/p/w500/seKRXV2HMS36ip4SfQq6PLRiLL2.jpg",
+    "played_by": "Todd Stashwick",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": null,
+    "first_appearance_tvshow_id": 53,
+    "created_at": "2026-08-15T19:37:08.367Z",
+    "updated_at": "2026-08-15T19:37:08.367Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/379"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/379/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/379/tvshows"
+      },
+      "first_appearance_tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/53"
+      }
+    }
+  },
+  {
+    "id": 380,
+    "name": "Jocasta",
+    "alias": null,
+    "description": "Ultron-adjacent android character introduced in VisionQuest.",
+    "image_url": "https://image.tmdb.org/t/p/w500/5SD80WqQBmBkGwRf5r0LeJXrv6c.jpg",
+    "played_by": "T'Nia Miller",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": null,
+    "first_appearance_tvshow_id": 53,
+    "created_at": "2026-08-15T19:37:09.969Z",
+    "updated_at": "2026-08-15T19:37:09.969Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/380"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/380/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/380/tvshows"
+      },
+      "first_appearance_tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/53"
+      }
+    }
+  },
+  {
+    "id": 381,
+    "name": "Lisa Molinari",
+    "alias": null,
+    "description": "Character introduced in VisionQuest.",
+    "image_url": "https://image.tmdb.org/t/p/w500/7Eur3EddzlvXTYzKAGkRmo87xcS.jpg",
+    "played_by": "Lauren Morais",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": null,
+    "first_appearance_tvshow_id": 53,
+    "created_at": "2026-08-15T19:37:11.185Z",
+    "updated_at": "2026-08-15T19:37:11.185Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/381"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/381/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/381/tvshows"
+      },
+      "first_appearance_tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/53"
+      }
+    }
+  },
+  {
+    "id": 382,
+    "name": "Raza",
+    "alias": null,
+    "description": "Ten Rings lieutenant from Iron Man, returning in VisionQuest.",
+    "image_url": "https://image.tmdb.org/t/p/w500/dMsD7h6KiZ5dM0f9MegXUOKnqb0.jpg",
+    "played_by": "Faran Tahir",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 1,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-15T19:37:12.686Z",
+    "updated_at": "2026-08-15T19:37:12.686Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/382"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/382/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/382/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/1"
       }
     }
   }
