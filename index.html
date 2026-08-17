@@ -354,19 +354,39 @@ a{color:inherit}
 @keyframes netBreathe{0%,100%{opacity:.42}50%{opacity:.80}}
 @keyframes netSignal{from{stroke-dashoffset:1000}to{stroke-dashoffset:0}}
 
-/* ledger — the catalogue index, not a stat card row */
+/* ledger — the catalogue index, now a horizontal reel rather than a table.
+   6 cards no longer fit 5-up/3-up/2-up grid math cleanly (the People card
+   already left the old 3-up breakpoint's orphan-spanning rule wrong), so
+   this drops column-wrap entirely: one row, same shape at every viewport,
+   auto-advancing and always touch/wheel/trackpad-scrollable — see
+   ledgerScroll() near the end of the script. */
 .ledger{
-  display:grid;grid-template-columns:repeat(5,1fr);
-  margin:60px 0 0;
-  /* Closed band: without the bottom rule the column dividers terminate in
-     mid-air, which reads as a border that vanishes. */
+  display:flex;margin:60px 0 0;overflow-x:auto;overscroll-behavior-x:contain;
+  -webkit-overflow-scrolling:touch;
+  /* The drift itself and the edge fade already say "this scrolls" — a visible
+     track added a second, redundant signal that read as leftover chrome. */
+  scrollbar-width:none;
   border-top:1px solid var(--border-strong);
   border-bottom:1px solid var(--border-strong);
+  /* Right-edge fade hints more cards off-screen; the left one only turns on
+     once actually scrolled (.is-scrolled, toggled in JS) so it's never
+     hinting at content that isn't there. */
+  -webkit-mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 22px),transparent 100%);
+          mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 22px),transparent 100%);
+}
+.ledger::-webkit-scrollbar{display:none}
+.ledger.is-scrolled{
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22px,#000 calc(100% - 22px),transparent 100%);
+          mask-image:linear-gradient(90deg,transparent 0,#000 22px,#000 calc(100% - 22px),transparent 100%);
 }
 .ledger-cell{
+  flex:0 0 clamp(168px, 19vw, 208px);
   display:flex;flex-direction:column;gap:5px;align-items:flex-start;
-  padding:20px 18px 22px;border-right:1px solid var(--border);
-  background:transparent;border-top:0;border-bottom:0;border-left:0;
+  /* Tighter than the sitewide 1.6 line-height these labels would otherwise
+     inherit — fine for wrapping prose, but a single-line UI label just reads
+     as extra air around itself. Scoped to the ledger, not a global change. */
+  padding:14px 18px 16px;border:0;border-right:1px solid var(--border);
+  background:transparent;
   text-align:left;cursor:pointer;font:inherit;color:inherit;
   transition:background-color .14s;
 }
@@ -381,8 +401,8 @@ a{color:inherit}
 }
 /* while /stats is in flight: a low-contrast bar, never a spinner or a 0 */
 .ledger-n.is-loading{width:3ch;border-radius:3px;background:var(--border-strong);opacity:.5}
-.ledger-l{font-size:13px;font-weight:550;font-variation-settings:"wdth" 100,"wght" 550}
-.ledger-p{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.02em;overflow-wrap:anywhere}
+.ledger-l{font-size:13px;line-height:1.3;font-weight:550;font-variation-settings:"wdth" 100,"wght" 550}
+.ledger-p{font-family:var(--mono);font-size:11px;line-height:1.3;color:var(--muted);letter-spacing:.02em;overflow-wrap:anywhere}
 .ledger-cell:hover .ledger-p{color:var(--fg)}
 
 /* ── generic section ─────────────────────────────────────── */
@@ -596,6 +616,7 @@ a{color:inherit}
 .res-p{
   font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.02em;
   padding:0 var(--pad) 15px;border-bottom:1px solid var(--border);overflow-wrap:anywhere;
+  min-height:54px;
 }
 .fields{
   list-style:none;margin:0;padding:16px var(--pad) 18px;flex:1;
@@ -611,6 +632,7 @@ a{color:inherit}
 .res-f{
   border-top:1px solid var(--border);background:var(--surface-sunk);
   padding:14px var(--pad) 16px;display:flex;flex-direction:column;gap:9px;
+  min-height:156px;
 }
 .res-fl{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .rels{display:flex;flex-wrap:wrap;gap:6px 12px}
@@ -776,17 +798,6 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
      dropping this here is what stops the bar crowding the status readout */
   .mast-base{display:none}
   .console{grid-template-columns:294px 1fr}
-  .ledger{grid-template-columns:repeat(3,1fr)}
-  .ledger-cell{border-top:1px solid var(--border)}
-  .ledger-cell:nth-child(-n+3){border-top:0}
-  /* 3-up: each row still starts flush left, but no cell hangs flush right —
-     the columns are too narrow here for text to sit on the page edge */
-  .ledger-cell:nth-child(3n){border-right:0}
-  .ledger-cell:nth-child(3n+1){padding-left:0}
-  /* Same orphan as the 2-up case: the fifth cell left column 3 of row 2 empty,
-     so the row's top border covered two thirds and the divider above it ended
-     on nothing. Span it to the last line. */
-  .ledger-cell:last-child{grid-column:2/-1}
 }
 @media (max-width:900px){
   .mast-nav{gap:16px}
@@ -831,27 +842,11 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
   .schema{grid-template-columns:1fr}
   .res{border-right:0;border-bottom:1px solid var(--border-strong)}
   .res:last-child{border-bottom:0}
+  .res-p{min-height:0}
+  .res-f{min-height:0}
   .notes{grid-template-columns:1fr;gap:26px}
 }
 @media (max-width:760px){
-  .ledger{grid-template-columns:repeat(2,1fr)}
-  .ledger-cell{padding:16px 14px 18px}
-  .ledger-cell:nth-child(3n){border-right:1px solid var(--border)}
-  .ledger-cell:nth-child(2n){border-right:0}
-  .ledger-cell:nth-child(-n+3){border-top:1px solid var(--border)}
-  .ledger-cell:nth-child(-n+2){border-top:0}
-  /* 2-up: same rule — rows start flush left, nothing touches the right edge */
-  .ledger-cell:nth-child(odd){padding-left:0}
-  .ledger-cell:nth-child(even){padding-left:14px}
-  /* Five items in a two-column grid orphan the fifth: it left a half-width top
-     border and a column divider that died on the last row. Span it instead —
-     which also gives the query-param endpoint a full line to sit on. */
-  .ledger-cell:last-child{
-    grid-column:1/-1;flex-direction:row;align-items:center;
-    flex-wrap:wrap;column-gap:14px;row-gap:1px;
-  }
-  .ledger-n{font-size:31px}
-  .tick{width:2px}
   /* Side-by-side leaves the track ~150px for up to 99 marks, which reads as a
      solid bar rather than a distribution. Stack instead: the name row keeps the
      count, the track gets the full width. */
@@ -892,7 +887,6 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
 }
 @media (max-width:400px){
   .mast-in,.mast-nav{gap:10px}
-  .ledger-n{font-size:27px}
   .tab{padding:12px 12px}
 }
 @media (prefers-reduced-motion:reduce){
@@ -2526,6 +2520,77 @@ npm i mcuapi-client
         if (landing) { landing.setAttribute('tabindex', '-1'); landing.focus({ preventScroll: true }); }
       });
     }
+  }());
+
+  /* ═══ 12. ledger auto-scroll ═════════════════════════════════ */
+
+  (function ledgerScroll() {
+    var track = $('.ledger');
+    if (!track) { return; }
+
+    function markEdge() {
+      track.classList.toggle('is-scrolled', track.scrollLeft > 4);
+    }
+    track.addEventListener('scroll', markEdge, { passive: true });
+    markEdge();
+
+    // Reduced motion: the row stays exactly as touch/wheel/trackpad-scrollable
+    // as always — only the unprompted auto-advance is what gets skipped.
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { return; }
+
+    var SPEED = 22; // px/s — a slow drift, not a ticker; never outruns a glance at the numbers
+    var dir = 1;
+    var paused = false;
+    var visible = false;
+    var lastTs = null;
+    var resumeTimer = null;
+
+    function pause() { paused = true; clearTimeout(resumeTimer); }
+    function scheduleResume() {
+      clearTimeout(resumeTimer);
+      // manual interaction always wins; auto-advance only picks back up once
+      // the visitor has actually let go for a bit
+      resumeTimer = setTimeout(function () { paused = false; lastTs = null; }, 2600);
+    }
+
+    ['pointerdown', 'touchstart', 'wheel', 'mouseenter'].forEach(function (evt) {
+      track.addEventListener(evt, pause, { passive: true });
+    });
+    ['pointerup', 'touchend', 'mouseleave'].forEach(function (evt) {
+      track.addEventListener(evt, scheduleResume, { passive: true });
+    });
+    track.addEventListener('focusin', pause);
+    track.addEventListener('focusout', scheduleResume);
+
+    // no point animating a row that's scrolled out of view
+    if (window.IntersectionObserver) {
+      new IntersectionObserver(function (entries) {
+        visible = entries[0].isIntersecting;
+        lastTs = null;
+      }, { threshold: 0.2 }).observe(track);
+    } else {
+      visible = true;
+    }
+
+    function step(ts) {
+      requestAnimationFrame(step);
+      if (paused || !visible) { return; }
+      if (lastTs === null) { lastTs = ts; return; }
+      var dt = (ts - lastTs) / 1000;
+      lastTs = ts;
+
+      var max = track.scrollWidth - track.clientWidth;
+      if (max <= 0) { return; }
+
+      // ping-pong rather than an infinite loop — a true marquee needs the
+      // card set duplicated in the DOM, which would double up interactive
+      // buttons (and their data-od-id) for keyboard/screen-reader users
+      track.scrollLeft += dir * SPEED * dt;
+      if (track.scrollLeft >= max) { track.scrollLeft = max; dir = -1; }
+      else if (track.scrollLeft <= 0) { track.scrollLeft = 0; dir = 1; }
+      markEdge();
+    }
+    requestAnimationFrame(step);
   }());
 }());
 </script>
