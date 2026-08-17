@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-08-16T23:04:32.897Z",
-  "content_hash": "2802e2b5ba7fbc5b",
+  "generated_at": "2026-08-17T07:17:56.666Z",
+  "content_hash": "f37e8b635571a221",
   "source": "https://mcuapi.up.railway.app/api/v1",
   "counts": {
     "movies": 75,
     "tvshows": 56,
-    "characters": 373,
+    "characters": 375,
     "people": 372,
     "post_credit_scenes": 87,
     "timeline_branches": 12,
@@ -22,7 +22,7 @@
     },
     {
       "file": "characters.json",
-      "bytes": 368327
+      "bytes": 370504
     },
     {
       "file": "people.json",

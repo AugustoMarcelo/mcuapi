@@ -1247,17 +1247,17 @@
   {
     "id": 43,
     "name": "Maria Rambeau",
-    "alias": "Binary",
+    "alias": "Captain Marvel",
     "description": "Earth-838's Captain Marvel, member of the Illuminati.",
     "image_url": "https://image.tmdb.org/t/p/w500/ypNxRag9uJ5nzPAN2um3amQK340.jpg",
     "played_by": "Lashana Lynch",
     "continuity": "MCU",
     "multiverse_designation": "Earth-838",
-    "variant_of": null,
+    "variant_of": 383,
     "first_appearance_movie_id": 28,
     "first_appearance_tvshow_id": null,
     "created_at": "2026-07-21T18:12:11.504Z",
-    "updated_at": "2026-08-14T18:13:22.004Z",
+    "updated_at": "2026-08-16T23:26:58.102Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/43"
@@ -1267,6 +1267,9 @@
       },
       "tvshows": {
         "href": "https://mcuapi.up.railway.app/api/v1/characters/43/tvshows"
+      },
+      "variant_of": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/383"
       },
       "first_appearance_movie": {
         "href": "https://mcuapi.up.railway.app/api/v1/movies/28"
@@ -10939,6 +10942,67 @@
       },
       "first_appearance_movie": {
         "href": "https://mcuapi.up.railway.app/api/v1/movies/1"
+      }
+    }
+  },
+  {
+    "id": 383,
+    "name": "Maria Rambeau",
+    "alias": null,
+    "description": "Air Force pilot, Carol Danvers' best friend and Monica Rambeau's mother.",
+    "image_url": null,
+    "played_by": "Lashana Lynch",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 21,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-16T23:26:54.089Z",
+    "updated_at": "2026-08-16T23:26:54.089Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/383"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/383/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/383/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/21"
+      }
+    }
+  },
+  {
+    "id": 384,
+    "name": "Maria Rambeau",
+    "alias": "Binary",
+    "description": "An alternate-reality variant of Maria Rambeau operating as the cosmic hero Binary, encountered by Monica Rambeau alongside a variant of Hank McCoy/Beast; her home reality was never disclosed on screen.",
+    "image_url": null,
+    "played_by": "Lashana Lynch",
+    "continuity": "MCU",
+    "multiverse_designation": "Unknown",
+    "variant_of": 383,
+    "first_appearance_movie_id": 33,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-08-16T23:27:00.226Z",
+    "updated_at": "2026-08-16T23:27:00.226Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/384"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/384/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/384/tvshows"
+      },
+      "variant_of": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/383"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/33"
       }
     }
   }
