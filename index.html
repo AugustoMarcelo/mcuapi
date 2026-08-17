@@ -479,28 +479,123 @@ a{color:inherit}
   margin-top:16px;font-family:var(--mono);font-size:11px;color:var(--muted);
 }
 
-/* ── next release ─────────────────────────────────────────── */
+/* ── next release: cinematic banner ─────────────────────────
+   Text sits on a scrim over the cover art, not beside it in a column — the
+   one deliberately bold, off-voice moment on an otherwise flat, editorial
+   page. Every text token below is fixed (--ink-fg/--ink-muted, already used
+   elsewhere for the JSON viewer's dark surface), not the theme's --fg/--muted
+   — the banner is dark in both themes, so the text can't theme-switch with
+   it. Contrast is guaranteed by the scrim's own opacity (verified against a
+   worst-case white background: 90% ink clears 4.5:1 in both themes with
+   margin), not by anything extracted from the artwork — no palette
+   extraction, no per-image risk. .no-cover falls back to plain themed text
+   on --surface when a production ships with no art. */
 .next-frame{
-  display:grid;grid-template-columns:220px 1fr;
-  border:1px solid var(--border-strong);background:var(--surface);
-  border-radius:3px;overflow:hidden;
+  position:relative;overflow:hidden;isolation:isolate;
+  display:flex;
+  border:1px solid var(--border-strong);border-radius:3px;
+  background:var(--surface-sunk);
+  /* min-height, not height: a fixed height risked silently clipping the
+     trailer button or a wrapped title under overflow:hidden. display:flex
+     here is load-bearing — it lets .next-content stretch to this box's
+     real height via flex:1, since height:100% on a child never resolves
+     against a min-height-only parent (no definite height to be % of). */
+  min-height:clamp(300px, 30vw, 420px);
 }
-.next-frame.no-cover{grid-template-columns:1fr}
-.next-cover{background:var(--surface-sunk);min-height:260px}
-.next-img{display:block;width:100%;height:100%;object-fit:cover}
-.next-body{padding:26px var(--pad);display:flex;flex-direction:column;gap:12px;min-width:0}
+.next-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%}
+.next-scrim{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,
+    color-mix(in oklab, var(--ink) 90%, transparent) 0%,
+    color-mix(in oklab, var(--ink) 90%, transparent) 58%,
+    color-mix(in oklab, var(--ink) 22%, transparent) 100%);
+}
+.next-content{
+  position:relative;z-index:1;flex:1;min-width:0;
+  display:flex;flex-direction:row;align-items:flex-end;justify-content:space-between;
+  gap:clamp(20px, 3vw, 40px);
+  padding:clamp(20px, 3vw, 36px) var(--pad) clamp(22px, 3.4vw, 34px);
+}
+.next-text{
+  min-width:0;flex:1;
+  display:flex;flex-direction:column;justify-content:flex-end;gap:9px;
+}
+/* The same cover art already anchors the full-bleed background, dimmed under
+   the scrim — this is a second, undimmed read of it at true proportions, the
+   same layering TMDB/Letterboxd use. On a wide banner it also fills the dead
+   air the text column leaves to the right; hidden on mobile where there's no
+   room and the background image already does the job. */
+.next-poster{
+  flex:0 0 auto;width:clamp(120px, 13vw, 176px);aspect-ratio:2/3;
+  object-fit:cover;border-radius:3px;
+  border:1px solid color-mix(in oklab, var(--ink-fg) 22%, transparent);
+  box-shadow:0 10px 28px color-mix(in oklab, var(--ink) 55%, transparent);
+}
 .next-badges{display:flex;gap:8px;flex-wrap:wrap}
-.next-title{margin:0}
-.next-overview{margin:0}
-.next-countdown{
-  display:flex;flex-direction:column;gap:4px;margin-top:4px;
-  font-family:var(--mono);
+.next-badges .pill{
+  background:color-mix(in oklab, var(--ink-fg) 14%, transparent);
+  border-color:color-mix(in oklab, var(--ink-fg) 30%, transparent);
+  color:var(--ink-fg);
 }
-.next-digits{font-size:22px;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
-.next-static{font-size:12px;color:var(--muted)}
-@media (max-width:640px){
-  .next-frame,.next-frame.no-cover{grid-template-columns:1fr}
-  .next-cover{min-height:180px}
+.next-title{
+  margin:0;color:var(--ink-fg);font-family:var(--display);
+  font-size:clamp(30px, 3.4vw + 16px, 52px);line-height:1.04;
+  letter-spacing:-0.02em;font-weight:780;
+  font-variation-settings:"wdth" 112,"wght" 780;
+}
+.next-overview{
+  margin:0;color:var(--ink-muted);
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+}
+.next-action-row{
+  display:flex;align-items:flex-end;justify-content:flex-start;flex-wrap:wrap;
+  gap:14px 28px;margin-top:5px;
+}
+.next-countdown{display:flex;flex-direction:column;gap:4px;font-family:var(--mono)}
+.next-digits{
+  font-size:clamp(26px, 1.6vw + 18px, 34px);font-weight:600;
+  color:var(--ink-fg);font-variant-numeric:tabular-nums;
+}
+.next-static{font-size:12.5px;color:var(--ink-muted)}
+/* Solid fill (not the site's usual ghost/ordinary secondary link) — this is
+   the section's second and last accent use. The fill's own contrast against
+   the flat scrim zone it always sits in runs 1.6-2.2:1 (short of the 3:1
+   UI-component minimum), so shape is backed by a border — tuned to 40%
+   ink-fg, the lowest alpha that still clears 3:1, so it reads closer to the
+   badges' own 30%-alpha border instead of standing out as a heavier ring. */
+.next-trailer{
+  display:inline-flex;align-items:center;gap:9px;flex:0 0 auto;
+  font-family:var(--body);font-size:13.5px;font-weight:650;
+  font-variation-settings:"wdth" 100,"wght" 650;letter-spacing:.02em;
+  color:var(--accent-fg);text-decoration:none;
+  min-height:44px;padding:0 18px;border-radius:2px;
+  background:var(--accent);border:1px solid color-mix(in oklab, var(--ink-fg) 40%, transparent);
+  transition:background-color .14s,transform .08s;
+}
+.next-trailer:hover{background:var(--accent-hover)}
+.next-trailer:active{transform:translateY(1px)}
+.next-trailer svg{width:14px;height:14px;flex:0 0 auto}
+.next-frame.no-cover{
+  background:var(--surface);height:auto;
+}
+.next-frame.no-cover .next-content{
+  padding:26px var(--pad);
+}
+.next-frame.no-cover .next-text{
+  justify-content:flex-start;gap:10px;
+}
+.next-frame.no-cover .next-badges .pill{
+  background:transparent;border-color:var(--border-ui);color:var(--muted);
+}
+.next-frame.no-cover .next-title{color:var(--fg)}
+.next-frame.no-cover .next-overview{color:var(--muted)}
+.next-frame.no-cover .next-digits{color:var(--accent)}
+.next-frame.no-cover .next-static{color:var(--muted)}
+.next-frame.no-cover .next-trailer{border-color:var(--accent-hover)}
+@media (max-width:600px){
+  .next-frame{min-height:clamp(340px, 108vw, 460px)}
+  .next-poster{display:none}
+  .next-action-row{align-items:flex-start;flex-direction:column}
 }
 
 /* ── console ─────────────────────────────────────────────── */
@@ -1165,17 +1260,29 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
     </div>
 
     <div class="next-frame" id="next-frame">
-      <div class="next-cover" id="next-cover">
-        <img class="next-img" id="next-img" src="" alt="" hidden>
-      </div>
-      <div class="next-body">
-        <div class="next-badges" id="next-badges"></div>
-        <h3 class="next-title" id="next-title"></h3>
-        <p class="prose next-overview" id="next-overview"></p>
-        <p class="next-countdown">
-          <span class="next-digits" id="next-digits" aria-hidden="true"></span>
-          <span class="next-static" id="next-static"></span>
-        </p>
+      <img class="next-img" id="next-img" src="" alt="" hidden>
+      <div class="next-scrim" id="next-scrim" aria-hidden="true"></div>
+      <div class="next-content">
+        <div class="next-text">
+          <div class="next-badges" id="next-badges"></div>
+          <h3 class="next-title" id="next-title"></h3>
+          <p class="next-overview" id="next-overview"></p>
+          <div class="next-action-row">
+            <p class="next-countdown">
+              <span class="next-digits" id="next-digits" aria-hidden="true"></span>
+              <span class="next-static" id="next-static"></span>
+            </p>
+            <a class="next-trailer" id="next-trailer" href="#" target="_blank" rel="noopener noreferrer" hidden>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9.3"/>
+                <path d="M10.3 8.6l5.4 3.4-5.4 3.4Z" fill="currentColor" stroke="none"/>
+              </svg>
+              Watch trailer
+            </a>
+          </div>
+        </div>
+        <img class="next-poster" id="next-poster" src="" alt="" hidden>
       </div>
     </div>
   </section>
@@ -2366,13 +2473,14 @@ npm i mcuapi-client
     if (!section) { return; }
 
     var frame = $('#next-frame');
-    var coverBox = $('#next-cover');
     var img = $('#next-img');
+    var poster = $('#next-poster');
     var badges = $('#next-badges');
     var titleEl = $('#next-title');
     var overviewEl = $('#next-overview');
     var digits = $('#next-digits');
     var staticEl = $('#next-static');
+    var trailerEl = $('#next-trailer');
     var reduceMotion = window.matchMedia &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var pad = function (n) { return n < 10 ? '0' + n : String(n); };
@@ -2390,6 +2498,29 @@ npm i mcuapi-client
       digits.textContent = days + 'd ' + pad(hrs) + ':' + pad(mins) + ':' + pad(secs);
     };
 
+    // /upcoming's own payload doesn't carry trailer_url (confirmed against the
+    // live response — only the full resource behind _links.self.href does),
+    // so this is one extra, non-blocking fetch after the banner has already
+    // rendered from the lighter payload. A failure here just means the
+    // trailer button doesn't appear — not that the banner breaks.
+    function enrichFromResource(item) {
+      var href = item._links && item._links.self && item._links.self.href;
+      if (!href) { return; }
+      fetch(href)
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (full) {
+          // trailer_url ships as a bare string on the full resource — not the
+          // structured {provider,id,url} shape from issue #80, out of scope here
+          if (full && full.trailer_url) {
+            trailerEl.href = full.trailer_url;
+            trailerEl.hidden = false;
+          }
+        })
+        .catch(function () {
+          // optional polish only — the banner already rendered without it
+        });
+    }
+
     fetch(V1 + '/upcoming?limit=1', { cache: 'no-store' })
       .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
       .then(function (json) {
@@ -2400,22 +2531,20 @@ npm i mcuapi-client
         // UTC-negative timezone renders as the previous day — appending a
         // local-time component gets local midnight instead.
         var releaseDate = new Date(item.release_date + 'T00:00:00');
-        // Same floor-based whole-days count the ticking digits use, so the
-        // static sentence never disagrees with them by one day.
-        var daysAway = Math.max(0, Math.floor((releaseDate.getTime() - Date.now()) / 86400000));
 
         if (item.cover_url) {
           img.src = item.cover_url;
+          img.alt = item.title + ' — official cover art';
           img.hidden = false;
+          poster.src = item.cover_url;
+          poster.alt = item.title + ' — cover art';
+          poster.hidden = false;
         } else {
-          coverBox.hidden = true;
           frame.classList.add('no-cover');
         }
 
         var badgeParts = [];
         if (item.type) { badgeParts.push(item.type === 'tvshow' ? 'TV SHOW' : 'MOVIE'); }
-        if (item.continuity) { badgeParts.push(item.continuity); }
-        if (item.multiverse_designation) { badgeParts.push(item.multiverse_designation); }
         badges.innerHTML = badgeParts
           .map(function (b) { return '<span class="pill pill-idle">' + esc(b) + '</span>'; })
           .join('');
@@ -2424,8 +2553,9 @@ npm i mcuapi-client
         if (item.overview) { overviewEl.textContent = item.overview; }
         else { overviewEl.hidden = true; }
 
-        staticEl.textContent = 'Releases ' + fmtDate(releaseDate) + ' — ' +
-          daysAway + (daysAway === 1 ? ' day away.' : ' days away.');
+        // The ticking digits already lead with the day count ("57d ..."), so
+        // this only adds the calendar date instead of repeating "N days away."
+        staticEl.textContent = 'Releases ' + fmtDate(releaseDate) + '.';
 
         if (reduceMotion) {
           digits.hidden = true;
@@ -2434,6 +2564,7 @@ npm i mcuapi-client
           setInterval(function () { tick(releaseDate); }, 1000);
         }
 
+        enrichFromResource(item);
         section.hidden = false;
       })
       .catch(function () {
