@@ -604,12 +604,25 @@ a{color:inherit}
   border:1px solid var(--border-strong);border-radius:3px;
   background:var(--surface);overflow:hidden;
 }
-.cpane{border-right:1px solid var(--border);min-width:0}
+.cpane{display:flex;flex-direction:column;border-right:1px solid var(--border);min-width:0}
 .cpane-h{
-  padding:13px var(--pad);border-bottom:1px solid var(--border);
+  flex:0 0 auto;padding:13px var(--pad);border-bottom:1px solid var(--border);
   background:var(--surface-sunk);
 }
-.ep-list{max-height:352px;overflow-y:auto}
+.ep-list{flex:0 0 auto;max-height:344px;overflow-y:auto}
+/* drag to trade height between the endpoint list above and the params below —
+   pulling it up shrinks the list and grows the fields, without changing the
+   card's total height (so nothing below the console shifts on the page) */
+.cpane-divider{
+  flex:0 0 auto;height:9px;position:relative;cursor:row-resize;touch-action:none;
+  background:var(--surface-sunk);border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+}
+.cpane-divider::after{
+  content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:28px;height:3px;border-radius:2px;background:var(--border-ui);transition:background-color .14s;
+}
+.cpane-divider:hover::after,.cpane-divider:focus-visible::after{background:var(--accent)}
+.cpane-divider:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
 .ep{
   display:flex;align-items:center;gap:10px;width:100%;
   padding:11px var(--pad);background:transparent;border:0;border-left:2px solid transparent;
@@ -621,7 +634,13 @@ a{color:inherit}
 .ep-verb{font-size:11px;letter-spacing:.09em;color:var(--muted);flex:0 0 30px}
 .ep[aria-pressed="true"] .ep-verb{color:var(--accent)}
 
-.params{padding:16px var(--pad) 20px;border-top:1px solid var(--border)}
+/* default height plus .ep-list + .cpane-divider above it matches the response
+   panel's fixed total, so neither pane leaves dead space under the other */
+.params{
+  height:145px;
+  display:flex;flex-direction:column;justify-content:safe center;
+  padding:16px var(--pad) 20px;overflow-y:auto;
+}
 .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .field{display:flex;flex-direction:column;gap:5px;min-width:0}
 .field.wide{grid-column:1/-1}
@@ -926,6 +945,10 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
   .console{grid-template-columns:1fr}
   .cpane{border-right:0;border-bottom:1px solid var(--border)}
   .ep-list{max-height:236px}
+  /* stacked layout has no sibling height to match — let fields take whatever
+     room they need instead of the desktop split-drag behavior */
+  .cpane-divider{display:none}
+  .params{height:auto;overflow-y:visible}
   .rail-row{grid-template-columns:150px 1fr;row-gap:0}
   .rail-count{display:none}
   .close-in{grid-template-columns:1fr}
@@ -1307,6 +1330,8 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
       <div class="cpane">
         <div class="cpane-h"><span class="tag">Endpoint</span></div>
         <div class="ep-list" id="ep-list" role="group" aria-label="Endpoints"></div>
+        <div class="cpane-divider" id="cpane-divider" role="separator" aria-orientation="horizontal"
+             aria-label="Resize endpoint list and parameters" tabindex="0"></div>
         <div class="params" id="params"></div>
       </div>
 
@@ -2136,6 +2161,45 @@ npm i mcuapi-client
   // seed the console with a real cached response so it is never blank
   selectEndpoint(ENDPOINTS[0]);
   paint(EXAMPLE);
+
+  // .ep-list + .cpane-divider + .params default to exactly the response
+  // panel's fixed height, so neither pane leaves dead space under the other.
+  // Drag the divider to trade height between the endpoint list and the
+  // fields below it — pulling it up shrinks the list and grows the fields —
+  // without changing the card's total height, so nothing on the page shifts.
+  (function () {
+    var epListEl = $('#ep-list'), dividerEl = $('#cpane-divider'), paramsEl = $('#params');
+    if (!epListEl || !dividerEl || !paramsEl) { return; }
+    var EP_MIN = 80, PARAMS_MIN = 60;
+    var dragging = false, startY = 0, startEpH = 0, budget = 0;
+
+    function apply(epH) {
+      epH = Math.max(EP_MIN, Math.min(epH, budget - PARAMS_MIN));
+      epListEl.style.maxHeight = epH + 'px';
+      paramsEl.style.height = (budget - epH) + 'px';
+    }
+
+    dividerEl.addEventListener('pointerdown', function (e) {
+      if (getComputedStyle(dividerEl).display === 'none') { return; }
+      dragging = true;
+      startY = e.clientY;
+      startEpH = epListEl.getBoundingClientRect().height;
+      budget = startEpH + paramsEl.getBoundingClientRect().height;
+      dividerEl.setPointerCapture(e.pointerId);
+    });
+    dividerEl.addEventListener('pointermove', function (e) {
+      if (!dragging) { return; }
+      apply(startEpH + (e.clientY - startY));
+    });
+    dividerEl.addEventListener('pointerup', function () { dragging = false; });
+    dividerEl.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowUp' && e.key !== 'ArrowDown') { return; }
+      budget = epListEl.getBoundingClientRect().height + paramsEl.getBoundingClientRect().height;
+      var step = e.key === 'ArrowUp' ? -24 : 24;
+      apply(epListEl.getBoundingClientRect().height + step);
+      e.preventDefault();
+    });
+  })();
 
   /* ═══ 3. quickstart tabs ═══════════════════════════════════ */
 
