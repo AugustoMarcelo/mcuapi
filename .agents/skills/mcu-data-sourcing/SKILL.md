@@ -1,0 +1,1 @@
+../../../.claude/skills/mcu-data-sourcing/SKILL.md

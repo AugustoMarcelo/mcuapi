@@ -1,0 +1,1 @@
+../../../.claude/skills/mcuapi-surface-sync/SKILL.md

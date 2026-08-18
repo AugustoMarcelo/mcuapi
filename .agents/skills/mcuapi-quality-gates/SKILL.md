@@ -1,0 +1,1 @@
+../../../.claude/skills/mcuapi-quality-gates/SKILL.md
