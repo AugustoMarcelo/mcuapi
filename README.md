@@ -97,6 +97,8 @@ Each file is a plain array of the same records the API returns, `_links` include
 
 Pin a tag instead of `@master` if you want a fixed dataset — `@3.0.0/data/movies.json` will never change. `@master` is refreshed weekly and cached by the CDN for up to 12 hours.
 
+The [landing page](https://augustomarcelo.github.io/mcuapi/) uses this mirror automatically: if a request to the live API fails, it re-resolves the same request against the mirror and shows a banner naming the mirror's `generated_at` date, rather than going blank.
+
 Regenerate it with `npm run snapshot`. The output is byte-stable when the data hasn't moved, so a no-op run leaves the tree clean.
 
 ## Usage & limits

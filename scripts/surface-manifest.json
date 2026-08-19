@@ -1,4 +1,7 @@
 {
+  "notes": [
+    "The 'console' surface (index.html) falls back to the 'snapshot' mirror (jsDelivr) when the live API is unreachable, via fetchWithMirror() in index.html. This is a runtime fallback relationship between two surfaces, not a resource-level in/exempt/todo decision, so it isn't expressed in the table below — see issue #139."
+  ],
   "surfaces": ["swagger", "console", "client", "llms", "readme", "snapshot", "mcp"],
   "resources": {
     "movies": {

@@ -292,7 +292,27 @@ a{color:inherit}
   50%{box-shadow:0 0 0 6px color-mix(in oklab,var(--ok) 4%,transparent)}
 }
 .status[data-state="down"] .status-dot{background:var(--danger)}
+.status[data-state="degraded"] .status-dot{background:var(--warn)}
 .status[data-state="up"]{color:var(--fg)}
+.status[data-state="degraded"]{color:var(--fg)}
+
+/* Shown once the page has silently switched to the jsDelivr mirror because
+   the live API failed — see fetchWithMirror() below. Never implies the data
+   is live, since it isn't. */
+.mirror-banner{
+  background:color-mix(in oklab, var(--warn) 12%, var(--bg));
+  border-bottom:1px solid color-mix(in oklab, var(--warn) 45%, transparent);
+}
+.mirror-banner-in{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:9px 0;font-family:var(--mono);font-size:12px;color:var(--fg);
+}
+.mirror-banner-dismiss{
+  flex:0 0 auto;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;
+  background:transparent;border:0;border-radius:2px;color:var(--muted);cursor:pointer;
+  font-size:16px;line-height:1;
+}
+.mirror-banner-dismiss:hover{color:var(--fg);background:var(--surface)}
 
 /* ── hero ────────────────────────────────────────────────── */
 .hero{padding:clamp(52px, 5vw + 15px, 74px) 0 0}
@@ -1063,6 +1083,13 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
   </div>
 </header>
 
+<div class="mirror-banner" id="mirror-banner" role="status" hidden>
+  <div class="shell mirror-banner-in">
+    <span id="mirror-banner-text"></span>
+    <button type="button" class="mirror-banner-dismiss" id="mirror-banner-dismiss" aria-label="Dismiss">×</button>
+  </div>
+</div>
+
 <main id="top">
 
   <!-- ── hero ─────────────────────────────────────────── -->
@@ -1669,6 +1696,349 @@ npm i mcuapi-client
   var API = 'https://mcuapi.up.railway.app';
   var V1  = API + '/api/v1';
 
+  /* ═══ 0. jsDelivr mirror fallback ══════════════════════════
+     data/*.json is the same dataset committed to the repo and served over
+     jsDelivr (see README.md "Static mirror (CDN)"). When a live request to
+     Railway fails outright (network error, or any non-2xx other than a
+     genuine 404 — a real "no such id"), every fetch on this page routes
+     through fetchWithMirror() instead of failing: it re-resolves the same
+     URL against the mirror and returns a Response-shaped object, so call
+     sites barely change. Mirror.announce() only fires once the mirror has
+     actually answered something (a file fetched, even if the specific
+     route/id has no data in it) — never for a mirror-unreachable failure,
+     which must fall through to today's plain "unreachable" behaviour.     */
+  var MIRROR_BASE = 'https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data';
+  var MIRROR_SOURCE_HEADER = 'cdn.jsdelivr.net (mirror)';
+
+  var Mirror = (function () {
+    var files = {};
+    var degraded = false;
+    var generatedAt = null;
+    var listeners = [];
+    var NO_JOIN = 'Not available in the static mirror: this endpoint reads relation data the snapshot doesn\'t carry.';
+
+    function load(name) {
+      if (!files[name]) {
+        files[name] = fetch(MIRROR_BASE + '/' + name + '.json').then(
+          function (r) {
+            if (!r.ok) {
+              var e = new Error('mirror ' + name + ' ' + r.status);
+              e.mirrorUnreachable = true;
+              throw e;
+            }
+            return r.json();
+          },
+          function (networkErr) { networkErr.mirrorUnreachable = true; throw networkErr; }
+        );
+      }
+      return files[name];
+    }
+
+    // load('index') is memoized, so every caller — announce()'s listeners,
+    // and any block that wants the date for its own text — shares the same
+    // single request and the same resolved value; no synchronous getter, so
+    // nothing can read it before it's actually known.
+    function generatedAtPromise() {
+      return load('index').then(
+        function (idx) { generatedAt = (idx && idx.generated_at) || null; return generatedAt; },
+        function () { return null; }
+      );
+    }
+
+    function announce() {
+      if (degraded) { return; }
+      degraded = true;
+      // Only fetch index.json once a fallback has actually happened — a
+      // healthy page load must never touch the mirror at all.
+      generatedAtPromise().then(function (iso) {
+        listeners.forEach(function (fn) { fn(iso); });
+      });
+    }
+
+    function onDegrade(fn) { listeners.push(fn); }
+
+    var COLUMN_MODE = {
+      movies: {
+        id: 'exact', title: 'text', release_date: 'exact', box_office: 'exact',
+        duration: 'exact', overview: 'text', cover_url: 'text', trailer_url: 'text',
+        directed_by: 'text', phase: 'exact', saga: 'text', chronology: 'exact',
+        post_credit_scenes: 'exact', imdb_id: 'text', studio: 'text', continuity: 'text',
+        multiverse_designation: 'text', is_mcu: 'exact', type: 'text',
+        timeline_chronology_order: 'exact', updated_at: 'exact'
+      },
+      tvshows: {
+        id: 'exact', title: 'text', overview: 'text', cover_url: 'text', trailer_url: 'text',
+        season: 'exact', number_episodes: 'exact', release_date: 'exact', last_aired_date: 'exact',
+        directed_by: 'text', phase: 'exact', saga: 'text', chronology: 'exact',
+        post_credit_scenes: 'exact', imdb_id: 'text', updated_at: 'exact', studio: 'text',
+        continuity: 'text', multiverse_designation: 'text', is_mcu: 'exact', type: 'text',
+        timeline_chronology_order: 'exact'
+      },
+      characters: {
+        id: 'exact', name: 'text', alias: 'text', description: 'text', image_url: 'text',
+        played_by: 'text', continuity: 'text', multiverse_designation: 'text', variant_of: 'exact',
+        first_appearance_movie_id: 'exact', first_appearance_tvshow_id: 'exact',
+        created_at: 'exact', updated_at: 'exact'
+      },
+      people: { id: 'exact', name: 'text', created_at: 'exact', updated_at: 'exact' },
+      'post-credit-scenes': {
+        id: 'exact', movie_id: 'exact', tvshow_id: 'exact', description: 'text',
+        teases_movie_id: 'exact', teases_tvshow_id: 'exact', is_stinger: 'exact',
+        created_at: 'exact', updated_at: 'exact'
+      }
+    };
+
+    // Mirrors each controller's accepted direct params — e.g. Characters has
+    // no studio/is_mcu, People and PostCreditScenes accept none of the four.
+    var DIRECT_PARAMS = {
+      movies: ['studio', 'continuity', 'multiverse_designation', 'is_mcu'],
+      tvshows: ['studio', 'continuity', 'multiverse_designation', 'is_mcu'],
+      characters: ['continuity', 'multiverse_designation'],
+      people: [],
+      'post-credit-scenes': []
+    };
+
+    var NO_JOIN_ROUTES = [
+      /^characters\/movie\/[^/]+$/,
+      /^characters\/tvshow\/[^/]+$/,
+      /^characters\/[^/]+\/movies$/,
+      /^characters\/[^/]+\/tvshows$/,
+      /^people\/[^/]+\/characters$/,
+      /^people\/[^/]+\/titles$/,
+      /^post-credit-scenes\/movie\/[^/]+$/,
+      /^post-credit-scenes\/tvshow\/[^/]+$/
+    ];
+
+    function parseQuery(qs) {
+      var params = {};
+      (qs || '').split('&').filter(Boolean).forEach(function (pair) {
+        var eq = pair.indexOf('=');
+        var k = decodeURIComponent(eq === -1 ? pair : pair.slice(0, eq));
+        var v = decodeURIComponent(eq === -1 ? '' : pair.slice(eq + 1));
+        params[k] = v;
+      });
+      return params;
+    }
+
+    function parseUrl(url) {
+      var rel = url.indexOf(API) === 0 ? url.slice(API.length) : url;
+      var qIdx = rel.indexOf('?');
+      return {
+        pathname: qIdx === -1 ? rel : rel.slice(0, qIdx),
+        params: parseQuery(qIdx === -1 ? '' : rel.slice(qIdx + 1))
+      };
+    }
+
+    function applyFilter(rows, resource, filterParam) {
+      if (!filterParam) { return rows; }
+      var modes = COLUMN_MODE[resource] || {};
+      filterParam.split(';').forEach(function (clause) {
+        var eq = clause.indexOf('=');
+        if (eq === -1) { return; }
+        var column = clause.slice(0, eq);
+        var value = clause.slice(eq + 1);
+        var mode = modes[column];
+        if (!mode) { return; }
+        rows = rows.filter(function (row) {
+          var v = row[column];
+          if (v == null) { return false; }
+          return mode === 'exact'
+            ? String(v) === value
+            : String(v).toLowerCase().indexOf(value.toLowerCase()) !== -1;
+        });
+      });
+      return rows;
+    }
+
+    function applyDirectParams(rows, resource, params) {
+      (DIRECT_PARAMS[resource] || []).forEach(function (key) {
+        if (params[key] === undefined || params[key] === '') { return; }
+        if (key === 'is_mcu') {
+          var want = params[key] === 'true';
+          rows = rows.filter(function (row) { return row[key] === want; });
+        } else {
+          rows = rows.filter(function (row) { return String(row[key]) === params[key]; });
+        }
+      });
+      return rows;
+    }
+
+    function applyOrder(rows, resource, orderParam) {
+      if (!orderParam) { return rows; }
+      var modes = COLUMN_MODE[resource] || {};
+      var clauses = orderParam.split(';').map(function (c) {
+        var parts = c.split(',');
+        return { column: parts[0], dir: (parts[1] || 'ASC').toUpperCase() };
+      }).filter(function (c) {
+        return modes[c.column] && (c.dir === 'ASC' || c.dir === 'DESC');
+      });
+      if (!clauses.length) { return rows; }
+      return rows.slice().sort(function (a, b) {
+        for (var i = 0; i < clauses.length; i++) {
+          var c = clauses[i];
+          var av = a[c.column], bv = b[c.column];
+          if (av === bv) { continue; }
+          var cmp = av == null ? -1 : bv == null ? 1 : (av < bv ? -1 : 1);
+          return c.dir === 'DESC' ? -cmp : cmp;
+        }
+        return 0;
+      });
+    }
+
+    function applyColumns(rows, columnsParam) {
+      if (!columnsParam) { return rows; }
+      var wanted = columnsParam.split(',').map(function (c) { return c.trim(); }).filter(Boolean);
+      if (!wanted.length) { return rows; }
+      return rows.map(function (row) {
+        var out = {};
+        wanted.forEach(function (c) { if (c in row) { out[c] = row[c]; } });
+        out._links = row._links || {};
+        return out;
+      });
+    }
+
+    function paginate(rows, params) {
+      var page = Math.max(1, Math.floor(Number(params.page)) || 1);
+      var limit = Math.min(100, Math.max(1, Math.floor(Number(params.limit)) || 10));
+      var start = (page - 1) * limit;
+      return { total: rows.length, page: page, limit: limit, data: rows.slice(start, start + limit) };
+    }
+
+    function collection(resource, params) {
+      return load(resource).then(function (rows) {
+        rows = applyFilter(rows, resource, params.filter);
+        rows = applyDirectParams(rows, resource, params);
+        rows = applyOrder(rows, resource, params.order);
+        rows = applyColumns(rows, params.columns);
+        return paginate(rows, params);
+      });
+    }
+
+    function byId(resource, id) {
+      return load(resource).then(function (rows) {
+        var row = rows.filter(function (r) { return String(r.id) === String(id); })[0];
+        if (!row) { throw new Error('No ' + resource + ' with id ' + id + ' in the static mirror.'); }
+        return row;
+      });
+    }
+
+    function distinctCount() {
+      var set = {};
+      Array.prototype.slice.call(arguments).forEach(function (list) {
+        list.forEach(function (v) { if (v) { set[v] = true; } });
+      });
+      return Object.keys(set).length;
+    }
+
+    function upcoming(params) {
+      return Promise.all([load('movies'), load('tvshows')]).then(function (res) {
+        var today = new Date(); today.setHours(0, 0, 0, 0);
+        var rows = res[0].concat(res[1]).filter(function (r) {
+          return r.release_date && new Date(r.release_date + 'T00:00:00') > today;
+        }).sort(function (a, b) { return new Date(a.release_date) - new Date(b.release_date); });
+        return paginate(rows, params);
+      });
+    }
+
+    function stats() {
+      return Promise.all([load('movies'), load('tvshows'), load('characters'), load('people'), load('post-credit-scenes')])
+        .then(function (res) {
+          var movies = res[0], tvshows = res[1], characters = res[2], people = res[3], scenes = res[4];
+          return {
+            movies: movies.length,
+            tvshows: tvshows.length,
+            characters: characters.length,
+            people: people.length,
+            titles: movies.length + tvshows.length,
+            continuities: distinctCount(
+              movies.map(function (m) { return m.continuity; }),
+              tvshows.map(function (t) { return t.continuity; })
+            ),
+            designations: distinctCount(
+              movies.map(function (m) { return m.multiverse_designation; }),
+              tvshows.map(function (t) { return t.multiverse_designation; }),
+              characters.map(function (c) { return c.multiverse_designation; })
+            ),
+            post_credit_scenes: scenes.length
+          };
+        });
+    }
+
+    var RESOURCES = ['movies', 'tvshows', 'characters', 'people', 'post-credit-scenes'];
+
+    function resolveRoute(pathname, params) {
+      var path = pathname.replace(/^\/?api\/v1\//, '').replace(/\/$/, '');
+      if (path === 'timeline') { return load('timeline'); }
+      if (path === 'upcoming') { return upcoming(params); }
+      if (path === 'stats') { return stats(); }
+
+      for (var i = 0; i < NO_JOIN_ROUTES.length; i++) {
+        if (NO_JOIN_ROUTES[i].test(path)) {
+          var joinErr = new Error(NO_JOIN);
+          joinErr.mirrorNoJoin = true;
+          return Promise.reject(joinErr);
+        }
+      }
+
+      var parts = path.split('/');
+      var resource = parts[0];
+      if (RESOURCES.indexOf(resource) === -1) {
+        return Promise.reject(new Error('mirror: unsupported route ' + path));
+      }
+      if (parts.length === 1) { return collection(resource, params); }
+      if (parts.length === 2) { return byId(resource, parts[1]); }
+
+      var unsupported = new Error(NO_JOIN);
+      unsupported.mirrorNoJoin = true;
+      return Promise.reject(unsupported);
+    }
+
+    function fakeResponse(status, body) {
+      var text = JSON.stringify(body);
+      return {
+        ok: status >= 200 && status < 300,
+        status: status,
+        statusText: 'MIRROR',
+        headers: { get: function (name) { return name && name.toLowerCase() === 'x-source' ? MIRROR_SOURCE_HEADER : null; } },
+        json: function () { return Promise.resolve(body); },
+        text: function () { return Promise.resolve(text); }
+      };
+    }
+
+    function fetchWithMirror(url, opts) {
+      return fetch(url, opts).then(function (res) {
+        if (res.ok || res.status === 404) { return res; }
+        throw new Error('http ' + res.status);
+      }).catch(function () {
+        var u = parseUrl(url);
+        return resolveRoute(u.pathname, u.params).then(
+          function (body) { announce(); return fakeResponse(200, body); },
+          function (err) {
+            if (!err || !err.mirrorUnreachable) { announce(); }
+            throw err;
+          }
+        );
+      });
+    }
+
+    return {
+      fetch: fetchWithMirror,
+      onDegrade: onDegrade,
+      isDegraded: function () { return degraded; },
+      generatedAtPromise: generatedAtPromise,
+      NO_JOIN: NO_JOIN
+    };
+  })();
+
+  var fetchWithMirror = Mirror.fetch;
+
+  function formatMirrorDate(iso) {
+    var d = iso && new Date(iso);
+    return d && !isNaN(d.getTime())
+      ? d.toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' })
+      : 'an earlier date';
+  }
+
   /* ── embedded timeline snapshot ─────────────────────────────
      Fetched from GET /api/v1/timeline. The rail paints from this
      instantly, then reconciles against the live API on load, so
@@ -1685,6 +2055,29 @@ npm i mcuapi-client
   var esc = function (s) {
     return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   };
+
+  // Fires once, the first time any block actually gets an answer from the
+  // mirror — never for a real "nothing worked" outage, see fetchWithMirror().
+  Mirror.onDegrade(function (iso) {
+    var banner = $('#mirror-banner');
+    if (banner) {
+      $('#mirror-banner-text').textContent =
+        'Live API unreachable — showing the static mirror from ' +
+        formatMirrorDate(iso) + '. Data may be stale.';
+      banner.hidden = false;
+    }
+    var statusEl = $('#status');
+    if (statusEl && statusEl.getAttribute('data-state') !== 'up') {
+      statusEl.setAttribute('data-state', 'degraded');
+      $('#status-text').textContent = 'Degraded · CDN mirror';
+    }
+  });
+  var mirrorBannerDismiss = $('#mirror-banner-dismiss');
+  if (mirrorBannerDismiss) {
+    mirrorBannerDismiss.addEventListener('click', function () {
+      $('#mirror-banner').hidden = true;
+    });
+  }
 
   /* ═══ 1. multiverse rail ═══════════════════════════════════ */
 
@@ -1742,7 +2135,7 @@ npm i mcuapi-client
       return;
     }
     if (seasonInFlight.has(id)) { return; }
-    seasonInFlight.set(id, fetch(V1 + '/tvshows/' + id)
+    seasonInFlight.set(id, fetchWithMirror(V1 + '/tvshows/' + id)
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (json) {
         var season = json && typeof json.season === 'number' ? json.season : null;
@@ -1891,14 +2284,21 @@ npm i mcuapi-client
 
   renderRail(parseSnapshot(SNAPSHOT));
 
-  fetch(V1 + '/timeline')
+  fetchWithMirror(V1 + '/timeline')
     .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
     .then(function (json) {
       var groups = fromLive(json);
       var total = groups.reduce(function (a, g) { return a + g.entries.length; }, 0);
       renderRail(groups);
-      $('#rail-src').textContent = 'Live from /api/v1/timeline · ' + total +
-                                   ' entries across ' + groups.length + ' branches';
+      if (Mirror.isDegraded()) {
+        Mirror.generatedAtPromise().then(function (iso) {
+          $('#rail-src').textContent = 'Served from the CDN mirror (' + formatMirrorDate(iso) + ') · ' +
+            total + ' entries across ' + groups.length + ' branches';
+        });
+      } else {
+        $('#rail-src').textContent = 'Live from /api/v1/timeline · ' + total +
+          ' entries across ' + groups.length + ' branches';
+      }
     })
     .catch(function () {
       $('#rail-src').textContent = 'Live refresh unavailable · showing embedded snapshot';
@@ -2112,7 +2512,7 @@ npm i mcuapi-client
     $('#r-note').textContent = '';
     var t0 = performance.now();
 
-    fetch(url, { headers: { Accept: 'application/json' } })
+    fetchWithMirror(url, { headers: { Accept: 'application/json' } })
       .then(function (res) {
         return res.text().then(function (body) { return { res: res, body: body }; });
       })
@@ -2120,23 +2520,27 @@ npm i mcuapi-client
         var ms = Math.round(performance.now() - t0);
         var bytes = new TextEncoder().encode(out.body).length;
         var code = out.res.status;
+        var mirrored = out.res.headers.get('x-source') != null;
         setStatus(code < 300 ? 'pill-ok' : code < 500 ? 'pill-warn' : 'pill-err', code + ' ' + (out.res.statusText || ''));
         $('#r-time').textContent = ms + ' ms';
         $('#r-size').textContent = bytes < 1024 ? bytes + ' B' : (bytes / 1024).toFixed(1) + ' KB';
-        $('#r-note').textContent = out.res.headers.get('cache-control')
-          ? 'cache-control: ' + out.res.headers.get('cache-control')
-          : '';
+        $('#r-note').textContent = mirrored
+          ? 'x-source: ' + out.res.headers.get('x-source')
+          : (out.res.headers.get('cache-control') ? 'cache-control: ' + out.res.headers.get('cache-control') : '');
         try { paint(JSON.parse(out.body)); }
         catch (e) { $('#resp').textContent = out.body.slice(0, 4000); }
         pushHistory(url);
       })
       .catch(function (err) {
-        setStatus('pill-err', 'NETWORK ERROR');
+        var noJoin = !!(err && err.mirrorNoJoin);
+        setStatus('pill-err', noJoin ? 'NOT IN MIRROR' : 'NETWORK ERROR');
         $('#r-time').textContent = '—';
         $('#r-size').textContent = '—';
         $('#r-note').textContent = '';
-        $('#resp').textContent = 'Request failed: ' + err.message +
-          '\n\nThe API is hosted on Railway. If this persists, check ' + API + '/health';
+        $('#resp').textContent = noJoin
+          ? err.message
+          : 'Request failed: ' + err.message +
+            '\n\nThe API is hosted on Railway. If this persists, check ' + API + '/health';
       })
       .then(function () { busy = false; $('#run').disabled = false; });
   }
@@ -2323,15 +2727,16 @@ npm i mcuapi-client
       var mv = (links.movies  && links.movies.href)  || (V1 + '/characters/' + c.id + '/movies');
       var tv = (links.tvshows && links.tvshows.href) || (V1 + '/characters/' + c.id + '/tvshows');
       var grab = function (u) {
-        return fetch(u)
+        return fetchWithMirror(u)
           .then(function (r) { return r.ok ? r.json() : []; })
-          .then(function (j) { return Array.isArray(j) ? j : (j && j.data) || []; })
-          .catch(function () { return []; });
+          .then(function (j) { return { rows: Array.isArray(j) ? j : (j && j.data) || [], noJoin: false }; })
+          .catch(function (err) { return { rows: [], noJoin: !!(err && err.mirrorNoJoin) }; });
       };
 
       Promise.all([grab(mv), grab(tv)]).then(function (res) {
         if (mine !== token) { return; }
-        var movies = res[0], shows = res[1];
+        var movies = res[0].rows, shows = res[1].rows;
+        var noJoin = res[0].noJoin || res[1].noJoin;
 
         var wrap = document.createElement('div');
         wrap.className = 'cast-panel';
@@ -2342,7 +2747,7 @@ npm i mcuapi-client
         if (!gm && !gt) {
           var p = document.createElement('p');
           p.className = 'hint';
-          p.textContent = 'No appearances linked on this record yet.';
+          p.textContent = noJoin ? Mirror.NO_JOIN : 'No appearances linked on this record yet.';
           wrap.appendChild(p);
         }
         row.insertAdjacentElement('afterend', wrap);
@@ -2365,7 +2770,7 @@ npm i mcuapi-client
       // merged here. Hero names live on alias: "Spider-Man" matches nothing by
       // name and three Peter Parkers by alias.
       var hit = function (field) {
-        return fetch(V1 + '/characters?filter=' + field + '=' + encodeURIComponent(q) + '&limit=8')
+        return fetchWithMirror(V1 + '/characters?filter=' + field + '=' + encodeURIComponent(q) + '&limit=8')
           .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
           .then(function (j) { return { ok: true, rows: (j && j.data) || [] }; })
           .catch(function () { return { ok: false, rows: [] }; });
@@ -2525,8 +2930,17 @@ npm i mcuapi-client
         });
       })
       .catch(function () {
-        el.setAttribute('data-state', 'down');
-        txt.textContent = 'Unreachable';
+        // Both live checks failed — try the mirror before calling it dead.
+        // A successful mirror read fires Mirror.onDegrade (registered above),
+        // which sets the "Degraded · CDN mirror" state itself.
+        return fetchWithMirror(V1 + '/movies?limit=1').then(function (r) {
+          if (!r.ok) { throw new Error('mirror down too'); }
+        }).catch(function () {
+          if (!Mirror.isDegraded()) {
+            el.setAttribute('data-state', 'down');
+            txt.textContent = 'Unreachable';
+          }
+        });
       });
   }());
 
@@ -2570,7 +2984,7 @@ npm i mcuapi-client
     function enrichFromResource(item) {
       var href = item._links && item._links.self && item._links.self.href;
       if (!href) { return; }
-      fetch(href)
+      fetchWithMirror(href)
         .then(function (r) { return r.ok ? r.json() : null; })
         .then(function (full) {
           // trailer_url ships as a bare string on the full resource — not the
@@ -2585,7 +2999,7 @@ npm i mcuapi-client
         });
     }
 
-    fetch(V1 + '/upcoming?limit=1', { cache: 'no-store' })
+    fetchWithMirror(V1 + '/upcoming?limit=1', { cache: 'no-store' })
       .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
       .then(function (json) {
         var item = json && json.total > 0 && json.data && json.data[0];
@@ -2643,7 +3057,7 @@ npm i mcuapi-client
     var slots = $$('.ledger-n[data-stat], .res-n[data-stat]');
     if (!slots.length) { return; }
 
-    fetch(V1 + '/stats', { cache: 'no-store' })
+    fetchWithMirror(V1 + '/stats', { cache: 'no-store' })
       .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
       .then(function (stats) {
         slots.forEach(function (slot) {
