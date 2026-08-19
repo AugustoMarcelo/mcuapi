@@ -1713,7 +1713,6 @@ npm i mcuapi-client
   var Mirror = (function () {
     var files = {};
     var degraded = false;
-    var generatedAt = null;
     var listeners = [];
     var NO_JOIN = 'Not available in the static mirror: this endpoint reads relation data the snapshot doesn\'t carry.';
 
@@ -1740,7 +1739,7 @@ npm i mcuapi-client
     // nothing can read it before it's actually known.
     function generatedAtPromise() {
       return load('index').then(
-        function (idx) { generatedAt = (idx && idx.generated_at) || null; return generatedAt; },
+        function (idx) { return (idx && idx.generated_at) || null; },
         function () { return null; }
       );
     }
@@ -1917,7 +1916,11 @@ npm i mcuapi-client
     function byId(resource, id) {
       return load(resource).then(function (rows) {
         var row = rows.filter(function (r) { return String(r.id) === String(id); })[0];
-        if (!row) { throw new Error('No ' + resource + ' with id ' + id + ' in the static mirror.'); }
+        if (!row) {
+          var e = new Error('No ' + resource + ' with id ' + id + ' in the static mirror.');
+          e.mirrorMissing = true;
+          throw e;
+        }
         return row;
       });
     }
@@ -2533,11 +2536,12 @@ npm i mcuapi-client
       })
       .catch(function (err) {
         var noJoin = !!(err && err.mirrorNoJoin);
-        setStatus('pill-err', noJoin ? 'NOT IN MIRROR' : 'NETWORK ERROR');
+        var missing = !!(err && err.mirrorMissing);
+        setStatus('pill-err', noJoin ? 'NOT IN MIRROR' : missing ? 'NOT FOUND' : 'NETWORK ERROR');
         $('#r-time').textContent = '—';
         $('#r-size').textContent = '—';
         $('#r-note').textContent = '';
-        $('#resp').textContent = noJoin
+        $('#resp').textContent = (noJoin || missing)
           ? err.message
           : 'Request failed: ' + err.message +
             '\n\nThe API is hosted on Railway. If this persists, check ' + API + '/health';
@@ -2932,9 +2936,13 @@ npm i mcuapi-client
       .catch(function () {
         // Both live checks failed — try the mirror before calling it dead.
         // A successful mirror read fires Mirror.onDegrade (registered above),
-        // which sets the "Degraded · CDN mirror" state itself.
+        // which sets the "Degraded · CDN mirror" state itself; but
+        // fetchWithMirror() also retries the live URL once on its own before
+        // falling back, so a live recovery here still needs marking as up.
+        var t2 = performance.now();
         return fetchWithMirror(V1 + '/movies?limit=1').then(function (r) {
           if (!r.ok) { throw new Error('mirror down too'); }
+          if (!Mirror.isDegraded()) { mark(performance.now() - t2); }
         }).catch(function () {
           if (!Mirror.isDegraded()) {
             el.setAttribute('data-state', 'down');
