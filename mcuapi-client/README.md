@@ -80,6 +80,7 @@ const cast = await mcu.follow(movie._links!.characters!);
 | `mcu.timeline.get(params?)` | `TimelineGroup[]` |
 | `mcu.upcoming.list(params?)` | `Paginated<UpcomingItem>` |
 | `mcu.upcoming.all(params?)` | `AsyncGenerator<UpcomingItem>` |
+| `mcu.stats.get()` | `Stats` |
 | `mcu.health()` | `Health` |
 | `mcu.follow(link)` | whatever the link points at |
 
@@ -92,7 +93,12 @@ takes `multiverse`. `upcoming.list()`/`.all()` take `page`,
 `limit`, `type` (`'movie' | 'tvshow'`), `continuity`, `multiverse_designation`,
 and `is_mcu` — movies and TV shows whose `release_date` is strictly in the
 future, merged and sorted ascending; titles with no announced release date are
-excluded.
+excluded. `stats.get()` takes no params.
+
+`WithRole<T>` (the appearance-relation return types above) also carries
+`appeared_in?: string` — the reality the appearance actually happened in. It
+only differs from the title's own `multiverse_designation` for rare
+per-appearance exceptions (e.g. the Void sequences in Deadpool & Wolverine).
 
 ## Two things worth knowing
 

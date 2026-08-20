@@ -2,7 +2,15 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 
 import { MCUAPI, MCUAPIError } from '../src/index';
-import type { Movie, Paginated, PostCreditScene, UpcomingItem } from '../src/index';
+import type {
+  Character,
+  Movie,
+  Paginated,
+  PostCreditScene,
+  Stats,
+  UpcomingItem,
+  WithRole,
+} from '../src/index';
 
 /** Records the URLs it was called with and replays canned responses. */
 function stub(
@@ -364,6 +372,51 @@ test('upcoming.all() paginates the merged movies/tvshows list', async () => {
 
   assert.deepEqual(seen, [1, 2, 3]);
   assert.equal(calls.length, 2);
+});
+
+test('stats.get() hits /api/v1/stats', async () => {
+  const stats: Stats = {
+    movies: 74,
+    tvshows: 56,
+    characters: 314,
+    people: 372,
+    titles: 130,
+    continuities: 10,
+    designations: 5,
+    last_updated: '2026-01-01T00:00:00.000Z',
+  };
+  const { fetch, calls } = stub([{ body: stats }]);
+
+  const result = await new MCUAPI({ fetch }).stats.get();
+
+  assert.equal(calls[0], 'https://mcuapi.up.railway.app/api/v1/stats');
+  assert.equal(result.titles, 130);
+});
+
+test('movies.characters() returns appeared_in alongside role_type', async () => {
+  const appearance: WithRole<Character> = {
+    id: 1,
+    name: 'Wade Wilson',
+    alias: 'Deadpool',
+    description: null,
+    image_url: null,
+    played_by: 'Ryan Reynolds',
+    continuity: 'MCU',
+    multiverse_designation: 'Earth-10005',
+    variant_of: null,
+    first_appearance_movie_id: null,
+    first_appearance_tvshow_id: null,
+    created_at: '2026-01-01T00:00:00.000Z',
+    updated_at: '2026-01-01T00:00:00.000Z',
+    role_type: 'main',
+    appeared_in: 'Void',
+  };
+  const { fetch } = stub([{ body: [appearance] }]);
+
+  const [result] = await new MCUAPI({ fetch }).movies.characters(1);
+
+  assert.equal(result!.role_type, 'main');
+  assert.equal(result!.appeared_in, 'Void');
 });
 
 test('rejects construction when no fetch is available anywhere', () => {

@@ -15,6 +15,7 @@ export type {
   PostCreditScene,
   PostCreditSceneListParams,
   ResourceLinks,
+  Stats,
   TimelineEntry,
   TimelineGroup,
   TimelineParams,

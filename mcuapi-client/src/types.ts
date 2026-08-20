@@ -96,8 +96,13 @@ export interface Character {
   _links?: ResourceLinks;
 }
 
-/** Appearance endpoints append the join row's `role_type` to each record. */
-export type WithRole<T> = T & { role_type: string | null };
+/**
+ * Appearance endpoints append the join row's `role_type` to each record, plus
+ * `appeared_in` — the reality the appearance actually happened in, which only
+ * differs from the title's own `multiverse_designation` for the rare
+ * per-appearance exception (e.g. the Void sequences in Deadpool & Wolverine).
+ */
+export type WithRole<T> = T & { role_type: string | null; appeared_in?: string };
 
 export interface Person {
   id: number;
@@ -227,4 +232,21 @@ export interface UpcomingParams {
   continuity?: string;
   multiverse_designation?: string;
   is_mcu?: boolean;
+}
+
+/** Dataset-wide counts returned by `/stats`. */
+export interface Stats {
+  movies: number;
+  tvshows: number;
+  characters: number;
+  people: number;
+  /** movies + tvshows. */
+  titles: number;
+  /** Distinct non-null `continuity` across movies + tvshows only. */
+  continuities: number;
+  /** Distinct non-null `multiverse_designation` across movies + tvshows + characters. */
+  designations: number;
+  /** Max `updated_at` across movies, tvshows and characters; null when all three are empty. */
+  last_updated: string | null;
+  _links?: ResourceLinks;
 }
