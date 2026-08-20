@@ -179,7 +179,8 @@ or removing a resource requires an explicit decision for each, recorded in
 ## Code Standards
 
 - Write all code and comments in English.
-- Skip comments unless the *why* isn't obvious from the code itself.
+- Default to zero comments. A comment is only justified when the code truly cannot speak for itself — a regex, a bit-twiddling trick, a workaround forced by a library/Postgres quirk that would otherwise look like a mistake and get "fixed" back into a bug. Explaining a design choice, restating what a variable is for, or narrating "why" for something a reasonable reader would infer from names and structure does not qualify — that belongs in the PR description, not the file. When in doubt, delete it.
+- Run the `deslop` skill against the full branch diff before any commit, not just before opening a PR — it is not a one-time step tucked into `mcuapi-quality-gates`, it's part of finishing any change. If it isn't clearing out comments that don't meet the bar above, that's a signal to re-run it more critically, not to leave them in.
 - Aggregate in Postgres (`COUNT`/`SUM`/`DISTINCT`) instead of loading rows to compute in TypeScript — see `getStats()` above for the pattern.
 - Prefer early returns over nested conditionals; keep nesting to 2 levels at most.
 - Never take more than 2 function parameters — pass an object instead.

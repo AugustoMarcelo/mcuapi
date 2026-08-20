@@ -8,6 +8,7 @@ import type {
   Paginated,
   PostCreditScene,
   Stats,
+  TitleItem,
   UpcomingItem,
   WithRole,
 } from '../src/index';
@@ -85,6 +86,21 @@ const upcomingItem = (id: number): UpcomingItem =>
     phase: null,
     saga: null,
   }) satisfies UpcomingItem;
+
+const titleItem = (id: number): TitleItem =>
+  ({
+    id,
+    type: 'movie',
+    title: `Title ${id}`,
+    release_date: null,
+    overview: null,
+    cover_url: null,
+    continuity: 'MCU',
+    multiverse_designation: 'Earth-616',
+    is_mcu: true,
+    phase: null,
+    saga: null,
+  }) satisfies TitleItem;
 
 test('builds the default base URL and path', async () => {
   const { fetch, calls } = stub([{ body: { data: [], total: 0, page: 1, limit: 10 } }]);
@@ -369,6 +385,46 @@ test('upcoming.all() paginates the merged movies/tvshows list', async () => {
 
   const seen: number[] = [];
   for await (const item of new MCUAPI({ fetch }).upcoming.all()) seen.push(item.id);
+
+  assert.deepEqual(seen, [1, 2, 3]);
+  assert.equal(calls.length, 2);
+});
+
+test('titles.list() hits /api/v1/titles and serialises filters, including type', async () => {
+  const { fetch, calls } = stub([
+    { body: { data: [titleItem(1)], total: 1, page: 1, limit: 10 } },
+  ]);
+
+  const { data } = await new MCUAPI({ fetch }).titles.list({
+    type: 'tvshow',
+    is_mcu: true,
+    studio: 'Marvel Studios',
+  });
+
+  const url = new URL(calls[0]!);
+  assert.equal(url.pathname, '/api/v1/titles');
+  assert.equal(url.searchParams.get('type'), 'tvshow');
+  assert.equal(url.searchParams.get('is_mcu'), 'true');
+  assert.equal(url.searchParams.get('studio'), 'Marvel Studios');
+  assert.equal(data[0]!.title, 'Title 1');
+});
+
+test('titles.all() paginates the merged movies/tvshows list', async () => {
+  const page = (ids: number[], next?: string): Paginated<TitleItem> => ({
+    data: ids.map(titleItem),
+    total: 3,
+    page: 1,
+    limit: 2,
+    _links: next ? { next: { href: next } } : {},
+  });
+
+  const { fetch, calls } = stub([
+    { body: page([1, 2], 'https://mcuapi.up.railway.app/api/v1/titles?limit=2&page=2') },
+    { body: page([3]) },
+  ]);
+
+  const seen: number[] = [];
+  for await (const item of new MCUAPI({ fetch }).titles.all()) seen.push(item.id);
 
   assert.deepEqual(seen, [1, 2, 3]);
   assert.equal(calls.length, 2);

@@ -19,6 +19,7 @@ export type {
   TimelineEntry,
   TimelineGroup,
   TimelineParams,
+  TitleItem,
   TitleListParams,
   TVShow,
   UpcomingItem,

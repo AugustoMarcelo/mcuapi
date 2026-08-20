@@ -1561,6 +1561,169 @@
         }
       }
     },
+    "/api/v1/titles": {
+      "get": {
+        "tags": [
+          "Titles"
+        ],
+        "summary": "List all titles",
+        "description": "Movies and TV shows merged into one paged, filterable collection, joined in Postgres via UNION ALL. Unlike /upcoming, undated announced titles (e.g. Blade) are included, sorted last under the default release_date ascending order.",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": "1"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit of items to return. Defaults to 10; values above 100 are capped at 100.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1,
+              "maximum": 100,
+              "example": 10
+            }
+          },
+          {
+            "name": "columns",
+            "in": "query",
+            "description": "Comma-separated title properties to be returned. Unknown properties are ignored",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "title,release_date,phase"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "Order by column and sorting type (ASC, DESC). Multiple clauses can be separated by semicolons; unknown columns are ignored. Defaults to release_date,ASC with undated titles sorted last.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "release_date,ASC"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Filter by column=value. Multiple clauses can be separated by semicolons; unknown columns are ignored",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "title=Iron;phase=1"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Filter by content type",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "movie",
+                "tvshow"
+              ],
+              "example": "tvshow"
+            }
+          },
+          {
+            "name": "studio",
+            "in": "query",
+            "description": "Filter by production studio (e.g., Marvel Studios, FOX, Sony)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "FOX"
+            }
+          },
+          {
+            "name": "continuity",
+            "in": "query",
+            "description": "Filter by continuity/universe (e.g., MCU, FOX X-Men Universe)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "MCU"
+            }
+          },
+          {
+            "name": "multiverse_designation",
+            "in": "query",
+            "description": "Filter by multiverse Earth designation (e.g., Earth-616, Earth-838)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "Earth-616"
+            }
+          },
+          {
+            "name": "is_mcu",
+            "in": "query",
+            "description": "Filter for MCU content only",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/TitleItem"
+                      }
+                    },
+                    "total": {
+                      "type": "integer",
+                      "description": "Total of titles matching the filters"
+                    },
+                    "page": {
+                      "type": "integer",
+                      "description": "Current page (1 when not paginated)",
+                      "example": 1
+                    },
+                    "limit": {
+                      "type": "integer",
+                      "description": "Items per page (present only when the limit query param is used)",
+                      "example": 10
+                    },
+                    "_links": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/ResourceLinks"
+                        }
+                      ],
+                      "description": "Collection links: self, first, last, and prev/next when applicable. All original query params are preserved."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/api/v1/stats": {
       "get": {
         "tags": [
@@ -2121,6 +2284,72 @@
             "type": "string",
             "format": "date",
             "description": "Release date"
+          },
+          "overview": {
+            "type": "string",
+            "description": "Synopsis",
+            "nullable": true
+          },
+          "cover_url": {
+            "type": "string",
+            "description": "Cover image URL",
+            "nullable": true
+          },
+          "continuity": {
+            "type": "string",
+            "description": "Story/branding group (e.g., MCU, FOX X-Men Universe)",
+            "example": "MCU"
+          },
+          "multiverse_designation": {
+            "type": "string",
+            "description": "Multiverse Earth designation (e.g., Earth-616, Earth-838)",
+            "example": "Earth-616"
+          },
+          "is_mcu": {
+            "type": "boolean",
+            "description": "Whether the title is part of the official MCU",
+            "example": true
+          },
+          "phase": {
+            "type": "integer",
+            "description": "Phase to which the title belongs"
+          },
+          "saga": {
+            "type": "string",
+            "description": "Saga to which the title belongs"
+          },
+          "_links": {
+            "$ref": "#/components/schemas/ResourceLinks"
+          }
+        }
+      },
+      "TitleItem": {
+        "type": "object",
+        "description": "The default projection returned by /titles. `?columns=` can additionally select any of trailer_url, directed_by, chronology, post_credit_scenes, imdb_id, studio, timeline_chronology_order, updated_at.",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Movie or TV show ID"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "movie",
+              "tvshow"
+            ],
+            "description": "Content type",
+            "example": "tvshow"
+          },
+          "title": {
+            "type": "string",
+            "description": "Movie or TV show title",
+            "example": "VisionQuest"
+          },
+          "release_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Release date. Null for announced titles with no date yet (e.g. Blade) — unlike /upcoming, these are included and sorted last under the default order",
+            "nullable": true
           },
           "overview": {
             "type": "string",

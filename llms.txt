@@ -17,6 +17,7 @@ Health check: https://mcuapi.up.railway.app/health
 - `GET /post-credit-scenes`, `GET /post-credit-scenes/{id}` — structured post- and mid-credits scenes, plus `/post-credit-scenes/movie/{id}` and `/post-credit-scenes/tvshow/{id}`
 - `GET /timeline` — chronological ordering across continuities, independent of release date
 - `GET /upcoming` — movies and TV shows with a future `release_date`, merged and sorted ascending
+- `GET /titles` — movies and TV shows merged into one paged, filterable collection, joined in Postgres; unlike `/upcoming`, undated titles are included (sorted last)
 - `GET /stats` — dataset-wide counts, including people and distinct continuities and multiverse designations
 
 ## Notes

@@ -1,6 +1,6 @@
-import IUpcomingItemDTO from './IUpcomingItemDTO';
+import ITitleItemDTO from '@modules/titles/dtos/ITitleItemDTO';
 
 export default interface IGetUpcomingResponseDTO {
-  data: IUpcomingItemDTO[];
+  data: ITitleItemDTO[];
   total: number;
 }

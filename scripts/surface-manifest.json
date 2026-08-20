@@ -36,6 +36,13 @@
         "console": "aggregate diagnostic endpoint, not a queryable resource; the landing page's hero tiles already surface it separately from the ENDPOINTS console",
         "snapshot": "time-dependent aggregate computed over the live dataset; would go stale immediately in a static mirror"
       }
+    },
+    "titles": {
+      "in": ["swagger", "console", "client", "llms", "readme"],
+      "exempt": {
+        "snapshot": "a derived view over movies.json + tvshows.json; a third static file would just duplicate them (see #67)",
+        "mcp": "MCP is the write surface (direct Postgres); search_content and get_timeline already cover cross-type reads (see #67)"
+      }
     }
   }
 }

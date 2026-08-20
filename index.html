@@ -2312,6 +2312,7 @@ npm i mcuapi-client
   var LIST_PARAMS = ['page', 'limit', 'columns', 'order', 'filter', 'continuity', 'multiverse_designation', 'is_mcu', 'studio'];
   var BASIC_LIST_PARAMS = ['page', 'limit', 'columns', 'order', 'filter'];
   var UPCOMING_PARAMS = ['page', 'limit', 'type', 'continuity', 'multiverse_designation', 'is_mcu'];
+  var TITLES_PARAMS = LIST_PARAMS.concat(['type']);
 
   var ENDPOINTS = [
     { path: '/api/v1/movies',                    label: '/movies',                    params: LIST_PARAMS, defaults: { limit: '5', page: '1' } },
@@ -2334,6 +2335,7 @@ npm i mcuapi-client
     { path: '/api/v1/post-credit-scenes/tvshow/{id}', label: '/post-credit-scenes/tvshow/{id}', id: '8' },
     { path: '/api/v1/timeline',                  label: '/timeline',                  params: ['multiverse'] },
     { path: '/api/v1/upcoming',                  label: '/upcoming',                  params: UPCOMING_PARAMS, defaults: { limit: '5', page: '1' } },
+    { path: '/api/v1/titles',                    label: '/titles',                    params: TITLES_PARAMS, defaults: { limit: '5', page: '1' } },
     { path: '/health',                           label: '/health' }
   ];
 
