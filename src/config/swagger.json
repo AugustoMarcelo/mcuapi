@@ -51,6 +51,41 @@
         }
       }
     },
+    "/health/live": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "summary": "Liveness check",
+        "description": "Reports only that the process is up. Does not query the database, so it stays cheap to poll and won't wake a suspended Neon compute -- used as Railway's healthcheck path.",
+        "responses": {
+          "200": {
+            "description": "Process is up",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "ok"
+                      ],
+                      "example": "ok"
+                    },
+                    "uptime": {
+                      "type": "integer",
+                      "description": "Process uptime in seconds",
+                      "example": 3600
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/docs/openapi.json": {
       "get": {
         "tags": [

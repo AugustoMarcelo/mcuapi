@@ -4,7 +4,7 @@
     "buildCommand": "yarn install --frozen-lockfile --production=false && yarn run build"
   },
   "deploy": {
-    "healthcheckPath": "/health",
+    "healthcheckPath": "/health/live",
     "healthcheckTimeout": 30,
     "restartPolicyType": "ON_FAILURE"
   }

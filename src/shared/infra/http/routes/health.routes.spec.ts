@@ -16,6 +16,15 @@ function makeApp() {
 }
 
 describe('health.routes', () => {
+  it('Should return 200 without querying the database on /live', async () => {
+    const response = await request(makeApp()).get('/health/live');
+
+    expect(response.status).toBe(200);
+    expect(response.body).toMatchObject({ status: 'ok' });
+    expect(typeof response.body.uptime).toBe('number');
+    expect(AppDataSource.query).not.toHaveBeenCalled();
+  });
+
   it('Should return 200 with database up when the connection query succeeds', async () => {
     (AppDataSource.query as jest.Mock).mockResolvedValue([{ '?column?': 1 }]);
 

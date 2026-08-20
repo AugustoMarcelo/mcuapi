@@ -141,8 +141,11 @@ repository methods still exist and are tested, but no route registers them.
 
 Cross-cutting middleware lives in `src/shared/infra/http/server.ts`: rate limiting
 (100 req/min per IP), `Cache-Control: public, max-age=3600` on GETs (Express
-supplies the `ETag`/304 revalidation), and a `/health` endpoint used by Railway's
-healthcheck. Pagination defaults and the `limit` cap live in
+supplies the `ETag`/304 revalidation), and a `/health` endpoint reporting API and
+database status. Railway's healthcheck (`railway.json`) points at `/health/live`
+instead, a DB-less liveness check -- Railway polls it continuously, and a `/health`
+query there would keep the Neon compute permanently awake, defeating scale-to-zero
+and burning free-tier compute-hours. Pagination defaults and the `limit` cap live in
 `src/shared/infra/http/pagination.ts` — use `resolvePage`/`resolveLimit` in
 controllers rather than reading the query params directly.
 
