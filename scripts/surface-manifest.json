@@ -31,10 +31,9 @@
       }
     },
     "stats": {
-      "in": ["swagger", "llms", "readme", "mcp"],
+      "in": ["swagger", "llms", "readme", "mcp", "client"],
       "exempt": {
         "console": "aggregate diagnostic endpoint, not a queryable resource; the landing page's hero tiles already surface it separately from the ENDPOINTS console",
-        "client": "aggregate diagnostic endpoint; not a resource collection with list/get semantics",
         "snapshot": "time-dependent aggregate computed over the live dataset; would go stale immediately in a static mirror"
       }
     }

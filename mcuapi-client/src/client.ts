@@ -10,6 +10,7 @@ import type {
   PersonTitle,
   PostCreditScene,
   PostCreditSceneListParams,
+  Stats,
   TVShow,
   TimelineGroup,
   TimelineParams,
@@ -307,5 +308,9 @@ export class MCUAPI {
         params as Record<string, QueryValue>,
         options,
       ),
+  };
+
+  readonly stats = {
+    get: (options?: RequestOptions) => this.request<Stats>('/api/v1/stats', options),
   };
 }
