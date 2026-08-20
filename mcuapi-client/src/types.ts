@@ -183,10 +183,14 @@ export interface ListParams {
   multiverse_designation?: string;
 }
 
-/** `/movies` and `/tvshows` additionally scope by studio and MCU membership. */
+/**
+ * `/movies` and `/tvshows` additionally scope by studio and MCU membership.
+ * `/titles` reuses this exact shape, plus `type` to scope to one of the two.
+ */
 export interface TitleListParams extends ListParams {
   studio?: string;
   is_mcu?: boolean;
+  type?: 'movie' | 'tvshow';
 }
 
 /** `/people` has no `continuity`/`multiverse_designation` columns to filter by. */
@@ -214,6 +218,27 @@ export interface UpcomingItem {
   type: 'movie' | 'tvshow';
   title: string;
   release_date: string;
+  overview: string | null;
+  cover_url: string | null;
+  continuity: string | null;
+  multiverse_designation: string | null;
+  is_mcu: boolean;
+  phase: number | null;
+  saga: string | null;
+  _links?: ResourceLinks;
+}
+
+/**
+ * `/titles` merges movies and TV shows into one paged, filterable collection
+ * — the same lean shape as `UpcomingItem`, but `release_date` can be null
+ * for announced-but-undated titles (e.g. Blade), which `/titles` includes
+ * (sorted last) instead of excluding.
+ */
+export interface TitleItem {
+  id: number;
+  type: 'movie' | 'tvshow';
+  title: string;
+  release_date: string | null;
   overview: string | null;
   cover_url: string | null;
   continuity: string | null;

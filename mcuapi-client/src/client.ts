@@ -14,6 +14,7 @@ import type {
   TVShow,
   TimelineGroup,
   TimelineParams,
+  TitleItem,
   TitleListParams,
   UpcomingItem,
   UpcomingParams,
@@ -305,6 +306,22 @@ export class MCUAPI {
     all: (params: UpcomingParams = {}, options?: RequestOptions) =>
       this.paginate<UpcomingItem>(
         '/api/v1/upcoming',
+        params as Record<string, QueryValue>,
+        options,
+      ),
+  };
+
+  readonly titles = {
+    list: (params: TitleListParams = {}, options?: RequestOptions) =>
+      this.request<Paginated<TitleItem>>(
+        `/api/v1/titles${toQuery(params as Record<string, QueryValue>)}`,
+        options,
+      ),
+
+    /** Async iterator over every title matching `params`. */
+    all: (params: TitleListParams = {}, options?: RequestOptions) =>
+      this.paginate<TitleItem>(
+        '/api/v1/titles',
         params as Record<string, QueryValue>,
         options,
       ),

@@ -5,7 +5,7 @@ import {
   buildPaginationLinks,
 } from '@shared/infra/http/hateoas';
 
-interface IPresentUpcomingCollectionParams {
+interface IPresentTitleCollectionParams {
   data: ITitleItemDTO[];
   total: number;
   page?: number | string;
@@ -15,7 +15,7 @@ interface IPresentUpcomingCollectionParams {
   query: Record<string, unknown>;
 }
 
-export function presentUpcomingItem(
+export function presentTitleItem(
   item: ITitleItemDTO,
   baseUrl: string,
 ): WithLinks<ITitleItemDTO> {
@@ -29,7 +29,7 @@ export function presentUpcomingItem(
   };
 }
 
-export function presentUpcomingCollection({
+export function presentTitleCollection({
   data,
   total,
   page,
@@ -37,7 +37,7 @@ export function presentUpcomingCollection({
   baseUrl,
   path,
   query,
-}: IPresentUpcomingCollectionParams): {
+}: IPresentTitleCollectionParams): {
   data: WithLinks<ITitleItemDTO>[];
   total: number;
   page: number;
@@ -54,7 +54,7 @@ export function presentUpcomingCollection({
   });
 
   return {
-    data: data.map(item => presentUpcomingItem(item, baseUrl)),
+    data: data.map(item => presentTitleItem(item, baseUrl)),
     total,
     ...meta,
     _links,

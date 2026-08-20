@@ -48,6 +48,7 @@ List endpoints (`/movies`, `/tvshows`, `/characters`, `/people`, `/upcoming`) re
 | `GET /post-credit-scenes`, `GET /post-credit-scenes/{id}` | Structured post- and mid-credits scenes, plus `/post-credit-scenes/movie/{id}` and `/post-credit-scenes/tvshow/{id}` |
 | `GET /timeline` | Chronological ordering across continuities, independent of release date |
 | `GET /upcoming` | Movies and TV shows whose `release_date` is strictly in the future, merged and sorted ascending. Titles with no announced release date are excluded. |
+| `GET /titles` | Movies and TV shows merged into one paged, filterable collection (joined in Postgres via `UNION ALL`). Same filters as `/movies`/`/tvshows`, plus `type`. Unlike `/upcoming`, undated titles are included and sorted last. |
 | `GET /stats` | Dataset-wide counts — movies, tvshows, characters, people, titles, and distinct continuities/designations |
 
 > [!TIP]
