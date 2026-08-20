@@ -12,6 +12,5 @@ export default interface IFindAllTitlesDTO {
   multiverse_designation?: string;
   is_mcu?: boolean;
   type?: 'movie' | 'tvshow';
-  /** `/upcoming`'s `release_date > today` predicate, reused rather than duplicated. */
   releaseDateAfter?: Date;
 }

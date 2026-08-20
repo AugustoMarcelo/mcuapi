@@ -77,9 +77,6 @@ class FakeTitlesRepository implements ITitlesRepository {
       );
     }
 
-    // Mirrors Postgres' default null ordering (NULLS LAST for ASC, NULLS
-    // FIRST for DESC) via compareValues — matches the real repository's plain
-    // `ORDER BY release_date ASC` without needing an explicit NULLS clause.
     const orderClauses: OrderClause<TitleColumn>[] = order?.length
       ? order
       : [{ column: 'release_date', direction: 'ASC' }];

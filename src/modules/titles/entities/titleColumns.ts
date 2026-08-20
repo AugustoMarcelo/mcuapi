@@ -1,8 +1,5 @@
 import { ColumnAllowList } from '@shared/infra/http/listParams';
 
-// The intersection of MOVIE_COLUMNS and TVSHOW_COLUMNS — only columns that
-// exist, with the same match type, on both underlying tables can be safely
-// filtered/ordered/selected across the UNION ALL.
 export type TitleColumn =
   | 'id'
   | 'title'
@@ -46,8 +43,6 @@ const TITLE_COLUMNS: ColumnAllowList<TitleColumn> = {
   updated_at: 'exact',
 };
 
-// The default projection when no `?columns=` is given — the lean fields
-// shared with the promoted IUpcomingItemDTO shape.
 export const DEFAULT_TITLE_COLUMNS: TitleColumn[] = [
   'id',
   'title',

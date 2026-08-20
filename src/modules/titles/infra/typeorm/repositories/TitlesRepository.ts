@@ -9,9 +9,6 @@ import TITLE_COLUMNS, {
 } from '@modules/titles/entities/titleColumns';
 import { OrderClause } from '@shared/infra/http/listParams';
 
-// `id` and the synthetic `type` discriminator are always selected regardless
-// of `?columns=` — they're what _links.self needs to tell a movie from a
-// tvshow, not optional data columns.
 function resolveOutputColumns(
   columns: TitleColumn[] | undefined,
 ): TitleColumn[] {
@@ -79,13 +76,10 @@ class TitlesRepository implements ITitlesRepository {
 
     const outputColumns = resolveOutputColumns(columns);
     const orderClauses = resolveOrderClauses(order);
-    // A UNION ALL's ORDER BY can only reference columns actually present in
-    // its output, so any sort column missing from `?columns=` still has to
-    // be selected here — it's trimmed back out of the response below. `type`
-    // is excluded even when it's the sort column: it's always provided via
-    // the literal `AS type` below, and selecting the real column too would
-    // give the UNION two same-named output columns, making `ORDER BY type`
-    // ambiguous.
+    // `type` is always excluded here even when it's the sort column: the
+    // literal `AS type` below already provides it, and selecting the real
+    // column too gives the UNION two same-named output columns, which
+    // Postgres rejects `ORDER BY type` against as ambiguous.
     const sqlColumns = Array.from(
       new Set([...outputColumns, ...orderClauses.map(({ column }) => column)]),
     ).filter(column => column !== 'type');
@@ -97,8 +91,6 @@ class TitlesRepository implements ITitlesRepository {
       SELECT ${columnList}, 'tvshow' AS type FROM tvshows ${where}
     `;
 
-    // Snapshot the WHERE-only params before LIMIT/OFFSET extend the array —
-    // the count query never sees those placeholders.
     const countParams = [...params];
 
     let limitOffset = '';
