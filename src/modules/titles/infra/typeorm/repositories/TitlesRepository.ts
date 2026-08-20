@@ -81,10 +81,14 @@ class TitlesRepository implements ITitlesRepository {
     const orderClauses = resolveOrderClauses(order);
     // A UNION ALL's ORDER BY can only reference columns actually present in
     // its output, so any sort column missing from `?columns=` still has to
-    // be selected here — it's trimmed back out of the response below.
+    // be selected here — it's trimmed back out of the response below. `type`
+    // is excluded even when it's the sort column: it's always provided via
+    // the literal `AS type` below, and selecting the real column too would
+    // give the UNION two same-named output columns, making `ORDER BY type`
+    // ambiguous.
     const sqlColumns = Array.from(
       new Set([...outputColumns, ...orderClauses.map(({ column }) => column)]),
-    );
+    ).filter(column => column !== 'type');
     const columnList = sqlColumns.join(', ');
 
     const union = `
