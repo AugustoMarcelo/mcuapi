@@ -12,6 +12,8 @@ import IPostCreditScenesRepository from '@modules/postCreditScenes/repositories/
 import PostCreditScenesRepository from '@modules/postCreditScenes/infra/typeorm/repositories/PostCreditScenesRepository';
 import ITitlesRepository from '@modules/titles/repositories/ITitlesRepository';
 import TitlesRepository from '@modules/titles/infra/typeorm/repositories/TitlesRepository';
+import ISearchRepository from '@modules/search/repositories/ISearchRepository';
+import SearchRepository from '@modules/search/infra/typeorm/repositories/SearchRepository';
 
 container.registerSingleton<IMoviesRepository>(
   'MoviesRepository',
@@ -41,4 +43,9 @@ container.registerSingleton<IPostCreditScenesRepository>(
 container.registerSingleton<ITitlesRepository>(
   'TitlesRepository',
   TitlesRepository,
+);
+
+container.registerSingleton<ISearchRepository>(
+  'SearchRepository',
+  SearchRepository,
 );

@@ -275,3 +275,24 @@ export interface Stats {
   last_updated: string | null;
   _links?: ResourceLinks;
 }
+
+/**
+ * A `/search` hit — the same full presented record as the matching resource's
+ * own endpoint (`Movie`, `TVShow`, `Character`, or `Person`), tagged with a
+ * `type` discriminator. Ranked in Postgres by pg_trgm `similarity()`.
+ */
+export type SearchHit =
+  | (Movie & { type: 'movie' })
+  | (TVShow & { type: 'tvshow' })
+  | (Character & { type: 'character' })
+  | (Person & { type: 'person' });
+
+export interface SearchParams {
+  /** Search text. Required. */
+  q: string;
+  /** Narrows to one content type. Defaults to searching all four. */
+  type?: 'movie' | 'tvshow' | 'character' | 'person';
+  page?: number;
+  /** Defaults to 10 server-side and is capped at 100. */
+  limit?: number;
+}

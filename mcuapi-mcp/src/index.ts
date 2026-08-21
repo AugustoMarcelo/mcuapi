@@ -33,8 +33,10 @@ server.registerTool(
   },
   async ({ query: q, type, limit }) => {
     const results: string[] = [];
-    const param = `%${q}%`;
 
+    // ILIKE is kept alongside pg_trgm's `%` operator because a short query
+    // against a long multi-word title can score below the similarity
+    // threshold even though it's a clean substring match.
     if (type === 'movie' || type === 'all') {
       const movies = await query<{
         id: number;
@@ -43,8 +45,12 @@ server.registerTool(
         continuity: string;
         multiverse_designation: string;
       }>(
-        `SELECT id, title, phase, continuity, multiverse_designation FROM movies WHERE title ILIKE $1 LIMIT $2`,
-        [param, limit],
+        `SELECT id, title, phase, continuity, multiverse_designation
+         FROM movies
+         WHERE title % $1 OR title ILIKE '%' || $1 || '%'
+         ORDER BY similarity(title, $1) DESC, title ASC
+         LIMIT $2`,
+        [q, limit],
       );
       if (movies.length > 0) {
         results.push('**Movies:**');
@@ -63,8 +69,12 @@ server.registerTool(
         phase: number;
         continuity: string;
       }>(
-        `SELECT id, title, phase, continuity FROM tvshows WHERE title ILIKE $1 LIMIT $2`,
-        [param, limit],
+        `SELECT id, title, phase, continuity
+         FROM tvshows
+         WHERE title % $1 OR title ILIKE '%' || $1 || '%'
+         ORDER BY similarity(title, $1) DESC, title ASC
+         LIMIT $2`,
+        [q, limit],
       );
       if (shows.length > 0) {
         results.push('**TV Shows:**');
@@ -84,8 +94,13 @@ server.registerTool(
         continuity: string;
         multiverse_designation: string;
       }>(
-        `SELECT id, name, alias, continuity, multiverse_designation FROM characters WHERE name ILIKE $1 OR alias ILIKE $1 LIMIT $2`,
-        [param, limit],
+        `SELECT id, name, alias, continuity, multiverse_designation
+         FROM characters
+         WHERE name % $1 OR alias % $1
+           OR name ILIKE '%' || $1 || '%' OR alias ILIKE '%' || $1 || '%'
+         ORDER BY GREATEST(similarity(name, $1), similarity(alias, $1)) DESC, name ASC
+         LIMIT $2`,
+        [q, limit],
       );
       if (chars.length > 0) {
         results.push('**Characters:**');
@@ -101,8 +116,12 @@ server.registerTool(
 
     if (type === 'person' || type === 'all') {
       const people = await query<{ id: number; name: string }>(
-        `SELECT id, name FROM people WHERE name ILIKE $1 LIMIT $2`,
-        [param, limit],
+        `SELECT id, name
+         FROM people
+         WHERE name % $1 OR name ILIKE '%' || $1 || '%'
+         ORDER BY similarity(name, $1) DESC, name ASC
+         LIMIT $2`,
+        [q, limit],
       );
       if (people.length > 0) {
         results.push('**People:**');
