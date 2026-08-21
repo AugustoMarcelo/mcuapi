@@ -9,6 +9,7 @@ import timelineRouter from '@modules/timeline/infra/http/routes/timeline.routes'
 import upcomingRouter from '@modules/upcoming/infra/http/routes/upcoming.routes';
 import statsRouter from '@modules/stats/infra/http/routes/stats.routes';
 import titlesRouter from '@modules/titles/infra/http/routes/titles.routes';
+import searchRouter from '@modules/search/infra/http/routes/search.routes';
 
 const routes = Router();
 
@@ -21,5 +22,6 @@ routes.use('/api/v1/timeline', timelineRouter);
 routes.use('/api/v1/upcoming', upcomingRouter);
 routes.use('/api/v1/stats', statsRouter);
 routes.use('/api/v1/titles', titlesRouter);
+routes.use('/api/v1/search', searchRouter);
 
 export default routes;
