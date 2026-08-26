@@ -595,6 +595,12 @@ a{color:inherit}
 .next-trailer:hover{background:var(--accent-hover)}
 .next-trailer:active{transform:translateY(1px)}
 .next-trailer svg{width:14px;height:14px;flex:0 0 auto}
+.next-details{
+  font-family:var(--mono);font-size:12px;color:var(--ink-muted);text-decoration:none;
+  border-bottom:1px dashed color-mix(in oklab, var(--ink-fg) 40%, transparent);
+  transition:color .14s,border-color .14s;
+}
+.next-details:hover{color:var(--ink-fg);border-color:var(--ink-fg)}
 .next-frame.no-cover{
   background:var(--surface);height:auto;
 }
@@ -734,6 +740,11 @@ a{color:inherit}
   transition:border-color .14s,color .14s;
 }
 .hist button:hover{color:var(--fg);border-color:var(--fg)}
+.hateoas-detail-link{
+  color:var(--fg);text-decoration:none;border-bottom:1px dashed var(--border-ui);
+  transition:color .14s,border-color .14s;
+}
+.hateoas-detail-link:hover{color:var(--fg);border-color:var(--fg)}
 
 /* ── resource model ──────────────────────────────────────── */
 .schema{
@@ -1330,6 +1341,7 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
               </svg>
               Watch trailer
             </a>
+            <a class="next-details" id="next-detail-link" href="#">View full details →</a>
           </div>
         </div>
         <img class="next-poster" id="next-poster" src="" alt="" hidden>
@@ -1377,6 +1389,7 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
         <pre class="resp" id="resp" tabindex="0" aria-label="API response"></pre>
         <div class="hateoas">
           <span>HATEOAS · click any href above to follow it</span>
+          <a class="hateoas-detail-link" id="view-detail-link" href="#" hidden>View full page →</a>
           <span class="hist" id="hist"></span>
         </div>
       </div>
@@ -2490,6 +2503,13 @@ npm i mcuapi-client
 
   function paint(obj) {
     $('#resp').innerHTML = renderJson(JSON.stringify(obj, null, 2));
+    var link = $('#view-detail-link');
+    if (obj && (obj.type === 'movie' || obj.type === 'tvshow') && typeof obj.id === 'number') {
+      link.href = 'mcuapi-title-detail.html?type=' + obj.type + '&id=' + obj.id;
+      link.hidden = false;
+    } else {
+      link.hidden = true;
+    }
   }
 
   function pushHistory(url) {
@@ -2969,6 +2989,7 @@ npm i mcuapi-client
     var digits = $('#next-digits');
     var staticEl = $('#next-static');
     var trailerEl = $('#next-trailer');
+    var detailLink = $('#next-detail-link');
     var reduceMotion = window.matchMedia &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var pad = function (n) { return n < 10 ? '0' + n : String(n); };
@@ -3040,6 +3061,12 @@ npm i mcuapi-client
         titleEl.textContent = item.title;
         if (item.overview) { overviewEl.textContent = item.overview; }
         else { overviewEl.hidden = true; }
+
+        if (item.type && item.id) {
+          detailLink.href = 'mcuapi-title-detail.html?type=' + item.type + '&id=' + item.id;
+        } else {
+          detailLink.hidden = true;
+        }
 
         // The ticking digits already lead with the day count ("57d ..."), so
         // this only adds the calendar date instead of repeating "N days away."
