@@ -1,17 +1,7 @@
-export function resolveTrustedProxyCidrs({
-  value = process.env.TRUSTED_PROXY_CIDRS,
+export function resolveTrustedProxy({
+  environment = process.env.NODE_ENV,
 }: {
-  value?: string;
-} = {}): string[] | false {
-  if (!value) {
-    return false;
-  }
-
-  const cidrs = value.split(',').map(cidrsValue => cidrsValue.trim());
-
-  if (cidrs.some(cidrsValue => !cidrsValue)) {
-    throw new Error('TRUSTED_PROXY_CIDRS must not contain empty entries');
-  }
-
-  return cidrs;
+  environment?: string;
+} = {}): 1 | false {
+  return environment === 'production' ? 1 : false;
 }

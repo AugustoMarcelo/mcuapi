@@ -1,7 +1,7 @@
 import request from 'supertest';
 import { container } from 'tsyringe';
 
-import app from './app';
+import app, { createApp } from './app';
 import AppError from '@shared/errors/AppError';
 
 describe('app', () => {
@@ -17,6 +17,14 @@ describe('app', () => {
 
   function mockService(execute: jest.Mock) {
     resolveSpy.mockReturnValue({ execute });
+  }
+
+  function createAppFor(environment: string) {
+    const previousEnvironment = process.env.NODE_ENV;
+    process.env.NODE_ENV = environment;
+    const configuredApp = createApp();
+    process.env.NODE_ENV = previousEnvironment;
+    return configuredApp;
   }
 
   it('Should return 404 for an unmatched route', async () => {
@@ -89,5 +97,47 @@ describe('app', () => {
       detail: 'Malformed JSON request body',
       instance: '/api/v1/movies',
     });
+  });
+
+  it('Should apply independent production rate limits to forwarded clients', async () => {
+    const productionApp = createAppFor('production');
+
+    const first = await request(productionApp)
+      .get('/health/live')
+      .set('X-Forwarded-For', '203.0.113.1');
+    const second = await request(productionApp)
+      .get('/health/live')
+      .set('X-Forwarded-For', '203.0.113.2');
+
+    expect(first.headers.ratelimit).toContain('remaining=99');
+    expect(second.headers.ratelimit).toContain('remaining=99');
+  });
+
+  it('Should use the rightmost forwarded client behind the Railway proxy', async () => {
+    const productionApp = createAppFor('production');
+
+    const first = await request(productionApp)
+      .get('/health/live')
+      .set('X-Forwarded-For', '198.51.100.1, 203.0.113.3');
+    const second = await request(productionApp)
+      .get('/health/live')
+      .set('X-Forwarded-For', '198.51.100.2, 203.0.113.3');
+
+    expect(first.headers.ratelimit).toContain('remaining=99');
+    expect(second.headers.ratelimit).toContain('remaining=98');
+  });
+
+  it('Should ignore forwarded client IPs outside production', async () => {
+    const testApp = createAppFor('test');
+
+    const first = await request(testApp)
+      .get('/health/live')
+      .set('X-Forwarded-For', '203.0.113.1');
+    const second = await request(testApp)
+      .get('/health/live')
+      .set('X-Forwarded-For', '203.0.113.2');
+
+    expect(first.headers.ratelimit).toContain('remaining=99');
+    expect(second.headers.ratelimit).toContain('remaining=98');
   });
 });

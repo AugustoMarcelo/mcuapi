@@ -36,10 +36,6 @@ function assertProductionConfiguration(): void {
   if (!process.env.REDIS_URL) {
     throw new Error('REDIS_URL is required in production');
   }
-
-  if (!process.env.TRUSTED_PROXY_CIDRS) {
-    throw new Error('TRUSTED_PROXY_CIDRS is required in production');
-  }
 }
 
 async function initializeDatabaseWithRetry({

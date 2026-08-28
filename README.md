@@ -157,8 +157,7 @@ npm run dev:server                  # start on port 3333 (hot-reload)
 ```bash
 # NODE_ENV=production in .env
 
-# REDIS_URL must reference Railway Redis; TRUSTED_PROXY_CIDRS must contain
-# only the proxy CIDRs that can reach this service.
+# REDIS_URL must reference Railway Redis.
 
 npm run typeorm migration:run       # create tables
 npm run build                       # compile to ./dist
