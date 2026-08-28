@@ -82,3 +82,9 @@ export function buildOrderFromClauses<T extends string>(
 
   return result;
 }
+
+export function withIdTieBreaker(
+  order: Record<string, 'ASC' | 'DESC'> | undefined,
+): Record<string, 'ASC' | 'DESC'> {
+  return { ...(order ?? {}), ...(order?.id ? {} : { id: 'ASC' }) };
+}

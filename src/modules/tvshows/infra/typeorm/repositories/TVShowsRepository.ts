@@ -11,6 +11,7 @@ import {
   buildOrderFromClauses,
   buildSelectFromColumns,
   buildWhereFromFilter,
+  withIdTieBreaker,
 } from '@shared/infra/typeorm/listParamsQuery';
 
 class TVShowsRepository implements ITVShowsRepository {
@@ -34,7 +35,7 @@ class TVShowsRepository implements ITVShowsRepository {
   ): Promise<IFindAllTVShowsResponseDTO> {
     let skip;
 
-    const orderBy = buildOrderFromClauses(data?.order);
+    const orderBy = withIdTieBreaker(buildOrderFromClauses(data?.order));
 
     const whereConditions = buildWhereFromFilter(data?.filter, TVSHOW_COLUMNS);
 
@@ -71,7 +72,7 @@ class TVShowsRepository implements ITVShowsRepository {
       ...(skip && { skip }),
       ...(select && { select }),
       ...(where && { where }),
-      ...(orderBy && { order: orderBy }),
+      order: orderBy,
     });
 
     return { data: tvshows, total };

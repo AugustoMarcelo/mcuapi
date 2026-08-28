@@ -25,76 +25,117 @@ export function resolveColumns<T extends string>(
   value: unknown,
   allowList: ColumnAllowList<T>,
 ): T[] | undefined {
-  if (typeof value !== 'string') {
+  if (value === undefined) {
     return undefined;
   }
 
-  const columns = value
+  const columns = resolveString({ value, name: 'columns' })
     .split(',')
-    .map(column => column.trim())
-    .filter((column): column is T => isAllowedColumn(column, allowList));
+    .map(column => column.trim());
 
-  return columns.length ? columns : undefined;
+  if (
+    !columns.length ||
+    columns.some(column => !isAllowedColumn(column, allowList)) ||
+    new Set(columns).size !== columns.length
+  ) {
+    throw new AppError('columns must contain unique supported column names');
+  }
+
+  return columns as T[];
 }
 
 export function resolveOrder<T extends string>(
   value: unknown,
   allowList: ColumnAllowList<T>,
 ): OrderClause<T>[] | undefined {
-  if (typeof value !== 'string') {
+  if (value === undefined) {
     return undefined;
   }
 
   const clauses: OrderClause<T>[] = [];
 
-  value
+  resolveString({ value, name: 'order' })
     .split(';')
     .map(clause => clause.trim())
-    .filter(Boolean)
     .forEach(clause => {
-      const [column, direction] = clause.split(',').map(item => item.trim());
-      const sortingOrder = (direction || 'ASC').toUpperCase();
+      const parts = clause.split(',').map(item => item.trim());
+      const [column, direction] = parts;
+      const sortingOrder = (direction ?? 'ASC').toUpperCase();
 
       if (
-        isAllowedColumn(column, allowList) &&
-        (sortingOrder === 'ASC' || sortingOrder === 'DESC')
+        parts.length > 2 ||
+        (parts.length === 2 && !direction) ||
+        !isAllowedColumn(column, allowList) ||
+        (sortingOrder !== 'ASC' && sortingOrder !== 'DESC')
       ) {
-        clauses.push({ column, direction: sortingOrder });
+        throw new AppError('order must use supported columns and ASC or DESC');
       }
+
+      clauses.push({ column, direction: sortingOrder });
     });
 
-  return clauses.length ? clauses : undefined;
+  if (
+    !clauses.length ||
+    new Set(clauses.map(({ column }) => column)).size !== clauses.length
+  ) {
+    throw new AppError('order must contain unique supported column names');
+  }
+
+  return clauses;
 }
 
 export function resolveBoolean(value: unknown): boolean | undefined {
+  if (value === undefined) return undefined;
   if (value === 'true') return true;
   if (value === 'false') return false;
 
-  return undefined;
+  throw new AppError('is_mcu must be true or false');
 }
 
 export function resolveFilter<T extends string>(
   value: unknown,
   allowList: ColumnAllowList<T>,
 ): FilterClause<T>[] | undefined {
-  if (typeof value !== 'string') {
+  if (value === undefined) {
     return undefined;
   }
 
   const clauses: FilterClause<T>[] = [];
 
-  value
+  resolveString({ value, name: 'filter' })
     .split(';')
     .map(clause => clause.trim())
-    .filter(Boolean)
     .forEach(clause => {
       const [column, ...rest] = clause.split('=').map(item => item.trim());
       const filterValue = rest.join('=');
 
-      if (isAllowedColumn(column, allowList) && filterValue) {
-        clauses.push({ column, value: filterValue });
+      if (!isAllowedColumn(column, allowList) || !filterValue) {
+        throw new AppError(
+          'filter must use supported columns with non-empty values',
+        );
       }
+
+      clauses.push({ column, value: filterValue });
     });
 
-  return clauses.length ? clauses : undefined;
+  if (!clauses.length) {
+    throw new AppError('filter must contain at least one clause');
+  }
+
+  return clauses;
 }
+
+export function resolveString({
+  value,
+  name,
+}: {
+  value: unknown;
+  name: string;
+}): string {
+  if (typeof value !== 'string' || !value.trim()) {
+    throw new AppError(`${name} must be a non-empty string`);
+  }
+
+  return value;
+}
+import AppError from '@shared/errors/AppError';

@@ -4,7 +4,7 @@ const baseUrl = 'http://localhost:3333';
 const path = '/api/v1/movies';
 
 describe('buildPaginationLinks', () => {
-  it('Should return only self and first links when limit is absent', () => {
+  it('Should use default pagination values when they are omitted', () => {
     const { _links, meta } = buildPaginationLinks({
       baseUrl,
       path,
@@ -13,13 +13,17 @@ describe('buildPaginationLinks', () => {
     });
 
     expect(_links.self).toEqual({
-      href: 'http://localhost:3333/api/v1/movies',
+      href: 'http://localhost:3333/api/v1/movies?limit=10&page=1',
     });
     expect(_links.first).toEqual(_links.self);
-    expect(_links.next).toBeUndefined();
+    expect(_links.next).toEqual({
+      href: 'http://localhost:3333/api/v1/movies?limit=10&page=2',
+    });
     expect(_links.prev).toBeUndefined();
-    expect(_links.last).toBeUndefined();
-    expect(meta).toEqual({ page: 1 });
+    expect(_links.last).toEqual({
+      href: 'http://localhost:3333/api/v1/movies?limit=10&page=4',
+    });
+    expect(meta).toEqual({ page: 1, limit: 10 });
   });
 
   it('Should build first, last and next links on the first page', () => {
@@ -89,11 +93,11 @@ describe('buildPaginationLinks', () => {
     expect(next).toContain('page=3');
   });
 
-  it('Should use resolved pagination values instead of raw query values', () => {
+  it('Should use resolved pagination values in navigation links', () => {
     const { _links } = buildPaginationLinks({
       baseUrl,
       path,
-      query: { page: '2.9', limit: '100000', studio: 'Marvel Studios' },
+      query: { page: '2', limit: '100', studio: 'Marvel Studios' },
       page: 2,
       limit: 100,
       total: 300,
@@ -115,7 +119,9 @@ describe('buildPaginationLinks', () => {
       total: 3,
     });
 
-    expect(_links.self).toEqual({ href: `${baseUrl}/api/v1/movies` });
+    expect(_links.self).toEqual({
+      href: `${baseUrl}/api/v1/movies?limit=10&page=1`,
+    });
   });
 
   it('Should point last to page 1 when there are no rows', () => {

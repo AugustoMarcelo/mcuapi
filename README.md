@@ -37,7 +37,7 @@ GET /api/v1/movies/1
 }
 ```
 
-List endpoints (`/movies`, `/tvshows`, `/characters`, `/people`, `/upcoming`) return `page`, `limit`, and collection `_links` (`self`, `first`, `last`, plus `prev`/`next`), preserving all other query params. Characters are fully navigable via `GET /characters/{id}/movies` and `GET /characters/{id}/tvshows`.
+List endpoints return `page`, `limit`, and collection `_links` (`self`, `first`, `last`, plus `prev`/`next`), preserving all other query params. Characters are fully navigable via `GET /characters/{id}/movies` and `GET /characters/{id}/tvshows`.
 
 | Endpoint | Description |
 |---|---|
@@ -106,8 +106,24 @@ Regenerate it with `npm run snapshot`. The output is byte-stable when the data h
 
 - **Read-only.** Every endpoint is a `GET`; the API never accepts writes.
 - **Rate limit.** 100 requests per minute per IP. Responses carry `RateLimit-*` headers, and exceeding it returns `429`.
-- **Caching.** Responses are `Cache-Control: public, max-age=3600` and carry an `ETag`. Send `If-None-Match` to get a `304` and save the transfer — the dataset only changes a few times a month.
-- **Pagination.** `limit` defaults to `10` and is capped at `100`.
+- **Caching.** Successful cacheable responses are `Cache-Control: public, max-age=3600` and carry an `ETag`. Every error response is `Cache-Control: no-store`.
+- **Pagination.** Omitted `page` and `limit` resolve to `1` and `10`. Supplied values must be positive integers, and `limit` must not exceed `100`.
+
+## v1 request and error contract
+
+Invalid path IDs, pagination values, list fields, sort directions, boolean values, types, and unknown query parameters return `400`; supplied invalid values are never coerced or ignored. IDs must be positive integers. Collection order is deterministic, with an `id` tie-breaker.
+
+Every API error uses `application/problem+json`:
+
+```json
+{
+  "type": "about:blank",
+  "title": "Bad Request",
+  "status": 400,
+  "detail": "page must be a positive integer",
+  "instance": "/api/v1/movies?page=0"
+}
+```
 
 ## Tech stack
 
@@ -140,6 +156,8 @@ npm run dev:server                  # start on port 3333 (hot-reload)
 
 ```bash
 # NODE_ENV=production in .env
+
+# REDIS_URL must reference Railway Redis.
 
 npm run typeorm migration:run       # create tables
 npm run build                       # compile to ./dist

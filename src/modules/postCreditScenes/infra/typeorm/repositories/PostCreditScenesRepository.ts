@@ -10,6 +10,7 @@ import {
   buildOrderFromClauses,
   buildSelectFromColumns,
   buildWhereFromFilter,
+  withIdTieBreaker,
 } from '@shared/infra/typeorm/listParamsQuery';
 
 class PostCreditScenesRepository implements IPostCreditScenesRepository {
@@ -36,7 +37,7 @@ class PostCreditScenesRepository implements IPostCreditScenesRepository {
   }: IFindAllPostCreditScenesDTO): Promise<IFindAllPostCreditScenesResponseDTO> {
     const skip = page && limit && (page - 1) * limit;
 
-    const orderBy = buildOrderFromClauses(order);
+    const orderBy = withIdTieBreaker(buildOrderFromClauses(order));
 
     const whereConditions = buildWhereFromFilter(
       filter,
@@ -55,7 +56,7 @@ class PostCreditScenesRepository implements IPostCreditScenesRepository {
       ...(skip && { skip }),
       ...(select && { select }),
       ...(where && { where }),
-      ...(orderBy && { order: orderBy }),
+      order: orderBy,
     });
 
     return { data: postCreditScenes, total };

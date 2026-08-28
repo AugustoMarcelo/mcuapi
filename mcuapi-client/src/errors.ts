@@ -25,10 +25,20 @@ export class MCUAPIError extends Error {
   }
 
   private static detail(body: unknown): string {
-    if (body && typeof body === 'object' && 'message' in body) {
+    if (!body || typeof body !== 'object') {
+      return '';
+    }
+
+    if ('detail' in body) {
+      const { detail } = body as { detail?: unknown };
+      if (typeof detail === 'string' && detail) return `: ${detail}`;
+    }
+
+    if ('message' in body) {
       const { message } = body as { message?: unknown };
       if (typeof message === 'string' && message) return `: ${message}`;
     }
+
     return '';
   }
 }

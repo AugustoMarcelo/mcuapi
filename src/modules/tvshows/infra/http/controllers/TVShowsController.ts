@@ -7,7 +7,11 @@ import {
   presentTVShowCollection,
 } from '@modules/tvshows/infra/http/presenters/TVShowPresenter';
 import { getBaseUrl } from '@shared/infra/http/hateoas';
-import { resolveLimit, resolvePage } from '@shared/infra/http/pagination';
+import {
+  resolveLimit,
+  resolvePage,
+  resolvePositiveInteger,
+} from '@shared/infra/http/pagination';
 import {
   resolveBoolean,
   resolveColumns,
@@ -70,11 +74,12 @@ export default class TVShowsController {
   public async show(request: Request, response: Response): Promise<Response> {
     const { tvshow_id } = request.params;
     const showTVShow = container.resolve(ShowTVShowService);
-    const tvshow = await showTVShow.execute({ tvshow_id: Number(tvshow_id) });
-
-    if (!tvshow) {
-      return response.status(404).json({ message: 'TV Show not found' });
-    }
+    const tvshow = await showTVShow.execute({
+      tvshow_id: resolvePositiveInteger({
+        value: tvshow_id,
+        name: 'tvshow_id',
+      }),
+    });
 
     return response
       .status(200)

@@ -4,6 +4,7 @@ import {
   resolveFilter,
   resolveOrder,
 } from './listParams';
+import AppError from '@shared/errors/AppError';
 
 type Column = 'title' | 'release_date' | 'phase';
 
@@ -14,9 +15,8 @@ const ALLOW_LIST: ColumnAllowList<Column> = {
 };
 
 describe('resolveColumns', () => {
-  it('Should return undefined when the value is missing or not a string', () => {
+  it('Should return undefined only when the value is missing', () => {
     expect(resolveColumns(undefined, ALLOW_LIST)).toBeUndefined();
-    expect(resolveColumns(42, ALLOW_LIST)).toBeUndefined();
   });
 
   it('Should split and trim a comma-separated list of allowed columns', () => {
@@ -26,20 +26,12 @@ describe('resolveColumns', () => {
     ]);
   });
 
-  it('Should drop columns that are not in the allow list', () => {
-    expect(resolveColumns('title,unknown_column', ALLOW_LIST)).toEqual([
-      'title',
-    ]);
-  });
-
-  it('Should return undefined when no column survives the allow list', () => {
-    expect(resolveColumns('unknown_column', ALLOW_LIST)).toBeUndefined();
-  });
-
-  it('Should not treat inherited Object.prototype properties as allowed columns', () => {
-    expect(
-      resolveColumns('constructor,hasOwnProperty,toString', ALLOW_LIST),
-    ).toBeUndefined();
+  it('Should reject invalid and duplicate columns', () => {
+    [42, 'title,unknown_column', 'unknown_column', 'title,title'].forEach(
+      value => {
+        expect(() => resolveColumns(value, ALLOW_LIST)).toThrow(AppError);
+      },
+    );
   });
 });
 
@@ -67,14 +59,16 @@ describe('resolveOrder', () => {
     ]);
   });
 
-  it('Should drop clauses with an unknown column or invalid direction', () => {
-    expect(
-      resolveOrder('unknown_column,ASC;title,SIDEWAYS;phase,DESC', ALLOW_LIST),
-    ).toEqual([{ column: 'phase', direction: 'DESC' }]);
-  });
-
-  it('Should not treat inherited Object.prototype properties as allowed columns', () => {
-    expect(resolveOrder('toString,ASC', ALLOW_LIST)).toBeUndefined();
+  it('Should reject unsupported columns, directions, and duplicate clauses', () => {
+    [
+      'unknown_column,ASC;title,SIDEWAYS;phase,DESC',
+      'toString,ASC',
+      'title,ASC;title,DESC',
+      'title,',
+      'title, ',
+    ].forEach(value => {
+      expect(() => resolveOrder(value, ALLOW_LIST)).toThrow(AppError);
+    });
   });
 });
 
@@ -102,13 +96,9 @@ describe('resolveFilter', () => {
     ]);
   });
 
-  it('Should drop clauses with an unknown column or empty value', () => {
-    expect(
-      resolveFilter('unknown_column=value;title=;phase=1', ALLOW_LIST),
-    ).toEqual([{ column: 'phase', value: '1' }]);
-  });
-
-  it('Should not treat inherited Object.prototype properties as allowed columns', () => {
-    expect(resolveFilter('constructor=x', ALLOW_LIST)).toBeUndefined();
+  it('Should reject unsupported columns and empty values', () => {
+    ['unknown_column=value;title=;phase=1', 'constructor=x'].forEach(value => {
+      expect(() => resolveFilter(value, ALLOW_LIST)).toThrow(AppError);
+    });
   });
 });

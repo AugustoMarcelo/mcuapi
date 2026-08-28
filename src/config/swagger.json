@@ -7,6 +7,10 @@
     "contact": {
       "name": "Marcelo Augusto",
       "email": "mrclgst10@gmail.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/license/mit"
     }
   },
   "servers": [
@@ -19,9 +23,11 @@
       "description": "Local development"
     }
   ],
+  "security": [],
   "paths": {
     "/health": {
       "get": {
+        "operationId": "getHealth",
         "tags": [
           "Health"
         ],
@@ -38,21 +44,25 @@
               }
             }
           },
-          "503": {
-            "description": "Database is unreachable",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Health"
-                }
-              }
-            }
-          }
-        }
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+    "503": {
+      "$ref": "#/components/responses/ServiceUnavailable"
+    }
+        },
+        "parameters": []
       }
     },
     "/health/live": {
       "get": {
+        "operationId": "getHealthLive",
         "tags": [
           "Health"
         ],
@@ -82,12 +92,23 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
           }
-        }
+        },
+        "parameters": []
       }
     },
     "/docs/openapi.json": {
       "get": {
+        "operationId": "getDocsOpenapi.json",
         "tags": [
           "Health"
         ],
@@ -103,12 +124,23 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
           }
-        }
+        },
+        "parameters": []
       }
     },
     "/api/v1/movies": {
       "get": {
+        "operationId": "getApiV1Movies",
         "tags": [
           "Movies"
         ],
@@ -116,32 +148,15 @@
         "description": "List all movies",
         "parameters": [
           {
-            "name": "page",
-            "in": "query",
-            "description": "Page number for pagination",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "example": "1"
-            }
+            "$ref": "#/components/parameters/Page"
           },
           {
-            "name": "limit",
-            "in": "query",
-            "description": "Limit of items to return. Defaults to 10; values above 100 are capped at 100.",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "default": 10,
-              "minimum": 1,
-              "maximum": 100,
-              "example": 10
-            }
+            "$ref": "#/components/parameters/Limit"
           },
           {
             "name": "columns",
             "in": "query",
-            "description": "Comma-separated movie properties to be returned. Unknown properties are ignored",
+            "description": "Comma-separated movie properties to be returned. unsupported values return 400",
             "required": false,
             "schema": {
               "type": "string",
@@ -151,7 +166,7 @@
           {
             "name": "order",
             "in": "query",
-            "description": "Order by column and sorting type (ASC, DESC). Multiple clauses can be separated by semicolons; unknown columns are ignored",
+            "description": "Order by column and sorting type (ASC, DESC). Multiple clauses can be separated by semicolons; unsupported values return 400",
             "required": false,
             "schema": {
               "type": "string",
@@ -161,7 +176,7 @@
           {
             "name": "filter",
             "in": "query",
-            "description": "Filter by column=value. Multiple clauses can be separated by semicolons; unknown columns are ignored",
+            "description": "Filter by column=value. Multiple clauses can be separated by semicolons; unsupported values return 400",
             "required": false,
             "schema": {
               "type": "string",
@@ -234,7 +249,7 @@
                     },
                     "limit": {
                       "type": "integer",
-                      "description": "Items per page (present only when the limit query param is used)",
+                      "description": "Items per page (always present; defaults to 10)",
                       "example": 10
                     },
                     "_links": {
@@ -250,14 +265,21 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
           "500": {
-            "description": "Internal Server Error"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
     },
     "/api/v1/movies/{movie_id}": {
       "get": {
+        "operationId": "getApiV1MoviesMovieId",
         "tags": [
           "Movies"
         ],
@@ -269,8 +291,11 @@
             "in": "path",
             "description": "Movie ID",
             "required": true,
-            "type": "integer",
-            "example": 1
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "example": 1
+            }
           }
         ],
         "responses": {
@@ -284,34 +309,24 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "404": {
-            "description": "Movie not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": "string",
-                    "statusCode": "integer",
-                    "message": "string"
-                  },
-                  "example": {
-                    "status": "Error",
-                    "statusCode": 404,
-                    "message": "Movie not found"
-                  }
-                }
-              }
-            }
+            "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           },
           "500": {
-            "description": "Internal Server Error"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
     },
     "/api/v1/tvshows": {
       "get": {
+        "operationId": "getApiV1Tvshows",
         "tags": [
           "TV Shows"
         ],
@@ -319,32 +334,15 @@
         "description": "List all tv shows",
         "parameters": [
           {
-            "name": "page",
-            "in": "query",
-            "description": "Page number for pagination",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "example": "1"
-            }
+            "$ref": "#/components/parameters/Page"
           },
           {
-            "name": "limit",
-            "in": "query",
-            "description": "Limit of items to return. Defaults to 10; values above 100 are capped at 100.",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "default": 10,
-              "minimum": 1,
-              "maximum": 100,
-              "example": 10
-            }
+            "$ref": "#/components/parameters/Limit"
           },
           {
             "name": "columns",
             "in": "query",
-            "description": "Comma-separated TV show properties to be returned. Unknown properties are ignored",
+            "description": "Comma-separated TV show properties to be returned. unsupported values return 400",
             "required": false,
             "schema": {
               "type": "string",
@@ -354,7 +352,7 @@
           {
             "name": "order",
             "in": "query",
-            "description": "Order by column and sorting type (ASC, DESC). Multiple clauses can be separated by semicolons; unknown columns are ignored",
+            "description": "Order by column and sorting type (ASC, DESC). Multiple clauses can be separated by semicolons; unsupported values return 400",
             "required": false,
             "schema": {
               "type": "string",
@@ -364,7 +362,7 @@
           {
             "name": "filter",
             "in": "query",
-            "description": "Filter by column=value. Multiple clauses can be separated by semicolons; unknown columns are ignored",
+            "description": "Filter by column=value. Multiple clauses can be separated by semicolons; unsupported values return 400",
             "required": false,
             "schema": {
               "type": "string",
@@ -437,7 +435,7 @@
                     },
                     "limit": {
                       "type": "integer",
-                      "description": "Items per page (present only when the limit query param is used)",
+                      "description": "Items per page (always present; defaults to 10)",
                       "example": 10
                     },
                     "_links": {
@@ -453,14 +451,21 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
           "500": {
-            "description": "Internal Server Error"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
     },
     "/api/v1/tvshows/{tvshow_id}": {
       "get": {
+        "operationId": "getApiV1TvshowsTvshowId",
         "tags": [
           "TV Shows"
         ],
@@ -472,8 +477,11 @@
             "in": "path",
             "description": "TV Show ID",
             "required": true,
-            "type": "integer",
-            "example": 1
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "example": 1
+            }
           }
         ],
         "responses": {
@@ -482,40 +490,29 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "$ref": "#/components/schemas/TVShow"
                 }
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "404": {
-            "description": "TV Show not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": "string",
-                    "statusCode": "integer",
-                    "message": "string"
-                  },
-                  "example": {
-                    "status": "Error",
-                    "statusCode": 404,
-                    "message": "Movie not found"
-                  }
-                }
-              }
-            }
+            "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           },
           "500": {
-            "description": "Internal Server Error"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
     },
     "/api/v1/characters": {
       "get": {
+        "operationId": "getApiV1Characters",
         "tags": [
           "Characters"
         ],
@@ -523,32 +520,15 @@
         "description": "List all characters across the multiverse",
         "parameters": [
           {
-            "name": "page",
-            "in": "query",
-            "description": "Page number for pagination",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "example": "1"
-            }
+            "$ref": "#/components/parameters/Page"
           },
           {
-            "name": "limit",
-            "in": "query",
-            "description": "Limit of items to return. Defaults to 10; values above 100 are capped at 100.",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "default": 10,
-              "minimum": 1,
-              "maximum": 100,
-              "example": 10
-            }
+            "$ref": "#/components/parameters/Limit"
           },
           {
             "name": "columns",
             "in": "query",
-            "description": "Comma-separated character properties to be returned. Unknown properties are ignored",
+            "description": "Comma-separated character properties to be returned. unsupported values return 400",
             "required": false,
             "schema": {
               "type": "string",
@@ -558,7 +538,7 @@
           {
             "name": "order",
             "in": "query",
-            "description": "Order by column and sorting type (ASC, DESC). Multiple clauses can be separated by semicolons; unknown columns are ignored",
+            "description": "Order by column and sorting type (ASC, DESC). Multiple clauses can be separated by semicolons; unsupported values return 400",
             "required": false,
             "schema": {
               "type": "string",
@@ -568,7 +548,7 @@
           {
             "name": "filter",
             "in": "query",
-            "description": "Filter by column=value. Multiple clauses can be separated by semicolons; unknown columns are ignored",
+            "description": "Filter by column=value. Multiple clauses can be separated by semicolons; unsupported values return 400",
             "required": false,
             "schema": {
               "type": "string",
@@ -621,7 +601,7 @@
                     },
                     "limit": {
                       "type": "integer",
-                      "description": "Items per page (present only when the limit query param is used)",
+                      "description": "Items per page (always present; defaults to 10)",
                       "example": 10
                     },
                     "_links": {
@@ -637,14 +617,21 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
           "500": {
-            "description": "Internal Server Error"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
     },
     "/api/v1/characters/{character_id}": {
       "get": {
+        "operationId": "getApiV1CharactersCharacterId",
         "tags": [
           "Characters"
         ],
@@ -658,7 +645,8 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "example": 1
+              "example": 1,
+              "minimum": 1
             }
           }
         ],
@@ -673,30 +661,24 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "404": {
-            "description": "Character not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Character not found"
-                    }
-                  }
-                }
-              }
-            }
+            "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           },
           "500": {
-            "description": "Internal Server Error"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
     },
     "/api/v1/characters/movie/{movie_id}": {
       "get": {
+        "operationId": "getApiV1CharactersMovieMovieId",
         "tags": [
           "Characters"
         ],
@@ -710,7 +692,8 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "example": 1
+              "example": 1,
+              "minimum": 1
             }
           }
         ],
@@ -742,14 +725,24 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
           "500": {
-            "description": "Internal Server Error"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
     },
     "/api/v1/characters/tvshow/{tvshow_id}": {
       "get": {
+        "operationId": "getApiV1CharactersTvshowTvshowId",
         "tags": [
           "Characters"
         ],
@@ -763,7 +756,8 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "example": 1
+              "example": 1,
+              "minimum": 1
             }
           }
         ],
@@ -795,14 +789,24 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
           "500": {
-            "description": "Internal Server Error"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
     },
     "/api/v1/people": {
       "get": {
+        "operationId": "getApiV1People",
         "tags": [
           "People"
         ],
@@ -810,32 +814,15 @@
         "description": "List all people (actors and directors) normalized out of the played_by/directed_by fields on characters, movies, and TV shows",
         "parameters": [
           {
-            "name": "page",
-            "in": "query",
-            "description": "Page number for pagination",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "example": "1"
-            }
+            "$ref": "#/components/parameters/Page"
           },
           {
-            "name": "limit",
-            "in": "query",
-            "description": "Limit of items to return. Defaults to 10; values above 100 are capped at 100.",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "default": 10,
-              "minimum": 1,
-              "maximum": 100,
-              "example": 10
-            }
+            "$ref": "#/components/parameters/Limit"
           },
           {
             "name": "columns",
             "in": "query",
-            "description": "Comma-separated person properties to be returned. Unknown properties are ignored",
+            "description": "Comma-separated person properties to be returned. unsupported values return 400",
             "required": false,
             "schema": {
               "type": "string",
@@ -845,7 +832,7 @@
           {
             "name": "order",
             "in": "query",
-            "description": "Order by column and sorting type (ASC, DESC). Multiple clauses can be separated by semicolons; unknown columns are ignored",
+            "description": "Order by column and sorting type (ASC, DESC). Multiple clauses can be separated by semicolons; unsupported values return 400",
             "required": false,
             "schema": {
               "type": "string",
@@ -855,7 +842,7 @@
           {
             "name": "filter",
             "in": "query",
-            "description": "Filter by column=value. Multiple clauses can be separated by semicolons; unknown columns are ignored",
+            "description": "Filter by column=value. Multiple clauses can be separated by semicolons; unsupported values return 400",
             "required": false,
             "schema": {
               "type": "string",
@@ -888,7 +875,7 @@
                     },
                     "limit": {
                       "type": "integer",
-                      "description": "Items per page (present only when the limit query param is used)",
+                      "description": "Items per page (always present; defaults to 10)",
                       "example": 10
                     },
                     "_links": {
@@ -904,14 +891,21 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
           "500": {
-            "description": "Internal Server Error"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
     },
     "/api/v1/people/{person_id}": {
       "get": {
+        "operationId": "getApiV1PeoplePersonId",
         "tags": [
           "People"
         ],
@@ -925,7 +919,8 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "example": 1
+              "example": 1,
+              "minimum": 1
             }
           }
         ],
@@ -940,30 +935,24 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "404": {
-            "description": "Person not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Person not found"
-                    }
-                  }
-                }
-              }
-            }
+            "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           },
           "500": {
-            "description": "Internal Server Error"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
     },
     "/api/v1/people/{person_id}/characters": {
       "get": {
+        "operationId": "getApiV1PeoplePersonIdCharacters",
         "tags": [
           "People"
         ],
@@ -977,7 +966,8 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "example": 1
+              "example": 1,
+              "minimum": 1
             }
           }
         ],
@@ -1009,30 +999,24 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "404": {
-            "description": "Person not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Person not found"
-                    }
-                  }
-                }
-              }
-            }
+            "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           },
           "500": {
-            "description": "Internal Server Error"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
     },
     "/api/v1/people/{person_id}/titles": {
       "get": {
+        "operationId": "getApiV1PeoplePersonIdTitles",
         "tags": [
           "People"
         ],
@@ -1046,7 +1030,8 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "example": 1
+              "example": 1,
+              "minimum": 1
             }
           }
         ],
@@ -1094,30 +1079,24 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "404": {
-            "description": "Person not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Person not found"
-                    }
-                  }
-                }
-              }
-            }
+            "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           },
           "500": {
-            "description": "Internal Server Error"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
     },
     "/api/v1/post-credit-scenes": {
       "get": {
+        "operationId": "getApiV1PostCreditScenes",
         "tags": [
           "PostCreditScenes"
         ],
@@ -1125,32 +1104,15 @@
         "description": "List structured post- and mid-credits scenes across movies and TV shows",
         "parameters": [
           {
-            "name": "page",
-            "in": "query",
-            "description": "Page number for pagination",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "example": "1"
-            }
+            "$ref": "#/components/parameters/Page"
           },
           {
-            "name": "limit",
-            "in": "query",
-            "description": "Limit of items to return. Defaults to 10; values above 100 are capped at 100.",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "default": 10,
-              "minimum": 1,
-              "maximum": 100,
-              "example": 10
-            }
+            "$ref": "#/components/parameters/Limit"
           },
           {
             "name": "columns",
             "in": "query",
-            "description": "Comma-separated post-credit scene properties to be returned. Unknown properties are ignored",
+            "description": "Comma-separated post-credit scene properties to be returned. unsupported values return 400",
             "required": false,
             "schema": {
               "type": "string",
@@ -1160,7 +1122,7 @@
           {
             "name": "order",
             "in": "query",
-            "description": "Order by column and sorting type (ASC, DESC). Multiple clauses can be separated by semicolons; unknown columns are ignored",
+            "description": "Order by column and sorting type (ASC, DESC). Multiple clauses can be separated by semicolons; unsupported values return 400",
             "required": false,
             "schema": {
               "type": "string",
@@ -1170,7 +1132,7 @@
           {
             "name": "filter",
             "in": "query",
-            "description": "Filter by column=value. Multiple clauses can be separated by semicolons; unknown columns are ignored",
+            "description": "Filter by column=value. Multiple clauses can be separated by semicolons; unsupported values return 400",
             "required": false,
             "schema": {
               "type": "string",
@@ -1203,7 +1165,7 @@
                     },
                     "limit": {
                       "type": "integer",
-                      "description": "Items per page (present only when the limit query param is used)",
+                      "description": "Items per page (always present; defaults to 10)",
                       "example": 10
                     },
                     "_links": {
@@ -1219,14 +1181,21 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
           "500": {
-            "description": "Internal Server Error"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
     },
     "/api/v1/post-credit-scenes/{post_credit_scene_id}": {
       "get": {
+        "operationId": "getApiV1PostCreditScenesPostCreditSceneId",
         "tags": [
           "PostCreditScenes"
         ],
@@ -1240,7 +1209,8 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "example": 1
+              "example": 1,
+              "minimum": 1
             }
           }
         ],
@@ -1255,30 +1225,24 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "404": {
-            "description": "Post-credit scene not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Post-credit scene not found"
-                    }
-                  }
-                }
-              }
-            }
+            "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           },
           "500": {
-            "description": "Internal Server Error"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
     },
     "/api/v1/post-credit-scenes/movie/{movie_id}": {
       "get": {
+        "operationId": "getApiV1PostCreditScenesMovieMovieId",
         "tags": [
           "PostCreditScenes"
         ],
@@ -1292,7 +1256,8 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "example": 1
+              "example": 1,
+              "minimum": 1
             }
           }
         ],
@@ -1310,14 +1275,24 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
           "500": {
-            "description": "Internal Server Error"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
     },
     "/api/v1/post-credit-scenes/tvshow/{tvshow_id}": {
       "get": {
+        "operationId": "getApiV1PostCreditScenesTvshowTvshowId",
         "tags": [
           "PostCreditScenes"
         ],
@@ -1331,7 +1306,8 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "example": 1
+              "example": 1,
+              "minimum": 1
             }
           }
         ],
@@ -1349,14 +1325,24 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
           "500": {
-            "description": "Internal Server Error"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
     },
     "/api/v1/timeline": {
       "get": {
+        "operationId": "getApiV1Timeline",
         "tags": [
           "Timeline"
         ],
@@ -1388,14 +1374,21 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
           "500": {
-            "description": "Internal Server Error"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
     },
     "/api/v1/characters/{character_id}/movies": {
       "get": {
+        "operationId": "getApiV1CharactersCharacterIdMovies",
         "tags": [
           "Characters"
         ],
@@ -1409,7 +1402,8 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "example": 1
+              "example": 1,
+              "minimum": 1
             }
           }
         ],
@@ -1441,40 +1435,24 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "404": {
-            "description": "Character not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": {
-                      "type": "string"
-                    },
-                    "statusCode": {
-                      "type": "integer"
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  },
-                  "example": {
-                    "status": "Error",
-                    "statusCode": 404,
-                    "message": "Character not found"
-                  }
-                }
-              }
-            }
+            "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           },
           "500": {
-            "description": "Internal Server Error"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
     },
     "/api/v1/upcoming": {
       "get": {
+        "operationId": "getApiV1Upcoming",
         "tags": [
           "Upcoming"
         ],
@@ -1482,27 +1460,10 @@
         "description": "Titles whose release_date is strictly in the future, movies and TV shows merged into one list sorted by release_date ascending. Titles with no announced release_date (e.g. Blade, Ghost Rider, Your Friendly Neighborhood Spider-Man) are excluded — they remain reachable via /movies and /tvshows.",
         "parameters": [
           {
-            "name": "page",
-            "in": "query",
-            "description": "Page number for pagination",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "example": "1"
-            }
+            "$ref": "#/components/parameters/Page"
           },
           {
-            "name": "limit",
-            "in": "query",
-            "description": "Limit of items to return. Defaults to 10; values above 100 are capped at 100.",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "default": 10,
-              "minimum": 1,
-              "maximum": 100,
-              "example": 10
-            }
+            "$ref": "#/components/parameters/Limit"
           },
           {
             "name": "type",
@@ -1574,7 +1535,7 @@
                     },
                     "limit": {
                       "type": "integer",
-                      "description": "Items per page (present only when the limit query param is used)",
+                      "description": "Items per page (always present; defaults to 10)",
                       "example": 10
                     },
                     "_links": {
@@ -1590,14 +1551,21 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
           "500": {
-            "description": "Internal Server Error"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
     },
     "/api/v1/titles": {
       "get": {
+        "operationId": "getApiV1Titles",
         "tags": [
           "Titles"
         ],
@@ -1605,32 +1573,15 @@
         "description": "Movies and TV shows merged into one paged, filterable collection, joined in Postgres via UNION ALL. Unlike /upcoming, undated announced titles (e.g. Blade) are included, sorted last under the default release_date ascending order.",
         "parameters": [
           {
-            "name": "page",
-            "in": "query",
-            "description": "Page number for pagination",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "example": "1"
-            }
+            "$ref": "#/components/parameters/Page"
           },
           {
-            "name": "limit",
-            "in": "query",
-            "description": "Limit of items to return. Defaults to 10; values above 100 are capped at 100.",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "default": 10,
-              "minimum": 1,
-              "maximum": 100,
-              "example": 10
-            }
+            "$ref": "#/components/parameters/Limit"
           },
           {
             "name": "columns",
             "in": "query",
-            "description": "Comma-separated title properties to be returned. Unknown properties are ignored",
+            "description": "Comma-separated title properties to be returned. unsupported values return 400",
             "required": false,
             "schema": {
               "type": "string",
@@ -1640,7 +1591,7 @@
           {
             "name": "order",
             "in": "query",
-            "description": "Order by column and sorting type (ASC, DESC). Multiple clauses can be separated by semicolons; unknown columns are ignored. Defaults to release_date,ASC with undated titles sorted last.",
+            "description": "Order by column and sorting type (ASC, DESC). Multiple clauses can be separated by semicolons; unsupported values return 400. Defaults to release_date,ASC with undated titles sorted last.",
             "required": false,
             "schema": {
               "type": "string",
@@ -1650,7 +1601,7 @@
           {
             "name": "filter",
             "in": "query",
-            "description": "Filter by column=value. Multiple clauses can be separated by semicolons; unknown columns are ignored",
+            "description": "Filter by column=value. Multiple clauses can be separated by semicolons; unsupported values return 400",
             "required": false,
             "schema": {
               "type": "string",
@@ -1737,7 +1688,7 @@
                     },
                     "limit": {
                       "type": "integer",
-                      "description": "Items per page (present only when the limit query param is used)",
+                      "description": "Items per page (always present; defaults to 10)",
                       "example": 10
                     },
                     "_links": {
@@ -1753,14 +1704,21 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
           "500": {
-            "description": "Internal Server Error"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
     },
     "/api/v1/stats": {
       "get": {
+        "operationId": "getApiV1Stats",
         "tags": [
           "Stats"
         ],
@@ -1777,14 +1735,22 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
           "500": {
-            "description": "Internal Server Error"
+            "$ref": "#/components/responses/InternalServerError"
           }
-        }
+        },
+        "parameters": []
       }
     },
     "/api/v1/characters/{character_id}/tvshows": {
       "get": {
+        "operationId": "getApiV1CharactersCharacterIdTvshows",
         "tags": [
           "Characters"
         ],
@@ -1798,7 +1764,8 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "example": 1
+              "example": 1,
+              "minimum": 1
             }
           }
         ],
@@ -1830,34 +1797,17 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "404": {
-            "description": "Character not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": {
-                      "type": "string"
-                    },
-                    "statusCode": {
-                      "type": "integer"
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  },
-                  "example": {
-                    "status": "Error",
-                    "statusCode": 404,
-                    "message": "Character not found"
-                  }
-                }
-              }
-            }
+            "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           },
           "500": {
-            "description": "Internal Server Error"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
@@ -1871,8 +1821,7 @@
           "status": {
             "type": "string",
             "enum": [
-              "ok",
-              "degraded"
+              "ok"
             ],
             "example": "ok"
           },
@@ -2507,6 +2456,153 @@
           },
           "post_credit_scenes": {
             "href": "https://mcuapi.example.com/api/v1/post-credit-scenes/movie/1"
+          }
+        }
+      },
+      "Problem": {
+        "type": "object",
+        "required": [
+          "type",
+          "title",
+          "status",
+          "detail",
+          "instance"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "format": "uri-reference",
+            "example": "about:blank"
+          },
+          "title": {
+            "type": "string",
+            "example": "Bad Request"
+          },
+          "status": {
+            "type": "integer",
+            "example": 400
+          },
+          "detail": {
+            "type": "string",
+            "example": "page must be a positive integer"
+          },
+          "instance": {
+            "type": "string",
+            "example": "/api/v1/movies?page=0"
+          }
+        }
+      }
+    },
+    "parameters": {
+      "Page": {
+        "name": "page",
+        "in": "query",
+        "description": "Page number. Defaults to 1. Supplied values must be positive integers.",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "default": 1,
+          "minimum": 1,
+          "example": 1
+        }
+      },
+      "Limit": {
+        "name": "limit",
+        "in": "query",
+        "description": "Items per page. Defaults to 10; supplied values must be positive integers no greater than 100.",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "default": 10,
+          "minimum": 1,
+          "maximum": 100,
+          "example": 10
+        }
+      }
+    },
+    "responses": {
+      "BadRequest": {
+        "description": "Bad Request",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/Problem"
+            },
+            "example": {
+              "type": "about:blank",
+              "title": "Bad Request",
+              "status": 400,
+              "detail": "page must be a positive integer",
+              "instance": "/api/v1/movies"
+            }
+          }
+        }
+      },
+      "NotFound": {
+        "description": "Not Found",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/Problem"
+            },
+            "example": {
+              "type": "about:blank",
+              "title": "Not Found",
+              "status": 404,
+              "detail": "Not Found",
+              "instance": "/api/v1/movies"
+            }
+          }
+        }
+      },
+      "TooManyRequests": {
+        "description": "Too Many Requests",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/Problem"
+            },
+            "example": {
+              "type": "about:blank",
+              "title": "Too Many Requests",
+              "status": 429,
+              "detail": "Too many requests, please try again in a minute.",
+              "instance": "/api/v1/movies"
+            }
+          }
+        }
+      },
+      "InternalServerError": {
+        "description": "Internal Server Error",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/Problem"
+            },
+            "example": {
+              "type": "about:blank",
+              "title": "Internal Server Error",
+              "status": 500,
+              "detail": "Internal server error",
+              "instance": "/api/v1/movies"
+            }
+          }
+        }
+      },
+      "ServiceUnavailable": {
+        "description": "Service Unavailable",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/Problem"
+            },
+            "example": {
+              "type": "about:blank",
+              "title": "Service Unavailable",
+              "status": 503,
+              "detail": "Database is unavailable",
+              "instance": "/health"
+            }
           }
         }
       }

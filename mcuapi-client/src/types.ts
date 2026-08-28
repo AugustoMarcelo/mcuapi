@@ -7,6 +7,14 @@ export interface Link {
   href: string;
 }
 
+export interface Problem {
+  type: string;
+  title: string;
+  status: number;
+  detail: string;
+  instance: string;
+}
+
 export interface ResourceLinks {
   self?: Link;
   characters?: Link;
@@ -165,7 +173,7 @@ export interface Paginated<T> {
 }
 
 export interface Health {
-  status: 'ok' | 'degraded';
+  status: 'ok';
   version: string | null;
   uptime: number;
   database: 'up' | 'down';
