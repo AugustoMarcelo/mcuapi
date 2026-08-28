@@ -7,6 +7,7 @@ import {
   connectRateLimitStore,
   disconnectRateLimitStore,
 } from './rateLimitStore';
+import { nextDatabaseAttempt } from './databaseRetry';
 import { initializeDataSource } from '@shared/infra/typeorm';
 
 const port = process.env.PORT || 3333;
@@ -38,7 +39,7 @@ function assertProductionConfiguration(): void {
   }
 }
 
-async function initializeDatabaseWithRetry({
+export async function initializeDatabaseWithRetry({
   attempt,
 }: {
   attempt: number;
@@ -53,13 +54,15 @@ async function initializeDatabaseWithRetry({
   }
 
   if (attempt === DATABASE_CONNECTION_ATTEMPTS) {
-    process.exitCode = 1;
-    process.exit();
-    return;
+    process.stderr.write(
+      'database remains unavailable; serving liveness only\n',
+    );
   }
 
   setTimeout(() => {
-    void initializeDatabaseWithRetry({ attempt: attempt + 1 });
+    void initializeDatabaseWithRetry({
+      attempt: nextDatabaseAttempt({ attempt }),
+    });
   }, DATABASE_RETRY_DELAY_MS);
 }
 
@@ -72,8 +75,10 @@ function installRateLimitStoreShutdownHook(): void {
   process.once('SIGTERM', close);
 }
 
-void start().catch(error => {
-  process.stderr.write(`server startup failed: ${String(error)}\n`);
-  process.exitCode = 1;
-  process.exit();
-});
+if (process.env.NODE_ENV !== 'test') {
+  void start().catch(error => {
+    process.stderr.write(`server startup failed: ${String(error)}\n`);
+    process.exitCode = 1;
+    process.exit();
+  });
+}
