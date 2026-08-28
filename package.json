@@ -4,6 +4,7 @@
   "description": "A RESTFul API for MCU (Marvel Cinematic Universe)",
   "main": "index.js",
   "license": "MIT",
+  "packageManager": "yarn@1.22.22",
   "scripts": {
     "dev:server": "tsx watch --inspect -r tsconfig-paths/register src/shared/infra/http/server.ts",
     "start": "node dist/shared/infra/http/server.js",

@@ -2,7 +2,7 @@ name: Refresh data snapshot
 
 # The dataset is edited out-of-band through the MCP server, so the committed
 # mirror drifts silently. This regenerates it weekly and opens a PR only when
-# something actually changed — `npm run snapshot` is byte-stable otherwise.
+# something actually changed — `yarn snapshot` is byte-stable otherwise.
 #
 # It opens a PR rather than pushing, because the master ruleset requires one.
 
@@ -26,6 +26,9 @@ jobs:
         with:
           node-version: 22
           cache: yarn
+
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile

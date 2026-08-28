@@ -43,19 +43,19 @@ Activates automatically when Claude Code opens this repo, via the root `.mcp.jso
 
 ```bash
 cd mcuapi-mcp
-npm install
-npm run dev          # run against source with tsx
-npm run build        # bundle to dist/index.js — rerun after any change, then restart Claude Code
+yarn install
+yarn dev          # run against source with tsx
+yarn build        # bundle to dist/index.js — rerun after any change, then restart Claude Code
 ```
 
 ### Client (`mcuapi-client/`)
 
 ```bash
 cd mcuapi-client
-npm install
-npm test                                 # unit tests
-MCUAPI_E2E=1 npm run test:e2e            # hits the live API instead of fakes
-npm run build                            # tsup -> dist/ (ESM + CJS + .d.ts)
+yarn install
+yarn test                                 # unit tests
+MCUAPI_E2E=1 yarn test:e2e            # hits the live API instead of fakes
+yarn build                            # tsup -> dist/ (ESM + CJS + .d.ts)
 ```
 
 ### Landing page (`index.html`)
@@ -117,7 +117,7 @@ DB_HOST, DB_USER, DB_PASS, DB_NAME, NODE_ENV
 ```
 
 Root `.env` is **not pinned to local Postgres** — it currently points `DB_HOST` at the
-production Neon database with `NODE_ENV=production`, which is what lets `npm run start`
+production Neon database with `NODE_ENV=production`, which is what lets `yarn start`
 serve real data locally. That means migrations and `dev:server` all hit whatever `.env`
 currently says, production included, unless it's swapped first.
 

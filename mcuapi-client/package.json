@@ -1,8 +1,9 @@
 {
   "name": "mcuapi-client",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Typed client for MCUAPI — Marvel Cinematic Universe movies, TV shows, characters and chronological timeline. No API key required.",
   "license": "MIT",
+  "packageManager": "yarn@1.22.22",
   "author": "Marcelo Augusto",
   "homepage": "https://augustomarcelo.github.io/mcuapi/",
   "repository": {
@@ -48,7 +49,7 @@
     "typecheck": "tsc --noEmit",
     "test": "tsx --test test/*.test.ts",
     "test:e2e": "MCUAPI_E2E=1 tsx --test test/e2e.test.ts",
-    "prepublishOnly": "npm run typecheck && npm run test && npm run build"
+    "prepublishOnly": "tsc --noEmit && tsx --test test/*.test.ts && tsup"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
