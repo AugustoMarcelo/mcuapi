@@ -10,7 +10,11 @@ import {
   presentMovieCollection,
 } from '@modules/movies/infra/http/presenters/MoviePresenter';
 import { getBaseUrl } from '@shared/infra/http/hateoas';
-import { resolveLimit, resolvePage } from '@shared/infra/http/pagination';
+import {
+  resolveLimit,
+  resolvePage,
+  resolvePositiveInteger,
+} from '@shared/infra/http/pagination';
 import {
   resolveBoolean,
   resolveColumns,
@@ -96,11 +100,9 @@ export default class MoviesController {
 
     const showMovie = container.resolve(ShowMovieService);
 
-    const movie = await showMovie.execute({ movie_id: Number(movie_id) });
-
-    if (!movie) {
-      return response.status(404).json({ message: 'Movie not found' });
-    }
+    const movie = await showMovie.execute({
+      movie_id: resolvePositiveInteger({ value: movie_id, name: 'movie_id' }),
+    });
 
     return response.status(200).json(presentMovie(movie, getBaseUrl(request)));
   }

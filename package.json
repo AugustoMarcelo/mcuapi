@@ -29,6 +29,8 @@
     "express": "^5.2.1",
     "express-rate-limit": "^8.6.2",
     "pg": "^8.23.0",
+    "rate-limit-redis": "^4.3.0",
+    "redis": "^5.11.0",
     "reflect-metadata": "^0.2.2",
     "swagger-ui-express": "^5.0.1",
     "tsyringe": "^4.2.0",

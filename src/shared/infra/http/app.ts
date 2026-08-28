@@ -7,6 +7,9 @@ import rateLimit from 'express-rate-limit';
 import routes from './routes';
 import healthRouter from './routes/health.routes';
 import { metricsMiddleware } from './metrics';
+import { sendProblem } from './problem';
+import { createRateLimitStore } from './rateLimitStore';
+import { resolveTrustedProxyCidrs } from './trustedProxy';
 import swaggerUI from 'swagger-ui-express';
 import swaggerFile from '@config/swagger.json';
 import AppError from '@shared/errors/AppError';
@@ -20,7 +23,7 @@ const CACHE_MAX_AGE_SECONDS = 60 * 60;
 
 const app = express();
 
-app.set('trust proxy', 1);
+app.set('trust proxy', resolveTrustedProxyCidrs());
 app.disable('x-powered-by');
 
 app.use(cors());
@@ -36,11 +39,14 @@ app.use(
     limit: 100,
     standardHeaders: 'draft-7',
     legacyHeaders: false,
-    message: {
-      status: 'Error',
-      statusCode: 429,
-      message: 'Too many requests, please try again in a minute.',
-    },
+    store: createRateLimitStore(),
+    handler: (request, response) =>
+      sendProblem({
+        request,
+        response,
+        status: 429,
+        detail: 'Too many requests, please try again in a minute.',
+      }),
   }),
 );
 
@@ -67,22 +73,46 @@ app.use((request: Request, response: Response, next: NextFunction) => {
 
 app.use(routes);
 
+app.use((request: Request, response: Response) => {
+  return sendProblem({
+    request,
+    response,
+    status: 404,
+    detail: 'Route not found',
+  });
+});
+
 app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
-  // eslint-disable-next-line no-console -- last-resort server-side error log; no other sink exists here
-  console.error(err);
   if (err instanceof AppError) {
-    return response.status(err.statusCode).json({
-      status: 'Error',
-      statusCode: err.statusCode,
-      message: err.message,
+    return sendProblem({
+      request,
+      response,
+      status: err.statusCode,
+      detail: err.message,
     });
   }
 
-  return response.status(500).json({
-    status: 'Error',
-    statusCode: 500,
-    message: 'Internal server error',
+  if (err instanceof SyntaxError && isBadJsonError(err)) {
+    return sendProblem({
+      request,
+      response,
+      status: 400,
+      detail: 'Malformed JSON request body',
+    });
+  }
+
+  process.stderr.write(`${err.stack ?? err.message}\n`);
+
+  return sendProblem({
+    request,
+    response,
+    status: 500,
+    detail: 'Internal server error',
   });
 });
+
+function isBadJsonError(error: Error): boolean {
+  return (error as Error & { status?: unknown }).status === 400;
+}
 
 export default app;

@@ -88,7 +88,7 @@ describe('TVShowPresenter', () => {
     expect(collection.total).toBe(1);
     expect(collection.page).toBe(1);
     expect(collection._links.self).toEqual({
-      href: `${baseUrl}/api/v1/tvshows`,
+      href: `${baseUrl}/api/v1/tvshows?limit=10&page=1`,
     });
     expect(collection.data[0]._links.self).toEqual({
       href: `${baseUrl}/api/v1/tvshows/3`,

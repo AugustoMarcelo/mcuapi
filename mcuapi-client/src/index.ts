@@ -12,6 +12,7 @@ export type {
   Person,
   PersonListParams,
   PersonTitle,
+  Problem,
   PostCreditScene,
   PostCreditSceneListParams,
   ResourceLinks,

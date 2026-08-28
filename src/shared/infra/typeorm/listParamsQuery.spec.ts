@@ -3,6 +3,7 @@ import {
   buildOrderFromClauses,
   buildSelectFromColumns,
   buildWhereFromFilter,
+  withIdTieBreaker,
 } from './listParamsQuery';
 import { ColumnAllowList } from '@shared/infra/http/listParams';
 
@@ -131,5 +132,22 @@ describe('buildSelectFromColumns', () => {
       title: true,
       phase: true,
     });
+  });
+});
+
+describe('withIdTieBreaker', () => {
+  it('Should use ID ascending when no ordering was requested', () => {
+    expect(withIdTieBreaker(undefined)).toEqual({ id: 'ASC' });
+  });
+
+  it('Should append ID ascending after requested ordering', () => {
+    expect(withIdTieBreaker({ title: 'DESC' })).toEqual({
+      title: 'DESC',
+      id: 'ASC',
+    });
+  });
+
+  it('Should preserve an explicit ID direction', () => {
+    expect(withIdTieBreaker({ id: 'DESC' })).toEqual({ id: 'DESC' });
   });
 });
