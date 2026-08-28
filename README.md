@@ -100,7 +100,7 @@ Pin a tag instead of `@master` if you want a fixed dataset — `@3.0.0/data/movi
 
 The [landing page](https://augustomarcelo.github.io/mcuapi/) uses this mirror automatically: if a request to the live API fails, it re-resolves the same request against the mirror and shows a banner naming the mirror's `generated_at` date, rather than going blank.
 
-Regenerate it with `npm run snapshot`. The output is byte-stable when the data hasn't moved, so a no-op run leaves the tree clean.
+Regenerate it with `yarn snapshot`. The output is byte-stable when the data hasn't moved, so a no-op run leaves the tree clean.
 
 ## Usage & limits
 
@@ -134,7 +134,7 @@ Express · TypeScript · TypeORM · PostgreSQL — organized as Clean Architectu
 ```bash
 git clone https://github.com/AugustoMarcelo/mcuapi
 cd mcuapi
-npm install
+yarn install
 ```
 
 Create a `.env` from `.env.example` with your database credentials.
@@ -145,8 +145,8 @@ Create a `.env` from `.env.example` with your database credentials.
 ```bash
 # NODE_ENV=development in .env
 
-npm run typeorm:dev migration:run   # create tables
-npm run dev:server                  # start on port 3333 (hot-reload)
+yarn typeorm:dev migration:run   # create tables
+yarn dev:server                  # start on port 3333 (hot-reload)
 ```
 
 </details>
@@ -159,9 +159,9 @@ npm run dev:server                  # start on port 3333 (hot-reload)
 
 # REDIS_URL must reference Railway Redis.
 
-npm run typeorm migration:run       # create tables
-npm run build                       # compile to ./dist
-npm run start                       # start on port 3333
+yarn typeorm migration:run       # create tables
+yarn build                       # compile to ./dist
+yarn start                       # start on port 3333
 ```
 
 </details>

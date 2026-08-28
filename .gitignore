@@ -21,7 +21,7 @@ Initial Concept.md
 # Local data dumps and working files
 *.bak
 mcu_characters.json
-/package-lock.json
+package-lock.json
 
 # never commit any env variant (was: .env.local-backup exposed DB creds)
 .env.*

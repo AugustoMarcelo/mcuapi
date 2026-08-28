@@ -79,15 +79,15 @@ describe('movies.routes', () => {
 
 ## mcuapi-client — `node:test`
 
-- Runner: Node's built-in test runner via `tsx --test test/*.test.ts` (`npm test`), no Jest, no external assertion library — `node:assert/strict`.
+- Runner: Node's built-in test runner via `tsx --test test/*.test.ts` (`yarn test`), no Jest, no external assertion library — `node:assert/strict`.
 - Unit tests (`test/client.test.ts`) never hit the network: a local `stub(responses)` helper returns a fake `fetch` that records called URLs and replays canned `Response` objects, injected into `new MCUAPI({ fetch })`.
 - Fixture builders (e.g. `const movie = (id): Movie => ({...}) satisfies Movie`) type-check the fixture against the real exported type instead of casting.
 - `test('<behavior sentence>', async () => { ... })` — flat, no `describe` nesting.
-- `test/e2e.test.ts` hits the live API and only runs opted-in: `MCUAPI_E2E=1 npm run test:e2e`. Never required for a normal change; only run it when the change touches actual HTTP behavior against the real API.
-- `npm run typecheck` (`tsc --noEmit`) is a separate, required step — `npm run build` uses `tsup`/esbuild under the hood, which transpiles but does not type-check. `prepublishOnly` already chains `typecheck && test && build`; treat that chain as the reference gate order.
+- `test/e2e.test.ts` hits the live API and only runs opted-in: `MCUAPI_E2E=1 yarn test:e2e`. Never required for a normal change; only run it when the change touches actual HTTP behavior against the real API.
+- `yarn typecheck` (`tsc --noEmit`) is a separate, required step — `yarn build` uses `tsup`/esbuild under the hood, which transpiles but does not type-check. `prepublishOnly` runs the equivalent direct `typecheck && test && build` sequence; treat that order as the reference gate order.
 
 ## mcuapi-mcp — no wired test runner
 
-- `package.json` has no `test` script and no lint config. `npm run build` (esbuild) transpiles but, like the client's build, does **not** type-check — run `npx tsc --noEmit` (a `tsconfig.json` and `typescript` devDependency already exist) before relying on the build alone.
-- `delete-movie-tool.test.mjs` at the package root is a standalone manual smoke test (spawns `dist/index.js`, drives it over JSON-RPC on stdin, asserts on the response with `node:assert/strict`) — it is **not** wired into any npm script and does not run in CI. Treat it as a template for writing a similar manual check when adding or changing a tool, not as evidence that `npm test` exists.
+- `package.json` has no `test` script and no lint config. `yarn build` (esbuild) transpiles but, like the client's build, does **not** type-check — run `yarn tsc --noEmit` (a `tsconfig.json` and `typescript` devDependency already exist) before relying on the build alone.
+- `delete-movie-tool.test.mjs` at the package root is a standalone manual smoke test (spawns `dist/index.js`, drives it over JSON-RPC on stdin, asserts on the response with `node:assert/strict`) — it is **not** wired into a package script and does not run in CI. Treat it as a template for writing a similar manual check when adding or changing a tool, not as evidence that a test script exists.
 - If a change here is significant enough to need a regression test, follow that file's shape (spawn the built server, send JSON-RPC requests, assert on the response) and say explicitly that it was run by hand — don't imply it runs automatically.
