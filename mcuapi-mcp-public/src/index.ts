@@ -4,6 +4,7 @@ import { MCUAPI } from 'mcuapi-client';
 import { realpathSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { z } from 'zod';
+import packageJson from '../package.json' with { type: 'json' };
 
 const pageSchema = z.number().int().positive().optional();
 const limitSchema = z.number().int().min(1).max(100).optional();
@@ -56,7 +57,7 @@ export interface CreateServerOptions {
 
 export function createServer(options: CreateServerOptions = {}): McpServer {
   const client = new MCUAPI({ baseUrl: options.baseUrl ?? process.env.MCUAPI_BASE_URL });
-  const server = new McpServer({ name: 'mcuapi-mcp-public', version: '1.0.0' });
+  const server = new McpServer({ name: 'mcuapi-mcp-public', version: packageJson.version });
 
   server.registerTool(
     'get_health',

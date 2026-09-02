@@ -7,6 +7,7 @@
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
+    "resolveJsonModule": true,
     "skipLibCheck": true,
     "verbatimModuleSyntax": true
   },

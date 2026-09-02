@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
-import { mkdtemp, rm, symlink } from 'node:fs/promises';
+import { mkdtemp, readFile, rm, symlink } from 'node:fs/promises';
 import { createServer, type IncomingMessage, type Server, type ServerResponse } from 'node:http';
 import { once } from 'node:events';
 import { join, resolve } from 'node:path';
@@ -43,8 +43,8 @@ class McpSession {
     });
   }
 
-  async initialize(): Promise<void> {
-    await this.request('initialize', {
+  async initialize(): Promise<unknown> {
+    const result = await this.request('initialize', {
       protocolVersion: '2025-06-18',
       capabilities: {},
       clientInfo: { name: 'test', version: '1.0.0' },
@@ -54,6 +54,7 @@ class McpSession {
       method: 'notifications/initialized',
       params: {},
     })}\n`);
+    return result;
   }
 
   async request(method: string, params: unknown): Promise<unknown> {
@@ -118,6 +119,22 @@ function toolResult(result: unknown): ToolCallResult {
   return { content, isError: result.isError };
 }
 
+async function packageVersion(): Promise<string> {
+  const packageJson: unknown = JSON.parse(
+    await readFile(resolve(process.cwd(), 'package.json'), 'utf8'),
+  );
+  assert.ok(isRecord(packageJson));
+  assert.ok(typeof packageJson.version === 'string');
+  return packageJson.version;
+}
+
+function serverVersion(result: unknown): string {
+  assert.ok(isRecord(result));
+  assert.ok(isRecord(result.serverInfo));
+  assert.ok(typeof result.serverInfo.version === 'string');
+  return result.serverInfo.version;
+}
+
 function startApi(
   handler: (request: IncomingMessage, response: ServerResponse) => void,
 ): Promise<{ baseUrl: string; close: () => Promise<void> }> {
@@ -144,7 +161,8 @@ test('lists only read tools and calls public API through base-URL override', asy
   const session = new McpSession(api.baseUrl, bin.entry);
 
   try {
-    await session.initialize();
+    const initialization = await session.initialize();
+    assert.equal(serverVersion(initialization), await packageVersion());
     const names = tools(await session.request('tools/list', {})).map(tool => tool.name);
 
     assert.deepEqual(names, [
