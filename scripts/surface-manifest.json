@@ -43,6 +43,13 @@
         "snapshot": "a derived view over movies.json + tvshows.json; a third static file would just duplicate them (see #67)",
         "mcp": "MCP is the write surface (direct Postgres); search_content and get_timeline already cover cross-type reads (see #67)"
       }
+    },
+    "search": {
+      "in": ["swagger", "console", "client", "llms", "readme", "mcp"],
+      "exempt": {
+        "snapshot": "query-dependent — pg_trgm-ranked results over live data can't be served from a static file (see #68)"
+      },
+      "singular": "search"
     }
   }
 }

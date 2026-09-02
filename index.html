@@ -1987,6 +1987,11 @@ npm i mcuapi-client
       if (path === 'timeline') { return load('timeline'); }
       if (path === 'upcoming') { return upcoming(params); }
       if (path === 'stats') { return stats(); }
+      if (path === 'search') {
+        var searchErr = new Error(NO_JOIN);
+        searchErr.mirrorNoJoin = true;
+        return Promise.reject(searchErr);
+      }
 
       for (var i = 0; i < NO_JOIN_ROUTES.length; i++) {
         if (NO_JOIN_ROUTES[i].test(path)) {
@@ -2326,6 +2331,7 @@ npm i mcuapi-client
   var BASIC_LIST_PARAMS = ['page', 'limit', 'columns', 'order', 'filter'];
   var UPCOMING_PARAMS = ['page', 'limit', 'type', 'continuity', 'multiverse_designation', 'is_mcu'];
   var TITLES_PARAMS = LIST_PARAMS.concat(['type']);
+  var SEARCH_PARAMS = ['q', 'type', 'page', 'limit'];
 
   var ENDPOINTS = [
     { path: '/api/v1/movies',                    label: '/movies',                    params: LIST_PARAMS, defaults: { limit: '5', page: '1' } },
@@ -2349,6 +2355,7 @@ npm i mcuapi-client
     { path: '/api/v1/timeline',                  label: '/timeline',                  params: ['multiverse'] },
     { path: '/api/v1/upcoming',                  label: '/upcoming',                  params: UPCOMING_PARAMS, defaults: { limit: '5', page: '1' } },
     { path: '/api/v1/titles',                    label: '/titles',                    params: TITLES_PARAMS, defaults: { limit: '5', page: '1' } },
+    { path: '/api/v1/search',                    label: '/search',                    params: SEARCH_PARAMS, defaults: { q: 'Iron Man', limit: '5' } },
     { path: '/health',                           label: '/health' }
   ];
 
@@ -2362,8 +2369,9 @@ npm i mcuapi-client
     multiverse_designation: { ph: 'Earth-616',              hint: '', wide: true },
     is_mcu:                 { ph: 'true',                   hint: 'true | false' },
     studio:                 { ph: 'Marvel Studios',         hint: '' },
-    type:                   { ph: 'movie',                  hint: 'movie | tvshow' },
-    multiverse:             { ph: 'Earth-10005',            hint: 'designation of one branch', wide: true }
+    type:                   { ph: 'movie',                  hint: 'movie | tvshow (also character | person on /search)' },
+    multiverse:             { ph: 'Earth-10005',            hint: 'designation of one branch', wide: true },
+    q:                      { ph: 'Iron Man',                hint: 'search text · typo-tolerant', wide: true }
   };
 
   var current = ENDPOINTS[0];
@@ -2791,35 +2799,12 @@ npm i mcuapi-client
       panel = null;
       out.textContent = 'Searching name and alias for “' + q + '”…';
 
-      // filter= supports multiple ;-separated clauses, but they're ANDed — there's
-      // no way to ask for name OR alias in one call, so this is still two requests
-      // merged here. Hero names live on alias: "Spider-Man" matches nothing by
-      // name and three Peter Parkers by alias.
-      var hit = function (field) {
-        return fetchWithMirror(V1 + '/characters?filter=' + field + '=' + encodeURIComponent(q) + '&limit=8')
-          .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
-          .then(function (j) { return { ok: true, rows: (j && j.data) || [] }; })
-          .catch(function () { return { ok: false, rows: [] }; });
-      };
-
-      Promise.all([hit('name'), hit('alias')])
-        .then(function (res) {
+      fetchWithMirror(V1 + '/search?type=character&limit=8&q=' + encodeURIComponent(q))
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+        .then(function (j) {
           if (mine !== token) { return; }
 
-          // both legs down is a real outage; one leg down is still a usable result
-          if (!res[0].ok && !res[1].ok) {
-            src.textContent = 'unreachable';
-            out.textContent = 'Could not reach the API just now — the console above hits the same host.';
-            return;
-          }
-
-          // name matches lead, then alias-only ones; a record can match both
-          var seen = {};
-          var list = res[0].rows.concat(res[1].rows).filter(function (c) {
-            if (c == null || seen[c.id]) { return false; }
-            seen[c.id] = true;
-            return true;
-          }).slice(0, 8);
+          var list = (j && j.data) || [];
           src.textContent = list.length + (list.length === 1 ? ' record' : ' records') +
                             ' matching name or alias · live';
 
@@ -2853,6 +2838,14 @@ npm i mcuapi-client
           });
 
           select(first.row, first.c);
+        })
+        .catch(function (err) {
+          if (mine !== token) { return; }
+
+          src.textContent = 'unreachable';
+          out.textContent = (err && err.mirrorNoJoin)
+            ? 'Search isn\'t available in the static mirror — try again once the API is back.'
+            : 'Could not reach the API just now — the console above hits the same host.';
         });
     }
 

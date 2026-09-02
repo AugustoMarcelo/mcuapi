@@ -65,6 +65,17 @@ Unlike Steps 1-2, this runs once for the entire branch diff, not per sub-project
 `index.html` has no lint/typecheck/test/build — the only gate is manually driving it in a browser (see the repo's `run` skill for the headless-Chromium pattern). That verification is not optional and its evidence belongs in the PR itself:
 
 - Any PR touching `index.html` must attach at least one **screenshot** of the changed area rendered, and a **screen recording/video** for anything interactive (the live console, search boxes, nav/scroll behavior, hover states) — not just a written description of what was checked.
-- Attach these directly to the PR body/comment (drag-and-drop in the GitHub UI, or `gh pr comment --body-file` referencing local capture output) so a reviewer can see the actual result without re-running the page themselves.
+- Attach these directly to the PR via the `gh image` extension (`drogers0/gh-image`, installed) — it uploads to `github.com/user-attachments` and prints the markdown `![]()`/link to paste into `gh pr comment --body`. There is no other CLI/API path to embed media in a PR: `gh gist create` rejects binary files, and plain markdown/`data:` URIs don't render on GitHub.
+  ```bash
+  gh image path/to/screenshot.png path/to/other.png   # prints one ![]() line per file
+  gh image path/to/clip.mp4                            # prints one bare link
+  ```
+  Paste the printed output directly into a `gh pr comment --body "$(cat <<'EOF' ... EOF)"` call.
+- **Video must be `.mp4`, not `.webm`** — Playwright's `recordVideo` produces `.webm`, which `gh image` rejects (422, unsupported content type). Convert first. A full ffmpeg with libx264 usually isn't preinstalled and Playwright's own bundled `ffmpeg` binary is stripped down to VP8/webm-only (no mp4 encoder); pull a real static one instead:
+  ```bash
+  npm install ffmpeg-static   # in a scratch dir — self-contained, ~76MB binary
+  ./node_modules/ffmpeg-static/ffmpeg -y -i clip.webm -c:v libx264 -pix_fmt yuv420p -movflags +faststart clip.mp4
+  ```
+- If `gh image` is ever not installed, tell the user rather than falling back to a written-only description — installing it (`gh extension install drogers0/gh-image`) is a one-time step and this repo already has it.
 
 *Done when:* the PR contains embedded screenshot(s) for static changes and a video for interactive ones, alongside the text description of what was verified.

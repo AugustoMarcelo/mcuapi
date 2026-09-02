@@ -10,6 +10,8 @@ import type {
   PersonTitle,
   PostCreditScene,
   PostCreditSceneListParams,
+  SearchHit,
+  SearchParams,
   Stats,
   TVShow,
   TimelineGroup,
@@ -323,6 +325,21 @@ export class MCUAPI {
       this.paginate<TitleItem>(
         '/api/v1/titles',
         params as Record<string, QueryValue>,
+        options,
+      ),
+  };
+
+  readonly search = {
+    list: (params: SearchParams, options?: RequestOptions) =>
+      this.request<Paginated<SearchHit>>(
+        `/api/v1/search${toQuery(params as unknown as Record<string, QueryValue>)}`,
+        options,
+      ),
+
+    all: (params: SearchParams, options?: RequestOptions) =>
+      this.paginate<SearchHit>(
+        '/api/v1/search',
+        params as unknown as Record<string, QueryValue>,
         options,
       ),
   };

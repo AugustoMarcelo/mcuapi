@@ -283,3 +283,16 @@ export interface Stats {
   last_updated: string | null;
   _links?: ResourceLinks;
 }
+
+export type SearchHit =
+  | (Movie & { type: 'movie' })
+  | (TVShow & { type: 'tvshow' })
+  | (Character & { type: 'character' })
+  | (Person & { type: 'person' });
+
+export interface SearchParams {
+  q: string;
+  type?: 'movie' | 'tvshow' | 'character' | 'person';
+  page?: number;
+  limit?: number;
+}

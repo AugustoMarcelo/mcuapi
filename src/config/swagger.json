@@ -1811,6 +1811,170 @@
           }
         }
       }
+    },
+    "/api/v1/search": {
+      "get": {
+        "tags": [
+          "Search"
+        ],
+        "summary": "Search across movies, tvshows, characters, and people",
+        "description": "Unified search over movies, tvshows, characters (name and alias), and people, ranked in Postgres by pg_trgm similarity() (typo-tolerant) then by title/name. Each hit carries the same full presented record and _links as its own resource endpoint, tagged with a type discriminator.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Search text. Required.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Iron Man"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Narrow to a single content type. Defaults to searching all four.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "movie",
+                "tvshow",
+                "character",
+                "person"
+              ],
+              "example": "character"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": "1"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit of items to return. Defaults to 10; values above 100 are capped at 100.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1,
+              "maximum": 100,
+              "example": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "allOf": [
+                          {
+                            "anyOf": [
+                              {
+                                "$ref": "#/components/schemas/Movie"
+                              },
+                              {
+                                "$ref": "#/components/schemas/TVShow"
+                              },
+                              {
+                                "$ref": "#/components/schemas/Character"
+                              },
+                              {
+                                "$ref": "#/components/schemas/Person"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "enum": [
+                                  "movie",
+                                  "tvshow",
+                                  "character",
+                                  "person"
+                                ],
+                                "description": "Content type discriminator",
+                                "example": "movie"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "total": {
+                      "type": "integer",
+                      "description": "Total of hits matching the query"
+                    },
+                    "page": {
+                      "type": "integer",
+                      "description": "Current page (1 when not paginated)",
+                      "example": 1
+                    },
+                    "limit": {
+                      "type": "integer",
+                      "description": "Items per page (present only when the limit query param is used)",
+                      "example": 10
+                    },
+                    "_links": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/ResourceLinks"
+                        }
+                      ],
+                      "description": "Collection links: self, first, last, and prev/next when applicable. All original query params are preserved."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing q",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "status": "Error",
+                    "statusCode": 400,
+                    "message": "q is required"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
     }
   },
   "components": {

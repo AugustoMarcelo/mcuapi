@@ -452,6 +452,75 @@ test('titles.all() paginates the merged movies/tvshows list', async () => {
   assert.equal(calls.length, 2);
 });
 
+test('search.list() hits /api/v1/search and serialises q and type', async () => {
+  const character = {
+    id: 2,
+    type: 'character' as const,
+    name: 'Tony Stark',
+    alias: 'Iron Man',
+    description: null,
+    image_url: null,
+    played_by: 'Robert Downey Jr.',
+    continuity: 'MCU',
+    multiverse_designation: 'Earth-616',
+    variant_of: null,
+    first_appearance_movie_id: 1,
+    first_appearance_tvshow_id: null,
+    created_at: '2026-01-01T00:00:00.000Z',
+    updated_at: '2026-01-01T00:00:00.000Z',
+  };
+
+  const { fetch, calls } = stub([
+    { body: { data: [character], total: 1, page: 1, limit: 10 } },
+  ]);
+
+  const { data } = await new MCUAPI({ fetch }).search.list({
+    q: 'Iron Man',
+    type: 'character',
+  });
+
+  const url = new URL(calls[0]!);
+  assert.equal(url.pathname, '/api/v1/search');
+  assert.equal(url.searchParams.get('q'), 'Iron Man');
+  assert.equal(url.searchParams.get('type'), 'character');
+  assert.equal(data[0]!.type, 'character');
+});
+
+test('search.all() paginates hits mixed across types', async () => {
+  const page = (
+    hits: Array<{ id: number; type: 'movie' | 'person' }>,
+    next?: string,
+  ): Paginated<unknown> => ({
+    data: hits.map(hit =>
+      hit.type === 'movie'
+        ? movie(hit.id)
+        : { id: hit.id, type: 'person', name: `Person ${hit.id}`, created_at: '', updated_at: '' },
+    ),
+    total: 2,
+    page: 1,
+    limit: 1,
+    _links: next ? { next: { href: next } } : {},
+  });
+
+  const { fetch, calls } = stub([
+    {
+      body: page(
+        [{ id: 1, type: 'movie' }],
+        'https://mcuapi.up.railway.app/api/v1/search?q=Iron&limit=1&page=2',
+      ),
+    },
+    { body: page([{ id: 3, type: 'person' }]) },
+  ]);
+
+  const seen: string[] = [];
+  for await (const hit of new MCUAPI({ fetch }).search.all({ q: 'Iron' })) {
+    seen.push(hit.type);
+  }
+
+  assert.deepEqual(seen, ['movie', 'person']);
+  assert.equal(calls.length, 2);
+});
+
 test('stats.get() hits /api/v1/stats', async () => {
   const stats: Stats = {
     movies: 74,

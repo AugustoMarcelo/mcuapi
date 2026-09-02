@@ -49,6 +49,7 @@ List endpoints return `page`, `limit`, and collection `_links` (`self`, `first`,
 | `GET /timeline` | Chronological ordering across continuities, independent of release date |
 | `GET /upcoming` | Movies and TV shows whose `release_date` is strictly in the future, merged and sorted ascending. Titles with no announced release date are excluded. |
 | `GET /titles` | Movies and TV shows merged into one paged, filterable collection (joined in Postgres via `UNION ALL`). Same filters as `/movies`/`/tvshows`, plus `type`. Unlike `/upcoming`, undated titles are included and sorted last. |
+| `GET /search?q=` | Unified typo-tolerant search across movies, TV shows, characters (name and alias), and people, ranked in Postgres by `pg_trgm` `similarity()`. `?type=` narrows to one content type; each hit is the same full presented record as its own resource endpoint. |
 | `GET /stats` | Dataset-wide counts — movies, tvshows, characters, people, titles, and distinct continuities/designations |
 
 > [!TIP]

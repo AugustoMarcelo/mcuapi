@@ -82,6 +82,8 @@ const cast = await mcu.follow(movie._links!.characters!);
 | `mcu.upcoming.all(params?)` | `AsyncGenerator<UpcomingItem>` |
 | `mcu.titles.list(params?)` | `Paginated<TitleItem>` |
 | `mcu.titles.all(params?)` | `AsyncGenerator<TitleItem>` |
+| `mcu.search.list(params)` | `Paginated<SearchHit>` |
+| `mcu.search.all(params)` | `AsyncGenerator<SearchHit>` |
 | `mcu.stats.get()` | `Stats` |
 | `mcu.health()` | `Health` |
 | `mcu.follow(link)` | whatever the link points at |

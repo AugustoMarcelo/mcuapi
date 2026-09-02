@@ -16,6 +16,8 @@ export type {
   PostCreditScene,
   PostCreditSceneListParams,
   ResourceLinks,
+  SearchHit,
+  SearchParams,
   Stats,
   TimelineEntry,
   TimelineGroup,
