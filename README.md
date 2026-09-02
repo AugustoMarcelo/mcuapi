@@ -81,6 +81,23 @@ for await (const character of mcu.characters.all()) {
 
 It's entirely optional — the API needs no client — but the types are derived from real production responses, so they catch things the entity definitions don't. `box_office` is a `string` (Postgres returns `bigint` as a string), and most fields are genuinely nullable.
 
+## MCP server
+
+[`mcuapi-mcp-public`](mcuapi-mcp-public/) exposes the complete public read API to MCP clients over stdio. It is read-only, uses `mcuapi-client`, and never connects to PostgreSQL.
+
+```json
+{
+  "mcpServers": {
+    "mcuapi": {
+      "command": "npx",
+      "args": ["-y", "mcuapi-mcp-public"]
+    }
+  }
+}
+```
+
+See its [setup documentation](mcuapi-mcp-public/README.md) for a development base-URL override.
+
 ## Static mirror (CDN)
 
 The whole dataset is also committed to [`data/`](data) and served over jsDelivr, so it stays reachable even if the API is down — and it doesn't count against the rate limit.
