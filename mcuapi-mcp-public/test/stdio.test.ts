@@ -1,10 +1,13 @@
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
+import { mkdtemp, rm, symlink } from 'node:fs/promises';
 import { createServer, type IncomingMessage, type Server, type ServerResponse } from 'node:http';
 import { once } from 'node:events';
+import { join, resolve } from 'node:path';
 import { test } from 'node:test';
 import { createInterface } from 'node:readline';
 import type { AddressInfo } from 'node:net';
+import { tmpdir } from 'node:os';
 
 interface RpcResponse {
   id: number;
@@ -25,8 +28,8 @@ class McpSession {
 
   private nextId = 1;
 
-  constructor(baseUrl: string) {
-    this.child = spawn(process.execPath, ['node_modules/.bin/tsx', 'src/index.ts'], {
+  constructor(baseUrl: string, entry: string) {
+    this.child = spawn(process.execPath, [entry], {
       cwd: process.cwd(),
       env: { ...process.env, MCUAPI_BASE_URL: baseUrl },
       stdio: ['pipe', 'pipe', 'pipe'],
@@ -60,14 +63,32 @@ class McpSession {
     const result = response
       ? Promise.resolve(response)
       : new Promise<RpcResponse>(resolve => this.waiters.push(resolve));
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const timeout = new Promise<never>((_resolve, reject) => {
+      timer = setTimeout(() => reject(new Error(`${method} timed out`)), 2_000);
+    });
     this.child.stdin.write(`${JSON.stringify({ jsonrpc: '2.0', id, method, params })}\n`);
-    return (await result).result;
+    try {
+      return (await Promise.race([result, timeout])).result;
+    } finally {
+      if (timer !== undefined) clearTimeout(timer);
+    }
   }
 
   async close(): Promise<void> {
+    if (this.child.exitCode !== null || this.child.signalCode !== null) return;
+    const exited = once(this.child, 'exit');
     this.child.kill();
-    await once(this.child, 'exit');
+    await exited;
   }
+}
+
+async function linkedBin(): Promise<{ entry: string; cleanup: () => Promise<void> }> {
+  const directory = await mkdtemp(join(tmpdir(), 'mcuapi-mcp-public-'));
+  const entry = join(directory, 'mcuapi-mcp-public');
+  await symlink(resolve(process.cwd(), 'dist/index.js'), entry);
+
+  return { entry, cleanup: () => rm(directory, { recursive: true, force: true }) };
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -119,7 +140,8 @@ test('lists only read tools and calls public API through base-URL override', asy
     response.setHeader('content-type', 'application/json');
     response.end(JSON.stringify({ data: [{ id: 1, title: 'Iron Man' }], total: 1, page: 1, limit: 2 }));
   });
-  const session = new McpSession(api.baseUrl);
+  const bin = await linkedBin();
+  const session = new McpSession(api.baseUrl, bin.entry);
 
   try {
     await session.initialize();
@@ -165,6 +187,7 @@ test('lists only read tools and calls public API through base-URL override', asy
   } finally {
     await session.close();
     await api.close();
+    await bin.cleanup();
   }
 });
 
@@ -174,7 +197,8 @@ test('returns public API errors to MCP callers', async () => {
     response.setHeader('content-type', 'application/json');
     response.end(JSON.stringify({ detail: 'Movie not found' }));
   });
-  const session = new McpSession(api.baseUrl);
+  const bin = await linkedBin();
+  const session = new McpSession(api.baseUrl, bin.entry);
 
   try {
     await session.initialize();
@@ -191,5 +215,6 @@ test('returns public API errors to MCP callers', async () => {
   } finally {
     await session.close();
     await api.close();
+    await bin.cleanup();
   }
 });

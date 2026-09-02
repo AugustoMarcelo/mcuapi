@@ -1,6 +1,6 @@
 {
   "name": "mcuapi-mcp-public",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Read-only MCP server for the public MCUAPI",
   "license": "MIT",
   "packageManager": "yarn@1.22.22",
@@ -38,7 +38,7 @@
     "start": "node dist/index.js",
     "dev": "tsx src/index.ts",
     "typecheck": "tsc --noEmit",
-    "test": "tsx --test test/*.test.ts",
+    "test": "yarn build && tsx --test test/*.test.ts",
     "prepublishOnly": "yarn typecheck && yarn test && yarn build"
   },
   "dependencies": {
