@@ -28,6 +28,7 @@ Health check: https://mcuapi.up.railway.app/health
 - Responses include HAL-style `_links` for hypermedia navigation and are cacheable via `ETag`/`Cache-Control`.
 - Full request/response schemas: see the OpenAPI spec above.
 - A typed TypeScript client is published as `mcuapi-client` on npm.
+- A public read-only MCP server is available as `mcuapi-mcp-public`. Run it over stdio with `npx -y mcuapi-mcp-public`; setup and the development base-URL override are documented at `mcuapi-mcp-public/README.md` in the repository.
 - The whole dataset is also mirrored as static JSON on jsDelivr — see the README for URLs.
 
 ## Source

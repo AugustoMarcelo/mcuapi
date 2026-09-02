@@ -93,3 +93,34 @@ jobs:
       - name: Build
         working-directory: mcuapi-mcp
         run: yarn build
+
+  public-mcp:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: yarn
+          cache-dependency-path: mcuapi-mcp-public/yarn.lock
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        working-directory: mcuapi-mcp-public
+        run: yarn install --frozen-lockfile
+
+      - name: Typecheck
+        working-directory: mcuapi-mcp-public
+        run: yarn typecheck
+
+      - name: Test
+        working-directory: mcuapi-mcp-public
+        run: yarn test
+
+      - name: Build
+        working-directory: mcuapi-mcp-public
+        run: yarn build

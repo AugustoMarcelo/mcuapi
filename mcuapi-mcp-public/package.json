@@ -1,0 +1,55 @@
+{
+  "name": "mcuapi-mcp-public",
+  "version": "1.0.0",
+  "description": "Read-only MCP server for the public MCUAPI",
+  "license": "MIT",
+  "packageManager": "yarn@1.22.22",
+  "author": "Marcelo Augusto",
+  "homepage": "https://augustomarcelo.github.io/mcuapi/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AugustoMarcelo/mcuapi.git",
+    "directory": "mcuapi-mcp-public"
+  },
+  "bugs": {
+    "url": "https://github.com/AugustoMarcelo/mcuapi/issues"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "marvel",
+    "mcu",
+    "api"
+  ],
+  "type": "module",
+  "main": "./dist/index.js",
+  "bin": {
+    "mcuapi-mcp-public": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --platform=node --target=node20 --format=esm --banner:js='#!/usr/bin/env node' --outfile=dist/index.js --external:@modelcontextprotocol/sdk --external:mcuapi-client --external:zod",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test test/*.test.ts",
+    "prepublishOnly": "yarn typecheck && yarn test && yarn build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "mcuapi-client": "^2.1.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "esbuild": "^0.28.2",
+    "tsx": "^4.20.4",
+    "typescript": "^5.0.0"
+  }
+}
