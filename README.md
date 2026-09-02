@@ -93,9 +93,13 @@ https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/people.json
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/post-credit-scenes.json
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/timeline.json
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/index.json
+https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/changelog.json
+https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/changelog.xml
 ```
 
-Each file is a plain array of the same records the API returns, `_links` included. `index.json` carries the record counts, a `generated_at` timestamp and a `content_hash`.
+Each dataset file is a plain array of the same records the API returns, `_links` included. `index.json` carries the record counts, a `generated_at` timestamp and a `content_hash`.
+
+`changelog.json` retains each changed refresh, classifying records as added, removed, or changed and including field-level before/after values. `changelog.xml` is the same history as an RSS feed. Link fields are omitted from change detection because they are derived from the API base URL rather than dataset content.
 
 Pin a tag instead of `@master` if you want a fixed dataset — `@3.0.0/data/movies.json` will never change. `@master` is refreshed weekly and cached by the CDN for up to 12 hours.
 

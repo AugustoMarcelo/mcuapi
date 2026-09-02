@@ -36,6 +36,9 @@ jobs:
       - name: Rebuild the snapshot
         run: yarn snapshot
 
+      - name: Build snapshot changelog
+        run: yarn snapshot:changelog
+
       - name: Open a PR if the data moved
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -69,7 +72,8 @@ jobs:
           Raised because the dataset changed since the last snapshot — the
           generator is byte-stable when nothing moved, so this PR only exists
           when there is a real difference. `data/index.json` carries the new
-          counts, `generated_at` and `content_hash`.
+          counts, `generated_at` and `content_hash`. `data/changelog.json` and
+          `data/changelog.xml` describe the records changed since the prior refresh.
 
           Worth a glance at the diff before merging: an unexpected drop in record
           counts would mean the API served a partial response rather than that
