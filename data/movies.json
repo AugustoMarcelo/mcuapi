@@ -1125,7 +1125,7 @@
     "id": 34,
     "title": "Captain America: Brave New World",
     "release_date": "2025-02-14",
-    "box_office": "413640021",
+    "box_office": "415101577",
     "duration": 118,
     "overview": "Anthony Mackie returns as the high-flying hero Sam Wilson, who’s officially taken up the mantle of Captain America. After meeting with newly elected U.S. President Thaddeus Ross, Sam finds himself in the middle of an international incident. He must discover the reason behind a nefarious global plot before the true mastermind has the entire world seeing red.",
     "cover_url": "https://res.cloudinary.com/augustomarcelo/image/upload/v1737318872/mcuapi/gallery/Movies/captain_america_brave_new_order/posters/3.jpg",
@@ -1142,7 +1142,7 @@
     "is_mcu": true,
     "type": "movie",
     "timeline_chronology_order": 88,
-    "updated_at": "2026-07-21T19:20:05.676Z",
+    "updated_at": "2026-08-18T18:39:42.940Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/movies/34"
@@ -1159,7 +1159,7 @@
     "id": 35,
     "title": "Thunderbolts*",
     "release_date": "2025-05-02",
-    "box_office": "382436365",
+    "box_office": "382436917",
     "duration": 126,
     "overview": "Marvel Studios assembles an unconventional team of antiheroes—Yelena Belova, Bucky Barnes, Red Guardian, Ghost, Taskmaster and John Walker. After finding themselves ensnared in a death trap set by Valentina Allegra de Fontaine, these disillusioned castoffs must embark on a dangerous mission that will force them to confront the darkest corners of their pasts. Will this dysfunctional group tear themselves apart, or find redemption and unite as something much more before it’s too late?",
     "cover_url": "https://cdn.marvel.com/content/2x/thenewavengers_lob_crd_01.jpg",
@@ -1176,7 +1176,7 @@
     "is_mcu": true,
     "type": "movie",
     "timeline_chronology_order": 89,
-    "updated_at": "2025-08-09T23:13:06.532Z",
+    "updated_at": "2026-08-18T20:22:04.116Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/movies/35"
@@ -1229,7 +1229,7 @@
     "release_date": "2024-07-26",
     "box_office": "1338071348",
     "duration": 137,
-    "overview": "Deadpool's peaceful existence comes crashing down when the Time Variance Authority recruits him to help safeguard the multiverse. He soon unites with his would-be pal, Wolverine, to complete the mission and save his world from an existential threat",
+    "overview": "Wade Wilson has left his past as the morally flexible mercenary Deadpool behind him, until he suddenly finds himself in a fight for the survival of his homeworld and must suit up again—and convince a reluctant Wolverine to help him.",
     "cover_url": "https://res.cloudinary.com/augustomarcelo/image/upload/v1723381548/mcuapi/gallery/Movies/deadpool_3/posters/3.jpg",
     "trailer_url": "https://youtu.be/Idh8n5XuYIA",
     "directed_by": "Shawn Levy",
@@ -1244,7 +1244,7 @@
     "is_mcu": true,
     "type": "movie",
     "timeline_chronology_order": 83,
-    "updated_at": "2025-04-21T17:16:42.411Z",
+    "updated_at": "2026-08-18T20:04:15.729Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/movies/37"
@@ -1261,9 +1261,9 @@
     "id": 38,
     "title": "The Fantastic Four: First Steps",
     "release_date": "2025-07-25",
-    "box_office": "520431599",
+    "box_office": "521858728",
     "duration": 115,
-    "overview": "Set against the vibrant backdrop of a 1960s-inspired, retro-futuristic world, Marvel Studios’ 'The Fantastic Four: First Steps' introduces Marvel’s First Family—Reed Richards/Mister Fantastic, Sue Storm/Invisible Woman, Johnny Storm/Human Torch and Ben Grimm/The Thing as they face their most daunting challenge yet",
+    "overview": "Set against the vibrant backdrop of a 1960s-inspired, retro-futuristic world, Marvel Studios' 'The Fantastic Four: First Steps' introduces Marvel's First Family—Reed Richards/Mister Fantastic, Sue Storm/Invisible Woman, Johnny Storm/Human Torch and Ben Grimm/The Thing as they face their most daunting challenge yet. Forced to balance their roles as heroes with the strength of their family bond, they must defend Earth from a ravenous space god called Galactus and his enigmatic Herald, Silver Surfer.",
     "cover_url": "https://cdn.marvel.com/content/2x/thefantasticfourfirststeps_lob_crd_03.jpg",
     "trailer_url": "https://youtu.be/pAsmrKyMqaA",
     "directed_by": "Matt Shakman",
@@ -1278,7 +1278,7 @@
     "is_mcu": true,
     "type": "movie",
     "timeline_chronology_order": 90,
-    "updated_at": "2026-08-07T17:19:33.337Z",
+    "updated_at": "2026-08-18T20:04:16.367Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/movies/38"
@@ -1770,7 +1770,7 @@
   {
     "id": 53,
     "title": "Ghost Rider",
-    "release_date": null,
+    "release_date": "2028-07-28",
     "box_office": null,
     "duration": null,
     "overview": "Marvel Studios' feature film introduction of Ghost Rider, marking the character's first appearance in an MCU movie. Announced at SDCC 2026; targeting a 2028 release with no exact date set yet.",
@@ -1788,7 +1788,7 @@
     "is_mcu": true,
     "type": "movie",
     "timeline_chronology_order": 99,
-    "updated_at": "2026-07-29T10:22:23.349Z",
+    "updated_at": "2026-08-18T18:39:43.227Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/movies/53"
@@ -1907,9 +1907,9 @@
     "id": 57,
     "title": "Venom: The Last Dance",
     "release_date": "2024-10-25",
-    "box_office": "476857448",
+    "box_office": "474492936",
     "duration": 110,
-    "overview": "Eddie and Venom, on the run, face pressure from both worlds they inhabit as they race to find answers about their bond while evading Venom's own kind and a militia intent on hunting them down.",
+    "overview": "Eddie and Venom are on the run. Hunted by both of their worlds and with the net closing in, the duo are forced into a devastating decision that will bring the curtains down on Venom and Eddie's last dance.",
     "cover_url": null,
     "trailer_url": null,
     "directed_by": "Kelly Marcel",
@@ -1924,7 +1924,7 @@
     "is_mcu": false,
     "type": "movie",
     "timeline_chronology_order": 3,
-    "updated_at": "2026-08-07T19:29:59.038Z",
+    "updated_at": "2026-08-18T20:22:04.273Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/movies/57"
