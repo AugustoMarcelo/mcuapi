@@ -12,6 +12,7 @@ import {
   buildOrderFromClauses,
   buildSelectFromColumns,
   buildWhereFromFilter,
+  withIdTieBreaker,
 } from '@shared/infra/typeorm/listParamsQuery';
 
 class MoviesRepository implements IMoviesRepository {
@@ -55,7 +56,7 @@ class MoviesRepository implements IMoviesRepository {
   }: IFindAllMoviesDTO): Promise<IFindAllMoviesResponseDTO> {
     const skip = page && limit && (page - 1) * limit;
 
-    const orderBy = buildOrderFromClauses(order);
+    const orderBy = withIdTieBreaker(buildOrderFromClauses(order));
 
     const whereConditions = buildWhereFromFilter(filter, MOVIE_COLUMNS);
 
@@ -87,7 +88,7 @@ class MoviesRepository implements IMoviesRepository {
       ...(skip && { skip }),
       ...(select && { select }),
       ...(where && { where }),
-      ...(orderBy && { order: orderBy }),
+      order: orderBy,
     });
 
     return { data: movies, total };

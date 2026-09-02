@@ -2,7 +2,12 @@ import { DataSource } from 'typeorm';
 
 import AppDataSource from './dataSource';
 
-const dataSourceInitialization: Promise<DataSource> =
-  AppDataSource.initialize();
+export async function initializeDataSource(): Promise<DataSource> {
+  if (AppDataSource.isInitialized) {
+    return AppDataSource;
+  }
 
-export default dataSourceInitialization;
+  return AppDataSource.initialize();
+}
+
+export default initializeDataSource;

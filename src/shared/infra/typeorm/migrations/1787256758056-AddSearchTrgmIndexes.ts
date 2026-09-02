@@ -27,7 +27,5 @@ export default class AddSearchTrgmIndexes1787256758056 implements MigrationInter
     await queryRunner.query('DROP INDEX IF EXISTS characters_name_trgm_idx');
     await queryRunner.query('DROP INDEX IF EXISTS tvshows_title_trgm_idx');
     await queryRunner.query('DROP INDEX IF EXISTS movies_title_trgm_idx');
-    // pg_trgm itself is left installed on down — cheap to keep, and other
-    // objects created outside this migration's scope could depend on it.
   }
 }

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-17T07:17:56.666Z",
-  "content_hash": "f37e8b635571a221",
+  "generated_at": "2026-09-02T11:51:58.424Z",
+  "content_hash": "fcb14829ab003572",
   "source": "https://mcuapi.up.railway.app/api/v1",
   "counts": {
     "movies": 75,
@@ -14,11 +14,11 @@
   "files": [
     {
       "file": "movies.json",
-      "bytes": 106325
+      "bytes": 106515
     },
     {
       "file": "tvshows.json",
-      "bytes": 69974
+      "bytes": 70350
     },
     {
       "file": "characters.json",

@@ -246,7 +246,18 @@ test('postCreditScenes.all paginates like the other collections', async () => {
 });
 
 test('throws MCUAPIError carrying status and parsed body', async () => {
-  const { fetch } = stub([{ status: 404, body: { message: 'Movie not found' } }]);
+  const { fetch } = stub([
+    {
+      status: 404,
+      body: {
+        type: 'about:blank',
+        title: 'Not Found',
+        status: 404,
+        detail: 'Movie not found',
+        instance: '/api/v1/movies/9999',
+      },
+    },
+  ]);
   await assert.rejects(
     () => new MCUAPI({ fetch }).movies.get(9999),
     (err: unknown) => {
@@ -261,7 +272,18 @@ test('throws MCUAPIError carrying status and parsed body', async () => {
 });
 
 test('flags rate limiting on 429', async () => {
-  const { fetch } = stub([{ status: 429, body: { message: 'Too many requests' } }]);
+  const { fetch } = stub([
+    {
+      status: 429,
+      body: {
+        type: 'about:blank',
+        title: 'Too Many Requests',
+        status: 429,
+        detail: 'Too many requests',
+        instance: '/api/v1/movies',
+      },
+    },
+  ]);
   await assert.rejects(
     () => new MCUAPI({ fetch }).movies.list(),
     (err: unknown) => err instanceof MCUAPIError && err.isRateLimited,

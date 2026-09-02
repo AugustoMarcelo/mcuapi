@@ -11,7 +11,11 @@ import {
   presentPostCreditSceneCollection,
 } from '@modules/postCreditScenes/infra/http/presenters/PostCreditScenePresenter';
 import { getBaseUrl } from '@shared/infra/http/hateoas';
-import { resolveLimit, resolvePage } from '@shared/infra/http/pagination';
+import {
+  resolveLimit,
+  resolvePage,
+  resolvePositiveInteger,
+} from '@shared/infra/http/pagination';
 import {
   resolveColumns,
   resolveFilter,
@@ -62,7 +66,10 @@ export default class PostCreditScenesController {
     const showPostCreditScene = container.resolve(ShowPostCreditSceneService);
 
     const postCreditScene = await showPostCreditScene.execute({
-      post_credit_scene_id: Number(post_credit_scene_id),
+      post_credit_scene_id: resolvePositiveInteger({
+        value: post_credit_scene_id,
+        name: 'post_credit_scene_id',
+      }),
     });
 
     return response
@@ -80,7 +87,7 @@ export default class PostCreditScenesController {
       GetPostCreditScenesByMovieService,
     );
     const postCreditScenes = await getPostCreditScenesByMovie.execute(
-      Number(movie_id),
+      resolvePositiveInteger({ value: movie_id, name: 'movie_id' }),
     );
 
     return response
@@ -98,7 +105,7 @@ export default class PostCreditScenesController {
       GetPostCreditScenesByTVShowService,
     );
     const postCreditScenes = await getPostCreditScenesByTVShow.execute(
-      Number(tvshow_id),
+      resolvePositiveInteger({ value: tvshow_id, name: 'tvshow_id' }),
     );
 
     return response

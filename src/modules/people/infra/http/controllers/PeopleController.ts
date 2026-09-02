@@ -12,7 +12,11 @@ import {
 } from '@modules/people/infra/http/presenters/PersonPresenter';
 import { presentCharacterArray } from '@modules/characters/infra/http/presenters/CharacterPresenter';
 import { getBaseUrl } from '@shared/infra/http/hateoas';
-import { resolveLimit, resolvePage } from '@shared/infra/http/pagination';
+import {
+  resolveLimit,
+  resolvePage,
+  resolvePositiveInteger,
+} from '@shared/infra/http/pagination';
 import {
   resolveColumns,
   resolveFilter,
@@ -61,7 +65,10 @@ export default class PeopleController {
     const showPerson = container.resolve(ShowPersonService);
 
     const person = await showPerson.execute({
-      person_id: Number(person_id),
+      person_id: resolvePositiveInteger({
+        value: person_id,
+        name: 'person_id',
+      }),
     });
 
     return response
@@ -78,7 +85,9 @@ export default class PeopleController {
     const getCharactersByPerson = container.resolve(
       GetCharactersByPersonService,
     );
-    const characters = await getCharactersByPerson.execute(Number(person_id));
+    const characters = await getCharactersByPerson.execute(
+      resolvePositiveInteger({ value: person_id, name: 'person_id' }),
+    );
 
     return response
       .status(200)
@@ -92,7 +101,9 @@ export default class PeopleController {
     const { person_id } = request.params;
 
     const getTitlesByPerson = container.resolve(GetTitlesByPersonService);
-    const titles = await getTitlesByPerson.execute(Number(person_id));
+    const titles = await getTitlesByPerson.execute(
+      resolvePositiveInteger({ value: person_id, name: 'person_id' }),
+    );
 
     return response
       .status(200)

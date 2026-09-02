@@ -35,7 +35,7 @@ describe('health.routes', () => {
     expect(typeof response.body.uptime).toBe('number');
   });
 
-  it('Should return 503 with database down when the connection query throws', async () => {
+  it('Should return a no-store 503 problem when the connection query throws', async () => {
     (AppDataSource.query as jest.Mock).mockRejectedValue(
       new Error('connection refused'),
     );
@@ -43,9 +43,13 @@ describe('health.routes', () => {
     const response = await request(makeApp()).get('/health');
 
     expect(response.status).toBe(503);
-    expect(response.body).toMatchObject({
-      status: 'degraded',
-      database: 'down',
+    expect(response.headers['cache-control']).toBe('no-store');
+    expect(response.body).toEqual({
+      type: 'about:blank',
+      title: 'Service Unavailable',
+      status: 503,
+      detail: 'Database is unavailable',
+      instance: '/health',
     });
   });
 });

@@ -336,7 +336,6 @@ export class MCUAPI {
         options,
       ),
 
-    /** Async iterator over every hit matching `params`. */
     all: (params: SearchParams, options?: RequestOptions) =>
       this.paginate<SearchHit>(
         '/api/v1/search',

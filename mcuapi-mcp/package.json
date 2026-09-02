@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "MCP server for managing MCU API data",
   "main": "dist/index.js",
+  "packageManager": "yarn@1.22.22",
   "engines": {
     "node": ">=20"
   },

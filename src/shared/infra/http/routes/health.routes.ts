@@ -1,5 +1,6 @@
 import { Request, Response, Router } from 'express';
 
+import { sendProblem } from '../problem';
 import AppDataSource from '@shared/infra/typeorm/dataSource';
 
 const healthRouter = Router();
@@ -13,23 +14,23 @@ healthRouter.get('/live', (_request: Request, response: Response) => {
   });
 });
 
-healthRouter.get('/', async (_request: Request, response: Response) => {
-  let database = 'down';
-
+healthRouter.get('/', async (request: Request, response: Response) => {
   try {
     await AppDataSource.query('SELECT 1');
-    database = 'up';
   } catch {
-    database = 'down';
+    return sendProblem({
+      request,
+      response,
+      status: 503,
+      detail: 'Database is unavailable',
+    });
   }
 
-  const status = database === 'up' ? 200 : 503;
-
-  return response.status(status).json({
-    status: status === 200 ? 'ok' : 'degraded',
+  return response.status(200).json({
+    status: 'ok',
     version: process.env.npm_package_version || null,
     uptime: Math.floor(process.uptime()),
-    database,
+    database: 'up',
   });
 });
 

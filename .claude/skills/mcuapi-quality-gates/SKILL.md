@@ -29,8 +29,8 @@ If the change adds, renames, or removes an API resource or route, or changes a r
 | Sub-project | Lint | Typecheck | Test | Build |
 |---|---|---|---|---|
 | API | `yarn eslint <changed files> --ext .ts` | `yarn typecheck` | `yarn test -- --testPathPattern=<Name>` | `yarn build` |
-| mcuapi-client | *(no lint config)* | `npm run typecheck` | `npm test` | `npm run build` |
-| mcuapi-mcp | *(no lint config)* | `npx tsc --noEmit` | *(no test script — see references/test-patterns.md)* | `npm run build` |
+| mcuapi-client | *(no lint config)* | `yarn typecheck` | `yarn test` | `yarn build` |
+| mcuapi-mcp | *(no lint config)* | `yarn tsc --noEmit` | *(no test script — see references/test-patterns.md)* | `yarn build` |
 
 - Scope the API lint command to the changed files, not the whole tree: `yarn lint` runs repo-wide, and the existing backlog of pre-existing formatting errors is intentionally non-blocking in CI (see `.github/workflows/ci.yml`) until someone runs `yarn lint:fix && yarn format` once. The changed files should still come back clean.
 - For mcuapi-client and mcuapi-mcp, their `build` script (tsup / esbuild) transpiles but does not type-check — the typecheck command is a separate, required step, not optional polish. The API's `yarn build` does type-check (it's a `tsc` compile), but `yarn typecheck` is still the faster, no-emit way to run the same check.

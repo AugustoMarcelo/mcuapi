@@ -137,7 +137,7 @@ try {
     err.status;        // 404
     err.isNotFound;    // true
     err.isRateLimited; // true only on 429
-    err.body;          // parsed JSON body, or raw text
+    err.body;          // Problem Details JSON, or raw text
   }
 }
 ```
@@ -164,9 +164,8 @@ const page = await mcu.movies.list({}, { signal: controller.signal });
 
 ## Caching
 
-Responses carry `Cache-Control: public, max-age=3600` and an `ETag`. The dataset
-changes a few times a month, so an HTTP cache in front of this client will
-absorb almost all traffic.
+Successful cacheable responses carry `Cache-Control: public, max-age=3600` and
+an `ETag`. Error responses use `Cache-Control: no-store`.
 
 ## Licence
 

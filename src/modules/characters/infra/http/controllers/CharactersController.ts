@@ -15,7 +15,11 @@ import {
 import { presentMovie } from '@modules/movies/infra/http/presenters/MoviePresenter';
 import { presentTVShow } from '@modules/tvshows/infra/http/presenters/TVShowPresenter';
 import { getBaseUrl } from '@shared/infra/http/hateoas';
-import { resolveLimit, resolvePage } from '@shared/infra/http/pagination';
+import {
+  resolveLimit,
+  resolvePage,
+  resolvePositiveInteger,
+} from '@shared/infra/http/pagination';
 import {
   resolveColumns,
   resolveFilter,
@@ -74,7 +78,10 @@ export default class CharactersController {
     const showCharacter = container.resolve(ShowCharacterService);
 
     const character = await showCharacter.execute({
-      character_id: Number(character_id),
+      character_id: resolvePositiveInteger({
+        value: character_id,
+        name: 'character_id',
+      }),
     });
 
     return response
@@ -89,7 +96,9 @@ export default class CharactersController {
     const { movie_id } = request.params;
 
     const getCharactersByMovie = container.resolve(GetCharactersByMovieService);
-    const characters = await getCharactersByMovie.execute(Number(movie_id));
+    const characters = await getCharactersByMovie.execute(
+      resolvePositiveInteger({ value: movie_id, name: 'movie_id' }),
+    );
 
     return response
       .status(200)
@@ -105,7 +114,9 @@ export default class CharactersController {
     const getCharactersByTVShow = container.resolve(
       GetCharactersByTVShowService,
     );
-    const characters = await getCharactersByTVShow.execute(Number(tvshow_id));
+    const characters = await getCharactersByTVShow.execute(
+      resolvePositiveInteger({ value: tvshow_id, name: 'tvshow_id' }),
+    );
 
     return response
       .status(200)
@@ -119,7 +130,9 @@ export default class CharactersController {
     const { character_id } = request.params;
 
     const getMoviesByCharacter = container.resolve(GetMoviesByCharacterService);
-    const movies = await getMoviesByCharacter.execute(Number(character_id));
+    const movies = await getMoviesByCharacter.execute(
+      resolvePositiveInteger({ value: character_id, name: 'character_id' }),
+    );
 
     const baseUrl = getBaseUrl(request);
 
@@ -137,7 +150,9 @@ export default class CharactersController {
     const getTVShowsByCharacter = container.resolve(
       GetTVShowsByCharacterService,
     );
-    const tvshows = await getTVShowsByCharacter.execute(Number(character_id));
+    const tvshows = await getTVShowsByCharacter.execute(
+      resolvePositiveInteger({ value: character_id, name: 'character_id' }),
+    );
 
     const baseUrl = getBaseUrl(request);
 

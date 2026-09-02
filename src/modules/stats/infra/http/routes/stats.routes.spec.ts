@@ -32,4 +32,14 @@ describe('stats.routes', () => {
     expect(response.status).toBe(200);
     expect(response.body.movies).toBe(40);
   });
+
+  it('Should reject query parameters before resolving a service', async () => {
+    const response = await request(app).get('/api/v1/stats?unexpected=value');
+
+    expect(response.status).toBe(400);
+    expect(resolveSpy).not.toHaveBeenCalled();
+    expect(response.body.detail).toBe(
+      'Unsupported query parameter: unexpected',
+    );
+  });
 });

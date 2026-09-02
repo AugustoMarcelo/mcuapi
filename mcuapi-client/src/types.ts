@@ -7,6 +7,14 @@ export interface Link {
   href: string;
 }
 
+export interface Problem {
+  type: string;
+  title: string;
+  status: number;
+  detail: string;
+  instance: string;
+}
+
 export interface ResourceLinks {
   self?: Link;
   characters?: Link;
@@ -165,7 +173,7 @@ export interface Paginated<T> {
 }
 
 export interface Health {
-  status: 'ok' | 'degraded';
+  status: 'ok';
   version: string | null;
   uptime: number;
   database: 'up' | 'down';
@@ -276,11 +284,6 @@ export interface Stats {
   _links?: ResourceLinks;
 }
 
-/**
- * A `/search` hit — the same full presented record as the matching resource's
- * own endpoint (`Movie`, `TVShow`, `Character`, or `Person`), tagged with a
- * `type` discriminator. Ranked in Postgres by pg_trgm `similarity()`.
- */
 export type SearchHit =
   | (Movie & { type: 'movie' })
   | (TVShow & { type: 'tvshow' })
@@ -288,11 +291,8 @@ export type SearchHit =
   | (Person & { type: 'person' });
 
 export interface SearchParams {
-  /** Search text. Required. */
   q: string;
-  /** Narrows to one content type. Defaults to searching all four. */
   type?: 'movie' | 'tvshow' | 'character' | 'person';
   page?: number;
-  /** Defaults to 10 server-side and is capped at 100. */
   limit?: number;
 }

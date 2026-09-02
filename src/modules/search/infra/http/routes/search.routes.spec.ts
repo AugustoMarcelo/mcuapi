@@ -46,7 +46,7 @@ describe('search.routes', () => {
     const response = await request(app).get('/api/v1/search');
 
     expect(response.status).toBe(400);
-    expect(response.body.message).toBe('q is required');
+    expect(response.body.detail).toBe('q is required');
   });
 
   it('Should ignore an unrecognized type instead of erroring', async () => {

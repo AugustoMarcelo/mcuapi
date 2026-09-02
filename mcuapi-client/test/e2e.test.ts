@@ -2,7 +2,7 @@
  * Hits the real production API. Opt-in, because it needs network and consumes
  * the 100 req/min budget:
  *
- *   npm run test:e2e
+ *   yarn test:e2e
  *
  * Its job is to catch drift between these types and what the API actually
  * returns — the failure mode a stubbed suite cannot see.

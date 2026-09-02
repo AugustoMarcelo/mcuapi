@@ -18,6 +18,9 @@ jobs:
           node-version: 22
           cache: yarn
 
+      - name: Enable Corepack
+        run: corepack enable
+
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
@@ -42,24 +45,27 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
-          cache-dependency-path: mcuapi-client/package-lock.json
+          cache: yarn
+          cache-dependency-path: mcuapi-client/yarn.lock
+
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Install dependencies
         working-directory: mcuapi-client
-        run: npm ci
+        run: yarn install --frozen-lockfile
 
       - name: Typecheck
         working-directory: mcuapi-client
-        run: npm run typecheck
+        run: yarn typecheck
 
       - name: Test
         working-directory: mcuapi-client
-        run: npm test
+        run: yarn test
 
       - name: Build
         working-directory: mcuapi-client
-        run: npm run build
+        run: yarn build
 
   mcp:
     runs-on: ubuntu-latest
@@ -70,17 +76,20 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
-          cache-dependency-path: mcuapi-mcp/package-lock.json
+          cache: yarn
+          cache-dependency-path: mcuapi-mcp/yarn.lock
+
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Install dependencies
         working-directory: mcuapi-mcp
-        run: npm ci
+        run: yarn install --frozen-lockfile
 
       - name: Typecheck
         working-directory: mcuapi-mcp
-        run: npx tsc --noEmit
+        run: yarn tsc --noEmit
 
       - name: Build
         working-directory: mcuapi-mcp
-        run: npm run build
+        run: yarn build

@@ -23,11 +23,28 @@ function resolveOutputColumns(
 function resolveOrderClauses(
   order: OrderClause<TitleColumn>[] | undefined,
 ): OrderClause<TitleColumn>[] {
-  return order?.length ? order : [{ column: 'release_date', direction: 'ASC' }];
+  const clauses: OrderClause<TitleColumn>[] = order?.length
+    ? [...order]
+    : [{ column: 'release_date', direction: 'ASC' }];
+
+  if (!clauses.some(({ column }) => column === 'type')) {
+    clauses.push({ column: 'type', direction: 'ASC' });
+  }
+
+  if (!clauses.some(({ column }) => column === 'id')) {
+    clauses.push({ column: 'id', direction: 'ASC' });
+  }
+
+  return clauses;
 }
 
 function buildOrderClause(clauses: OrderClause<TitleColumn>[]): string {
-  return `ORDER BY ${clauses.map(({ column, direction }) => `${column} ${direction}`).join(', ')}`;
+  return `ORDER BY ${clauses
+    .map(
+      ({ column, direction }) =>
+        `${column} ${direction}${column === 'release_date' ? ' NULLS LAST' : ''}`,
+    )
+    .join(', ')}`;
 }
 
 class TitlesRepository implements ITitlesRepository {

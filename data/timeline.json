@@ -4,17 +4,6 @@
     "multiverse_designation": "Unknown",
     "entries": [
       {
-        "id": 51,
-        "title": "Venom",
-        "chronology_order": 1,
-        "type": "movie",
-        "_links": {
-          "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/movies/51"
-          }
-        }
-      },
-      {
         "id": 42,
         "title": "Spider-Man",
         "chronology_order": 1,
@@ -33,6 +22,28 @@
         "_links": {
           "self": {
             "href": "https://mcuapi.up.railway.app/api/v1/movies/45"
+          }
+        }
+      },
+      {
+        "id": 51,
+        "title": "Venom",
+        "chronology_order": 1,
+        "type": "movie",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/51"
+          }
+        }
+      },
+      {
+        "id": 43,
+        "title": "Spider-Man 2",
+        "chronology_order": 2,
+        "type": "movie",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/43"
           }
         }
       },
@@ -59,13 +70,13 @@
         }
       },
       {
-        "id": 43,
-        "title": "Spider-Man 2",
-        "chronology_order": 2,
+        "id": 44,
+        "title": "Spider-Man 3",
+        "chronology_order": 3,
         "type": "movie",
         "_links": {
           "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/movies/43"
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/44"
           }
         }
       },
@@ -77,17 +88,6 @@
         "_links": {
           "self": {
             "href": "https://mcuapi.up.railway.app/api/v1/movies/57"
-          }
-        }
-      },
-      {
-        "id": 44,
-        "title": "Spider-Man 3",
-        "chronology_order": 3,
-        "type": "movie",
-        "_links": {
-          "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/movies/44"
           }
         }
       },
@@ -1190,34 +1190,6 @@
     ]
   },
   {
-    "continuity": "FOX Fantastic Four",
-    "multiverse_designation": "Unknown",
-    "entries": [
-      {
-        "id": 70,
-        "title": "Fantastic Four",
-        "chronology_order": 0,
-        "type": "movie",
-        "_links": {
-          "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/movies/70"
-          }
-        }
-      },
-      {
-        "id": 71,
-        "title": "Fantastic Four: Rise of the Silver Surfer",
-        "chronology_order": 0,
-        "type": "movie",
-        "_links": {
-          "self": {
-            "href": "https://mcuapi.up.railway.app/api/v1/movies/71"
-          }
-        }
-      }
-    ]
-  },
-  {
     "continuity": "Blade Trilogy",
     "multiverse_designation": "Unknown",
     "entries": [
@@ -1279,6 +1251,34 @@
         "_links": {
           "self": {
             "href": "https://mcuapi.up.railway.app/api/v1/movies/69"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "continuity": "FOX Fantastic Four",
+    "multiverse_designation": "Unknown",
+    "entries": [
+      {
+        "id": 70,
+        "title": "Fantastic Four",
+        "chronology_order": 0,
+        "type": "movie",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/70"
+          }
+        }
+      },
+      {
+        "id": 71,
+        "title": "Fantastic Four: Rise of the Silver Surfer",
+        "chronology_order": 0,
+        "type": "movie",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/movies/71"
           }
         }
       }

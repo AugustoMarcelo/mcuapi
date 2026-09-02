@@ -6,8 +6,8 @@
  * of the data sitting in the repo and fronted by a CDN means a consumer can
  * fall back to something that still works, at no hosting cost.
  *
- *   npm run snapshot                 # from the live API
- *   npm run snapshot -- --base=...   # from somewhere else
+ *   yarn snapshot                 # from the live API
+ *   yarn snapshot -- --base=...   # from somewhere else
  *
  * Output is deterministic: records are sorted by id, and `generated_at` only
  * moves when the data itself changes. A run that finds nothing new leaves the

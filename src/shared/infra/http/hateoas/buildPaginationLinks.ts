@@ -1,3 +1,4 @@
+import { DEFAULT_LIMIT, DEFAULT_PAGE } from '../pagination';
 import { IResourceLinks } from './types';
 
 interface IBuildPaginationLinksParams {
@@ -11,7 +12,7 @@ interface IBuildPaginationLinksParams {
 
 interface IBuildPaginationLinksResult {
   _links: IResourceLinks;
-  meta: { page: number; limit?: number };
+  meta: { page: number; limit: number };
 }
 
 function buildUrl(
@@ -55,17 +56,8 @@ export default function buildPaginationLinks({
   limit,
   total,
 }: IBuildPaginationLinksParams): IBuildPaginationLinksResult {
-  const currentPage = Number(page) || 1;
-  const perPage = Number(limit) || undefined;
-
-  if (!perPage) {
-    const self = buildUrl(baseUrl, path, query);
-
-    return {
-      _links: { self: { href: self }, first: { href: self } },
-      meta: { page: 1 },
-    };
-  }
+  const currentPage = Number(page) || DEFAULT_PAGE;
+  const perPage = Number(limit) || DEFAULT_LIMIT;
 
   const lastPage = Math.max(1, Math.ceil(total / perPage));
 
