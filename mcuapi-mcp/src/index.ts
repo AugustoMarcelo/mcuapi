@@ -3,6 +3,7 @@ import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { z } from 'zod';
 import type { PoolClient } from 'pg';
 import { query, withTransaction } from './db.js';
+import { readUsageMetrics, type UsageMetric } from './cache.js';
 import {
   applyCharacterDefaults,
   applyMovieDefaults,
@@ -203,7 +204,7 @@ server.registerTool(
   'get_usage_stats',
   {
     description:
-      'API traffic: request counts per day and per route, from the request_metrics table. ' +
+      'API traffic: request counts per day and per route, from Redis counters. ' +
       'Counters are aggregate only — no IPs, user agents or query strings are stored. ' +
       'Note that Cache-Control means repeat callers may not reach the server at all, ' +
       'so these are a floor on real usage, not the exact figure.',
@@ -218,60 +219,30 @@ server.registerTool(
     },
   },
   async ({ days }) => {
-    const window = days ?? 30;
+    const window = Math.min(days ?? 30, 90);
 
-    const [totals] = await query<{ total: string; active_days: string }>(
-      `SELECT COALESCE(SUM(count), 0) AS total, COUNT(DISTINCT day) AS active_days
-       FROM request_metrics
-       WHERE day >= CURRENT_DATE - $1::int`,
-      [window],
-    );
+    const metrics = await readUsageMetrics({ days: window });
+    const total = metrics.reduce((sum, metric) => sum + metric.count, 0);
 
-    if (!totals || Number(totals.total) === 0) {
+    if (total === 0) {
       return {
         content: [
           {
             type: 'text',
             text:
               `**API usage — last ${window} days**\n\n` +
-              'No requests recorded yet. If the API is deployed, either the ' +
-              'migration has not run or no traffic has arrived since it did.',
+              'No Redis metrics recorded yet. Check REDIS_URL and wait for API traffic.',
           },
         ],
       };
     }
 
-    const byRoute = await query<{ route: string; hits: string }>(
-      `SELECT route, SUM(count) AS hits
-       FROM request_metrics
-       WHERE day >= CURRENT_DATE - $1::int
-       GROUP BY route
-       ORDER BY hits DESC
-       LIMIT 20`,
-      [window],
-    );
-
-    const byDay = await query<{ day: string; hits: string }>(
-      `SELECT to_char(day, 'YYYY-MM-DD') AS day, SUM(count) AS hits
-       FROM request_metrics
-       WHERE day >= CURRENT_DATE - $1::int
-       GROUP BY day
-       ORDER BY day DESC
-       LIMIT 14`,
-      [window],
-    );
-
-    const byStatus = await query<{ status_class: number; hits: string }>(
-      `SELECT status_class, SUM(count) AS hits
-       FROM request_metrics
-       WHERE day >= CURRENT_DATE - $1::int
-       GROUP BY status_class
-       ORDER BY status_class`,
-      [window],
-    );
-
-    const total = Number(totals.total);
-    const activeDays = Number(totals.active_days) || 1;
+    const byRoute = aggregateMetrics(metrics, metric => metric.route).slice(0, 20);
+    const byDay = aggregateMetrics(metrics, metric => metric.day)
+      .sort((left, right) => right.key.localeCompare(left.key))
+      .slice(0, 14);
+    const byStatus = aggregateMetrics(metrics, metric => `${metric.statusClass}xx`);
+    const activeDays = new Set(metrics.map(metric => metric.day)).size;
 
     const lines = [
       `**API usage — last ${window} days**`,
@@ -281,20 +252,34 @@ server.registerTool(
       `Average per active day: ${Math.round(total / activeDays).toLocaleString('en-US')}`,
       '',
       '**By status class:**',
-      ...byStatus.map(
-        s => `  ${s.status_class}xx: ${Number(s.hits).toLocaleString('en-US')}`,
-      ),
+      ...byStatus.map(item => `  ${item.key}: ${item.count.toLocaleString('en-US')}`),
       '',
       '**Top routes:**',
-      ...byRoute.map(r => `  ${r.route} — ${Number(r.hits).toLocaleString('en-US')}`),
+      ...byRoute.map(item => `  ${item.key} — ${item.count.toLocaleString('en-US')}`),
       '',
       '**Recent days:**',
-      ...byDay.map(d => `  ${d.day}: ${Number(d.hits).toLocaleString('en-US')}`),
+      ...byDay.map(item => `  ${item.key}: ${item.count.toLocaleString('en-US')}`),
     ];
 
     return { content: [{ type: 'text', text: lines.join('\n') }] };
   },
 );
+
+function aggregateMetrics(
+  metrics: UsageMetric[],
+  keyOf: (metric: UsageMetric) => string,
+): { key: string; count: number }[] {
+  const totals = new Map<string, number>();
+
+  metrics.forEach(metric => {
+    const key = keyOf(metric);
+    totals.set(key, (totals.get(key) ?? 0) + metric.count);
+  });
+
+  return [...totals.entries()]
+    .map(([key, count]) => ({ key, count }))
+    .sort((left, right) => right.count - left.count || left.key.localeCompare(right.key));
+}
 
 // ─── MOVIES ────────────────────────────────────────────────────────────────────
 

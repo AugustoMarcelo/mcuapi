@@ -1,6 +1,7 @@
 import * as dotenv from 'dotenv';
 import * as path from 'path';
 import { Pool, PoolClient } from 'pg';
+import { invalidateApiCache } from './cache.js';
 
 // Load env file from parent project (defaults to .env; override via MCP_ENV_FILE,
 // e.g. '../../.env.production' to target Neon instead of local Postgres)
@@ -27,6 +28,9 @@ export async function query<T = Record<string, unknown>>(
   const client = await pool.connect();
   try {
     const result = await client.query(sql, params);
+    if (/^\s*(INSERT|UPDATE|DELETE)\b/i.test(sql)) {
+      await invalidateApiCache();
+    }
     return result.rows as T[];
   } finally {
     client.release();
@@ -46,6 +50,7 @@ export async function withTransaction<T>(
     await client.query('BEGIN');
     const result = await fn(client);
     await client.query('COMMIT');
+    await invalidateApiCache();
     return result;
   } catch (err) {
     await client.query('ROLLBACK');

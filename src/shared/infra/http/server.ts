@@ -2,7 +2,6 @@ import 'reflect-metadata';
 import 'dotenv/config';
 
 import app from './app';
-import { installMetricsShutdownHooks, startMetricsFlusher } from './metrics';
 import {
   connectRateLimitStore,
   disconnectRateLimitStore,
@@ -21,8 +20,6 @@ async function start(): Promise<void> {
   app.listen(port, () => {
     // eslint-disable-next-line no-console -- boot banner; confirms the server is up
     console.log(`🦸‍♂️ api running on port ${port}`);
-    startMetricsFlusher();
-    installMetricsShutdownHooks();
   });
 
   installRateLimitStoreShutdownHook();

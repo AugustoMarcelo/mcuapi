@@ -9,6 +9,7 @@ import healthRouter from './routes/health.routes';
 import { metricsMiddleware } from './metrics';
 import { sendProblem } from './problem';
 import { createRateLimitStore } from './rateLimitStore';
+import { cacheApiResponse } from './cache';
 import { resolveTrustedProxy } from './trustedProxy';
 import swaggerUI from 'swagger-ui-express';
 import swaggerFile from '@config/swagger.json';
@@ -72,6 +73,7 @@ export function createApp(): Express {
     return next();
   });
 
+  app.use(cacheApiResponse);
   app.use(routes);
 
   app.use((request: Request, response: Response) => {

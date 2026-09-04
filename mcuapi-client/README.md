@@ -165,7 +165,8 @@ const page = await mcu.movies.list({}, { signal: controller.signal });
 ## Caching
 
 Successful cacheable responses carry `Cache-Control: public, max-age=3600` and
-an `ETag`. Error responses use `Cache-Control: no-store`.
+an `ETag`; API JSON responses are also cached server-side in Redis and invalidated
+after MCP data writes. Error responses use `Cache-Control: no-store`.
 
 ## Licence
 
