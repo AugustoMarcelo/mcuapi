@@ -2993,6 +2993,21 @@ npm i mcuapi-client
       return d.toLocaleDateString(undefined, { day: 'numeric', month: 'long', year: 'numeric' });
     };
 
+    var normalizeReleaseDate = function (value) {
+      if (typeof value !== 'string') { return null; }
+      var calendarDate = value.slice(0, 10);
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(calendarDate)) { return null; }
+      var isDateOnly = value === calendarDate;
+      var isTimestamp = value.charAt(10) === 'T' && !isNaN(Date.parse(value));
+      if (!isDateOnly && !isTimestamp) { return null; }
+      var parts = calendarDate.split('-').map(Number);
+      var date = new Date(parts[0], parts[1] - 1, parts[2]);
+      if (date.getFullYear() !== parts[0] || date.getMonth() !== parts[1] - 1 || date.getDate() !== parts[2]) {
+        return null;
+      }
+      return date;
+    };
+
     var tick = function (target) {
       var diff = Math.max(0, target.getTime() - Date.now());
       var days = Math.floor(diff / 86400000);
@@ -3031,10 +3046,8 @@ npm i mcuapi-client
         var item = json && json.total > 0 && json.data && json.data[0];
         if (!item) { return; }
 
-        // Parsing a bare 'YYYY-MM-DD' string yields UTC midnight, which in a
-        // UTC-negative timezone renders as the previous day — appending a
-        // local-time component gets local midnight instead.
-        var releaseDate = new Date(item.release_date + 'T00:00:00');
+        var releaseDate = normalizeReleaseDate(item.release_date);
+        if (!releaseDate) { return; }
 
         if (item.cover_url) {
           img.src = item.cover_url;
