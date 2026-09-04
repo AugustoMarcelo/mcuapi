@@ -2939,7 +2939,7 @@ npm i mcuapi-client
       txt.textContent = 'Live · ' + Math.round(ms) + ' ms';
     };
 
-    fetch(API + '/health', { cache: 'no-store' })
+    fetch(API + '/health/live', { cache: 'no-store' })
       .then(function (r) {
         if (r.ok) { mark(performance.now() - t0); return null; }
         // /health ships in the repo but may not be on the deployed build yet —
@@ -3025,7 +3025,7 @@ npm i mcuapi-client
         });
     }
 
-    fetchWithMirror(V1 + '/upcoming?limit=1', { cache: 'no-store' })
+    fetchWithMirror(V1 + '/upcoming?limit=1')
       .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
       .then(function (json) {
         var item = json && json.total > 0 && json.data && json.data[0];
@@ -3089,7 +3089,7 @@ npm i mcuapi-client
     var slots = $$('.ledger-n[data-stat], .res-n[data-stat]');
     if (!slots.length) { return; }
 
-    fetchWithMirror(V1 + '/stats', { cache: 'no-store' })
+    fetchWithMirror(V1 + '/stats')
       .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
       .then(function (stats) {
         slots.forEach(function (slot) {

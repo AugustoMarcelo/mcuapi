@@ -42,10 +42,15 @@ describe('rateLimitStore', () => {
   it('Should open Redis before the store loads its scripts', async () => {
     const { connectRateLimitStore, createRateLimitStore } =
       await import('./rateLimitStore');
+    const { createClient } = await import('redis');
 
     createRateLimitStore();
 
     expect(connect).toHaveBeenCalledTimes(1);
+    expect(createClient as unknown as jest.Mock).toHaveBeenCalledWith({
+      url: 'redis://localhost:6379',
+      disableOfflineQueue: true,
+    });
     expect(redisClient.isOpen).toBe(true);
     expect(sendCommand).toHaveBeenCalledWith(['SCRIPT', 'LOAD', 'script']);
 

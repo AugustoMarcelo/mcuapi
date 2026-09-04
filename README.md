@@ -128,7 +128,8 @@ Regenerate it with `yarn snapshot`. The output is byte-stable when the data hasn
 
 - **Read-only.** Every endpoint is a `GET`; the API never accepts writes.
 - **Rate limit.** 100 requests per minute per IP. Responses carry `RateLimit-*` headers, and exceeding it returns `429`.
-- **Caching.** Successful cacheable responses are `Cache-Control: public, max-age=3600` and carry an `ETag`. Every error response is `Cache-Control: no-store`.
+- **Caching.** Successful `/api/v1` JSON responses are cached in Redis for up to 24 hours and invalidated after MCP data writes. Public responses remain `Cache-Control: public, max-age=3600` and carry an `ETag`; callers that already cached a response may therefore observe a write for up to one hour. Every error response is `Cache-Control: no-store`.
+- **Telemetry.** Aggregate request counters live in Redis for 90 days. They do not write to Neon on API requests.
 - **Pagination.** Omitted `page` and `limit` resolve to `1` and `10`. Supplied values must be positive integers, and `limit` must not exceed `100`.
 
 ## v1 request and error contract
