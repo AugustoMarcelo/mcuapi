@@ -4,6 +4,7 @@ const sendCommand = jest.fn();
 const quit = jest.fn();
 const redisClient = { isOpen: false, connect, on, sendCommand, quit };
 const redisStore = jest.fn();
+let loadScript: (() => Promise<unknown>) | undefined;
 
 jest.mock('redis', () => ({
   createClient: jest.fn(() => redisClient),
@@ -11,7 +12,7 @@ jest.mock('redis', () => ({
 
 jest.mock('rate-limit-redis', () => ({
   RedisStore: jest.fn(options => {
-    options.sendCommand('SCRIPT', 'LOAD', 'script');
+    loadScript = () => options.sendCommand('SCRIPT', 'LOAD', 'script');
     return redisStore;
   }),
 }));
@@ -24,10 +25,8 @@ describe('rateLimitStore', () => {
     jest.resetModules();
     jest.clearAllMocks();
     redisClient.isOpen = false;
-    connect.mockImplementation(() => {
-      redisClient.isOpen = true;
-      return Promise.resolve();
-    });
+    loadScript = undefined;
+    connect.mockImplementation(() => Promise.resolve());
     sendCommand.mockResolvedValue('sha');
     quit.mockResolvedValue(undefined);
     process.env.NODE_ENV = 'production';
@@ -39,21 +38,34 @@ describe('rateLimitStore', () => {
     process.env.REDIS_URL = redisUrl;
   });
 
-  it('Should open Redis before the store loads its scripts', async () => {
-    const { connectRateLimitStore, createRateLimitStore } =
-      await import('./rateLimitStore');
+  it('Should wait for Redis before the rate-limit store sends a command', async () => {
+    let resolveConnection: (() => void) | undefined;
+    connect.mockImplementation(
+      () =>
+        new Promise<void>(resolve => {
+          resolveConnection = () => {
+            redisClient.isOpen = true;
+            resolve();
+          };
+        }),
+    );
+
+    const { createRateLimitStore } = await import('./rateLimitStore');
     const { createClient } = await import('redis');
 
     createRateLimitStore();
+    const command = loadScript?.();
 
     expect(connect).toHaveBeenCalledTimes(1);
     expect(createClient as unknown as jest.Mock).toHaveBeenCalledWith({
       url: 'redis://localhost:6379',
       disableOfflineQueue: true,
     });
-    expect(redisClient.isOpen).toBe(true);
-    expect(sendCommand).toHaveBeenCalledWith(['SCRIPT', 'LOAD', 'script']);
+    expect(sendCommand).not.toHaveBeenCalled();
 
-    await expect(connectRateLimitStore()).resolves.toBeUndefined();
+    resolveConnection?.();
+
+    await expect(command).resolves.toBe('sha');
+    expect(sendCommand).toHaveBeenCalledWith(['SCRIPT', 'LOAD', 'script']);
   });
 });

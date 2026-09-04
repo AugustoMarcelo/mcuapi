@@ -10,7 +10,10 @@ export function createRateLimitStore(): RedisStore | undefined {
   }
 
   return new RedisStore({
-    sendCommand: (...command: string[]) => redisClient.sendCommand(command),
+    sendCommand: async (...command: string[]) => {
+      await connectRedis();
+      return redisClient.sendCommand(command);
+    },
   });
 }
 
