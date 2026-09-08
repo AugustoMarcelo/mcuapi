@@ -5,5 +5,12 @@
     <link>https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/changelog.json</link>
     <description>Changes detected in the MCUAPI static dataset.</description>
     <language>en</language>
+    <item>
+      <title>MCUAPI dataset update 7b5175d92ab3f223</title>
+      <link>https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/changelog.json</link>
+      <guid isPermaLink="false">7b5175d92ab3f223</guid>
+      <pubDate>Mon, 07 Sep 2026 12:38:32 GMT</pubDate>
+      <description>movies: 0 added, 0 removed, 3 changed; tvshows: 0 added, 0 removed, 1 changed; timeline: 0 added, 0 removed, 1 changed</description>
+    </item>
   </channel>
 </rss>

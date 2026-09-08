@@ -1363,11 +1363,11 @@
     "id": 41,
     "title": "Spider-Man: Brand New Day",
     "release_date": "2026-07-31",
-    "box_office": "1155469617",
-    "duration": 145,
+    "box_office": "2335247589",
+    "duration": 150,
     "overview": "It's a BRAND NEW DAY for Peter Parker. Fighting crime full-time as Spider-Man in a world that doesn’t remember him—and the pressure of seeing his old friends move on without him—sparks a change in Peter he may not have the power to control. But that transformation might also be the only thing that can stop a shocking new threat to the city and those he loves—a powerful villain no one can even see.",
     "cover_url": "https://cdn.marvel.com/content/2x/spidermanbrandnewday_lob_crd_02.webp",
-    "trailer_url": "https://youtu.be/3gAlCLVpePk",
+    "trailer_url": "https://youtu.be/8TZMtslA3UY",
     "directed_by": "Destin Daniel Cretton",
     "phase": 6,
     "saga": "Multiverse Saga",
@@ -1380,7 +1380,7 @@
     "is_mcu": true,
     "type": "movie",
     "timeline_chronology_order": 97,
-    "updated_at": "2026-08-05T21:17:12.778Z",
+    "updated_at": "2026-09-02T13:10:18.696Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/movies/41"
@@ -1773,7 +1773,7 @@
     "release_date": "2028-07-28",
     "box_office": null,
     "duration": null,
-    "overview": "Marvel Studios' feature film introduction of Ghost Rider, marking the character's first appearance in an MCU movie. Announced at SDCC 2026; targeting a 2028 release with no exact date set yet.",
+    "overview": "Marvel Studios' Ghost Rider stars Ryan Gosling, is directed by Shawn Levy, and is written by Jonathan Tropper. It releases in theaters July 28, 2028.",
     "cover_url": "https://cdn.marvel.com/content/2x/ghostrider_lob_crd_01.webp",
     "trailer_url": null,
     "directed_by": "Shawn Levy",
@@ -1788,7 +1788,7 @@
     "is_mcu": true,
     "type": "movie",
     "timeline_chronology_order": 99,
-    "updated_at": "2026-08-18T18:39:43.227Z",
+    "updated_at": "2026-09-02T13:10:19.045Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/movies/53"
@@ -2517,7 +2517,7 @@
   },
   {
     "id": 76,
-    "title": "X-Men",
+    "title": "Untitled X-Men film",
     "release_date": "2028-05-05",
     "box_office": null,
     "duration": null,
@@ -2536,7 +2536,7 @@
     "is_mcu": true,
     "type": "movie",
     "timeline_chronology_order": null,
-    "updated_at": "2026-08-15T19:35:54.446Z",
+    "updated_at": "2026-09-02T13:10:18.913Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/movies/76"

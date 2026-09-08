@@ -1,4 +1,1974 @@
 {
   "version": 1,
-  "entries": []
+  "entries": [
+    {
+      "generated_at": "2026-09-07T12:38:32.996Z",
+      "from": {
+        "generated_at": "2026-09-02T11:51:58.424Z",
+        "content_hash": "fcb14829ab003572",
+        "source": "https://mcuapi.up.railway.app/api/v1",
+        "counts": {
+          "movies": 75,
+          "tvshows": 56,
+          "characters": 375,
+          "people": 372,
+          "post_credit_scenes": 87,
+          "timeline_branches": 12,
+          "timeline_entries": 131
+        },
+        "files": [
+          {
+            "file": "movies.json",
+            "bytes": 106515
+          },
+          {
+            "file": "tvshows.json",
+            "bytes": 70350
+          },
+          {
+            "file": "characters.json",
+            "bytes": 370504
+          },
+          {
+            "file": "people.json",
+            "bytes": 172719
+          },
+          {
+            "file": "post-credit-scenes.json",
+            "bytes": 58076
+          },
+          {
+            "file": "timeline.json",
+            "bytes": 35449
+          }
+        ],
+        "notes": [
+          "Static mirror of the MCUAPI dataset, served via jsDelivr.",
+          "Use it as a fallback when the live API is unreachable, or to avoid rate limits for bulk reads.",
+          "Record shapes are identical to the API, including _links — but those hrefs point at the live API, which may itself be down.",
+          "Regenerated on a schedule; check generated_at for freshness."
+        ]
+      },
+      "to": {
+        "generated_at": "2026-09-07T12:38:32.996Z",
+        "content_hash": "7b5175d92ab3f223",
+        "source": "https://mcuapi.up.railway.app/api/v1",
+        "counts": {
+          "movies": 75,
+          "tvshows": 56,
+          "characters": 375,
+          "people": 372,
+          "post_credit_scenes": 87,
+          "timeline_branches": 12,
+          "timeline_entries": 131
+        },
+        "files": [
+          {
+            "file": "movies.json",
+            "bytes": 106486
+          },
+          {
+            "file": "tvshows.json",
+            "bytes": 70350
+          },
+          {
+            "file": "characters.json",
+            "bytes": 370504
+          },
+          {
+            "file": "people.json",
+            "bytes": 172719
+          },
+          {
+            "file": "post-credit-scenes.json",
+            "bytes": 58076
+          },
+          {
+            "file": "timeline.json",
+            "bytes": 35463
+          }
+        ],
+        "notes": [
+          "Static mirror of the MCUAPI dataset, served via jsDelivr.",
+          "Use it as a fallback when the live API is unreachable, or to avoid rate limits for bulk reads.",
+          "Record shapes are identical to the API, including _links — but those hrefs point at the live API, which may itself be down.",
+          "Regenerated on a schedule; check generated_at for freshness."
+        ]
+      },
+      "changes": {
+        "movies": {
+          "added": [],
+          "removed": [],
+          "changed": [
+            {
+              "id": "41",
+              "label": "Spider-Man: Brand New Day",
+              "fields": {
+                "box_office": {
+                  "previous": "1155469617",
+                  "current": "2335247589"
+                },
+                "duration": {
+                  "previous": 145,
+                  "current": 150
+                },
+                "trailer_url": {
+                  "previous": "https://youtu.be/3gAlCLVpePk",
+                  "current": "https://youtu.be/8TZMtslA3UY"
+                },
+                "updated_at": {
+                  "previous": "2026-08-05T21:17:12.778Z",
+                  "current": "2026-09-02T13:10:18.696Z"
+                }
+              }
+            },
+            {
+              "id": "53",
+              "label": "Ghost Rider",
+              "fields": {
+                "overview": {
+                  "previous": "Marvel Studios' feature film introduction of Ghost Rider, marking the character's first appearance in an MCU movie. Announced at SDCC 2026; targeting a 2028 release with no exact date set yet.",
+                  "current": "Marvel Studios' Ghost Rider stars Ryan Gosling, is directed by Shawn Levy, and is written by Jonathan Tropper. It releases in theaters July 28, 2028."
+                },
+                "updated_at": {
+                  "previous": "2026-08-18T18:39:43.227Z",
+                  "current": "2026-09-02T13:10:19.045Z"
+                }
+              }
+            },
+            {
+              "id": "76",
+              "label": "Untitled X-Men film",
+              "fields": {
+                "title": {
+                  "previous": "X-Men",
+                  "current": "Untitled X-Men film"
+                },
+                "updated_at": {
+                  "previous": "2026-08-15T19:35:54.446Z",
+                  "current": "2026-09-02T13:10:18.913Z"
+                }
+              }
+            }
+          ]
+        },
+        "tvshows": {
+          "added": [],
+          "removed": [],
+          "changed": [
+            {
+              "id": "22",
+              "label": "Wonder Man",
+              "fields": {
+                "cover_url": {
+                  "previous": "https://cdn.marvel.com/content/2x/wonderman_lob_crd_02.jpg",
+                  "current": "https://cdn.marvel.com/content/2x/wonderman_lob_crd_03.jpg"
+                }
+              }
+            }
+          ]
+        },
+        "timeline": {
+          "added": [],
+          "removed": [],
+          "changed": [
+            {
+              "id": "MCU:Earth-616",
+              "label": "MCU",
+              "fields": {
+                "entries": {
+                  "previous": [
+                    {
+                      "id": 21,
+                      "title": "Eyes of Wakanda",
+                      "chronology_order": 1,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/21"
+                        }
+                      }
+                    },
+                    {
+                      "id": 5,
+                      "title": "Captain America: The First Avenger",
+                      "chronology_order": 2,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/5"
+                        }
+                      }
+                    },
+                    {
+                      "id": 21,
+                      "title": "Captain Marvel",
+                      "chronology_order": 5,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/21"
+                        }
+                      }
+                    },
+                    {
+                      "id": 1,
+                      "title": "Iron Man",
+                      "chronology_order": 6,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/1"
+                        }
+                      }
+                    },
+                    {
+                      "id": 3,
+                      "title": "Iron Man 2",
+                      "chronology_order": 7,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/3"
+                        }
+                      }
+                    },
+                    {
+                      "id": 2,
+                      "title": "The Incredible Hulk",
+                      "chronology_order": 8,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/2"
+                        }
+                      }
+                    },
+                    {
+                      "id": 4,
+                      "title": "Thor",
+                      "chronology_order": 9,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/4"
+                        }
+                      }
+                    },
+                    {
+                      "id": 6,
+                      "title": "The Avengers",
+                      "chronology_order": 10,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/6"
+                        }
+                      }
+                    },
+                    {
+                      "id": 8,
+                      "title": "Thor: The Dark World",
+                      "chronology_order": 12,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/8"
+                        }
+                      }
+                    },
+                    {
+                      "id": 7,
+                      "title": "Iron Man 3",
+                      "chronology_order": 13,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/7"
+                        }
+                      }
+                    },
+                    {
+                      "id": 9,
+                      "title": "Captain America: The Winter Soldier",
+                      "chronology_order": 14,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/9"
+                        }
+                      }
+                    },
+                    {
+                      "id": 10,
+                      "title": "Guardians of the Galaxy",
+                      "chronology_order": 15,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/10"
+                        }
+                      }
+                    },
+                    {
+                      "id": 15,
+                      "title": "Guardians of the Galaxy Vol. 2",
+                      "chronology_order": 16,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/15"
+                        }
+                      }
+                    },
+                    {
+                      "id": 8,
+                      "title": "I Am Groot",
+                      "chronology_order": 17,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/8"
+                        }
+                      }
+                    },
+                    {
+                      "id": 18,
+                      "title": "I Am Groot",
+                      "chronology_order": 18,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/18"
+                        }
+                      }
+                    },
+                    {
+                      "id": 25,
+                      "title": "Daredevil",
+                      "chronology_order": 19,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/25"
+                        }
+                      }
+                    },
+                    {
+                      "id": 28,
+                      "title": "Jessica Jones",
+                      "chronology_order": 21,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/28"
+                        }
+                      }
+                    },
+                    {
+                      "id": 11,
+                      "title": "Avengers: Age of Ultron",
+                      "chronology_order": 22,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/11"
+                        }
+                      }
+                    },
+                    {
+                      "id": 12,
+                      "title": "Ant-Man",
+                      "chronology_order": 23,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/12"
+                        }
+                      }
+                    },
+                    {
+                      "id": 26,
+                      "title": "Daredevil",
+                      "chronology_order": 24,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/26"
+                        }
+                      }
+                    },
+                    {
+                      "id": 31,
+                      "title": "Luke Cage",
+                      "chronology_order": 25,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/31"
+                        }
+                      }
+                    },
+                    {
+                      "id": 33,
+                      "title": "Iron Fist",
+                      "chronology_order": 27,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/33"
+                        }
+                      }
+                    },
+                    {
+                      "id": 35,
+                      "title": "The Defenders",
+                      "chronology_order": 28,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/35"
+                        }
+                      }
+                    },
+                    {
+                      "id": 13,
+                      "title": "Captain America: Civil War",
+                      "chronology_order": 29,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/13"
+                        }
+                      }
+                    },
+                    {
+                      "id": 24,
+                      "title": "Black Widow",
+                      "chronology_order": 30,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/24"
+                        }
+                      }
+                    },
+                    {
+                      "id": 18,
+                      "title": "Black Panther",
+                      "chronology_order": 32,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/18"
+                        }
+                      }
+                    },
+                    {
+                      "id": 16,
+                      "title": "Spider-Man: Homecoming",
+                      "chronology_order": 33,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/16"
+                        }
+                      }
+                    },
+                    {
+                      "id": 36,
+                      "title": "The Punisher",
+                      "chronology_order": 36,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/36"
+                        }
+                      }
+                    },
+                    {
+                      "id": 14,
+                      "title": "Doctor Strange",
+                      "chronology_order": 37,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/14"
+                        }
+                      }
+                    },
+                    {
+                      "id": 29,
+                      "title": "Jessica Jones",
+                      "chronology_order": 38,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/29"
+                        }
+                      }
+                    },
+                    {
+                      "id": 32,
+                      "title": "Luke Cage",
+                      "chronology_order": 39,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/32"
+                        }
+                      }
+                    },
+                    {
+                      "id": 34,
+                      "title": "Iron Fist",
+                      "chronology_order": 40,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/34"
+                        }
+                      }
+                    },
+                    {
+                      "id": 27,
+                      "title": "Daredevil",
+                      "chronology_order": 41,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/27"
+                        }
+                      }
+                    },
+                    {
+                      "id": 17,
+                      "title": "Thor: Ragnarok",
+                      "chronology_order": 42,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/17"
+                        }
+                      }
+                    },
+                    {
+                      "id": 37,
+                      "title": "The Punisher",
+                      "chronology_order": 48,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/37"
+                        }
+                      }
+                    },
+                    {
+                      "id": 30,
+                      "title": "Jessica Jones",
+                      "chronology_order": 49,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/30"
+                        }
+                      }
+                    },
+                    {
+                      "id": 20,
+                      "title": "Ant-Man and The Wasp",
+                      "chronology_order": 50,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/20"
+                        }
+                      }
+                    },
+                    {
+                      "id": 19,
+                      "title": "Avengers: Infinity War",
+                      "chronology_order": 51,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/19"
+                        }
+                      }
+                    },
+                    {
+                      "id": 22,
+                      "title": "Avengers: Endgame",
+                      "chronology_order": 56,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/22"
+                        }
+                      }
+                    },
+                    {
+                      "id": 3,
+                      "title": "Loki",
+                      "chronology_order": 57,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/3"
+                        }
+                      }
+                    },
+                    {
+                      "id": 4,
+                      "title": "What If...?",
+                      "chronology_order": 58,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/4"
+                        }
+                      }
+                    },
+                    {
+                      "id": 1,
+                      "title": "WandaVision",
+                      "chronology_order": 60,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/1"
+                        }
+                      }
+                    },
+                    {
+                      "id": 25,
+                      "title": "Shang-Chi and The Legend of The Ten Rings",
+                      "chronology_order": 61,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/25"
+                        }
+                      }
+                    },
+                    {
+                      "id": 2,
+                      "title": "The Falcon and The Winter Soldier",
+                      "chronology_order": 62,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/2"
+                        }
+                      }
+                    },
+                    {
+                      "id": 23,
+                      "title": "Spider-Man: Far From Home",
+                      "chronology_order": 63,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/23"
+                        }
+                      }
+                    },
+                    {
+                      "id": 26,
+                      "title": "Eternals",
+                      "chronology_order": 64,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/26"
+                        }
+                      }
+                    },
+                    {
+                      "id": 27,
+                      "title": "Spider-Man: No Way Home",
+                      "chronology_order": 65,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/27"
+                        }
+                      }
+                    },
+                    {
+                      "id": 28,
+                      "title": "Doctor Strange in the Multiverse of Madness",
+                      "chronology_order": 66,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/28"
+                        }
+                      }
+                    },
+                    {
+                      "id": 5,
+                      "title": "Hawkeye",
+                      "chronology_order": 67,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/5"
+                        }
+                      }
+                    },
+                    {
+                      "id": 6,
+                      "title": "Moon Knight",
+                      "chronology_order": 68,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/6"
+                        }
+                      }
+                    },
+                    {
+                      "id": 30,
+                      "title": "Black Panther: Wakanda Forever",
+                      "chronology_order": 69,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/30"
+                        }
+                      }
+                    },
+                    {
+                      "id": 13,
+                      "title": "Echo",
+                      "chronology_order": 70,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/13"
+                        }
+                      }
+                    },
+                    {
+                      "id": 9,
+                      "title": "She Hulk: Attorney at Law",
+                      "chronology_order": 71,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/9"
+                        }
+                      }
+                    },
+                    {
+                      "id": 7,
+                      "title": "Ms. Marvel",
+                      "chronology_order": 72,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/7"
+                        }
+                      }
+                    },
+                    {
+                      "id": 29,
+                      "title": "Thor: Love and Thunder",
+                      "chronology_order": 73,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/29"
+                        }
+                      }
+                    },
+                    {
+                      "id": 15,
+                      "title": "Ironheart",
+                      "chronology_order": 74,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/15"
+                        }
+                      }
+                    },
+                    {
+                      "id": 10,
+                      "title": "Werewolf By Night",
+                      "chronology_order": 75,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/10"
+                        }
+                      }
+                    },
+                    {
+                      "id": 11,
+                      "title": "The Guardians of the Galaxy Holiday Special",
+                      "chronology_order": 76,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/11"
+                        }
+                      }
+                    },
+                    {
+                      "id": 31,
+                      "title": "Ant-Man and The Wasp: Quantumania",
+                      "chronology_order": 77,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/31"
+                        }
+                      }
+                    },
+                    {
+                      "id": 32,
+                      "title": "Guardians of the Galaxy Vol. 3",
+                      "chronology_order": 78,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/32"
+                        }
+                      }
+                    },
+                    {
+                      "id": 12,
+                      "title": "Secret Invasion",
+                      "chronology_order": 79,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/12"
+                        }
+                      }
+                    },
+                    {
+                      "id": 33,
+                      "title": "The Marvels",
+                      "chronology_order": 80,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/33"
+                        }
+                      }
+                    },
+                    {
+                      "id": 14,
+                      "title": "Loki",
+                      "chronology_order": 81,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/14"
+                        }
+                      }
+                    },
+                    {
+                      "id": 19,
+                      "title": "What If...?",
+                      "chronology_order": 82,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/19"
+                        }
+                      }
+                    },
+                    {
+                      "id": 37,
+                      "title": "Deadpool & Wolverine",
+                      "chronology_order": 83,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/37"
+                        }
+                      }
+                    },
+                    {
+                      "id": 16,
+                      "title": "Agatha All Along",
+                      "chronology_order": 84,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/16"
+                        }
+                      }
+                    },
+                    {
+                      "id": 20,
+                      "title": "What If...?",
+                      "chronology_order": 85,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/20"
+                        }
+                      }
+                    },
+                    {
+                      "id": 36,
+                      "title": "Blade",
+                      "chronology_order": 86,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/36"
+                        }
+                      }
+                    },
+                    {
+                      "id": 17,
+                      "title": "Daredevil: Born Again",
+                      "chronology_order": 87,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/17"
+                        }
+                      }
+                    },
+                    {
+                      "id": 34,
+                      "title": "Captain America: Brave New World",
+                      "chronology_order": 88,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/34"
+                        }
+                      }
+                    },
+                    {
+                      "id": 35,
+                      "title": "Thunderbolts*",
+                      "chronology_order": 89,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/35"
+                        }
+                      }
+                    },
+                    {
+                      "id": 24,
+                      "title": "The Punisher: One Last Kill",
+                      "chronology_order": 91,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/24"
+                        }
+                      }
+                    },
+                    {
+                      "id": 23,
+                      "title": "Daredevil: Born Again",
+                      "chronology_order": 92,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/23"
+                        }
+                      }
+                    },
+                    {
+                      "id": 22,
+                      "title": "Wonder Man",
+                      "chronology_order": 93,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/22"
+                        }
+                      }
+                    },
+                    {
+                      "id": 53,
+                      "title": "VisionQuest",
+                      "chronology_order": 94,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/53"
+                        }
+                      }
+                    },
+                    {
+                      "id": 39,
+                      "title": "Avengers: Doomsday",
+                      "chronology_order": 95,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/39"
+                        }
+                      }
+                    },
+                    {
+                      "id": 40,
+                      "title": "Avengers: Secret Wars",
+                      "chronology_order": 96,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/40"
+                        }
+                      }
+                    },
+                    {
+                      "id": 41,
+                      "title": "Spider-Man: Brand New Day",
+                      "chronology_order": 97,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/41"
+                        }
+                      }
+                    },
+                    {
+                      "id": 54,
+                      "title": "Black Panther 3",
+                      "chronology_order": 98,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/54"
+                        }
+                      }
+                    },
+                    {
+                      "id": 53,
+                      "title": "Ghost Rider",
+                      "chronology_order": 99,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/53"
+                        }
+                      }
+                    },
+                    {
+                      "id": 76,
+                      "title": "X-Men",
+                      "chronology_order": 0,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/76"
+                        }
+                      }
+                    }
+                  ],
+                  "current": [
+                    {
+                      "id": 21,
+                      "title": "Eyes of Wakanda",
+                      "chronology_order": 1,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/21"
+                        }
+                      }
+                    },
+                    {
+                      "id": 5,
+                      "title": "Captain America: The First Avenger",
+                      "chronology_order": 2,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/5"
+                        }
+                      }
+                    },
+                    {
+                      "id": 21,
+                      "title": "Captain Marvel",
+                      "chronology_order": 5,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/21"
+                        }
+                      }
+                    },
+                    {
+                      "id": 1,
+                      "title": "Iron Man",
+                      "chronology_order": 6,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/1"
+                        }
+                      }
+                    },
+                    {
+                      "id": 3,
+                      "title": "Iron Man 2",
+                      "chronology_order": 7,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/3"
+                        }
+                      }
+                    },
+                    {
+                      "id": 2,
+                      "title": "The Incredible Hulk",
+                      "chronology_order": 8,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/2"
+                        }
+                      }
+                    },
+                    {
+                      "id": 4,
+                      "title": "Thor",
+                      "chronology_order": 9,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/4"
+                        }
+                      }
+                    },
+                    {
+                      "id": 6,
+                      "title": "The Avengers",
+                      "chronology_order": 10,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/6"
+                        }
+                      }
+                    },
+                    {
+                      "id": 8,
+                      "title": "Thor: The Dark World",
+                      "chronology_order": 12,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/8"
+                        }
+                      }
+                    },
+                    {
+                      "id": 7,
+                      "title": "Iron Man 3",
+                      "chronology_order": 13,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/7"
+                        }
+                      }
+                    },
+                    {
+                      "id": 9,
+                      "title": "Captain America: The Winter Soldier",
+                      "chronology_order": 14,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/9"
+                        }
+                      }
+                    },
+                    {
+                      "id": 10,
+                      "title": "Guardians of the Galaxy",
+                      "chronology_order": 15,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/10"
+                        }
+                      }
+                    },
+                    {
+                      "id": 15,
+                      "title": "Guardians of the Galaxy Vol. 2",
+                      "chronology_order": 16,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/15"
+                        }
+                      }
+                    },
+                    {
+                      "id": 8,
+                      "title": "I Am Groot",
+                      "chronology_order": 17,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/8"
+                        }
+                      }
+                    },
+                    {
+                      "id": 18,
+                      "title": "I Am Groot",
+                      "chronology_order": 18,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/18"
+                        }
+                      }
+                    },
+                    {
+                      "id": 25,
+                      "title": "Daredevil",
+                      "chronology_order": 19,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/25"
+                        }
+                      }
+                    },
+                    {
+                      "id": 28,
+                      "title": "Jessica Jones",
+                      "chronology_order": 21,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/28"
+                        }
+                      }
+                    },
+                    {
+                      "id": 11,
+                      "title": "Avengers: Age of Ultron",
+                      "chronology_order": 22,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/11"
+                        }
+                      }
+                    },
+                    {
+                      "id": 12,
+                      "title": "Ant-Man",
+                      "chronology_order": 23,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/12"
+                        }
+                      }
+                    },
+                    {
+                      "id": 26,
+                      "title": "Daredevil",
+                      "chronology_order": 24,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/26"
+                        }
+                      }
+                    },
+                    {
+                      "id": 31,
+                      "title": "Luke Cage",
+                      "chronology_order": 25,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/31"
+                        }
+                      }
+                    },
+                    {
+                      "id": 33,
+                      "title": "Iron Fist",
+                      "chronology_order": 27,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/33"
+                        }
+                      }
+                    },
+                    {
+                      "id": 35,
+                      "title": "The Defenders",
+                      "chronology_order": 28,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/35"
+                        }
+                      }
+                    },
+                    {
+                      "id": 13,
+                      "title": "Captain America: Civil War",
+                      "chronology_order": 29,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/13"
+                        }
+                      }
+                    },
+                    {
+                      "id": 24,
+                      "title": "Black Widow",
+                      "chronology_order": 30,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/24"
+                        }
+                      }
+                    },
+                    {
+                      "id": 18,
+                      "title": "Black Panther",
+                      "chronology_order": 32,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/18"
+                        }
+                      }
+                    },
+                    {
+                      "id": 16,
+                      "title": "Spider-Man: Homecoming",
+                      "chronology_order": 33,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/16"
+                        }
+                      }
+                    },
+                    {
+                      "id": 36,
+                      "title": "The Punisher",
+                      "chronology_order": 36,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/36"
+                        }
+                      }
+                    },
+                    {
+                      "id": 14,
+                      "title": "Doctor Strange",
+                      "chronology_order": 37,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/14"
+                        }
+                      }
+                    },
+                    {
+                      "id": 29,
+                      "title": "Jessica Jones",
+                      "chronology_order": 38,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/29"
+                        }
+                      }
+                    },
+                    {
+                      "id": 32,
+                      "title": "Luke Cage",
+                      "chronology_order": 39,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/32"
+                        }
+                      }
+                    },
+                    {
+                      "id": 34,
+                      "title": "Iron Fist",
+                      "chronology_order": 40,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/34"
+                        }
+                      }
+                    },
+                    {
+                      "id": 27,
+                      "title": "Daredevil",
+                      "chronology_order": 41,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/27"
+                        }
+                      }
+                    },
+                    {
+                      "id": 17,
+                      "title": "Thor: Ragnarok",
+                      "chronology_order": 42,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/17"
+                        }
+                      }
+                    },
+                    {
+                      "id": 37,
+                      "title": "The Punisher",
+                      "chronology_order": 48,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/37"
+                        }
+                      }
+                    },
+                    {
+                      "id": 30,
+                      "title": "Jessica Jones",
+                      "chronology_order": 49,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/30"
+                        }
+                      }
+                    },
+                    {
+                      "id": 20,
+                      "title": "Ant-Man and The Wasp",
+                      "chronology_order": 50,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/20"
+                        }
+                      }
+                    },
+                    {
+                      "id": 19,
+                      "title": "Avengers: Infinity War",
+                      "chronology_order": 51,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/19"
+                        }
+                      }
+                    },
+                    {
+                      "id": 22,
+                      "title": "Avengers: Endgame",
+                      "chronology_order": 56,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/22"
+                        }
+                      }
+                    },
+                    {
+                      "id": 3,
+                      "title": "Loki",
+                      "chronology_order": 57,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/3"
+                        }
+                      }
+                    },
+                    {
+                      "id": 4,
+                      "title": "What If...?",
+                      "chronology_order": 58,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/4"
+                        }
+                      }
+                    },
+                    {
+                      "id": 1,
+                      "title": "WandaVision",
+                      "chronology_order": 60,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/1"
+                        }
+                      }
+                    },
+                    {
+                      "id": 25,
+                      "title": "Shang-Chi and The Legend of The Ten Rings",
+                      "chronology_order": 61,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/25"
+                        }
+                      }
+                    },
+                    {
+                      "id": 2,
+                      "title": "The Falcon and The Winter Soldier",
+                      "chronology_order": 62,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/2"
+                        }
+                      }
+                    },
+                    {
+                      "id": 23,
+                      "title": "Spider-Man: Far From Home",
+                      "chronology_order": 63,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/23"
+                        }
+                      }
+                    },
+                    {
+                      "id": 26,
+                      "title": "Eternals",
+                      "chronology_order": 64,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/26"
+                        }
+                      }
+                    },
+                    {
+                      "id": 27,
+                      "title": "Spider-Man: No Way Home",
+                      "chronology_order": 65,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/27"
+                        }
+                      }
+                    },
+                    {
+                      "id": 28,
+                      "title": "Doctor Strange in the Multiverse of Madness",
+                      "chronology_order": 66,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/28"
+                        }
+                      }
+                    },
+                    {
+                      "id": 5,
+                      "title": "Hawkeye",
+                      "chronology_order": 67,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/5"
+                        }
+                      }
+                    },
+                    {
+                      "id": 6,
+                      "title": "Moon Knight",
+                      "chronology_order": 68,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/6"
+                        }
+                      }
+                    },
+                    {
+                      "id": 30,
+                      "title": "Black Panther: Wakanda Forever",
+                      "chronology_order": 69,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/30"
+                        }
+                      }
+                    },
+                    {
+                      "id": 13,
+                      "title": "Echo",
+                      "chronology_order": 70,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/13"
+                        }
+                      }
+                    },
+                    {
+                      "id": 9,
+                      "title": "She Hulk: Attorney at Law",
+                      "chronology_order": 71,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/9"
+                        }
+                      }
+                    },
+                    {
+                      "id": 7,
+                      "title": "Ms. Marvel",
+                      "chronology_order": 72,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/7"
+                        }
+                      }
+                    },
+                    {
+                      "id": 29,
+                      "title": "Thor: Love and Thunder",
+                      "chronology_order": 73,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/29"
+                        }
+                      }
+                    },
+                    {
+                      "id": 15,
+                      "title": "Ironheart",
+                      "chronology_order": 74,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/15"
+                        }
+                      }
+                    },
+                    {
+                      "id": 10,
+                      "title": "Werewolf By Night",
+                      "chronology_order": 75,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/10"
+                        }
+                      }
+                    },
+                    {
+                      "id": 11,
+                      "title": "The Guardians of the Galaxy Holiday Special",
+                      "chronology_order": 76,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/11"
+                        }
+                      }
+                    },
+                    {
+                      "id": 31,
+                      "title": "Ant-Man and The Wasp: Quantumania",
+                      "chronology_order": 77,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/31"
+                        }
+                      }
+                    },
+                    {
+                      "id": 32,
+                      "title": "Guardians of the Galaxy Vol. 3",
+                      "chronology_order": 78,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/32"
+                        }
+                      }
+                    },
+                    {
+                      "id": 12,
+                      "title": "Secret Invasion",
+                      "chronology_order": 79,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/12"
+                        }
+                      }
+                    },
+                    {
+                      "id": 33,
+                      "title": "The Marvels",
+                      "chronology_order": 80,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/33"
+                        }
+                      }
+                    },
+                    {
+                      "id": 14,
+                      "title": "Loki",
+                      "chronology_order": 81,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/14"
+                        }
+                      }
+                    },
+                    {
+                      "id": 19,
+                      "title": "What If...?",
+                      "chronology_order": 82,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/19"
+                        }
+                      }
+                    },
+                    {
+                      "id": 37,
+                      "title": "Deadpool & Wolverine",
+                      "chronology_order": 83,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/37"
+                        }
+                      }
+                    },
+                    {
+                      "id": 16,
+                      "title": "Agatha All Along",
+                      "chronology_order": 84,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/16"
+                        }
+                      }
+                    },
+                    {
+                      "id": 20,
+                      "title": "What If...?",
+                      "chronology_order": 85,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/20"
+                        }
+                      }
+                    },
+                    {
+                      "id": 36,
+                      "title": "Blade",
+                      "chronology_order": 86,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/36"
+                        }
+                      }
+                    },
+                    {
+                      "id": 17,
+                      "title": "Daredevil: Born Again",
+                      "chronology_order": 87,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/17"
+                        }
+                      }
+                    },
+                    {
+                      "id": 34,
+                      "title": "Captain America: Brave New World",
+                      "chronology_order": 88,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/34"
+                        }
+                      }
+                    },
+                    {
+                      "id": 35,
+                      "title": "Thunderbolts*",
+                      "chronology_order": 89,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/35"
+                        }
+                      }
+                    },
+                    {
+                      "id": 24,
+                      "title": "The Punisher: One Last Kill",
+                      "chronology_order": 91,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/24"
+                        }
+                      }
+                    },
+                    {
+                      "id": 23,
+                      "title": "Daredevil: Born Again",
+                      "chronology_order": 92,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/23"
+                        }
+                      }
+                    },
+                    {
+                      "id": 22,
+                      "title": "Wonder Man",
+                      "chronology_order": 93,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/22"
+                        }
+                      }
+                    },
+                    {
+                      "id": 53,
+                      "title": "VisionQuest",
+                      "chronology_order": 94,
+                      "type": "tvshow",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/tvshows/53"
+                        }
+                      }
+                    },
+                    {
+                      "id": 39,
+                      "title": "Avengers: Doomsday",
+                      "chronology_order": 95,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/39"
+                        }
+                      }
+                    },
+                    {
+                      "id": 40,
+                      "title": "Avengers: Secret Wars",
+                      "chronology_order": 96,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/40"
+                        }
+                      }
+                    },
+                    {
+                      "id": 41,
+                      "title": "Spider-Man: Brand New Day",
+                      "chronology_order": 97,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/41"
+                        }
+                      }
+                    },
+                    {
+                      "id": 54,
+                      "title": "Black Panther 3",
+                      "chronology_order": 98,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/54"
+                        }
+                      }
+                    },
+                    {
+                      "id": 53,
+                      "title": "Ghost Rider",
+                      "chronology_order": 99,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/53"
+                        }
+                      }
+                    },
+                    {
+                      "id": 76,
+                      "title": "Untitled X-Men film",
+                      "chronology_order": 0,
+                      "type": "movie",
+                      "_links": {
+                        "self": {
+                          "href": "https://mcuapi.up.railway.app/api/v1/movies/76"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
 }
