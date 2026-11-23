@@ -566,6 +566,29 @@ test('movies.characters() returns appeared_in alongside role_type', async () => 
   assert.equal(result!.appeared_in, 'Void');
 });
 
+test('movie editions list and get use typed edition endpoints', async () => {
+  const edition = {
+    id: 1,
+    movie_id: 22,
+    title: 'Avengers: Endgame: Encore',
+    description: null,
+    releases: [{ id: 1, channel: 'theatrical', release_date: '2026-09-25' }],
+    teased_movies: [{ id: 39, title: 'Avengers: Doomsday' }],
+    created_at: '2026-09-01T00:00:00.000Z',
+    updated_at: '2026-09-01T00:00:00.000Z',
+  };
+  const { fetch, calls } = stub([{ body: { data: [edition], total: 1, page: 1, limit: 10 } }, { body: edition }]);
+  const api = new MCUAPI({ fetch });
+
+  const page = await api.movieEditions.list({ movie_id: 22 });
+  const result = await api.movieEditions.get(1);
+
+  assert.equal(calls[0], 'https://mcuapi.up.railway.app/api/v1/movie-editions?movie_id=22');
+  assert.equal(calls[1], 'https://mcuapi.up.railway.app/api/v1/movie-editions/1');
+  assert.equal(page.data[0]!.releases[0]!.channel, 'theatrical');
+  assert.equal(result.teased_movies[0]!.title, 'Avengers: Doomsday');
+});
+
 test('rejects construction when no fetch is available anywhere', () => {
   const original = globalThis.fetch;
   // @ts-expect-error deliberately removing it to simulate an old runtime

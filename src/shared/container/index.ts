@@ -14,6 +14,8 @@ import ITitlesRepository from '@modules/titles/repositories/ITitlesRepository';
 import TitlesRepository from '@modules/titles/infra/typeorm/repositories/TitlesRepository';
 import ISearchRepository from '@modules/search/repositories/ISearchRepository';
 import SearchRepository from '@modules/search/infra/typeorm/repositories/SearchRepository';
+import IMovieEditionsRepository from '@modules/movieEditions/repositories/IMovieEditionsRepository';
+import MovieEditionsRepository from '@modules/movieEditions/infra/typeorm/repositories/MovieEditionsRepository';
 
 container.registerSingleton<IMoviesRepository>(
   'MoviesRepository',
@@ -48,4 +50,9 @@ container.registerSingleton<ITitlesRepository>(
 container.registerSingleton<ISearchRepository>(
   'SearchRepository',
   SearchRepository,
+);
+
+container.registerSingleton<IMovieEditionsRepository>(
+  'MovieEditionsRepository',
+  MovieEditionsRepository,
 );

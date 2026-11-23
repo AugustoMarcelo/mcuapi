@@ -4,6 +4,8 @@ import type {
   Health,
   ListParams,
   Movie,
+  MovieEdition,
+  MovieEditionListParams,
   Paginated,
   Person,
   PersonListParams,
@@ -284,6 +286,24 @@ export class MCUAPI {
     all: (params: PostCreditSceneListParams = {}, options?: RequestOptions) =>
       this.paginate<PostCreditScene>(
         '/api/v1/post-credit-scenes',
+        params as Record<string, QueryValue>,
+        options,
+      ),
+  };
+
+  readonly movieEditions = {
+    list: (params: MovieEditionListParams = {}, options?: RequestOptions) =>
+      this.request<Paginated<MovieEdition>>(
+        `/api/v1/movie-editions${toQuery(params as Record<string, QueryValue>)}`,
+        options,
+      ),
+
+    get: (id: number | string, options?: RequestOptions) =>
+      this.request<MovieEdition>(`/api/v1/movie-editions/${encodeURIComponent(id)}`, options),
+
+    all: (params: MovieEditionListParams = {}, options?: RequestOptions) =>
+      this.paginate<MovieEdition>(
+        '/api/v1/movie-editions',
         params as Record<string, QueryValue>,
         options,
       ),

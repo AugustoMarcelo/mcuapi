@@ -1,6 +1,6 @@
 # MCUAPI
 
-A RESTful API serving structured data on the Marvel Cinematic Universe — movies, TV shows, characters, and the timeline connecting them.
+A RESTful API serving structured data on the Marvel Cinematic Universe — movies, TV shows, movie editions, characters, and the timeline connecting them.
 
 [![API Docs](https://img.shields.io/badge/docs-swagger-85EA2D)](https://mcuapi.up.railway.app/docs) [![Node](https://img.shields.io/badge/node-%3E%3D18-339933)](package.json)
 
@@ -16,6 +16,7 @@ Free, open, and **no API key required**.
 ## Features
 
 - **Movies & TV shows** — release info, box office, cast, saga/phase, and where each title sits in the MCU timeline.
+- **Movie editions** — re-releases and extended cuts with separate release windows and links to teased movies.
 - **Characters** — bios, actors (including recasts), and every movie/show they appear in.
 - **Timeline** — chronological ordering of the whole catalog, independent of release date.
 - **Hypermedia (HATEOAS)** — every resource ships a HAL-style `_links` object so clients can navigate the API without hardcoding URLs.
@@ -46,6 +47,7 @@ List endpoints return `page`, `limit`, and collection `_links` (`self`, `first`,
 | `GET /characters`, `GET /characters/{id}` | Characters, plus `/characters/movie/{id}`, `/characters/tvshow/{id}`, `/characters/{id}/movies`, `/characters/{id}/tvshows` |
 | `GET /people`, `GET /people/{id}` | People (actors and directors) normalized out of the `played_by`/`directed_by` fields, plus `/people/{id}/characters` and `/people/{id}/titles` |
 | `GET /post-credit-scenes`, `GET /post-credit-scenes/{id}` | Structured post- and mid-credits scenes, plus `/post-credit-scenes/movie/{id}` and `/post-credit-scenes/tvshow/{id}` |
+| `GET /movie-editions`, `GET /movie-editions/{id}` | Re-releases and extended cuts with release windows and movies they tease; filter by `movie_id` |
 | `GET /timeline` | Chronological ordering across continuities, independent of release date |
 | `GET /upcoming` | Movies and TV shows whose `release_date` is strictly in the future, merged and sorted ascending. Titles with no announced release date are excluded. |
 | `GET /titles` | Movies and TV shows merged into one paged, filterable collection (joined in Postgres via `UNION ALL`). Same filters as `/movies`/`/tvshows`, plus `type`. Unlike `/upcoming`, undated titles are included and sorted last. |
@@ -108,6 +110,7 @@ https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/tvshows.json
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/characters.json
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/people.json
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/post-credit-scenes.json
+https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/movie-editions.json
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/timeline.json
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/index.json
 https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/changelog.json
@@ -150,7 +153,7 @@ Every API error uses `application/problem+json`:
 
 ## Tech stack
 
-Express · TypeScript · TypeORM · PostgreSQL — organized as Clean Architecture modules (`movies`, `tvshows`, `characters`, `people`, `postCreditScenes`, `timeline`, `upcoming`, `stats`) with `tsyringe` for dependency injection.
+Express · TypeScript · TypeORM · PostgreSQL — organized as Clean Architecture modules (`movies`, `movieEditions`, `tvshows`, `characters`, `people`, `postCreditScenes`, `timeline`, `upcoming`, `stats`) with `tsyringe` for dependency injection.
 
 ## Getting started
 

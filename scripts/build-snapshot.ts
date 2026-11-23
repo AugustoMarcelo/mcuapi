@@ -111,15 +111,23 @@ async function main(): Promise<void> {
 
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
-  const [movies, tvshows, characters, people, postCreditScenes, timeline] =
-    await Promise.all([
-      collectAll<Identified>(base, 'movies'),
-      collectAll<Identified>(base, 'tvshows'),
-      collectAll<Identified>(base, 'characters'),
-      collectAll<Identified>(base, 'people'),
-      collectAll<Identified>(base, 'post-credit-scenes'),
-      getJson<{ entries: unknown[] }[]>(`${base}/api/v1/timeline`),
-    ]);
+  const [
+    movies,
+    tvshows,
+    characters,
+    people,
+    postCreditScenes,
+    movieEditions,
+    timeline,
+  ] = await Promise.all([
+    collectAll<Identified>(base, 'movies'),
+    collectAll<Identified>(base, 'tvshows'),
+    collectAll<Identified>(base, 'characters'),
+    collectAll<Identified>(base, 'people'),
+    collectAll<Identified>(base, 'post-credit-scenes'),
+    collectAll<Identified>(base, 'movie-editions'),
+    getJson<{ entries: unknown[] }[]>(`${base}/api/v1/timeline`),
+  ]);
 
   const payloads = {
     movies,
@@ -127,6 +135,7 @@ async function main(): Promise<void> {
     characters,
     people,
     postCreditScenes,
+    movieEditions,
     timeline,
   };
   const hash = crypto
@@ -144,6 +153,7 @@ async function main(): Promise<void> {
       'post-credit-scenes.json',
       postCreditScenes,
     ),
+    'movie-editions.json': write('movie-editions.json', movieEditions),
     'timeline.json': write('timeline.json', timeline),
   };
 
@@ -167,6 +177,7 @@ async function main(): Promise<void> {
       characters: characters.length,
       people: people.length,
       post_credit_scenes: postCreditScenes.length,
+      movie_editions: movieEditions.length,
       timeline_branches: timeline.length,
       timeline_entries: timelineEntries,
     },
@@ -187,6 +198,7 @@ async function main(): Promise<void> {
       `  characters        ${characters.length}`,
       `  people            ${people.length}`,
       `  post-credit       ${postCreditScenes.length}`,
+      `  movie editions    ${movieEditions.length}`,
       `  timeline branches ${timeline.length} (${timelineEntries} entries)`,
       `  total             ${(totalBytes / 1024).toFixed(1)} kB`,
       `  content hash      ${hash}`,

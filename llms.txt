@@ -15,6 +15,7 @@ Health check: https://mcuapi.up.railway.app/health
 - `GET /characters`, `GET /characters/{id}` — characters, plus `/characters/movie/{id}`, `/characters/tvshow/{id}`, `/characters/{id}/movies`, `/characters/{id}/tvshows`
 - `GET /people`, `GET /people/{id}` — people (actors and directors) normalized out of the `played_by`/`directed_by` fields, plus `/people/{id}/characters` and `/people/{id}/titles`
 - `GET /post-credit-scenes`, `GET /post-credit-scenes/{id}` — structured post- and mid-credits scenes, plus `/post-credit-scenes/movie/{id}` and `/post-credit-scenes/tvshow/{id}`
+- `GET /movie-editions`, `GET /movie-editions/{id}` — re-releases and extended cuts, including release windows and teased movie links; filter by `movie_id`
 - `GET /timeline` — chronological ordering across continuities, independent of release date
 - `GET /upcoming` — movies and TV shows with a future `release_date`, merged and sorted ascending
 - `GET /titles` — movies and TV shows merged into one paged, filterable collection, joined in Postgres; unlike `/upcoming`, undated titles are included (sorted last)

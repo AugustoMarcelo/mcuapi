@@ -2426,6 +2426,160 @@ server.registerTool(
 
 // ─── START ─────────────────────────────────────────────────────────────────────
 
+server.registerTool(
+  'list_movie_editions',
+  {
+    description: 'List movie editions, release windows, and teased movies.',
+    inputSchema: { movie_id: z.number().int().positive().optional() },
+  },
+  async ({ movie_id }) => {
+    const editions = await query(
+      `SELECT e.id, e.movie_id, e.title, e.description,
+              COALESCE((SELECT json_agg(json_build_object('id', r.id, 'channel', r.channel, 'release_date', r.release_date) ORDER BY r.release_date) FROM movie_edition_releases r WHERE r.edition_id = e.id), '[]'::json) AS releases,
+              COALESCE((SELECT json_agg(json_build_object('id', m.id, 'title', m.title) ORDER BY m.title) FROM movie_edition_teases t JOIN movies m ON m.id = t.movie_id WHERE t.edition_id = e.id), '[]'::json) AS teased_movies
+       FROM movie_editions e WHERE ($1::int IS NULL OR e.movie_id = $1) ORDER BY e.id`,
+      [movie_id ?? null],
+    );
+    return { content: [{ type: 'text', text: JSON.stringify(editions, null, 2) }] };
+  },
+);
+
+server.registerTool(
+  'get_movie_edition',
+  {
+    description: 'Get one movie edition with its release windows and teased movies.',
+    inputSchema: { id: z.number().int().positive() },
+  },
+  async ({ id }) => {
+    const [edition] = await query(
+      `SELECT e.id, e.movie_id, e.title, e.description,
+              COALESCE((SELECT json_agg(json_build_object('id', r.id, 'channel', r.channel, 'release_date', r.release_date) ORDER BY r.release_date) FROM movie_edition_releases r WHERE r.edition_id = e.id), '[]'::json) AS releases,
+              COALESCE((SELECT json_agg(json_build_object('id', m.id, 'title', m.title) ORDER BY m.title) FROM movie_edition_teases t JOIN movies m ON m.id = t.movie_id WHERE t.edition_id = e.id), '[]'::json) AS teased_movies
+       FROM movie_editions e WHERE e.id = $1`,
+      [id],
+    );
+    return { content: [{ type: 'text', text: edition ? JSON.stringify(edition, null, 2) : `Movie edition [${id}] not found.` }] };
+  },
+);
+
+server.registerTool(
+  'create_movie_edition',
+  {
+    description: 'Create an edition for an existing movie with optional release windows.',
+    inputSchema: {
+      movie_id: z.number().int().positive(),
+      title: z.string().min(1),
+      description: z.string().optional(),
+      releases: z.array(z.object({ channel: z.string().min(1), release_date: z.iso.date() })).default([]),
+    },
+  },
+  async ({ movie_id, title, description, releases }) => {
+    const id = await withTransaction(async client => {
+      const movie = await client.query('SELECT id FROM movies WHERE id = $1 FOR KEY SHARE', [movie_id]);
+      if (!movie.rowCount) throw new Error(`Movie [${movie_id}] not found.`);
+      const result = await client.query<{ id: number }>(
+        'INSERT INTO movie_editions (movie_id, title, description) VALUES ($1, $2, $3) RETURNING id',
+        [movie_id, title, description ?? null],
+      );
+      for (const release of releases) {
+        await client.query(
+          'INSERT INTO movie_edition_releases (edition_id, channel, release_date) VALUES ($1, $2, $3) ON CONFLICT DO NOTHING',
+          [result.rows[0].id, release.channel, release.release_date],
+        );
+      }
+      return result.rows[0].id;
+    });
+    return { content: [{ type: 'text', text: `Movie edition [${id}] created for movie [${movie_id}].` }] };
+  },
+);
+
+server.registerTool(
+  'update_movie_edition',
+  {
+    description: 'Update an edition. Supplied release windows replace current windows.',
+    inputSchema: {
+      id: z.number().int().positive(),
+      title: z.string().min(1).optional(),
+      description: z.string().nullable().optional(),
+      releases: z.array(z.object({ channel: z.string().min(1), release_date: z.iso.date() })).optional(),
+    },
+  },
+  async ({ id, title, description, releases }) => {
+    const updated = await withTransaction(async client => {
+      const fields: string[] = [];
+      const values: unknown[] = [];
+      if (title !== undefined) { values.push(title); fields.push(`title = $${values.length}`); }
+      if (description !== undefined) { values.push(description); fields.push(`description = $${values.length}`); }
+      if (fields.length) {
+        values.push(id);
+        const result = await client.query(`UPDATE movie_editions SET ${fields.join(', ')}, updated_at = now() WHERE id = $${values.length} RETURNING id`, values);
+        if (!result.rowCount) return false;
+      } else {
+        const result = await client.query('SELECT id FROM movie_editions WHERE id = $1', [id]);
+        if (!result.rowCount) return false;
+      }
+      if (releases !== undefined) {
+        await client.query('DELETE FROM movie_edition_releases WHERE edition_id = $1', [id]);
+        for (const release of releases) {
+          await client.query(
+            'INSERT INTO movie_edition_releases (edition_id, channel, release_date) VALUES ($1, $2, $3) ON CONFLICT DO NOTHING',
+            [id, release.channel, release.release_date],
+          );
+        }
+      }
+      return true;
+    });
+    return { content: [{ type: 'text', text: updated ? `Movie edition [${id}] updated.` : `Movie edition [${id}] not found.` }] };
+  },
+);
+
+server.registerTool(
+  'delete_movie_edition',
+  {
+    description: 'Delete an edition and its release windows and tease links.',
+    inputSchema: { id: z.number().int().positive(), confirm: z.boolean() },
+  },
+  async ({ id, confirm }) => {
+    if (!confirm) return { content: [{ type: 'text', text: 'Set confirm=true to delete the movie edition.' }] };
+    const deleted = await query('DELETE FROM movie_editions WHERE id = $1 RETURNING id', [id]);
+    return { content: [{ type: 'text', text: deleted.length ? `Movie edition [${id}] deleted.` : `Movie edition [${id}] not found.` }] };
+  },
+);
+
+server.registerTool(
+  'link_movie_edition_tease',
+  {
+    description: 'Link an edition to a movie it teases. Repeated calls are idempotent.',
+    inputSchema: { edition_id: z.number().int().positive(), movie_id: z.number().int().positive() },
+  },
+  async ({ edition_id, movie_id }) => {
+    const inserted = await withTransaction(async client => {
+      const edition = await client.query('SELECT id FROM movie_editions WHERE id = $1 FOR KEY SHARE', [edition_id]);
+      if (!edition.rowCount) throw new Error(`Movie edition [${edition_id}] not found.`);
+      const movie = await client.query('SELECT id FROM movies WHERE id = $1 FOR KEY SHARE', [movie_id]);
+      if (!movie.rowCount) throw new Error(`Movie [${movie_id}] not found.`);
+      const result = await client.query(
+        'INSERT INTO movie_edition_teases (edition_id, movie_id) VALUES ($1, $2) ON CONFLICT (edition_id, movie_id) DO NOTHING RETURNING id',
+        [edition_id, movie_id],
+      );
+      return Boolean(result.rowCount);
+    });
+    return { content: [{ type: 'text', text: inserted ? `Edition [${edition_id}] now teases movie [${movie_id}].` : 'Tease link already exists.' }] };
+  },
+);
+
+server.registerTool(
+  'unlink_movie_edition_tease',
+  {
+    description: 'Remove an edition-to-movie tease link.',
+    inputSchema: { edition_id: z.number().int().positive(), movie_id: z.number().int().positive() },
+  },
+  async ({ edition_id, movie_id }) => {
+    const removed = await query('DELETE FROM movie_edition_teases WHERE edition_id = $1 AND movie_id = $2 RETURNING id', [edition_id, movie_id]);
+    return { content: [{ type: 'text', text: removed.length ? 'Tease link removed.' : 'Tease link not found.' }] };
+  },
+);
+
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);

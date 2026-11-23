@@ -10,6 +10,7 @@ import upcomingRouter from '@modules/upcoming/infra/http/routes/upcoming.routes'
 import statsRouter from '@modules/stats/infra/http/routes/stats.routes';
 import titlesRouter from '@modules/titles/infra/http/routes/titles.routes';
 import searchRouter from '@modules/search/infra/http/routes/search.routes';
+import movieEditionsRouter from '@modules/movieEditions/infra/http/routes/movie-editions.routes';
 
 const routes = Router();
 
@@ -23,5 +24,6 @@ routes.use('/api/v1/upcoming', upcomingRouter);
 routes.use('/api/v1/stats', statsRouter);
 routes.use('/api/v1/titles', titlesRouter);
 routes.use('/api/v1/search', searchRouter);
+routes.use('/api/v1/movie-editions', movieEditionsRouter);
 
 export default routes;

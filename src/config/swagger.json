@@ -53,9 +53,9 @@
           "500": {
             "$ref": "#/components/responses/InternalServerError"
           },
-    "503": {
-      "$ref": "#/components/responses/ServiceUnavailable"
-    }
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailable"
+          }
         },
         "parameters": []
       }
@@ -1457,7 +1457,7 @@
           "Upcoming"
         ],
         "summary": "List upcoming releases",
-        "description": "Titles whose release_date is strictly in the future, movies and TV shows merged into one list sorted by release_date ascending. Titles with no announced release_date (e.g. Blade, Ghost Rider, Your Friendly Neighborhood Spider-Man) are excluded — they remain reachable via /movies and /tvshows.",
+        "description": "Titles whose release_date is strictly in the future, movies and TV shows merged into one list sorted by release_date ascending. Titles with no announced release_date (e.g. Blade, Ghost Rider, Your Friendly Neighborhood Spider-Man) are excluded \u2014 they remain reachable via /movies and /tvshows.",
         "parameters": [
           {
             "$ref": "#/components/parameters/Page"
@@ -1723,7 +1723,7 @@
           "Stats"
         ],
         "summary": "Get dataset-wide counts",
-        "description": "Aggregate counts of the catalogue: movies, tvshows, characters, people, titles (movies + tvshows), continuities and designations. continuities is the distinct count over movies + tvshows only. designations is the distinct count over movies + tvshows + characters — Earth-838 exists only on characters (the Doctor Strange in the Multiverse of Madness Illuminati), so titles alone would undercount it.",
+        "description": "Aggregate counts of the catalogue: movies, tvshows, characters, people, titles (movies + tvshows), continuities and designations. continuities is the distinct count over movies + tvshows only. designations is the distinct count over movies + tvshows + characters \u2014 Earth-838 exists only on characters (the Doctor Strange in the Multiverse of Madness Illuminati), so titles alone would undercount it.",
         "responses": {
           "200": {
             "description": "OK",
@@ -1972,6 +1972,118 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/movie-editions": {
+      "get": {
+        "operationId": "getApiV1MovieEditions",
+        "tags": [
+          "MovieEditions"
+        ],
+        "summary": "List movie editions",
+        "description": "List re-releases and extended cuts with release windows and teased movies.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Page"
+          },
+          {
+            "$ref": "#/components/parameters/Limit"
+          },
+          {
+            "name": "movie_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/MovieEdition"
+                      }
+                    },
+                    "total": {
+                      "type": "integer"
+                    },
+                    "page": {
+                      "type": "integer"
+                    },
+                    "limit": {
+                      "type": "integer"
+                    },
+                    "_links": {
+                      "$ref": "#/components/schemas/ResourceLinks"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/schemas/BadRequest"
+          },
+          "429": {
+            "$ref": "#/components/schemas/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/schemas/InternalServerError"
+          }
+        }
+      }
+    },
+    "/api/v1/movie-editions/{movie_edition_id}": {
+      "get": {
+        "operationId": "getApiV1MovieEditionsMovieEditionId",
+        "tags": [
+          "MovieEditions"
+        ],
+        "summary": "Get a movie edition",
+        "parameters": [
+          {
+            "name": "movie_edition_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MovieEdition"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/schemas/BadRequest"
+          },
+          "404": {
+            "$ref": "#/components/schemas/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/schemas/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/schemas/InternalServerError"
           }
         }
       }
@@ -2496,7 +2608,7 @@
           "release_date": {
             "type": "string",
             "format": "date",
-            "description": "Release date. Null for announced titles with no date yet (e.g. Blade) — unlike /upcoming, these are included and sorted last under the default order",
+            "description": "Release date. Null for announced titles with no date yet (e.g. Blade) \u2014 unlike /upcoming, these are included and sorted last under the default order",
             "nullable": true
           },
           "overview": {
@@ -2653,6 +2765,87 @@
           "instance": {
             "type": "string",
             "example": "/api/v1/movies?page=0"
+          }
+        }
+      },
+      "MovieEdition": {
+        "type": "object",
+        "required": [
+          "id",
+          "movie_id",
+          "title",
+          "releases",
+          "teased_movies",
+          "created_at",
+          "updated_at"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "movie_id": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "releases": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "channel",
+                "release_date"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "channel": {
+                  "type": "string"
+                },
+                "release_date": {
+                  "type": "string",
+                  "format": "date"
+                }
+              }
+            }
+          },
+          "teased_movies": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "title"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "_links": {
+            "$ref": "#/components/schemas/ResourceLinks"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       }
