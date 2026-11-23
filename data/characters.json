@@ -11005,5 +11005,63 @@
         "href": "https://mcuapi.up.railway.app/api/v1/movies/33"
       }
     }
+  },
+  {
+    "id": 385,
+    "name": "Namora",
+    "alias": null,
+    "description": null,
+    "image_url": null,
+    "played_by": "Mabel Cadena",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 30,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-11-17T18:17:33.343Z",
+    "updated_at": "2026-11-17T18:17:33.343Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/385"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/385/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/385/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/30"
+      }
+    }
+  },
+  {
+    "id": 386,
+    "name": "Attuma",
+    "alias": null,
+    "description": "Namor’s strongest warrior and a Talokanil warrior.",
+    "image_url": null,
+    "played_by": "Alex Livinalli",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "variant_of": null,
+    "first_appearance_movie_id": 30,
+    "first_appearance_tvshow_id": null,
+    "created_at": "2026-11-23T16:47:17.654Z",
+    "updated_at": "2026-11-23T16:47:17.654Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/386"
+      },
+      "movies": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/386/movies"
+      },
+      "tvshows": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/386/tvshows"
+      },
+      "first_appearance_movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/30"
+      }
+    }
   }
 ]

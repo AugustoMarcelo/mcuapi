@@ -1720,5 +1720,46 @@
         "href": "https://mcuapi.up.railway.app/api/v1/tvshows/19"
       }
     }
+  },
+  {
+    "id": 89,
+    "movie_id": null,
+    "tvshow_id": 53,
+    "description": "Ultron survives in his human avatar and settles in the Horton mansion. He keeps Jocasta's source code, leaving open the possibility of restoring her.",
+    "teases_movie_id": null,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-11-17T18:15:37.222Z",
+    "updated_at": "2026-11-17T18:15:37.222Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/89"
+      },
+      "tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/53"
+      }
+    }
+  },
+  {
+    "id": 90,
+    "movie_id": null,
+    "tvshow_id": 53,
+    "description": "Doctor Doom finds Wanda Maximoff beneath the rubble of Mount Wundagore and awakens her, revealing his interest in her power.",
+    "teases_movie_id": 39,
+    "teases_tvshow_id": null,
+    "is_stinger": false,
+    "created_at": "2026-11-17T18:15:38.450Z",
+    "updated_at": "2026-11-17T18:15:38.450Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/90"
+      },
+      "tvshow": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/53"
+      },
+      "teases": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/39"
+      }
+    }
   }
 ]

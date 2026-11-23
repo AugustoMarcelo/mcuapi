@@ -6322,5 +6322,90 @@
         "href": "https://mcuapi.up.railway.app/api/v1/people/374/titles"
       }
     }
+  },
+  {
+    "id": 375,
+    "name": "Christopher J. Byrne",
+    "created_at": "2026-11-17T18:16:43.901Z",
+    "updated_at": "2026-11-17T18:16:43.901Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/375"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/375/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/375/titles"
+      }
+    }
+  },
+  {
+    "id": 376,
+    "name": "Gandja Monteiro",
+    "created_at": "2026-11-17T18:16:44.102Z",
+    "updated_at": "2026-11-17T18:16:44.102Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/376"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/376/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/376/titles"
+      }
+    }
+  },
+  {
+    "id": 377,
+    "name": "Vincenzo Natali",
+    "created_at": "2026-11-17T18:16:44.308Z",
+    "updated_at": "2026-11-17T18:16:44.308Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/377"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/377/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/377/titles"
+      }
+    }
+  },
+  {
+    "id": 378,
+    "name": "Mabel Cadena",
+    "created_at": "2026-11-17T18:17:33.563Z",
+    "updated_at": "2026-11-17T18:17:33.563Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/378"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/378/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/378/titles"
+      }
+    }
+  },
+  {
+    "id": 379,
+    "name": "Alex Livinalli",
+    "created_at": "2026-11-23T16:47:21.632Z",
+    "updated_at": "2026-11-23T16:47:21.632Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/379"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/379/characters"
+      },
+      "titles": {
+        "href": "https://mcuapi.up.railway.app/api/v1/people/379/titles"
+      }
+    }
   }
 ]

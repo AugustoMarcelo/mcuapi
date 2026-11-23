@@ -1363,7 +1363,7 @@
     "id": 41,
     "title": "Spider-Man: Brand New Day",
     "release_date": "2026-07-31",
-    "box_office": "2335247589",
+    "box_office": "2521329852",
     "duration": 150,
     "overview": "It's a BRAND NEW DAY for Peter Parker. Fighting crime full-time as Spider-Man in a world that doesn’t remember him—and the pressure of seeing his old friends move on without him—sparks a change in Peter he may not have the power to control. But that transformation might also be the only thing that can stop a shocking new threat to the city and those he loves—a powerful villain no one can even see.",
     "cover_url": "https://cdn.marvel.com/content/2x/spidermanbrandnewday_lob_crd_02.webp",
@@ -1380,7 +1380,7 @@
     "is_mcu": true,
     "type": "movie",
     "timeline_chronology_order": 97,
-    "updated_at": "2026-09-02T13:10:18.696Z",
+    "updated_at": "2026-11-17T18:15:18.539Z",
     "_links": {
       "self": {
         "href": "https://mcuapi.up.railway.app/api/v1/movies/41"

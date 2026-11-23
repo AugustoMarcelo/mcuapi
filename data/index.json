@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-09-07T12:38:32.996Z",
-  "content_hash": "7b5175d92ab3f223",
+  "generated_at": "2026-11-23T18:15:36.391Z",
+  "content_hash": "52a4c39cce9735aa",
   "source": "https://mcuapi.up.railway.app/api/v1",
   "counts": {
     "movies": 75,
-    "tvshows": 56,
-    "characters": 375,
-    "people": 372,
-    "post_credit_scenes": 87,
+    "tvshows": 57,
+    "characters": 377,
+    "people": 377,
+    "post_credit_scenes": 89,
     "timeline_branches": 12,
-    "timeline_entries": 131
+    "timeline_entries": 132
   },
   "files": [
     {
@@ -18,23 +18,23 @@
     },
     {
       "file": "tvshows.json",
-      "bytes": 70350
+      "bytes": 71524
     },
     {
       "file": "characters.json",
-      "bytes": 370504
+      "bytes": 372238
     },
     {
       "file": "people.json",
-      "bytes": 172719
+      "bytes": 175055
     },
     {
       "file": "post-credit-scenes.json",
-      "bytes": 58076
+      "bytes": 59401
     },
     {
       "file": "timeline.json",
-      "bytes": 35463
+      "bytes": 35729
     }
   ],
   "notes": [
