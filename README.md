@@ -85,7 +85,7 @@ It's entirely optional — the API needs no client — but the types are derived
 
 ## MCP server
 
-[`mcuapi-mcp-public`](mcuapi-mcp-public/) exposes the complete public read API to MCP clients over stdio. It is read-only, uses `mcuapi-client`, and never connects to PostgreSQL.
+[`mcuapi-mcp-public`](mcuapi-mcp-public/) exposes the public read API, including movie editions, to MCP clients over stdio. It is read-only, uses `mcuapi-client`, and never connects to PostgreSQL.
 
 ```json
 {
