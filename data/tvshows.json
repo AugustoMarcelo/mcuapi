@@ -742,7 +742,7 @@
     "season": 1,
     "number_episodes": 8,
     "overview": "Aspiring Hollywood actor Simon Williams is struggling to get his career off the ground. During a chance meeting with Trevor Slattery, an actor whose biggest roles may be well behind him, Simon learns legendary director Von Kovak is remaking the superhero film “Wonder Man”. These two actors at opposite ends of their careers doggedly pursue life-changing roles in this film as audiences get a peek behind the curtain of the entertainment industry.",
-    "cover_url": "https://cdn.marvel.com/content/2x/wonderman_lob_crd_02.jpg",
+    "cover_url": "https://cdn.marvel.com/content/2x/wonderman_lob_crd_03.jpg",
     "trailer_url": "https://youtu.be/wHuWmjXsReU",
     "directed_by": "Destin Daniel Cretton, James Ponsoldt, Tiffany Johnson, Stella Meghie",
     "phase": 6,
@@ -1825,15 +1825,15 @@
     "release_date": "2026-10-14",
     "last_aired_date": null,
     "season": 1,
-    "number_episodes": 0,
-    "overview": "White Vision struggles to regain his humanity and memories after the events of WandaVision, embarking on a reality-bending journey that reunites him with personified versions of Tony Stark's old AI programs and confronts him with Ultron. VisionQuest is the third and concluding chapter in the trilogy that began with WandaVision and continued with Agatha All Along.",
+    "number_episodes": 8,
+    "overview": "After escaping those who wanted to use him as a weapon, the rebuilt Vision hides from the world and searches for a new purpose. Guided and challenged by the AI personalities within his programming, he is forced back on the run when a bounty is placed on him. His journey brings him together with Thomas Shepherd, a young man who may be his reincarnated son.",
     "cover_url": "https://cdn.marvel.com/content/2x/visionquest_d23_poster.webp",
     "trailer_url": "https://youtu.be/oSVTAUKyrL8",
-    "directed_by": "Terry Matalas",
+    "directed_by": "Terry Matalas, Christopher J. Byrne, Gandja Monteiro, Vincenzo Natali",
     "phase": 6,
     "saga": "Multiverse Saga",
     "chronology": null,
-    "post_credit_scenes": 0,
+    "post_credit_scenes": 2,
     "imdb_id": null,
     "updated_at": "2026-07-29T10:12:45.033Z",
     "studio": "Marvel Studios",
@@ -1927,11 +1927,11 @@
   {
     "id": 56,
     "title": "Your Friendly Neighborhood Spider-Man",
-    "release_date": null,
+    "release_date": "2027-01-13",
     "last_aired_date": null,
     "season": 2,
     "number_episodes": 0,
-    "overview": "Season two of the animated series, set to introduce the Venom symbiote, Gwen Stacy, and a crossover appearance from Charlie Cox's live-action Daredevil. Release date announced only as Fall 2026.",
+    "overview": "Peter Parker faces new challenges in the second season of the animated series. Otto Octavius and Scorpion return, while the arrival of an alien symbiote offers Peter a new source of power. The season premieres on Disney+ on January 13, 2027.",
     "cover_url": "https://cdn.marvel.com/content/2x/yourfriendlyneighborhoodspidermans2_lob_crd_01.webp",
     "trailer_url": null,
     "directed_by": null,
@@ -1956,6 +1956,41 @@
       },
       "post_credit_scenes": {
         "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/tvshow/56"
+      }
+    }
+  },
+  {
+    "id": 57,
+    "title": "Daredevil: Born Again",
+    "release_date": null,
+    "last_aired_date": null,
+    "season": 3,
+    "number_episodes": 0,
+    "overview": "The third and final season of Daredevil: Born Again brings back Matt Murdock, Jessica Jones, and Danny Rand. Announced for Disney+ in 2027.",
+    "cover_url": null,
+    "trailer_url": null,
+    "directed_by": null,
+    "phase": null,
+    "saga": null,
+    "chronology": null,
+    "post_credit_scenes": 0,
+    "imdb_id": null,
+    "updated_at": "2026-11-17T18:15:41.535Z",
+    "studio": "Marvel Studios",
+    "continuity": "MCU",
+    "multiverse_designation": "Earth-616",
+    "is_mcu": true,
+    "type": "tvshow",
+    "timeline_chronology_order": null,
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/tvshows/57"
+      },
+      "characters": {
+        "href": "https://mcuapi.up.railway.app/api/v1/characters/tvshow/57"
+      },
+      "post_credit_scenes": {
+        "href": "https://mcuapi.up.railway.app/api/v1/post-credit-scenes/tvshow/57"
       }
     }
   }

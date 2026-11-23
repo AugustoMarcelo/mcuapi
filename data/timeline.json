@@ -1161,12 +1161,23 @@
       },
       {
         "id": 76,
-        "title": "X-Men",
+        "title": "Untitled X-Men film",
         "chronology_order": 0,
         "type": "movie",
         "_links": {
           "self": {
             "href": "https://mcuapi.up.railway.app/api/v1/movies/76"
+          }
+        }
+      },
+      {
+        "id": 57,
+        "title": "Daredevil: Born Again",
+        "chronology_order": 0,
+        "type": "tvshow",
+        "_links": {
+          "self": {
+            "href": "https://mcuapi.up.railway.app/api/v1/tvshows/57"
           }
         }
       }

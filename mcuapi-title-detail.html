@@ -354,8 +354,7 @@ a{color:inherit}
    badge lines up across every card in a row instead of floating at whatever
    height that card's own text happens to end. */
 .cast-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;padding-top:3px}
-.cast-first{font-family:var(--mono);font-size:10.5px;color:var(--muted);text-decoration:none;border-bottom:1px dashed var(--border-ui);align-self:flex-start}
-.cast-first:hover{color:var(--fg);border-color:var(--fg)}
+.cast-first{align-self:flex-start}
 .cast-empty,.pcs-empty{
   font-family:var(--mono);font-size:12.5px;color:var(--muted);
   padding:20px;border:1px dashed var(--border);border-radius:3px;background:var(--surface);
@@ -886,7 +885,7 @@ footer{padding:34px 0;border-top:1px solid var(--border)}
     var firstId = c.first_appearance_movie_id || c.first_appearance_tvshow_id;
     var crossRef = '';
     if (firstType && !(firstType === currentType && firstId === currentId)) {
-      crossRef = '<button type="button" class="cast-first" data-type="' + firstType + '" data-id="' + firstId + '">First seen elsewhere →</button>';
+      crossRef = '<button type="button" class="chip cast-first" data-type="' + firstType + '" data-id="' + firstId + '">First seen elsewhere →</button>';
     }
     var variantHtml = c.variant_of
       ? '<span class="cast-variant" data-slot="variant-' + idx + '">Variant of…</span>' : '';
