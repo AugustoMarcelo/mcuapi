@@ -6,6 +6,13 @@
     <description>Changes detected in the MCUAPI static dataset.</description>
     <language>en</language>
     <item>
+      <title>MCUAPI dataset update 52a4c39cce9735aa</title>
+      <link>https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/changelog.json</link>
+      <guid isPermaLink="false">52a4c39cce9735aa</guid>
+      <pubDate>Mon, 23 Nov 2026 18:15:36 GMT</pubDate>
+      <description>movies: 0 added, 0 removed, 1 changed; tvshows: 1 added, 0 removed, 2 changed; characters: 2 added, 0 removed, 0 changed; people: 5 added, 0 removed, 0 changed; post_credit_scenes: 2 added, 0 removed, 0 changed; timeline: 0 added, 0 removed, 1 changed</description>
+    </item>
+    <item>
       <title>MCUAPI dataset update 7b5175d92ab3f223</title>
       <link>https://cdn.jsdelivr.net/gh/AugustoMarcelo/mcuapi@master/data/changelog.json</link>
       <guid isPermaLink="false">7b5175d92ab3f223</guid>
