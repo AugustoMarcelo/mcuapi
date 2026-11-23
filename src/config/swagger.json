@@ -2033,13 +2033,13 @@
             }
           },
           "400": {
-            "$ref": "#/components/schemas/BadRequest"
+            "$ref": "#/components/responses/BadRequest"
           },
           "429": {
-            "$ref": "#/components/schemas/TooManyRequests"
+            "$ref": "#/components/responses/TooManyRequests"
           },
           "500": {
-            "$ref": "#/components/schemas/InternalServerError"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
@@ -2074,16 +2074,16 @@
             }
           },
           "400": {
-            "$ref": "#/components/schemas/BadRequest"
+            "$ref": "#/components/responses/BadRequest"
           },
           "404": {
-            "$ref": "#/components/schemas/NotFound"
+            "$ref": "#/components/responses/NotFound"
           },
           "429": {
-            "$ref": "#/components/schemas/TooManyRequests"
+            "$ref": "#/components/responses/TooManyRequests"
           },
           "500": {
-            "$ref": "#/components/schemas/InternalServerError"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
