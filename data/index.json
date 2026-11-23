@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-23T18:15:36.391Z",
-  "content_hash": "52a4c39cce9735aa",
+  "generated_at": "2026-11-23T19:20:00.000Z",
+  "content_hash": "a5c33b89d6dcf6fc",
   "source": "https://mcuapi.up.railway.app/api/v1",
   "counts": {
     "movies": 75,
@@ -8,6 +8,7 @@
     "characters": 377,
     "people": 377,
     "post_credit_scenes": 89,
+    "movie_editions": 1,
     "timeline_branches": 12,
     "timeline_entries": 132
   },
@@ -31,6 +32,10 @@
     {
       "file": "post-credit-scenes.json",
       "bytes": 59401
+    },
+    {
+      "file": "movie-editions.json",
+      "bytes": 959
     },
     {
       "file": "timeline.json",

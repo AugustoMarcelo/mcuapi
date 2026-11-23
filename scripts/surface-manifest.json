@@ -21,6 +21,10 @@
       "in": ["swagger", "console", "client", "llms", "readme", "snapshot", "mcp"],
       "singular": "post_credit_scene"
     },
+    "movie-editions": {
+      "in": ["swagger", "console", "client", "llms", "readme", "snapshot", "mcp"],
+      "singular": "movie_edition"
+    },
     "timeline": {
       "in": ["swagger", "console", "client", "llms", "readme", "snapshot", "mcp"]
     },

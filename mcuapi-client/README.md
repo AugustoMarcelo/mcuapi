@@ -1,8 +1,8 @@
 # mcuapi-client
 
 Typed client for [MCUAPI](https://augustomarcelo.github.io/mcuapi/) — Marvel
-Cinematic Universe movies, TV shows, characters, people, and the chronology
-that orders them.
+Cinematic Universe movies, movie editions, TV shows, characters, people, and
+the chronology that orders them.
 
 No API key. No runtime dependencies. ESM and CJS. ~10 kB packed.
 
@@ -77,6 +77,9 @@ const cast = await mcu.follow(movie._links!.characters!);
 | `mcu.postCreditScenes.list(params?)` | `Paginated<PostCreditScene>` |
 | `mcu.postCreditScenes.get(id)` | `PostCreditScene` |
 | `mcu.postCreditScenes.all(params?)` | `AsyncGenerator<PostCreditScene>` |
+| `mcu.movieEditions.list(params?)` | `Paginated<MovieEdition>` |
+| `mcu.movieEditions.get(id)` | `MovieEdition` |
+| `mcu.movieEditions.all(params?)` | `AsyncGenerator<MovieEdition>` |
 | `mcu.timeline.get(params?)` | `TimelineGroup[]` |
 | `mcu.upcoming.list(params?)` | `Paginated<UpcomingItem>` |
 | `mcu.upcoming.all(params?)` | `AsyncGenerator<UpcomingItem>` |
@@ -102,6 +105,8 @@ excluded. `titles.list()`/`.all()` take the same params as `movies`/`tvshows`
 `upcoming`, but paged over the whole dataset instead of only future releases,
 so undated titles are included and sorted last. `stats.get()` takes no
 params.
+
+`movieEditions.list()` also accepts `movie_id` to list editions attached to one movie.
 
 `WithRole<T>` (the appearance-relation return types above) also carries
 `appeared_in?: string` — the reality the appearance actually happened in. It

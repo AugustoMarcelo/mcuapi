@@ -171,6 +171,8 @@ test('lists only read tools and calls public API through base-URL override', asy
       'get_movie',
       'get_movie_characters',
       'get_movie_post_credit_scenes',
+      'list_movie_editions',
+      'get_movie_edition',
       'list_tvshows',
       'get_tvshow',
       'get_tvshow_characters',
@@ -202,6 +204,24 @@ test('lists only read tools and calls public API through base-URL override', asy
     assert.equal(result.isError, undefined);
     assert.match(result.content[0]?.text ?? '', /Iron Man/);
     assert.equal(requests[0], '/api/v1/movies?limit=2&continuity=MCU');
+
+    const editions = toolResult(
+      await session.request('tools/call', {
+        name: 'list_movie_editions',
+        arguments: { movie_id: 22, limit: 2 },
+      }),
+    );
+    assert.equal(editions.isError, undefined);
+    assert.equal(requests[1], '/api/v1/movie-editions?limit=2&movie_id=22');
+
+    const edition = toolResult(
+      await session.request('tools/call', {
+        name: 'get_movie_edition',
+        arguments: { id: 1 },
+      }),
+    );
+    assert.equal(edition.isError, undefined);
+    assert.equal(requests[2], '/api/v1/movie-editions/1');
   } finally {
     await session.close();
     await api.close();

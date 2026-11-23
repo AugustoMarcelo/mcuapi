@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "movie_id": 22,
+    "title": "Avengers: Endgame: Encore",
+    "description": "An updated theatrical cut with new footage connecting Avengers: Endgame to Avengers: Doomsday.",
+    "releases": [
+      {
+        "id": 1,
+        "channel": "theatrical",
+        "release_date": "2026-09-25"
+      },
+      {
+        "id": 2,
+        "channel": "streaming",
+        "release_date": "2026-11-13"
+      }
+    ],
+    "teased_movies": [
+      {
+        "id": 39,
+        "title": "Avengers: Doomsday"
+      }
+    ],
+    "created_at": "2026-11-23T21:16:27.700Z",
+    "updated_at": "2026-11-23T21:16:27.700Z",
+    "_links": {
+      "self": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movie-editions/1"
+      },
+      "movie": {
+        "href": "https://mcuapi.up.railway.app/api/v1/movies/22"
+      },
+      "teased_movies": [
+        {
+          "href": "https://mcuapi.up.railway.app/api/v1/movies/39"
+        }
+      ]
+    }
+  }
+]

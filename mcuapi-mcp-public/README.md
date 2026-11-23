@@ -1,6 +1,6 @@
 # MCUAPI public MCP server
 
-Read-only [Model Context Protocol](https://modelcontextprotocol.io/) server for [MCUAPI](https://mcuapi.up.railway.app/docs). It covers movies, TV shows, characters, people, post-credit scenes, timeline, upcoming releases, titles, search, stats, and health.
+Read-only [Model Context Protocol](https://modelcontextprotocol.io/) server for [MCUAPI](https://mcuapi.up.railway.app/docs). It covers movies, movie editions, TV shows, characters, people, post-credit scenes, timeline, upcoming releases, titles, search, stats, and health.
 
 It uses [`mcuapi-client`](https://www.npmjs.com/package/mcuapi-client) to call the public API. It never connects to PostgreSQL and has no mutation tools.
 

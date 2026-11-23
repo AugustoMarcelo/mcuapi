@@ -29,6 +29,29 @@ export interface ResourceLinks {
   movie?: Link;
   tvshow?: Link;
   teases?: Link;
+  teased_movies?: Link[];
+}
+
+export interface MovieEditionRelease {
+  id: number;
+  channel: string;
+  release_date: string;
+}
+
+export interface MovieEdition {
+  id: number;
+  movie_id: number;
+  title: string;
+  description: string | null;
+  releases: MovieEditionRelease[];
+  teased_movies: Array<{ id: number; title: string }>;
+  created_at: string;
+  updated_at: string;
+  _links?: ResourceLinks;
+}
+
+export interface MovieEditionListParams extends Pick<ListParams, 'page' | 'limit'> {
+  movie_id?: number | string;
 }
 
 export interface Movie {

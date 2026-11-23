@@ -85,6 +85,26 @@ export function createServer(options: CreateServerOptions = {}): McpServer {
     { description: 'Get post-credit scenes from one movie.', inputSchema: { movie_id: idSchema } },
     ({ movie_id }) => relay(() => client.movies.postCreditScenes(movie_id)),
   );
+  server.registerTool(
+    'list_movie_editions',
+    {
+      description: 'List re-releases and extended cuts, optionally for one movie.',
+      inputSchema: {
+        page: pageSchema,
+        limit: limitSchema,
+        movie_id: idSchema.optional(),
+      },
+    },
+    params => relay(() => client.request(`/api/v1/movie-editions${query(params)}`)),
+  );
+  server.registerTool(
+    'get_movie_edition',
+    {
+      description: 'Get one movie edition with its release windows and teased movies.',
+      inputSchema: { id: idSchema },
+    },
+    ({ id }) => relay(() => client.request(`/api/v1/movie-editions/${encodeURIComponent(id)}`)),
+  );
 
   server.registerTool(
     'list_tvshows',

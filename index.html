@@ -1402,7 +1402,7 @@ footer{border-top:1px solid var(--border);padding:34px 0 46px}
   <!-- ── resource model ───────────────────────────────── -->
   <section class="sec shell" id="data">
     <div class="sec-head">
-      <span class="tag">Four resources, one graph</span>
+      <span class="tag">Resources, one graph</span>
       <h2>Everything a record carries.</h2>
       <p class="prose">
         No partial payloads and no second call to hydrate a title. Every field below is
@@ -1799,6 +1799,9 @@ npm i mcuapi-client
         id: 'exact', movie_id: 'exact', tvshow_id: 'exact', description: 'text',
         teases_movie_id: 'exact', teases_tvshow_id: 'exact', is_stinger: 'exact',
         created_at: 'exact', updated_at: 'exact'
+      },
+      'movie-editions': {
+        id: 'exact', movie_id: 'exact', title: 'text', description: 'text', created_at: 'exact', updated_at: 'exact'
       }
     };
 
@@ -1809,7 +1812,8 @@ npm i mcuapi-client
       tvshows: ['studio', 'continuity', 'multiverse_designation', 'is_mcu'],
       characters: ['continuity', 'multiverse_designation'],
       people: [],
-      'post-credit-scenes': []
+      'post-credit-scenes': [],
+      'movie-editions': ['movie_id']
     };
 
     var NO_JOIN_ROUTES = [
@@ -1982,7 +1986,7 @@ npm i mcuapi-client
         });
     }
 
-    var RESOURCES = ['movies', 'tvshows', 'characters', 'people', 'post-credit-scenes'];
+    var RESOURCES = ['movies', 'tvshows', 'characters', 'people', 'post-credit-scenes', 'movie-editions'];
 
     function resolveRoute(pathname, params) {
       var path = pathname.replace(/^\/?api\/v1\//, '').replace(/\/$/, '');
@@ -2354,6 +2358,8 @@ npm i mcuapi-client
     { path: '/api/v1/post-credit-scenes/{id}', label: '/post-credit-scenes/{id}', id: '1' },
     { path: '/api/v1/post-credit-scenes/movie/{id}', label: '/post-credit-scenes/movie/{id}', id: '1' },
     { path: '/api/v1/post-credit-scenes/tvshow/{id}', label: '/post-credit-scenes/tvshow/{id}', id: '8' },
+    { path: '/api/v1/movie-editions', label: '/movie-editions', params: ['page', 'limit', 'movie_id'], defaults: { limit: '5', page: '1' } },
+    { path: '/api/v1/movie-editions/{id}', label: '/movie-editions/{id}', id: '1' },
     { path: '/api/v1/timeline',                  label: '/timeline',                  params: ['multiverse'] },
     { path: '/api/v1/upcoming',                  label: '/upcoming',                  params: UPCOMING_PARAMS, defaults: { limit: '5', page: '1' } },
     { path: '/api/v1/titles',                    label: '/titles',                    params: TITLES_PARAMS, defaults: { limit: '5', page: '1' } },
@@ -2371,6 +2377,7 @@ npm i mcuapi-client
     multiverse_designation: { ph: 'Earth-616',              hint: '', wide: true },
     is_mcu:                 { ph: 'true',                   hint: 'true | false' },
     studio:                 { ph: 'Marvel Studios',         hint: '' },
+    movie_id:               { ph: '22',                     hint: 'canonical movie ID' },
     type:                   { ph: 'movie',                  hint: 'movie | tvshow (also character | person on /search)' },
     multiverse:             { ph: 'Earth-10005',            hint: 'designation of one branch', wide: true },
     q:                      { ph: 'Iron Man',                hint: 'search text · typo-tolerant', wide: true }
